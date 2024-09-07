@@ -22,7 +22,7 @@ string key(string l) {
 }
 
 void sp(int size) {
-    ifstream file("C:/Users/ilAlB/g++/SIAOD4/file.txt");
+    ifstream file("C:/Users/ilalb/OneDrive/Dokumendid/GitHub/MIREA/1/SIAOD/4 work/file.txt");
     ofstream A("A.txt");
     ofstream B("B.txt");
     int cnt = 0;
@@ -46,7 +46,7 @@ void sp(int size) {
     }
 }
 int sliv(int size) {
-    ofstream file("C:/Users/ilAlB/g++/SIAOD4/file.txt");
+    ofstream file("C:/Users/ilalb/OneDrive/Dokumendid/GitHub/MIREA/1/SIAOD/4 work/file.txt");
     ifstream A("A.txt");
     ifstream B("B.txt");
     bool first = 1;
@@ -77,7 +77,6 @@ int sliv(int size) {
                     sizeB++;
                     getline(B, lB);
                     b = key(lB);
-                \
                 }
             }
             else if(sizeB < size) {
