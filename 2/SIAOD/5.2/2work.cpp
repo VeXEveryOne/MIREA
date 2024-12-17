@@ -8,7 +8,6 @@
 
 using namespace std;
 
-
 struct stroki {
 private:
     string phone_;              // номер
