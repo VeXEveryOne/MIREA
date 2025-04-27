@@ -1,0 +1,108 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:135.0) Gecko/20100101 Firefox/135.0" version="26.0.14">
+  <diagram name="Страница — 1" id="-4IBPcertRqzHSdRJLJy">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2Yd_geRMspqdYZJP95d0-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2Yd_geRMspqdYZJP95d0-1" target="2Yd_geRMspqdYZJP95d0-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2Yd_geRMspqdYZJP95d0-1" target="2Yd_geRMspqdYZJP95d0-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="280" />
+              <mxPoint x="280" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2Yd_geRMspqdYZJP95d0-1" target="2Yd_geRMspqdYZJP95d0-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="280" />
+              <mxPoint x="140" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2Yd_geRMspqdYZJP95d0-1" target="2Yd_geRMspqdYZJP95d0-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="280" />
+              <mxPoint x="560" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2Yd_geRMspqdYZJP95d0-1" target="2Yd_geRMspqdYZJP95d0-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="280" />
+              <mxPoint x="700" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-1" value="Генеральный директор" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="160" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-3" value="Руководитель финансового отдела " style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-4" value="&lt;div&gt;Руководитель производственного отдела&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-5" value="Руководитель складского отдела" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-8" value="Руководитель отдела продаж и маркетинга" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-9" value="Руководитель ИТ-отдела" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-15" value="Data-центр" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.675;entryY=0.038;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="2Yd_geRMspqdYZJP95d0-15" target="2Yd_geRMspqdYZJP95d0-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-17" value="Интернет-магазин" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="580" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.175;entryY=1.021;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="2Yd_geRMspqdYZJP95d0-17" target="2Yd_geRMspqdYZJP95d0-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-19" value="ITSM-система&lt;br&gt;vsDesk" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="430" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-20" value="1С Бухгалтерия" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-21" value="Персональные компьютеры &quot;Аквариус&quot;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="490" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-22" value="Промышленные компьютеры &quot;КРиПС&quot;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="490" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-23" value="1С:ERP Управление предприятием 2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-24" value="1C:WMS Логистика. Управление складом" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-25" value=" &lt;span data-end=&quot;682&quot; data-start=&quot;667&quot;&gt;1C:CRM КОРП&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-27" value="Терминалы сбора данных &quot;АТОЛ Smart.Lite&quot;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="490" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-28" value="Сервер &quot;РСК Торнадо&quot;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="490" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-29" value="&lt;div&gt;&lt;span data-end=&quot;105&quot; data-start=&quot;94&quot;&gt;Серверы&lt;/span&gt; – &lt;span data-end=&quot;129&quot; data-start=&quot;108&quot;&gt;&quot;Yadro VEGA S220&quot;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span data-end=&quot;168&quot; data-start=&quot;135&quot;&gt;СХД&lt;/span&gt; – &lt;span data-end=&quot;189&quot; data-start=&quot;171&quot;&gt;&quot;Yadro TATLIN&quot;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span data-end=&quot;219&quot; data-start=&quot;195&quot;&gt;Сетевое оборудование&lt;/span&gt; – &lt;span data-end=&quot;255&quot; data-start=&quot;222&quot;&gt;Коммутаторы &quot;Элтекс MES3528P&quot;&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="180" width="120" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="2Yd_geRMspqdYZJP95d0-30" value="1С-Битрикс: Управление сайтом&lt;div&gt;Облачный сервер на базе «Яндекс Облако»&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="650" width="120" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

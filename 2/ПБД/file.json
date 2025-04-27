@@ -1,0 +1,138 @@
+{
+    "tables": [
+      {
+        "name": "Client",
+        "columns": [
+          { "name": "ID", "type": "int", "constraints": ["primary key", "increment"] },
+          { "name": "FullName", "type": "varchar(255)" },
+          { "name": "Phone", "type": "varchar(20)" }
+        ]
+      },
+      {
+        "name": "Car",
+        "columns": [
+          { "name": "ID", "type": "int", "constraints": ["primary key", "increment"] },
+          { "name": "ClientID", "type": "int", "references": "Client(ID)" },
+          { "name": "Brand", "type": "varchar(100)" },
+          { "name": "Model", "type": "varchar(100)" },
+          { "name": "VIN", "type": "varchar(50)", "constraints": ["unique"] }
+        ]
+      },
+      {
+        "name": "Appointment",
+        "columns": [
+          { "name": "ID", "type": "int", "constraints": ["primary key", "increment"] },
+          { "name": "ClientID", "type": "int", "references": "Client(ID)" },
+          { "name": "CarID", "type": "int", "references": "Car(ID)" },
+          { "name": "AppointmentDate", "type": "datetime" }
+        ]
+      },
+      {
+        "name": "Diagnosis",
+        "columns": [
+          { "name": "ID", "type": "int", "constraints": ["primary key", "increment"] },
+          { "name": "AppointmentID", "type": "int", "references": "Appointment(ID)" },
+          { "name": "Description", "type": "text" },
+          { "name": "Conclusion", "type": "text" }
+        ]
+      },
+      {
+        "name": "WorkType",
+        "columns": [
+          { "name": "ID", "type": "int", "constraints": ["primary key", "increment"] },
+          { "name": "Name", "type": "varchar(255)" },
+          { "name": "Description", "type": "text" }
+        ]
+      },
+      {
+        "name": "Maintenance",
+        "columns": [
+          { "name": "ID", "type": "int", "constraints": ["primary key", "increment"] },
+          { "name": "AppointmentID", "type": "int", "references": "Appointment(ID)" },
+          { "name": "MechanicID", "type": "int", "references": "Employee(ID)" },
+          { "name": "StartDate", "type": "datetime" },
+          { "name": "EndDate", "type": "datetime" },
+          { "name": "Status", "type": "varchar(50)" }
+        ]
+      },
+      {
+        "name": "Employee",
+        "columns": [
+          { "name": "ID", "type": "int", "constraints": ["primary key", "increment"] },
+          { "name": "FullName", "type": "varchar(255)" },
+          { "name": "Position", "type": "varchar(100)" }
+        ]
+      },
+      {
+        "name": "SparePart",
+        "columns": [
+          { "name": "ID", "type": "int", "constraints": ["primary key", "increment"] },
+          { "name": "Name", "type": "varchar(255)" },
+          { "name": "Price", "type": "decimal(10,2)" }
+        ]
+      },
+      {
+        "name": "Inventory",
+        "columns": [
+          { "name": "ID", "type": "int", "constraints": ["primary key", "increment"] },
+          { "name": "SparePartID", "type": "int", "references": "SparePart(ID)" },
+          { "name": "Quantity", "type": "int" }
+        ]
+      },
+      {
+        "name": "SparePartOrder",
+        "columns": [
+          { "name": "ID", "type": "int", "constraints": ["primary key", "increment"] },
+          { "name": "SparePartID", "type": "int", "references": "SparePart(ID)" },
+          { "name": "SupplierID", "type": "int", "references": "Supplier(ID)" },
+          { "name": "Quantity", "type": "int" },
+          { "name": "OrderDate", "type": "datetime" }
+        ]
+      },
+      {
+        "name": "Supplier",
+        "columns": [
+          { "name": "ID", "type": "int", "constraints": ["primary key", "increment"] },
+          { "name": "Name", "type": "varchar(255)" },
+          { "name": "Contact", "type": "varchar(100)" }
+        ]
+      },
+      {
+        "name": "WorkOrder",
+        "columns": [
+          { "name": "ID", "type": "int", "constraints": ["primary key", "increment"] },
+          { "name": "MaintenanceID", "type": "int", "references": "Maintenance(ID)" },
+          { "name": "WorkTypeID", "type": "int", "references": "WorkType(ID)" },
+          { "name": "Cost", "type": "decimal(10,2)" }
+        ]
+      },
+      {
+        "name": "Invoice",
+        "columns": [
+          { "name": "ID", "type": "int", "constraints": ["primary key", "increment"] },
+          { "name": "AppointmentID", "type": "int", "references": "Appointment(ID)" },
+          { "name": "TotalAmount", "type": "decimal(10,2)" },
+          { "name": "PaymentStatus", "type": "varchar(50)" }
+        ]
+      },
+      {
+        "name": "Warranty",
+        "columns": [
+          { "name": "ID", "type": "int", "constraints": ["primary key", "increment"] },
+          { "name": "MaintenanceID", "type": "int", "references": "Maintenance(ID)" },
+          { "name": "WarrantyPeriod", "type": "int" },
+          { "name": "Terms", "type": "text" }
+        ]
+      },
+      {
+        "name": "ClientFeedback",
+        "columns": [
+          { "name": "ID", "type": "int", "constraints": ["primary key", "increment"] },
+          { "name": "ClientID", "type": "int", "references": "Client(ID)" },
+          { "name": "Rating", "type": "int" },
+          { "name": "Comment", "type": "text" }
+        ]
+      }
+    ]
+  }
+  
