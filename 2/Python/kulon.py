@@ -10,7 +10,7 @@ from tkinter import Tk, Canvas, Button
 
 CANVAS_WIDTH, CANVAS_HEIGHT = 800, 600
 NODE_R = 15
-C1, C2, C3, C4 = 0.2, 5, 20000, 0.1 # прикольно
+C1, C2, C3, C4 = 0.2, 5, 20000, 0.1  # прикольно
 DELAY = 10
 
 
@@ -26,8 +26,7 @@ class Graph:
 class GUI:
     def __init__(self, root):
         self.root = root
-        self.canvas = Canvas(root, width=CANVAS_WIDTH,
-                             height=CANVAS_HEIGHT, bg="white")
+        self.canvas = Canvas(root, width=CANVAS_WIDTH, height=CANVAS_HEIGHT, bg="white")
         self.draw_button = Button(root, text="Draw", command=self.start_draw)
         self.canvas.pack()
         self.draw_button.pack()
@@ -79,16 +78,16 @@ class Vec:
         return Vec(x, y)
 
     def norm(self) -> float:
-        return math.sqrt(self.x ** 2 + self.y **2)
-    
-    def unit(self)-> "Vec":
+        return math.sqrt(self.x**2 + self.y**2)
+
+    def unit(self) -> "Vec":
         return Vec(self.x / self.norm(), self.y / self.norm())
-    
+
     def __mul__(self, v: float) -> "Vec":
-        return Vec(self.x*v, self.y*v)
-        
+        return Vec(self.x * v, self.y * v)
+
     def __add__(self, v: "Vec") -> "Vec":
-        return Vec(self.x + v.x,self.y + v.y)
+        return Vec(self.x + v.x, self.y + v.y)
 
 
 # self + v == self.__add__(v)
@@ -102,22 +101,26 @@ class Vec:
 # SUT (System Under Test)
 # pytest: Python testing framework
 
+
 def test_vec_norm():
     a = Vec(3, 4)
     n = a.norm()
     assert n == 5
 
+
 def test_vec_unit():
     a = Vec(3, 4)
     u = a.unit()
-    assert u.x == 3/5
-    assert u.y == 4/5
+    assert u.x == 3 / 5
+    assert u.y == 4 / 5
+
 
 def test_vec_mul():
     a = Vec(1, 1)
     m = a * 3
     assert m.x == 3
     assert m.y == 3
+
 
 def test_vec_sub():
     a = Vec(1, 2)
@@ -126,10 +129,12 @@ def test_vec_sub():
     assert c.x == 2
     assert c.y == 2
 
+
 # self - v
 # Сила, действующая на пружину
 def f_spring(u: Vec, v: Vec) -> Vec:
-    return (v - u).unit()*C1*math.log((v-u).norm()/C2)
+    return (v - u).unit() * C1 * math.log((v - u).norm() / C2)
+
 
 # smoke-test
 def test_f_spring():
@@ -138,15 +143,18 @@ def test_f_spring():
     c = f_spring(a, b)
     assert c
 
+
 # Сила, действующая на точку
 def f_ball(u, v):
-    return (u - v).unit()*(C3/((v - u).norm()**2))
+    return (u - v).unit() * (C3 / ((v - u).norm() ** 2))
+
 
 def test_f_ball():
     a = Vec(1, 2)
     b = Vec(3, 4)
     c = f_ball(a, b)
     assert c
+
 
 class Node:
     def __init__(self, text):
@@ -160,16 +168,18 @@ class Node:
             n.targets.append(self)
         return self
 
+
 # u - текущая вершина графа.
 # nodes - все вершины графа.
 def f(u: Node, nodes: list[Node]):
-    f1 = Vec(0,0)
+    f1 = Vec(0, 0)
     for v in u.targets:
         f1 = f1 + f_spring(u.vec, v.vec)
     # set(nodes) - set(targets) - {2}
     for w in set(nodes) - set(u.targets) - {u}:
-        f1 = f1 + f_ball(u.vec,w.vec)
+        f1 = f1 + f_ball(u.vec, w.vec)
     return f1
+
 
 def force_layout(nodes: list[Node]):
     forces: dict[Node, Vec] = {}
@@ -199,5 +209,5 @@ def run():
     root.mainloop()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run()
