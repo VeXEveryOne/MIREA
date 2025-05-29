@@ -1,0 +1,222 @@
+
+
+CREATE TABLE warehouse (
+  warehouse_id integer NOT NULL PRIMARY KEY,
+  address varchar(100),
+  phone varchar(15)
+);
+
+
+CREATE TABLE flower_warehouse (
+  flower_warehouse_id serial NOT NULL PRIMARY KEY,
+  waregouse_id integer,
+  flower_id integer
+);
+
+
+CREATE TABLE shop (
+  shop_id integer NOT NULL PRIMARY KEY,
+  phone varchar(15),
+  address varchar(100)
+);
+
+
+CREATE TABLE flower_shop (
+  flower_shop_id serial NOT NULL PRIMARY KEY,
+  shop_id integer,
+  flower_id integer
+);
+
+
+CREATE TABLE supplier (
+  supplier_id integer NOT NULL PRIMARY KEY,
+  organization_title varchar(20),
+  phone varchar(15),
+  address varchar(100)
+);
+
+
+CREATE TABLE document (
+  document_id integer NOT NULL PRIMARY KEY,
+  employee_id integer,
+  creation_date date,
+  link varchar(2084)
+);
+
+
+CREATE TABLE document_opdering (
+  document_ordering_id serial NOT NULL PRIMARY KEY,
+  document_id integer,
+  ordering_id integer
+);
+
+
+CREATE TABLE message (
+  message_id serial NOT NULL PRIMARY KEY,
+  support_chat_id integer,
+  contents varchar(1000),
+  send_time time,
+  sender_type varchar(20)
+);
+
+
+CREATE TABLE support_chat (
+  support_chat_id integer NOT NULL PRIMARY KEY,
+  employee_id integer,
+  client_id integer,
+  status varchar(20)
+);
+
+
+CREATE TABLE position (
+  position_id integer NOT NULL PRIMARY KEY,
+  title bigint,
+  salary bigint,
+  access_category bigint
+);
+
+
+CREATE TABLE employee (
+  employee_id integer NOT NULL PRIMARY KEY,
+  position_id integer,
+  name varchar(20),
+  surname varchar(20),
+  fathers_name varchar(20),
+  phone varchar(15),
+  registration_address varchar(100),
+  employment_date date,
+  contract_due_date date
+);
+
+
+CREATE TABLE employee_ordering (
+  employee_ordering_id serial NOT NULL PRIMARY KEY,
+  employee_id integer,
+  ordering_id integer
+);
+
+
+CREATE TABLE access_date (
+  access_date_id serial NOT NULL PRIMARY KEY,
+  client_id integer,
+  login varchar(100),
+  password varchar(100)
+);
+
+
+CREATE TABLE client (
+  client_id integer NOT NULL PRIMARY KEY,
+  surname varchar(20),
+  name varchar(20),
+  fathers_name varchar(20),
+  phone varchar(15)
+);
+
+
+CREATE TABLE ordering (
+  ordering_id integer NOT NULL PRIMARY KEY,
+  employee_id integer,
+  address_id integer,
+  discount_cart_id integer,
+  client_id integer,
+  total integer,
+  ordering_date date,
+  status varchar(20),
+  delivery_method varchar(20)
+);
+
+
+CREATE TABLE discount_card (
+  discount_cart_id integer NOT NULL PRIMARY KEY,
+  discount_level_id integer,
+  client_id integer
+);
+
+
+CREATE TABLE discount_level (
+  discount_level_id integer NOT NULL PRIMARY KEY,
+  title varchar(20),
+  discount varchar(20)
+);
+
+
+CREATE TABLE address (
+  address_id integer NOT NULL PRIMARY KEY,
+  client_id integer,
+  delivery_address varchar(100)
+);
+
+
+CREATE TABLE transaction (
+  transaction_id integer NOT NULL PRIMARY KEY,
+  ordering_id integer,
+  order_date date
+);
+
+
+CREATE TABLE review (
+  review_id integer NOT NULL PRIMARY KEY,
+  client_id integer,
+  flower_id integer,
+  contents varchar(1000),
+  rating varchar(10)
+);
+
+
+CREATE TABLE category_of_flower (
+  categoryof_flower__id integer NOT NULL PRIMARY KEY,
+  discription varchar(500)
+);
+
+
+CREATE TABLE flower_category (
+  flower_category_id serial NOT NULL PRIMARY KEY,
+  category_of_flower_id integer,
+  flower_id integer
+);
+
+
+CREATE TABLE flower (
+  flower_id integer NOT NULL PRIMARY KEY,
+  title varchar(20),
+  supplier_id integer,
+  discryption varchar(500),
+  instructions varchar(500),
+  expiration_date date,
+  sertificate varchar(100),
+  price varchar(1000)
+);
+
+
+CREATE TABLE flower_ordering (
+  flower_ordering_id serial NOT NULL PRIMARY KEY,
+  flower_id integer,
+  ordering_id integer
+);
+
+
+ALTER TABLE flower_warehouse ADD CONSTRAINT flower_warehouse_waregouse_id_fk FOREIGN KEY (waregouse_id) REFERENCES warehouse (warehouse_id);
+ALTER TABLE flower_shop ADD CONSTRAINT flower_shop_shop_id_fk FOREIGN KEY (shop_id) REFERENCES shop (shop_id);
+ALTER TABLE flower_warehouse ADD CONSTRAINT flower_warehouse_flower_warehouse_id_fk FOREIGN KEY (flower_warehouse_id) REFERENCES flower (flower_id);
+ALTER TABLE flower_shop ADD CONSTRAINT flower_shop_flower_id_fk FOREIGN KEY (flower_id) REFERENCES flower (flower_id);
+ALTER TABLE flower ADD CONSTRAINT flower_supplier_id_fk FOREIGN KEY (supplier_id) REFERENCES supplier (supplier_id);
+ALTER TABLE document_opdering ADD CONSTRAINT document_opdering_document_id_fk FOREIGN KEY (document_id) REFERENCES document (document_id);
+ALTER TABLE document ADD CONSTRAINT document_employee_id_fk FOREIGN KEY (employee_id) REFERENCES employee (employee_id);
+ALTER TABLE message ADD CONSTRAINT message_support_chat_id_fk FOREIGN KEY (support_chat_id) REFERENCES support_chat (support_chat_id);
+ALTER TABLE support_chat ADD CONSTRAINT support_chat_employee_id_fk FOREIGN KEY (employee_id) REFERENCES employee (employee_id);
+ALTER TABLE support_chat ADD CONSTRAINT support_chat_client_id_fk FOREIGN KEY (client_id) REFERENCES access_date (client_id);
+ALTER TABLE employee ADD CONSTRAINT employee_position_id_fk FOREIGN KEY (position_id) REFERENCES position (position_id);
+ALTER TABLE employee_ordering ADD CONSTRAINT employee_ordering_employee_id_fk FOREIGN KEY (employee_id) REFERENCES employee (employee_id);
+ALTER TABLE employee_ordering ADD CONSTRAINT employee_ordering_ordering_id_fk FOREIGN KEY (ordering_id) REFERENCES ordering (ordering_id);
+ALTER TABLE access_date ADD CONSTRAINT access_date_client_id_fk FOREIGN KEY (client_id) REFERENCES client (client_id);
+ALTER TABLE ordering ADD CONSTRAINT ordering_client_id_fk FOREIGN KEY (client_id) REFERENCES client (client_id);
+ALTER TABLE review ADD CONSTRAINT review_flower_id_fk FOREIGN KEY (flower_id) REFERENCES flower (flower_id);
+ALTER TABLE transaction ADD CONSTRAINT transaction_ordering_id_fk FOREIGN KEY (ordering_id) REFERENCES ordering (ordering_id);
+ALTER TABLE ordering ADD CONSTRAINT ordering_address_id_fk FOREIGN KEY (address_id) REFERENCES address (address_id);
+ALTER TABLE ordering ADD CONSTRAINT ordering_discount_cart_id_fk FOREIGN KEY (discount_cart_id) REFERENCES discount_card (discount_cart_id);
+ALTER TABLE flower_category ADD CONSTRAINT flower_category_category_of_flower_id_fk FOREIGN KEY (category_of_flower_id) REFERENCES category_of_flower (categoryof_flower__id);
+ALTER TABLE flower_category ADD CONSTRAINT flower_category_flower_id_fk FOREIGN KEY (flower_id) REFERENCES flower (flower_id);
+ALTER TABLE flower_ordering ADD CONSTRAINT flower_ordering_ordering_id_fk FOREIGN KEY (ordering_id) REFERENCES ordering (ordering_id);
+ALTER TABLE flower_ordering ADD CONSTRAINT flower_ordering_flower_id_fk FOREIGN KEY (flower_id) REFERENCES flower (flower_id);
+ALTER TABLE document_opdering ADD CONSTRAINT document_opdering_ordering_id_fk FOREIGN KEY (ordering_id) REFERENCES ordering (ordering_id);
+ALTER TABLE discount_card ADD CONSTRAINT discount_card_discount_level_id_fk FOREIGN KEY (discount_level_id) REFERENCES discount_level (discount_level_id);
