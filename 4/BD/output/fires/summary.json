@@ -1,0 +1,15 @@
+{
+  "source_rows": 26681,
+  "source_columns": 9,
+  "clean_rows": 26681,
+  "clean_columns": 11,
+  "missing": 0,
+  "duplicates": 0,
+  "memory_before_bytes": 3544763,
+  "memory_after_bytes": 1548151,
+  "memory_reduction_pct": 56.32568383274143,
+  "filter_rows": 337,
+  "wind_iqr_candidates": 3652,
+  "forest_share_pct": 69.01915220568944,
+  "roundtrip_all_formats": true
+}

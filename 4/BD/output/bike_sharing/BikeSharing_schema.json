@@ -1,0 +1,102 @@
+{
+  "instant": {
+    "dtype": "uint16"
+  },
+  "dteday": {
+    "dtype": "datetime64[ns]"
+  },
+  "season": {
+    "dtype": "category",
+    "categories": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ordered": false
+  },
+  "yr": {
+    "dtype": "category",
+    "categories": [
+      0,
+      1
+    ],
+    "ordered": false
+  },
+  "mnth": {
+    "dtype": "category",
+    "categories": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "ordered": false
+  },
+  "holiday": {
+    "dtype": "bool"
+  },
+  "weekday": {
+    "dtype": "category",
+    "categories": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "ordered": false
+  },
+  "workingday": {
+    "dtype": "bool"
+  },
+  "weathersit": {
+    "dtype": "category",
+    "categories": [
+      1,
+      2,
+      3
+    ],
+    "ordered": false
+  },
+  "temp": {
+    "dtype": "float64"
+  },
+  "atemp": {
+    "dtype": "float64"
+  },
+  "hum": {
+    "dtype": "float64"
+  },
+  "windspeed": {
+    "dtype": "float64"
+  },
+  "casual": {
+    "dtype": "uint16"
+  },
+  "registered": {
+    "dtype": "uint16"
+  },
+  "cnt": {
+    "dtype": "uint16"
+  },
+  "humidity_pct": {
+    "dtype": "float64"
+  },
+  "casual_share_pct": {
+    "dtype": "float64"
+  },
+  "humidity_zero_flag": {
+    "dtype": "bool"
+  }
+}
