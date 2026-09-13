@@ -1,0 +1,210 @@
+{"kind":"deck","id":"pr/njrt1t","name":"Deck"}
+{"kind":"layout","layoutId":"f96732ce-446a-4f2c-bba9-68775cf474c2","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"24d86f22-c8bf-4141-aba7-fac2b8751ea6","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/jno046","slide":1,"title":"Технологии и","textShapes":3}
+{"kind":"shape","id":"sh/y54vi1wb","slide":1,"bbox":[0,0,610,720]}
+{"kind":"textbox","id":"sh/jqdcr6dw","slide":1,"text":"Технологии и\nинструментарий анализа\nбольших данных","textPreview":"Технологии и | инструментарий анализа | больших данных","textChars":50,"textLines":3,"bbox":[64,92,560,270]}
+{"kind":"textbox","id":"sh/8v6dobed","slide":1,"text":"KNIME Analytics Platform","textPreview":"KNIME Analytics Platform","textChars":24,"textLines":1,"bbox":[70,400,520,74]}
+{"kind":"textbox","id":"sh/twfuxgvy","slide":1,"text":"Визуальные рабочие процессы от данных до решения","textPreview":"Визуальные рабочие процессы от данных до решения","textChars":48,"textLines":1,"bbox":[70,494,500,122]}
+{"kind":"image","id":"im/cbyho7qp","slide":1,"name":"","geometry":"rect","alt":"Абстрактный визуальный конвейер обработки данных","bbox":[0,0,1280,720]}
+{"kind":"notes","id":"nt/jno046","slide":1,"text":"Текст доклада:\nСегодня я разберу KNIME Analytics Platform как инструмент анализа данных. Сначала покажу, какую основную задачу решает платформа и как устроен визуальный рабочий процесс. Затем разберу прикладной пример прогнозирования оттока клиентов, включая подготовку данных, обучение модели, проверку качества и применение результата."}
+{"kind":"slide","id":"sl/je1a8y","slide":2,"title":"Два вопроса доклада","textShapes":7}
+{"kind":"shape","id":"sh/uxcji9kb","slide":2,"bbox":[62,42,72,10]}
+{"kind":"textbox","id":"sh/h032do32","slide":2,"text":"Два вопроса доклада","textPreview":"Два вопроса доклада","textChars":19,"textLines":1,"bbox":[62,64,1150,78]}
+{"kind":"shape","id":"sh/wzu1kj2h","slide":2,"bbox":[70,178,520,450]}
+{"kind":"textbox","id":"sh/j2lkfyl8","slide":2,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[102,210,120,74]}
+{"kind":"textbox","id":"sh/i1c3mtkn","slide":2,"text":"Основная задача\nKNIME","textPreview":"Основная задача | KNIME","textChars":21,"textLines":2,"bbox":[102,300,430,136]}
+{"kind":"textbox","id":"sh/54n2ho3y","slide":2,"text":"Визуальный workflow для повторяемого анализа","textPreview":"Визуальный workflow для повторяемого анализа","textChars":44,"textLines":1,"bbox":[102,452,420,150]}
+{"kind":"shape","id":"sh/43uloj2d","slide":2,"bbox":[690,178,520,450]}
+{"kind":"textbox","id":"sh/z61k3ulo","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[722,210,120,74]}
+{"kind":"textbox","id":"sh/y5sjapk3","slide":2,"text":"Прикладной\nпример","textPreview":"Прикладной | пример","textChars":17,"textLines":2,"bbox":[722,300,430,136]}
+{"kind":"textbox","id":"sh/c3mx0fi9","slide":2,"text":"Прогноз оттока на исторических данных","textPreview":"Прогноз оттока на исторических данных","textChars":37,"textLines":1,"bbox":[722,452,420,150]}
+{"kind":"notes","id":"nt/je1a8y","slide":2,"text":"Текст доклада:\nДоклад отвечает на два вопроса. Первый вопрос касается назначения инструмента. KNIME помогает собрать анализ в виде исполняемой схемы, где видны источники данных, преобразования и итог. Второй вопрос практический. Мы проследим, как такая схема решает задачу прогнозирования оттока клиентов."}
+{"kind":"slide","id":"sl/h3i7w5","slide":3,"title":"KNIME Analytics Platform","textShapes":7}
+{"kind":"shape","id":"sh/5o3mpkz2","slide":3,"bbox":[62,42,72,10]}
+{"kind":"textbox","id":"sh/ilcnup0r","slide":3,"text":"KNIME Analytics Platform","textPreview":"KNIME Analytics Platform","textChars":24,"textLines":1,"bbox":[62,64,1150,78]}
+{"kind":"textbox","id":"sh/jml4nuhc","slide":3,"text":"Свободная платформа с открытым исходным кодом для визуального анализа данных","textPreview":"Свободная платформа с открытым исходным кодом для визуального анализа данных","textChars":76,"textLines":1,"bbox":[70,152,1140,104]}
+{"kind":"textbox","id":"sh/wju5sfil","slide":3,"text":"ДАННЫЕ","textPreview":"ДАННЫЕ","textChars":6,"textLines":1,"bbox":[90,350,230,150]}
+{"kind":"textbox","id":"sh/xk3mlkz6","slide":3,"text":"СХЕМА","textPreview":"СХЕМА","textChars":5,"textLines":1,"bbox":[400,310,250,230]}
+{"kind":"textbox","id":"sh/axs3q50f","slide":3,"text":"МОДЕЛЬ","textPreview":"МОДЕЛЬ","textChars":6,"textLines":1,"bbox":[740,350,190,150]}
+{"kind":"textbox","id":"sh/by14jah0","slide":3,"text":"ОТЧЁТ","textPreview":"ОТЧЁТ","textChars":5,"textLines":1,"bbox":[1000,350,190,150]}
+{"kind":"shape","id":"sh/ovalofi9","slide":3,"bbox":[0,0,0,0]}
+{"kind":"shape","id":"sh/9wjmh0zu","slide":3,"bbox":[0,0,0,0]}
+{"kind":"shape","id":"sh/1gnm90va","slide":3,"bbox":[0,0,0,0]}
+{"kind":"textbox","id":"sh/0fe50vep","slide":3,"text":"300+ подключений к источникам и сервисам","textPreview":"300+ подключений к источникам и сервисам","textChars":40,"textLines":1,"bbox":[150,586,980,64]}
+{"kind":"notes","id":"nt/h3i7w5","slide":3,"text":"Текст доклада:\nKNIME Analytics Platform распространяется бесплатно и имеет открытый исходный код. Пользователь собирает анализ на рабочем поле из узлов. Платформа охватывает загрузку и объединение данных, преобразования, визуализацию и машинное обучение. На официальном сайте указано более трёхсот подключений к источникам данных и сервисам.\n\nИсточники:\nhttps://www.knime.com/knime-analytics-platform\nhttps://www.knime.com/get-started"}
+{"kind":"slide","id":"sl/wpd9l5","slide":4,"title":"Основная задача платформы","textShapes":8}
+{"kind":"shape","id":"sh/ru9cfi1o","slide":4,"bbox":[62,42,72,10]}
+{"kind":"textbox","id":"sh/svid8n29","slide":4,"text":"Основная задача платформы","textPreview":"Основная задача платформы","textChars":25,"textLines":1,"bbox":[62,64,1150,78]}
+{"kind":"textbox","id":"sh/twruhsju","slide":4,"text":"Собрать повторяемый анализ как наглядную исполняемую схему","textPreview":"Собрать повторяемый анализ как наглядную исполняемую схему","textChars":58,"textLines":1,"bbox":[72,150,1136,100]}
+{"kind":"textbox","id":"sh/i5gv2tk7","slide":4,"text":"ВВОД","textPreview":"ВВОД","textChars":4,"textLines":1,"bbox":[60,365,190,132]}
+{"kind":"textbox","id":"sh/jq9cby1s","slide":4,"text":"ЧИСТКА","textPreview":"ЧИСТКА","textChars":6,"textLines":1,"bbox":[305,365,190,132]}
+{"kind":"textbox","id":"sh/4rid432d","slide":4,"text":"ML","textPreview":"ML","textChars":2,"textLines":1,"bbox":[550,365,190,132]}
+{"kind":"textbox","id":"sh/5srud8ji","slide":4,"text":"ТЕСТ","textPreview":"ТЕСТ","textChars":4,"textLines":1,"bbox":[795,365,190,132]}
+{"kind":"textbox","id":"sh/21kvexkb","slide":4,"text":"ВЫВОД","textPreview":"ВЫВОД","textChars":5,"textLines":1,"bbox":[1040,365,180,132]}
+{"kind":"shape","id":"sh/3mtwn21w","slide":4,"bbox":[0,0,0,0]}
+{"kind":"shape","id":"sh/by5gbyd4","slide":4,"bbox":[0,0,0,0]}
+{"kind":"shape","id":"sh/qxwf2twj","slide":4,"bbox":[0,0,0,0]}
+{"kind":"shape","id":"sh/d0nydova","slide":4,"bbox":[0,0,0,0]}
+{"kind":"textbox","id":"sh/czex43ep","slide":4,"text":"Workflow хранит порядок действий, настройки узлов и связи между ними","textPreview":"Workflow хранит порядок действий, настройки узлов и связи между ними","textChars":68,"textLines":1,"bbox":[120,570,1040,86]}
+{"kind":"notes","id":"nt/wpd9l5","slide":4,"text":"Текст доклада:\nГлавная задача KNIME состоит в том, чтобы превратить разрозненные операции анализа в повторяемый рабочий процесс. Схема показывает, откуда пришли данные, какие преобразования выполнены, какая модель обучена и куда передан результат. Такой workflow можно запускать целиком, частями или по отдельным узлам, а затем повторять на новых данных.\n\nИсточники:\nhttps://www.knime.com/why-visual-workflows\nhttps://docs.knime.com/ap/latest/analytics_platform_user_guide/index.html"}
+{"kind":"slide","id":"sl/w5tb43","slide":5,"title":"Узлы и связи","textShapes":5}
+{"kind":"shape","id":"sh/zud4nqhw","slide":5,"bbox":[62,42,72,10]}
+{"kind":"textbox","id":"sh/kvm5wvyh","slide":5,"text":"Узлы и связи","textPreview":"Узлы и связи","textChars":12,"textLines":1,"bbox":[62,64,1150,78]}
+{"kind":"textbox","id":"sh/lwvmpgz2","slide":5,"text":"CSV\nREADER","textPreview":"CSV | READER","textChars":10,"textLines":2,"bbox":[88,235,265,210]}
+{"kind":"textbox","id":"sh/a5knq1gf","slide":5,"text":"ROW\nFILTER","textPreview":"ROW | FILTER","textChars":10,"textLines":2,"bbox":[505,235,265,210]}
+{"kind":"textbox","id":"sh/b6t4j6h0","slide":5,"text":"SCORER","textPreview":"SCORER","textChars":6,"textLines":1,"bbox":[922,235,265,210]}
+{"kind":"shape","id":"sh/c7m5sbyl","slide":5,"bbox":[0,0,0,0]}
+{"kind":"shape","id":"sh/x8vmlgz6","slide":5,"bbox":[0,0,0,0]}
+{"kind":"textbox","id":"sh/u1on25gj","slide":5,"text":"Каждый узел выполняет одну операцию. Порты передают таблицы, модели или параметры.","textPreview":"Каждый узел выполняет одну операцию. Порты передают таблицы, модели или параметры.","textChars":82,"textLines":1,"bbox":[100,520,1080,110]}
+{"kind":"notes","id":"nt/w5tb43","slide":5,"text":"Текст доклада:\nУзел в KNIME представляет отдельную задачу. Это может быть чтение файла, фильтрация строк, обучение модели или построение визуализации. Входные и выходные порты передают не только таблицы, но также модели, подключения к базам и параметры. Состояние узла показывает, настроен ли он, выполнен ли успешно или требует исправления.\n\nИсточники:\nhttps://docs.knime.com/ap/latest/analytics_platform_user_guide/index.html"}
+{"kind":"slide","id":"sl/suhsbt","slide":6,"title":"Единая среда анализа","textShapes":7}
+{"kind":"shape","id":"sh/bu1s72hw","slide":6,"bbox":[62,42,72,10]}
+{"kind":"textbox","id":"sh/cvatg7yh","slide":6,"text":"Единая среда анализа","textPreview":"Единая среда анализа","textChars":20,"textLines":1,"bbox":[62,64,1150,78]}
+{"kind":"textbox","id":"sh/xwja9cz2","slide":6,"text":"KNIME\nСХЕМА","textPreview":"KNIME | СХЕМА","textChars":11,"textLines":2,"bbox":[475,215,330,290]}
+{"kind":"textbox","id":"sh/258baxgf","slide":6,"text":"ФАЙЛЫ И БД","textPreview":"ФАЙЛЫ И БД","textChars":10,"textLines":1,"bbox":[72,175,285,120]}
+{"kind":"textbox","id":"sh/n6hs32h0","slide":6,"text":"PYTHON И R","textPreview":"PYTHON И R","textChars":10,"textLines":1,"bbox":[72,440,285,120]}
+{"kind":"textbox","id":"sh/o7qtcnyl","slide":6,"text":"ML И AI","textPreview":"ML И AI","textChars":7,"textLines":1,"bbox":[923,175,285,120]}
+{"kind":"textbox","id":"sh/psja5sz6","slide":6,"text":"ОТЧЁТЫ","textPreview":"ОТЧЁТЫ","textChars":6,"textLines":1,"bbox":[923,440,285,120]}
+{"kind":"shape","id":"sh/e18b6dgj","slide":6,"bbox":[0,0,0,0]}
+{"kind":"shape","id":"sh/f2hsziho","slide":6,"bbox":[0,0,0,0]}
+{"kind":"shape","id":"sh/bih8r2x4","slide":6,"bbox":[0,0,0,0]}
+{"kind":"shape","id":"sh/qho7yxgj","slide":6,"bbox":[0,0,0,0]}
+{"kind":"textbox","id":"sh/dkzqtcfa","slide":6,"text":"No-code и low-code дополняются кодом там, где он действительно нужен","textPreview":"No-code и low-code дополняются кодом там, где он действительно нужен","textChars":68,"textLines":1,"bbox":[160,605,960,70]}
+{"kind":"notes","id":"nt/suhsbt","slide":6,"text":"Текст доклада:\nПлатформа объединяет разные способы работы. Аналитик может использовать готовые узлы без программирования, а для специальных алгоритмов подключить Python или R. Компоненты позволяют упаковать часть схемы в повторно используемый блок. Такой подход удобен, когда в одной команде работают специалисты с разным уровнем подготовки.\n\nИсточники:\nhttps://www.knime.com/knime-analytics-platform\nhttps://docs.knime.com/ap/latest/python_installation_guide/index.html\nhttps://docs.knime.com/ap/latest/analytics_platform_components_guide/"}
+{"kind":"slide","id":"sl/bv1oom","slide":7,"title":"Работа с большими данными","textShapes":9}
+{"kind":"shape","id":"sh/i507218j","slide":7,"bbox":[62,42,72,10]}
+{"kind":"textbox","id":"sh/58bqdgra","slide":7,"text":"Работа с большими данными","textPreview":"Работа с большими данными","textChars":25,"textLines":1,"bbox":[62,64,1150,78]}
+{"kind":"textbox","id":"sh/472p4bqp","slide":7,"text":"Вычисления размещаются ближе к данным","textPreview":"Вычисления размещаются ближе к данным","textChars":37,"textLines":1,"bbox":[72,142,1136,76]}
+{"kind":"textbox","id":"sh/v29o7m9s","slide":7,"text":"ЛОКАЛЬНО","textPreview":"ЛОКАЛЬНО","textChars":8,"textLines":1,"bbox":[70,295,315,170]}
+{"kind":"textbox","id":"sh/u107yhs7","slide":7,"text":"В БАЗЕ","textPreview":"В БАЗЕ","textChars":6,"textLines":1,"bbox":[482,295,315,170]}
+{"kind":"textbox","id":"sh/h4r69wry","slide":7,"text":"SPARK","textPreview":"SPARK","textChars":5,"textLines":1,"bbox":[894,295,315,170]}
+{"kind":"textbox","id":"sh/g3ip0rad","slide":7,"text":"файлы и память","textPreview":"файлы и память","textChars":14,"textLines":1,"bbox":[75,485,305,64]}
+{"kind":"textbox","id":"sh/zyt8jq9c","slide":7,"text":"SQL и pushdown","textPreview":"SQL и pushdown","textChars":14,"textLines":1,"bbox":[487,485,305,64]}
+{"kind":"textbox","id":"sh/exk7al8r","slide":7,"text":"Hadoop и Databricks","textPreview":"Hadoop и Databricks","textChars":19,"textLines":1,"bbox":[899,485,305,64]}
+{"kind":"textbox","id":"sh/knm5wr2l","slide":7,"text":"Parquet, ORC, HDFS, Hive, Impala","textPreview":"Parquet, ORC, HDFS, Hive, Impala","textChars":32,"textLines":1,"bbox":[195,596,890,64]}
+{"kind":"notes","id":"nt/bv1oom","slide":7,"text":"Текст доклада:\nKNIME не означает, что весь объём обязательно загружается в память одного компьютера. Часть операций можно выполнять в базе данных, а Big Data Extensions интегрируют Spark и экосистему Hadoop. Документация указывает поддержку HDFS, Hive, Impala, форматов Parquet и ORC, а расширение Spark предоставляет более шестидесяти узлов для обработки и аналитики.\n\nИсточники:\nhttps://docs.knime.com/ap/latest/bigdata_extensions_user_guide/\nhttps://www.knime.com/knime-analytics-platform"}
+{"kind":"slide","id":"sl/408pnx","slide":8,"title":"От прототипа к эксплуатации","textShapes":7}
+{"kind":"shape","id":"sh/cby1w3ut","slide":8,"bbox":[62,42,72,10]}
+{"kind":"textbox","id":"sh/bap0nid8","slide":8,"text":"От прототипа к эксплуатации","textPreview":"От прототипа к эксплуатации","textChars":27,"textLines":1,"bbox":[62,64,1150,78]}
+{"kind":"textbox","id":"sh/q9gzudcn","slide":8,"text":"ДЕСКТОП","textPreview":"ДЕСКТОП","textChars":7,"textLines":1,"bbox":[70,245,300,210]}
+{"kind":"textbox","id":"sh/p87il8v2","slide":8,"text":"KNIME\nHUB","textPreview":"KNIME | HUB","textChars":9,"textLines":2,"bbox":[490,245,300,210]}
+{"kind":"textbox","id":"sh/o7ehs3uh","slide":8,"text":"ДОСТУП","textPreview":"ДОСТУП","textChars":6,"textLines":1,"bbox":[910,245,300,210]}
+{"kind":"shape","id":"sh/3m50jydw","slide":8,"bbox":[0,0,0,0]}
+{"kind":"shape","id":"sh/2lwzqtcr","slide":8,"bbox":[0,0,0,0]}
+{"kind":"textbox","id":"sh/94rixsv6","slide":8,"text":"создание и локальный запуск","textPreview":"создание и локальный запуск","textChars":27,"textLines":1,"bbox":[72,480,295,105]}
+{"kind":"textbox","id":"sh/83i1onu1","slide":8,"text":"версии, расписание, сервисы","textPreview":"версии, расписание, сервисы","textChars":27,"textLines":1,"bbox":[492,480,295,105]}
+{"kind":"textbox","id":"sh/6pgbuxo7","slide":8,"text":"data app, API, отчёт","textPreview":"data app, API, отчёт","textChars":20,"textLines":1,"bbox":[912,480,295,105]}
+{"kind":"notes","id":"nt/408pnx","slide":8,"text":"Текст доклада:\nНа рабочем компьютере KNIME Analytics Platform позволяет бесплатно создавать и запускать workflow. Для совместной работы, версий и промышленного исполнения используется KNIME Hub. В Business Hub доступны расписания, интерактивные приложения, сервисы и триггеры. Это важное разграничение, потому что локальная платформа и серверная эксплуатация относятся к разным уровням продукта.\n\nИсточники:\nhttps://www.knime.com/knime-hub-pricing\nhttps://docs.knime.com/hub/latest/business_hub_deployments_guide/"}
+{"kind":"slide","id":"sl/568mlf","slide":9,"title":"Прикладные задачи","textShapes":7}
+{"kind":"shape","id":"sh/4nyds76d","slide":9,"bbox":[62,42,72,10]}
+{"kind":"textbox","id":"sh/3mpwj258","slide":9,"text":"Прикладные задачи","textPreview":"Прикладные задачи","textChars":17,"textLines":1,"bbox":[62,64,1150,78]}
+{"kind":"textbox","id":"sh/2lgvqxon","slide":9,"text":"ОТТОК","textPreview":"ОТТОК","textChars":5,"textLines":1,"bbox":[70,190,330,165]}
+{"kind":"textbox","id":"sh/hk7uhsn2","slide":9,"text":"СПРОС","textPreview":"СПРОС","textChars":5,"textLines":1,"bbox":[475,190,330,165]}
+{"kind":"textbox","id":"sh/gjydon6h","slide":9,"text":"АНОМАЛИИ","textPreview":"АНОМАЛИИ","textChars":8,"textLines":1,"bbox":[880,190,330,165]}
+{"kind":"textbox","id":"sh/fi5cfi5w","slide":9,"text":"ТЕКСТ","textPreview":"ТЕКСТ","textChars":5,"textLines":1,"bbox":[70,435,330,165]}
+{"kind":"textbox","id":"sh/uhwvmxob","slide":9,"text":"ОБСЛУЖИВАНИЕ","textPreview":"ОБСЛУЖИВАНИЕ","textChars":12,"textLines":1,"bbox":[475,435,330,165]}
+{"kind":"textbox","id":"sh/1gretwn6","slide":9,"text":"ОТЧЁТЫ","textPreview":"ОТЧЁТЫ","textChars":6,"textLines":1,"bbox":[880,435,330,165]}
+{"kind":"notes","id":"nt/568mlf","slide":9,"text":"Текст доклада:\nKNIME применяют не только для машинного обучения. В одной и той же среде можно автоматизировать регулярные отчёты, прогнозировать спрос, искать аномалии, анализировать тексты и строить модели обслуживания оборудования. Далее мы подробно рассмотрим один пример, потому что он хорошо показывает полный цикл работы платформы.\n\nИсточники:\nhttps://www.knime.com/blog/machine-learning-in-marketing-analytics\nhttps://www.knime.com/templates/churn-prediction"}
+{"kind":"slide","id":"sl/gqupka","slide":10,"title":"Кейс: прогноз оттока клиентов","textShapes":9}
+{"kind":"shape","id":"sh/5obmhk7q","slide":10,"bbox":[62,42,72,10]}
+{"kind":"textbox","id":"sh/il03658z","slide":10,"text":"Кейс: прогноз оттока клиентов","textPreview":"Кейс: прогноз оттока клиентов","textChars":29,"textLines":1,"bbox":[62,64,1150,78]}
+{"kind":"textbox","id":"sh/jmt4fapk","slide":10,"text":"Цель: оценить вероятность ухода каждого абонента","textPreview":"Цель: оценить вероятность ухода каждого абонента","textChars":48,"textLines":1,"bbox":[70,145,1140,78]}
+{"kind":"textbox","id":"sh/tsbml47m","slide":10,"text":"86%","textPreview":"86%","textChars":3,"textLines":1,"bbox":[220,330,200,72]}
+{"kind":"textbox","id":"sh/6pk3ap8b","slide":10,"text":"остались","textPreview":"остались","textChars":8,"textLines":1,"bbox":[160,560,220,58]}
+{"kind":"textbox","id":"sh/7qt4jupw","slide":10,"text":"14% ушли","textPreview":"14% ушли","textChars":8,"textLines":1,"bbox":[370,560,190,58]}
+{"kind":"textbox","id":"sh/8vil0vqx","slide":10,"text":"ЗВОНКИ","textPreview":"ЗВОНКИ","textChars":6,"textLines":1,"bbox":[690,250,220,130]}
+{"kind":"textbox","id":"sh/9wr290ri","slide":10,"text":"ДОГОВОР","textPreview":"ДОГОВОР","textChars":7,"textLines":1,"bbox":[990,250,220,130]}
+{"kind":"textbox","id":"sh/lsn6xs7a","slide":10,"text":"ПРОФИЛЬ","textPreview":"ПРОФИЛЬ","textChars":7,"textLines":1,"bbox":[840,470,220,130]}
+{"kind":"shape","id":"sh/kre54nqp","slide":10,"bbox":[0,0,0,0]}
+{"kind":"shape","id":"sh/zq5ovip4","slide":10,"bbox":[0,0,0,0]}
+{"kind":"textbox","id":"sh/ypwn2d8j","slide":10,"text":"3 333 клиента, 21 признак","textPreview":"3 333 клиента, 21 признак","textChars":25,"textLines":1,"bbox":[645,618,610,60]}
+{"kind":"chart","id":"ch/4ne9kbat","slide":10,"name":"","chartType":"doughnut","bbox":[72,245,500,380]}
+{"kind":"notes","id":"nt/gqupka","slide":10,"text":"Текст доклада:\nВ официальном примере используется телеком-набор из трёх тысяч трёхсот тридцати трёх клиентов и двадцати одного признака. Данные о звонках и характеристики договора хранятся в разных файлах. Целевая переменная показывает, ушёл клиент или остался. Класс оттока составляет примерно четырнадцать процентов, поэтому данные несбалансированы.\n\nИсточники:\nhttps://www.knime.com/blog/predict-customer-churn-low-code-ml-example\nhttps://www.knime.com/blog/visual-scoring-techniques-for-classification-models"}
+{"kind":"slide","id":"sl/h7pu8v","slide":11,"title":"Учебный workflow целиком","textShapes":2}
+{"kind":"shape","id":"sh/ilgz65sn","slide":11,"bbox":[62,42,72,10]}
+{"kind":"textbox","id":"sh/5o7i1kbe","slide":11,"text":"Учебный workflow целиком","textPreview":"Учебный workflow целиком","textChars":24,"textLines":1,"bbox":[62,64,1150,78]}
+{"kind":"textbox","id":"sh/vi50vqtc","slide":11,"text":"Данные     Подготовка     Обучение     Оценка","textPreview":"Данные     Подготовка     Обучение     Оценка","textChars":45,"textLines":1,"bbox":[90,640,1100,52]}
+{"kind":"image","id":"im/54vqxcfe","slide":11,"name":"","geometry":"rect","alt":"Официальный workflow обучения модели оттока в KNIME","bbox":[45,160,1190,475]}
+{"kind":"notes","id":"nt/h7pu8v","slide":11,"text":"Текст доклада:\nНа схеме виден полный учебный workflow KNIME. Слева загружаются два файла и объединяются записи клиентов. В центре выполняется исследование и подготовка данных. Затем запускается перекрёстная проверка модели случайного леса. Справа узлы Scorer и ROC оценивают качество. Визуальная структура позволяет обсуждать весь процесс на одном экране.\n\nИсточники:\nИзображение: https://www.knime.com/sites/default/files/public/1-predicting-customer-churn-marketing-analytics.png\nОписание: https://www.knime.com/blog/predict-customer-churn-low-code-ml-example"}
+{"kind":"slide","id":"sl/l7lmpp","slide":12,"title":"Подготовка данных","textShapes":7}
+{"kind":"shape","id":"sh/w3exojel","slide":12,"bbox":[62,42,72,10]}
+{"kind":"textbox","id":"sh/vi5gved0","slide":12,"text":"Подготовка данных","textPreview":"Подготовка данных","textChars":17,"textLines":1,"bbox":[62,64,1150,78]}
+{"kind":"textbox","id":"sh/ahwfm9wf","slide":12,"text":"JOIN","textPreview":"JOIN","textChars":4,"textLines":1,"bbox":[55,255,210,150]}
+{"kind":"textbox","id":"sh/587y1ov2","slide":12,"text":"ТИПЫ","textPreview":"ТИПЫ","textChars":4,"textLines":1,"bbox":[315,255,210,150]}
+{"kind":"textbox","id":"sh/k7yxs3eh","slide":12,"text":"ОБЗОР","textPreview":"ОБЗОР","textChars":5,"textLines":1,"bbox":[575,255,210,150]}
+{"kind":"textbox","id":"sh/j6pgzydw","slide":12,"text":"SMOTE","textPreview":"SMOTE","textChars":5,"textLines":1,"bbox":[835,255,210,150]}
+{"kind":"textbox","id":"sh/i5gfqtwb","slide":12,"text":"ML","textPreview":"ML","textChars":2,"textLines":1,"bbox":[1095,255,135,150]}
+{"kind":"shape","id":"sh/1c3ep4vy","slide":12,"bbox":[0,0,0,0]}
+{"kind":"shape","id":"sh/0buxgzed","slide":12,"bbox":[0,0,0,0]}
+{"kind":"shape","id":"sh/6lc7ydsf","slide":12,"bbox":[0,0,0,0]}
+{"kind":"shape","id":"sh/7ml87it0","slide":12,"bbox":[0,0,0,0]}
+{"kind":"textbox","id":"sh/8nup0nal","slide":12,"text":"SMOTE создаёт синтетические примеры редкого класса только внутри обучающей выборки","textPreview":"SMOTE создаёт синтетические примеры редкого класса только внутри обучающей выборки","textChars":82,"textLines":1,"bbox":[100,495,1080,118]}
+{"kind":"notes","id":"nt/l7lmpp","slide":12,"text":"Текст доклада:\nСначала записи из двух файлов объединяются по идентификатору клиента. Затем KNIME приводит целевую колонку к подходящему типу и помогает исследовать распределения. Из-за малого числа ушедших клиентов применяется SMOTE, который создаёт синтетические примеры меньшего класса. В реальном проекте такую балансировку выполняют только на обучающей части, чтобы не допустить утечку информации в проверку.\n\nИсточники:\nhttps://www.knime.com/blog/predict-customer-churn-low-code-ml-example\nhttps://www.knime.com/blog/four-basic-steps-in-data-preparation"}
+{"kind":"slide","id":"sl/awq0u3","slide":13,"title":"Обучение и проверка модели","textShapes":9}
+{"kind":"shape","id":"sh/10fa58vu","slide":13,"bbox":[62,42,72,10]}
+{"kind":"textbox","id":"sh/ex4rutwj","slide":13,"text":"Обучение и проверка модели","textPreview":"Обучение и проверка модели","textChars":26,"textLines":1,"bbox":[62,64,1150,78]}
+{"kind":"textbox","id":"sh/fyds3yd4","slide":13,"text":"5-кратная перекрёстная проверка","textPreview":"5-кратная перекрёстная проверка","textChars":31,"textLines":1,"bbox":[70,150,1140,76]}
+{"kind":"shape","id":"sh/svm9sjed","slide":13,"bbox":[104,275,176,176]}
+{"kind":"textbox","id":"sh/twva1ovy","slide":13,"text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[104,275,176,176]}
+{"kind":"shape","id":"sh/6t4rqtw7","slide":13,"bbox":[319,275,176,176]}
+{"kind":"textbox","id":"sh/rudszeds","slide":13,"text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[319,275,176,176]}
+{"kind":"shape","id":"sh/4r29ojeh","slide":13,"bbox":[534,275,176,176]}
+{"kind":"textbox","id":"sh/5svaxovm","slide":13,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[534,275,176,176]}
+{"kind":"shape","id":"sh/98z21kz6","slide":13,"bbox":[749,275,176,176]}
+{"kind":"textbox","id":"sh/o7q18fil","slide":13,"text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[749,275,176,176]}
+{"kind":"shape","id":"sh/nmhkzahg","slide":13,"bbox":[964,275,176,176]}
+{"kind":"textbox","id":"sh/ml8j650v","slide":13,"text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[964,275,176,176]}
+{"kind":"textbox","id":"sh/1kf2x0za","slide":13,"text":"В каждой итерации 80% данных обучают модель, 20% проверяют её","textPreview":"В каждой итерации 80% данных обучают модель, 20% проверяют её","textChars":61,"textLines":1,"bbox":[100,500,1080,110]}
+{"kind":"textbox","id":"sh/0j614vip","slide":13,"text":"Random Forest: 100 деревьев","textPreview":"Random Forest: 100 деревьев","textChars":27,"textLines":1,"bbox":[310,624,660,54]}
+{"kind":"notes","id":"nt/awq0u3","slide":13,"text":"Текст доклада:\nМодель случайного леса содержит сто деревьев. Для более надёжной оценки KNIME помещает блок обучения и прогнозирования в цикл из пяти итераций. Каждый раз четыре части данных используются для обучения, а одна часть для проверки. Узел X-Aggregator собирает прогнозы всех итераций, после чего Scorer и ROC рассчитывают метрики.\n\nИсточники:\nhttps://www.knime.com/blog/predict-customer-churn-low-code-ml-example"}
+{"kind":"slide","id":"sl/c1rom1","slide":14,"title":"Результат официального примера","textShapes":6}
+{"kind":"shape","id":"sh/9c36dc3q","slide":14,"bbox":[62,42,72,10]}
+{"kind":"textbox","id":"sh/m9cnih4z","slide":14,"text":"Результат официального примера","textPreview":"Результат официального примера","textChars":30,"textLines":1,"bbox":[62,64,1150,78]}
+{"kind":"shape","id":"sh/nalob2lk","slide":14,"bbox":[95,190,470,340]}
+{"kind":"textbox","id":"sh/07u5g7m9","slide":14,"text":"93,8%","textPreview":"93,8%","textChars":5,"textLines":1,"bbox":[145,255,370,105]}
+{"kind":"textbox","id":"sh/l8369c3e","slide":14,"text":"accuracy","textPreview":"accuracy","textChars":8,"textLines":1,"bbox":[145,375,370,64]}
+{"kind":"shape","id":"sh/y5cnex43","slide":14,"bbox":[715,190,470,340]}
+{"kind":"textbox","id":"sh/z6lo72lo","slide":14,"text":"0,89","textPreview":"0,89","textChars":4,"textLines":1,"bbox":[765,255,370,105]}
+{"kind":"textbox","id":"sh/k3epsr2d","slide":14,"text":"AUC","textPreview":"AUC","textChars":3,"textLines":1,"bbox":[765,375,370,64]}
+{"kind":"textbox","id":"sh/5476lw3y","slide":14,"text":"Из-за дисбаланса классов accuracy оценивают вместе с ROC, precision и recall","textPreview":"Из-за дисбаланса классов accuracy оценивают вместе с ROC, precision и recall","textChars":76,"textLines":1,"bbox":[105,570,1070,95]}
+{"kind":"notes","id":"nt/c1rom1","slide":14,"text":"Текст доклада:\nАвторы официального примера получили общую точность 93,8 процента и AUC 0,89. Эти значения показывают, что модель хорошо различает клиентов с разным риском. Однако одна accuracy может вводить в заблуждение при дисбалансе классов. Поэтому необходимо дополнительно смотреть ROC-кривую, precision, recall и цену ошибок для бизнеса.\n\nИсточники:\nhttps://www.knime.com/blog/predict-customer-churn-low-code-ml-example\nhttps://www.knime.com/blog/visual-scoring-techniques-for-classification-models"}
+{"kind":"slide","id":"sl/r7pwvc","slide":15,"title":"Применение модели к новым клиентам","textShapes":3}
+{"kind":"shape","id":"sh/h43a9sv2","slide":15,"bbox":[62,42,72,10]}
+{"kind":"textbox","id":"sh/u1credwr","slide":15,"text":"Применение модели к новым клиентам","textPreview":"Применение модели к новым клиентам","textChars":34,"textLines":1,"bbox":[62,64,1150,78]}
+{"kind":"textbox","id":"sh/5snadsve","slide":15,"text":"Workflow расчёта","textPreview":"Workflow расчёта","textChars":16,"textLines":1,"bbox":[55,600,560,52]}
+{"kind":"textbox","id":"sh/i5cridwn","slide":15,"text":"Риск по каждому клиенту","textPreview":"Риск по каждому клиенту","textChars":23,"textLines":1,"bbox":[655,600,570,52]}
+{"kind":"image","id":"im/qh43m5ob","slide":15,"name":"","geometry":"rect","alt":"Официальный workflow применения модели оттока","bbox":[55,165,560,420]}
+{"kind":"image","id":"im/18fmlk7y","slide":15,"name":"","geometry":"rect","alt":"Интерактивная панель риска оттока","bbox":[655,165,570,420]}
+{"kind":"notes","id":"nt/r7pwvc","slide":15,"text":"Текст доклада:\nПосле обучения модель сохраняется и используется в отдельном workflow. Новые клиентские данные поступают через CSV Reader, Random Forest Predictor рассчитывает вероятность оттока, а компонент визуализации показывает результат. В официальной демонстрации из пяти новых клиентов один получает высокий риск и выделяется на панели. Такой список можно передать службе удержания клиентов.\n\nИсточники:\nИзображения: https://www.knime.com/sites/default/files/public/2-predicting-customer-churn-marketing-analytics.png\nhttps://www.knime.com/sites/default/files/public/3-predicting-customer-churn-marketing-analytics.png\nОписание: https://www.knime.com/blog/predict-customer-churn-low-code-ml-example"}
+{"kind":"slide","id":"sl/1dxdyf","slide":16,"title":"Что проверять перед внедрением","textShapes":5}
+{"kind":"shape","id":"sh/8fex03et","slide":16,"bbox":[62,42,72,10]}
+{"kind":"textbox","id":"sh/7e5w7yd8","slide":16,"text":"Что проверять перед внедрением","textPreview":"Что проверять перед внедрением","textChars":30,"textLines":1,"bbox":[62,64,1150,78]}
+{"kind":"shape","id":"sh/6dwfytwn","slide":16,"bbox":[75,170,500,455]}
+{"kind":"textbox","id":"sh/lcne5ov2","slide":16,"text":"МОДЕЛЬ","textPreview":"МОДЕЛЬ","textChars":6,"textLines":1,"bbox":[115,205,420,70]}
+{"kind":"textbox","id":"sh/kbexwjeh","slide":16,"text":"качество редкого класса\n\nутечка данных\n\nизменение распределений","textPreview":"качество редкого класса |  | утечка данных |  | изменение распределений","textChars":63,"textLines":5,"bbox":[120,305,410,275]}
+{"kind":"shape","id":"sh/ja5w3edw","slide":16,"bbox":[705,170,500,455]}
+{"kind":"textbox","id":"sh/y9wfutwr","slide":16,"text":"БИЗНЕС","textPreview":"БИЗНЕС","textChars":6,"textLines":1,"bbox":[745,205,420,70]}
+{"kind":"textbox","id":"sh/58ryhsvm","slide":16,"text":"стоимость контакта\n\nцена пропущенного ухода\n\nпорог действия","textPreview":"стоимость контакта |  | цена пропущенного ухода |  | порог действия","textChars":59,"textLines":5,"bbox":[750,305,410,275]}
+{"kind":"notes","id":"nt/1dxdyf","slide":16,"text":"Текст доклада:\nПеред внедрением оценивают не только общую точность. Важно проверить recall для ушедших клиентов, исключить утечку данных и следить за изменением распределений после запуска. Бизнес-порог выбирают с учётом стоимости контакта и потерь от пропущенного ухода. KNIME помогает связать техническую оценку с последующим правилом действия в одном workflow.\n\nИсточники:\nhttps://www.knime.com/blog/visual-scoring-techniques-for-classification-models"}
+{"kind":"slide","id":"sl/i1bnxm","slide":17,"title":"Сильные стороны и ограничения","textShapes":5}
+{"kind":"shape","id":"sh/lcr6xs3e","slide":17,"bbox":[62,42,72,10]}
+{"kind":"textbox","id":"sh/y907mxk3","slide":17,"text":"Сильные стороны и ограничения","textPreview":"Сильные стороны и ограничения","textChars":29,"textLines":1,"bbox":[62,64,1150,78]}
+{"kind":"textbox","id":"sh/za9ov2lo","slide":17,"text":"ПОДХОДИТ","textPreview":"ПОДХОДИТ","textChars":8,"textLines":1,"bbox":[82,165,470,70]}
+{"kind":"shape","id":"sh/8f2ps725","slide":17,"bbox":[82,250,470,365]}
+{"kind":"textbox","id":"sh/9gbq1c3q","slide":17,"text":"наглядные процессы\n\nповторяемая аналитика\n\nкоманды разного профиля","textPreview":"наглядные процессы |  | повторяемая аналитика |  | команды разного профиля","textChars":66,"textLines":5,"bbox":[110,292,414,280]}
+{"kind":"textbox","id":"sh/md07qxkz","slide":17,"text":"УЧЕСТЬ","textPreview":"УЧЕСТЬ","textChars":6,"textLines":1,"bbox":[728,165,470,70]}
+{"kind":"shape","id":"sh/7et8z2lk","slide":17,"bbox":[728,250,470,365]}
+{"kind":"textbox","id":"sh/ojypgn2l","slide":17,"text":"ресурсы рабочего ПК\n\nнастройку Spark и БД\n\nлицензию для Hub","textPreview":"ресурсы рабочего ПК |  | настройку Spark и БД |  | лицензию для Hub","textChars":59,"textLines":5,"bbox":[756,292,414,280]}
+{"kind":"notes","id":"nt/i1bnxm","slide":17,"text":"Текст доклада:\nСильная сторона KNIME заключается в прозрачности процесса и возможности повторного запуска. Платформа особенно полезна для смешанных команд, где часть участников работает с готовыми узлами, а часть добавляет код. Ограничения связаны с инфраструктурой. Большие объёмы требуют базы или распределённой среды, а совместная промышленная эксплуатация часто требует KNIME Hub.\n\nИсточники:\nhttps://www.knime.com/knime-analytics-platform\nhttps://docs.knime.com/ap/latest/bigdata_extensions_user_guide/\nhttps://www.knime.com/knime-hub-pricing"}
+{"kind":"slide","id":"sl/5teljo","slide":18,"title":"Вывод","textShapes":6}
+{"kind":"shape","id":"sh/rm94rm14","slide":18,"bbox":[62,42,72,10]}
+{"kind":"textbox","id":"sh/snilk72p","slide":18,"text":"Вывод","textPreview":"Вывод","textChars":5,"textLines":1,"bbox":[62,64,1150,78]}
+{"kind":"textbox","id":"sh/dormtcja","slide":18,"text":"KNIME превращает анализ данных в понятный и исполняемый workflow","textPreview":"KNIME превращает анализ данных в понятный и исполняемый workflow","textChars":64,"textLines":1,"bbox":[85,155,1110,120]}
+{"kind":"textbox","id":"sh/ihg3exkn","slide":18,"text":"ДАННЫЕ","textPreview":"ДАННЫЕ","textChars":6,"textLines":1,"bbox":[90,345,300,170]}
+{"kind":"textbox","id":"sh/3ip4n218","slide":18,"text":"РЕШЕНИЕ","textPreview":"РЕШЕНИЕ","textChars":7,"textLines":1,"bbox":[490,345,300,170]}
+{"kind":"textbox","id":"sh/4jylg72t","slide":18,"text":"ДЕЙСТВИЕ","textPreview":"ДЕЙСТВИЕ","textChars":8,"textLines":1,"bbox":[890,345,300,170]}
+{"kind":"shape","id":"sh/5k7mpcje","slide":18,"bbox":[0,0,0,0]}
+{"kind":"shape","id":"sh/2d0nq1kr","slide":18,"bbox":[0,0,0,0]}
+{"kind":"textbox","id":"sh/net4z61c","slide":18,"text":"Основные источники: knime.com и docs.knime.com","textPreview":"Основные источники: knime.com и docs.knime.com","textChars":46,"textLines":1,"bbox":[160,600,960,62]}
+{"kind":"notes","id":"nt/5teljo","slide":18,"text":"Текст доклада:\nИтак, KNIME решает задачу построения прозрачного и повторяемого конвейера анализа. В примере с оттоком один workflow готовит данные и обучает модель, а другой применяет её к новым клиентам. Для больших объёмов платформа переносит работу в базу, Spark или Hadoop. Главное преимущество состоит в том, что логика анализа остаётся видимой и проверяемой.\n\nИсточники:\nhttps://www.knime.com/knime-analytics-platform\nhttps://docs.knime.com/ap/latest/analytics_platform_user_guide/index.html\nhttps://docs.knime.com/ap/latest/bigdata_extensions_user_guide/\nhttps://www.knime.com/blog/predict-customer-churn-low-code-ml-example"}
