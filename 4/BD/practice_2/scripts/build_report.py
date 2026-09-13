@@ -21,7 +21,7 @@ SUMMARY = json.loads((ROOT / "output" / "summary.json").read_text(encoding="utf-
 TIMINGS = pd.read_csv(ROOT / "output" / "dimension_reduction_timings.csv")
 DATA = pd.read_csv(ROOT / "data" / "day.csv")
 FIGURES = ROOT / "output" / "figures"
-EXPECTED_REFERENCE_HASH = "6b00be9fc25d556825599bd05e3a3db45fa36f66bcfc2300d15eb26685d63595"
+EXPECTED_REFERENCE_HASH = "8d1ca33b906e3569c6961e29e544be6d5f656467df6137e9eec9362e5b394835"
 
 
 def sha256(path: Path) -> str:
@@ -169,14 +169,25 @@ def clear_body(doc: Document) -> None:
 def parse_questions(path: Path):
     questions = []
     current = None
+    paragraph_lines = []
+
+    def flush_paragraph():
+        nonlocal paragraph_lines
+        if current and paragraph_lines:
+            current[2].append(" ".join(paragraph_lines))
+            paragraph_lines = []
+
     for raw in path.read_text(encoding="utf-8").splitlines():
         match = re.match(r"(\d+)\. \*\*(.+?)\*\*", raw)
         if match:
-            current = [int(match.group(1)), match.group(2), ""]
+            flush_paragraph()
+            current = [int(match.group(1)), match.group(2), []]
             questions.append(current)
         elif current and raw.strip():
-            clean = raw.strip().replace("`", "")
-            current[2] += (" " if current[2] else "") + clean
+            paragraph_lines.append(raw.strip())
+        elif current:
+            flush_paragraph()
+    flush_paragraph()
     return questions
 
 
@@ -504,17 +515,24 @@ add_text(
     "Ниже приведены краткие ответы по объектной модели Matplotlib, возможностям "
     "Plotly и интерпретации методов снижения размерности.",
 )
-for number, question, answer in parse_questions(ROOT / "Контрольные вопросы.md"):
+for number, question, answer_paragraphs in parse_questions(ROOT / "Контрольные вопросы.md"):
     heading = doc.add_paragraph()
     heading.paragraph_format.space_before = Pt(5)
     heading.paragraph_format.space_after = Pt(2)
     heading.paragraph_format.keep_with_next = True
     set_font(heading.add_run(f"{number}. {question}"), size=12.5, bold=True)
-    answer_paragraph = add_text(doc, answer)
-    answer_paragraph.paragraph_format.line_spacing = 1.05
-    answer_paragraph.paragraph_format.space_after = Pt(4)
-    for run in answer_paragraph.runs:
-        set_font(run, size=12)
+    for answer in answer_paragraphs:
+        answer_paragraph = doc.add_paragraph()
+        answer_paragraph.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        answer_paragraph.paragraph_format.line_spacing = 1.05
+        answer_paragraph.paragraph_format.space_after = Pt(4)
+        label = re.match(r"\*\*(.+?)\*\*\s*(.*)", answer)
+        if label:
+            set_font(answer_paragraph.add_run(label.group(1)), size=12, bold=True)
+            if label.group(2):
+                set_font(answer_paragraph.add_run(" " + label.group(2).replace("`", "")), size=12)
+        else:
+            set_font(answer_paragraph.add_run(answer.replace("`", "")), size=12)
 
 doc.save(FINAL)
 assert sha256(REFERENCE) == EXPECTED_REFERENCE_HASH, "Reference document was modified."

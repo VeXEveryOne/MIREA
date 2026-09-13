@@ -47,46 +47,46 @@
     "scikit_learn": "1.9.1",
     "umap_learn": "0.5.12",
     "random_state": 42,
-    "tsne_mean_seconds": 1.6188,
-    "umap_mean_seconds": 4.491,
-    "umap_to_tsne_ratio": 2.7744,
+    "tsne_mean_seconds": 1.6943,
+    "umap_mean_seconds": 4.653,
+    "umap_to_tsne_ratio": 2.7462,
     "note": "Первый запуск UMAP включает JIT-компиляцию numba и поэтому обычно медленнее последующих."
   },
   "timings": [
     {
       "algorithm": "t-SNE",
       "parameters": "perplexity=5",
-      "seconds": 1.4072,
+      "seconds": 1.5213,
       "trustworthiness_k10": 0.9807
     },
     {
       "algorithm": "t-SNE",
       "parameters": "perplexity=30",
-      "seconds": 1.5196,
+      "seconds": 1.6246,
       "trustworthiness_k10": 0.9864
     },
     {
       "algorithm": "t-SNE",
       "parameters": "perplexity=50",
-      "seconds": 1.9295,
+      "seconds": 1.9371,
       "trustworthiness_k10": 0.9857
     },
     {
       "algorithm": "UMAP",
       "parameters": "n_neighbors=5, min_dist=0.0",
-      "seconds": 8.1133,
+      "seconds": 8.4448,
       "trustworthiness_k10": 0.978
     },
     {
       "algorithm": "UMAP",
       "parameters": "n_neighbors=15, min_dist=0.1",
-      "seconds": 2.4129,
+      "seconds": 2.4789,
       "trustworthiness_k10": 0.9768
     },
     {
       "algorithm": "UMAP",
       "parameters": "n_neighbors=50, min_dist=0.5",
-      "seconds": 2.9469,
+      "seconds": 3.0352,
       "trustworthiness_k10": 0.9618
     }
   ]
