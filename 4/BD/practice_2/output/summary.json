@@ -1,0 +1,93 @@
+{
+  "bike_sharing": {
+    "rows": 731,
+    "columns_source": 16,
+    "date_min": "2011-01-01",
+    "date_max": "2012-12-31",
+    "missing_values": 0,
+    "duplicate_rows": 0,
+    "total_rentals": 3292679,
+    "mean_daily_rentals": 4504.35,
+    "median_daily_rentals": 4548.0,
+    "max_daily_rentals": 8714
+  },
+  "season_totals": {
+    "Весна": 471348,
+    "Лето": 918589,
+    "Осень": 1061129,
+    "Зима": 841613
+  },
+  "monthly_peak": {
+    "month": "2012-09",
+    "rentals": 218573
+  },
+  "monthly_correlations": {
+    "casual": {
+      "casual": 1.0,
+      "registered": 0.864,
+      "cnt": 0.922
+    },
+    "registered": {
+      "casual": 0.864,
+      "registered": 1.0,
+      "cnt": 0.991
+    },
+    "cnt": {
+      "casual": 0.922,
+      "registered": 0.991,
+      "cnt": 1.0
+    }
+  },
+  "dimension_reduction": {
+    "python": "3.12.14",
+    "pandas": "3.0.5",
+    "numpy": "2.5.3",
+    "matplotlib": "3.11.2",
+    "plotly": "7.0.0",
+    "scikit_learn": "1.9.1",
+    "umap_learn": "0.5.12",
+    "random_state": 42,
+    "tsne_mean_seconds": 1.6188,
+    "umap_mean_seconds": 4.491,
+    "umap_to_tsne_ratio": 2.7744,
+    "note": "Первый запуск UMAP включает JIT-компиляцию numba и поэтому обычно медленнее последующих."
+  },
+  "timings": [
+    {
+      "algorithm": "t-SNE",
+      "parameters": "perplexity=5",
+      "seconds": 1.4072,
+      "trustworthiness_k10": 0.9807
+    },
+    {
+      "algorithm": "t-SNE",
+      "parameters": "perplexity=30",
+      "seconds": 1.5196,
+      "trustworthiness_k10": 0.9864
+    },
+    {
+      "algorithm": "t-SNE",
+      "parameters": "perplexity=50",
+      "seconds": 1.9295,
+      "trustworthiness_k10": 0.9857
+    },
+    {
+      "algorithm": "UMAP",
+      "parameters": "n_neighbors=5, min_dist=0.0",
+      "seconds": 8.1133,
+      "trustworthiness_k10": 0.978
+    },
+    {
+      "algorithm": "UMAP",
+      "parameters": "n_neighbors=15, min_dist=0.1",
+      "seconds": 2.4129,
+      "trustworthiness_k10": 0.9768
+    },
+    {
+      "algorithm": "UMAP",
+      "parameters": "n_neighbors=50, min_dist=0.5",
+      "seconds": 2.9469,
+      "trustworthiness_k10": 0.9618
+    }
+  ]
+}

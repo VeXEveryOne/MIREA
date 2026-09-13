@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: текущий файл",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "cwd": "${fileDirname}",
+      "justMyCode": true
+    },
+    {
+      "name": "Практика 2: визуализация",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/practice_2/scripts/03_Visualization.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}/practice_2",
+      "justMyCode": true
+    }
+  ]
+}

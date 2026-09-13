@@ -1,0 +1,7 @@
+algorithm,parameters,seconds,trustworthiness_k10
+t-SNE,perplexity=5,1.4072,0.9807
+t-SNE,perplexity=30,1.5196,0.9864
+t-SNE,perplexity=50,1.9295,0.9857
+UMAP,"n_neighbors=5, min_dist=0.0",8.1133,0.978
+UMAP,"n_neighbors=15, min_dist=0.1",2.4129,0.9768
+UMAP,"n_neighbors=50, min_dist=0.5",2.9469,0.9618

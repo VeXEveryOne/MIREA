@@ -1,0 +1,24 @@
+[
+  {
+    "practice": 1,
+    "pages": 41,
+    "original_paragraphs": 721,
+    "original_media": 4,
+    "code_paragraphs": 31,
+    "captions": 15,
+    "final_sha256": "b04b56ac23929fccc5d99eddcefd791d89f9bc57943a246d8d4fbe84ebd742e2",
+    "text_preserved": true,
+    "media_preserved": true
+  },
+  {
+    "practice": 2,
+    "pages": 14,
+    "original_paragraphs": 258,
+    "original_media": 10,
+    "code_paragraphs": 7,
+    "captions": 13,
+    "final_sha256": "e5f237f0de7c53653a3d8f04fb5bf3cb4595c498ea17b18357aadc90737cf4f5",
+    "text_preserved": true,
+    "media_preserved": true
+  }
+]

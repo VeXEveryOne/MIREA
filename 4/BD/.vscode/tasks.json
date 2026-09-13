@@ -1,0 +1,77 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Практика 2: создать Notebook",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "jupytext",
+        "--to",
+        "ipynb",
+        "scripts/03_Visualization.py",
+        "--output",
+        "03_Visualization.ipynb"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/practice_2"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Практика 2: выполнить Notebook",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "jupyter",
+        "nbconvert",
+        "--to",
+        "notebook",
+        "--execute",
+        "--inplace",
+        "03_Visualization.ipynb",
+        "--ExecutePreprocessor.timeout=1200",
+        "--ExecutePreprocessor.kernel_name=python3"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/practice_2"
+      },
+      "dependsOn": "Практика 2: создать Notebook",
+      "dependsOrder": "sequence",
+      "problemMatcher": []
+    },
+    {
+      "label": "Практика 2: экспортировать HTML",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "jupyter",
+        "nbconvert",
+        "--to",
+        "html",
+        "03_Visualization.ipynb",
+        "--output-dir",
+        "reports"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/practice_2"
+      },
+      "dependsOn": "Практика 2: выполнить Notebook",
+      "dependsOrder": "sequence",
+      "problemMatcher": []
+    },
+    {
+      "label": "Практика 2: выполнить всё",
+      "dependsOn": "Практика 2: экспортировать HTML",
+      "dependsOrder": "sequence",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
