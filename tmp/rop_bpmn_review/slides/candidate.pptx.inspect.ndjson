@@ -1,0 +1,99 @@
+{"kind":"deck","id":"pr/dn4y7u","name":"Deck"}
+{"kind":"layout","layoutId":"1e39ce5f-6391-45cf-bc55-e05a64278c79","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"121f8bdf-4f4a-4675-b70e-e5278c0ef77b","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/tywo9d","slide":1,"title":"Практическое занятие № 1","textShapes":6}
+{"kind":"textbox","id":"sh/edov658z","slide":1,"text":"Практическое занятие № 1","textPreview":"Практическое занятие № 1","textChars":24,"textLines":1,"bbox":[54,28,1172,70]}
+{"kind":"textbox","id":"sh/10zuh0rq","slide":1,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[1180,682,50,25]}
+{"kind":"textbox","id":"sh/gzqd8vq5","slide":1,"text":"Разработка обеспечивающих подсистем","textPreview":"Разработка обеспечивающих подсистем","textChars":35,"textLines":1,"bbox":[58,125,1120,60]}
+{"kind":"textbox","id":"sh/32hwja9w","slide":1,"text":"Формирование и актуализация\nкарточек компьютерных систем","textPreview":"Формирование и актуализация | карточек компьютерных систем","textChars":56,"textLines":2,"bbox":[54,237,1172,175]}
+{"kind":"textbox","id":"sh/218va58b","slide":1,"text":"Модель AS IS и требования к информационной системе\nна примере ООО «Юкомс»","textPreview":"Модель AS IS и требования к информационной системе | на примере ООО «Юкомс»","textChars":73,"textLines":2,"bbox":[58,422,1120,100]}
+{"kind":"textbox","id":"sh/p4zelkrm","slide":1,"text":"Албахтин И.В.  •  ИНБО-12-23\nРТУ МИРЭА  •  Москва, 2026","textPreview":"Албахтин И.В.  •  ИНБО-12-23 | РТУ МИРЭА  •  Москва, 2026","textChars":55,"textLines":2,"bbox":[58,600,1100,65]}
+{"kind":"notes","id":"nt/tywo9d","slide":1,"text":"Источник: РОП_Единый_отчет_АлбахтинИВ.docx, практическое занятие № 1. Модель AS IS является академической."}
+{"kind":"slide","id":"sl/9p2m6m","slide":2,"title":"Цель и границы процесса","textShapes":8}
+{"kind":"textbox","id":"sh/pwnmh87m","slide":2,"text":"Цель и границы процесса","textPreview":"Цель и границы процесса","textChars":23,"textLines":1,"bbox":[54,28,1172,70]}
+{"kind":"textbox","id":"sh/2tw36d8b","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1180,682,50,25]}
+{"kind":"textbox","id":"sh/3u54fipw","slide":2,"text":"Цель","textPreview":"Цель","textChars":4,"textLines":1,"bbox":[58,135,300,50]}
+{"kind":"textbox","id":"sh/grel43q5","slide":2,"text":"Выявить проблемы текущего процесса и сформировать\nфункциональные и нефункциональные требования к ИС.","textPreview":"Выявить проблемы текущего процесса и сформировать | функциональные и нефункциональные требования к ИС.","textChars":100,"textLines":2,"bbox":[58,190,1150,95]}
+{"kind":"textbox","id":"sh/1snmd87q","slide":2,"text":"Начало и результат","textPreview":"Начало и результат","textChars":18,"textLines":1,"bbox":[58,320,700,50]}
+{"kind":"textbox","id":"sh/e5c32t8z","slide":2,"text":"Запрос на новую или изменённую карточку → публикация\nили обновление в Ozon либо фиксация ошибки публикации.","textPreview":"Запрос на новую или изменённую карточку → публикация | или обновление в Ozon либо фиксация ошибки публикации.","textChars":107,"textLines":2,"bbox":[58,375,1150,100]}
+{"kind":"textbox","id":"sh/f6l4bypk","slide":2,"text":"Основа модели","textPreview":"Основа модели","textChars":13,"textLines":1,"bbox":[58,520,700,45]}
+{"kind":"textbox","id":"sh/knylg7q9","slide":2,"text":"BOM — состав компьютерной системы. В академической модели\nданные и действия распределены между разрозненными инструментами.","textPreview":"BOM — состав компьютерной системы. В академической модели | данные и действия распределены между разрозненными инструментами.","textChars":123,"textLines":2,"bbox":[58,572,1150,85]}
+{"kind":"notes","id":"nt/9p2m6m","slide":2,"text":"Источник: РОП_Единый_отчет_АлбахтинИВ.docx, практическое занятие № 1. Модель AS IS является академической."}
+{"kind":"slide","id":"sl/qlzn3f","slide":3,"title":"IDEF0  •  Контекст A-0","textShapes":2}
+{"kind":"textbox","id":"sh/61s7mlo7","slide":3,"text":"IDEF0  •  Контекст A-0","textPreview":"IDEF0  •  Контекст A-0","textChars":22,"textLines":1,"bbox":[54,28,1172,70]}
+{"kind":"textbox","id":"sh/t4jqxgny","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1180,682,50,25]}
+{"kind":"image","id":"im/lsbilsne","slide":3,"name":"","alt":"IDEF0  •  Контекст A-0","bbox":[30,103,1220,553]}
+{"kind":"notes","id":"nt/qlzn3f","slide":3,"text":"Источник: редактируемая модель РОП_Практика_1_AS_IS.nsidef0; единый отчёт, раздел 3.1. Входы: запрос, данные компонентов и поставщиков. Выходы: BOM, расчёты, изображения, результат публикации. Управляющие воздействия — рабочие правила академической модели."}
+{"kind":"slide","id":"sl/psiy3u","slide":4,"title":"IDEF0  •  Декомпозиция A0","textShapes":2}
+{"kind":"textbox","id":"sh/batwbu14","slide":4,"text":"IDEF0  •  Декомпозиция A0","textPreview":"IDEF0  •  Декомпозиция A0","textChars":25,"textLines":1,"bbox":[54,28,1172,70]}
+{"kind":"textbox","id":"sh/cb2d4z2p","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1180,682,50,25]}
+{"kind":"image","id":"im/wjupovit","slide":4,"name":"","alt":"IDEF0  •  Декомпозиция A0","bbox":[30,103,1220,553]}
+{"kind":"notes","id":"nt/psiy3u","slide":4,"text":"Источник: РОП_Практика_1_AS_IS.nsidef0, раздел 3.2 отчёта. A1 — регистрация запроса; A2 — BOM; A3 — совместимость; A4 — расчёты и изображения; A5 — публикация. Замечания A3 возвращаются в A2."}
+{"kind":"slide","id":"sl/0utboq","slide":5,"title":"BPMN 2.0  •  Публикация и участники","textShapes":2}
+{"kind":"textbox","id":"sh/tgry9sfe","slide":5,"text":"BPMN 2.0  •  Публикация и участники","textPreview":"BPMN 2.0  •  Публикация и участники","textChars":35,"textLines":1,"bbox":[54,28,1172,70]}
+{"kind":"textbox","id":"sh/6d0zexgn","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1180,682,50,25]}
+{"kind":"image","id":"im/y10jyp0z","slide":5,"name":"","alt":"BPMN 2.0  •  Публикация и участники","bbox":[30,103,1220,553]}
+{"kind":"notes","id":"nt/0utboq","slide":5,"text":"Источник: модель РОП_Практика_1_AS_IS.nsbpmn, вид «Публикация и внешние участники», NotationStudio. OMG BPMN 2.0.2: https://www.omg.org/spec/BPMN/2.0.2/PDF, §9.3, §10.4. Внешние организации показаны закрытыми пулами; пунктир обозначает сообщения. После отклонения фиксируются замечания, текущая попытка завершается ошибкой. Исправление инициирует новый запрос."}
+{"kind":"slide","id":"sl/xvyd88","slide":6,"title":"BPMN 2.0  •  Подготовка данных","textShapes":2}
+{"kind":"textbox","id":"sh/rmhc7qxs","slide":6,"text":"BPMN 2.0  •  Подготовка данных","textPreview":"BPMN 2.0  •  Подготовка данных","textChars":30,"textLines":1,"bbox":[54,28,1172,70]}
+{"kind":"textbox","id":"sh/snqt0vyd","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1180,682,50,25]}
+{"kind":"image","id":"im/svqhwbu9","slide":6,"name":"","alt":"BPMN 2.0  •  Подготовка данных","bbox":[30,103,1220,553]}
+{"kind":"notes","id":"nt/xvyd88","slide":6,"text":"Источник: та же модель NSBPMN, вид «Подготовить данные карточки». Это встроенный подпроцесс основной схемы. Сбор сведений включает оба источника PC4Games и ITPartner. После изменения конфигурации повторно проверяются совместимость и доступность. Текущий процесс не автоматизирован единым движком; задачи не объявлены UserTask или ServiceTask без оснований."}
+{"kind":"slide","id":"sl/0flp3k","slide":7,"title":"Проблемы текущего процесса","textShapes":2}
+{"kind":"textbox","id":"sh/mxsnml8z","slide":7,"text":"Проблемы текущего процесса","textPreview":"Проблемы текущего процесса","textChars":26,"textLines":1,"bbox":[54,28,1172,70]}
+{"kind":"textbox","id":"sh/903mxgrq","slide":7,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1180,682,50,25]}
+{"kind":"table","id":"tb/tw3q10zm","slide":7,"name":"","rows":7,"cols":3,"preview":"Код | Проблема | Последствие","bbox":[54,130,1172,500]}
+{"kind":"notes","id":"nt/0flp3k","slide":7,"text":"Источник: РОП_Единый_отчет_АлбахтинИВ.docx, практическое занятие № 1. Модель AS IS является академической."}
+{"kind":"slide","id":"sl/vsh32u","slide":8,"title":"Данные и расчёты  •  FR-01–10","textShapes":2}
+{"kind":"textbox","id":"sh/7e18fe50","slide":8,"text":"Данные и расчёты  •  FR-01–10","textPreview":"Данные и расчёты  •  FR-01–10","textChars":29,"textLines":1,"bbox":[54,28,1172,70]}
+{"kind":"textbox","id":"sh/sfa98jm5","slide":8,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[1180,682,50,25]}
+{"kind":"table","id":"tb/gf6t0ru1","slide":8,"name":"","rows":5,"cols":2,"preview":"Коды | Требуемое поведение системы","bbox":[54,130,1172,490]}
+{"kind":"notes","id":"nt/vsh32u","slide":8,"text":"Источник: РОП_Единый_отчет_АлбахтинИВ.docx, практическое занятие № 1. Модель AS IS является академической."}
+{"kind":"slide","id":"sl/3xr1xk","slide":9,"title":"Изменения и публикация  •  FR-11–22","textShapes":2}
+{"kind":"textbox","id":"sh/bapcrypw","slide":9,"text":"Изменения и публикация  •  FR-11–22","textPreview":"Изменения и публикация  •  FR-11–22","textChars":35,"textLines":1,"bbox":[54,28,1172,70]}
+{"kind":"textbox","id":"sh/cbyt03q1","slide":9,"text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[1180,682,50,25]}
+{"kind":"table","id":"tb/sz2pobqh","slide":9,"name":"","rows":5,"cols":2,"preview":"Коды | Требуемое поведение системы","bbox":[54,130,1172,490]}
+{"kind":"notes","id":"nt/3xr1xk","slide":9,"text":"Источник: РОП_Единый_отчет_АлбахтинИВ.docx, практическое занятие № 1. Модель AS IS является академической."}
+{"kind":"slide","id":"sl/zxscaj","slide":10,"title":"NFR  •  Скорость и надёжность","textShapes":2}
+{"kind":"textbox","id":"sh/bqdsbel8","slide":10,"text":"NFR  •  Скорость и надёжность","textPreview":"NFR  •  Скорость и надёжность","textChars":29,"textLines":1,"bbox":[54,28,1172,70]}
+{"kind":"textbox","id":"sh/cbmtkjmt","slide":10,"text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1180,682,50,25]}
+{"kind":"table","id":"tb/03id4ze1","slide":10,"name":"","rows":7,"cols":2,"preview":"Код | Критерий приёмки","bbox":[54,130,1172,500]}
+{"kind":"notes","id":"nt/zxscaj","slide":10,"text":"Источник: РОП_Единый_отчет_АлбахтинИВ.docx, практическое занятие № 1. Модель AS IS является академической."}
+{"kind":"slide","id":"sl/6l6kl1","slide":11,"title":"NFR  •  Защита и целостность","textShapes":2}
+{"kind":"textbox","id":"sh/8zq1szet","slide":11,"text":"NFR  •  Защита и целостность","textPreview":"NFR  •  Защита и целостность","textChars":28,"textLines":1,"bbox":[54,28,1172,70]}
+{"kind":"textbox","id":"sh/7yh0zudo","slide":11,"text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[1180,682,50,25]}
+{"kind":"table","id":"tb/n6t8rqto","slide":11,"name":"","rows":7,"cols":2,"preview":"Код | Критерий приёмки","bbox":[54,130,1172,500]}
+{"kind":"notes","id":"nt/6l6kl1","slide":11,"text":"Источник: РОП_Единый_отчет_АлбахтинИВ.docx, практическое занятие № 1. Модель AS IS является академической."}
+{"kind":"slide","id":"sl/n5y82l","slide":12,"title":"Сравнение программных аналогов","textShapes":3}
+{"kind":"textbox","id":"sh/0ryt83ep","slide":12,"text":"Сравнение программных аналогов","textPreview":"Сравнение программных аналогов","textChars":30,"textLines":1,"bbox":[54,28,1172,70]}
+{"kind":"textbox","id":"sh/zqpszyd4","slide":12,"text":"12","textPreview":"12","textChars":2,"textLines":1,"bbox":[1180,682,50,25]}
+{"kind":"textbox","id":"sh/d47ax8ve","slide":12,"text":"Шкала 0–5. Авторская экспертная оценка применимости к предметной задаче.\n5,0 для целевой ИС отражает требования проекта, а не результат внедрения.","textPreview":"Шкала 0–5. Авторская экспертная оценка применимости к предметной задаче. | 5,0 для целевой ИС отражает требования проекта, а не результат...","textChars":146,"textLines":2,"bbox":[58,615,1150,62]}
+{"kind":"table","id":"tb/fmxgbylg","slide":12,"name":"","rows":11,"cols":6,"preview":"Критерий | Ozon Seller | 1С:ERP | Pimcore | Akeneo | Целевая ИС","bbox":[54,125,1172,474]}
+{"kind":"notes","id":"nt/n5y82l","slide":12,"text":"Источник: единый отчёт, таблица 6 и раздел 8. Оценки автора, не внешний рейтинг и не результаты измерений продуктов. Документация: https://docs.ozon.ru/api/seller/ ; https://v8.1c.ru/erp/purchasing/ ; https://docs.pimcore.com/platform/2025.4/ ; https://help.akeneo.com/using-the-product-page ."}
+{"kind":"slide","id":"sl/3jpzkc","slide":13,"title":"Средняя оценка применимости","textShapes":3}
+{"kind":"textbox","id":"sh/dsvit4ne","slide":13,"text":"Средняя оценка применимости","textPreview":"Средняя оценка применимости","textChars":27,"textLines":1,"bbox":[54,28,1172,70]}
+{"kind":"textbox","id":"sh/qpkzipo3","slide":13,"text":"13","textPreview":"13","textChars":2,"textLines":1,"bbox":[1180,682,50,25]}
+{"kind":"textbox","id":"sh/4n2hgz6x","slide":13,"text":"Среднее по девяти критериям с равными весами.\nГотовые продукты требуют настройки и предметного расширения.","textPreview":"Среднее по девяти критериям с равными весами. | Готовые продукты требуют настройки и предметного расширения.","textChars":106,"textLines":2,"bbox":[58,608,1130,67]}
+{"kind":"chart","id":"ch/nmhcf65k","slide":13,"name":"","chartType":"bar","bbox":[65,130,1140,455]}
+{"kind":"notes","id":"nt/3jpzkc","slide":13,"text":"Источник: таблица 6 единого отчёта. Суммы по девяти критериям: 19, 33, 33, 28, 45; средние после округления до десятых: 2,1; 3,7; 3,7; 3,1; 5,0. Значение целевой ИС — проектная оценка."}
+{"kind":"slide","id":"sl/r3td54","slide":14,"title":"Выводы","textShapes":7}
+{"kind":"textbox","id":"sh/g7elgbyp","slide":14,"text":"Выводы","textPreview":"Выводы","textChars":6,"textLines":1,"bbox":[54,28,1172,70]}
+{"kind":"textbox","id":"sh/v65knqh4","slide":14,"text":"14","textPreview":"14","textChars":2,"textLines":1,"bbox":[1180,682,50,25]}
+{"kind":"textbox","id":"sh/u5w3elgj","slide":14,"text":"Причина основных потерь","textPreview":"Причина основных потерь","textChars":23,"textLines":1,"bbox":[58,135,1100,48]}
+{"kind":"textbox","id":"sh/5w7mt0f6","slide":14,"text":"BOM, поставщицкие позиции, расчёты и карточка Ozon\nсвязаны логически, но обновляются раздельно.","textPreview":"BOM, поставщицкие позиции, расчёты и карточка Ozon | связаны логически, но обновляются раздельно.","textChars":95,"textLines":2,"bbox":[58,190,1140,110]}
+{"kind":"textbox","id":"sh/4vylkvyl","slide":14,"text":"Требование к целевой системе","textPreview":"Требование к целевой системе","textChars":28,"textLines":1,"bbox":[58,340,1100,48]}
+{"kind":"textbox","id":"sh/3up4rqx0","slide":14,"text":"Хранить зависимости и повторно проверять все\nзатронутые данные при изменении компонента.","textPreview":"Хранить зависимости и повторно проверять все | затронутые данные при изменении компонента.","textChars":88,"textLines":2,"bbox":[58,395,1140,110]}
+{"kind":"textbox","id":"sh/i9g3ilgf","slide":14,"text":"Результат практики: модели IDEF0 и BPMN 2.0,\n22 функциональных и 12 нефункциональных требований.","textPreview":"Результат практики: модели IDEF0 и BPMN 2.0, | 22 функциональных и 12 нефункциональных требований.","textChars":96,"textLines":2,"bbox":[58,567,1140,90]}
+{"kind":"notes","id":"nt/r3td54","slide":14,"text":"Источник: РОП_Единый_отчет_АлбахтинИВ.docx, практическое занятие № 1. Модель AS IS является академической."}
+{"kind":"slide","id":"sl/d4v9cw","slide":15,"title":"Источники","textShapes":10}
+{"kind":"textbox","id":"sh/vihsrqto","slide":15,"text":"Источники","textPreview":"Источники","textChars":9,"textLines":1,"bbox":[54,28,1172,70]}
+{"kind":"textbox","id":"sh/wjqtkva9","slide":15,"text":"15","textPreview":"15","textChars":2,"textLines":1,"bbox":[1180,682,50,25]}
+{"kind":"textbox","id":"sh/xkzat0bu","slide":15,"text":"Практическое занятие № 1 по РОП. РТУ МИРЭА, 2026.","textPreview":"Практическое занятие № 1 по РОП. РТУ МИРЭА, 2026.","textChars":49,"textLines":1,"bbox":[58,125,1160,47]}
+{"kind":"textbox","id":"sh/mtobels7","slide":15,"text":"Албахтин И.В. Курсовая работа по реинжинирингу процесса\nсопровождения заказов компьютерных систем, 2026.","textPreview":"Албахтин И.В. Курсовая работа по реинжинирингу процесса | сопровождения заказов компьютерных систем, 2026.","textChars":104,"textLines":2,"bbox":[58,182,1160,70]}
+{"kind":"textbox","id":"sh/nuxsnqts","slide":15,"text":"OMG. BPMN 2.0.2 — omg.org/spec/BPMN/2.0.2/PDF","textPreview":"OMG. BPMN 2.0.2 — omg.org/spec/BPMN/2.0.2/PDF","textChars":45,"textLines":1,"bbox":[58,262,1160,47]}
+{"kind":"textbox","id":"sh/8f6tgvad","slide":15,"text":"Ozon Seller API — docs.ozon.ru/api/seller/","textPreview":"Ozon Seller API — docs.ozon.ru/api/seller/","textChars":42,"textLines":1,"bbox":[58,319,1160,47]}
+{"kind":"textbox","id":"sh/9gzap0by","slide":15,"text":"1С:ERP — v8.1c.ru/erp/purchasing/","textPreview":"1С:ERP — v8.1c.ru/erp/purchasing/","textChars":33,"textLines":1,"bbox":[58,376,1160,47]}
+{"kind":"textbox","id":"sh/6psbqpsb","slide":15,"text":"Pimcore — docs.pimcore.com/platform/2025.4/","textPreview":"Pimcore — docs.pimcore.com/platform/2025.4/","textChars":43,"textLines":1,"bbox":[58,433,1160,47]}
+{"kind":"textbox","id":"sh/7q1cza9w","slide":15,"text":"Akeneo — help.akeneo.com/using-the-product-page","textPreview":"Akeneo — help.akeneo.com/using-the-product-page","textChars":47,"textLines":1,"bbox":[58,490,1160,47]}
+{"kind":"textbox","id":"sh/nel0rit4","slide":15,"text":"ООО «Юкомс» — ucoms.ru","textPreview":"ООО «Юкомс» — ucoms.ru","textChars":22,"textLines":1,"bbox":[58,547,1160,47]}
+{"kind":"notes","id":"nt/d4v9cw","slide":15,"text":"Полные библиографические описания и даты обращения приведены в едином отчёте. Материалы о продуктах взяты из раздела 8 отчёта; в презентации не заявляется новая независимая проверка возможностей текущих версий."}
