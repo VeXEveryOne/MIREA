@@ -1,0 +1,118 @@
+{
+  "id": "D20_physical_3",
+  "title": "Физическая модель данных, вид 3",
+  "practice": 7,
+  "requirement": "ПР7 с.2–4",
+  "status": "Черновик для переноса в OmniNotation",
+  "note": "Полный словарь атрибутов, составные ключи и межвидовые FK — в отчёте и База_данных/model.json. Диаграммы вместе составляют одну модель из 29 таблиц.",
+  "width": 1640,
+  "height": 520,
+  "nodes": [
+    {
+      "id": "replacement_rule",
+      "label": "replacement_rule",
+      "x": 30,
+      "y": 80,
+      "w": 370,
+      "h": 315,
+      "kind": "box",
+      "body": "PK id i8\nFK from_component_id i8\nFK to_component_id i8\nFK from_product_id i8\nFK to_product_id i8\ncode v(32)\nscope json\n… полный состав в словаре"
+    },
+    {
+      "id": "replacement_batch",
+      "label": "replacement_batch",
+      "x": 435,
+      "y": 80,
+      "w": 370,
+      "h": 255,
+      "kind": "box",
+      "body": "PK id i8\nFK rule_id i8\nFK created_by i8\nstate v(12)\nrule_snapshot json\n… полный состав в словаре"
+    },
+    {
+      "id": "replacement_item",
+      "label": "replacement_item",
+      "x": 840,
+      "y": 80,
+      "w": 370,
+      "h": 255,
+      "kind": "box",
+      "body": "FK batch_id i8\nFK bom_id i8\nFK old_version_id i8\nFK new_version_id i8\nresult v(12)\ndetails json"
+    },
+    {
+      "id": "calculation_rule",
+      "label": "calculation_rule",
+      "x": 1245,
+      "y": 80,
+      "w": 370,
+      "h": 195,
+      "kind": "box",
+      "body": "PK id i8\ncode v(24)\nrevision i4\n… полный состав в словаре"
+    }
+  ],
+  "edges": [
+    {
+      "source": "replacement_batch",
+      "target": "replacement_rule",
+      "label": "",
+      "points": [
+        [
+          805,
+          128
+        ],
+        [
+          821,
+          128
+        ],
+        [
+          821,
+          64
+        ],
+        [
+          416,
+          64
+        ],
+        [
+          416,
+          128
+        ],
+        [
+          400,
+          128
+        ]
+      ],
+      "style": "solid"
+    },
+    {
+      "source": "replacement_item",
+      "target": "replacement_batch",
+      "label": "",
+      "points": [
+        [
+          1210,
+          128
+        ],
+        [
+          1226,
+          128
+        ],
+        [
+          1226,
+          64
+        ],
+        [
+          821,
+          64
+        ],
+        [
+          821,
+          128
+        ],
+        [
+          805,
+          128
+        ]
+      ],
+      "style": "solid"
+    }
+  ]
+}

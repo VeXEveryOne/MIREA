@@ -1,0 +1,160 @@
+{
+  "id": "D03_logical_5",
+  "title": "Логическая модель данных, вид 5",
+  "practice": 3,
+  "requirement": "ПР3 с.2–3",
+  "status": "Черновик для переноса в OmniNotation",
+  "note": "Полный словарь атрибутов, составные ключи и межвидовые FK — в отчёте и База_данных/model.json. Диаграммы вместе составляют одну модель из 29 таблиц.",
+  "width": 1640,
+  "height": 940,
+  "nodes": [
+    {
+      "id": "role",
+      "label": "role",
+      "x": 30,
+      "y": 80,
+      "w": 370,
+      "h": 170,
+      "kind": "box",
+      "body": "PK code\nname"
+    },
+    {
+      "id": "app_user",
+      "label": "app_user",
+      "x": 435,
+      "y": 80,
+      "w": 370,
+      "h": 195,
+      "kind": "box",
+      "body": "PK id\nlogin\npassword_hash\n… полный состав в словаре"
+    },
+    {
+      "id": "user_role",
+      "label": "user_role",
+      "x": 840,
+      "y": 80,
+      "w": 370,
+      "h": 170,
+      "kind": "box",
+      "body": "FK user_id\nFK role_code\ncreated_at"
+    },
+    {
+      "id": "audit_event",
+      "label": "audit_event",
+      "x": 1245,
+      "y": 80,
+      "w": 370,
+      "h": 225,
+      "kind": "box",
+      "body": "PK id\nFK actor_id\nactor_kind\nresource_type\n… полный состав в словаре"
+    },
+    {
+      "id": "notification",
+      "label": "notification",
+      "x": 30,
+      "y": 510,
+      "w": 370,
+      "h": 255,
+      "kind": "box",
+      "body": "PK id\nFK recipient_id\nFK card_id\nkind\nmessage\n… полный состав в словаре"
+    }
+  ],
+  "edges": [
+    {
+      "source": "user_role",
+      "target": "app_user",
+      "label": "",
+      "points": [
+        [
+          1210,
+          128
+        ],
+        [
+          1226,
+          128
+        ],
+        [
+          1226,
+          64
+        ],
+        [
+          821,
+          64
+        ],
+        [
+          821,
+          128
+        ],
+        [
+          805,
+          128
+        ]
+      ],
+      "style": "solid"
+    },
+    {
+      "source": "audit_event",
+      "target": "app_user",
+      "label": "",
+      "points": [
+        [
+          1615,
+          128
+        ],
+        [
+          1631,
+          128
+        ],
+        [
+          1631,
+          64
+        ],
+        [
+          821,
+          64
+        ],
+        [
+          821,
+          128
+        ],
+        [
+          805,
+          128
+        ]
+      ],
+      "style": "solid"
+    },
+    {
+      "source": "notification",
+      "target": "app_user",
+      "label": "",
+      "points": [
+        [
+          400,
+          558
+        ],
+        [
+          416,
+          558
+        ],
+        [
+          416,
+          480
+        ],
+        [
+          821,
+          480
+        ],
+        [
+          821,
+          128
+        ],
+        [
+          805,
+          128
+        ]
+      ],
+      "style": "solid"
+    }
+  ]
+}

@@ -1,0 +1,276 @@
+{
+  "id": "D03_logical_2",
+  "title": "Логическая модель данных, вид 2",
+  "practice": 3,
+  "requirement": "ПР3 с.2–3",
+  "status": "Черновик для переноса в OmniNotation",
+  "note": "Полный словарь атрибутов, составные ключи и межвидовые FK — в отчёте и База_данных/model.json. Диаграммы вместе составляют одну модель из 29 таблиц.",
+  "width": 1640,
+  "height": 940,
+  "nodes": [
+    {
+      "id": "bom",
+      "label": "bom",
+      "x": 30,
+      "y": 80,
+      "w": 370,
+      "h": 225,
+      "kind": "box",
+      "body": "PK id\nFK created_by\ncode\nname\n… полный состав в словаре"
+    },
+    {
+      "id": "change_request",
+      "label": "change_request",
+      "x": 435,
+      "y": 80,
+      "w": 370,
+      "h": 255,
+      "kind": "box",
+      "body": "PK id\nFK bom_id\nFK created_by\nkind\nreason\n… полный состав в словаре"
+    },
+    {
+      "id": "bom_version",
+      "label": "bom_version",
+      "x": 840,
+      "y": 80,
+      "w": 370,
+      "h": 315,
+      "kind": "box",
+      "body": "PK id\nFK bom_id\nFK request_id\nFK case_component_id\nFK created_by\nversion_no\nstate\n… полный состав в словаре"
+    },
+    {
+      "id": "bom_slot",
+      "label": "bom_slot",
+      "x": 1245,
+      "y": 80,
+      "w": 370,
+      "h": 285,
+      "kind": "box",
+      "body": "PK id\nFK version_id\nFK component_id\nFK group_id\nFK pinned_product_id\nslot_code\nquantity"
+    },
+    {
+      "id": "slot_selection",
+      "label": "slot_selection",
+      "x": 30,
+      "y": 510,
+      "w": 370,
+      "h": 195,
+      "kind": "box",
+      "body": "PK slot_id\nFK offer_id\nFK resolved_component_id\nselected_at"
+    },
+    {
+      "id": "compatibility_rule",
+      "label": "compatibility_rule",
+      "x": 435,
+      "y": 510,
+      "w": 370,
+      "h": 195,
+      "kind": "box",
+      "body": "PK id\ncode\nrevision\n… полный состав в словаре"
+    },
+    {
+      "id": "validation_result",
+      "label": "validation_result",
+      "x": 840,
+      "y": 510,
+      "w": 370,
+      "h": 225,
+      "kind": "box",
+      "body": "PK id\nFK version_id\nvalid\nrules_snapshot\n… полный состав в словаре"
+    }
+  ],
+  "edges": [
+    {
+      "source": "change_request",
+      "target": "bom",
+      "label": "",
+      "points": [
+        [
+          805,
+          128
+        ],
+        [
+          821,
+          128
+        ],
+        [
+          821,
+          64
+        ],
+        [
+          416,
+          64
+        ],
+        [
+          416,
+          128
+        ],
+        [
+          400,
+          128
+        ]
+      ],
+      "style": "solid"
+    },
+    {
+      "source": "bom_version",
+      "target": "bom",
+      "label": "",
+      "points": [
+        [
+          1210,
+          128
+        ],
+        [
+          1226,
+          128
+        ],
+        [
+          1226,
+          64
+        ],
+        [
+          416,
+          64
+        ],
+        [
+          416,
+          128
+        ],
+        [
+          400,
+          128
+        ]
+      ],
+      "style": "solid"
+    },
+    {
+      "source": "bom_version",
+      "target": "change_request",
+      "label": "",
+      "points": [
+        [
+          1210,
+          144
+        ],
+        [
+          1234,
+          144
+        ],
+        [
+          1234,
+          55
+        ],
+        [
+          829,
+          55
+        ],
+        [
+          829,
+          144
+        ],
+        [
+          805,
+          144
+        ]
+      ],
+      "style": "solid"
+    },
+    {
+      "source": "bom_slot",
+      "target": "bom_version",
+      "label": "",
+      "points": [
+        [
+          1615,
+          128
+        ],
+        [
+          1631,
+          128
+        ],
+        [
+          1631,
+          64
+        ],
+        [
+          1226,
+          64
+        ],
+        [
+          1226,
+          128
+        ],
+        [
+          1210,
+          128
+        ]
+      ],
+      "style": "solid"
+    },
+    {
+      "source": "slot_selection",
+      "target": "bom_slot",
+      "label": "",
+      "points": [
+        [
+          400,
+          558
+        ],
+        [
+          416,
+          558
+        ],
+        [
+          416,
+          480
+        ],
+        [
+          1631,
+          480
+        ],
+        [
+          1631,
+          128
+        ],
+        [
+          1615,
+          128
+        ]
+      ],
+      "style": "solid"
+    },
+    {
+      "source": "validation_result",
+      "target": "bom_version",
+      "label": "",
+      "points": [
+        [
+          1210,
+          558
+        ],
+        [
+          1226,
+          558
+        ],
+        [
+          1226,
+          480
+        ],
+        [
+          1226,
+          480
+        ],
+        [
+          1226,
+          128
+        ],
+        [
+          1210,
+          128
+        ]
+      ],
+      "style": "solid"
+    }
+  ]
+}

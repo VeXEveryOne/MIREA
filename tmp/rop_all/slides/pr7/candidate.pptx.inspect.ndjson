@@ -1,0 +1,39 @@
+{"kind":"deck","id":"pr/dmz8ks","name":"Deck"}
+{"kind":"layout","layoutId":"ef004f9c-5180-431e-a9d4-5ebb4c08dfbe","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"4aed4f60-2daa-43ba-8bb8-b125135c7262","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/tj68cc","slide":1,"title":"Практическое занятие 7","textShapes":4}
+{"kind":"textbox","id":"sh/w3qpsfi9","slide":1,"text":"Практическое занятие 7","textPreview":"Практическое занятие 7","textChars":22,"textLines":1,"bbox":[58,35,1160,90]}
+{"kind":"textbox","id":"sh/vih8zaho","slide":1,"text":"Физическая модель и развёртывание","textPreview":"Физическая модель и развёртывание","textChars":33,"textLines":1,"bbox":[58,200,1120,175]}
+{"kind":"textbox","id":"sh/ah87qp03","slide":1,"text":"29 таблиц и 185 атрибутов детализируют логическую модель для PostgreSQL.","textPreview":"29 таблиц и 185 атрибутов детализируют логическую модель для PostgreSQL.","textChars":72,"textLines":1,"bbox":[58,405,1100,125]}
+{"kind":"textbox","id":"sh/9gzqxkzi","slide":1,"text":"Албахтин И.В.   ИНБО-12-23\nРазработка обеспечивающих подсистем   2026","textPreview":"Албахтин И.В.   ИНБО-12-23 | Разработка обеспечивающих подсистем   2026","textChars":69,"textLines":2,"bbox":[58,585,1100,80]}
+{"kind":"notes","id":"nt/tj68cc","slide":1,"text":"Методические материалы РОП, практические занятия 1–8, 2026–2027. Вариант: первая практика Албахтина И.В. Полные схемы и описание: единый отчёт в комплекте. Все параметры нагрузки и примеры расчётов — учебные проектные значения.\n"}
+{"kind":"slide","id":"sl/ydezaq","slide":2,"title":"Основные типы данных","textShapes":1}
+{"kind":"textbox","id":"sh/mxofqtg7","slide":2,"text":"Основные типы данных","textPreview":"Основные типы данных","textChars":20,"textLines":1,"bbox":[58,35,1160,90]}
+{"kind":"table","id":"tb/kfi5o7ql","slide":2,"name":"","rows":6,"cols":3,"preview":"Данные | Тип | Ограничение","bbox":[60,150,1160,480]}
+{"kind":"notes","id":"nt/ydezaq","slide":2,"text":"Методические материалы РОП, практические занятия 1–8, 2026–2027. Вариант: первая практика Албахтина И.В. Полные схемы и описание: единый отчёт в комплекте. Все параметры нагрузки и примеры расчётов — учебные проектные значения.\n"}
+{"kind":"slide","id":"sl/5hhpbd","slide":3,"title":"Физические связи","textShapes":6}
+{"kind":"textbox","id":"sh/ryd4z25o","slide":3,"text":"Физические связи","textPreview":"Физические связи","textChars":16,"textLines":1,"bbox":[58,35,1160,90]}
+{"kind":"textbox","id":"sh/szmls7m9","slide":3,"text":"bom","textPreview":"bom","textChars":3,"textLines":1,"bbox":[75,235,253.75,150]}
+{"kind":"shape","id":"sh/t0vm1snu","slide":3,"bbox":[334.75,294,24,28]}
+{"kind":"textbox","id":"sh/i9k3mdo7","slide":3,"text":"bom_version","textPreview":"bom_version","textChars":11,"textLines":1,"bbox":[363.75,235,253.75,150]}
+{"kind":"shape","id":"sh/jat4vi5c","slide":3,"bbox":[623.5,294,24,28]}
+{"kind":"textbox","id":"sh/kbmlonmx","slide":3,"text":"bom_slot","textPreview":"bom_slot","textChars":8,"textLines":1,"bbox":[652.5,235,253.75,150]}
+{"kind":"shape","id":"sh/5cvmxsni","slide":3,"bbox":[912.25,294,24,28]}
+{"kind":"textbox","id":"sh/a5k3idov","slide":3,"text":"slot_selection","textPreview":"slot_selection","textChars":14,"textLines":1,"bbox":[941.25,235,253.75,150]}
+{"kind":"textbox","id":"sh/v6t4ri5g","slide":3,"text":"FOREIGN KEY сохраняют структуру. Принадлежность выбранного компонента и версии проверяется в транзакции.","textPreview":"FOREIGN KEY сохраняют структуру. Принадлежность выбранного компонента и версии проверяется в транзакции.","textChars":104,"textLines":1,"bbox":[75,465,1110,135]}
+{"kind":"notes","id":"nt/5hhpbd","slide":3,"text":"Методические материалы РОП, практические занятия 1–8, 2026–2027. Вариант: первая практика Албахтина И.В. Полные схемы и описание: единый отчёт в комплекте. Все параметры нагрузки и примеры расчётов — учебные проектные значения.\n"}
+{"kind":"slide","id":"sl/zy83lt","slide":4,"title":"Ограничения целостности","textShapes":1}
+{"kind":"textbox","id":"sh/qp0jetgv","slide":4,"text":"Ограничения целостности","textPreview":"Ограничения целостности","textChars":23,"textLines":1,"bbox":[58,35,1160,90]}
+{"kind":"table","id":"tb/cnm9wfih","slide":4,"name":"","rows":6,"cols":2,"preview":"Правило | Средство","bbox":[60,150,1160,480]}
+{"kind":"notes","id":"nt/zy83lt","slide":4,"text":"Методические материалы РОП, практические занятия 1–8, 2026–2027. Вариант: первая практика Албахтина И.В. Полные схемы и описание: единый отчёт в комплекте. Все параметры нагрузки и примеры расчётов — учебные проектные значения.\n"}
+{"kind":"slide","id":"sl/trufqh","slide":5,"title":"Размещение программных артефактов","textShapes":1}
+{"kind":"textbox","id":"sh/a10r6l0r","slide":5,"text":"Размещение программных артефактов","textPreview":"Размещение программных артефактов","textChars":33,"textLines":1,"bbox":[58,35,1160,90]}
+{"kind":"image","id":"im/ony58ned","slide":5,"name":"","alt":"Размещение программных артефактов","bbox":[60,135,1160,525]}
+{"kind":"notes","id":"nt/trufqh","slide":5,"text":"Методические материалы РОП, практические занятия 1–8, 2026–2027. Вариант: первая практика Албахтина И.В. Полные схемы и описание: единый отчёт в комплекте. Все параметры нагрузки и примеры расчётов — учебные проектные значения.\n"}
+{"kind":"slide","id":"sl/o5ygrx","slide":6,"title":"Проверка перед реализацией","textShapes":5}
+{"kind":"textbox","id":"sh/wj69w7yd","slide":6,"text":"Проверка перед реализацией","textPreview":"Проверка перед реализацией","textChars":26,"textLines":1,"bbox":[58,35,1160,90]}
+{"kind":"textbox","id":"sh/vyxsn2hs","slide":6,"text":"Запустить миграции в отдельной PostgreSQL и проверить ограничения.","textPreview":"Запустить миграции в отдельной PostgreSQL и проверить ограничения.","textChars":66,"textLines":1,"bbox":[70,160,1130,96]}
+{"kind":"textbox","id":"sh/uxoruxg7","slide":6,"text":"Разделить роли приложения, worker и миграций.","textPreview":"Разделить роли приложения, worker и миграций.","textChars":45,"textLines":1,"bbox":[70,272,1130,96]}
+{"kind":"textbox","id":"sh/5ozatczu","slide":6,"text":"Проверить согласованное восстановление БД и файлов.","textPreview":"Проверить согласованное восстановление БД и файлов.","textChars":51,"textLines":1,"bbox":[70,384,1130,96]}
+{"kind":"textbox","id":"sh/4nqt0ry9","slide":6,"text":"DDL-заготовка не считается развёрнутой и испытанной системой.","textPreview":"DDL-заготовка не считается развёрнутой и испытанной системой.","textChars":61,"textLines":1,"bbox":[70,496,1130,96]}
+{"kind":"notes","id":"nt/o5ygrx","slide":6,"text":"Методические материалы РОП, практические занятия 1–8, 2026–2027. Вариант: первая практика Албахтина И.В. Полные схемы и описание: единый отчёт в комплекте. Все параметры нагрузки и примеры расчётов — учебные проектные значения.\n"}

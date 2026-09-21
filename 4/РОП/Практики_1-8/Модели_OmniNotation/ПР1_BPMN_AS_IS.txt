@@ -1,0 +1,54 @@
+bpmn Collaboration "Публикация и внешние участники"
+pool Ucoms "ООО «Юкомс»"
+pool PC4Games "Поставщик PC4Games"
+pool ITPartner "Поставщик ITPartner"
+pool Ozon Ozon
+event Start "Потребность\nв карточке" in=Ucoms position=start
+process Init "Инициировать\nновую карточку\nили изменение" in=Ucoms
+process Prepare "Подготовить\nданные карточки" in=Ucoms type=subprocess
+process Submit "Ввести данные\nв Ozon и отправить\nкарточку" in=Ucoms
+process Result "Получить статус\nиз Ozon" in=Ucoms type=receive
+gateway Accepted "Опубликована?" in=Ucoms type=exclusive
+event Published "Карточка\nопубликована\nили обновлена" in=Ucoms position=end
+process RecordError "Зафиксировать\nошибку и замечания\nдля исправления" in=Ucoms
+event Failed "Ошибка\nпубликации" in=Ucoms position=end
+lane Technical "Технический специалист" in=Prepare
+lane Stock "Сотрудник склада" in=Prepare
+lane Designer Дизайнер in=Prepare
+event PrepStart "Начало\nподготовки" in=Prepare position=start
+process BOM "Сформировать BOM\nи сопоставить\nмодели поставщиков" in=Prepare
+process Check "Проверить\nсовместимость\nкомплектующих" in=Prepare
+gateway Compatible "Совместимо?" in=Prepare type=exclusive
+process Fix "Исправить\nнесовместимую\nконфигурацию" in=Prepare
+process Offers "Запросить и собрать\nцены и наличие\nу обоих поставщиков" in=Prepare
+gateway Available "Всё доступно?" in=Prepare type=exclusive
+process Replace "Локально заменить\nнедоступный\nкомпонент в BOM" in=Prepare
+process Calculate "Рассчитать\nцену и вес" in=Prepare
+process Images "Подготовить\nизображения" in=Prepare
+event PrepEnd "Данные\nподготовлены" in=Prepare position=end
+flow F01 "" from=Start to=Init
+flow F02 "" from=Init to=Prepare
+flow F03 "" from=Prepare to=Submit
+flow F04 "" from=Submit to=Result
+flow F05 "" from=Result to=Accepted
+flow F06 Да condition="status = published" from=Accepted to=Published
+flow F07 Нет condition="status = error" from=Accepted to=RecordError
+flow F08 "" from=RecordError to=Failed
+flow M01 "Запрос цен\nи наличия" from=Prepare to=PC4Games type=message
+flow M02 "Цены\nи наличие" from=PC4Games to=Prepare type=message
+flow M03 "Запрос цен\nи наличия" from=Prepare to=ITPartner type=message
+flow M04 "Цены\nи наличие" from=ITPartner to=Prepare type=message
+flow M05 "Данные карточки" from=Submit to=Ozon type=message
+flow M06 "Статус и замечания" from=Ozon to=Result type=message
+flow D01 "" from=PrepStart to=BOM
+flow D02 "" from=BOM to=Check
+flow D03 "" from=Check to=Compatible
+flow D04 Нет condition="compatible = false" from=Compatible to=Fix
+flow D05 "" from=Fix to=Check
+flow D06 Да condition="compatible = true" from=Compatible to=Offers
+flow D07 "" from=Offers to=Available
+flow D08 Нет condition="available = false" from=Available to=Replace
+flow D09 "" from=Replace to=Check
+flow D10 Да condition="available = true" from=Available to=Calculate
+flow D11 "" from=Calculate to=Images
+flow D12 "" from=Images to=PrepEnd

@@ -1,0 +1,34 @@
+[
+  {
+    "practice": 2,
+    "pages": 8,
+    "tables": 4,
+    "figures": 1,
+    "docx_sha256": "bb755d3b00c3324a26fde2df5da4735d68ee0c4ca99c3c899f23452603610c80",
+    "pdf_sha256": "e55fe88d38306d3ed5fdfce5f4a6cafc56f9e5be005c8945f239bf2695020f05"
+  },
+  {
+    "practice": 3,
+    "pages": 11,
+    "tables": 7,
+    "figures": 1,
+    "docx_sha256": "30a1dc8287ba913738d6802ddd2fcff2a74b5f3f99ee1f05b70dca71a6f42b3f",
+    "pdf_sha256": "14fde12e722ab49e9f0b7016f92288d1267a54daa81ec98fb651a8c83ac2bd2b"
+  },
+  {
+    "practice": 4,
+    "pages": 8,
+    "tables": 3,
+    "figures": 2,
+    "docx_sha256": "abd524b39cba933017b23b4efa7a7e806aca906d371ed5be9e9272ee24a7e111",
+    "pdf_sha256": "cba22393e1e185bf34c41b6665d28e8f9fb3c8c7c10f2b027f751f5079b18f1c"
+  },
+  {
+    "practice": 5,
+    "pages": 12,
+    "tables": 5,
+    "figures": 2,
+    "docx_sha256": "3e6a2f0dcbe82a8d03f7fc88bda169e6583aa36390666c6df76e82d00e8e509f",
+    "pdf_sha256": "f2310bf3ca223d9a7da4659fb00dc764596d7ca608862bf8983657b0876f2705"
+  }
+]

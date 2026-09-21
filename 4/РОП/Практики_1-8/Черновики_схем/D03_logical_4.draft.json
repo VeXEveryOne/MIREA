@@ -1,0 +1,234 @@
+{
+  "id": "D03_logical_4",
+  "title": "Логическая модель данных, вид 4",
+  "practice": 3,
+  "requirement": "ПР3 с.2–3",
+  "status": "Черновик для переноса в OmniNotation",
+  "note": "Полный словарь атрибутов, составные ключи и межвидовые FK — в отчёте и База_данных/model.json. Диаграммы вместе составляют одну модель из 29 таблиц.",
+  "width": 1640,
+  "height": 940,
+  "nodes": [
+    {
+      "id": "card",
+      "label": "card",
+      "x": 30,
+      "y": 80,
+      "w": 370,
+      "h": 255,
+      "kind": "box",
+      "body": "PK id\nFK bom_id\nFK responsible_id\noffer_id\nstatus\n… полный состав в словаре"
+    },
+    {
+      "id": "card_version",
+      "label": "card_version",
+      "x": 435,
+      "y": 80,
+      "w": 370,
+      "h": 315,
+      "kind": "box",
+      "body": "PK id\nFK card_id\nFK bom_version_id\nFK validation_id\nFK calculation_rule_id\nversion_no\ntitle\n… полный состав в словаре"
+    },
+    {
+      "id": "image_template",
+      "label": "image_template",
+      "x": 840,
+      "y": 80,
+      "w": 370,
+      "h": 195,
+      "kind": "box",
+      "body": "PK id\ncode\nrevision\n… полный состав в словаре"
+    },
+    {
+      "id": "image_asset",
+      "label": "image_asset",
+      "x": 1245,
+      "y": 80,
+      "w": 370,
+      "h": 255,
+      "kind": "box",
+      "body": "PK id\nFK template_id\nFK created_by\nstorage_key\nsha256\n… полный состав в словаре"
+    },
+    {
+      "id": "card_image",
+      "label": "card_image",
+      "x": 30,
+      "y": 510,
+      "w": 370,
+      "h": 170,
+      "kind": "box",
+      "body": "FK card_version_id\nFK image_id\nposition"
+    },
+    {
+      "id": "publication",
+      "label": "publication",
+      "x": 435,
+      "y": 510,
+      "w": 370,
+      "h": 225,
+      "kind": "box",
+      "body": "PK id\nFK card_version_id\noperation_key\nexternal_task_id\n… полный состав в словаре"
+    }
+  ],
+  "edges": [
+    {
+      "source": "card_version",
+      "target": "card",
+      "label": "",
+      "points": [
+        [
+          805,
+          128
+        ],
+        [
+          821,
+          128
+        ],
+        [
+          821,
+          64
+        ],
+        [
+          416,
+          64
+        ],
+        [
+          416,
+          128
+        ],
+        [
+          400,
+          128
+        ]
+      ],
+      "style": "solid"
+    },
+    {
+      "source": "image_asset",
+      "target": "image_template",
+      "label": "",
+      "points": [
+        [
+          1615,
+          128
+        ],
+        [
+          1631,
+          128
+        ],
+        [
+          1631,
+          64
+        ],
+        [
+          1226,
+          64
+        ],
+        [
+          1226,
+          128
+        ],
+        [
+          1210,
+          128
+        ]
+      ],
+      "style": "solid"
+    },
+    {
+      "source": "card_image",
+      "target": "card_version",
+      "label": "",
+      "points": [
+        [
+          400,
+          558
+        ],
+        [
+          416,
+          558
+        ],
+        [
+          416,
+          480
+        ],
+        [
+          821,
+          480
+        ],
+        [
+          821,
+          128
+        ],
+        [
+          805,
+          128
+        ]
+      ],
+      "style": "solid"
+    },
+    {
+      "source": "card_image",
+      "target": "image_asset",
+      "label": "",
+      "points": [
+        [
+          400,
+          574
+        ],
+        [
+          424,
+          574
+        ],
+        [
+          424,
+          487
+        ],
+        [
+          1639,
+          487
+        ],
+        [
+          1639,
+          144
+        ],
+        [
+          1615,
+          144
+        ]
+      ],
+      "style": "solid"
+    },
+    {
+      "source": "publication",
+      "target": "card_version",
+      "label": "",
+      "points": [
+        [
+          805,
+          558
+        ],
+        [
+          821,
+          558
+        ],
+        [
+          821,
+          480
+        ],
+        [
+          821,
+          480
+        ],
+        [
+          821,
+          128
+        ],
+        [
+          805,
+          128
+        ]
+      ],
+      "style": "solid"
+    }
+  ]
+}

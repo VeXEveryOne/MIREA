@@ -1,0 +1,68 @@
+{"kind":"deck","id":"pr/ef9fx3","name":"Deck"}
+{"kind":"layout","layoutId":"fecef545-ced0-441c-b275-f98c752d6106","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"78fb542c-14e7-4462-8b26-80bc237a6169","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/pyz0oj","slide":1,"title":"Практическое занятие 8","textShapes":4}
+{"kind":"textbox","id":"sh/etw321sj","slide":1,"text":"Практическое занятие 8","textPreview":"Практическое занятие 8","textChars":22,"textLines":1,"bbox":[58,35,1160,90]}
+{"kind":"textbox","id":"sh/1wn2dgba","slide":1,"text":"Интеграции и управление доступом","textPreview":"Интеграции и управление доступом","textChars":32,"textLines":1,"bbox":[58,200,1120,175]}
+{"kind":"textbox","id":"sh/0vel4bap","slide":1,"text":"Два сценария интеграции связывают внешний обмен с устойчивым состоянием системы.","textPreview":"Два сценария интеграции связывают внешний обмен с устойчивым состоянием системы.","textChars":80,"textLines":1,"bbox":[58,405,1100,125]}
+{"kind":"textbox","id":"sh/ni5kf6t0","slide":1,"text":"Албахтин И.В.   ИНБО-12-23\nРазработка обеспечивающих подсистем   2026","textPreview":"Албахтин И.В.   ИНБО-12-23 | Разработка обеспечивающих подсистем   2026","textChars":69,"textLines":2,"bbox":[58,585,1100,80]}
+{"kind":"notes","id":"nt/pyz0oj","slide":1,"text":"Методические материалы РОП, практические занятия 1–8, 2026–2027. Вариант: первая практика Албахтина И.В. Полные схемы и описание: единый отчёт в комплекте. Все параметры нагрузки и примеры расчётов — учебные проектные значения.\n"}
+{"kind":"slide","id":"sl/xhvkkf","slide":2,"title":"Обновление предложений","textShapes":11}
+{"kind":"textbox","id":"sh/gv6h4fu9","slide":2,"text":"Обновление предложений","textPreview":"Обновление предложений","textChars":22,"textLines":1,"bbox":[58,35,1160,90]}
+{"kind":"textbox","id":"sh/fuxgbato","slide":2,"text":"Склад","textPreview":"Склад","textChars":5,"textLines":1,"bbox":[23,145,164,72]}
+{"kind":"shape","id":"sh/utoz25cj","slide":2,"bbox":[105,217,0,380]}
+{"kind":"textbox","id":"sh/tsfy9kby","slide":2,"text":"Сервис","textPreview":"Сервис","textChars":6,"textLines":1,"bbox":[379.67,145,164,72]}
+{"kind":"shape","id":"sh/sr6h0fud","slide":2,"bbox":[461.67,217,0,380]}
+{"kind":"textbox","id":"sh/7qdg7ats","slide":2,"text":"Адаптер","textPreview":"Адаптер","textChars":7,"textLines":1,"bbox":[736.33,145,164,72]}
+{"kind":"shape","id":"sh/6p4fy5c7","slide":2,"bbox":[818.33,217,0,380]}
+{"kind":"textbox","id":"sh/5ovy50bm","slide":2,"text":"Поставщик","textPreview":"Поставщик","textChars":9,"textLines":1,"bbox":[1093,145,164,72]}
+{"kind":"shape","id":"sh/knmxwvu1","slide":2,"bbox":[1175,217,0,380]}
+{"kind":"shape","id":"sh/m54n2xwn","slide":2,"bbox":[105,263,356.67,11]}
+{"kind":"textbox","id":"sh/n6dob2d8","slide":2,"text":"Обновить данные","textPreview":"Обновить данные","textChars":15,"textLines":1,"bbox":[115,227,344.67,38]}
+{"kind":"shape","id":"sh/87mp47ed","slide":2,"bbox":[461.67,328,356.67,11]}
+{"kind":"textbox","id":"sh/98v6dcvy","slide":2,"text":"Запрос предложений","textPreview":"Запрос предложений","textChars":18,"textLines":1,"bbox":[471.67,292,344.67,38]}
+{"kind":"shape","id":"sh/y1knyxwb","slide":2,"bbox":[818.33,393,356.67,11]}
+{"kind":"textbox","id":"sh/z2to72dw","slide":2,"text":"HTTPS / формат","textPreview":"HTTPS / формат","textChars":14,"textLines":1,"bbox":[828.33,357,344.67,38]}
+{"kind":"shape","id":"sh/03m50neh","slide":2,"bbox":[818.33,458,356.67,11]}
+{"kind":"textbox","id":"sh/l4v69sv2","slide":2,"text":"Цена, остаток, дата","textPreview":"Цена, остаток, дата","textChars":19,"textLines":1,"bbox":[828.33,422,344.67,38]}
+{"kind":"shape","id":"sh/qxknudwf","slide":2,"bbox":[461.67,523,356.67,11]}
+{"kind":"textbox","id":"sh/byto3id0","slide":2,"text":"Проверенные записи","textPreview":"Проверенные записи","textChars":18,"textLines":1,"bbox":[471.67,487,344.67,38]}
+{"kind":"textbox","id":"sh/fipkvets","slide":2,"text":"При временном сбое сохраняется прежняя дата данных. Канал поставщика требует согласования.","textPreview":"При временном сбое сохраняется прежняя дата данных. Канал поставщика требует согласования.","textChars":90,"textLines":1,"bbox":[62,638,1150,65]}
+{"kind":"notes","id":"nt/xhvkkf","slide":2,"text":"Методические материалы РОП, практические занятия 1–8, 2026–2027. Вариант: первая практика Албахтина И.В. Полные схемы и описание: единый отчёт в комплекте. Все параметры нагрузки и примеры расчётов — учебные проектные значения.\nПри временном сбое сохраняется прежняя дата данных. Канал поставщика требует согласования."}
+{"kind":"slide","id":"sl/gedgbb","slide":3,"title":"Публикация карточки","textShapes":11}
+{"kind":"textbox","id":"sh/1kveh07q","slide":3,"text":"Публикация карточки","textPreview":"Публикация карточки","textChars":19,"textLines":1,"bbox":[58,35,1160,90]}
+{"kind":"textbox","id":"sh/eh4v6loz","slide":3,"text":"Менеджер","textPreview":"Менеджер","textChars":8,"textLines":1,"bbox":[23,145,164,72]}
+{"kind":"shape","id":"sh/zidwfqpk","slide":3,"bbox":[105,217,0,380]}
+{"kind":"textbox","id":"sh/cfmd4b6t","slide":3,"text":"API / БД","textPreview":"API / БД","textChars":8,"textLines":1,"bbox":[379.67,145,164,72]}
+{"kind":"shape","id":"sh/dgvudg7e","slide":3,"bbox":[461.67,217,0,380]}
+{"kind":"textbox","id":"sh/qtkv21o3","slide":3,"text":"Worker","textPreview":"Worker","textChars":6,"textLines":1,"bbox":[736.33,145,164,72]}
+{"kind":"shape","id":"sh/rutcb6p8","slide":3,"bbox":[818.33,217,0,380]}
+{"kind":"textbox","id":"sh/wb6dgf6d","slide":3,"text":"Ozon","textPreview":"Ozon","textChars":4,"textLines":1,"bbox":[1093,145,164,72]}
+{"kind":"shape","id":"sh/xcfepk7i","slide":3,"bbox":[1175,217,0,380]}
+{"kind":"shape","id":"sh/hsr6tk72","slide":3,"bbox":[105,263,356.67,11]}
+{"kind":"textbox","id":"sh/gripkf6h","slide":3,"text":"Утвердить версию","textPreview":"Утвердить версию","textChars":16,"textLines":1,"bbox":[115,227,344.67,38]}
+{"kind":"shape","id":"sh/vq9orapw","slide":3,"bbox":[461.67,328,356.67,11]}
+{"kind":"textbox","id":"sh/upg7i5ob","slide":3,"text":"Очередь и ключ","textPreview":"Очередь и ключ","textChars":14,"textLines":1,"bbox":[471.67,292,344.67,38]}
+{"kind":"shape","id":"sh/to76p07q","slide":3,"bbox":[818.33,393,356.67,11]}
+{"kind":"textbox","id":"sh/8nypgfq5","slide":3,"text":"HTTPS / JSON","textPreview":"HTTPS / JSON","textChars":12,"textLines":1,"bbox":[828.33,357,344.67,38]}
+{"kind":"shape","id":"sh/7mponap0","slide":3,"bbox":[818.33,458,356.67,11]}
+{"kind":"textbox","id":"sh/6lg7e58f","slide":3,"text":"ID задачи","textPreview":"ID задачи","textChars":9,"textLines":1,"bbox":[828.33,422,344.67,38]}
+{"kind":"shape","id":"sh/dkbq147a","slide":3,"bbox":[818.33,523,356.67,11]}
+{"kind":"textbox","id":"sh/sj2psz6p","slide":3,"text":"Сверить результат","textPreview":"Сверить результат","textChars":17,"textLines":1,"bbox":[828.33,487,344.67,38]}
+{"kind":"textbox","id":"sh/czuhk7ix","slide":3,"text":"Потеря ответа требует сверки. Локальный ключ не гарантирует идемпотентность Ozon.","textPreview":"Потеря ответа требует сверки. Локальный ключ не гарантирует идемпотентность Ozon.","textChars":81,"textLines":1,"bbox":[62,638,1150,65]}
+{"kind":"notes","id":"nt/gedgbb","slide":3,"text":"Методические материалы РОП, практические занятия 1–8, 2026–2027. Вариант: первая практика Албахтина И.В. Полные схемы и описание: единый отчёт в комплекте. Все параметры нагрузки и примеры расчётов — учебные проектные значения.\nПотеря ответа требует сверки. Локальный ключ не гарантирует идемпотентность Ozon."}
+{"kind":"slide","id":"sl/k5276d","slide":4,"title":"Разделение обязанностей","textShapes":1}
+{"kind":"textbox","id":"sh/xcvmtwbi","slide":4,"text":"Разделение обязанностей","textPreview":"Разделение обязанностей","textChars":23,"textLines":1,"bbox":[58,35,1160,90]}
+{"kind":"table","id":"tb/f25cv6ho","slide":4,"name":"","rows":6,"cols":3,"preview":"Роль | Основное право | Ограничение","bbox":[60,150,1160,480]}
+{"kind":"notes","id":"nt/k5276d","slide":4,"text":"Методические материалы РОП, практические занятия 1–8, 2026–2027. Вариант: первая практика Албахтина И.В. Полные схемы и описание: единый отчёт в комплекте. Все параметры нагрузки и примеры расчётов — учебные проектные значения.\n"}
+{"kind":"slide","id":"sl/7lztdg","slide":5,"title":"Ошибки внешней операции","textShapes":1}
+{"kind":"textbox","id":"sh/e5kvilwb","slide":5,"text":"Ошибки внешней операции","textPreview":"Ошибки внешней операции","textChars":23,"textLines":1,"bbox":[58,35,1160,90]}
+{"kind":"table","id":"tb/0nu143m9","slide":5,"name":"","rows":5,"cols":2,"preview":"Ситуация | Решение","bbox":[60,150,1160,480]}
+{"kind":"notes","id":"nt/7lztdg","slide":5,"text":"Методические материалы РОП, практические занятия 1–8, 2026–2027. Вариант: первая практика Албахтина И.В. Полные схемы и описание: единый отчёт в комплекте. Все параметры нагрузки и примеры расчётов — учебные проектные значения.\n"}
+{"kind":"slide","id":"sl/dhlj1r","slide":6,"title":"Меры защиты","textShapes":5}
+{"kind":"textbox","id":"sh/98nu5svy","slide":6,"text":"Меры защиты","textPreview":"Меры защиты","textChars":11,"textLines":1,"bbox":[58,35,1160,90]}
+{"kind":"textbox","id":"sh/m5wbuxc7","slide":6,"text":"Argon2id, индивидуальные учётные записи и MFA администратора.","textPreview":"Argon2id, индивидуальные учётные записи и MFA администратора.","textChars":61,"textLines":1,"bbox":[70,160,1130,96]}
+{"kind":"textbox","id":"sh/n65c32ds","slide":6,"text":"Серверная RBAC-проверка каждой операции, по умолчанию запрет.","textPreview":"Серверная RBAC-проверка каждой операции, по умолчанию запрет.","textChars":61,"textLines":1,"bbox":[70,272,1130,96]}
+{"kind":"textbox","id":"sh/wbyt07up","slide":6,"text":"TLS, защищённое хранение секретов, валидация ответов.","textPreview":"TLS, защищённое хранение секретов, валидация ответов.","textChars":53,"textLines":1,"bbox":[70,384,1130,96]}
+{"kind":"textbox","id":"sh/xc7u9cvu","slide":6,"text":"Неизменяемый аудит и ежедневные резервные копии.","textPreview":"Неизменяемый аудит и ежедневные резервные копии.","textChars":48,"textLines":1,"bbox":[70,496,1130,96]}
+{"kind":"notes","id":"nt/dhlj1r","slide":6,"text":"Методические материалы РОП, практические занятия 1–8, 2026–2027. Вариант: первая практика Албахтина И.В. Полные схемы и описание: единый отчёт в комплекте. Все параметры нагрузки и примеры расчётов — учебные проектные значения.\nOWASP Password Storage, Authorization и Transport Layer Security Cheat Sheets."}

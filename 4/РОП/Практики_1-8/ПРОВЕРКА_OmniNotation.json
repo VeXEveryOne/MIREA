@@ -1,0 +1,22 @@
+[
+  {
+    "file": "ПР1_BPMN_AS_IS.nsbpmn",
+    "notation": "BPMN",
+    "diagnostics": []
+  },
+  {
+    "file": "ПР1_IDEF0_AS_IS.nsidef0",
+    "notation": "IDEF0",
+    "diagnostics": []
+  },
+  {
+    "file": "ПР2_BPMN_TO_BE.nsbpmn",
+    "notation": "BPMN",
+    "diagnostics": []
+  },
+  {
+    "file": "ПР2_IDEF0_TO_BE.nsidef0",
+    "notation": "IDEF0",
+    "diagnostics": []
+  }
+]

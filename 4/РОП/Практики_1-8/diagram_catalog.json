@@ -1,0 +1,5528 @@
+[
+  {
+    "id": "D01_function_tree",
+    "title": "Дерево функций",
+    "practice": 2,
+    "requirement": "ПР2 с.2–3",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "",
+    "width": 1560,
+    "height": 690,
+    "nodes": [
+      {
+        "id": "root",
+        "label": "Подготовить и актуализировать\nкарточки компьютерных систем",
+        "x": 480,
+        "y": 20,
+        "w": 600,
+        "h": 85,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b1",
+        "label": "BOM и правила",
+        "x": 20,
+        "y": 210,
+        "w": 280,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b1d",
+        "label": "Версии и слоты\nСовместимость\nМассовая замена",
+        "x": 20,
+        "y": 410,
+        "w": 280,
+        "h": 165,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b2",
+        "label": "Предложения",
+        "x": 330,
+        "y": 210,
+        "w": 280,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b2d",
+        "label": "Сопоставление SKU\nЗагрузка цен и остатков\nВыбор предложения",
+        "x": 330,
+        "y": 410,
+        "w": 280,
+        "h": 165,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b3",
+        "label": "Расчёты и контент",
+        "x": 640,
+        "y": 210,
+        "w": 280,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b3d",
+        "label": "Цена и масса\nАтрибуты и описание\nИзображения",
+        "x": 640,
+        "y": 410,
+        "w": 280,
+        "h": 165,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b4",
+        "label": "Публикация",
+        "x": 950,
+        "y": 210,
+        "w": 280,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b4d",
+        "label": "Контроль готовности\nОтправка и статус\nПовторы и уведомления",
+        "x": 950,
+        "y": 410,
+        "w": 280,
+        "h": 165,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b5",
+        "label": "Администрирование",
+        "x": 1260,
+        "y": 210,
+        "w": 280,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b5d",
+        "label": "Пользователи и роли\nАудит изменений\nПравила и справочники",
+        "x": 1260,
+        "y": 410,
+        "w": 280,
+        "h": 165,
+        "kind": "box",
+        "body": null
+      }
+    ],
+    "edges": [
+      {
+        "source": "root",
+        "target": "b1",
+        "label": "",
+        "points": [
+          [
+            780,
+            105
+          ],
+          [
+            780,
+            155
+          ],
+          [
+            160,
+            155
+          ],
+          [
+            160,
+            210
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "b1",
+        "target": "b1d",
+        "label": "",
+        "points": [
+          [
+            160.0,
+            275.0
+          ],
+          [
+            160.0,
+            342.5
+          ],
+          [
+            160.0,
+            342.5
+          ],
+          [
+            160.0,
+            410.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "root",
+        "target": "b2",
+        "label": "",
+        "points": [
+          [
+            780,
+            105
+          ],
+          [
+            780,
+            155
+          ],
+          [
+            470,
+            155
+          ],
+          [
+            470,
+            210
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "b2",
+        "target": "b2d",
+        "label": "",
+        "points": [
+          [
+            470.0,
+            275.0
+          ],
+          [
+            470.0,
+            342.5
+          ],
+          [
+            470.0,
+            342.5
+          ],
+          [
+            470.0,
+            410.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "root",
+        "target": "b3",
+        "label": "",
+        "points": [
+          [
+            780,
+            105
+          ],
+          [
+            780,
+            155
+          ],
+          [
+            780,
+            155
+          ],
+          [
+            780,
+            210
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "b3",
+        "target": "b3d",
+        "label": "",
+        "points": [
+          [
+            780.0,
+            275.0
+          ],
+          [
+            780.0,
+            342.5
+          ],
+          [
+            780.0,
+            342.5
+          ],
+          [
+            780.0,
+            410.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "root",
+        "target": "b4",
+        "label": "",
+        "points": [
+          [
+            780,
+            105
+          ],
+          [
+            780,
+            155
+          ],
+          [
+            1090,
+            155
+          ],
+          [
+            1090,
+            210
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "b4",
+        "target": "b4d",
+        "label": "",
+        "points": [
+          [
+            1090.0,
+            275.0
+          ],
+          [
+            1090.0,
+            342.5
+          ],
+          [
+            1090.0,
+            342.5
+          ],
+          [
+            1090.0,
+            410.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "root",
+        "target": "b5",
+        "label": "",
+        "points": [
+          [
+            780,
+            105
+          ],
+          [
+            780,
+            155
+          ],
+          [
+            1400,
+            155
+          ],
+          [
+            1400,
+            210
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "b5",
+        "target": "b5d",
+        "label": "",
+        "points": [
+          [
+            1400.0,
+            275.0
+          ],
+          [
+            1400.0,
+            342.5
+          ],
+          [
+            1400.0,
+            342.5
+          ],
+          [
+            1400.0,
+            410.0
+          ]
+        ],
+        "style": "solid"
+      }
+    ]
+  },
+  {
+    "id": "D02_component",
+    "title": "Диаграмма компонентов",
+    "practice": 2,
+    "requirement": "ПР2 с.2–4",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Модульный монолит. Репозитории и аудит используются всеми бизнес-модулями; повторяющиеся зависимости опущены для читаемости.",
+    "width": 1480,
+    "height": 840,
+    "nodes": [
+      {
+        "id": "ui",
+        "label": "«component»\nВеб-интерфейс",
+        "x": 30,
+        "y": 280,
+        "w": 270,
+        "h": 115,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "auth",
+        "label": "«component»\nПроверка прав и аудит",
+        "x": 385,
+        "y": 35,
+        "w": 280,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "bom",
+        "label": "«component»\nBOM и правила",
+        "x": 385,
+        "y": 235,
+        "w": 280,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "content",
+        "label": "«component»\nРасчёты и контент",
+        "x": 385,
+        "y": 480,
+        "w": 280,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "pub",
+        "label": "«component»\nПубликации и очередь",
+        "x": 800,
+        "y": 480,
+        "w": 280,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "sup",
+        "label": "«component»\nАдаптеры поставщиков",
+        "x": 800,
+        "y": 235,
+        "w": 280,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "db",
+        "label": "«component»\nРепозитории PostgreSQL",
+        "x": 780,
+        "y": 35,
+        "w": 310,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "ext",
+        "label": "«external»\nPC4Games и ITPartner",
+        "x": 1160,
+        "y": 235,
+        "w": 290,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "oz",
+        "label": "«external»\nOzon Seller",
+        "x": 1160,
+        "y": 480,
+        "w": 290,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "media",
+        "label": "«component»\nХранилище изображений",
+        "x": 785,
+        "y": 700,
+        "w": 310,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      }
+    ],
+    "edges": [
+      {
+        "source": "ui",
+        "target": "bom",
+        "label": "HTTPS / JSON",
+        "points": [
+          [
+            300.0,
+            337.5
+          ],
+          [
+            342.5,
+            337.5
+          ],
+          [
+            342.5,
+            290.0
+          ],
+          [
+            385.0,
+            290.0
+          ]
+        ],
+        "style": "dashed"
+      },
+      {
+        "source": "bom",
+        "target": "auth",
+        "label": "проверка роли",
+        "points": [
+          [
+            525.0,
+            235.0
+          ],
+          [
+            525.0,
+            190.0
+          ],
+          [
+            525.0,
+            190.0
+          ],
+          [
+            525.0,
+            145.0
+          ]
+        ],
+        "style": "dashed"
+      },
+      {
+        "source": "bom",
+        "target": "db",
+        "label": "репозитории",
+        "points": [
+          [
+            665.0,
+            290.0
+          ],
+          [
+            722.5,
+            290.0
+          ],
+          [
+            722.5,
+            90.0
+          ],
+          [
+            780.0,
+            90.0
+          ]
+        ],
+        "style": "dashed"
+      },
+      {
+        "source": "bom",
+        "target": "sup",
+        "label": "предложения",
+        "points": [
+          [
+            665.0,
+            290.0
+          ],
+          [
+            732.5,
+            290.0
+          ],
+          [
+            732.5,
+            290.0
+          ],
+          [
+            800.0,
+            290.0
+          ]
+        ],
+        "style": "dashed"
+      },
+      {
+        "source": "sup",
+        "target": "ext",
+        "label": "адаптер",
+        "points": [
+          [
+            1080.0,
+            290.0
+          ],
+          [
+            1120.0,
+            290.0
+          ],
+          [
+            1120.0,
+            290.0
+          ],
+          [
+            1160.0,
+            290.0
+          ]
+        ],
+        "style": "dashed"
+      },
+      {
+        "source": "bom",
+        "target": "content",
+        "label": "версия BOM",
+        "points": [
+          [
+            525.0,
+            345.0
+          ],
+          [
+            525.0,
+            412.5
+          ],
+          [
+            525.0,
+            412.5
+          ],
+          [
+            525.0,
+            480.0
+          ]
+        ],
+        "style": "dashed"
+      },
+      {
+        "source": "content",
+        "target": "pub",
+        "label": "версия карточки",
+        "points": [
+          [
+            665.0,
+            535.0
+          ],
+          [
+            732.5,
+            535.0
+          ],
+          [
+            732.5,
+            535.0
+          ],
+          [
+            800.0,
+            535.0
+          ]
+        ],
+        "style": "dashed"
+      },
+      {
+        "source": "pub",
+        "target": "oz",
+        "label": "HTTPS / JSON",
+        "points": [
+          [
+            1080.0,
+            535.0
+          ],
+          [
+            1120.0,
+            535.0
+          ],
+          [
+            1120.0,
+            535.0
+          ],
+          [
+            1160.0,
+            535.0
+          ]
+        ],
+        "style": "dashed"
+      },
+      {
+        "source": "content",
+        "target": "media",
+        "label": "файлы",
+        "points": [
+          [
+            665.0,
+            535.0
+          ],
+          [
+            725.0,
+            535.0
+          ],
+          [
+            725.0,
+            755.0
+          ],
+          [
+            785.0,
+            755.0
+          ]
+        ],
+        "style": "dashed"
+      }
+    ]
+  },
+  {
+    "id": "D03_logical_1",
+    "title": "Логическая модель данных, вид 1",
+    "practice": 3,
+    "requirement": "ПР3 с.2–3",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Полный словарь атрибутов, составные ключи и межвидовые FK — в отчёте и База_данных/model.json. Диаграммы вместе составляют одну модель из 29 таблиц.",
+    "width": 1640,
+    "height": 940,
+    "nodes": [
+      {
+        "id": "supplier",
+        "label": "supplier",
+        "x": 30,
+        "y": 80,
+        "w": 370,
+        "h": 195,
+        "kind": "box",
+        "body": "PK id\ncode\nname\n… полный состав в словаре"
+      },
+      {
+        "id": "component",
+        "label": "component",
+        "x": 435,
+        "y": 80,
+        "w": 370,
+        "h": 195,
+        "kind": "box",
+        "body": "PK id\ncode\nkind\n… полный состав в словаре"
+      },
+      {
+        "id": "characteristic",
+        "label": "characteristic",
+        "x": 840,
+        "y": 80,
+        "w": 370,
+        "h": 195,
+        "kind": "box",
+        "body": "PK id\ncode\nname\n… полный состав в словаре"
+      },
+      {
+        "id": "component_value",
+        "label": "component_value",
+        "x": 1245,
+        "y": 80,
+        "w": 370,
+        "h": 195,
+        "kind": "box",
+        "body": "FK component_id\nFK characteristic_id\nnumber_value\ntext_value"
+      },
+      {
+        "id": "component_group",
+        "label": "component_group",
+        "x": 30,
+        "y": 510,
+        "w": 370,
+        "h": 195,
+        "kind": "box",
+        "body": "PK id\ncode\nname\n… полный состав в словаре"
+      },
+      {
+        "id": "supplier_product",
+        "label": "supplier_product",
+        "x": 435,
+        "y": 510,
+        "w": 370,
+        "h": 255,
+        "kind": "box",
+        "body": "PK id\nFK supplier_id\nFK component_id\nexternal_sku\ntitle\n… полный состав в словаре"
+      },
+      {
+        "id": "supplier_offer",
+        "label": "supplier_offer",
+        "x": 840,
+        "y": 510,
+        "w": 370,
+        "h": 225,
+        "kind": "box",
+        "body": "PK id\nFK product_id\nprice\ncurrency\n… полный состав в словаре"
+      }
+    ],
+    "edges": [
+      {
+        "source": "component_value",
+        "target": "characteristic",
+        "label": "",
+        "points": [
+          [
+            1615,
+            128
+          ],
+          [
+            1631,
+            128
+          ],
+          [
+            1631,
+            64
+          ],
+          [
+            1226,
+            64
+          ],
+          [
+            1226,
+            128
+          ],
+          [
+            1210,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "component_value",
+        "target": "component",
+        "label": "",
+        "points": [
+          [
+            1615,
+            144
+          ],
+          [
+            1639,
+            144
+          ],
+          [
+            1639,
+            55
+          ],
+          [
+            829,
+            55
+          ],
+          [
+            829,
+            144
+          ],
+          [
+            805,
+            144
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "supplier_product",
+        "target": "component",
+        "label": "",
+        "points": [
+          [
+            805,
+            558
+          ],
+          [
+            821,
+            558
+          ],
+          [
+            821,
+            480
+          ],
+          [
+            821,
+            480
+          ],
+          [
+            821,
+            128
+          ],
+          [
+            805,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "supplier_product",
+        "target": "supplier",
+        "label": "",
+        "points": [
+          [
+            805,
+            574
+          ],
+          [
+            829,
+            574
+          ],
+          [
+            829,
+            487
+          ],
+          [
+            424,
+            487
+          ],
+          [
+            424,
+            144
+          ],
+          [
+            400,
+            144
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "supplier_offer",
+        "target": "supplier_product",
+        "label": "",
+        "points": [
+          [
+            1210,
+            558
+          ],
+          [
+            1226,
+            558
+          ],
+          [
+            1226,
+            494
+          ],
+          [
+            821,
+            494
+          ],
+          [
+            821,
+            558
+          ],
+          [
+            805,
+            558
+          ]
+        ],
+        "style": "solid"
+      }
+    ]
+  },
+  {
+    "id": "D03_logical_2",
+    "title": "Логическая модель данных, вид 2",
+    "practice": 3,
+    "requirement": "ПР3 с.2–3",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Полный словарь атрибутов, составные ключи и межвидовые FK — в отчёте и База_данных/model.json. Диаграммы вместе составляют одну модель из 29 таблиц.",
+    "width": 1640,
+    "height": 940,
+    "nodes": [
+      {
+        "id": "bom",
+        "label": "bom",
+        "x": 30,
+        "y": 80,
+        "w": 370,
+        "h": 225,
+        "kind": "box",
+        "body": "PK id\nFK created_by\ncode\nname\n… полный состав в словаре"
+      },
+      {
+        "id": "change_request",
+        "label": "change_request",
+        "x": 435,
+        "y": 80,
+        "w": 370,
+        "h": 255,
+        "kind": "box",
+        "body": "PK id\nFK bom_id\nFK created_by\nkind\nreason\n… полный состав в словаре"
+      },
+      {
+        "id": "bom_version",
+        "label": "bom_version",
+        "x": 840,
+        "y": 80,
+        "w": 370,
+        "h": 315,
+        "kind": "box",
+        "body": "PK id\nFK bom_id\nFK request_id\nFK case_component_id\nFK created_by\nversion_no\nstate\n… полный состав в словаре"
+      },
+      {
+        "id": "bom_slot",
+        "label": "bom_slot",
+        "x": 1245,
+        "y": 80,
+        "w": 370,
+        "h": 285,
+        "kind": "box",
+        "body": "PK id\nFK version_id\nFK component_id\nFK group_id\nFK pinned_product_id\nslot_code\nquantity"
+      },
+      {
+        "id": "slot_selection",
+        "label": "slot_selection",
+        "x": 30,
+        "y": 510,
+        "w": 370,
+        "h": 195,
+        "kind": "box",
+        "body": "PK slot_id\nFK offer_id\nFK resolved_component_id\nselected_at"
+      },
+      {
+        "id": "compatibility_rule",
+        "label": "compatibility_rule",
+        "x": 435,
+        "y": 510,
+        "w": 370,
+        "h": 195,
+        "kind": "box",
+        "body": "PK id\ncode\nrevision\n… полный состав в словаре"
+      },
+      {
+        "id": "validation_result",
+        "label": "validation_result",
+        "x": 840,
+        "y": 510,
+        "w": 370,
+        "h": 225,
+        "kind": "box",
+        "body": "PK id\nFK version_id\nvalid\nrules_snapshot\n… полный состав в словаре"
+      }
+    ],
+    "edges": [
+      {
+        "source": "change_request",
+        "target": "bom",
+        "label": "",
+        "points": [
+          [
+            805,
+            128
+          ],
+          [
+            821,
+            128
+          ],
+          [
+            821,
+            64
+          ],
+          [
+            416,
+            64
+          ],
+          [
+            416,
+            128
+          ],
+          [
+            400,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "bom_version",
+        "target": "bom",
+        "label": "",
+        "points": [
+          [
+            1210,
+            128
+          ],
+          [
+            1226,
+            128
+          ],
+          [
+            1226,
+            64
+          ],
+          [
+            416,
+            64
+          ],
+          [
+            416,
+            128
+          ],
+          [
+            400,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "bom_version",
+        "target": "change_request",
+        "label": "",
+        "points": [
+          [
+            1210,
+            144
+          ],
+          [
+            1234,
+            144
+          ],
+          [
+            1234,
+            55
+          ],
+          [
+            829,
+            55
+          ],
+          [
+            829,
+            144
+          ],
+          [
+            805,
+            144
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "bom_slot",
+        "target": "bom_version",
+        "label": "",
+        "points": [
+          [
+            1615,
+            128
+          ],
+          [
+            1631,
+            128
+          ],
+          [
+            1631,
+            64
+          ],
+          [
+            1226,
+            64
+          ],
+          [
+            1226,
+            128
+          ],
+          [
+            1210,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "slot_selection",
+        "target": "bom_slot",
+        "label": "",
+        "points": [
+          [
+            400,
+            558
+          ],
+          [
+            416,
+            558
+          ],
+          [
+            416,
+            480
+          ],
+          [
+            1631,
+            480
+          ],
+          [
+            1631,
+            128
+          ],
+          [
+            1615,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "validation_result",
+        "target": "bom_version",
+        "label": "",
+        "points": [
+          [
+            1210,
+            558
+          ],
+          [
+            1226,
+            558
+          ],
+          [
+            1226,
+            480
+          ],
+          [
+            1226,
+            480
+          ],
+          [
+            1226,
+            128
+          ],
+          [
+            1210,
+            128
+          ]
+        ],
+        "style": "solid"
+      }
+    ]
+  },
+  {
+    "id": "D03_logical_3",
+    "title": "Логическая модель данных, вид 3",
+    "practice": 3,
+    "requirement": "ПР3 с.2–3",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Полный словарь атрибутов, составные ключи и межвидовые FK — в отчёте и База_данных/model.json. Диаграммы вместе составляют одну модель из 29 таблиц.",
+    "width": 1640,
+    "height": 520,
+    "nodes": [
+      {
+        "id": "replacement_rule",
+        "label": "replacement_rule",
+        "x": 30,
+        "y": 80,
+        "w": 370,
+        "h": 315,
+        "kind": "box",
+        "body": "PK id\nFK from_component_id\nFK to_component_id\nFK from_product_id\nFK to_product_id\ncode\nscope\n… полный состав в словаре"
+      },
+      {
+        "id": "replacement_batch",
+        "label": "replacement_batch",
+        "x": 435,
+        "y": 80,
+        "w": 370,
+        "h": 255,
+        "kind": "box",
+        "body": "PK id\nFK rule_id\nFK created_by\nstate\nrule_snapshot\n… полный состав в словаре"
+      },
+      {
+        "id": "replacement_item",
+        "label": "replacement_item",
+        "x": 840,
+        "y": 80,
+        "w": 370,
+        "h": 255,
+        "kind": "box",
+        "body": "FK batch_id\nFK bom_id\nFK old_version_id\nFK new_version_id\nresult\ndetails"
+      },
+      {
+        "id": "calculation_rule",
+        "label": "calculation_rule",
+        "x": 1245,
+        "y": 80,
+        "w": 370,
+        "h": 195,
+        "kind": "box",
+        "body": "PK id\ncode\nrevision\n… полный состав в словаре"
+      }
+    ],
+    "edges": [
+      {
+        "source": "replacement_batch",
+        "target": "replacement_rule",
+        "label": "",
+        "points": [
+          [
+            805,
+            128
+          ],
+          [
+            821,
+            128
+          ],
+          [
+            821,
+            64
+          ],
+          [
+            416,
+            64
+          ],
+          [
+            416,
+            128
+          ],
+          [
+            400,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "replacement_item",
+        "target": "replacement_batch",
+        "label": "",
+        "points": [
+          [
+            1210,
+            128
+          ],
+          [
+            1226,
+            128
+          ],
+          [
+            1226,
+            64
+          ],
+          [
+            821,
+            64
+          ],
+          [
+            821,
+            128
+          ],
+          [
+            805,
+            128
+          ]
+        ],
+        "style": "solid"
+      }
+    ]
+  },
+  {
+    "id": "D03_logical_4",
+    "title": "Логическая модель данных, вид 4",
+    "practice": 3,
+    "requirement": "ПР3 с.2–3",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Полный словарь атрибутов, составные ключи и межвидовые FK — в отчёте и База_данных/model.json. Диаграммы вместе составляют одну модель из 29 таблиц.",
+    "width": 1640,
+    "height": 940,
+    "nodes": [
+      {
+        "id": "card",
+        "label": "card",
+        "x": 30,
+        "y": 80,
+        "w": 370,
+        "h": 255,
+        "kind": "box",
+        "body": "PK id\nFK bom_id\nFK responsible_id\noffer_id\nstatus\n… полный состав в словаре"
+      },
+      {
+        "id": "card_version",
+        "label": "card_version",
+        "x": 435,
+        "y": 80,
+        "w": 370,
+        "h": 315,
+        "kind": "box",
+        "body": "PK id\nFK card_id\nFK bom_version_id\nFK validation_id\nFK calculation_rule_id\nversion_no\ntitle\n… полный состав в словаре"
+      },
+      {
+        "id": "image_template",
+        "label": "image_template",
+        "x": 840,
+        "y": 80,
+        "w": 370,
+        "h": 195,
+        "kind": "box",
+        "body": "PK id\ncode\nrevision\n… полный состав в словаре"
+      },
+      {
+        "id": "image_asset",
+        "label": "image_asset",
+        "x": 1245,
+        "y": 80,
+        "w": 370,
+        "h": 255,
+        "kind": "box",
+        "body": "PK id\nFK template_id\nFK created_by\nstorage_key\nsha256\n… полный состав в словаре"
+      },
+      {
+        "id": "card_image",
+        "label": "card_image",
+        "x": 30,
+        "y": 510,
+        "w": 370,
+        "h": 170,
+        "kind": "box",
+        "body": "FK card_version_id\nFK image_id\nposition"
+      },
+      {
+        "id": "publication",
+        "label": "publication",
+        "x": 435,
+        "y": 510,
+        "w": 370,
+        "h": 225,
+        "kind": "box",
+        "body": "PK id\nFK card_version_id\noperation_key\nexternal_task_id\n… полный состав в словаре"
+      }
+    ],
+    "edges": [
+      {
+        "source": "card_version",
+        "target": "card",
+        "label": "",
+        "points": [
+          [
+            805,
+            128
+          ],
+          [
+            821,
+            128
+          ],
+          [
+            821,
+            64
+          ],
+          [
+            416,
+            64
+          ],
+          [
+            416,
+            128
+          ],
+          [
+            400,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "image_asset",
+        "target": "image_template",
+        "label": "",
+        "points": [
+          [
+            1615,
+            128
+          ],
+          [
+            1631,
+            128
+          ],
+          [
+            1631,
+            64
+          ],
+          [
+            1226,
+            64
+          ],
+          [
+            1226,
+            128
+          ],
+          [
+            1210,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "card_image",
+        "target": "card_version",
+        "label": "",
+        "points": [
+          [
+            400,
+            558
+          ],
+          [
+            416,
+            558
+          ],
+          [
+            416,
+            480
+          ],
+          [
+            821,
+            480
+          ],
+          [
+            821,
+            128
+          ],
+          [
+            805,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "card_image",
+        "target": "image_asset",
+        "label": "",
+        "points": [
+          [
+            400,
+            574
+          ],
+          [
+            424,
+            574
+          ],
+          [
+            424,
+            487
+          ],
+          [
+            1639,
+            487
+          ],
+          [
+            1639,
+            144
+          ],
+          [
+            1615,
+            144
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "publication",
+        "target": "card_version",
+        "label": "",
+        "points": [
+          [
+            805,
+            558
+          ],
+          [
+            821,
+            558
+          ],
+          [
+            821,
+            480
+          ],
+          [
+            821,
+            480
+          ],
+          [
+            821,
+            128
+          ],
+          [
+            805,
+            128
+          ]
+        ],
+        "style": "solid"
+      }
+    ]
+  },
+  {
+    "id": "D03_logical_5",
+    "title": "Логическая модель данных, вид 5",
+    "practice": 3,
+    "requirement": "ПР3 с.2–3",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Полный словарь атрибутов, составные ключи и межвидовые FK — в отчёте и База_данных/model.json. Диаграммы вместе составляют одну модель из 29 таблиц.",
+    "width": 1640,
+    "height": 940,
+    "nodes": [
+      {
+        "id": "role",
+        "label": "role",
+        "x": 30,
+        "y": 80,
+        "w": 370,
+        "h": 170,
+        "kind": "box",
+        "body": "PK code\nname"
+      },
+      {
+        "id": "app_user",
+        "label": "app_user",
+        "x": 435,
+        "y": 80,
+        "w": 370,
+        "h": 195,
+        "kind": "box",
+        "body": "PK id\nlogin\npassword_hash\n… полный состав в словаре"
+      },
+      {
+        "id": "user_role",
+        "label": "user_role",
+        "x": 840,
+        "y": 80,
+        "w": 370,
+        "h": 170,
+        "kind": "box",
+        "body": "FK user_id\nFK role_code\ncreated_at"
+      },
+      {
+        "id": "audit_event",
+        "label": "audit_event",
+        "x": 1245,
+        "y": 80,
+        "w": 370,
+        "h": 225,
+        "kind": "box",
+        "body": "PK id\nFK actor_id\nactor_kind\nresource_type\n… полный состав в словаре"
+      },
+      {
+        "id": "notification",
+        "label": "notification",
+        "x": 30,
+        "y": 510,
+        "w": 370,
+        "h": 255,
+        "kind": "box",
+        "body": "PK id\nFK recipient_id\nFK card_id\nkind\nmessage\n… полный состав в словаре"
+      }
+    ],
+    "edges": [
+      {
+        "source": "user_role",
+        "target": "app_user",
+        "label": "",
+        "points": [
+          [
+            1210,
+            128
+          ],
+          [
+            1226,
+            128
+          ],
+          [
+            1226,
+            64
+          ],
+          [
+            821,
+            64
+          ],
+          [
+            821,
+            128
+          ],
+          [
+            805,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "audit_event",
+        "target": "app_user",
+        "label": "",
+        "points": [
+          [
+            1615,
+            128
+          ],
+          [
+            1631,
+            128
+          ],
+          [
+            1631,
+            64
+          ],
+          [
+            821,
+            64
+          ],
+          [
+            821,
+            128
+          ],
+          [
+            805,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "notification",
+        "target": "app_user",
+        "label": "",
+        "points": [
+          [
+            400,
+            558
+          ],
+          [
+            416,
+            558
+          ],
+          [
+            416,
+            480
+          ],
+          [
+            821,
+            480
+          ],
+          [
+            821,
+            128
+          ],
+          [
+            805,
+            128
+          ]
+        ],
+        "style": "solid"
+      }
+    ]
+  },
+  {
+    "id": "D20_physical_1",
+    "title": "Физическая модель данных, вид 1",
+    "practice": 7,
+    "requirement": "ПР7 с.2–4",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Полный словарь атрибутов, составные ключи и межвидовые FK — в отчёте и База_данных/model.json. Диаграммы вместе составляют одну модель из 29 таблиц.",
+    "width": 1640,
+    "height": 940,
+    "nodes": [
+      {
+        "id": "supplier",
+        "label": "supplier",
+        "x": 30,
+        "y": 80,
+        "w": 370,
+        "h": 195,
+        "kind": "box",
+        "body": "PK id i8\ncode v(16)\nname v(120)\n… полный состав в словаре"
+      },
+      {
+        "id": "component",
+        "label": "component",
+        "x": 435,
+        "y": 80,
+        "w": 370,
+        "h": 195,
+        "kind": "box",
+        "body": "PK id i8\ncode v(20)\nkind v(12)\n… полный состав в словаре"
+      },
+      {
+        "id": "characteristic",
+        "label": "characteristic",
+        "x": 840,
+        "y": 80,
+        "w": 370,
+        "h": 195,
+        "kind": "box",
+        "body": "PK id i8\ncode v(32)\nname v(120)\n… полный состав в словаре"
+      },
+      {
+        "id": "component_value",
+        "label": "component_value",
+        "x": 1245,
+        "y": 80,
+        "w": 370,
+        "h": 195,
+        "kind": "box",
+        "body": "FK component_id i8\nFK characteristic_id i8\nnumber_value n(14,4)\ntext_value v(150)"
+      },
+      {
+        "id": "component_group",
+        "label": "component_group",
+        "x": 30,
+        "y": 510,
+        "w": 370,
+        "h": 195,
+        "kind": "box",
+        "body": "PK id i8\ncode v(32)\nname v(120)\n… полный состав в словаре"
+      },
+      {
+        "id": "supplier_product",
+        "label": "supplier_product",
+        "x": 435,
+        "y": 510,
+        "w": 370,
+        "h": 255,
+        "kind": "box",
+        "body": "PK id i8\nFK supplier_id i8\nFK component_id i8\nexternal_sku v(80)\ntitle v(180)\n… полный состав в словаре"
+      },
+      {
+        "id": "supplier_offer",
+        "label": "supplier_offer",
+        "x": 840,
+        "y": 510,
+        "w": 370,
+        "h": 225,
+        "kind": "box",
+        "body": "PK id i8\nFK product_id i8\nprice n(14,2)\ncurrency v(3)\n… полный состав в словаре"
+      }
+    ],
+    "edges": [
+      {
+        "source": "component_value",
+        "target": "characteristic",
+        "label": "",
+        "points": [
+          [
+            1615,
+            128
+          ],
+          [
+            1631,
+            128
+          ],
+          [
+            1631,
+            64
+          ],
+          [
+            1226,
+            64
+          ],
+          [
+            1226,
+            128
+          ],
+          [
+            1210,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "component_value",
+        "target": "component",
+        "label": "",
+        "points": [
+          [
+            1615,
+            144
+          ],
+          [
+            1639,
+            144
+          ],
+          [
+            1639,
+            55
+          ],
+          [
+            829,
+            55
+          ],
+          [
+            829,
+            144
+          ],
+          [
+            805,
+            144
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "supplier_product",
+        "target": "component",
+        "label": "",
+        "points": [
+          [
+            805,
+            558
+          ],
+          [
+            821,
+            558
+          ],
+          [
+            821,
+            480
+          ],
+          [
+            821,
+            480
+          ],
+          [
+            821,
+            128
+          ],
+          [
+            805,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "supplier_product",
+        "target": "supplier",
+        "label": "",
+        "points": [
+          [
+            805,
+            574
+          ],
+          [
+            829,
+            574
+          ],
+          [
+            829,
+            487
+          ],
+          [
+            424,
+            487
+          ],
+          [
+            424,
+            144
+          ],
+          [
+            400,
+            144
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "supplier_offer",
+        "target": "supplier_product",
+        "label": "",
+        "points": [
+          [
+            1210,
+            558
+          ],
+          [
+            1226,
+            558
+          ],
+          [
+            1226,
+            494
+          ],
+          [
+            821,
+            494
+          ],
+          [
+            821,
+            558
+          ],
+          [
+            805,
+            558
+          ]
+        ],
+        "style": "solid"
+      }
+    ]
+  },
+  {
+    "id": "D20_physical_2",
+    "title": "Физическая модель данных, вид 2",
+    "practice": 7,
+    "requirement": "ПР7 с.2–4",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Полный словарь атрибутов, составные ключи и межвидовые FK — в отчёте и База_данных/model.json. Диаграммы вместе составляют одну модель из 29 таблиц.",
+    "width": 1640,
+    "height": 940,
+    "nodes": [
+      {
+        "id": "bom",
+        "label": "bom",
+        "x": 30,
+        "y": 80,
+        "w": 370,
+        "h": 225,
+        "kind": "box",
+        "body": "PK id i8\nFK created_by i8\ncode v(24)\nname v(150)\n… полный состав в словаре"
+      },
+      {
+        "id": "change_request",
+        "label": "change_request",
+        "x": 435,
+        "y": 80,
+        "w": 370,
+        "h": 255,
+        "kind": "box",
+        "body": "PK id i8\nFK bom_id i8\nFK created_by i8\nkind v(12)\nreason text\n… полный состав в словаре"
+      },
+      {
+        "id": "bom_version",
+        "label": "bom_version",
+        "x": 840,
+        "y": 80,
+        "w": 370,
+        "h": 315,
+        "kind": "box",
+        "body": "PK id i8\nFK bom_id i8\nFK request_id i8\nFK case_component_id i8\nFK created_by i8\nversion_no i4\nstate v(12)\n… полный состав в словаре"
+      },
+      {
+        "id": "bom_slot",
+        "label": "bom_slot",
+        "x": 1245,
+        "y": 80,
+        "w": 370,
+        "h": 285,
+        "kind": "box",
+        "body": "PK id i8\nFK version_id i8\nFK component_id i8\nFK group_id i8\nFK pinned_product_id i8\nslot_code v(20)\nquantity i4"
+      },
+      {
+        "id": "slot_selection",
+        "label": "slot_selection",
+        "x": 30,
+        "y": 510,
+        "w": 370,
+        "h": 195,
+        "kind": "box",
+        "body": "PK slot_id i8\nFK offer_id i8\nFK resolved_component_id i8\nselected_at tz"
+      },
+      {
+        "id": "compatibility_rule",
+        "label": "compatibility_rule",
+        "x": 435,
+        "y": 510,
+        "w": 370,
+        "h": 195,
+        "kind": "box",
+        "body": "PK id i8\ncode v(32)\nrevision i4\n… полный состав в словаре"
+      },
+      {
+        "id": "validation_result",
+        "label": "validation_result",
+        "x": 840,
+        "y": 510,
+        "w": 370,
+        "h": 225,
+        "kind": "box",
+        "body": "PK id i8\nFK version_id i8\nvalid bool\nrules_snapshot json\n… полный состав в словаре"
+      }
+    ],
+    "edges": [
+      {
+        "source": "change_request",
+        "target": "bom",
+        "label": "",
+        "points": [
+          [
+            805,
+            128
+          ],
+          [
+            821,
+            128
+          ],
+          [
+            821,
+            64
+          ],
+          [
+            416,
+            64
+          ],
+          [
+            416,
+            128
+          ],
+          [
+            400,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "bom_version",
+        "target": "bom",
+        "label": "",
+        "points": [
+          [
+            1210,
+            128
+          ],
+          [
+            1226,
+            128
+          ],
+          [
+            1226,
+            64
+          ],
+          [
+            416,
+            64
+          ],
+          [
+            416,
+            128
+          ],
+          [
+            400,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "bom_version",
+        "target": "change_request",
+        "label": "",
+        "points": [
+          [
+            1210,
+            144
+          ],
+          [
+            1234,
+            144
+          ],
+          [
+            1234,
+            55
+          ],
+          [
+            829,
+            55
+          ],
+          [
+            829,
+            144
+          ],
+          [
+            805,
+            144
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "bom_slot",
+        "target": "bom_version",
+        "label": "",
+        "points": [
+          [
+            1615,
+            128
+          ],
+          [
+            1631,
+            128
+          ],
+          [
+            1631,
+            64
+          ],
+          [
+            1226,
+            64
+          ],
+          [
+            1226,
+            128
+          ],
+          [
+            1210,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "slot_selection",
+        "target": "bom_slot",
+        "label": "",
+        "points": [
+          [
+            400,
+            558
+          ],
+          [
+            416,
+            558
+          ],
+          [
+            416,
+            480
+          ],
+          [
+            1631,
+            480
+          ],
+          [
+            1631,
+            128
+          ],
+          [
+            1615,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "validation_result",
+        "target": "bom_version",
+        "label": "",
+        "points": [
+          [
+            1210,
+            558
+          ],
+          [
+            1226,
+            558
+          ],
+          [
+            1226,
+            480
+          ],
+          [
+            1226,
+            480
+          ],
+          [
+            1226,
+            128
+          ],
+          [
+            1210,
+            128
+          ]
+        ],
+        "style": "solid"
+      }
+    ]
+  },
+  {
+    "id": "D20_physical_3",
+    "title": "Физическая модель данных, вид 3",
+    "practice": 7,
+    "requirement": "ПР7 с.2–4",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Полный словарь атрибутов, составные ключи и межвидовые FK — в отчёте и База_данных/model.json. Диаграммы вместе составляют одну модель из 29 таблиц.",
+    "width": 1640,
+    "height": 520,
+    "nodes": [
+      {
+        "id": "replacement_rule",
+        "label": "replacement_rule",
+        "x": 30,
+        "y": 80,
+        "w": 370,
+        "h": 315,
+        "kind": "box",
+        "body": "PK id i8\nFK from_component_id i8\nFK to_component_id i8\nFK from_product_id i8\nFK to_product_id i8\ncode v(32)\nscope json\n… полный состав в словаре"
+      },
+      {
+        "id": "replacement_batch",
+        "label": "replacement_batch",
+        "x": 435,
+        "y": 80,
+        "w": 370,
+        "h": 255,
+        "kind": "box",
+        "body": "PK id i8\nFK rule_id i8\nFK created_by i8\nstate v(12)\nrule_snapshot json\n… полный состав в словаре"
+      },
+      {
+        "id": "replacement_item",
+        "label": "replacement_item",
+        "x": 840,
+        "y": 80,
+        "w": 370,
+        "h": 255,
+        "kind": "box",
+        "body": "FK batch_id i8\nFK bom_id i8\nFK old_version_id i8\nFK new_version_id i8\nresult v(12)\ndetails json"
+      },
+      {
+        "id": "calculation_rule",
+        "label": "calculation_rule",
+        "x": 1245,
+        "y": 80,
+        "w": 370,
+        "h": 195,
+        "kind": "box",
+        "body": "PK id i8\ncode v(24)\nrevision i4\n… полный состав в словаре"
+      }
+    ],
+    "edges": [
+      {
+        "source": "replacement_batch",
+        "target": "replacement_rule",
+        "label": "",
+        "points": [
+          [
+            805,
+            128
+          ],
+          [
+            821,
+            128
+          ],
+          [
+            821,
+            64
+          ],
+          [
+            416,
+            64
+          ],
+          [
+            416,
+            128
+          ],
+          [
+            400,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "replacement_item",
+        "target": "replacement_batch",
+        "label": "",
+        "points": [
+          [
+            1210,
+            128
+          ],
+          [
+            1226,
+            128
+          ],
+          [
+            1226,
+            64
+          ],
+          [
+            821,
+            64
+          ],
+          [
+            821,
+            128
+          ],
+          [
+            805,
+            128
+          ]
+        ],
+        "style": "solid"
+      }
+    ]
+  },
+  {
+    "id": "D20_physical_4",
+    "title": "Физическая модель данных, вид 4",
+    "practice": 7,
+    "requirement": "ПР7 с.2–4",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Полный словарь атрибутов, составные ключи и межвидовые FK — в отчёте и База_данных/model.json. Диаграммы вместе составляют одну модель из 29 таблиц.",
+    "width": 1640,
+    "height": 940,
+    "nodes": [
+      {
+        "id": "card",
+        "label": "card",
+        "x": 30,
+        "y": 80,
+        "w": 370,
+        "h": 255,
+        "kind": "box",
+        "body": "PK id i8\nFK bom_id i8\nFK responsible_id i8\noffer_id v(64)\nstatus v(20)\n… полный состав в словаре"
+      },
+      {
+        "id": "card_version",
+        "label": "card_version",
+        "x": 435,
+        "y": 80,
+        "w": 370,
+        "h": 315,
+        "kind": "box",
+        "body": "PK id i8\nFK card_id i8\nFK bom_version_id i8\nFK validation_id i8\nFK calculation_rule_id i8\nversion_no i4\ntitle v(200)\n… полный состав в словаре"
+      },
+      {
+        "id": "image_template",
+        "label": "image_template",
+        "x": 840,
+        "y": 80,
+        "w": 370,
+        "h": 195,
+        "kind": "box",
+        "body": "PK id i8\ncode v(32)\nrevision i4\n… полный состав в словаре"
+      },
+      {
+        "id": "image_asset",
+        "label": "image_asset",
+        "x": 1245,
+        "y": 80,
+        "w": 370,
+        "h": 255,
+        "kind": "box",
+        "body": "PK id i8\nFK template_id i8\nFK created_by i8\nstorage_key v(255)\nsha256 v(64)\n… полный состав в словаре"
+      },
+      {
+        "id": "card_image",
+        "label": "card_image",
+        "x": 30,
+        "y": 510,
+        "w": 370,
+        "h": 170,
+        "kind": "box",
+        "body": "FK card_version_id i8\nFK image_id i8\nposition i2"
+      },
+      {
+        "id": "publication",
+        "label": "publication",
+        "x": 435,
+        "y": 510,
+        "w": 370,
+        "h": 225,
+        "kind": "box",
+        "body": "PK id i8\nFK card_version_id i8\noperation_key v(64)\nexternal_task_id v(100)\n… полный состав в словаре"
+      }
+    ],
+    "edges": [
+      {
+        "source": "card_version",
+        "target": "card",
+        "label": "",
+        "points": [
+          [
+            805,
+            128
+          ],
+          [
+            821,
+            128
+          ],
+          [
+            821,
+            64
+          ],
+          [
+            416,
+            64
+          ],
+          [
+            416,
+            128
+          ],
+          [
+            400,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "image_asset",
+        "target": "image_template",
+        "label": "",
+        "points": [
+          [
+            1615,
+            128
+          ],
+          [
+            1631,
+            128
+          ],
+          [
+            1631,
+            64
+          ],
+          [
+            1226,
+            64
+          ],
+          [
+            1226,
+            128
+          ],
+          [
+            1210,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "card_image",
+        "target": "card_version",
+        "label": "",
+        "points": [
+          [
+            400,
+            558
+          ],
+          [
+            416,
+            558
+          ],
+          [
+            416,
+            480
+          ],
+          [
+            821,
+            480
+          ],
+          [
+            821,
+            128
+          ],
+          [
+            805,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "card_image",
+        "target": "image_asset",
+        "label": "",
+        "points": [
+          [
+            400,
+            574
+          ],
+          [
+            424,
+            574
+          ],
+          [
+            424,
+            487
+          ],
+          [
+            1639,
+            487
+          ],
+          [
+            1639,
+            144
+          ],
+          [
+            1615,
+            144
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "publication",
+        "target": "card_version",
+        "label": "",
+        "points": [
+          [
+            805,
+            558
+          ],
+          [
+            821,
+            558
+          ],
+          [
+            821,
+            480
+          ],
+          [
+            821,
+            480
+          ],
+          [
+            821,
+            128
+          ],
+          [
+            805,
+            128
+          ]
+        ],
+        "style": "solid"
+      }
+    ]
+  },
+  {
+    "id": "D20_physical_5",
+    "title": "Физическая модель данных, вид 5",
+    "practice": 7,
+    "requirement": "ПР7 с.2–4",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Полный словарь атрибутов, составные ключи и межвидовые FK — в отчёте и База_данных/model.json. Диаграммы вместе составляют одну модель из 29 таблиц.",
+    "width": 1640,
+    "height": 940,
+    "nodes": [
+      {
+        "id": "role",
+        "label": "role",
+        "x": 30,
+        "y": 80,
+        "w": 370,
+        "h": 170,
+        "kind": "box",
+        "body": "PK code v(16)\nname v(80)"
+      },
+      {
+        "id": "app_user",
+        "label": "app_user",
+        "x": 435,
+        "y": 80,
+        "w": 370,
+        "h": 195,
+        "kind": "box",
+        "body": "PK id i8\nlogin v(80)\npassword_hash v(255)\n… полный состав в словаре"
+      },
+      {
+        "id": "user_role",
+        "label": "user_role",
+        "x": 840,
+        "y": 80,
+        "w": 370,
+        "h": 170,
+        "kind": "box",
+        "body": "FK user_id i8\nFK role_code v(16)\ncreated_at tz"
+      },
+      {
+        "id": "audit_event",
+        "label": "audit_event",
+        "x": 1245,
+        "y": 80,
+        "w": 370,
+        "h": 225,
+        "kind": "box",
+        "body": "PK id i8\nFK actor_id i8\nactor_kind v(12)\nresource_type v(40)\n… полный состав в словаре"
+      },
+      {
+        "id": "notification",
+        "label": "notification",
+        "x": 30,
+        "y": 510,
+        "w": 370,
+        "h": 255,
+        "kind": "box",
+        "body": "PK id i8\nFK recipient_id i8\nFK card_id i8\nkind v(32)\nmessage text\n… полный состав в словаре"
+      }
+    ],
+    "edges": [
+      {
+        "source": "user_role",
+        "target": "app_user",
+        "label": "",
+        "points": [
+          [
+            1210,
+            128
+          ],
+          [
+            1226,
+            128
+          ],
+          [
+            1226,
+            64
+          ],
+          [
+            821,
+            64
+          ],
+          [
+            821,
+            128
+          ],
+          [
+            805,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "audit_event",
+        "target": "app_user",
+        "label": "",
+        "points": [
+          [
+            1615,
+            128
+          ],
+          [
+            1631,
+            128
+          ],
+          [
+            1631,
+            64
+          ],
+          [
+            821,
+            64
+          ],
+          [
+            821,
+            128
+          ],
+          [
+            805,
+            128
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "notification",
+        "target": "app_user",
+        "label": "",
+        "points": [
+          [
+            400,
+            558
+          ],
+          [
+            416,
+            558
+          ],
+          [
+            416,
+            480
+          ],
+          [
+            821,
+            480
+          ],
+          [
+            821,
+            128
+          ],
+          [
+            805,
+            128
+          ]
+        ],
+        "style": "solid"
+      }
+    ]
+  },
+  {
+    "id": "D04_coding",
+    "title": "Схема кодирования BOM",
+    "practice": 3,
+    "requirement": "ПР3 с.4",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "При исчерпании диапазона миграция формата. Версия хранится отдельно как version_no.",
+    "width": 1280,
+    "height": 590,
+    "nodes": [
+      {
+        "id": "prefix",
+        "label": "BOM",
+        "x": 140,
+        "y": 155,
+        "w": 445,
+        "h": 80,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "prefixv",
+        "label": "Тип объекта: конфигурация\nПостоянный префикс",
+        "x": 140,
+        "y": 340,
+        "w": 445,
+        "h": 125,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "seq",
+        "label": "000153",
+        "x": 705,
+        "y": 155,
+        "w": 445,
+        "h": 80,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "seqv",
+        "label": "Номер из sequence\n000001–999999",
+        "x": 705,
+        "y": 340,
+        "w": 445,
+        "h": 125,
+        "kind": "box",
+        "body": null
+      }
+    ],
+    "edges": [
+      {
+        "source": "prefix",
+        "target": "prefixv",
+        "label": "",
+        "points": [
+          [
+            362.5,
+            235.0
+          ],
+          [
+            362.5,
+            287.5
+          ],
+          [
+            362.5,
+            287.5
+          ],
+          [
+            362.5,
+            340.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "seq",
+        "target": "seqv",
+        "label": "",
+        "points": [
+          [
+            927.5,
+            235.0
+          ],
+          [
+            927.5,
+            287.5
+          ],
+          [
+            927.5,
+            287.5
+          ],
+          [
+            927.5,
+            340.0
+          ]
+        ],
+        "style": "solid"
+      }
+    ]
+  },
+  {
+    "id": "D05_wireframe_01",
+    "title": "Экран Список карточек",
+    "practice": 4,
+    "requirement": "ПР4 с.2–3",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Каркас SVG для переноса в Figma/OmniNotation. Значения демонстрационные. Прототип не является рабочим интерфейсом.",
+    "width": 1280,
+    "height": 800,
+    "nodes": [
+      {
+        "id": "app",
+        "label": "Юкомс — карточки компьютерных систем",
+        "x": 20,
+        "y": 20,
+        "w": 1240,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "nav",
+        "label": "Карточки\n\nBOM\n\nПредложения\n\nЗамены\n\nПубликации",
+        "x": 20,
+        "y": 105,
+        "w": 190,
+        "h": 650,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "f0",
+        "label": "Поиск по BOM, корпусу, компоненту и поставщику",
+        "x": 240,
+        "y": 170,
+        "w": 990,
+        "h": 55,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "f1",
+        "label": "Статус: все     Ответственный: все     [Найти]",
+        "x": 240,
+        "y": 240,
+        "w": 990,
+        "h": 55,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "r0",
+        "label": "BOM-000153     ПК на базе AM5     Готова     версия 3",
+        "x": 240,
+        "y": 350,
+        "w": 990,
+        "h": 67,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "r1",
+        "label": "BOM-000154     ПК на базе LGA1700     Ошибка публикации",
+        "x": 240,
+        "y": 417,
+        "w": 990,
+        "h": 67,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "r2",
+        "label": "BOM-000155     Компактный ПК     Требует актуализации",
+        "x": 240,
+        "y": 484,
+        "w": 990,
+        "h": 67,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b0",
+        "label": "Создать запрос",
+        "x": 240,
+        "y": 590,
+        "w": 480,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b1",
+        "label": "Открыть карточку",
+        "x": 740,
+        "y": 590,
+        "w": 480,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      }
+    ],
+    "edges": []
+  },
+  {
+    "id": "D05_wireframe_02",
+    "title": "Экран Редактор версии BOM",
+    "practice": 4,
+    "requirement": "ПР4 с.2–3",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Каркас SVG для переноса в Figma/OmniNotation. Значения демонстрационные. Прототип не является рабочим интерфейсом.",
+    "width": 1280,
+    "height": 800,
+    "nodes": [
+      {
+        "id": "app",
+        "label": "Юкомс — карточки компьютерных систем",
+        "x": 20,
+        "y": 20,
+        "w": 1240,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "nav",
+        "label": "Карточки\n\nBOM\n\nПредложения\n\nЗамены\n\nПубликации",
+        "x": 20,
+        "y": 105,
+        "w": 190,
+        "h": 650,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "f0",
+        "label": "BOM-000153  Версия 3  Корпус: CASE-001  Черновик",
+        "x": 240,
+        "y": 170,
+        "w": 990,
+        "h": 55,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "f1",
+        "label": "Слот: плата  Выбор: точная модель / группа характеристик",
+        "x": 240,
+        "y": 240,
+        "w": 990,
+        "h": 55,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "r0",
+        "label": "CPU     CPU-001     1 шт.     AM5",
+        "x": 240,
+        "y": 350,
+        "w": 990,
+        "h": 67,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "r1",
+        "label": "BOARD     группа LGA1700     1 шт.     разрешена BOARD-002",
+        "x": 240,
+        "y": 417,
+        "w": 990,
+        "h": 67,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "r2",
+        "label": "RAM     RAM-001     2 шт.     DDR5",
+        "x": 240,
+        "y": 484,
+        "w": 990,
+        "h": 67,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b0",
+        "label": "Сохранить черновик",
+        "x": 240,
+        "y": 590,
+        "w": 480,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b1",
+        "label": "Проверить совместимость",
+        "x": 740,
+        "y": 590,
+        "w": 480,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      }
+    ],
+    "edges": []
+  },
+  {
+    "id": "D05_wireframe_03",
+    "title": "Экран Предложения и сопоставления",
+    "practice": 4,
+    "requirement": "ПР4 с.2–3",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Каркас SVG для переноса в Figma/OmniNotation. Значения демонстрационные. Прототип не является рабочим интерфейсом.",
+    "width": 1280,
+    "height": 800,
+    "nodes": [
+      {
+        "id": "app",
+        "label": "Юкомс — карточки компьютерных систем",
+        "x": 20,
+        "y": 20,
+        "w": 1240,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "nav",
+        "label": "Карточки\n\nBOM\n\nПредложения\n\nЗамены\n\nПубликации",
+        "x": 20,
+        "y": 105,
+        "w": 190,
+        "h": 650,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "f0",
+        "label": "Компонент: BOARD-002   Поставщик: все   Актуальность ≤ 24 ч",
+        "x": 240,
+        "y": 170,
+        "w": 990,
+        "h": 55,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "f1",
+        "label": "Неразрешённые позиции: 3  [Открыть список]",
+        "x": 240,
+        "y": 240,
+        "w": 990,
+        "h": 55,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "r0",
+        "label": "PC4Games    SKU 1840    11 500 ₽    8 шт.    17.09 10:00",
+        "x": 240,
+        "y": 350,
+        "w": 990,
+        "h": 67,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "r1",
+        "label": "ITPartner   SKU B6-22   11 700 ₽    5 шт.    17.09 09:45",
+        "x": 240,
+        "y": 417,
+        "w": 990,
+        "h": 67,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "r2",
+        "label": "Локальный остаток отображается справочно",
+        "x": 240,
+        "y": 484,
+        "w": 990,
+        "h": 67,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b0",
+        "label": "Сопоставить SKU",
+        "x": 240,
+        "y": 590,
+        "w": 480,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b1",
+        "label": "Обновить предложения",
+        "x": 740,
+        "y": 590,
+        "w": 480,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      }
+    ],
+    "edges": []
+  },
+  {
+    "id": "D05_wireframe_04",
+    "title": "Экран Массовая замена",
+    "practice": 4,
+    "requirement": "ПР4 с.2–3",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Каркас SVG для переноса в Figma/OmniNotation. Значения демонстрационные. Прототип не является рабочим интерфейсом.",
+    "width": 1280,
+    "height": 800,
+    "nodes": [
+      {
+        "id": "app",
+        "label": "Юкомс — карточки компьютерных систем",
+        "x": 20,
+        "y": 20,
+        "w": 1240,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "nav",
+        "label": "Карточки\n\nBOM\n\nПредложения\n\nЗамены\n\nПубликации",
+        "x": 20,
+        "y": 105,
+        "w": 190,
+        "h": 650,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "f0",
+        "label": "Исходный компонент: RAM-001   Замена: RAM-002",
+        "x": 240,
+        "y": 170,
+        "w": 990,
+        "h": 55,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "f1",
+        "label": "Область: все активные BOM  [Предпросмотр]",
+        "x": 240,
+        "y": 240,
+        "w": 990,
+        "h": 55,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "r0",
+        "label": "Затронуто: 18 BOM    Допустимо: 16    Конфликтов: 2",
+        "x": 240,
+        "y": 350,
+        "w": 990,
+        "h": 67,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "r1",
+        "label": "BOM-000153   версия 3 → 4   цена +400 ₽   совместимо",
+        "x": 240,
+        "y": 417,
+        "w": 990,
+        "h": 67,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "r2",
+        "label": "BOM-000162   конфликт DDR4/DDR5   пропустить",
+        "x": 240,
+        "y": 484,
+        "w": 990,
+        "h": 67,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b0",
+        "label": "Применить к 16 BOM",
+        "x": 240,
+        "y": 590,
+        "w": 480,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b1",
+        "label": "Отменить",
+        "x": 740,
+        "y": 590,
+        "w": 480,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      }
+    ],
+    "edges": []
+  },
+  {
+    "id": "D05_wireframe_05",
+    "title": "Экран Карточка и публикация",
+    "practice": 4,
+    "requirement": "ПР4 с.2–3",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Каркас SVG для переноса в Figma/OmniNotation. Значения демонстрационные. Прототип не является рабочим интерфейсом.",
+    "width": 1280,
+    "height": 800,
+    "nodes": [
+      {
+        "id": "app",
+        "label": "Юкомс — карточки компьютерных систем",
+        "x": 20,
+        "y": 20,
+        "w": 1240,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "nav",
+        "label": "Карточки\n\nBOM\n\nПредложения\n\nЗамены\n\nПубликации",
+        "x": 20,
+        "y": 105,
+        "w": 190,
+        "h": 650,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "f0",
+        "label": "BOM-000153 v3   Карточка v5   Статус: готова",
+        "x": 240,
+        "y": 170,
+        "w": 990,
+        "h": 55,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "f1",
+        "label": "Название и категория   [Предпросмотр на площадке]",
+        "x": 240,
+        "y": 240,
+        "w": 990,
+        "h": 55,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "r0",
+        "label": "Себестоимость 79 000 ₽   Цена 98 800 ₽   Масса 10,250 кг",
+        "x": 240,
+        "y": 350,
+        "w": 990,
+        "h": 67,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "r1",
+        "label": "Обязательные атрибуты: заполнены   Изображения: 3",
+        "x": 240,
+        "y": 417,
+        "w": 990,
+        "h": 67,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "r2",
+        "label": "Проверка: совместимо   Предложения: актуальны",
+        "x": 240,
+        "y": 484,
+        "w": 990,
+        "h": 67,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b0",
+        "label": "Утвердить и отправить",
+        "x": 240,
+        "y": 590,
+        "w": 480,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b1",
+        "label": "Вернуть на исправление",
+        "x": 740,
+        "y": 590,
+        "w": 480,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      }
+    ],
+    "edges": []
+  },
+  {
+    "id": "D05_wireframe_06",
+    "title": "Экран Журнал публикаций и уведомления",
+    "practice": 4,
+    "requirement": "ПР4 с.2–3",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Каркас SVG для переноса в Figma/OmniNotation. Значения демонстрационные. Прототип не является рабочим интерфейсом.",
+    "width": 1280,
+    "height": 800,
+    "nodes": [
+      {
+        "id": "app",
+        "label": "Юкомс — карточки компьютерных систем",
+        "x": 20,
+        "y": 20,
+        "w": 1240,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "nav",
+        "label": "Карточки\n\nBOM\n\nПредложения\n\nЗамены\n\nПубликации",
+        "x": 20,
+        "y": 105,
+        "w": 190,
+        "h": 650,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "f0",
+        "label": "Период: сегодня   Результат: все   Карточка: BOM-000153",
+        "x": 240,
+        "y": 170,
+        "w": 990,
+        "h": 55,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "f1",
+        "label": "Очередь: 2   Ожидают проверки статуса: 1",
+        "x": 240,
+        "y": 240,
+        "w": 990,
+        "h": 55,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "r0",
+        "label": "PUB-153-v5   RETRY      повтор 1/3   следующий 10:15",
+        "x": 240,
+        "y": 350,
+        "w": 990,
+        "h": 67,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "r1",
+        "label": "PUB-154-v2   FAILED     обязательный атрибут отсутствует",
+        "x": 240,
+        "y": 417,
+        "w": 990,
+        "h": 67,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "r2",
+        "label": "PUB-152-v7   SUCCESS    внешний ID сохранён",
+        "x": 240,
+        "y": 484,
+        "w": 990,
+        "h": 67,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b0",
+        "label": "Открыть детали",
+        "x": 240,
+        "y": 590,
+        "w": 480,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "b1",
+        "label": "Повторить после исправления",
+        "x": 740,
+        "y": 590,
+        "w": 480,
+        "h": 65,
+        "kind": "box",
+        "body": null
+      }
+    ],
+    "edges": []
+  },
+  {
+    "id": "D06_activity",
+    "title": "Деятельность по подготовке и публикации карточки",
+    "practice": 4,
+    "requirement": "ПР4 с.4–5",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "",
+    "width": 1280,
+    "height": 1180,
+    "nodes": [
+      {
+        "id": "a",
+        "label": "",
+        "x": 610,
+        "y": 15,
+        "w": 40,
+        "h": 40,
+        "kind": "start",
+        "body": null
+      },
+      {
+        "id": "b",
+        "label": "Выбрать BOM\nсоздать новую версию",
+        "x": 460,
+        "y": 90,
+        "w": 340,
+        "h": 90,
+        "kind": "action",
+        "body": null
+      },
+      {
+        "id": "c",
+        "label": "Изменить состав\nи разрешить группы",
+        "x": 460,
+        "y": 230,
+        "w": 340,
+        "h": 90,
+        "kind": "action",
+        "body": null
+      },
+      {
+        "id": "d",
+        "label": "Совместимо и\nданные актуальны?",
+        "x": 435,
+        "y": 380,
+        "w": 390,
+        "h": 150,
+        "kind": "decision",
+        "body": null
+      },
+      {
+        "id": "e",
+        "label": "Рассчитать показатели\nподготовить контент",
+        "x": 460,
+        "y": 610,
+        "w": 340,
+        "h": 100,
+        "kind": "action",
+        "body": null
+      },
+      {
+        "id": "f",
+        "label": "Утвердить\nи запустить публикацию",
+        "x": 460,
+        "y": 780,
+        "w": 340,
+        "h": 95,
+        "kind": "action",
+        "body": null
+      },
+      {
+        "id": "g",
+        "label": "Зафиксировать успех\nили ошибку и уведомить",
+        "x": 460,
+        "y": 950,
+        "w": 340,
+        "h": 95,
+        "kind": "action",
+        "body": null
+      },
+      {
+        "id": "z",
+        "label": "",
+        "x": 610,
+        "y": 1110,
+        "w": 40,
+        "h": 40,
+        "kind": "end",
+        "body": null
+      },
+      {
+        "id": "fix",
+        "label": "Показать конфликт\nисправить данные",
+        "x": 25,
+        "y": 385,
+        "w": 310,
+        "h": 105,
+        "kind": "action",
+        "body": null
+      }
+    ],
+    "edges": [
+      {
+        "source": "a",
+        "target": "b",
+        "label": "",
+        "points": [
+          [
+            630.0,
+            55.0
+          ],
+          [
+            630.0,
+            72.5
+          ],
+          [
+            630.0,
+            72.5
+          ],
+          [
+            630.0,
+            90.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "b",
+        "target": "c",
+        "label": "",
+        "points": [
+          [
+            630.0,
+            180.0
+          ],
+          [
+            630.0,
+            205.0
+          ],
+          [
+            630.0,
+            205.0
+          ],
+          [
+            630.0,
+            230.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "c",
+        "target": "d",
+        "label": "",
+        "points": [
+          [
+            630.0,
+            320.0
+          ],
+          [
+            630.0,
+            350.0
+          ],
+          [
+            630.0,
+            350.0
+          ],
+          [
+            630.0,
+            380.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "d",
+        "target": "fix",
+        "label": "Нет",
+        "points": [
+          [
+            435.0,
+            455.0
+          ],
+          [
+            385.0,
+            455.0
+          ],
+          [
+            385.0,
+            437.5
+          ],
+          [
+            335.0,
+            437.5
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "fix",
+        "target": "c",
+        "label": "",
+        "points": [
+          [
+            180,
+            385
+          ],
+          [
+            180,
+            275
+          ],
+          [
+            460,
+            275
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "d",
+        "target": "e",
+        "label": "Да",
+        "points": [
+          [
+            630.0,
+            530.0
+          ],
+          [
+            630.0,
+            570.0
+          ],
+          [
+            630.0,
+            570.0
+          ],
+          [
+            630.0,
+            610.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "e",
+        "target": "f",
+        "label": "",
+        "points": [
+          [
+            630.0,
+            710.0
+          ],
+          [
+            630.0,
+            745.0
+          ],
+          [
+            630.0,
+            745.0
+          ],
+          [
+            630.0,
+            780.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "f",
+        "target": "g",
+        "label": "",
+        "points": [
+          [
+            630.0,
+            875.0
+          ],
+          [
+            630.0,
+            912.5
+          ],
+          [
+            630.0,
+            912.5
+          ],
+          [
+            630.0,
+            950.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "g",
+        "target": "z",
+        "label": "",
+        "points": [
+          [
+            630.0,
+            1045.0
+          ],
+          [
+            630.0,
+            1077.5
+          ],
+          [
+            630.0,
+            1077.5
+          ],
+          [
+            630.0,
+            1110.0
+          ]
+        ],
+        "style": "solid"
+      }
+    ]
+  },
+  {
+    "id": "D07_algorithm_price",
+    "title": "Алгоритм расчёта цены и массы",
+    "practice": 5,
+    "requirement": "ПР5 с.2–3",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "",
+    "width": 1280,
+    "height": 1040,
+    "nodes": [
+      {
+        "id": "a",
+        "label": "Начало",
+        "x": 465,
+        "y": 20,
+        "w": 350,
+        "h": 60,
+        "kind": "action",
+        "body": null
+      },
+      {
+        "id": "b",
+        "label": "BOM, выбранные предложения\nи версия правил",
+        "x": 440,
+        "y": 135,
+        "w": 400,
+        "h": 95,
+        "kind": "io",
+        "body": null
+      },
+      {
+        "id": "c",
+        "label": "Все слоты разрешены,\nцены свежие и масса > 0?",
+        "x": 420,
+        "y": 290,
+        "w": 440,
+        "h": 170,
+        "kind": "decision",
+        "body": null
+      },
+      {
+        "id": "err",
+        "label": "Выдать причины\nрасчёт не сохранять",
+        "x": 30,
+        "y": 315,
+        "w": 310,
+        "h": 105,
+        "kind": "io",
+        "body": null
+      },
+      {
+        "id": "d",
+        "label": "C = Σ qᵢpᵢ + A + U\nW = wкорпуса + Σ qᵢwᵢ + wуп",
+        "x": 430,
+        "y": 530,
+        "w": 420,
+        "h": 105,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "e",
+        "label": "P = ceil(C(1 + m)/s) × s\nокруглить массу до 0,001 кг",
+        "x": 430,
+        "y": 705,
+        "w": 420,
+        "h": 105,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "f",
+        "label": "Сохранить расчёт и снимок\nцен, состава и правил",
+        "x": 430,
+        "y": 885,
+        "w": 420,
+        "h": 105,
+        "kind": "io",
+        "body": null
+      }
+    ],
+    "edges": [
+      {
+        "source": "a",
+        "target": "b",
+        "label": "",
+        "points": [
+          [
+            640.0,
+            80.0
+          ],
+          [
+            640.0,
+            107.5
+          ],
+          [
+            640.0,
+            107.5
+          ],
+          [
+            640.0,
+            135.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "b",
+        "target": "c",
+        "label": "",
+        "points": [
+          [
+            640.0,
+            230.0
+          ],
+          [
+            640.0,
+            260.0
+          ],
+          [
+            640.0,
+            260.0
+          ],
+          [
+            640.0,
+            290.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "c",
+        "target": "err",
+        "label": "Нет",
+        "points": [
+          [
+            420.0,
+            375.0
+          ],
+          [
+            380.0,
+            375.0
+          ],
+          [
+            380.0,
+            367.5
+          ],
+          [
+            340.0,
+            367.5
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "c",
+        "target": "d",
+        "label": "Да",
+        "points": [
+          [
+            640.0,
+            460.0
+          ],
+          [
+            640.0,
+            495.0
+          ],
+          [
+            640.0,
+            495.0
+          ],
+          [
+            640.0,
+            530.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "d",
+        "target": "e",
+        "label": "",
+        "points": [
+          [
+            640.0,
+            635.0
+          ],
+          [
+            640.0,
+            670.0
+          ],
+          [
+            640.0,
+            670.0
+          ],
+          [
+            640.0,
+            705.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "e",
+        "target": "f",
+        "label": "",
+        "points": [
+          [
+            640.0,
+            810.0
+          ],
+          [
+            640.0,
+            847.5
+          ],
+          [
+            640.0,
+            847.5
+          ],
+          [
+            640.0,
+            885.0
+          ]
+        ],
+        "style": "solid"
+      }
+    ]
+  },
+  {
+    "id": "D08_algorithm_offer",
+    "title": "Алгоритм выбора предложения для слота",
+    "practice": 5,
+    "requirement": "ПР5 с.2–3",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "",
+    "width": 1280,
+    "height": 1070,
+    "nodes": [
+      {
+        "id": "a",
+        "label": "Начало",
+        "x": 440,
+        "y": 20,
+        "w": 390,
+        "h": 60,
+        "kind": "action",
+        "body": null
+      },
+      {
+        "id": "b",
+        "label": "Компонент или группа\nколичество и закреплённый SKU",
+        "x": 415,
+        "y": 135,
+        "w": 440,
+        "h": 95,
+        "kind": "io",
+        "body": null
+      },
+      {
+        "id": "c",
+        "label": "Отфильтровать по совместимости,\nналичию и сроку актуальности",
+        "x": 415,
+        "y": 305,
+        "w": 440,
+        "h": 100,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "d",
+        "label": "Есть допустимые\nпредложения?",
+        "x": 415,
+        "y": 485,
+        "w": 440,
+        "h": 150,
+        "kind": "decision",
+        "body": null
+      },
+      {
+        "id": "err",
+        "label": "Зафиксировать причину\nпотребовать ручное решение",
+        "x": 25,
+        "y": 505,
+        "w": 320,
+        "h": 105,
+        "kind": "io",
+        "body": null
+      },
+      {
+        "id": "e",
+        "label": "Сортировать: приоритет поставщика,\nцена, время, идентификатор",
+        "x": 405,
+        "y": 725,
+        "w": 470,
+        "h": 105,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "f",
+        "label": "Сохранить offer_id\nи разрешённый компонент",
+        "x": 430,
+        "y": 920,
+        "w": 420,
+        "h": 95,
+        "kind": "io",
+        "body": null
+      }
+    ],
+    "edges": [
+      {
+        "source": "a",
+        "target": "b",
+        "label": "",
+        "points": [
+          [
+            635.0,
+            80.0
+          ],
+          [
+            635.0,
+            107.5
+          ],
+          [
+            635.0,
+            107.5
+          ],
+          [
+            635.0,
+            135.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "b",
+        "target": "c",
+        "label": "",
+        "points": [
+          [
+            635.0,
+            230.0
+          ],
+          [
+            635.0,
+            267.5
+          ],
+          [
+            635.0,
+            267.5
+          ],
+          [
+            635.0,
+            305.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "c",
+        "target": "d",
+        "label": "",
+        "points": [
+          [
+            635.0,
+            405.0
+          ],
+          [
+            635.0,
+            445.0
+          ],
+          [
+            635.0,
+            445.0
+          ],
+          [
+            635.0,
+            485.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "d",
+        "target": "err",
+        "label": "Нет",
+        "points": [
+          [
+            415.0,
+            560.0
+          ],
+          [
+            380.0,
+            560.0
+          ],
+          [
+            380.0,
+            557.5
+          ],
+          [
+            345.0,
+            557.5
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "d",
+        "target": "e",
+        "label": "Да",
+        "points": [
+          [
+            635.0,
+            635.0
+          ],
+          [
+            635.0,
+            680.0
+          ],
+          [
+            640.0,
+            680.0
+          ],
+          [
+            640.0,
+            725.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "e",
+        "target": "f",
+        "label": "",
+        "points": [
+          [
+            640.0,
+            830.0
+          ],
+          [
+            640.0,
+            875.0
+          ],
+          [
+            640.0,
+            875.0
+          ],
+          [
+            640.0,
+            920.0
+          ]
+        ],
+        "style": "solid"
+      }
+    ]
+  },
+  {
+    "id": "D09_algorithm_replace",
+    "title": "Алгоритм массовой замены",
+    "practice": 5,
+    "requirement": "ПР5 с.2–3",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "",
+    "width": 1300,
+    "height": 1130,
+    "nodes": [
+      {
+        "id": "a",
+        "label": "Предпросмотр и подтверждение\nсписка BOM и версий",
+        "x": 430,
+        "y": 20,
+        "w": 420,
+        "h": 95,
+        "kind": "io",
+        "body": null
+      },
+      {
+        "id": "b",
+        "label": "Есть следующая BOM?",
+        "x": 425,
+        "y": 175,
+        "w": 430,
+        "h": 145,
+        "kind": "decision",
+        "body": null
+      },
+      {
+        "id": "end",
+        "label": "Завершить пакет\nпоказать APPLIED / CONFLICT",
+        "x": 930,
+        "y": 190,
+        "w": 330,
+        "h": 110,
+        "kind": "io",
+        "body": null
+      },
+      {
+        "id": "c",
+        "label": "Версия не изменилась?",
+        "x": 425,
+        "y": 395,
+        "w": 430,
+        "h": 145,
+        "kind": "decision",
+        "body": null
+      },
+      {
+        "id": "skip",
+        "label": "Сохранить CONFLICT\nисходную BOM не менять",
+        "x": 35,
+        "y": 420,
+        "w": 310,
+        "h": 105,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "d",
+        "label": "Создать новую версию\nзаменить выбранные позиции",
+        "x": 430,
+        "y": 610,
+        "w": 420,
+        "h": 100,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "e",
+        "label": "Проверить и пересчитать\nсохранить атомарно для BOM",
+        "x": 430,
+        "y": 785,
+        "w": 420,
+        "h": 100,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "f",
+        "label": "Отметить карточки STALE\nи добавить аудит",
+        "x": 430,
+        "y": 960,
+        "w": 420,
+        "h": 100,
+        "kind": "box",
+        "body": null
+      }
+    ],
+    "edges": [
+      {
+        "source": "a",
+        "target": "b",
+        "label": "",
+        "points": [
+          [
+            640.0,
+            115.0
+          ],
+          [
+            640.0,
+            145.0
+          ],
+          [
+            640.0,
+            145.0
+          ],
+          [
+            640.0,
+            175.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "b",
+        "target": "end",
+        "label": "Нет",
+        "points": [
+          [
+            855.0,
+            247.5
+          ],
+          [
+            892.5,
+            247.5
+          ],
+          [
+            892.5,
+            245.0
+          ],
+          [
+            930.0,
+            245.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "b",
+        "target": "c",
+        "label": "Да",
+        "points": [
+          [
+            640.0,
+            320.0
+          ],
+          [
+            640.0,
+            357.5
+          ],
+          [
+            640.0,
+            357.5
+          ],
+          [
+            640.0,
+            395.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "c",
+        "target": "skip",
+        "label": "Нет",
+        "points": [
+          [
+            425.0,
+            467.5
+          ],
+          [
+            385.0,
+            467.5
+          ],
+          [
+            385.0,
+            472.5
+          ],
+          [
+            345.0,
+            472.5
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "c",
+        "target": "d",
+        "label": "Да",
+        "points": [
+          [
+            640.0,
+            540.0
+          ],
+          [
+            640.0,
+            575.0
+          ],
+          [
+            640.0,
+            575.0
+          ],
+          [
+            640.0,
+            610.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "d",
+        "target": "e",
+        "label": "",
+        "points": [
+          [
+            640.0,
+            710.0
+          ],
+          [
+            640.0,
+            747.5
+          ],
+          [
+            640.0,
+            747.5
+          ],
+          [
+            640.0,
+            785.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "e",
+        "target": "f",
+        "label": "",
+        "points": [
+          [
+            640.0,
+            885.0
+          ],
+          [
+            640.0,
+            922.5
+          ],
+          [
+            640.0,
+            922.5
+          ],
+          [
+            640.0,
+            960.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "f",
+        "target": "b",
+        "label": "",
+        "points": [
+          [
+            850,
+            1010
+          ],
+          [
+            900,
+            1010
+          ],
+          [
+            900,
+            250
+          ],
+          [
+            855,
+            250
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "skip",
+        "target": "b",
+        "label": "",
+        "points": [
+          [
+            190,
+            420
+          ],
+          [
+            190,
+            248
+          ],
+          [
+            425,
+            248
+          ]
+        ],
+        "style": "solid"
+      }
+    ]
+  },
+  {
+    "id": "D10_infrastructure",
+    "title": "Инфраструктурная схема",
+    "practice": 6,
+    "requirement": "ПР6 с.2–3",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Ресурсы и число узлов — проектное предложение; нагрузочная проверка ещё не проводилась.",
+    "width": 1500,
+    "height": 990,
+    "nodes": [
+      {
+        "id": "client",
+        "label": "«device» Рабочие станции\nБраузеры сотрудников",
+        "x": 30,
+        "y": 330,
+        "w": 280,
+        "h": 130,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "edge",
+        "label": "«node» Шлюз / DMZ\nNginx: HTTPS 443\nTLS и маршрутизация",
+        "x": 390,
+        "y": 315,
+        "w": 300,
+        "h": 160,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "app",
+        "label": "«node» Прикладной сервер\nJRE 21: Spring Boot\nAPI и worker публикаций",
+        "x": 805,
+        "y": 165,
+        "w": 310,
+        "h": 170,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "db",
+        "label": "«node» Сервер БД\nPostgreSQL 18\nДанные и очередь",
+        "x": 805,
+        "y": 485,
+        "w": 310,
+        "h": 160,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "media",
+        "label": "«node» Файловое хранилище\nИзображения по storage_key",
+        "x": 805,
+        "y": 780,
+        "w": 310,
+        "h": 130,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "ext",
+        "label": "«external»\nOzon и поставщики\nИнтернет",
+        "x": 1170,
+        "y": 165,
+        "w": 300,
+        "h": 145,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "backup",
+        "label": "«node» Резервное хранилище\nБД и изображения\nОтдельные учётные данные",
+        "x": 1170,
+        "y": 685,
+        "w": 300,
+        "h": 160,
+        "kind": "box",
+        "body": null
+      }
+    ],
+    "edges": [
+      {
+        "source": "client",
+        "target": "edge",
+        "label": "HTTPS 443",
+        "points": [
+          [
+            310.0,
+            395.0
+          ],
+          [
+            350.0,
+            395.0
+          ],
+          [
+            350.0,
+            395.0
+          ],
+          [
+            390.0,
+            395.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "edge",
+        "target": "app",
+        "label": "HTTPS 8443",
+        "points": [
+          [
+            690.0,
+            395.0
+          ],
+          [
+            747.5,
+            395.0
+          ],
+          [
+            747.5,
+            250.0
+          ],
+          [
+            805.0,
+            250.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "app",
+        "target": "db",
+        "label": "TLS 5432",
+        "points": [
+          [
+            960.0,
+            335.0
+          ],
+          [
+            960.0,
+            410.0
+          ],
+          [
+            960.0,
+            410.0
+          ],
+          [
+            960.0,
+            485.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "app",
+        "target": "ext",
+        "label": "HTTPS 443",
+        "points": [
+          [
+            1115.0,
+            250.0
+          ],
+          [
+            1142.5,
+            250.0
+          ],
+          [
+            1142.5,
+            237.5
+          ],
+          [
+            1170.0,
+            237.5
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "db",
+        "target": "backup",
+        "label": "копия БД",
+        "points": [
+          [
+            1115.0,
+            565.0
+          ],
+          [
+            1142.5,
+            565.0
+          ],
+          [
+            1142.5,
+            765.0
+          ],
+          [
+            1170.0,
+            765.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "app",
+        "target": "media",
+        "label": "HTTPS",
+        "points": [
+          [
+            805,
+            285
+          ],
+          [
+            735,
+            285
+          ],
+          [
+            735,
+            845
+          ],
+          [
+            805,
+            845
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "media",
+        "target": "backup",
+        "label": "копия файлов",
+        "points": [
+          [
+            1115.0,
+            845.0
+          ],
+          [
+            1142.5,
+            845.0
+          ],
+          [
+            1142.5,
+            765.0
+          ],
+          [
+            1170.0,
+            765.0
+          ]
+        ],
+        "style": "solid"
+      }
+    ]
+  },
+  {
+    "id": "D21_deployment",
+    "title": "Диаграмма развёртывания",
+    "practice": 7,
+    "requirement": "ПР7 с.4–5",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Ресурсы и число узлов — проектное предложение; нагрузочная проверка ещё не проводилась.",
+    "width": 1500,
+    "height": 990,
+    "nodes": [
+      {
+        "id": "client",
+        "label": "«device» Рабочие станции\nБраузеры сотрудников",
+        "x": 30,
+        "y": 330,
+        "w": 280,
+        "h": 130,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "edge",
+        "label": "«node» Шлюз / DMZ\nNginx: HTTPS 443\nTLS и маршрутизация",
+        "x": 390,
+        "y": 315,
+        "w": 300,
+        "h": 160,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "app",
+        "label": "«node» Прикладной сервер\nJRE 21: Spring Boot\nAPI и worker публикаций",
+        "x": 805,
+        "y": 165,
+        "w": 310,
+        "h": 170,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "db",
+        "label": "«node» Сервер БД\nPostgreSQL 18\nДанные и очередь",
+        "x": 805,
+        "y": 485,
+        "w": 310,
+        "h": 160,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "media",
+        "label": "«node» Файловое хранилище\nИзображения по storage_key",
+        "x": 805,
+        "y": 780,
+        "w": 310,
+        "h": 130,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "ext",
+        "label": "«external»\nOzon и поставщики\nИнтернет",
+        "x": 1170,
+        "y": 165,
+        "w": 300,
+        "h": 145,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "backup",
+        "label": "«node» Резервное хранилище\nБД и изображения\nОтдельные учётные данные",
+        "x": 1170,
+        "y": 685,
+        "w": 300,
+        "h": 160,
+        "kind": "box",
+        "body": null
+      }
+    ],
+    "edges": [
+      {
+        "source": "client",
+        "target": "edge",
+        "label": "HTTPS 443",
+        "points": [
+          [
+            310.0,
+            395.0
+          ],
+          [
+            350.0,
+            395.0
+          ],
+          [
+            350.0,
+            395.0
+          ],
+          [
+            390.0,
+            395.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "edge",
+        "target": "app",
+        "label": "HTTPS 8443",
+        "points": [
+          [
+            690.0,
+            395.0
+          ],
+          [
+            747.5,
+            395.0
+          ],
+          [
+            747.5,
+            250.0
+          ],
+          [
+            805.0,
+            250.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "app",
+        "target": "db",
+        "label": "TLS 5432",
+        "points": [
+          [
+            960.0,
+            335.0
+          ],
+          [
+            960.0,
+            410.0
+          ],
+          [
+            960.0,
+            410.0
+          ],
+          [
+            960.0,
+            485.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "app",
+        "target": "ext",
+        "label": "HTTPS 443",
+        "points": [
+          [
+            1115.0,
+            250.0
+          ],
+          [
+            1142.5,
+            250.0
+          ],
+          [
+            1142.5,
+            237.5
+          ],
+          [
+            1170.0,
+            237.5
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "db",
+        "target": "backup",
+        "label": "копия БД",
+        "points": [
+          [
+            1115.0,
+            565.0
+          ],
+          [
+            1142.5,
+            565.0
+          ],
+          [
+            1142.5,
+            765.0
+          ],
+          [
+            1170.0,
+            765.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "app",
+        "target": "media",
+        "label": "HTTPS",
+        "points": [
+          [
+            805,
+            285
+          ],
+          [
+            735,
+            285
+          ],
+          [
+            735,
+            845
+          ],
+          [
+            805,
+            845
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "media",
+        "target": "backup",
+        "label": "копия файлов",
+        "points": [
+          [
+            1115.0,
+            845.0
+          ],
+          [
+            1142.5,
+            845.0
+          ],
+          [
+            1142.5,
+            765.0
+          ],
+          [
+            1170.0,
+            765.0
+          ]
+        ],
+        "style": "solid"
+      }
+    ]
+  },
+  {
+    "id": "D22_sequence_suppliers",
+    "title": "Последовательность обновления предложений",
+    "practice": 8,
+    "requirement": "ПР8 с.2–4",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Сообщения описывают сценарий, а не собственную спецификацию API. Имена методов и реальные endpoint не задаются. Пунктир — ответ.",
+    "width": 1550,
+    "height": 1450,
+    "nodes": [
+      {
+        "id": "0",
+        "label": "Сотрудник\nсклада",
+        "x": 5.0,
+        "y": 20,
+        "w": 190,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "1",
+        "label": "Web / API",
+        "x": 275.0,
+        "y": 20,
+        "w": 190,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "2",
+        "label": "Сервис\nпредложений",
+        "x": 545.0,
+        "y": 20,
+        "w": 190,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "3",
+        "label": "Адаптер",
+        "x": 815.0,
+        "y": 20,
+        "w": 190,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "4",
+        "label": "Поставщик",
+        "x": 1085.0,
+        "y": 20,
+        "w": 190,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "5",
+        "label": "PostgreSQL",
+        "x": 1355.0,
+        "y": 20,
+        "w": 190,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      }
+    ],
+    "edges": [
+      {
+        "source": "0",
+        "target": "1",
+        "label": "Обновить выбранного поставщика; HTTPS / JSON",
+        "kind": "call",
+        "y": 175
+      },
+      {
+        "source": "1",
+        "target": "2",
+        "label": "Проверить роль STOCK; начать импорт",
+        "kind": "call",
+        "y": 255
+      },
+      {
+        "source": "2",
+        "target": "3",
+        "label": "Запросить свежие предложения",
+        "kind": "call",
+        "y": 335
+      },
+      {
+        "source": "3",
+        "target": "4",
+        "label": "HTTPS; согласованный JSON/файл",
+        "kind": "call",
+        "y": 415
+      },
+      {
+        "source": "4",
+        "target": "3",
+        "label": "Ответ с ценами, остатками и временем",
+        "kind": "return",
+        "y": 565
+      },
+      {
+        "source": "3",
+        "target": "2",
+        "label": "Проверенные записи и неизвестные SKU",
+        "kind": "return",
+        "y": 655
+      },
+      {
+        "source": "2",
+        "target": "5",
+        "label": "Транзакция: добавить снимки предложений",
+        "kind": "call",
+        "y": 755
+      },
+      {
+        "source": "2",
+        "target": "5",
+        "label": "Зависимые карточки → STALE; аудит",
+        "kind": "call",
+        "y": 845
+      },
+      {
+        "source": "2",
+        "target": "1",
+        "label": "Сводка: принято / отклонено",
+        "kind": "return",
+        "y": 935
+      },
+      {
+        "source": "1",
+        "target": "0",
+        "label": "Показать дату и ошибки сопоставления",
+        "kind": "return",
+        "y": 1035
+      },
+      {
+        "source": "3",
+        "target": "2",
+        "label": "Тайм-аут / 429 / 5xx: отложенный повтор",
+        "kind": "return",
+        "y": 1165
+      },
+      {
+        "source": "2",
+        "target": "1",
+        "label": "Старые данные сохранены с прежней датой",
+        "kind": "return",
+        "y": 1285
+      }
+    ]
+  },
+  {
+    "id": "D23_sequence_ozon",
+    "title": "Последовательность публикации версии карточки",
+    "practice": 8,
+    "requirement": "ПР8 с.2–4",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Сообщения описывают сценарий, а не собственную спецификацию API. Имена методов и реальные endpoint не задаются. Пунктир — ответ.",
+    "width": 1550,
+    "height": 1450,
+    "nodes": [
+      {
+        "id": "0",
+        "label": "Менеджер",
+        "x": 5.0,
+        "y": 20,
+        "w": 190,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "1",
+        "label": "Web / API",
+        "x": 342.5,
+        "y": 20,
+        "w": 190,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "2",
+        "label": "PostgreSQL",
+        "x": 680.0,
+        "y": 20,
+        "w": 190,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "3",
+        "label": "Worker /\nадаптер Ozon",
+        "x": 1017.5,
+        "y": 20,
+        "w": 190,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "4",
+        "label": "Ozon",
+        "x": 1355.0,
+        "y": 20,
+        "w": 190,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      }
+    ],
+    "edges": [
+      {
+        "source": "0",
+        "target": "1",
+        "label": "Утвердить card_version; HTTPS / JSON",
+        "kind": "call",
+        "y": 180
+      },
+      {
+        "source": "1",
+        "target": "2",
+        "label": "Проверки и запись QUEUED + operation_key",
+        "kind": "call",
+        "y": 275
+      },
+      {
+        "source": "1",
+        "target": "0",
+        "label": "Принято в очередь; локальный ID",
+        "kind": "return",
+        "y": 365
+      },
+      {
+        "source": "3",
+        "target": "2",
+        "label": "Захватить операцию, проверить версию",
+        "kind": "call",
+        "y": 455
+      },
+      {
+        "source": "3",
+        "target": "4",
+        "label": "Отправить карточку; HTTPS / JSON",
+        "kind": "call",
+        "y": 545
+      },
+      {
+        "source": "4",
+        "target": "3",
+        "label": "Идентификатор задачи / текущий результат",
+        "kind": "return",
+        "y": 655
+      },
+      {
+        "source": "3",
+        "target": "2",
+        "label": "Сохранить внешний ID и WAITING",
+        "kind": "call",
+        "y": 755
+      },
+      {
+        "source": "3",
+        "target": "4",
+        "label": "Запросить результат по известному ID",
+        "kind": "call",
+        "y": 865
+      },
+      {
+        "source": "4",
+        "target": "3",
+        "label": "Успех: внешний ID товара",
+        "kind": "return",
+        "y": 965
+      },
+      {
+        "source": "3",
+        "target": "2",
+        "label": "SUCCESS, PUBLISHED и уведомление",
+        "kind": "call",
+        "y": 1055
+      },
+      {
+        "source": "3",
+        "target": "2",
+        "label": "Временный сбой: RETRY ≤ 3; неизвестный итог: UNCERTAIN",
+        "kind": "call",
+        "y": 1185
+      },
+      {
+        "source": "3",
+        "target": "2",
+        "label": "Постоянная ошибка: FAILED; сохранить причины",
+        "kind": "call",
+        "y": 1300
+      }
+    ]
+  },
+  {
+    "id": "D24_access",
+    "title": "Схема проверки доступа",
+    "practice": 8,
+    "requirement": "ПР8 с.2,4–6",
+    "status": "Черновик для переноса в OmniNotation",
+    "note": "Учебная RBAC-модель. Сервисный worker использует отдельную техническую роль.",
+    "width": 1430,
+    "height": 700,
+    "nodes": [
+      {
+        "id": "u",
+        "label": "Пользователь\nи назначенные роли",
+        "x": 25,
+        "y": 275,
+        "w": 270,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "a",
+        "label": "Аутентификация\nи серверная сессия",
+        "x": 370,
+        "y": 275,
+        "w": 290,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "r",
+        "label": "Проверка RBAC\nресурс + операция + условие",
+        "x": 770,
+        "y": 275,
+        "w": 300,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "ok",
+        "label": "Разрешённое действие\nв транзакции",
+        "x": 1120,
+        "y": 105,
+        "w": 285,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      },
+      {
+        "id": "deny",
+        "label": "Отказ в доступе\nбез изменения данных",
+        "x": 1120,
+        "y": 470,
+        "w": 285,
+        "h": 110,
+        "kind": "box",
+        "body": null
+      }
+    ],
+    "edges": [
+      {
+        "source": "u",
+        "target": "a",
+        "label": "HTTPS",
+        "points": [
+          [
+            295.0,
+            330.0
+          ],
+          [
+            332.5,
+            330.0
+          ],
+          [
+            332.5,
+            330.0
+          ],
+          [
+            370.0,
+            330.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "a",
+        "target": "r",
+        "label": "пользователь",
+        "points": [
+          [
+            660.0,
+            330.0
+          ],
+          [
+            715.0,
+            330.0
+          ],
+          [
+            715.0,
+            330.0
+          ],
+          [
+            770.0,
+            330.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "r",
+        "target": "ok",
+        "label": "Разрешено",
+        "points": [
+          [
+            1070.0,
+            330.0
+          ],
+          [
+            1095.0,
+            330.0
+          ],
+          [
+            1095.0,
+            160.0
+          ],
+          [
+            1120.0,
+            160.0
+          ]
+        ],
+        "style": "solid"
+      },
+      {
+        "source": "r",
+        "target": "deny",
+        "label": "Запрещено",
+        "points": [
+          [
+            1070.0,
+            330.0
+          ],
+          [
+            1095.0,
+            330.0
+          ],
+          [
+            1095.0,
+            525.0
+          ],
+          [
+            1120.0,
+            525.0
+          ]
+        ],
+        "style": "solid"
+      }
+    ]
+  }
+]

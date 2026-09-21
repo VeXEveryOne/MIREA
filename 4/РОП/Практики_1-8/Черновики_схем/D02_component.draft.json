@@ -1,0 +1,330 @@
+{
+  "id": "D02_component",
+  "title": "Диаграмма компонентов",
+  "practice": 2,
+  "requirement": "ПР2 с.2–4",
+  "status": "Черновик для переноса в OmniNotation",
+  "note": "Модульный монолит. Репозитории и аудит используются всеми бизнес-модулями; повторяющиеся зависимости опущены для читаемости.",
+  "width": 1480,
+  "height": 840,
+  "nodes": [
+    {
+      "id": "ui",
+      "label": "«component»\nВеб-интерфейс",
+      "x": 30,
+      "y": 280,
+      "w": 270,
+      "h": 115,
+      "kind": "box",
+      "body": null
+    },
+    {
+      "id": "auth",
+      "label": "«component»\nПроверка прав и аудит",
+      "x": 385,
+      "y": 35,
+      "w": 280,
+      "h": 110,
+      "kind": "box",
+      "body": null
+    },
+    {
+      "id": "bom",
+      "label": "«component»\nBOM и правила",
+      "x": 385,
+      "y": 235,
+      "w": 280,
+      "h": 110,
+      "kind": "box",
+      "body": null
+    },
+    {
+      "id": "content",
+      "label": "«component»\nРасчёты и контент",
+      "x": 385,
+      "y": 480,
+      "w": 280,
+      "h": 110,
+      "kind": "box",
+      "body": null
+    },
+    {
+      "id": "pub",
+      "label": "«component»\nПубликации и очередь",
+      "x": 800,
+      "y": 480,
+      "w": 280,
+      "h": 110,
+      "kind": "box",
+      "body": null
+    },
+    {
+      "id": "sup",
+      "label": "«component»\nАдаптеры поставщиков",
+      "x": 800,
+      "y": 235,
+      "w": 280,
+      "h": 110,
+      "kind": "box",
+      "body": null
+    },
+    {
+      "id": "db",
+      "label": "«component»\nРепозитории PostgreSQL",
+      "x": 780,
+      "y": 35,
+      "w": 310,
+      "h": 110,
+      "kind": "box",
+      "body": null
+    },
+    {
+      "id": "ext",
+      "label": "«external»\nPC4Games и ITPartner",
+      "x": 1160,
+      "y": 235,
+      "w": 290,
+      "h": 110,
+      "kind": "box",
+      "body": null
+    },
+    {
+      "id": "oz",
+      "label": "«external»\nOzon Seller",
+      "x": 1160,
+      "y": 480,
+      "w": 290,
+      "h": 110,
+      "kind": "box",
+      "body": null
+    },
+    {
+      "id": "media",
+      "label": "«component»\nХранилище изображений",
+      "x": 785,
+      "y": 700,
+      "w": 310,
+      "h": 110,
+      "kind": "box",
+      "body": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "ui",
+      "target": "bom",
+      "label": "HTTPS / JSON",
+      "points": [
+        [
+          300.0,
+          337.5
+        ],
+        [
+          342.5,
+          337.5
+        ],
+        [
+          342.5,
+          290.0
+        ],
+        [
+          385.0,
+          290.0
+        ]
+      ],
+      "style": "dashed"
+    },
+    {
+      "source": "bom",
+      "target": "auth",
+      "label": "проверка роли",
+      "points": [
+        [
+          525.0,
+          235.0
+        ],
+        [
+          525.0,
+          190.0
+        ],
+        [
+          525.0,
+          190.0
+        ],
+        [
+          525.0,
+          145.0
+        ]
+      ],
+      "style": "dashed"
+    },
+    {
+      "source": "bom",
+      "target": "db",
+      "label": "репозитории",
+      "points": [
+        [
+          665.0,
+          290.0
+        ],
+        [
+          722.5,
+          290.0
+        ],
+        [
+          722.5,
+          90.0
+        ],
+        [
+          780.0,
+          90.0
+        ]
+      ],
+      "style": "dashed"
+    },
+    {
+      "source": "bom",
+      "target": "sup",
+      "label": "предложения",
+      "points": [
+        [
+          665.0,
+          290.0
+        ],
+        [
+          732.5,
+          290.0
+        ],
+        [
+          732.5,
+          290.0
+        ],
+        [
+          800.0,
+          290.0
+        ]
+      ],
+      "style": "dashed"
+    },
+    {
+      "source": "sup",
+      "target": "ext",
+      "label": "адаптер",
+      "points": [
+        [
+          1080.0,
+          290.0
+        ],
+        [
+          1120.0,
+          290.0
+        ],
+        [
+          1120.0,
+          290.0
+        ],
+        [
+          1160.0,
+          290.0
+        ]
+      ],
+      "style": "dashed"
+    },
+    {
+      "source": "bom",
+      "target": "content",
+      "label": "версия BOM",
+      "points": [
+        [
+          525.0,
+          345.0
+        ],
+        [
+          525.0,
+          412.5
+        ],
+        [
+          525.0,
+          412.5
+        ],
+        [
+          525.0,
+          480.0
+        ]
+      ],
+      "style": "dashed"
+    },
+    {
+      "source": "content",
+      "target": "pub",
+      "label": "версия карточки",
+      "points": [
+        [
+          665.0,
+          535.0
+        ],
+        [
+          732.5,
+          535.0
+        ],
+        [
+          732.5,
+          535.0
+        ],
+        [
+          800.0,
+          535.0
+        ]
+      ],
+      "style": "dashed"
+    },
+    {
+      "source": "pub",
+      "target": "oz",
+      "label": "HTTPS / JSON",
+      "points": [
+        [
+          1080.0,
+          535.0
+        ],
+        [
+          1120.0,
+          535.0
+        ],
+        [
+          1120.0,
+          535.0
+        ],
+        [
+          1160.0,
+          535.0
+        ]
+      ],
+      "style": "dashed"
+    },
+    {
+      "source": "content",
+      "target": "media",
+      "label": "файлы",
+      "points": [
+        [
+          665.0,
+          535.0
+        ],
+        [
+          725.0,
+          535.0
+        ],
+        [
+          725.0,
+          755.0
+        ],
+        [
+          785.0,
+          755.0
+        ]
+      ],
+      "style": "dashed"
+    }
+  ]
+}

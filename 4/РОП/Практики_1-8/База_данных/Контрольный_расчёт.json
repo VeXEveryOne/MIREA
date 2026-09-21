@@ -1,0 +1,55 @@
+{
+  "source": "Учебный пример ПР5, не фактические цены поставщиков",
+  "rows": [
+    {
+      "quantity": 1,
+      "price": "6000",
+      "mass_kg": "5.2"
+    },
+    {
+      "quantity": 1,
+      "price": "14000",
+      "mass_kg": "0.05"
+    },
+    {
+      "quantity": 1,
+      "price": "11500",
+      "mass_kg": "0.9"
+    },
+    {
+      "quantity": 2,
+      "price": "2500",
+      "mass_kg": "0.04"
+    },
+    {
+      "quantity": 1,
+      "price": "27000",
+      "mass_kg": "1.1"
+    },
+    {
+      "quantity": 1,
+      "price": "5000",
+      "mass_kg": "0.07"
+    },
+    {
+      "quantity": 1,
+      "price": "6500",
+      "mass_kg": "1.6"
+    },
+    {
+      "quantity": 1,
+      "price": "2500",
+      "mass_kg": "0.45"
+    }
+  ],
+  "component_cost": "77500",
+  "assembly_cost": "1200",
+  "packaging_cost": "300",
+  "markup_rate": "0.25",
+  "round_step": "100",
+  "cost": "79000",
+  "price": "98800",
+  "component_mass_kg": "9.45",
+  "packaging_mass_kg": "0.800",
+  "mass_kg": "10.250"
+}

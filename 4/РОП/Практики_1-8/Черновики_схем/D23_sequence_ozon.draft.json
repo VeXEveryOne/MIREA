@@ -1,0 +1,148 @@
+{
+  "id": "D23_sequence_ozon",
+  "title": "Последовательность публикации версии карточки",
+  "practice": 8,
+  "requirement": "ПР8 с.2–4",
+  "status": "Черновик для переноса в OmniNotation",
+  "note": "Сообщения описывают сценарий, а не собственную спецификацию API. Имена методов и реальные endpoint не задаются. Пунктир — ответ.",
+  "width": 1550,
+  "height": 1450,
+  "nodes": [
+    {
+      "id": "0",
+      "label": "Менеджер",
+      "x": 5.0,
+      "y": 20,
+      "w": 190,
+      "h": 110,
+      "kind": "box",
+      "body": null
+    },
+    {
+      "id": "1",
+      "label": "Web / API",
+      "x": 342.5,
+      "y": 20,
+      "w": 190,
+      "h": 110,
+      "kind": "box",
+      "body": null
+    },
+    {
+      "id": "2",
+      "label": "PostgreSQL",
+      "x": 680.0,
+      "y": 20,
+      "w": 190,
+      "h": 110,
+      "kind": "box",
+      "body": null
+    },
+    {
+      "id": "3",
+      "label": "Worker /\nадаптер Ozon",
+      "x": 1017.5,
+      "y": 20,
+      "w": 190,
+      "h": 110,
+      "kind": "box",
+      "body": null
+    },
+    {
+      "id": "4",
+      "label": "Ozon",
+      "x": 1355.0,
+      "y": 20,
+      "w": 190,
+      "h": 110,
+      "kind": "box",
+      "body": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "0",
+      "target": "1",
+      "label": "Утвердить card_version; HTTPS / JSON",
+      "kind": "call",
+      "y": 180
+    },
+    {
+      "source": "1",
+      "target": "2",
+      "label": "Проверки и запись QUEUED + operation_key",
+      "kind": "call",
+      "y": 275
+    },
+    {
+      "source": "1",
+      "target": "0",
+      "label": "Принято в очередь; локальный ID",
+      "kind": "return",
+      "y": 365
+    },
+    {
+      "source": "3",
+      "target": "2",
+      "label": "Захватить операцию, проверить версию",
+      "kind": "call",
+      "y": 455
+    },
+    {
+      "source": "3",
+      "target": "4",
+      "label": "Отправить карточку; HTTPS / JSON",
+      "kind": "call",
+      "y": 545
+    },
+    {
+      "source": "4",
+      "target": "3",
+      "label": "Идентификатор задачи / текущий результат",
+      "kind": "return",
+      "y": 655
+    },
+    {
+      "source": "3",
+      "target": "2",
+      "label": "Сохранить внешний ID и WAITING",
+      "kind": "call",
+      "y": 755
+    },
+    {
+      "source": "3",
+      "target": "4",
+      "label": "Запросить результат по известному ID",
+      "kind": "call",
+      "y": 865
+    },
+    {
+      "source": "4",
+      "target": "3",
+      "label": "Успех: внешний ID товара",
+      "kind": "return",
+      "y": 965
+    },
+    {
+      "source": "3",
+      "target": "2",
+      "label": "SUCCESS, PUBLISHED и уведомление",
+      "kind": "call",
+      "y": 1055
+    },
+    {
+      "source": "3",
+      "target": "2",
+      "label": "Временный сбой: RETRY ≤ 3; неизвестный итог: UNCERTAIN",
+      "kind": "call",
+      "y": 1185
+    },
+    {
+      "source": "3",
+      "target": "2",
+      "label": "Постоянная ошибка: FAILED; сохранить причины",
+      "kind": "call",
+      "y": 1300
+    }
+  ]
+}

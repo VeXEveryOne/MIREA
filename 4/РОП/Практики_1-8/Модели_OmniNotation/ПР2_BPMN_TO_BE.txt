@@ -1,0 +1,72 @@
+bpmn Collaboration "Целевой процесс"
+pool Ucoms "ООО «Юкомс»"
+pool PC4Games PC4Games
+pool ITPartner ITPartner
+pool Ozon Ozon
+event Start "Запрос на создание\nили изменение" in=Ucoms position=start
+process Init "Зарегистрировать\nзапрос и выбрать BOM" in=Ucoms type=user
+process Prepare "Подготовить\nверсию карточки" in=Ucoms type=subprocess
+process Approve "Проверить карточку\nи разрешить публикацию" in=Ucoms type=user
+process Publish "Опубликовать\nи обработать результат" in=Ucoms type=subprocess
+event Finish "Результат\nзафиксирован" in=Ucoms position=end
+lane Technical "Технический специалист" in=Prepare
+lane System "Информационная система" in=Prepare
+lane Designer Дизайнер in=Prepare
+event PStart Начало in=Prepare position=start
+process Version "Создать версию BOM\nи выбрать состав" in=Prepare type=user
+process Fix "Исправить состав,\nатрибуты или сопоставление" in=Prepare type=user
+process Offers "Загрузить предложения\nи разрешить слоты" in=Prepare type=service
+process Validate "Проверить совместимость\nи свежесть предложений" in=Prepare type=rule
+gateway Valid "Данные допустимы?" in=Prepare type=exclusive
+process Calc "Рассчитать цену и вес\nсохранить снимок" in=Prepare type=service
+process Media "Подтвердить шаблон\nи изображения" in=Prepare type=user
+process Content "Сформировать контент\nпроверить полноту" in=Prepare type=service
+gateway Complete "Карточка полна?" in=Prepare type=exclusive
+event PDone "Готова\nк публикации" in=Prepare position=end
+event QStart "Публикация разрешена" in=Publish position=start
+process Save "Зафиксировать версию\nи ключ операции" in=Publish type=service
+process Send "Сверить статус и отправить\nпри отсутствии операции" in=Publish type=service
+process Result "Получить результат\nили ошибку связи" in=Publish type=service
+gateway Outcome "Результат?" in=Publish type=exclusive
+process Success "Сохранить ID Ozon\nи опубликованную версию" in=Publish type=service
+event QDone Опубликовано in=Publish position=end
+gateway Retry "Повтор допустим?" in=Publish type=exclusive
+event Wait "Задержка повтора" definition=timer in=Publish position=catch timeDuration=PT1M
+process Increment "Увеличить счётчик\nповторов" in=Publish type=service
+process Error "Сохранить ошибку\nуведомить менеджера" in=Publish type=service
+event QFail "Ошибка публикации" in=Publish position=end
+flow F1 "" from=Start to=Init
+flow F2 "" from=Init to=Prepare
+flow F3 "" from=Prepare to=Approve
+flow F4 "" from=Approve to=Publish
+flow F5 "" from=Publish to=Finish
+flow M1 "Запрос предложений" from=Prepare to=PC4Games type=message
+flow M2 "Цены и наличие" from=PC4Games to=Prepare type=message
+flow M3 "Запрос предложений" from=Prepare to=ITPartner type=message
+flow M4 "Цены и наличие" from=ITPartner to=Prepare type=message
+flow M5 "Карточка / запрос статуса" from=Publish to=Ozon type=message
+flow M6 "ID операции / результат" from=Ozon to=Publish type=message
+flow P1 "" from=PStart to=Version
+flow P2 "" from=Version to=Offers
+flow P3 "" from=Offers to=Validate
+flow P4 "" from=Validate to=Valid
+flow P5 Нет condition="valid = false" from=Valid to=Fix
+flow P6 "" from=Fix to=Offers
+flow P7 Да condition="valid = true" from=Valid to=Calc
+flow P8 "" from=Calc to=Media
+flow P9 "" from=Media to=Content
+flow P10 "" from=Content to=Complete
+flow P11 Нет condition="complete = false" from=Complete to=Fix
+flow P12 Да condition="complete = true" from=Complete to=PDone
+flow Q1 "" from=QStart to=Save
+flow Q2 "" from=Save to=Send
+flow Q3 "" from=Send to=Result
+flow Q4 "" from=Result to=Outcome
+flow Q5 Успех condition="result = success" from=Outcome to=Success
+flow Q6 "" from=Success to=QDone
+flow Q7 "Ошибка / ожидание" condition="result != success" from=Outcome to=Retry
+flow Q8 Да condition="temporary = true and retries < 3" from=Retry to=Wait
+flow Q9 "" from=Wait to=Increment
+flow Q10 "" from=Increment to=Send
+flow Q11 Нет condition="temporary = false or retries >= 3" from=Retry to=Error
+flow Q12 "" from=Error to=QFail

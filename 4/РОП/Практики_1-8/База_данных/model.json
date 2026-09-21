@@ -1,0 +1,1613 @@
+{
+  "tables": [
+    {
+      "name": "role",
+      "title": "Роль",
+      "columns": [
+        {
+          "name": "code",
+          "type": "varchar(16)",
+          "rule": "PRIMARY KEY",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "name",
+          "type": "varchar(80)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        }
+      ],
+      "constraints": [],
+      "group": 3
+    },
+    {
+      "name": "app_user",
+      "title": "Пользователь",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "login",
+          "type": "varchar(80)",
+          "rule": "NOT NULL UNIQUE",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "password_hash",
+          "type": "varchar(255)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "display_name",
+          "type": "varchar(120)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "rule": "NOT NULL DEFAULT true",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "created_at",
+          "type": "timestamptz",
+          "rule": "NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "meaning": "Момент времени",
+          "ref": null
+        }
+      ],
+      "constraints": [],
+      "group": 3
+    },
+    {
+      "name": "user_role",
+      "title": "Назначение роли",
+      "columns": [
+        {
+          "name": "user_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES app_user(id)",
+          "meaning": "Ссылка на app_user",
+          "ref": "app_user"
+        },
+        {
+          "name": "role_code",
+          "type": "varchar(16)",
+          "rule": "NOT NULL REFERENCES role(code)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "created_at",
+          "type": "timestamptz",
+          "rule": "NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "meaning": "Момент времени",
+          "ref": null
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (user_id, role_code)"
+      ],
+      "group": 3
+    },
+    {
+      "name": "supplier",
+      "title": "Поставщик",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "code",
+          "type": "varchar(16)",
+          "rule": "NOT NULL UNIQUE",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "name",
+          "type": "varchar(120)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "priority",
+          "type": "smallint",
+          "rule": "NOT NULL CHECK (priority > 0)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "rule": "NOT NULL DEFAULT true",
+          "meaning": "",
+          "ref": null
+        }
+      ],
+      "constraints": [],
+      "group": 1
+    },
+    {
+      "name": "component",
+      "title": "Компонент",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "code",
+          "type": "varchar(20)",
+          "rule": "NOT NULL UNIQUE DEFAULT ('CMP-' || lpad(nextval('component_code_seq')::text, 6, '0'))",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "kind",
+          "type": "varchar(12)",
+          "rule": "NOT NULL CHECK (kind IN ('CASE','CPU','BOARD','RAM','GPU','SSD','PSU','COOLER'))",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "model",
+          "type": "varchar(150)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "mass_kg",
+          "type": "numeric(8,3)",
+          "rule": "NOT NULL CHECK (mass_kg > 0)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "rule": "NOT NULL DEFAULT true",
+          "meaning": "",
+          "ref": null
+        }
+      ],
+      "constraints": [],
+      "group": 1
+    },
+    {
+      "name": "characteristic",
+      "title": "Характеристика",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "code",
+          "type": "varchar(32)",
+          "rule": "NOT NULL UNIQUE",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "name",
+          "type": "varchar(120)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "value_kind",
+          "type": "varchar(8)",
+          "rule": "NOT NULL CHECK (value_kind IN ('NUMBER','TEXT'))",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "unit",
+          "type": "varchar(16)",
+          "rule": "",
+          "meaning": "",
+          "ref": null
+        }
+      ],
+      "constraints": [],
+      "group": 1
+    },
+    {
+      "name": "component_value",
+      "title": "Значение характеристики",
+      "columns": [
+        {
+          "name": "component_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES component(id)",
+          "meaning": "Ссылка на component",
+          "ref": "component"
+        },
+        {
+          "name": "characteristic_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES characteristic(id)",
+          "meaning": "Ссылка на characteristic",
+          "ref": "characteristic"
+        },
+        {
+          "name": "number_value",
+          "type": "numeric(14,4)",
+          "rule": "",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "text_value",
+          "type": "varchar(150)",
+          "rule": "",
+          "meaning": "",
+          "ref": null
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (component_id, characteristic_id)",
+        "CHECK ((number_value IS NULL) <> (text_value IS NULL))"
+      ],
+      "group": 1
+    },
+    {
+      "name": "component_group",
+      "title": "Группа компонентов",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "code",
+          "type": "varchar(32)",
+          "rule": "NOT NULL UNIQUE",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "name",
+          "type": "varchar(120)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "kind",
+          "type": "varchar(12)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "criteria",
+          "type": "jsonb",
+          "rule": "NOT NULL CHECK (jsonb_typeof(criteria) = 'object')",
+          "meaning": "Предикат по кодам характеристик",
+          "ref": null
+        }
+      ],
+      "constraints": [],
+      "group": 1
+    },
+    {
+      "name": "supplier_product",
+      "title": "Товар поставщика",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "supplier_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES supplier(id)",
+          "meaning": "Ссылка на supplier",
+          "ref": "supplier"
+        },
+        {
+          "name": "external_sku",
+          "type": "varchar(80)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "title",
+          "type": "varchar(180)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "component_id",
+          "type": "bigint",
+          "rule": "REFERENCES component(id)",
+          "meaning": "Ссылка на component",
+          "ref": "component"
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "rule": "NOT NULL DEFAULT true",
+          "meaning": "",
+          "ref": null
+        }
+      ],
+      "constraints": [
+        "UNIQUE (supplier_id, external_sku)"
+      ],
+      "group": 1
+    },
+    {
+      "name": "supplier_offer",
+      "title": "Предложение поставщика",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "product_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES supplier_product(id)",
+          "meaning": "Ссылка на supplier_product",
+          "ref": "supplier_product"
+        },
+        {
+          "name": "price",
+          "type": "numeric(14,2)",
+          "rule": "NOT NULL CHECK (price > 0)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "currency",
+          "type": "varchar(3)",
+          "rule": "NOT NULL DEFAULT 'RUB' CHECK (currency = 'RUB')",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "available_qty",
+          "type": "integer",
+          "rule": "NOT NULL CHECK (available_qty >= 0)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "observed_at",
+          "type": "timestamptz",
+          "rule": "NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "meaning": "Момент времени",
+          "ref": null
+        },
+        {
+          "name": "source_hash",
+          "type": "varchar(64)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        }
+      ],
+      "constraints": [
+        "UNIQUE (product_id, observed_at, source_hash)"
+      ],
+      "group": 1
+    },
+    {
+      "name": "bom",
+      "title": "BOM",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "code",
+          "type": "varchar(24)",
+          "rule": "NOT NULL UNIQUE DEFAULT ('BOM-' || lpad(nextval('bom_code_seq')::text, 6, '0'))",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "name",
+          "type": "varchar(150)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "created_by",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES app_user(id)",
+          "meaning": "Ссылка на app_user",
+          "ref": "app_user"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamptz",
+          "rule": "NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "meaning": "Момент времени",
+          "ref": null
+        }
+      ],
+      "constraints": [],
+      "group": 2
+    },
+    {
+      "name": "change_request",
+      "title": "Запрос на изменение",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "bom_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES bom(id)",
+          "meaning": "Ссылка на bom",
+          "ref": "bom"
+        },
+        {
+          "name": "created_by",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES app_user(id)",
+          "meaning": "Ссылка на app_user",
+          "ref": "app_user"
+        },
+        {
+          "name": "kind",
+          "type": "varchar(12)",
+          "rule": "NOT NULL CHECK (kind IN ('CREATE','UPDATE','REPLACE'))",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "reason",
+          "type": "text",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "created_at",
+          "type": "timestamptz",
+          "rule": "NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "meaning": "Момент времени",
+          "ref": null
+        }
+      ],
+      "constraints": [],
+      "group": 2
+    },
+    {
+      "name": "bom_version",
+      "title": "Версия BOM",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "bom_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES bom(id)",
+          "meaning": "Ссылка на bom",
+          "ref": "bom"
+        },
+        {
+          "name": "version_no",
+          "type": "integer",
+          "rule": "NOT NULL CHECK (version_no > 0)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "request_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES change_request(id)",
+          "meaning": "Ссылка на change_request",
+          "ref": "change_request"
+        },
+        {
+          "name": "case_component_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES component(id)",
+          "meaning": "Ссылка на component",
+          "ref": "component"
+        },
+        {
+          "name": "state",
+          "type": "varchar(12)",
+          "rule": "NOT NULL CHECK (state IN ('DRAFT','CHECKED','ARCHIVED'))",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "created_by",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES app_user(id)",
+          "meaning": "Ссылка на app_user",
+          "ref": "app_user"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamptz",
+          "rule": "NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "meaning": "Момент времени",
+          "ref": null
+        }
+      ],
+      "constraints": [
+        "UNIQUE (bom_id, version_no)"
+      ],
+      "group": 2
+    },
+    {
+      "name": "bom_slot",
+      "title": "Слот BOM",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "version_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES bom_version(id)",
+          "meaning": "Ссылка на bom_version",
+          "ref": "bom_version"
+        },
+        {
+          "name": "slot_code",
+          "type": "varchar(20)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "quantity",
+          "type": "integer",
+          "rule": "NOT NULL CHECK (quantity > 0)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "component_id",
+          "type": "bigint",
+          "rule": "REFERENCES component(id)",
+          "meaning": "Ссылка на component",
+          "ref": "component"
+        },
+        {
+          "name": "group_id",
+          "type": "bigint",
+          "rule": "REFERENCES component_group(id)",
+          "meaning": "Ссылка на component_group",
+          "ref": "component_group"
+        },
+        {
+          "name": "pinned_product_id",
+          "type": "bigint",
+          "rule": "REFERENCES supplier_product(id)",
+          "meaning": "Ссылка на supplier_product",
+          "ref": "supplier_product"
+        }
+      ],
+      "constraints": [
+        "UNIQUE (version_id, slot_code)",
+        "CHECK ((component_id IS NULL) <> (group_id IS NULL))",
+        "CHECK (pinned_product_id IS NULL OR component_id IS NOT NULL)"
+      ],
+      "group": 2
+    },
+    {
+      "name": "slot_selection",
+      "title": "Разрешённый слот",
+      "columns": [
+        {
+          "name": "slot_id",
+          "type": "bigint",
+          "rule": "PRIMARY KEY REFERENCES bom_slot(id)",
+          "meaning": "Слот",
+          "ref": "bom_slot"
+        },
+        {
+          "name": "offer_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES supplier_offer(id)",
+          "meaning": "Ссылка на supplier_offer",
+          "ref": "supplier_offer"
+        },
+        {
+          "name": "resolved_component_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES component(id)",
+          "meaning": "Ссылка на component",
+          "ref": "component"
+        },
+        {
+          "name": "selected_at",
+          "type": "timestamptz",
+          "rule": "NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "meaning": "Момент времени",
+          "ref": null
+        }
+      ],
+      "constraints": [],
+      "group": 2
+    },
+    {
+      "name": "compatibility_rule",
+      "title": "Правило совместимости",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "code",
+          "type": "varchar(32)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "revision",
+          "type": "integer",
+          "rule": "NOT NULL CHECK (revision > 0)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "name",
+          "type": "varchar(150)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "expression",
+          "type": "jsonb",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "rule": "NOT NULL DEFAULT true",
+          "meaning": "",
+          "ref": null
+        }
+      ],
+      "constraints": [
+        "UNIQUE (code, revision)"
+      ],
+      "group": 2
+    },
+    {
+      "name": "validation_result",
+      "title": "Результат проверки",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "version_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES bom_version(id)",
+          "meaning": "Ссылка на bom_version",
+          "ref": "bom_version"
+        },
+        {
+          "name": "valid",
+          "type": "boolean",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "rules_snapshot",
+          "type": "jsonb",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "issues",
+          "type": "jsonb",
+          "rule": "NOT NULL DEFAULT '[]'::jsonb",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "checked_at",
+          "type": "timestamptz",
+          "rule": "NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "meaning": "Момент времени",
+          "ref": null
+        }
+      ],
+      "constraints": [],
+      "group": 2
+    },
+    {
+      "name": "replacement_rule",
+      "title": "Правило замены",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "code",
+          "type": "varchar(32)",
+          "rule": "NOT NULL UNIQUE",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "from_component_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES component(id)",
+          "meaning": "Ссылка на component",
+          "ref": "component"
+        },
+        {
+          "name": "to_component_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES component(id)",
+          "meaning": "Ссылка на component",
+          "ref": "component"
+        },
+        {
+          "name": "from_product_id",
+          "type": "bigint",
+          "rule": "REFERENCES supplier_product(id)",
+          "meaning": "Ссылка на supplier_product",
+          "ref": "supplier_product"
+        },
+        {
+          "name": "to_product_id",
+          "type": "bigint",
+          "rule": "REFERENCES supplier_product(id)",
+          "meaning": "Ссылка на supplier_product",
+          "ref": "supplier_product"
+        },
+        {
+          "name": "scope",
+          "type": "jsonb",
+          "rule": "NOT NULL DEFAULT '{}'::jsonb",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "rule": "NOT NULL DEFAULT true",
+          "meaning": "",
+          "ref": null
+        }
+      ],
+      "constraints": [
+        "CHECK (from_component_id <> to_component_id OR from_product_id IS DISTINCT FROM to_product_id)"
+      ],
+      "group": 2
+    },
+    {
+      "name": "replacement_batch",
+      "title": "Пакет массовой замены",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "rule_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES replacement_rule(id)",
+          "meaning": "Ссылка на replacement_rule",
+          "ref": "replacement_rule"
+        },
+        {
+          "name": "created_by",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES app_user(id)",
+          "meaning": "Ссылка на app_user",
+          "ref": "app_user"
+        },
+        {
+          "name": "state",
+          "type": "varchar(12)",
+          "rule": "NOT NULL CHECK (state IN ('PREVIEW','RUNNING','DONE','PARTIAL','CANCELLED'))",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "rule_snapshot",
+          "type": "jsonb",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "created_at",
+          "type": "timestamptz",
+          "rule": "NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "meaning": "Момент времени",
+          "ref": null
+        }
+      ],
+      "constraints": [],
+      "group": 2
+    },
+    {
+      "name": "replacement_item",
+      "title": "Результат замены BOM",
+      "columns": [
+        {
+          "name": "batch_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES replacement_batch(id)",
+          "meaning": "Ссылка на replacement_batch",
+          "ref": "replacement_batch"
+        },
+        {
+          "name": "bom_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES bom(id)",
+          "meaning": "Ссылка на bom",
+          "ref": "bom"
+        },
+        {
+          "name": "old_version_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES bom_version(id)",
+          "meaning": "Ссылка на bom_version",
+          "ref": "bom_version"
+        },
+        {
+          "name": "new_version_id",
+          "type": "bigint",
+          "rule": "REFERENCES bom_version(id)",
+          "meaning": "Ссылка на bom_version",
+          "ref": "bom_version"
+        },
+        {
+          "name": "result",
+          "type": "varchar(12)",
+          "rule": "NOT NULL CHECK (result IN ('PENDING','APPLIED','CONFLICT','SKIPPED'))",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "details",
+          "type": "jsonb",
+          "rule": "NOT NULL DEFAULT '{}'::jsonb",
+          "meaning": "",
+          "ref": null
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (batch_id, bom_id)"
+      ],
+      "group": 2
+    },
+    {
+      "name": "calculation_rule",
+      "title": "Правило цены и веса",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "code",
+          "type": "varchar(24)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "revision",
+          "type": "integer",
+          "rule": "NOT NULL CHECK (revision > 0)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "markup_rate",
+          "type": "numeric(6,4)",
+          "rule": "NOT NULL CHECK (markup_rate >= 0)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "assembly_cost",
+          "type": "numeric(12,2)",
+          "rule": "NOT NULL CHECK (assembly_cost >= 0)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "packaging_cost",
+          "type": "numeric(12,2)",
+          "rule": "NOT NULL CHECK (packaging_cost >= 0)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "packaging_mass",
+          "type": "numeric(8,3)",
+          "rule": "NOT NULL CHECK (packaging_mass >= 0)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "round_step",
+          "type": "numeric(8,2)",
+          "rule": "NOT NULL CHECK (round_step > 0)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "offer_ttl_hours",
+          "type": "integer",
+          "rule": "NOT NULL CHECK (offer_ttl_hours > 0)",
+          "meaning": "",
+          "ref": null
+        }
+      ],
+      "constraints": [
+        "UNIQUE (code, revision)"
+      ],
+      "group": 3
+    },
+    {
+      "name": "card",
+      "title": "Карточка товара",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "bom_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES bom(id)",
+          "meaning": "Ссылка на bom",
+          "ref": "bom"
+        },
+        {
+          "name": "offer_id",
+          "type": "varchar(64)",
+          "rule": "NOT NULL UNIQUE DEFAULT ('UCOMS-' || lpad(nextval('card_code_seq')::text, 6, '0'))",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "status",
+          "type": "varchar(20)",
+          "rule": "NOT NULL CHECK (status IN ('DRAFT','REVIEW','READY','PUBLISHED','STALE','PUBLISH_ERROR'))",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "responsible_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES app_user(id)",
+          "meaning": "Ссылка на app_user",
+          "ref": "app_user"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamptz",
+          "rule": "NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "meaning": "Момент времени",
+          "ref": null
+        }
+      ],
+      "constraints": [],
+      "group": 3
+    },
+    {
+      "name": "card_version",
+      "title": "Версия карточки",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "card_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES card(id)",
+          "meaning": "Ссылка на card",
+          "ref": "card"
+        },
+        {
+          "name": "version_no",
+          "type": "integer",
+          "rule": "NOT NULL CHECK (version_no > 0)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "bom_version_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES bom_version(id)",
+          "meaning": "Ссылка на bom_version",
+          "ref": "bom_version"
+        },
+        {
+          "name": "validation_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES validation_result(id)",
+          "meaning": "Ссылка на validation_result",
+          "ref": "validation_result"
+        },
+        {
+          "name": "calculation_rule_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES calculation_rule(id)",
+          "meaning": "Ссылка на calculation_rule",
+          "ref": "calculation_rule"
+        },
+        {
+          "name": "title",
+          "type": "varchar(200)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "attributes",
+          "type": "jsonb",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "cost",
+          "type": "numeric(14,2)",
+          "rule": "NOT NULL CHECK (cost > 0)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "price",
+          "type": "numeric(14,2)",
+          "rule": "NOT NULL CHECK (price > 0)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "mass_kg",
+          "type": "numeric(8,3)",
+          "rule": "NOT NULL CHECK (mass_kg > 0)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "calculation_snapshot",
+          "type": "jsonb",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "created_at",
+          "type": "timestamptz",
+          "rule": "NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "meaning": "Момент времени",
+          "ref": null
+        }
+      ],
+      "constraints": [
+        "UNIQUE (card_id, version_no)"
+      ],
+      "group": 3
+    },
+    {
+      "name": "image_template",
+      "title": "Шаблон изображения",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "code",
+          "type": "varchar(32)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "revision",
+          "type": "integer",
+          "rule": "NOT NULL CHECK (revision > 0)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "storage_key",
+          "type": "varchar(255)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "approved",
+          "type": "boolean",
+          "rule": "NOT NULL DEFAULT false",
+          "meaning": "",
+          "ref": null
+        }
+      ],
+      "constraints": [
+        "UNIQUE (code, revision)"
+      ],
+      "group": 3
+    },
+    {
+      "name": "image_asset",
+      "title": "Изображение",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "template_id",
+          "type": "bigint",
+          "rule": "REFERENCES image_template(id)",
+          "meaning": "Ссылка на image_template",
+          "ref": "image_template"
+        },
+        {
+          "name": "storage_key",
+          "type": "varchar(255)",
+          "rule": "NOT NULL UNIQUE",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "sha256",
+          "type": "varchar(64)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "width_px",
+          "type": "integer",
+          "rule": "NOT NULL CHECK (width_px > 0)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "height_px",
+          "type": "integer",
+          "rule": "NOT NULL CHECK (height_px > 0)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "created_by",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES app_user(id)",
+          "meaning": "Ссылка на app_user",
+          "ref": "app_user"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamptz",
+          "rule": "NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "meaning": "Момент времени",
+          "ref": null
+        }
+      ],
+      "constraints": [],
+      "group": 3
+    },
+    {
+      "name": "card_image",
+      "title": "Изображения версии карточки",
+      "columns": [
+        {
+          "name": "card_version_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES card_version(id)",
+          "meaning": "Ссылка на card_version",
+          "ref": "card_version"
+        },
+        {
+          "name": "image_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES image_asset(id)",
+          "meaning": "Ссылка на image_asset",
+          "ref": "image_asset"
+        },
+        {
+          "name": "position",
+          "type": "smallint",
+          "rule": "NOT NULL CHECK (position > 0)",
+          "meaning": "",
+          "ref": null
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (card_version_id, image_id)",
+        "UNIQUE (card_version_id, position)"
+      ],
+      "group": 3
+    },
+    {
+      "name": "publication",
+      "title": "Публикация и очередь",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "card_version_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES card_version(id)",
+          "meaning": "Ссылка на card_version",
+          "ref": "card_version"
+        },
+        {
+          "name": "operation_key",
+          "type": "varchar(64)",
+          "rule": "NOT NULL UNIQUE",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "external_task_id",
+          "type": "varchar(100)",
+          "rule": "",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "external_product_id",
+          "type": "varchar(100)",
+          "rule": "",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "state",
+          "type": "varchar(16)",
+          "rule": "NOT NULL CHECK (state IN ('QUEUED','SENDING','WAITING','RETRY','SUCCESS','FAILED','UNCERTAIN'))",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "retry_count",
+          "type": "smallint",
+          "rule": "NOT NULL DEFAULT 0 CHECK (retry_count BETWEEN 0 AND 3)",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "next_attempt_at",
+          "type": "timestamptz",
+          "rule": "",
+          "meaning": "Момент времени",
+          "ref": null
+        },
+        {
+          "name": "request_snapshot",
+          "type": "jsonb",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "response",
+          "type": "jsonb",
+          "rule": "",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "error_code",
+          "type": "varchar(80)",
+          "rule": "",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "created_at",
+          "type": "timestamptz",
+          "rule": "NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "meaning": "Момент времени",
+          "ref": null
+        },
+        {
+          "name": "completed_at",
+          "type": "timestamptz",
+          "rule": "",
+          "meaning": "Момент времени",
+          "ref": null
+        }
+      ],
+      "constraints": [],
+      "group": 3
+    },
+    {
+      "name": "audit_event",
+      "title": "Событие аудита",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "actor_id",
+          "type": "bigint",
+          "rule": "REFERENCES app_user(id)",
+          "meaning": "Ссылка на app_user",
+          "ref": "app_user"
+        },
+        {
+          "name": "actor_kind",
+          "type": "varchar(12)",
+          "rule": "NOT NULL CHECK (actor_kind IN ('USER','SERVICE'))",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "resource_type",
+          "type": "varchar(40)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "resource_key",
+          "type": "varchar(100)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "action",
+          "type": "varchar(40)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "before_data",
+          "type": "jsonb",
+          "rule": "",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "after_data",
+          "type": "jsonb",
+          "rule": "",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "created_at",
+          "type": "timestamptz",
+          "rule": "NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "meaning": "Момент времени",
+          "ref": null
+        }
+      ],
+      "constraints": [],
+      "group": 3
+    },
+    {
+      "name": "notification",
+      "title": "Уведомление",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "rule": "GENERATED ALWAYS AS IDENTITY PRIMARY KEY",
+          "meaning": "Идентификатор",
+          "ref": null
+        },
+        {
+          "name": "recipient_id",
+          "type": "bigint",
+          "rule": "NOT NULL REFERENCES app_user(id)",
+          "meaning": "Ссылка на app_user",
+          "ref": "app_user"
+        },
+        {
+          "name": "card_id",
+          "type": "bigint",
+          "rule": "REFERENCES card(id)",
+          "meaning": "Ссылка на card",
+          "ref": "card"
+        },
+        {
+          "name": "kind",
+          "type": "varchar(32)",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "message",
+          "type": "text",
+          "rule": "NOT NULL",
+          "meaning": "",
+          "ref": null
+        },
+        {
+          "name": "created_at",
+          "type": "timestamptz",
+          "rule": "NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "meaning": "Момент времени",
+          "ref": null
+        },
+        {
+          "name": "read_at",
+          "type": "timestamptz",
+          "rule": "",
+          "meaning": "Момент времени",
+          "ref": null
+        }
+      ],
+      "constraints": [],
+      "group": 3
+    }
+  ],
+  "indexes": [
+    [
+      "ix_offer_latest",
+      "supplier_offer",
+      "product_id, observed_at DESC"
+    ],
+    [
+      "ix_product_component",
+      "supplier_product",
+      "component_id"
+    ],
+    [
+      "ix_bom_case",
+      "bom_version",
+      "case_component_id"
+    ],
+    [
+      "ix_slot_component",
+      "bom_slot",
+      "component_id"
+    ],
+    [
+      "ix_slot_group",
+      "bom_slot",
+      "group_id"
+    ],
+    [
+      "ix_slot_product",
+      "bom_slot",
+      "pinned_product_id"
+    ],
+    [
+      "ix_card_status",
+      "card",
+      "status, responsible_id"
+    ],
+    [
+      "ix_publication_due",
+      "publication",
+      "state, next_attempt_at"
+    ],
+    [
+      "ix_audit_time",
+      "audit_event",
+      "created_at"
+    ],
+    [
+      "ix_notification_user",
+      "notification",
+      "recipient_id, read_at"
+    ]
+  ]
+}

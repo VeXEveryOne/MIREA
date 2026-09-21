@@ -1,0 +1,244 @@
+{
+  "id": "D03_logical_1",
+  "title": "Логическая модель данных, вид 1",
+  "practice": 3,
+  "requirement": "ПР3 с.2–3",
+  "status": "Черновик для переноса в OmniNotation",
+  "note": "Полный словарь атрибутов, составные ключи и межвидовые FK — в отчёте и База_данных/model.json. Диаграммы вместе составляют одну модель из 29 таблиц.",
+  "width": 1640,
+  "height": 940,
+  "nodes": [
+    {
+      "id": "supplier",
+      "label": "supplier",
+      "x": 30,
+      "y": 80,
+      "w": 370,
+      "h": 195,
+      "kind": "box",
+      "body": "PK id\ncode\nname\n… полный состав в словаре"
+    },
+    {
+      "id": "component",
+      "label": "component",
+      "x": 435,
+      "y": 80,
+      "w": 370,
+      "h": 195,
+      "kind": "box",
+      "body": "PK id\ncode\nkind\n… полный состав в словаре"
+    },
+    {
+      "id": "characteristic",
+      "label": "characteristic",
+      "x": 840,
+      "y": 80,
+      "w": 370,
+      "h": 195,
+      "kind": "box",
+      "body": "PK id\ncode\nname\n… полный состав в словаре"
+    },
+    {
+      "id": "component_value",
+      "label": "component_value",
+      "x": 1245,
+      "y": 80,
+      "w": 370,
+      "h": 195,
+      "kind": "box",
+      "body": "FK component_id\nFK characteristic_id\nnumber_value\ntext_value"
+    },
+    {
+      "id": "component_group",
+      "label": "component_group",
+      "x": 30,
+      "y": 510,
+      "w": 370,
+      "h": 195,
+      "kind": "box",
+      "body": "PK id\ncode\nname\n… полный состав в словаре"
+    },
+    {
+      "id": "supplier_product",
+      "label": "supplier_product",
+      "x": 435,
+      "y": 510,
+      "w": 370,
+      "h": 255,
+      "kind": "box",
+      "body": "PK id\nFK supplier_id\nFK component_id\nexternal_sku\ntitle\n… полный состав в словаре"
+    },
+    {
+      "id": "supplier_offer",
+      "label": "supplier_offer",
+      "x": 840,
+      "y": 510,
+      "w": 370,
+      "h": 225,
+      "kind": "box",
+      "body": "PK id\nFK product_id\nprice\ncurrency\n… полный состав в словаре"
+    }
+  ],
+  "edges": [
+    {
+      "source": "component_value",
+      "target": "characteristic",
+      "label": "",
+      "points": [
+        [
+          1615,
+          128
+        ],
+        [
+          1631,
+          128
+        ],
+        [
+          1631,
+          64
+        ],
+        [
+          1226,
+          64
+        ],
+        [
+          1226,
+          128
+        ],
+        [
+          1210,
+          128
+        ]
+      ],
+      "style": "solid"
+    },
+    {
+      "source": "component_value",
+      "target": "component",
+      "label": "",
+      "points": [
+        [
+          1615,
+          144
+        ],
+        [
+          1639,
+          144
+        ],
+        [
+          1639,
+          55
+        ],
+        [
+          829,
+          55
+        ],
+        [
+          829,
+          144
+        ],
+        [
+          805,
+          144
+        ]
+      ],
+      "style": "solid"
+    },
+    {
+      "source": "supplier_product",
+      "target": "component",
+      "label": "",
+      "points": [
+        [
+          805,
+          558
+        ],
+        [
+          821,
+          558
+        ],
+        [
+          821,
+          480
+        ],
+        [
+          821,
+          480
+        ],
+        [
+          821,
+          128
+        ],
+        [
+          805,
+          128
+        ]
+      ],
+      "style": "solid"
+    },
+    {
+      "source": "supplier_product",
+      "target": "supplier",
+      "label": "",
+      "points": [
+        [
+          805,
+          574
+        ],
+        [
+          829,
+          574
+        ],
+        [
+          829,
+          487
+        ],
+        [
+          424,
+          487
+        ],
+        [
+          424,
+          144
+        ],
+        [
+          400,
+          144
+        ]
+      ],
+      "style": "solid"
+    },
+    {
+      "source": "supplier_offer",
+      "target": "supplier_product",
+      "label": "",
+      "points": [
+        [
+          1210,
+          558
+        ],
+        [
+          1226,
+          558
+        ],
+        [
+          1226,
+          494
+        ],
+        [
+          821,
+          494
+        ],
+        [
+          821,
+          558
+        ],
+        [
+          805,
+          558
+        ]
+      ],
+      "style": "solid"
+    }
+  ]
+}
