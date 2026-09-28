@@ -1,0 +1,2019 @@
+{
+  "formatVersion": 2,
+  "notation": "UML",
+  "profile": "NS-UML-2.5.1-2",
+  "model": {
+    "id": "ropUmlStructure",
+    "label": "РОП — компоненты, деятельность и развёртывание",
+    "elements": [
+      {
+        "id": "D02_component",
+        "kind": "diagram",
+        "label": "Диаграмма компонентов",
+        "properties": {
+          "type": "component"
+        }
+      },
+      {
+        "id": "D02_component.ui",
+        "kind": "component",
+        "label": "Веб-интерфейс",
+        "properties": {}
+      },
+      {
+        "id": "D02_component.uiView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.ui"
+        }
+      },
+      {
+        "id": "D02_component.auth",
+        "kind": "component",
+        "label": "Проверка прав и аудит",
+        "properties": {}
+      },
+      {
+        "id": "D02_component.authView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.auth"
+        }
+      },
+      {
+        "id": "D02_component.bom",
+        "kind": "component",
+        "label": "BOM и правила",
+        "properties": {}
+      },
+      {
+        "id": "D02_component.bomView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.bom"
+        }
+      },
+      {
+        "id": "D02_component.content",
+        "kind": "component",
+        "label": "Расчёты и контент",
+        "properties": {}
+      },
+      {
+        "id": "D02_component.contentView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.content"
+        }
+      },
+      {
+        "id": "D02_component.pub",
+        "kind": "component",
+        "label": "Публикации и очередь",
+        "properties": {}
+      },
+      {
+        "id": "D02_component.pubView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.pub"
+        }
+      },
+      {
+        "id": "D02_component.sup",
+        "kind": "component",
+        "label": "Адаптеры поставщиков",
+        "properties": {}
+      },
+      {
+        "id": "D02_component.supView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.sup"
+        }
+      },
+      {
+        "id": "D02_component.db",
+        "kind": "component",
+        "label": "Репозитории PostgreSQL",
+        "properties": {}
+      },
+      {
+        "id": "D02_component.dbView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.db"
+        }
+      },
+      {
+        "id": "D02_component.ext",
+        "kind": "component",
+        "label": "PC4Games и ITPartner",
+        "properties": {}
+      },
+      {
+        "id": "D02_component.extView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.ext"
+        }
+      },
+      {
+        "id": "D02_component.oz",
+        "kind": "component",
+        "label": "Ozon Seller",
+        "properties": {}
+      },
+      {
+        "id": "D02_component.ozView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.oz"
+        }
+      },
+      {
+        "id": "D02_component.media",
+        "kind": "component",
+        "label": "Хранилище изображений",
+        "properties": {}
+      },
+      {
+        "id": "D02_component.mediaView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.media"
+        }
+      },
+      {
+        "id": "D02_component.edge1",
+        "kind": "dependency",
+        "label": "HTTPS / JSON",
+        "properties": {
+          "from": "D02_component.ui",
+          "to": "D02_component.bom"
+        }
+      },
+      {
+        "id": "view_d934aa3ed6d6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.edge1",
+          "from": "D02_component.uiView",
+          "to": "D02_component.bomView"
+        }
+      },
+      {
+        "id": "D02_component.edge2",
+        "kind": "dependency",
+        "label": "проверка роли",
+        "properties": {
+          "from": "D02_component.bom",
+          "to": "D02_component.auth"
+        }
+      },
+      {
+        "id": "view_a738a9b6ed3d",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.edge2",
+          "from": "D02_component.bomView",
+          "to": "D02_component.authView"
+        }
+      },
+      {
+        "id": "D02_component.edge3",
+        "kind": "dependency",
+        "label": "репозитории",
+        "properties": {
+          "from": "D02_component.bom",
+          "to": "D02_component.db"
+        }
+      },
+      {
+        "id": "view_20795579949e",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.edge3",
+          "from": "D02_component.bomView",
+          "to": "D02_component.dbView"
+        }
+      },
+      {
+        "id": "D02_component.edge4",
+        "kind": "dependency",
+        "label": "предложения",
+        "properties": {
+          "from": "D02_component.bom",
+          "to": "D02_component.sup"
+        }
+      },
+      {
+        "id": "view_a5565d588c5c",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.edge4",
+          "from": "D02_component.bomView",
+          "to": "D02_component.supView"
+        }
+      },
+      {
+        "id": "D02_component.edge5",
+        "kind": "dependency",
+        "label": "адаптер",
+        "properties": {
+          "from": "D02_component.sup",
+          "to": "D02_component.ext"
+        }
+      },
+      {
+        "id": "view_9577367523bb",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.edge5",
+          "from": "D02_component.supView",
+          "to": "D02_component.extView"
+        }
+      },
+      {
+        "id": "D02_component.edge6",
+        "kind": "dependency",
+        "label": "версия BOM",
+        "properties": {
+          "from": "D02_component.bom",
+          "to": "D02_component.content"
+        }
+      },
+      {
+        "id": "view_ca094907191a",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.edge6",
+          "from": "D02_component.bomView",
+          "to": "D02_component.contentView"
+        }
+      },
+      {
+        "id": "D02_component.edge7",
+        "kind": "dependency",
+        "label": "версия карточки",
+        "properties": {
+          "from": "D02_component.content",
+          "to": "D02_component.pub"
+        }
+      },
+      {
+        "id": "view_479db3d77f04",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.edge7",
+          "from": "D02_component.contentView",
+          "to": "D02_component.pubView"
+        }
+      },
+      {
+        "id": "D02_component.edge8",
+        "kind": "dependency",
+        "label": "HTTPS / JSON",
+        "properties": {
+          "from": "D02_component.pub",
+          "to": "D02_component.oz"
+        }
+      },
+      {
+        "id": "view_45d22ccc2e05",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.edge8",
+          "from": "D02_component.pubView",
+          "to": "D02_component.ozView"
+        }
+      },
+      {
+        "id": "D02_component.edge9",
+        "kind": "dependency",
+        "label": "файлы",
+        "properties": {
+          "from": "D02_component.content",
+          "to": "D02_component.media"
+        }
+      },
+      {
+        "id": "view_9403f3658893",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.edge9",
+          "from": "D02_component.contentView",
+          "to": "D02_component.mediaView"
+        }
+      },
+      {
+        "id": "annotation_2a86e4150ae8",
+        "kind": "annotation",
+        "label": "Модульный монолит. Репозитории и аудит используются всеми бизнес-модулями; повторяющиеся зависимости опущены для читаемости.",
+        "properties": {}
+      },
+      {
+        "id": "annotation_2a86e4150ae8View",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "annotation_2a86e4150ae8"
+        }
+      },
+      {
+        "id": "D06_activity",
+        "kind": "diagram",
+        "label": "Деятельность по подготовке и публикации карточки",
+        "properties": {
+          "type": "activity",
+          "activity": "prepareCard"
+        }
+      },
+      {
+        "id": "prepareCard",
+        "kind": "activity",
+        "label": "Деятельность по подготовке и публикации карточки",
+        "properties": {}
+      },
+      {
+        "id": "D06_activity.a",
+        "kind": "initial",
+        "label": "",
+        "properties": {
+          "owner": "prepareCard"
+        }
+      },
+      {
+        "id": "D06_activity.aView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D06_activity",
+          "element": "D06_activity.a"
+        }
+      },
+      {
+        "id": "D06_activity.b",
+        "kind": "action",
+        "label": "Выбрать BOM\nсоздать новую версию",
+        "properties": {
+          "owner": "prepareCard"
+        }
+      },
+      {
+        "id": "D06_activity.bView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D06_activity",
+          "element": "D06_activity.b"
+        }
+      },
+      {
+        "id": "D06_activity.c",
+        "kind": "action",
+        "label": "Изменить состав\nи разрешить группы",
+        "properties": {
+          "owner": "prepareCard"
+        }
+      },
+      {
+        "id": "D06_activity.cView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D06_activity",
+          "element": "D06_activity.c"
+        }
+      },
+      {
+        "id": "D06_activity.d",
+        "kind": "decision",
+        "label": "Совместимо и\nданные актуальны?",
+        "properties": {
+          "owner": "prepareCard"
+        }
+      },
+      {
+        "id": "D06_activity.dView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D06_activity",
+          "element": "D06_activity.d"
+        }
+      },
+      {
+        "id": "D06_activity.e",
+        "kind": "action",
+        "label": "Рассчитать показатели\nподготовить контент",
+        "properties": {
+          "owner": "prepareCard"
+        }
+      },
+      {
+        "id": "D06_activity.eView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D06_activity",
+          "element": "D06_activity.e"
+        }
+      },
+      {
+        "id": "D06_activity.f",
+        "kind": "action",
+        "label": "Утвердить\nи запустить публикацию",
+        "properties": {
+          "owner": "prepareCard"
+        }
+      },
+      {
+        "id": "D06_activity.fView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D06_activity",
+          "element": "D06_activity.f"
+        }
+      },
+      {
+        "id": "D06_activity.g",
+        "kind": "action",
+        "label": "Зафиксировать успех\nили ошибку и уведомить",
+        "properties": {
+          "owner": "prepareCard"
+        }
+      },
+      {
+        "id": "D06_activity.gView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D06_activity",
+          "element": "D06_activity.g"
+        }
+      },
+      {
+        "id": "D06_activity.z",
+        "kind": "activityFinal",
+        "label": "",
+        "properties": {
+          "owner": "prepareCard"
+        }
+      },
+      {
+        "id": "D06_activity.zView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D06_activity",
+          "element": "D06_activity.z"
+        }
+      },
+      {
+        "id": "D06_activity.fix",
+        "kind": "action",
+        "label": "Показать конфликт\nисправить данные",
+        "properties": {
+          "owner": "prepareCard"
+        }
+      },
+      {
+        "id": "D06_activity.fixView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D06_activity",
+          "element": "D06_activity.fix"
+        }
+      },
+      {
+        "id": "D06_activity.mergeCorrections",
+        "kind": "merge",
+        "label": "",
+        "properties": {
+          "owner": "prepareCard"
+        }
+      },
+      {
+        "id": "D06_activity.mergeCorrectionsView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D06_activity",
+          "element": "D06_activity.mergeCorrections"
+        }
+      },
+      {
+        "id": "D06_activity.continueEditing",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "prepareCard",
+          "from": "D06_activity.mergeCorrections",
+          "to": "D06_activity.c"
+        }
+      },
+      {
+        "id": "view_d949f158161b",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D06_activity",
+          "element": "D06_activity.continueEditing",
+          "from": "D06_activity.mergeCorrectionsView",
+          "to": "D06_activity.cView"
+        }
+      },
+      {
+        "id": "D06_activity.edge1",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "prepareCard",
+          "from": "D06_activity.a",
+          "to": "D06_activity.b"
+        }
+      },
+      {
+        "id": "view_86e6270c2341",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D06_activity",
+          "element": "D06_activity.edge1",
+          "from": "D06_activity.aView",
+          "to": "D06_activity.bView"
+        }
+      },
+      {
+        "id": "D06_activity.edge2",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "prepareCard",
+          "from": "D06_activity.b",
+          "to": "D06_activity.mergeCorrections"
+        }
+      },
+      {
+        "id": "view_e24be68d3fc7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D06_activity",
+          "element": "D06_activity.edge2",
+          "from": "D06_activity.bView",
+          "to": "D06_activity.mergeCorrectionsView"
+        }
+      },
+      {
+        "id": "D06_activity.edge3",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "prepareCard",
+          "from": "D06_activity.c",
+          "to": "D06_activity.d"
+        }
+      },
+      {
+        "id": "view_6014bbd18a37",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D06_activity",
+          "element": "D06_activity.edge3",
+          "from": "D06_activity.cView",
+          "to": "D06_activity.dView"
+        }
+      },
+      {
+        "id": "D06_activity.edge4",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "prepareCard",
+          "from": "D06_activity.d",
+          "to": "D06_activity.fix",
+          "guard": "else"
+        }
+      },
+      {
+        "id": "view_1d69e4360486",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D06_activity",
+          "element": "D06_activity.edge4",
+          "from": "D06_activity.dView",
+          "to": "D06_activity.fixView"
+        }
+      },
+      {
+        "id": "D06_activity.edge5",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "prepareCard",
+          "from": "D06_activity.fix",
+          "to": "D06_activity.mergeCorrections"
+        }
+      },
+      {
+        "id": "view_1f6717113576",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D06_activity",
+          "element": "D06_activity.edge5",
+          "from": "D06_activity.fixView",
+          "to": "D06_activity.mergeCorrectionsView"
+        }
+      },
+      {
+        "id": "D06_activity.edge6",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "prepareCard",
+          "from": "D06_activity.d",
+          "to": "D06_activity.e",
+          "guard": "Совместимо и данные актуальны"
+        }
+      },
+      {
+        "id": "view_c529aa532ceb",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D06_activity",
+          "element": "D06_activity.edge6",
+          "from": "D06_activity.dView",
+          "to": "D06_activity.eView"
+        }
+      },
+      {
+        "id": "D06_activity.edge7",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "prepareCard",
+          "from": "D06_activity.e",
+          "to": "D06_activity.f"
+        }
+      },
+      {
+        "id": "view_67aa2a07bda8",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D06_activity",
+          "element": "D06_activity.edge7",
+          "from": "D06_activity.eView",
+          "to": "D06_activity.fView"
+        }
+      },
+      {
+        "id": "D06_activity.edge8",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "prepareCard",
+          "from": "D06_activity.f",
+          "to": "D06_activity.g"
+        }
+      },
+      {
+        "id": "view_40f72dfd1caa",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D06_activity",
+          "element": "D06_activity.edge8",
+          "from": "D06_activity.fView",
+          "to": "D06_activity.gView"
+        }
+      },
+      {
+        "id": "D06_activity.edge9",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "prepareCard",
+          "from": "D06_activity.g",
+          "to": "D06_activity.z"
+        }
+      },
+      {
+        "id": "view_28c6140a97c8",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D06_activity",
+          "element": "D06_activity.edge9",
+          "from": "D06_activity.gView",
+          "to": "D06_activity.zView"
+        }
+      },
+      {
+        "id": "D21_deployment",
+        "kind": "diagram",
+        "label": "Диаграмма развёртывания",
+        "properties": {
+          "type": "deployment"
+        }
+      },
+      {
+        "id": "D21_deployment.client",
+        "kind": "device",
+        "label": "Рабочие станции\nБраузеры сотрудников",
+        "properties": {}
+      },
+      {
+        "id": "D21_deployment.clientView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.client"
+        }
+      },
+      {
+        "id": "D21_deployment.edge",
+        "kind": "node",
+        "label": "Шлюз / DMZ\nNginx: HTTPS 443\nTLS и маршрутизация",
+        "properties": {}
+      },
+      {
+        "id": "D21_deployment.edgeView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.edge"
+        }
+      },
+      {
+        "id": "D21_deployment.app",
+        "kind": "node",
+        "label": "Прикладной сервер\nJRE 21: Spring Boot\nAPI и worker публикаций",
+        "properties": {}
+      },
+      {
+        "id": "D21_deployment.appView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.app"
+        }
+      },
+      {
+        "id": "D21_deployment.db",
+        "kind": "node",
+        "label": "Сервер БД\nPostgreSQL 18\nДанные и очередь",
+        "properties": {}
+      },
+      {
+        "id": "D21_deployment.dbView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.db"
+        }
+      },
+      {
+        "id": "D21_deployment.media",
+        "kind": "node",
+        "label": "Файловое хранилище\nИзображения по storage_key",
+        "properties": {}
+      },
+      {
+        "id": "D21_deployment.mediaView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.media"
+        }
+      },
+      {
+        "id": "D21_deployment.ext",
+        "kind": "node",
+        "label": "Ozon и поставщики\nИнтернет",
+        "properties": {}
+      },
+      {
+        "id": "D21_deployment.extView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.ext"
+        }
+      },
+      {
+        "id": "D21_deployment.backup",
+        "kind": "node",
+        "label": "Резервное хранилище\nБД и изображения\nОтдельные учётные данные",
+        "properties": {}
+      },
+      {
+        "id": "D21_deployment.backupView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.backup"
+        }
+      },
+      {
+        "id": "D21_deployment.edge1",
+        "kind": "communicationPath",
+        "label": "",
+        "properties": {
+          "from": "D21_deployment.client",
+          "to": "D21_deployment.edge",
+          "protocol": "HTTPS",
+          "port": "443"
+        }
+      },
+      {
+        "id": "view_f69f6e0c4d25",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.edge1",
+          "from": "D21_deployment.clientView",
+          "to": "D21_deployment.edgeView"
+        }
+      },
+      {
+        "id": "D21_deployment.edge2",
+        "kind": "communicationPath",
+        "label": "",
+        "properties": {
+          "from": "D21_deployment.edge",
+          "to": "D21_deployment.app",
+          "protocol": "HTTPS",
+          "port": "8443"
+        }
+      },
+      {
+        "id": "view_d85200a3e504",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.edge2",
+          "from": "D21_deployment.edgeView",
+          "to": "D21_deployment.appView"
+        }
+      },
+      {
+        "id": "D21_deployment.edge3",
+        "kind": "communicationPath",
+        "label": "",
+        "properties": {
+          "from": "D21_deployment.app",
+          "to": "D21_deployment.db",
+          "protocol": "TLS",
+          "port": "5432"
+        }
+      },
+      {
+        "id": "view_19c0e2fe8eb6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.edge3",
+          "from": "D21_deployment.appView",
+          "to": "D21_deployment.dbView"
+        }
+      },
+      {
+        "id": "D21_deployment.edge4",
+        "kind": "communicationPath",
+        "label": "",
+        "properties": {
+          "from": "D21_deployment.app",
+          "to": "D21_deployment.ext",
+          "protocol": "HTTPS",
+          "port": "443"
+        }
+      },
+      {
+        "id": "view_7dde0ce12d79",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.edge4",
+          "from": "D21_deployment.appView",
+          "to": "D21_deployment.extView"
+        }
+      },
+      {
+        "id": "D21_deployment.edge5",
+        "kind": "communicationPath",
+        "label": "копия БД",
+        "properties": {
+          "from": "D21_deployment.db",
+          "to": "D21_deployment.backup"
+        }
+      },
+      {
+        "id": "view_d4094b4d9818",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.edge5",
+          "from": "D21_deployment.dbView",
+          "to": "D21_deployment.backupView"
+        }
+      },
+      {
+        "id": "D21_deployment.edge6",
+        "kind": "communicationPath",
+        "label": "",
+        "properties": {
+          "from": "D21_deployment.app",
+          "to": "D21_deployment.media",
+          "protocol": "HTTPS"
+        }
+      },
+      {
+        "id": "view_279eae0f39d6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.edge6",
+          "from": "D21_deployment.appView",
+          "to": "D21_deployment.mediaView"
+        }
+      },
+      {
+        "id": "D21_deployment.edge7",
+        "kind": "communicationPath",
+        "label": "копия файлов",
+        "properties": {
+          "from": "D21_deployment.media",
+          "to": "D21_deployment.backup"
+        }
+      },
+      {
+        "id": "view_4654ae7d25ca",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.edge7",
+          "from": "D21_deployment.mediaView",
+          "to": "D21_deployment.backupView"
+        }
+      },
+      {
+        "id": "D21_deployment.apiRuntime",
+        "kind": "executionEnvironment",
+        "label": "JRE 21 · API",
+        "properties": {
+          "owner": "D21_deployment.app",
+          "technology": "Java",
+          "version": "21"
+        }
+      },
+      {
+        "id": "D21_deployment.apiRuntimeView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.apiRuntime"
+        }
+      },
+      {
+        "id": "D21_deployment.workerRuntime",
+        "kind": "executionEnvironment",
+        "label": "JRE 21 · worker публикаций",
+        "properties": {
+          "owner": "D21_deployment.app",
+          "technology": "Java",
+          "version": "21"
+        }
+      },
+      {
+        "id": "D21_deployment.workerRuntimeView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.workerRuntime"
+        }
+      },
+      {
+        "id": "D21_deployment.postgres",
+        "kind": "executionEnvironment",
+        "label": "PostgreSQL",
+        "properties": {
+          "owner": "D21_deployment.db",
+          "technology": "PostgreSQL",
+          "version": "18"
+        }
+      },
+      {
+        "id": "D21_deployment.postgresView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.postgres"
+        }
+      },
+      {
+        "id": "D21_deployment.applicationArtifact",
+        "kind": "artifact",
+        "label": "Приложение карточек",
+        "properties": {
+          "description": "Артефакт модульного монолита: API и worker используют общий пакет. Разделение сред уточняет исходный рисунок; физическая топология не проверялась."
+        }
+      },
+      {
+        "id": "D21_deployment.applicationArtifactView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.applicationArtifact"
+        }
+      },
+      {
+        "id": "D21_deployment.apiRuntimeDeploy",
+        "kind": "deployment",
+        "label": "",
+        "properties": {
+          "location": "D21_deployment.apiRuntime",
+          "artifact": "D21_deployment.applicationArtifact"
+        }
+      },
+      {
+        "id": "view_340bb5db4e09",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.apiRuntimeDeploy",
+          "from": "D21_deployment.apiRuntimeView",
+          "to": "D21_deployment.applicationArtifactView"
+        }
+      },
+      {
+        "id": "D21_deployment.workerRuntimeDeploy",
+        "kind": "deployment",
+        "label": "",
+        "properties": {
+          "location": "D21_deployment.workerRuntime",
+          "artifact": "D21_deployment.applicationArtifact"
+        }
+      },
+      {
+        "id": "view_a70fc3402d32",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.workerRuntimeDeploy",
+          "from": "D21_deployment.workerRuntimeView",
+          "to": "D21_deployment.applicationArtifactView"
+        }
+      },
+      {
+        "id": "D21_deployment.databaseSchema",
+        "kind": "artifact",
+        "label": "Схема базы данных",
+        "properties": {
+          "fileName": "schema.sql"
+        }
+      },
+      {
+        "id": "D21_deployment.databaseSchemaView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "D21_deployment.databaseSchema"
+        }
+      },
+      {
+        "id": "deployment_832c6e690b0c",
+        "kind": "deployment",
+        "label": "",
+        "properties": {
+          "location": "D21_deployment.postgres",
+          "artifact": "D21_deployment.databaseSchema"
+        }
+      },
+      {
+        "id": "view_546274c0eef3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "deployment_832c6e690b0c",
+          "from": "D21_deployment.postgresView",
+          "to": "D21_deployment.databaseSchemaView"
+        }
+      },
+      {
+        "id": "manifestation_8303b12a337a",
+        "kind": "manifestation",
+        "label": "",
+        "properties": {
+          "from": "D21_deployment.applicationArtifact",
+          "to": "D02_component.auth"
+        }
+      },
+      {
+        "id": "manifestation_7d981f557b9e",
+        "kind": "manifestation",
+        "label": "",
+        "properties": {
+          "from": "D21_deployment.applicationArtifact",
+          "to": "D02_component.bom"
+        }
+      },
+      {
+        "id": "manifestation_1d91902218c8",
+        "kind": "manifestation",
+        "label": "",
+        "properties": {
+          "from": "D21_deployment.applicationArtifact",
+          "to": "D02_component.content"
+        }
+      },
+      {
+        "id": "manifestation_8611f75f53c0",
+        "kind": "manifestation",
+        "label": "",
+        "properties": {
+          "from": "D21_deployment.applicationArtifact",
+          "to": "D02_component.pub"
+        }
+      },
+      {
+        "id": "manifestation_e5780f0b1855",
+        "kind": "manifestation",
+        "label": "",
+        "properties": {
+          "from": "D21_deployment.applicationArtifact",
+          "to": "D02_component.sup"
+        }
+      },
+      {
+        "id": "manifestation_69fe4fe193bd",
+        "kind": "manifestation",
+        "label": "",
+        "properties": {
+          "from": "D21_deployment.applicationArtifact",
+          "to": "D02_component.db"
+        }
+      },
+      {
+        "id": "manifestation_eb2999c60d65",
+        "kind": "manifestation",
+        "label": "",
+        "properties": {
+          "from": "D21_deployment.applicationArtifact",
+          "to": "D02_component.ext"
+        }
+      },
+      {
+        "id": "manifestation_c97087d24102",
+        "kind": "manifestation",
+        "label": "",
+        "properties": {
+          "from": "D21_deployment.applicationArtifact",
+          "to": "D02_component.oz"
+        }
+      },
+      {
+        "id": "manifestation_d91ae7593224",
+        "kind": "manifestation",
+        "label": "",
+        "properties": {
+          "from": "D21_deployment.applicationArtifact",
+          "to": "D02_component.media"
+        }
+      },
+      {
+        "id": "annotation_5524cb80ddc5",
+        "kind": "annotation",
+        "label": "Ресурсы и число узлов — проектное предложение; нагрузочная проверка ещё не проводилась.",
+        "properties": {}
+      },
+      {
+        "id": "annotation_5524cb80ddc5View",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D21_deployment",
+          "element": "annotation_5524cb80ddc5"
+        }
+      }
+    ]
+  },
+  "source": "uml ropUmlStructure \"РОП — компоненты, деятельность и развёртывание\"\ndiagram D02_component \"Диаграмма компонентов\" type=component\ncomponent D02_component.ui Веб-интерфейс\nview D02_component.uiView \"\" diagram=D02_component element=D02_component.ui\ncomponent D02_component.auth \"Проверка прав и аудит\"\nview D02_component.authView \"\" diagram=D02_component element=D02_component.auth\ncomponent D02_component.bom \"BOM и правила\"\nview D02_component.bomView \"\" diagram=D02_component element=D02_component.bom\ncomponent D02_component.content \"Расчёты и контент\"\nview D02_component.contentView \"\" diagram=D02_component element=D02_component.content\ncomponent D02_component.pub \"Публикации и очередь\"\nview D02_component.pubView \"\" diagram=D02_component element=D02_component.pub\ncomponent D02_component.sup \"Адаптеры поставщиков\"\nview D02_component.supView \"\" diagram=D02_component element=D02_component.sup\ncomponent D02_component.db \"Репозитории PostgreSQL\"\nview D02_component.dbView \"\" diagram=D02_component element=D02_component.db\ncomponent D02_component.ext \"PC4Games и ITPartner\"\nview D02_component.extView \"\" diagram=D02_component element=D02_component.ext\ncomponent D02_component.oz \"Ozon Seller\"\nview D02_component.ozView \"\" diagram=D02_component element=D02_component.oz\ncomponent D02_component.media \"Хранилище изображений\"\nview D02_component.mediaView \"\" diagram=D02_component element=D02_component.media\ndependency D02_component.edge1 \"HTTPS / JSON\" from=D02_component.ui to=D02_component.bom\nview view_d934aa3ed6d6 \"\" diagram=D02_component element=D02_component.edge1 from=D02_component.uiView to=D02_component.bomView\ndependency D02_component.edge2 \"проверка роли\" from=D02_component.bom to=D02_component.auth\nview view_a738a9b6ed3d \"\" diagram=D02_component element=D02_component.edge2 from=D02_component.bomView to=D02_component.authView\ndependency D02_component.edge3 репозитории from=D02_component.bom to=D02_component.db\nview view_20795579949e \"\" diagram=D02_component element=D02_component.edge3 from=D02_component.bomView to=D02_component.dbView\ndependency D02_component.edge4 предложения from=D02_component.bom to=D02_component.sup\nview view_a5565d588c5c \"\" diagram=D02_component element=D02_component.edge4 from=D02_component.bomView to=D02_component.supView\ndependency D02_component.edge5 адаптер from=D02_component.sup to=D02_component.ext\nview view_9577367523bb \"\" diagram=D02_component element=D02_component.edge5 from=D02_component.supView to=D02_component.extView\ndependency D02_component.edge6 \"версия BOM\" from=D02_component.bom to=D02_component.content\nview view_ca094907191a \"\" diagram=D02_component element=D02_component.edge6 from=D02_component.bomView to=D02_component.contentView\ndependency D02_component.edge7 \"версия карточки\" from=D02_component.content to=D02_component.pub\nview view_479db3d77f04 \"\" diagram=D02_component element=D02_component.edge7 from=D02_component.contentView to=D02_component.pubView\ndependency D02_component.edge8 \"HTTPS / JSON\" from=D02_component.pub to=D02_component.oz\nview view_45d22ccc2e05 \"\" diagram=D02_component element=D02_component.edge8 from=D02_component.pubView to=D02_component.ozView\ndependency D02_component.edge9 файлы from=D02_component.content to=D02_component.media\nview view_9403f3658893 \"\" diagram=D02_component element=D02_component.edge9 from=D02_component.contentView to=D02_component.mediaView\nannotation annotation_2a86e4150ae8 \"Модульный монолит. Репозитории и аудит используются всеми бизнес-модулями; повторяющиеся зависимости опущены для читаемости.\"\nview annotation_2a86e4150ae8View \"\" diagram=D02_component element=annotation_2a86e4150ae8\ndiagram D06_activity \"Деятельность по подготовке и публикации карточки\" activity=prepareCard type=activity\nactivity prepareCard \"Деятельность по подготовке и публикации карточки\"\ninitial D06_activity.a \"\" owner=prepareCard\nview D06_activity.aView \"\" diagram=D06_activity element=D06_activity.a\naction D06_activity.b \"Выбрать BOM\\nсоздать новую версию\" owner=prepareCard\nview D06_activity.bView \"\" diagram=D06_activity element=D06_activity.b\naction D06_activity.c \"Изменить состав\\nи разрешить группы\" owner=prepareCard\nview D06_activity.cView \"\" diagram=D06_activity element=D06_activity.c\ndecision D06_activity.d \"Совместимо и\\nданные актуальны?\" owner=prepareCard\nview D06_activity.dView \"\" diagram=D06_activity element=D06_activity.d\naction D06_activity.e \"Рассчитать показатели\\nподготовить контент\" owner=prepareCard\nview D06_activity.eView \"\" diagram=D06_activity element=D06_activity.e\naction D06_activity.f \"Утвердить\\nи запустить публикацию\" owner=prepareCard\nview D06_activity.fView \"\" diagram=D06_activity element=D06_activity.f\naction D06_activity.g \"Зафиксировать успех\\nили ошибку и уведомить\" owner=prepareCard\nview D06_activity.gView \"\" diagram=D06_activity element=D06_activity.g\nactivityFinal D06_activity.z \"\" owner=prepareCard\nview D06_activity.zView \"\" diagram=D06_activity element=D06_activity.z\naction D06_activity.fix \"Показать конфликт\\nисправить данные\" owner=prepareCard\nview D06_activity.fixView \"\" diagram=D06_activity element=D06_activity.fix\nmerge D06_activity.mergeCorrections \"\" owner=prepareCard\nview D06_activity.mergeCorrectionsView \"\" diagram=D06_activity element=D06_activity.mergeCorrections\ncontrolFlow D06_activity.continueEditing \"\" from=D06_activity.mergeCorrections owner=prepareCard to=D06_activity.c\nview view_d949f158161b \"\" diagram=D06_activity element=D06_activity.continueEditing from=D06_activity.mergeCorrectionsView to=D06_activity.cView\ncontrolFlow D06_activity.edge1 \"\" from=D06_activity.a owner=prepareCard to=D06_activity.b\nview view_86e6270c2341 \"\" diagram=D06_activity element=D06_activity.edge1 from=D06_activity.aView to=D06_activity.bView\ncontrolFlow D06_activity.edge2 \"\" from=D06_activity.b owner=prepareCard to=D06_activity.mergeCorrections\nview view_e24be68d3fc7 \"\" diagram=D06_activity element=D06_activity.edge2 from=D06_activity.bView to=D06_activity.mergeCorrectionsView\ncontrolFlow D06_activity.edge3 \"\" from=D06_activity.c owner=prepareCard to=D06_activity.d\nview view_6014bbd18a37 \"\" diagram=D06_activity element=D06_activity.edge3 from=D06_activity.cView to=D06_activity.dView\ncontrolFlow D06_activity.edge4 \"\" from=D06_activity.d guard=else owner=prepareCard to=D06_activity.fix\nview view_1d69e4360486 \"\" diagram=D06_activity element=D06_activity.edge4 from=D06_activity.dView to=D06_activity.fixView\ncontrolFlow D06_activity.edge5 \"\" from=D06_activity.fix owner=prepareCard to=D06_activity.mergeCorrections\nview view_1f6717113576 \"\" diagram=D06_activity element=D06_activity.edge5 from=D06_activity.fixView to=D06_activity.mergeCorrectionsView\ncontrolFlow D06_activity.edge6 \"\" from=D06_activity.d guard=\"Совместимо и данные актуальны\" owner=prepareCard to=D06_activity.e\nview view_c529aa532ceb \"\" diagram=D06_activity element=D06_activity.edge6 from=D06_activity.dView to=D06_activity.eView\ncontrolFlow D06_activity.edge7 \"\" from=D06_activity.e owner=prepareCard to=D06_activity.f\nview view_67aa2a07bda8 \"\" diagram=D06_activity element=D06_activity.edge7 from=D06_activity.eView to=D06_activity.fView\ncontrolFlow D06_activity.edge8 \"\" from=D06_activity.f owner=prepareCard to=D06_activity.g\nview view_40f72dfd1caa \"\" diagram=D06_activity element=D06_activity.edge8 from=D06_activity.fView to=D06_activity.gView\ncontrolFlow D06_activity.edge9 \"\" from=D06_activity.g owner=prepareCard to=D06_activity.z\nview view_28c6140a97c8 \"\" diagram=D06_activity element=D06_activity.edge9 from=D06_activity.gView to=D06_activity.zView\ndiagram D21_deployment \"Диаграмма развёртывания\" type=deployment\ndevice D21_deployment.client \"Рабочие станции\\nБраузеры сотрудников\"\nview D21_deployment.clientView \"\" diagram=D21_deployment element=D21_deployment.client\nnode D21_deployment.edge \"Шлюз / DMZ\\nNginx: HTTPS 443\\nTLS и маршрутизация\"\nview D21_deployment.edgeView \"\" diagram=D21_deployment element=D21_deployment.edge\nnode D21_deployment.app \"Прикладной сервер\\nJRE 21: Spring Boot\\nAPI и worker публикаций\"\nview D21_deployment.appView \"\" diagram=D21_deployment element=D21_deployment.app\nnode D21_deployment.db \"Сервер БД\\nPostgreSQL 18\\nДанные и очередь\"\nview D21_deployment.dbView \"\" diagram=D21_deployment element=D21_deployment.db\nnode D21_deployment.media \"Файловое хранилище\\nИзображения по storage_key\"\nview D21_deployment.mediaView \"\" diagram=D21_deployment element=D21_deployment.media\nnode D21_deployment.ext \"Ozon и поставщики\\nИнтернет\"\nview D21_deployment.extView \"\" diagram=D21_deployment element=D21_deployment.ext\nnode D21_deployment.backup \"Резервное хранилище\\nБД и изображения\\nОтдельные учётные данные\"\nview D21_deployment.backupView \"\" diagram=D21_deployment element=D21_deployment.backup\ncommunicationPath D21_deployment.edge1 \"\" from=D21_deployment.client port=443 protocol=HTTPS to=D21_deployment.edge\nview view_f69f6e0c4d25 \"\" diagram=D21_deployment element=D21_deployment.edge1 from=D21_deployment.clientView to=D21_deployment.edgeView\ncommunicationPath D21_deployment.edge2 \"\" from=D21_deployment.edge port=8443 protocol=HTTPS to=D21_deployment.app\nview view_d85200a3e504 \"\" diagram=D21_deployment element=D21_deployment.edge2 from=D21_deployment.edgeView to=D21_deployment.appView\ncommunicationPath D21_deployment.edge3 \"\" from=D21_deployment.app port=5432 protocol=TLS to=D21_deployment.db\nview view_19c0e2fe8eb6 \"\" diagram=D21_deployment element=D21_deployment.edge3 from=D21_deployment.appView to=D21_deployment.dbView\ncommunicationPath D21_deployment.edge4 \"\" from=D21_deployment.app port=443 protocol=HTTPS to=D21_deployment.ext\nview view_7dde0ce12d79 \"\" diagram=D21_deployment element=D21_deployment.edge4 from=D21_deployment.appView to=D21_deployment.extView\ncommunicationPath D21_deployment.edge5 \"копия БД\" from=D21_deployment.db to=D21_deployment.backup\nview view_d4094b4d9818 \"\" diagram=D21_deployment element=D21_deployment.edge5 from=D21_deployment.dbView to=D21_deployment.backupView\ncommunicationPath D21_deployment.edge6 \"\" from=D21_deployment.app protocol=HTTPS to=D21_deployment.media\nview view_279eae0f39d6 \"\" diagram=D21_deployment element=D21_deployment.edge6 from=D21_deployment.appView to=D21_deployment.mediaView\ncommunicationPath D21_deployment.edge7 \"копия файлов\" from=D21_deployment.media to=D21_deployment.backup\nview view_4654ae7d25ca \"\" diagram=D21_deployment element=D21_deployment.edge7 from=D21_deployment.mediaView to=D21_deployment.backupView\nexecutionEnvironment D21_deployment.apiRuntime \"JRE 21 · API\" owner=D21_deployment.app technology=Java version=21\nview D21_deployment.apiRuntimeView \"\" diagram=D21_deployment element=D21_deployment.apiRuntime\nexecutionEnvironment D21_deployment.workerRuntime \"JRE 21 · worker публикаций\" owner=D21_deployment.app technology=Java version=21\nview D21_deployment.workerRuntimeView \"\" diagram=D21_deployment element=D21_deployment.workerRuntime\nexecutionEnvironment D21_deployment.postgres PostgreSQL owner=D21_deployment.db technology=PostgreSQL version=18\nview D21_deployment.postgresView \"\" diagram=D21_deployment element=D21_deployment.postgres\nartifact D21_deployment.applicationArtifact \"Приложение карточек\" description=\"Артефакт модульного монолита: API и worker используют общий пакет. Разделение сред уточняет исходный рисунок; физическая топология не проверялась.\"\nview D21_deployment.applicationArtifactView \"\" diagram=D21_deployment element=D21_deployment.applicationArtifact\ndeployment D21_deployment.apiRuntimeDeploy \"\" artifact=D21_deployment.applicationArtifact location=D21_deployment.apiRuntime\nview view_340bb5db4e09 \"\" diagram=D21_deployment element=D21_deployment.apiRuntimeDeploy from=D21_deployment.apiRuntimeView to=D21_deployment.applicationArtifactView\ndeployment D21_deployment.workerRuntimeDeploy \"\" artifact=D21_deployment.applicationArtifact location=D21_deployment.workerRuntime\nview view_a70fc3402d32 \"\" diagram=D21_deployment element=D21_deployment.workerRuntimeDeploy from=D21_deployment.workerRuntimeView to=D21_deployment.applicationArtifactView\nartifact D21_deployment.databaseSchema \"Схема базы данных\" fileName=schema.sql\nview D21_deployment.databaseSchemaView \"\" diagram=D21_deployment element=D21_deployment.databaseSchema\ndeployment deployment_832c6e690b0c \"\" artifact=D21_deployment.databaseSchema location=D21_deployment.postgres\nview view_546274c0eef3 \"\" diagram=D21_deployment element=deployment_832c6e690b0c from=D21_deployment.postgresView to=D21_deployment.databaseSchemaView\nmanifestation manifestation_8303b12a337a \"\" from=D21_deployment.applicationArtifact to=D02_component.auth\nmanifestation manifestation_7d981f557b9e \"\" from=D21_deployment.applicationArtifact to=D02_component.bom\nmanifestation manifestation_1d91902218c8 \"\" from=D21_deployment.applicationArtifact to=D02_component.content\nmanifestation manifestation_8611f75f53c0 \"\" from=D21_deployment.applicationArtifact to=D02_component.pub\nmanifestation manifestation_e5780f0b1855 \"\" from=D21_deployment.applicationArtifact to=D02_component.sup\nmanifestation manifestation_69fe4fe193bd \"\" from=D21_deployment.applicationArtifact to=D02_component.db\nmanifestation manifestation_eb2999c60d65 \"\" from=D21_deployment.applicationArtifact to=D02_component.ext\nmanifestation manifestation_c97087d24102 \"\" from=D21_deployment.applicationArtifact to=D02_component.oz\nmanifestation manifestation_d91ae7593224 \"\" from=D21_deployment.applicationArtifact to=D02_component.media\nannotation annotation_5524cb80ddc5 \"Ресурсы и число узлов — проектное предложение; нагрузочная проверка ещё не проводилась.\"\nview annotation_5524cb80ddc5View \"\" diagram=D21_deployment element=annotation_5524cb80ddc5\n",
+  "draft": "uml ropUmlStructure \"РОП — компоненты, деятельность и развёртывание\"\ndiagram D02_component \"Диаграмма компонентов\" type=component\ncomponent D02_component.ui Веб-интерфейс\nview D02_component.uiView \"\" diagram=D02_component element=D02_component.ui\ncomponent D02_component.auth \"Проверка прав и аудит\"\nview D02_component.authView \"\" diagram=D02_component element=D02_component.auth\ncomponent D02_component.bom \"BOM и правила\"\nview D02_component.bomView \"\" diagram=D02_component element=D02_component.bom\ncomponent D02_component.content \"Расчёты и контент\"\nview D02_component.contentView \"\" diagram=D02_component element=D02_component.content\ncomponent D02_component.pub \"Публикации и очередь\"\nview D02_component.pubView \"\" diagram=D02_component element=D02_component.pub\ncomponent D02_component.sup \"Адаптеры поставщиков\"\nview D02_component.supView \"\" diagram=D02_component element=D02_component.sup\ncomponent D02_component.db \"Репозитории PostgreSQL\"\nview D02_component.dbView \"\" diagram=D02_component element=D02_component.db\ncomponent D02_component.ext \"PC4Games и ITPartner\"\nview D02_component.extView \"\" diagram=D02_component element=D02_component.ext\ncomponent D02_component.oz \"Ozon Seller\"\nview D02_component.ozView \"\" diagram=D02_component element=D02_component.oz\ncomponent D02_component.media \"Хранилище изображений\"\nview D02_component.mediaView \"\" diagram=D02_component element=D02_component.media\ndependency D02_component.edge1 \"HTTPS / JSON\" from=D02_component.ui to=D02_component.bom\nview view_d934aa3ed6d6 \"\" diagram=D02_component element=D02_component.edge1 from=D02_component.uiView to=D02_component.bomView\ndependency D02_component.edge2 \"проверка роли\" from=D02_component.bom to=D02_component.auth\nview view_a738a9b6ed3d \"\" diagram=D02_component element=D02_component.edge2 from=D02_component.bomView to=D02_component.authView\ndependency D02_component.edge3 репозитории from=D02_component.bom to=D02_component.db\nview view_20795579949e \"\" diagram=D02_component element=D02_component.edge3 from=D02_component.bomView to=D02_component.dbView\ndependency D02_component.edge4 предложения from=D02_component.bom to=D02_component.sup\nview view_a5565d588c5c \"\" diagram=D02_component element=D02_component.edge4 from=D02_component.bomView to=D02_component.supView\ndependency D02_component.edge5 адаптер from=D02_component.sup to=D02_component.ext\nview view_9577367523bb \"\" diagram=D02_component element=D02_component.edge5 from=D02_component.supView to=D02_component.extView\ndependency D02_component.edge6 \"версия BOM\" from=D02_component.bom to=D02_component.content\nview view_ca094907191a \"\" diagram=D02_component element=D02_component.edge6 from=D02_component.bomView to=D02_component.contentView\ndependency D02_component.edge7 \"версия карточки\" from=D02_component.content to=D02_component.pub\nview view_479db3d77f04 \"\" diagram=D02_component element=D02_component.edge7 from=D02_component.contentView to=D02_component.pubView\ndependency D02_component.edge8 \"HTTPS / JSON\" from=D02_component.pub to=D02_component.oz\nview view_45d22ccc2e05 \"\" diagram=D02_component element=D02_component.edge8 from=D02_component.pubView to=D02_component.ozView\ndependency D02_component.edge9 файлы from=D02_component.content to=D02_component.media\nview view_9403f3658893 \"\" diagram=D02_component element=D02_component.edge9 from=D02_component.contentView to=D02_component.mediaView\nannotation annotation_2a86e4150ae8 \"Модульный монолит. Репозитории и аудит используются всеми бизнес-модулями; повторяющиеся зависимости опущены для читаемости.\"\nview annotation_2a86e4150ae8View \"\" diagram=D02_component element=annotation_2a86e4150ae8\ndiagram D06_activity \"Деятельность по подготовке и публикации карточки\" activity=prepareCard type=activity\nactivity prepareCard \"Деятельность по подготовке и публикации карточки\"\ninitial D06_activity.a \"\" owner=prepareCard\nview D06_activity.aView \"\" diagram=D06_activity element=D06_activity.a\naction D06_activity.b \"Выбрать BOM\\nсоздать новую версию\" owner=prepareCard\nview D06_activity.bView \"\" diagram=D06_activity element=D06_activity.b\naction D06_activity.c \"Изменить состав\\nи разрешить группы\" owner=prepareCard\nview D06_activity.cView \"\" diagram=D06_activity element=D06_activity.c\ndecision D06_activity.d \"Совместимо и\\nданные актуальны?\" owner=prepareCard\nview D06_activity.dView \"\" diagram=D06_activity element=D06_activity.d\naction D06_activity.e \"Рассчитать показатели\\nподготовить контент\" owner=prepareCard\nview D06_activity.eView \"\" diagram=D06_activity element=D06_activity.e\naction D06_activity.f \"Утвердить\\nи запустить публикацию\" owner=prepareCard\nview D06_activity.fView \"\" diagram=D06_activity element=D06_activity.f\naction D06_activity.g \"Зафиксировать успех\\nили ошибку и уведомить\" owner=prepareCard\nview D06_activity.gView \"\" diagram=D06_activity element=D06_activity.g\nactivityFinal D06_activity.z \"\" owner=prepareCard\nview D06_activity.zView \"\" diagram=D06_activity element=D06_activity.z\naction D06_activity.fix \"Показать конфликт\\nисправить данные\" owner=prepareCard\nview D06_activity.fixView \"\" diagram=D06_activity element=D06_activity.fix\nmerge D06_activity.mergeCorrections \"\" owner=prepareCard\nview D06_activity.mergeCorrectionsView \"\" diagram=D06_activity element=D06_activity.mergeCorrections\ncontrolFlow D06_activity.continueEditing \"\" from=D06_activity.mergeCorrections owner=prepareCard to=D06_activity.c\nview view_d949f158161b \"\" diagram=D06_activity element=D06_activity.continueEditing from=D06_activity.mergeCorrectionsView to=D06_activity.cView\ncontrolFlow D06_activity.edge1 \"\" from=D06_activity.a owner=prepareCard to=D06_activity.b\nview view_86e6270c2341 \"\" diagram=D06_activity element=D06_activity.edge1 from=D06_activity.aView to=D06_activity.bView\ncontrolFlow D06_activity.edge2 \"\" from=D06_activity.b owner=prepareCard to=D06_activity.mergeCorrections\nview view_e24be68d3fc7 \"\" diagram=D06_activity element=D06_activity.edge2 from=D06_activity.bView to=D06_activity.mergeCorrectionsView\ncontrolFlow D06_activity.edge3 \"\" from=D06_activity.c owner=prepareCard to=D06_activity.d\nview view_6014bbd18a37 \"\" diagram=D06_activity element=D06_activity.edge3 from=D06_activity.cView to=D06_activity.dView\ncontrolFlow D06_activity.edge4 \"\" from=D06_activity.d guard=else owner=prepareCard to=D06_activity.fix\nview view_1d69e4360486 \"\" diagram=D06_activity element=D06_activity.edge4 from=D06_activity.dView to=D06_activity.fixView\ncontrolFlow D06_activity.edge5 \"\" from=D06_activity.fix owner=prepareCard to=D06_activity.mergeCorrections\nview view_1f6717113576 \"\" diagram=D06_activity element=D06_activity.edge5 from=D06_activity.fixView to=D06_activity.mergeCorrectionsView\ncontrolFlow D06_activity.edge6 \"\" from=D06_activity.d guard=\"Совместимо и данные актуальны\" owner=prepareCard to=D06_activity.e\nview view_c529aa532ceb \"\" diagram=D06_activity element=D06_activity.edge6 from=D06_activity.dView to=D06_activity.eView\ncontrolFlow D06_activity.edge7 \"\" from=D06_activity.e owner=prepareCard to=D06_activity.f\nview view_67aa2a07bda8 \"\" diagram=D06_activity element=D06_activity.edge7 from=D06_activity.eView to=D06_activity.fView\ncontrolFlow D06_activity.edge8 \"\" from=D06_activity.f owner=prepareCard to=D06_activity.g\nview view_40f72dfd1caa \"\" diagram=D06_activity element=D06_activity.edge8 from=D06_activity.fView to=D06_activity.gView\ncontrolFlow D06_activity.edge9 \"\" from=D06_activity.g owner=prepareCard to=D06_activity.z\nview view_28c6140a97c8 \"\" diagram=D06_activity element=D06_activity.edge9 from=D06_activity.gView to=D06_activity.zView\ndiagram D21_deployment \"Диаграмма развёртывания\" type=deployment\ndevice D21_deployment.client \"Рабочие станции\\nБраузеры сотрудников\"\nview D21_deployment.clientView \"\" diagram=D21_deployment element=D21_deployment.client\nnode D21_deployment.edge \"Шлюз / DMZ\\nNginx: HTTPS 443\\nTLS и маршрутизация\"\nview D21_deployment.edgeView \"\" diagram=D21_deployment element=D21_deployment.edge\nnode D21_deployment.app \"Прикладной сервер\\nJRE 21: Spring Boot\\nAPI и worker публикаций\"\nview D21_deployment.appView \"\" diagram=D21_deployment element=D21_deployment.app\nnode D21_deployment.db \"Сервер БД\\nPostgreSQL 18\\nДанные и очередь\"\nview D21_deployment.dbView \"\" diagram=D21_deployment element=D21_deployment.db\nnode D21_deployment.media \"Файловое хранилище\\nИзображения по storage_key\"\nview D21_deployment.mediaView \"\" diagram=D21_deployment element=D21_deployment.media\nnode D21_deployment.ext \"Ozon и поставщики\\nИнтернет\"\nview D21_deployment.extView \"\" diagram=D21_deployment element=D21_deployment.ext\nnode D21_deployment.backup \"Резервное хранилище\\nБД и изображения\\nОтдельные учётные данные\"\nview D21_deployment.backupView \"\" diagram=D21_deployment element=D21_deployment.backup\ncommunicationPath D21_deployment.edge1 \"\" from=D21_deployment.client port=443 protocol=HTTPS to=D21_deployment.edge\nview view_f69f6e0c4d25 \"\" diagram=D21_deployment element=D21_deployment.edge1 from=D21_deployment.clientView to=D21_deployment.edgeView\ncommunicationPath D21_deployment.edge2 \"\" from=D21_deployment.edge port=8443 protocol=HTTPS to=D21_deployment.app\nview view_d85200a3e504 \"\" diagram=D21_deployment element=D21_deployment.edge2 from=D21_deployment.edgeView to=D21_deployment.appView\ncommunicationPath D21_deployment.edge3 \"\" from=D21_deployment.app port=5432 protocol=TLS to=D21_deployment.db\nview view_19c0e2fe8eb6 \"\" diagram=D21_deployment element=D21_deployment.edge3 from=D21_deployment.appView to=D21_deployment.dbView\ncommunicationPath D21_deployment.edge4 \"\" from=D21_deployment.app port=443 protocol=HTTPS to=D21_deployment.ext\nview view_7dde0ce12d79 \"\" diagram=D21_deployment element=D21_deployment.edge4 from=D21_deployment.appView to=D21_deployment.extView\ncommunicationPath D21_deployment.edge5 \"копия БД\" from=D21_deployment.db to=D21_deployment.backup\nview view_d4094b4d9818 \"\" diagram=D21_deployment element=D21_deployment.edge5 from=D21_deployment.dbView to=D21_deployment.backupView\ncommunicationPath D21_deployment.edge6 \"\" from=D21_deployment.app protocol=HTTPS to=D21_deployment.media\nview view_279eae0f39d6 \"\" diagram=D21_deployment element=D21_deployment.edge6 from=D21_deployment.appView to=D21_deployment.mediaView\ncommunicationPath D21_deployment.edge7 \"копия файлов\" from=D21_deployment.media to=D21_deployment.backup\nview view_4654ae7d25ca \"\" diagram=D21_deployment element=D21_deployment.edge7 from=D21_deployment.mediaView to=D21_deployment.backupView\nexecutionEnvironment D21_deployment.apiRuntime \"JRE 21 · API\" owner=D21_deployment.app technology=Java version=21\nview D21_deployment.apiRuntimeView \"\" diagram=D21_deployment element=D21_deployment.apiRuntime\nexecutionEnvironment D21_deployment.workerRuntime \"JRE 21 · worker публикаций\" owner=D21_deployment.app technology=Java version=21\nview D21_deployment.workerRuntimeView \"\" diagram=D21_deployment element=D21_deployment.workerRuntime\nexecutionEnvironment D21_deployment.postgres PostgreSQL owner=D21_deployment.db technology=PostgreSQL version=18\nview D21_deployment.postgresView \"\" diagram=D21_deployment element=D21_deployment.postgres\nartifact D21_deployment.applicationArtifact \"Приложение карточек\" description=\"Артефакт модульного монолита: API и worker используют общий пакет. Разделение сред уточняет исходный рисунок; физическая топология не проверялась.\"\nview D21_deployment.applicationArtifactView \"\" diagram=D21_deployment element=D21_deployment.applicationArtifact\ndeployment D21_deployment.apiRuntimeDeploy \"\" artifact=D21_deployment.applicationArtifact location=D21_deployment.apiRuntime\nview view_340bb5db4e09 \"\" diagram=D21_deployment element=D21_deployment.apiRuntimeDeploy from=D21_deployment.apiRuntimeView to=D21_deployment.applicationArtifactView\ndeployment D21_deployment.workerRuntimeDeploy \"\" artifact=D21_deployment.applicationArtifact location=D21_deployment.workerRuntime\nview view_a70fc3402d32 \"\" diagram=D21_deployment element=D21_deployment.workerRuntimeDeploy from=D21_deployment.workerRuntimeView to=D21_deployment.applicationArtifactView\nartifact D21_deployment.databaseSchema \"Схема базы данных\" fileName=schema.sql\nview D21_deployment.databaseSchemaView \"\" diagram=D21_deployment element=D21_deployment.databaseSchema\ndeployment deployment_832c6e690b0c \"\" artifact=D21_deployment.databaseSchema location=D21_deployment.postgres\nview view_546274c0eef3 \"\" diagram=D21_deployment element=deployment_832c6e690b0c from=D21_deployment.postgresView to=D21_deployment.databaseSchemaView\nmanifestation manifestation_8303b12a337a \"\" from=D21_deployment.applicationArtifact to=D02_component.auth\nmanifestation manifestation_7d981f557b9e \"\" from=D21_deployment.applicationArtifact to=D02_component.bom\nmanifestation manifestation_1d91902218c8 \"\" from=D21_deployment.applicationArtifact to=D02_component.content\nmanifestation manifestation_8611f75f53c0 \"\" from=D21_deployment.applicationArtifact to=D02_component.pub\nmanifestation manifestation_e5780f0b1855 \"\" from=D21_deployment.applicationArtifact to=D02_component.sup\nmanifestation manifestation_69fe4fe193bd \"\" from=D21_deployment.applicationArtifact to=D02_component.db\nmanifestation manifestation_eb2999c60d65 \"\" from=D21_deployment.applicationArtifact to=D02_component.ext\nmanifestation manifestation_c97087d24102 \"\" from=D21_deployment.applicationArtifact to=D02_component.oz\nmanifestation manifestation_d91ae7593224 \"\" from=D21_deployment.applicationArtifact to=D02_component.media\nannotation annotation_5524cb80ddc5 \"Ресурсы и число узлов — проектное предложение; нагрузочная проверка ещё не проводилась.\"\nview annotation_5524cb80ddc5View \"\" diagram=D21_deployment element=annotation_5524cb80ddc5\n",
+  "layout": {
+    "nodes": {
+      "D02_component.uiView": {
+        "x": 30,
+        "y": 280,
+        "width": 270,
+        "height": 115
+      },
+      "D02_component.authView": {
+        "x": 385,
+        "y": 35,
+        "width": 280,
+        "height": 110
+      },
+      "D02_component.bomView": {
+        "x": 385,
+        "y": 235,
+        "width": 280,
+        "height": 110
+      },
+      "D02_component.contentView": {
+        "x": 385,
+        "y": 480,
+        "width": 280,
+        "height": 110
+      },
+      "D02_component.pubView": {
+        "x": 800,
+        "y": 480,
+        "width": 280,
+        "height": 110
+      },
+      "D02_component.supView": {
+        "x": 800,
+        "y": 235,
+        "width": 280,
+        "height": 110
+      },
+      "D02_component.dbView": {
+        "x": 780,
+        "y": 35,
+        "width": 310,
+        "height": 110
+      },
+      "D02_component.extView": {
+        "x": 1160,
+        "y": 235,
+        "width": 290,
+        "height": 110
+      },
+      "D02_component.ozView": {
+        "x": 1160,
+        "y": 480,
+        "width": 290,
+        "height": 110
+      },
+      "D02_component.mediaView": {
+        "x": 785,
+        "y": 700,
+        "width": 310,
+        "height": 110
+      },
+      "view_d934aa3ed6d6": {
+        "x": 580,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "view_a738a9b6ed3d": {
+        "x": 830,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "view_20795579949e": {
+        "x": 80,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "view_a5565d588c5c": {
+        "x": 330,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "view_9577367523bb": {
+        "x": 580,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "view_ca094907191a": {
+        "x": 830,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "view_479db3d77f04": {
+        "x": 80,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "view_45d22ccc2e05": {
+        "x": 330,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "view_9403f3658893": {
+        "x": 580,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "annotation_2a86e4150ae8View": {
+        "x": 30,
+        "y": 870,
+        "width": 950,
+        "height": 95
+      },
+      "D06_activity.aView": {
+        "x": 610,
+        "y": 15,
+        "width": 40,
+        "height": 40
+      },
+      "D06_activity.bView": {
+        "x": 460,
+        "y": 90,
+        "width": 340,
+        "height": 90
+      },
+      "D06_activity.cView": {
+        "x": 460,
+        "y": 230,
+        "width": 340,
+        "height": 90
+      },
+      "D06_activity.dView": {
+        "x": 435,
+        "y": 380,
+        "width": 390,
+        "height": 150
+      },
+      "D06_activity.eView": {
+        "x": 460,
+        "y": 610,
+        "width": 340,
+        "height": 100
+      },
+      "D06_activity.fView": {
+        "x": 460,
+        "y": 780,
+        "width": 340,
+        "height": 95
+      },
+      "D06_activity.gView": {
+        "x": 460,
+        "y": 950,
+        "width": 340,
+        "height": 95
+      },
+      "D06_activity.zView": {
+        "x": 610,
+        "y": 1110,
+        "width": 40,
+        "height": 40
+      },
+      "D06_activity.fixView": {
+        "x": 25,
+        "y": 385,
+        "width": 310,
+        "height": 105
+      },
+      "D06_activity.mergeCorrectionsView": {
+        "x": 610,
+        "y": 192,
+        "width": 40,
+        "height": 30
+      },
+      "view_d949f158161b": {
+        "x": 580,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "view_86e6270c2341": {
+        "x": 830,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "view_e24be68d3fc7": {
+        "x": 80,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "view_6014bbd18a37": {
+        "x": 330,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "view_1d69e4360486": {
+        "x": 580,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "view_1f6717113576": {
+        "x": 830,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "view_c529aa532ceb": {
+        "x": 80,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "view_67aa2a07bda8": {
+        "x": 330,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "view_40f72dfd1caa": {
+        "x": 580,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "view_28c6140a97c8": {
+        "x": 830,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "D21_deployment.clientView": {
+        "x": 30,
+        "y": 330,
+        "width": 280,
+        "height": 130
+      },
+      "D21_deployment.edgeView": {
+        "x": 390,
+        "y": 315,
+        "width": 300,
+        "height": 160
+      },
+      "D21_deployment.appView": {
+        "x": 805,
+        "y": 165,
+        "width": 310,
+        "height": 170
+      },
+      "D21_deployment.dbView": {
+        "x": 805,
+        "y": 485,
+        "width": 310,
+        "height": 160
+      },
+      "D21_deployment.mediaView": {
+        "x": 805,
+        "y": 780,
+        "width": 310,
+        "height": 130
+      },
+      "D21_deployment.extView": {
+        "x": 1170,
+        "y": 165,
+        "width": 300,
+        "height": 145
+      },
+      "D21_deployment.backupView": {
+        "x": 1170,
+        "y": 685,
+        "width": 300,
+        "height": 160
+      },
+      "view_f69f6e0c4d25": {
+        "x": 830,
+        "y": 260,
+        "width": 210,
+        "height": 140
+      },
+      "view_d85200a3e504": {
+        "x": 80,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "view_19c0e2fe8eb6": {
+        "x": 330,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "view_7dde0ce12d79": {
+        "x": 580,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "view_d4094b4d9818": {
+        "x": 830,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "view_279eae0f39d6": {
+        "x": 80,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "view_4654ae7d25ca": {
+        "x": 330,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "D21_deployment.apiRuntimeView": {
+        "x": 815,
+        "y": 380,
+        "width": 300,
+        "height": 125
+      },
+      "D21_deployment.workerRuntimeView": {
+        "x": 1180,
+        "y": 380,
+        "width": 300,
+        "height": 125
+      },
+      "D21_deployment.postgresView": {
+        "x": 805,
+        "y": 665,
+        "width": 300,
+        "height": 125
+      },
+      "D21_deployment.applicationArtifactView": {
+        "x": 30,
+        "y": 700,
+        "width": 330,
+        "height": 110
+      },
+      "view_340bb5db4e09": {
+        "x": 580,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "view_a70fc3402d32": {
+        "x": 830,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "D21_deployment.databaseSchemaView": {
+        "x": 390,
+        "y": 790,
+        "width": 285,
+        "height": 85
+      },
+      "view_546274c0eef3": {
+        "x": 330,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "annotation_5524cb80ddc5View": {
+        "x": 30,
+        "y": 1020,
+        "width": 950,
+        "height": 95
+      }
+    },
+    "edges": {
+      "view_d934aa3ed6d6": {
+        "label": {
+          "x": 412.5,
+          "y": 303.75
+        },
+        "bends": [
+          {
+            "x": 342.5,
+            "y": 337.5
+          },
+          {
+            "x": 342.5,
+            "y": 290
+          }
+        ]
+      },
+      "view_a738a9b6ed3d": {
+        "label": {
+          "x": 595,
+          "y": 202.5
+        },
+        "bends": [
+          {
+            "x": 525,
+            "y": 190
+          },
+          {
+            "x": 525,
+            "y": 190
+          }
+        ]
+      },
+      "view_20795579949e": {
+        "label": {
+          "x": 792.5,
+          "y": 180
+        },
+        "bends": [
+          {
+            "x": 722.5,
+            "y": 290
+          },
+          {
+            "x": 722.5,
+            "y": 90
+          }
+        ]
+      },
+      "view_a5565d588c5c": {
+        "label": {
+          "x": 698.75,
+          "y": 280
+        },
+        "bends": [
+          {
+            "x": 732.5,
+            "y": 290
+          },
+          {
+            "x": 732.5,
+            "y": 290
+          }
+        ]
+      },
+      "view_9577367523bb": {
+        "label": {
+          "x": 1100,
+          "y": 280
+        },
+        "bends": [
+          {
+            "x": 1120,
+            "y": 290
+          },
+          {
+            "x": 1120,
+            "y": 290
+          }
+        ]
+      },
+      "view_ca094907191a": {
+        "label": {
+          "x": 595,
+          "y": 368.75
+        },
+        "bends": [
+          {
+            "x": 525,
+            "y": 412.5
+          },
+          {
+            "x": 525,
+            "y": 412.5
+          }
+        ]
+      },
+      "view_479db3d77f04": {
+        "label": {
+          "x": 698.75,
+          "y": 525
+        },
+        "bends": [
+          {
+            "x": 732.5,
+            "y": 535
+          },
+          {
+            "x": 732.5,
+            "y": 535
+          }
+        ]
+      },
+      "view_45d22ccc2e05": {
+        "label": {
+          "x": 1100,
+          "y": 525
+        },
+        "bends": [
+          {
+            "x": 1120,
+            "y": 535
+          },
+          {
+            "x": 1120,
+            "y": 535
+          }
+        ]
+      },
+      "view_9403f3658893": {
+        "label": {
+          "x": 795,
+          "y": 635
+        },
+        "bends": [
+          {
+            "x": 725,
+            "y": 535
+          },
+          {
+            "x": 725,
+            "y": 755
+          }
+        ]
+      },
+      "view_86e6270c2341": {
+        "bends": [
+          {
+            "x": 630,
+            "y": 72.5
+          },
+          {
+            "x": 630,
+            "y": 72.5
+          }
+        ]
+      },
+      "view_e24be68d3fc7": {
+        "bends": []
+      },
+      "view_6014bbd18a37": {
+        "bends": [
+          {
+            "x": 630,
+            "y": 350
+          },
+          {
+            "x": 630,
+            "y": 350
+          }
+        ]
+      },
+      "view_1d69e4360486": {
+        "label": {
+          "x": 410,
+          "y": 445
+        },
+        "bends": [
+          {
+            "x": 385,
+            "y": 455
+          },
+          {
+            "x": 385,
+            "y": 437.5
+          }
+        ]
+      },
+      "view_1f6717113576": {
+        "bends": [
+          {
+            "x": 180,
+            "y": 207
+          },
+          {
+            "x": 610,
+            "y": 207
+          }
+        ]
+      },
+      "view_c529aa532ceb": {
+        "label": {
+          "x": 700,
+          "y": 540
+        },
+        "bends": [
+          {
+            "x": 630,
+            "y": 570
+          },
+          {
+            "x": 630,
+            "y": 570
+          }
+        ]
+      },
+      "view_67aa2a07bda8": {
+        "bends": [
+          {
+            "x": 630,
+            "y": 745
+          },
+          {
+            "x": 630,
+            "y": 745
+          }
+        ]
+      },
+      "view_40f72dfd1caa": {
+        "bends": [
+          {
+            "x": 630,
+            "y": 912.5
+          },
+          {
+            "x": 630,
+            "y": 912.5
+          }
+        ]
+      },
+      "view_28c6140a97c8": {
+        "bends": [
+          {
+            "x": 630,
+            "y": 1077.5
+          },
+          {
+            "x": 630,
+            "y": 1077.5
+          }
+        ]
+      },
+      "view_f69f6e0c4d25": {
+        "label": {
+          "x": 330,
+          "y": 385
+        },
+        "bends": [
+          {
+            "x": 350,
+            "y": 395
+          },
+          {
+            "x": 350,
+            "y": 395
+          }
+        ]
+      },
+      "view_d85200a3e504": {
+        "label": {
+          "x": 817.5,
+          "y": 312.5
+        },
+        "bends": [
+          {
+            "x": 747.5,
+            "y": 395
+          },
+          {
+            "x": 747.5,
+            "y": 250
+          }
+        ]
+      },
+      "view_19c0e2fe8eb6": {
+        "label": {
+          "x": 1030,
+          "y": 362.5
+        },
+        "bends": [
+          {
+            "x": 960,
+            "y": 410
+          },
+          {
+            "x": 960,
+            "y": 410
+          }
+        ]
+      },
+      "view_7dde0ce12d79": {
+        "label": {
+          "x": 1128.75,
+          "y": 240
+        },
+        "bends": [
+          {
+            "x": 1142.5,
+            "y": 250
+          },
+          {
+            "x": 1142.5,
+            "y": 237.5
+          }
+        ]
+      },
+      "view_d4094b4d9818": {
+        "label": {
+          "x": 1212.5,
+          "y": 655
+        },
+        "bends": [
+          {
+            "x": 1142.5,
+            "y": 565
+          },
+          {
+            "x": 1142.5,
+            "y": 765
+          }
+        ]
+      },
+      "view_279eae0f39d6": {
+        "label": {
+          "x": 805,
+          "y": 555
+        },
+        "bends": [
+          {
+            "x": 735,
+            "y": 285
+          },
+          {
+            "x": 735,
+            "y": 845
+          }
+        ]
+      },
+      "view_4654ae7d25ca": {
+        "label": {
+          "x": 1212.5,
+          "y": 795
+        },
+        "bends": [
+          {
+            "x": 1142.5,
+            "y": 845
+          },
+          {
+            "x": 1142.5,
+            "y": 765
+          }
+        ]
+      }
+    }
+  }
+}

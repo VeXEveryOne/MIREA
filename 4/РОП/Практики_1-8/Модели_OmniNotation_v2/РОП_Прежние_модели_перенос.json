@@ -1,0 +1,98 @@
+{
+  "figures": [
+    {
+      "figure": 1,
+      "source": "D:\\GitHub\\MIREA\\4\\РОП\\Практики_1-8\\Модели_OmniNotation\\ПР1_IDEF0_AS_IS.nsidef0",
+      "sha256": "2cd3c69a1e3319f7d9ce3c45e45b83a4c1f7aadf43933c5f368ef10939142d02",
+      "file": "D:\\GitHub\\MIREA\\4\\РОП\\Практики_1-8\\Модели_OmniNotation_v2\\ПР1_IDEF0_AS_IS.omni",
+      "diagramId": "context",
+      "title": "Формировать и актуализировать карточки компьютерных систем",
+      "manualReview": "не выполнена",
+      "export": null
+    },
+    {
+      "figure": 2,
+      "source": "D:\\GitHub\\MIREA\\4\\РОП\\Практики_1-8\\Модели_OmniNotation\\ПР1_IDEF0_AS_IS.nsidef0",
+      "sha256": "2cd3c69a1e3319f7d9ce3c45e45b83a4c1f7aadf43933c5f368ef10939142d02",
+      "file": "D:\\GitHub\\MIREA\\4\\РОП\\Практики_1-8\\Модели_OmniNotation_v2\\ПР1_IDEF0_AS_IS.omni",
+      "diagramId": "decomposition",
+      "title": "Формировать и актуализировать карточки компьютерных систем",
+      "manualReview": "не выполнена",
+      "export": null
+    },
+    {
+      "figure": 3,
+      "source": "D:\\GitHub\\MIREA\\4\\РОП\\Практики_1-8\\Модели_OmniNotation\\ПР1_BPMN_AS_IS.nsbpmn",
+      "sha256": "91066b3d1ed00da2bcb18c94d08032316f3662439973e3ca3f7b37196a943335",
+      "file": "D:\\GitHub\\MIREA\\4\\РОП\\Практики_1-8\\Модели_OmniNotation_v2\\ПР1_BPMN_AS_IS.omni",
+      "diagramId": "Plane_Main",
+      "title": "Публикация и внешние участники",
+      "manualReview": "не выполнена",
+      "export": null
+    },
+    {
+      "figure": 4,
+      "source": "D:\\GitHub\\MIREA\\4\\РОП\\Практики_1-8\\Модели_OmniNotation\\ПР1_BPMN_AS_IS.nsbpmn",
+      "sha256": "91066b3d1ed00da2bcb18c94d08032316f3662439973e3ca3f7b37196a943335",
+      "file": "D:\\GitHub\\MIREA\\4\\РОП\\Практики_1-8\\Модели_OmniNotation_v2\\ПР1_BPMN_AS_IS.omni",
+      "diagramId": "Plane_Preparation",
+      "title": "Подготовить\nданные карточки",
+      "manualReview": "не выполнена",
+      "export": null
+    },
+    {
+      "figure": 6,
+      "source": "D:\\GitHub\\MIREA\\4\\РОП\\Практики_1-8\\Модели_OmniNotation\\ПР2_IDEF0_TO_BE.nsidef0",
+      "sha256": "ab67284e6d07875e772d82ed74f490383c04a8e3bf76336d47be0d9f9b602372",
+      "file": "D:\\GitHub\\MIREA\\4\\РОП\\Практики_1-8\\Модели_OmniNotation_v2\\ПР2_IDEF0_TO_BE.omni",
+      "diagramId": "context",
+      "title": "Формировать и актуализировать карточки компьютерных систем",
+      "manualReview": "не выполнена",
+      "export": null
+    },
+    {
+      "figure": 7,
+      "source": "D:\\GitHub\\MIREA\\4\\РОП\\Практики_1-8\\Модели_OmniNotation\\ПР2_IDEF0_TO_BE.nsidef0",
+      "sha256": "ab67284e6d07875e772d82ed74f490383c04a8e3bf76336d47be0d9f9b602372",
+      "file": "D:\\GitHub\\MIREA\\4\\РОП\\Практики_1-8\\Модели_OmniNotation_v2\\ПР2_IDEF0_TO_BE.omni",
+      "diagramId": "decomposition",
+      "title": "Формировать и актуализировать карточки компьютерных систем",
+      "manualReview": "не выполнена",
+      "export": null
+    },
+    {
+      "figure": 8,
+      "source": "D:\\GitHub\\MIREA\\4\\РОП\\Практики_1-8\\Модели_OmniNotation\\ПР2_BPMN_TO_BE.nsbpmn",
+      "sha256": "188bf5f25d6dc6ad6a06a6a6c896b18a4c09e539ff78c9cade12d19dcb8e61af",
+      "file": "D:\\GitHub\\MIREA\\4\\РОП\\Практики_1-8\\Модели_OmniNotation_v2\\ПР2_BPMN_TO_BE.omni",
+      "diagramId": "Plane_Main",
+      "title": "Целевой процесс",
+      "manualReview": "не выполнена",
+      "export": null
+    },
+    {
+      "figure": 9,
+      "source": "D:\\GitHub\\MIREA\\4\\РОП\\Практики_1-8\\Модели_OmniNotation\\ПР2_BPMN_TO_BE.nsbpmn",
+      "sha256": "188bf5f25d6dc6ad6a06a6a6c896b18a4c09e539ff78c9cade12d19dcb8e61af",
+      "file": "D:\\GitHub\\MIREA\\4\\РОП\\Практики_1-8\\Модели_OmniNotation_v2\\ПР2_BPMN_TO_BE.omni",
+      "diagramId": "Plane_Preparation",
+      "title": "Подготовить\nверсию карточки",
+      "manualReview": "не выполнена",
+      "export": null
+    },
+    {
+      "figure": 10,
+      "source": "D:\\GitHub\\MIREA\\4\\РОП\\Практики_1-8\\Модели_OmniNotation\\ПР2_BPMN_TO_BE.nsbpmn",
+      "sha256": "188bf5f25d6dc6ad6a06a6a6c896b18a4c09e539ff78c9cade12d19dcb8e61af",
+      "file": "D:\\GitHub\\MIREA\\4\\РОП\\Практики_1-8\\Модели_OmniNotation_v2\\ПР2_BPMN_TO_BE.omni",
+      "diagramId": "Plane_Publication",
+      "title": "Опубликовать\nи обработать результат",
+      "manualReview": "не выполнена",
+      "export": null
+    }
+  ],
+  "differences": [
+    "Прежние файлы прочитаны штатным декодером и сохранены собственным JSON-кодеком с расширением .omni. Исходные файлы не изменены."
+  ],
+  "unresolved": []
+}

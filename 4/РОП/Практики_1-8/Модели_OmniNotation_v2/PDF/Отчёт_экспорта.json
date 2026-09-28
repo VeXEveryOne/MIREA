@@ -1,0 +1,31 @@
+{
+  "cancelled": false,
+  "files": [],
+  "errors": [
+    {
+      "title": "PDF",
+      "error": "Истекло время подготовки экспорта."
+    }
+  ],
+  "pages": [],
+  "warnings": [],
+  "settings": {
+    "format": "pdf",
+    "background": "white",
+    "scale": 1,
+    "margin": 28,
+    "title": true,
+    "legend": true,
+    "monochrome": false,
+    "font": "Arial",
+    "includeHidden": false,
+    "page": "A3",
+    "orientation": "landscape",
+    "widthMm": 297,
+    "heightMm": 210,
+    "pagination": "poster",
+    "overlap": 24
+  },
+  "generatedAt": "2026-09-27T18:52:25.899Z",
+  "pdfRendering": "Штатная печать Chromium: HTML-текст и SVG. Возможная растеризация CSS-эффектов не исключается; полностью векторный PDF не заявляется."
+}

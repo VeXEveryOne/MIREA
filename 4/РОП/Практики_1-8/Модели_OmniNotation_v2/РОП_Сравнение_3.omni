@@ -1,0 +1,163 @@
+{
+  "notation": "CHART",
+  "formatVersion": 1,
+  "profile": "NS-CHART-1",
+  "model": {
+    "id": "ropComparison",
+    "label": "Сравнение аналогов РОП",
+    "elements": [
+      {
+        "id": "comparison",
+        "kind": "plot",
+        "label": "Средняя экспертная оценка применимости аналогов",
+        "properties": {
+          "kind": "column",
+          "unit": "балл (0–5)",
+          "minimum": "0",
+          "maximum": "5",
+          "decimals": "1",
+          "showValues": "true",
+          "sourceNote": "Источник: content.json, ПР1, таблица «Оценки применимости аналогов». Авторские экспертные оценки; 5 у проектируемой ИС — целевое покрытие, не измеренный результат."
+        }
+      },
+      {
+        "id": "D00_comparison",
+        "kind": "diagram",
+        "label": "Сравнение аналогов",
+        "properties": {
+          "type": "chart",
+          "plot": "comparison"
+        }
+      },
+      {
+        "id": "comparisonView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D00_comparison",
+          "element": "comparison"
+        }
+      },
+      {
+        "id": "average",
+        "kind": "series",
+        "label": "Средняя оценка",
+        "properties": {
+          "owner": "comparison",
+          "order": "0"
+        }
+      },
+      {
+        "id": "analog1",
+        "kind": "category",
+        "label": "Ozon Seller",
+        "properties": {
+          "owner": "comparison",
+          "order": "0"
+        }
+      },
+      {
+        "id": "score1",
+        "kind": "value",
+        "label": "",
+        "properties": {
+          "owner": "average",
+          "category": "analog1",
+          "number": "2.1"
+        }
+      },
+      {
+        "id": "analog2",
+        "kind": "category",
+        "label": "1С:ERP",
+        "properties": {
+          "owner": "comparison",
+          "order": "1"
+        }
+      },
+      {
+        "id": "score2",
+        "kind": "value",
+        "label": "",
+        "properties": {
+          "owner": "average",
+          "category": "analog2",
+          "number": "3.7"
+        }
+      },
+      {
+        "id": "analog3",
+        "kind": "category",
+        "label": "Pimcore",
+        "properties": {
+          "owner": "comparison",
+          "order": "2"
+        }
+      },
+      {
+        "id": "score3",
+        "kind": "value",
+        "label": "",
+        "properties": {
+          "owner": "average",
+          "category": "analog3",
+          "number": "3.7"
+        }
+      },
+      {
+        "id": "analog4",
+        "kind": "category",
+        "label": "Akeneo PIM",
+        "properties": {
+          "owner": "comparison",
+          "order": "3"
+        }
+      },
+      {
+        "id": "score4",
+        "kind": "value",
+        "label": "",
+        "properties": {
+          "owner": "average",
+          "category": "analog4",
+          "number": "3.1"
+        }
+      },
+      {
+        "id": "analog5",
+        "kind": "category",
+        "label": "Проектируемая ИС",
+        "properties": {
+          "owner": "comparison",
+          "order": "4"
+        }
+      },
+      {
+        "id": "score5",
+        "kind": "value",
+        "label": "",
+        "properties": {
+          "owner": "average",
+          "category": "analog5",
+          "number": "5.0"
+        }
+      }
+    ]
+  },
+  "source": "chart ropComparison \"Сравнение аналогов РОП\"\nplot comparison \"Средняя экспертная оценка применимости аналогов\" decimals=1 kind=column maximum=5 minimum=0 showValues=true sourceNote=\"Источник: content.json, ПР1, таблица «Оценки применимости аналогов». Авторские экспертные оценки; 5 у проектируемой ИС — целевое покрытие, не измеренный результат.\" unit=\"балл (0–5)\"\ndiagram D00_comparison \"Сравнение аналогов\" plot=comparison type=chart\nview comparisonView \"\" diagram=D00_comparison element=comparison\nseries average \"Средняя оценка\" order=0 owner=comparison\ncategory analog1 \"Ozon Seller\" order=0 owner=comparison\nvalue score1 \"\" category=analog1 number=2.1 owner=average\ncategory analog2 \"1С:ERP\" order=1 owner=comparison\nvalue score2 \"\" category=analog2 number=3.7 owner=average\ncategory analog3 Pimcore order=2 owner=comparison\nvalue score3 \"\" category=analog3 number=3.7 owner=average\ncategory analog4 \"Akeneo PIM\" order=3 owner=comparison\nvalue score4 \"\" category=analog4 number=3.1 owner=average\ncategory analog5 \"Проектируемая ИС\" order=4 owner=comparison\nvalue score5 \"\" category=analog5 number=5.0 owner=average\n",
+  "draft": "chart ropComparison \"Сравнение аналогов РОП\"\nplot comparison \"Средняя экспертная оценка применимости аналогов\" decimals=1 kind=column maximum=5 minimum=0 showValues=true sourceNote=\"Источник: content.json, ПР1, таблица «Оценки применимости аналогов». Авторские экспертные оценки; 5 у проектируемой ИС — целевое покрытие, не измеренный результат.\" unit=\"балл (0–5)\"\ndiagram D00_comparison \"Сравнение аналогов\" plot=comparison type=chart\nview comparisonView \"\" diagram=D00_comparison element=comparison\nseries average \"Средняя оценка\" order=0 owner=comparison\ncategory analog1 \"Ozon Seller\" order=0 owner=comparison\nvalue score1 \"\" category=analog1 number=2.1 owner=average\ncategory analog2 \"1С:ERP\" order=1 owner=comparison\nvalue score2 \"\" category=analog2 number=3.7 owner=average\ncategory analog3 Pimcore order=2 owner=comparison\nvalue score3 \"\" category=analog3 number=3.7 owner=average\ncategory analog4 \"Akeneo PIM\" order=3 owner=comparison\nvalue score4 \"\" category=analog4 number=3.1 owner=average\ncategory analog5 \"Проектируемая ИС\" order=4 owner=comparison\nvalue score5 \"\" category=analog5 number=5.0 owner=average\n",
+  "layout": {
+    "nodes": {
+      "comparisonView": {
+        "x": 60,
+        "y": 60,
+        "width": 1100,
+        "height": 690
+      }
+    },
+    "edges": {},
+    "diagrams": {
+      "D00_comparison": {}
+    }
+  }
+}

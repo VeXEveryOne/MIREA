@@ -1,0 +1,4651 @@
+{
+  "formatVersion": 1,
+  "notation": "UML",
+  "profile": "NS-UML-2.5.1-1",
+  "model": {
+    "id": "ppois3",
+    "label": "ППОИС 3 — Модель анализа ИС ООО «Юкомс»",
+    "elements": [
+      {
+        "id": "bom",
+        "kind": "interaction",
+        "label": "UC02 — Формирование версии BOM",
+        "properties": {}
+      },
+      {
+        "id": "pub",
+        "kind": "interaction",
+        "label": "UC05 — Публикация карточки товара",
+        "properties": {}
+      },
+      {
+        "id": "use",
+        "kind": "diagram",
+        "label": "1. Варианты использования",
+        "properties": {
+          "type": "usecase"
+        }
+      },
+      {
+        "id": "classes",
+        "kind": "diagram",
+        "label": "2. Классы анализа",
+        "properties": {
+          "type": "class"
+        }
+      },
+      {
+        "id": "bom_seq",
+        "kind": "diagram",
+        "label": "3. Последовательность UC02",
+        "properties": {
+          "type": "sequence",
+          "interaction": "bom"
+        }
+      },
+      {
+        "id": "pub_seq",
+        "kind": "diagram",
+        "label": "4. Последовательность UC05",
+        "properties": {
+          "type": "sequence",
+          "interaction": "pub"
+        }
+      },
+      {
+        "id": "comm",
+        "kind": "diagram",
+        "label": "5. Кооперация UC05",
+        "properties": {
+          "type": "communication",
+          "interaction": "pub",
+          "scenario": "ready_card"
+        }
+      },
+      {
+        "id": "manager",
+        "kind": "actor",
+        "label": "Менеджер маркетплейсов",
+        "properties": {}
+      },
+      {
+        "id": "v_use_manager",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "manager"
+        }
+      },
+      {
+        "id": "specialist",
+        "kind": "actor",
+        "label": "Технический специалист",
+        "properties": {}
+      },
+      {
+        "id": "v_use_specialist",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "specialist"
+        }
+      },
+      {
+        "id": "ozon",
+        "kind": "actor",
+        "label": "Ozon",
+        "properties": {}
+      },
+      {
+        "id": "v_use_ozon",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "ozon"
+        }
+      },
+      {
+        "id": "suppliers",
+        "kind": "actor",
+        "label": "PC4Games / ITPartner",
+        "properties": {}
+      },
+      {
+        "id": "v_use_suppliers",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "suppliers"
+        }
+      },
+      {
+        "id": "designer",
+        "kind": "actor",
+        "label": "Дизайнер",
+        "properties": {}
+      },
+      {
+        "id": "v_use_designer",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "designer"
+        }
+      },
+      {
+        "id": "admin",
+        "kind": "actor",
+        "label": "Администратор",
+        "properties": {}
+      },
+      {
+        "id": "v_use_admin",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "admin"
+        }
+      },
+      {
+        "id": "system",
+        "kind": "system",
+        "label": "ИС формирования и актуализации карточек ООО «Юкомс»",
+        "properties": {}
+      },
+      {
+        "id": "v_use_system",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "system"
+        }
+      },
+      {
+        "id": "UC01",
+        "kind": "usecase",
+        "label": "UC01 — Зарегистрировать запрос",
+        "properties": {}
+      },
+      {
+        "id": "subject_UC01",
+        "kind": "subject",
+        "label": "",
+        "properties": {
+          "owner": "UC01",
+          "system": "system"
+        }
+      },
+      {
+        "id": "v_use_UC01",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "UC01",
+          "parent": "v_use_system"
+        }
+      },
+      {
+        "id": "UC02",
+        "kind": "usecase",
+        "label": "UC02 — Сформировать BOM",
+        "properties": {
+          "interaction": "bom"
+        }
+      },
+      {
+        "id": "subject_UC02",
+        "kind": "subject",
+        "label": "",
+        "properties": {
+          "owner": "UC02",
+          "system": "system"
+        }
+      },
+      {
+        "id": "v_use_UC02",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "UC02",
+          "parent": "v_use_system"
+        }
+      },
+      {
+        "id": "UC03",
+        "kind": "usecase",
+        "label": "UC03 — Проверить совместимость",
+        "properties": {}
+      },
+      {
+        "id": "subject_UC03",
+        "kind": "subject",
+        "label": "",
+        "properties": {
+          "owner": "UC03",
+          "system": "system"
+        }
+      },
+      {
+        "id": "v_use_UC03",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "UC03",
+          "parent": "v_use_system"
+        }
+      },
+      {
+        "id": "UC04",
+        "kind": "usecase",
+        "label": "UC04 — Массово заменить компонент",
+        "properties": {}
+      },
+      {
+        "id": "subject_UC04",
+        "kind": "subject",
+        "label": "",
+        "properties": {
+          "owner": "UC04",
+          "system": "system"
+        }
+      },
+      {
+        "id": "v_use_UC04",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "UC04",
+          "parent": "v_use_system"
+        }
+      },
+      {
+        "id": "UC05",
+        "kind": "usecase",
+        "label": "UC05 — Опубликовать карточку",
+        "properties": {
+          "interaction": "pub"
+        }
+      },
+      {
+        "id": "subject_UC05",
+        "kind": "subject",
+        "label": "",
+        "properties": {
+          "owner": "UC05",
+          "system": "system"
+        }
+      },
+      {
+        "id": "v_use_UC05",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "UC05",
+          "parent": "v_use_system"
+        }
+      },
+      {
+        "id": "UC06",
+        "kind": "usecase",
+        "label": "UC06 — Обновить предложения поставщиков",
+        "properties": {}
+      },
+      {
+        "id": "subject_UC06",
+        "kind": "subject",
+        "label": "",
+        "properties": {
+          "owner": "UC06",
+          "system": "system"
+        }
+      },
+      {
+        "id": "v_use_UC06",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "UC06",
+          "parent": "v_use_system"
+        }
+      },
+      {
+        "id": "UC07",
+        "kind": "usecase",
+        "label": "UC07 — Рассчитать цену, вес и подготовить контент",
+        "properties": {}
+      },
+      {
+        "id": "subject_UC07",
+        "kind": "subject",
+        "label": "",
+        "properties": {
+          "owner": "UC07",
+          "system": "system"
+        }
+      },
+      {
+        "id": "v_use_UC07",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "UC07",
+          "parent": "v_use_system"
+        }
+      },
+      {
+        "id": "UC08",
+        "kind": "usecase",
+        "label": "UC08 — Проверить готовность карточки",
+        "properties": {}
+      },
+      {
+        "id": "subject_UC08",
+        "kind": "subject",
+        "label": "",
+        "properties": {
+          "owner": "UC08",
+          "system": "system"
+        }
+      },
+      {
+        "id": "v_use_UC08",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "UC08",
+          "parent": "v_use_system"
+        }
+      },
+      {
+        "id": "UC09",
+        "kind": "usecase",
+        "label": "UC09 — Настроить шаблоны изображений",
+        "properties": {}
+      },
+      {
+        "id": "subject_UC09",
+        "kind": "subject",
+        "label": "",
+        "properties": {
+          "owner": "UC09",
+          "system": "system"
+        }
+      },
+      {
+        "id": "v_use_UC09",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "UC09",
+          "parent": "v_use_system"
+        }
+      },
+      {
+        "id": "UC10",
+        "kind": "usecase",
+        "label": "UC10 — Настроить доступ и интеграции",
+        "properties": {}
+      },
+      {
+        "id": "subject_UC10",
+        "kind": "subject",
+        "label": "",
+        "properties": {
+          "owner": "UC10",
+          "system": "system"
+        }
+      },
+      {
+        "id": "v_use_UC10",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "UC10",
+          "parent": "v_use_system"
+        }
+      },
+      {
+        "id": "manager_UC01",
+        "kind": "participation",
+        "label": "",
+        "properties": {
+          "from": "manager",
+          "to": "UC01"
+        }
+      },
+      {
+        "id": "v_use_manager_UC01",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "manager_UC01"
+        }
+      },
+      {
+        "id": "manager_UC05",
+        "kind": "participation",
+        "label": "",
+        "properties": {
+          "from": "manager",
+          "to": "UC05"
+        }
+      },
+      {
+        "id": "v_use_manager_UC05",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "manager_UC05"
+        }
+      },
+      {
+        "id": "manager_UC06",
+        "kind": "participation",
+        "label": "",
+        "properties": {
+          "from": "manager",
+          "to": "UC06"
+        }
+      },
+      {
+        "id": "v_use_manager_UC06",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "manager_UC06"
+        }
+      },
+      {
+        "id": "specialist_UC02",
+        "kind": "participation",
+        "label": "",
+        "properties": {
+          "from": "specialist",
+          "to": "UC02"
+        }
+      },
+      {
+        "id": "v_use_specialist_UC02",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "specialist_UC02"
+        }
+      },
+      {
+        "id": "specialist_UC03",
+        "kind": "participation",
+        "label": "",
+        "properties": {
+          "from": "specialist",
+          "to": "UC03"
+        }
+      },
+      {
+        "id": "v_use_specialist_UC03",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "specialist_UC03"
+        }
+      },
+      {
+        "id": "specialist_UC04",
+        "kind": "participation",
+        "label": "",
+        "properties": {
+          "from": "specialist",
+          "to": "UC04"
+        }
+      },
+      {
+        "id": "v_use_specialist_UC04",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "specialist_UC04"
+        }
+      },
+      {
+        "id": "designer_UC07",
+        "kind": "participation",
+        "label": "",
+        "properties": {
+          "from": "designer",
+          "to": "UC07"
+        }
+      },
+      {
+        "id": "v_use_designer_UC07",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "designer_UC07"
+        }
+      },
+      {
+        "id": "designer_UC09",
+        "kind": "participation",
+        "label": "",
+        "properties": {
+          "from": "designer",
+          "to": "UC09"
+        }
+      },
+      {
+        "id": "v_use_designer_UC09",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "designer_UC09"
+        }
+      },
+      {
+        "id": "admin_UC10",
+        "kind": "participation",
+        "label": "",
+        "properties": {
+          "from": "admin",
+          "to": "UC10"
+        }
+      },
+      {
+        "id": "v_use_admin_UC10",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "admin_UC10"
+        }
+      },
+      {
+        "id": "suppliers_UC06",
+        "kind": "participation",
+        "label": "",
+        "properties": {
+          "from": "suppliers",
+          "to": "UC06"
+        }
+      },
+      {
+        "id": "v_use_suppliers_UC06",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "suppliers_UC06"
+        }
+      },
+      {
+        "id": "ozon_UC05",
+        "kind": "participation",
+        "label": "",
+        "properties": {
+          "from": "ozon",
+          "to": "UC05"
+        }
+      },
+      {
+        "id": "v_use_ozon_UC05",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "ozon_UC05"
+        }
+      },
+      {
+        "id": "UC02_UC03",
+        "kind": "include",
+        "label": "",
+        "properties": {
+          "from": "UC02",
+          "to": "UC03"
+        }
+      },
+      {
+        "id": "v_use_UC02_UC03",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "UC02_UC03"
+        }
+      },
+      {
+        "id": "UC04_UC03",
+        "kind": "include",
+        "label": "",
+        "properties": {
+          "from": "UC04",
+          "to": "UC03"
+        }
+      },
+      {
+        "id": "v_use_UC04_UC03",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "UC04_UC03"
+        }
+      },
+      {
+        "id": "UC05_UC08",
+        "kind": "include",
+        "label": "",
+        "properties": {
+          "from": "UC05",
+          "to": "UC08"
+        }
+      },
+      {
+        "id": "v_use_UC05_UC08",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use",
+          "element": "UC05_UC08"
+        }
+      },
+      {
+        "id": "FormBOM",
+        "kind": "class",
+        "label": "Форма BOM",
+        "properties": {
+          "role": "boundary"
+        }
+      },
+      {
+        "id": "v_classes_FormBOM",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "FormBOM"
+        }
+      },
+      {
+        "id": "FormBOM_f0",
+        "kind": "operation",
+        "label": "ввестиСлоты",
+        "properties": {
+          "owner": "FormBOM",
+          "visibility": "public",
+          "order": "1"
+        }
+      },
+      {
+        "id": "FormBOM_f1",
+        "kind": "operation",
+        "label": "показатьРезультат",
+        "properties": {
+          "owner": "FormBOM",
+          "visibility": "public",
+          "order": "2"
+        }
+      },
+      {
+        "id": "BOMController",
+        "kind": "class",
+        "label": "Контроллер BOM",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "v_classes_BOMController",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "BOMController"
+        }
+      },
+      {
+        "id": "BOMController_f0",
+        "kind": "operation",
+        "label": "сформироватьВерсию",
+        "properties": {
+          "owner": "BOMController",
+          "visibility": "public",
+          "order": "1"
+        }
+      },
+      {
+        "id": "BOMController_f1",
+        "kind": "operation",
+        "label": "проверитьСовместимость",
+        "properties": {
+          "owner": "BOMController",
+          "visibility": "public",
+          "order": "2"
+        }
+      },
+      {
+        "id": "Rule",
+        "kind": "class",
+        "label": "Правило совместимости",
+        "properties": {
+          "role": "entity"
+        }
+      },
+      {
+        "id": "v_classes_Rule",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "Rule"
+        }
+      },
+      {
+        "id": "Rule_f0",
+        "kind": "attribute",
+        "label": "тип",
+        "properties": {
+          "owner": "Rule",
+          "visibility": "private",
+          "order": "1"
+        }
+      },
+      {
+        "id": "Rule_f1",
+        "kind": "attribute",
+        "label": "условие",
+        "properties": {
+          "owner": "Rule",
+          "visibility": "private",
+          "order": "2"
+        }
+      },
+      {
+        "id": "Rule_f2",
+        "kind": "operation",
+        "label": "получитьПравила",
+        "properties": {
+          "owner": "Rule",
+          "visibility": "public",
+          "order": "3"
+        }
+      },
+      {
+        "id": "Version",
+        "kind": "class",
+        "label": "Версия BOM",
+        "properties": {
+          "role": "entity"
+        }
+      },
+      {
+        "id": "v_classes_Version",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "Version"
+        }
+      },
+      {
+        "id": "Version_f0",
+        "kind": "attribute",
+        "label": "номер",
+        "properties": {
+          "owner": "Version",
+          "visibility": "private",
+          "order": "1"
+        }
+      },
+      {
+        "id": "Version_f1",
+        "kind": "attribute",
+        "label": "статус",
+        "properties": {
+          "owner": "Version",
+          "visibility": "private",
+          "order": "2"
+        }
+      },
+      {
+        "id": "Version_f2",
+        "kind": "operation",
+        "label": "создать",
+        "properties": {
+          "owner": "Version",
+          "visibility": "public",
+          "order": "3"
+        }
+      },
+      {
+        "id": "Offer",
+        "kind": "class",
+        "label": "Предложение поставщика",
+        "properties": {
+          "role": "entity"
+        }
+      },
+      {
+        "id": "v_classes_Offer",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "Offer"
+        }
+      },
+      {
+        "id": "Offer_f0",
+        "kind": "attribute",
+        "label": "модель",
+        "properties": {
+          "owner": "Offer",
+          "visibility": "private",
+          "order": "1"
+        }
+      },
+      {
+        "id": "Offer_f1",
+        "kind": "attribute",
+        "label": "цена",
+        "properties": {
+          "owner": "Offer",
+          "visibility": "private",
+          "order": "2"
+        }
+      },
+      {
+        "id": "Offer_f2",
+        "kind": "attribute",
+        "label": "наличие",
+        "properties": {
+          "owner": "Offer",
+          "visibility": "private",
+          "order": "3"
+        }
+      },
+      {
+        "id": "Offer_f3",
+        "kind": "operation",
+        "label": "получитьАктуальные",
+        "properties": {
+          "owner": "Offer",
+          "visibility": "public",
+          "order": "4"
+        }
+      },
+      {
+        "id": "Slot",
+        "kind": "class",
+        "label": "Слот BOM",
+        "properties": {
+          "role": "entity"
+        }
+      },
+      {
+        "id": "v_classes_Slot",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "Slot"
+        }
+      },
+      {
+        "id": "Slot_f0",
+        "kind": "attribute",
+        "label": "тип",
+        "properties": {
+          "owner": "Slot",
+          "visibility": "private",
+          "order": "1"
+        }
+      },
+      {
+        "id": "Slot_f1",
+        "kind": "attribute",
+        "label": "группа или модель",
+        "properties": {
+          "owner": "Slot",
+          "visibility": "private",
+          "order": "2"
+        }
+      },
+      {
+        "id": "Slot_f2",
+        "kind": "attribute",
+        "label": "количество",
+        "properties": {
+          "owner": "Slot",
+          "visibility": "private",
+          "order": "3"
+        }
+      },
+      {
+        "id": "FormCard",
+        "kind": "class",
+        "label": "Форма карточки",
+        "properties": {
+          "role": "boundary"
+        }
+      },
+      {
+        "id": "v_classes_FormCard",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "FormCard"
+        }
+      },
+      {
+        "id": "FormCard_f0",
+        "kind": "operation",
+        "label": "запроситьПубликацию",
+        "properties": {
+          "owner": "FormCard",
+          "visibility": "public",
+          "order": "1"
+        }
+      },
+      {
+        "id": "FormCard_f1",
+        "kind": "operation",
+        "label": "показатьСтатус",
+        "properties": {
+          "owner": "FormCard",
+          "visibility": "public",
+          "order": "2"
+        }
+      },
+      {
+        "id": "PubController",
+        "kind": "class",
+        "label": "Контроллер публикации",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "v_classes_PubController",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "PubController"
+        }
+      },
+      {
+        "id": "PubController_f0",
+        "kind": "operation",
+        "label": "проверитьГотовность",
+        "properties": {
+          "owner": "PubController",
+          "visibility": "public",
+          "order": "1"
+        }
+      },
+      {
+        "id": "PubController_f1",
+        "kind": "operation",
+        "label": "опубликовать",
+        "properties": {
+          "owner": "PubController",
+          "visibility": "public",
+          "order": "2"
+        }
+      },
+      {
+        "id": "Card",
+        "kind": "class",
+        "label": "Карточка товара",
+        "properties": {
+          "role": "entity"
+        }
+      },
+      {
+        "id": "v_classes_Card",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "Card"
+        }
+      },
+      {
+        "id": "Card_f0",
+        "kind": "attribute",
+        "label": "атрибуты",
+        "properties": {
+          "owner": "Card",
+          "visibility": "private",
+          "order": "1"
+        }
+      },
+      {
+        "id": "Card_f1",
+        "kind": "attribute",
+        "label": "цена",
+        "properties": {
+          "owner": "Card",
+          "visibility": "private",
+          "order": "2"
+        }
+      },
+      {
+        "id": "Card_f2",
+        "kind": "attribute",
+        "label": "версия",
+        "properties": {
+          "owner": "Card",
+          "visibility": "private",
+          "order": "3"
+        }
+      },
+      {
+        "id": "Card_f3",
+        "kind": "operation",
+        "label": "получитьСнимок",
+        "properties": {
+          "owner": "Card",
+          "visibility": "public",
+          "order": "4"
+        }
+      },
+      {
+        "id": "Card_f4",
+        "kind": "operation",
+        "label": "задатьСтатус",
+        "properties": {
+          "owner": "Card",
+          "visibility": "public",
+          "order": "5"
+        }
+      },
+      {
+        "id": "Adapter",
+        "kind": "class",
+        "label": "Адаптер Ozon",
+        "properties": {
+          "role": "boundary"
+        }
+      },
+      {
+        "id": "v_classes_Adapter",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "Adapter"
+        }
+      },
+      {
+        "id": "Adapter_f0",
+        "kind": "operation",
+        "label": "отправитьКарточку",
+        "properties": {
+          "owner": "Adapter",
+          "visibility": "public",
+          "order": "1"
+        }
+      },
+      {
+        "id": "Adapter_f1",
+        "kind": "operation",
+        "label": "получитьРезультат",
+        "properties": {
+          "owner": "Adapter",
+          "visibility": "public",
+          "order": "2"
+        }
+      },
+      {
+        "id": "Publication",
+        "kind": "class",
+        "label": "Публикация",
+        "properties": {
+          "role": "entity"
+        }
+      },
+      {
+        "id": "v_classes_Publication",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "Publication"
+        }
+      },
+      {
+        "id": "Publication_f0",
+        "kind": "attribute",
+        "label": "запрос",
+        "properties": {
+          "owner": "Publication",
+          "visibility": "private",
+          "order": "1"
+        }
+      },
+      {
+        "id": "Publication_f1",
+        "kind": "attribute",
+        "label": "ответ",
+        "properties": {
+          "owner": "Publication",
+          "visibility": "private",
+          "order": "2"
+        }
+      },
+      {
+        "id": "Publication_f2",
+        "kind": "attribute",
+        "label": "время",
+        "properties": {
+          "owner": "Publication",
+          "visibility": "private",
+          "order": "3"
+        }
+      },
+      {
+        "id": "Publication_f3",
+        "kind": "attribute",
+        "label": "статус",
+        "properties": {
+          "owner": "Publication",
+          "visibility": "private",
+          "order": "4"
+        }
+      },
+      {
+        "id": "Publication_f4",
+        "kind": "operation",
+        "label": "создать",
+        "properties": {
+          "owner": "Publication",
+          "visibility": "public",
+          "order": "5"
+        }
+      },
+      {
+        "id": "Publication_f5",
+        "kind": "operation",
+        "label": "сохранитьРезультат",
+        "properties": {
+          "owner": "Publication",
+          "visibility": "public",
+          "order": "6"
+        }
+      },
+      {
+        "id": "dep_FormBOM_BOMController",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "FormBOM",
+          "to": "BOMController"
+        }
+      },
+      {
+        "id": "v_classes_dep_FormBOM_BOMController",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "dep_FormBOM_BOMController"
+        }
+      },
+      {
+        "id": "dep_BOMController_Rule",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "BOMController",
+          "to": "Rule"
+        }
+      },
+      {
+        "id": "v_classes_dep_BOMController_Rule",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "dep_BOMController_Rule"
+        }
+      },
+      {
+        "id": "dep_BOMController_Version",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "BOMController",
+          "to": "Version"
+        }
+      },
+      {
+        "id": "v_classes_dep_BOMController_Version",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "dep_BOMController_Version"
+        }
+      },
+      {
+        "id": "dep_BOMController_Offer",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "BOMController",
+          "to": "Offer"
+        }
+      },
+      {
+        "id": "v_classes_dep_BOMController_Offer",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "dep_BOMController_Offer"
+        }
+      },
+      {
+        "id": "dep_FormCard_PubController",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "FormCard",
+          "to": "PubController"
+        }
+      },
+      {
+        "id": "v_classes_dep_FormCard_PubController",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "dep_FormCard_PubController"
+        }
+      },
+      {
+        "id": "dep_PubController_Card",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "PubController",
+          "to": "Card"
+        }
+      },
+      {
+        "id": "v_classes_dep_PubController_Card",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "dep_PubController_Card"
+        }
+      },
+      {
+        "id": "dep_PubController_Adapter",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "PubController",
+          "to": "Adapter"
+        }
+      },
+      {
+        "id": "v_classes_dep_PubController_Adapter",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "dep_PubController_Adapter"
+        }
+      },
+      {
+        "id": "dep_PubController_Publication",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "PubController",
+          "to": "Publication"
+        }
+      },
+      {
+        "id": "v_classes_dep_PubController_Publication",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "dep_PubController_Publication"
+        }
+      },
+      {
+        "id": "version_slots",
+        "kind": "association",
+        "label": "",
+        "properties": {}
+      },
+      {
+        "id": "version_slots_a",
+        "kind": "end",
+        "label": "",
+        "properties": {
+          "owner": "version_slots",
+          "classifier": "Version",
+          "lower": "1",
+          "upper": "1",
+          "order": "1"
+        }
+      },
+      {
+        "id": "version_slots_b",
+        "kind": "end",
+        "label": "",
+        "properties": {
+          "owner": "version_slots",
+          "classifier": "Slot",
+          "lower": "1",
+          "upper": "*",
+          "order": "0",
+          "aggregation": "composite"
+        }
+      },
+      {
+        "id": "v_classes_version_slots",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "version_slots"
+        }
+      },
+      {
+        "id": "slot_offer",
+        "kind": "association",
+        "label": "",
+        "properties": {}
+      },
+      {
+        "id": "slot_offer_a",
+        "kind": "end",
+        "label": "",
+        "properties": {
+          "owner": "slot_offer",
+          "classifier": "Slot",
+          "lower": "0",
+          "upper": "*",
+          "order": "0"
+        }
+      },
+      {
+        "id": "slot_offer_b",
+        "kind": "end",
+        "label": "",
+        "properties": {
+          "owner": "slot_offer",
+          "classifier": "Offer",
+          "lower": "0",
+          "upper": "1",
+          "order": "1"
+        }
+      },
+      {
+        "id": "v_classes_slot_offer",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "slot_offer"
+        }
+      },
+      {
+        "id": "card_version",
+        "kind": "association",
+        "label": "",
+        "properties": {}
+      },
+      {
+        "id": "card_version_a",
+        "kind": "end",
+        "label": "",
+        "properties": {
+          "owner": "card_version",
+          "classifier": "Card",
+          "lower": "0",
+          "upper": "*",
+          "order": "1"
+        }
+      },
+      {
+        "id": "card_version_b",
+        "kind": "end",
+        "label": "",
+        "properties": {
+          "owner": "card_version",
+          "classifier": "Version",
+          "lower": "1",
+          "upper": "1",
+          "order": "0"
+        }
+      },
+      {
+        "id": "v_classes_card_version",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "card_version"
+        }
+      },
+      {
+        "id": "card_publications",
+        "kind": "association",
+        "label": "",
+        "properties": {}
+      },
+      {
+        "id": "card_publications_a",
+        "kind": "end",
+        "label": "",
+        "properties": {
+          "owner": "card_publications",
+          "classifier": "Card",
+          "lower": "1",
+          "upper": "1",
+          "order": "0"
+        }
+      },
+      {
+        "id": "card_publications_b",
+        "kind": "end",
+        "label": "",
+        "properties": {
+          "owner": "card_publications",
+          "classifier": "Publication",
+          "lower": "0",
+          "upper": "*",
+          "order": "1"
+        }
+      },
+      {
+        "id": "v_classes_card_publications",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "card_publications"
+        }
+      },
+      {
+        "id": "bom_lane0",
+        "kind": "lifeline",
+        "label": "u",
+        "properties": {
+          "owner": "bom",
+          "classifier": "specialist"
+        }
+      },
+      {
+        "id": "v_bom_seq_bom_lane0",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "bom_seq",
+          "element": "bom_lane0"
+        }
+      },
+      {
+        "id": "bom_lane1",
+        "kind": "lifeline",
+        "label": "f",
+        "properties": {
+          "owner": "bom",
+          "classifier": "FormBOM"
+        }
+      },
+      {
+        "id": "v_bom_seq_bom_lane1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "bom_seq",
+          "element": "bom_lane1"
+        }
+      },
+      {
+        "id": "bom_lane2",
+        "kind": "lifeline",
+        "label": "c",
+        "properties": {
+          "owner": "bom",
+          "classifier": "BOMController"
+        }
+      },
+      {
+        "id": "v_bom_seq_bom_lane2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "bom_seq",
+          "element": "bom_lane2"
+        }
+      },
+      {
+        "id": "bom_lane3",
+        "kind": "lifeline",
+        "label": "d",
+        "properties": {
+          "owner": "bom",
+          "classifier": "Rule"
+        }
+      },
+      {
+        "id": "v_bom_seq_bom_lane3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "bom_seq",
+          "element": "bom_lane3"
+        }
+      },
+      {
+        "id": "bom_lane4",
+        "kind": "lifeline",
+        "label": "s",
+        "properties": {
+          "owner": "bom",
+          "classifier": "Offer"
+        }
+      },
+      {
+        "id": "v_bom_seq_bom_lane4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "bom_seq",
+          "element": "bom_lane4"
+        }
+      },
+      {
+        "id": "bom_lane5",
+        "kind": "lifeline",
+        "label": "r",
+        "properties": {
+          "owner": "bom",
+          "classifier": "Version"
+        }
+      },
+      {
+        "id": "v_bom_seq_bom_lane5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "bom_seq",
+          "element": "bom_lane5"
+        }
+      },
+      {
+        "id": "bom_m1_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom",
+          "lifeline": "bom_lane0",
+          "order": "0"
+        }
+      },
+      {
+        "id": "bom_m1_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom",
+          "lifeline": "bom_lane1",
+          "order": "1"
+        }
+      },
+      {
+        "id": "bom_m1",
+        "kind": "message",
+        "label": "Ввести состав и сохранить",
+        "properties": {
+          "owner": "bom",
+          "send": "bom_m1_send",
+          "receive": "bom_m1_receive",
+          "sort": "synchCall",
+          "sequence": "1"
+        }
+      },
+      {
+        "id": "v_bom_seq_bom_m1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "bom_seq",
+          "element": "bom_m1"
+        }
+      },
+      {
+        "id": "bom_m2_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom",
+          "lifeline": "bom_lane1",
+          "order": "2"
+        }
+      },
+      {
+        "id": "bom_m2_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom",
+          "lifeline": "bom_lane2",
+          "order": "3"
+        }
+      },
+      {
+        "id": "bom_m2",
+        "kind": "message",
+        "label": "Сформировать версию",
+        "properties": {
+          "owner": "bom",
+          "send": "bom_m2_send",
+          "receive": "bom_m2_receive",
+          "sort": "synchCall",
+          "sequence": "2"
+        }
+      },
+      {
+        "id": "v_bom_seq_bom_m2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "bom_seq",
+          "element": "bom_m2"
+        }
+      },
+      {
+        "id": "bom_m3_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom",
+          "lifeline": "bom_lane2",
+          "order": "4"
+        }
+      },
+      {
+        "id": "bom_m3_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom",
+          "lifeline": "bom_lane3",
+          "order": "5"
+        }
+      },
+      {
+        "id": "bom_m3",
+        "kind": "message",
+        "label": "Получить правила",
+        "properties": {
+          "owner": "bom",
+          "send": "bom_m3_send",
+          "receive": "bom_m3_receive",
+          "sort": "synchCall",
+          "sequence": "3"
+        }
+      },
+      {
+        "id": "v_bom_seq_bom_m3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "bom_seq",
+          "element": "bom_m3"
+        }
+      },
+      {
+        "id": "bom_m4_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom",
+          "lifeline": "bom_lane3",
+          "order": "6"
+        }
+      },
+      {
+        "id": "bom_m4_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom",
+          "lifeline": "bom_lane2",
+          "order": "7"
+        }
+      },
+      {
+        "id": "bom_m4",
+        "kind": "message",
+        "label": "Правила",
+        "properties": {
+          "owner": "bom",
+          "send": "bom_m4_send",
+          "receive": "bom_m4_receive",
+          "sort": "reply",
+          "sequence": "4",
+          "replyTo": "bom_m3"
+        }
+      },
+      {
+        "id": "v_bom_seq_bom_m4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "bom_seq",
+          "element": "bom_m4"
+        }
+      },
+      {
+        "id": "bom_m5_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom",
+          "lifeline": "bom_lane2",
+          "order": "8"
+        }
+      },
+      {
+        "id": "bom_m5_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom",
+          "lifeline": "bom_lane4",
+          "order": "9"
+        }
+      },
+      {
+        "id": "bom_m5",
+        "kind": "message",
+        "label": "Получить актуальные предложения",
+        "properties": {
+          "owner": "bom",
+          "send": "bom_m5_send",
+          "receive": "bom_m5_receive",
+          "sort": "synchCall",
+          "sequence": "5"
+        }
+      },
+      {
+        "id": "v_bom_seq_bom_m5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "bom_seq",
+          "element": "bom_m5"
+        }
+      },
+      {
+        "id": "bom_m6_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom",
+          "lifeline": "bom_lane4",
+          "order": "10"
+        }
+      },
+      {
+        "id": "bom_m6_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom",
+          "lifeline": "bom_lane2",
+          "order": "11"
+        }
+      },
+      {
+        "id": "bom_m6",
+        "kind": "message",
+        "label": "Предложения",
+        "properties": {
+          "owner": "bom",
+          "send": "bom_m6_send",
+          "receive": "bom_m6_receive",
+          "sort": "reply",
+          "sequence": "6",
+          "replyTo": "bom_m5"
+        }
+      },
+      {
+        "id": "v_bom_seq_bom_m6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "bom_seq",
+          "element": "bom_m6"
+        }
+      },
+      {
+        "id": "bom_m7_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom",
+          "lifeline": "bom_lane2",
+          "order": "12"
+        }
+      },
+      {
+        "id": "bom_m7_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom",
+          "lifeline": "bom_lane2",
+          "order": "13"
+        }
+      },
+      {
+        "id": "bom_m7",
+        "kind": "message",
+        "label": "Проверить состав и совместимость",
+        "properties": {
+          "owner": "bom",
+          "send": "bom_m7_send",
+          "receive": "bom_m7_receive",
+          "sort": "synchCall",
+          "sequence": "7"
+        }
+      },
+      {
+        "id": "v_bom_seq_bom_m7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "bom_seq",
+          "element": "bom_m7"
+        }
+      },
+      {
+        "id": "bom_alt",
+        "kind": "fragment",
+        "label": "",
+        "properties": {
+          "owner": "bom",
+          "operator": "alt",
+          "order": "14"
+        }
+      },
+      {
+        "id": "v_bom_seq_bom_alt",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "bom_seq",
+          "element": "bom_alt"
+        }
+      },
+      {
+        "id": "bom_cover_bom_lane0",
+        "kind": "coverage",
+        "label": "",
+        "properties": {
+          "owner": "bom_alt",
+          "lifeline": "bom_lane0"
+        }
+      },
+      {
+        "id": "bom_cover_bom_lane1",
+        "kind": "coverage",
+        "label": "",
+        "properties": {
+          "owner": "bom_alt",
+          "lifeline": "bom_lane1"
+        }
+      },
+      {
+        "id": "bom_cover_bom_lane2",
+        "kind": "coverage",
+        "label": "",
+        "properties": {
+          "owner": "bom_alt",
+          "lifeline": "bom_lane2"
+        }
+      },
+      {
+        "id": "bom_cover_bom_lane3",
+        "kind": "coverage",
+        "label": "",
+        "properties": {
+          "owner": "bom_alt",
+          "lifeline": "bom_lane3"
+        }
+      },
+      {
+        "id": "bom_cover_bom_lane4",
+        "kind": "coverage",
+        "label": "",
+        "properties": {
+          "owner": "bom_alt",
+          "lifeline": "bom_lane4"
+        }
+      },
+      {
+        "id": "bom_cover_bom_lane5",
+        "kind": "coverage",
+        "label": "",
+        "properties": {
+          "owner": "bom_alt",
+          "lifeline": "bom_lane5"
+        }
+      },
+      {
+        "id": "bom_ok",
+        "kind": "operand",
+        "label": "",
+        "properties": {
+          "owner": "bom_alt",
+          "guard": "нет конфликтов и предложения выбраны",
+          "order": "0"
+        }
+      },
+      {
+        "id": "bom_bad",
+        "kind": "operand",
+        "label": "",
+        "properties": {
+          "owner": "bom_alt",
+          "guard": "есть конфликт или отсутствует предложение",
+          "order": "1"
+        }
+      },
+      {
+        "id": "bom_m8_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom_ok",
+          "lifeline": "bom_lane2",
+          "order": "15"
+        }
+      },
+      {
+        "id": "bom_m8_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom_ok",
+          "lifeline": "bom_lane5",
+          "order": "16"
+        }
+      },
+      {
+        "id": "bom_m8",
+        "kind": "message",
+        "label": "Создать версию и слоты",
+        "properties": {
+          "owner": "bom",
+          "send": "bom_m8_send",
+          "receive": "bom_m8_receive",
+          "sort": "synchCall",
+          "sequence": "8"
+        }
+      },
+      {
+        "id": "v_bom_seq_bom_m8",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "bom_seq",
+          "element": "bom_m8"
+        }
+      },
+      {
+        "id": "bom_m9_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom_ok",
+          "lifeline": "bom_lane5",
+          "order": "17"
+        }
+      },
+      {
+        "id": "bom_m9_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom_ok",
+          "lifeline": "bom_lane2",
+          "order": "18"
+        }
+      },
+      {
+        "id": "bom_m9",
+        "kind": "message",
+        "label": "Идентификатор версии",
+        "properties": {
+          "owner": "bom",
+          "send": "bom_m9_send",
+          "receive": "bom_m9_receive",
+          "sort": "reply",
+          "sequence": "9",
+          "replyTo": "bom_m8"
+        }
+      },
+      {
+        "id": "v_bom_seq_bom_m9",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "bom_seq",
+          "element": "bom_m9"
+        }
+      },
+      {
+        "id": "bom_m10_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom_ok",
+          "lifeline": "bom_lane2",
+          "order": "19"
+        }
+      },
+      {
+        "id": "bom_m10_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom_ok",
+          "lifeline": "bom_lane1",
+          "order": "20"
+        }
+      },
+      {
+        "id": "bom_m10",
+        "kind": "message",
+        "label": "Версия сохранена",
+        "properties": {
+          "owner": "bom",
+          "send": "bom_m10_send",
+          "receive": "bom_m10_receive",
+          "sort": "reply",
+          "sequence": "10",
+          "replyTo": "bom_m2"
+        }
+      },
+      {
+        "id": "v_bom_seq_bom_m10",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "bom_seq",
+          "element": "bom_m10"
+        }
+      },
+      {
+        "id": "bom_m11_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom_ok",
+          "lifeline": "bom_lane1",
+          "order": "21"
+        }
+      },
+      {
+        "id": "bom_m11_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom_ok",
+          "lifeline": "bom_lane0",
+          "order": "22"
+        }
+      },
+      {
+        "id": "bom_m11",
+        "kind": "message",
+        "label": "Показать версию",
+        "properties": {
+          "owner": "bom",
+          "send": "bom_m11_send",
+          "receive": "bom_m11_receive",
+          "sort": "reply",
+          "sequence": "11",
+          "replyTo": "bom_m1"
+        }
+      },
+      {
+        "id": "v_bom_seq_bom_m11",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "bom_seq",
+          "element": "bom_m11"
+        }
+      },
+      {
+        "id": "bom_m12_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom_bad",
+          "lifeline": "bom_lane2",
+          "order": "23"
+        }
+      },
+      {
+        "id": "bom_m12_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom_bad",
+          "lifeline": "bom_lane1",
+          "order": "24"
+        }
+      },
+      {
+        "id": "bom_m12",
+        "kind": "message",
+        "label": "Перечень конфликтов",
+        "properties": {
+          "owner": "bom",
+          "send": "bom_m12_send",
+          "receive": "bom_m12_receive",
+          "sort": "reply",
+          "sequence": "12",
+          "replyTo": "bom_m2"
+        }
+      },
+      {
+        "id": "v_bom_seq_bom_m12",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "bom_seq",
+          "element": "bom_m12"
+        }
+      },
+      {
+        "id": "bom_m13_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom_bad",
+          "lifeline": "bom_lane1",
+          "order": "25"
+        }
+      },
+      {
+        "id": "bom_m13_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "bom_bad",
+          "lifeline": "bom_lane0",
+          "order": "26"
+        }
+      },
+      {
+        "id": "bom_m13",
+        "kind": "message",
+        "label": "Показать ошибки",
+        "properties": {
+          "owner": "bom",
+          "send": "bom_m13_send",
+          "receive": "bom_m13_receive",
+          "sort": "reply",
+          "sequence": "13",
+          "replyTo": "bom_m1"
+        }
+      },
+      {
+        "id": "v_bom_seq_bom_m13",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "bom_seq",
+          "element": "bom_m13"
+        }
+      },
+      {
+        "id": "pub_lane0",
+        "kind": "lifeline",
+        "label": "u",
+        "properties": {
+          "owner": "pub",
+          "classifier": "manager"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_lane0",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_lane0"
+        }
+      },
+      {
+        "id": "v_comm_pub_lane0",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_lane0"
+        }
+      },
+      {
+        "id": "pub_lane1",
+        "kind": "lifeline",
+        "label": "f",
+        "properties": {
+          "owner": "pub",
+          "classifier": "FormCard"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_lane1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_lane1"
+        }
+      },
+      {
+        "id": "v_comm_pub_lane1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_lane1"
+        }
+      },
+      {
+        "id": "pub_lane2",
+        "kind": "lifeline",
+        "label": "c",
+        "properties": {
+          "owner": "pub",
+          "classifier": "PubController"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_lane2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_lane2"
+        }
+      },
+      {
+        "id": "v_comm_pub_lane2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_lane2"
+        }
+      },
+      {
+        "id": "pub_lane3",
+        "kind": "lifeline",
+        "label": "d",
+        "properties": {
+          "owner": "pub",
+          "classifier": "Card"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_lane3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_lane3"
+        }
+      },
+      {
+        "id": "v_comm_pub_lane3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_lane3"
+        }
+      },
+      {
+        "id": "pub_lane4",
+        "kind": "lifeline",
+        "label": "s",
+        "properties": {
+          "owner": "pub",
+          "classifier": "Adapter"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_lane4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_lane4"
+        }
+      },
+      {
+        "id": "v_comm_pub_lane4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_lane4"
+        }
+      },
+      {
+        "id": "pub_lane5",
+        "kind": "lifeline",
+        "label": "r",
+        "properties": {
+          "owner": "pub",
+          "classifier": "ozon"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_lane5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_lane5"
+        }
+      },
+      {
+        "id": "v_comm_pub_lane5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_lane5"
+        }
+      },
+      {
+        "id": "pub_lane6",
+        "kind": "lifeline",
+        "label": "p",
+        "properties": {
+          "owner": "pub",
+          "classifier": "Publication"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_lane6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_lane6"
+        }
+      },
+      {
+        "id": "v_comm_pub_lane6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_lane6"
+        }
+      },
+      {
+        "id": "pub_m1_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub",
+          "lifeline": "pub_lane0",
+          "order": "0"
+        }
+      },
+      {
+        "id": "pub_m1_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub",
+          "lifeline": "pub_lane1",
+          "order": "1"
+        }
+      },
+      {
+        "id": "pub_channel_0_1",
+        "kind": "connector",
+        "label": "",
+        "properties": {
+          "owner": "pub",
+          "from": "pub_lane0",
+          "to": "pub_lane1"
+        }
+      },
+      {
+        "id": "v_comm_pub_channel_0_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_channel_0_1"
+        }
+      },
+      {
+        "id": "pub_m1",
+        "kind": "message",
+        "label": "Запросить публикацию",
+        "properties": {
+          "owner": "pub",
+          "send": "pub_m1_send",
+          "receive": "pub_m1_receive",
+          "sort": "synchCall",
+          "sequence": "1",
+          "connector": "pub_channel_0_1"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_m1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_m1"
+        }
+      },
+      {
+        "id": "v_comm_pub_m1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_m1"
+        }
+      },
+      {
+        "id": "pub_m2_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub",
+          "lifeline": "pub_lane1",
+          "order": "2"
+        }
+      },
+      {
+        "id": "pub_m2_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub",
+          "lifeline": "pub_lane2",
+          "order": "3"
+        }
+      },
+      {
+        "id": "pub_channel_1_2",
+        "kind": "connector",
+        "label": "",
+        "properties": {
+          "owner": "pub",
+          "from": "pub_lane1",
+          "to": "pub_lane2"
+        }
+      },
+      {
+        "id": "v_comm_pub_channel_1_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_channel_1_2"
+        }
+      },
+      {
+        "id": "pub_m2",
+        "kind": "message",
+        "label": "Опубликовать карточку",
+        "properties": {
+          "owner": "pub",
+          "send": "pub_m2_send",
+          "receive": "pub_m2_receive",
+          "sort": "synchCall",
+          "sequence": "2",
+          "connector": "pub_channel_1_2"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_m2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_m2"
+        }
+      },
+      {
+        "id": "v_comm_pub_m2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_m2"
+        }
+      },
+      {
+        "id": "pub_m3_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub",
+          "lifeline": "pub_lane2",
+          "order": "4"
+        }
+      },
+      {
+        "id": "pub_m3_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub",
+          "lifeline": "pub_lane3",
+          "order": "5"
+        }
+      },
+      {
+        "id": "pub_channel_2_3",
+        "kind": "connector",
+        "label": "",
+        "properties": {
+          "owner": "pub",
+          "from": "pub_lane2",
+          "to": "pub_lane3"
+        }
+      },
+      {
+        "id": "v_comm_pub_channel_2_3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_channel_2_3"
+        }
+      },
+      {
+        "id": "pub_m3",
+        "kind": "message",
+        "label": "Получить снимок карточки",
+        "properties": {
+          "owner": "pub",
+          "send": "pub_m3_send",
+          "receive": "pub_m3_receive",
+          "sort": "synchCall",
+          "sequence": "3",
+          "connector": "pub_channel_2_3"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_m3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_m3"
+        }
+      },
+      {
+        "id": "v_comm_pub_m3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_m3"
+        }
+      },
+      {
+        "id": "pub_m4_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub",
+          "lifeline": "pub_lane3",
+          "order": "6"
+        }
+      },
+      {
+        "id": "pub_m4_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub",
+          "lifeline": "pub_lane2",
+          "order": "7"
+        }
+      },
+      {
+        "id": "pub_m4",
+        "kind": "message",
+        "label": "Снимок и версия BOM",
+        "properties": {
+          "owner": "pub",
+          "send": "pub_m4_send",
+          "receive": "pub_m4_receive",
+          "sort": "reply",
+          "sequence": "4",
+          "connector": "pub_channel_2_3",
+          "replyTo": "pub_m3"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_m4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_m4"
+        }
+      },
+      {
+        "id": "v_comm_pub_m4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_m4"
+        }
+      },
+      {
+        "id": "pub_m5_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub",
+          "lifeline": "pub_lane2",
+          "order": "8"
+        }
+      },
+      {
+        "id": "pub_m5_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub",
+          "lifeline": "pub_lane2",
+          "order": "9"
+        }
+      },
+      {
+        "id": "pub_channel_2_2",
+        "kind": "connector",
+        "label": "",
+        "properties": {
+          "owner": "pub",
+          "from": "pub_lane2",
+          "to": "pub_lane2"
+        }
+      },
+      {
+        "id": "v_comm_pub_channel_2_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_channel_2_2"
+        }
+      },
+      {
+        "id": "pub_m5",
+        "kind": "message",
+        "label": "Проверить готовность",
+        "properties": {
+          "owner": "pub",
+          "send": "pub_m5_send",
+          "receive": "pub_m5_receive",
+          "sort": "synchCall",
+          "sequence": "5",
+          "connector": "pub_channel_2_2"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_m5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_m5"
+        }
+      },
+      {
+        "id": "v_comm_pub_m5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_m5"
+        }
+      },
+      {
+        "id": "pub_alt",
+        "kind": "fragment",
+        "label": "",
+        "properties": {
+          "owner": "pub",
+          "operator": "alt",
+          "order": "10"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_alt",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_alt"
+        }
+      },
+      {
+        "id": "pub_cover_pub_lane0",
+        "kind": "coverage",
+        "label": "",
+        "properties": {
+          "owner": "pub_alt",
+          "lifeline": "pub_lane0"
+        }
+      },
+      {
+        "id": "pub_cover_pub_lane1",
+        "kind": "coverage",
+        "label": "",
+        "properties": {
+          "owner": "pub_alt",
+          "lifeline": "pub_lane1"
+        }
+      },
+      {
+        "id": "pub_cover_pub_lane2",
+        "kind": "coverage",
+        "label": "",
+        "properties": {
+          "owner": "pub_alt",
+          "lifeline": "pub_lane2"
+        }
+      },
+      {
+        "id": "pub_cover_pub_lane3",
+        "kind": "coverage",
+        "label": "",
+        "properties": {
+          "owner": "pub_alt",
+          "lifeline": "pub_lane3"
+        }
+      },
+      {
+        "id": "pub_cover_pub_lane4",
+        "kind": "coverage",
+        "label": "",
+        "properties": {
+          "owner": "pub_alt",
+          "lifeline": "pub_lane4"
+        }
+      },
+      {
+        "id": "pub_cover_pub_lane5",
+        "kind": "coverage",
+        "label": "",
+        "properties": {
+          "owner": "pub_alt",
+          "lifeline": "pub_lane5"
+        }
+      },
+      {
+        "id": "pub_cover_pub_lane6",
+        "kind": "coverage",
+        "label": "",
+        "properties": {
+          "owner": "pub_alt",
+          "lifeline": "pub_lane6"
+        }
+      },
+      {
+        "id": "pub_ok",
+        "kind": "operand",
+        "label": "",
+        "properties": {
+          "owner": "pub_alt",
+          "guard": "карточка готова к публикации",
+          "order": "0"
+        }
+      },
+      {
+        "id": "pub_bad",
+        "kind": "operand",
+        "label": "",
+        "properties": {
+          "owner": "pub_alt",
+          "guard": "есть ошибки готовности",
+          "order": "1"
+        }
+      },
+      {
+        "id": "pub_m6_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_ok",
+          "lifeline": "pub_lane2",
+          "order": "11"
+        }
+      },
+      {
+        "id": "pub_m6_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_ok",
+          "lifeline": "pub_lane6",
+          "order": "12"
+        }
+      },
+      {
+        "id": "pub_channel_2_6",
+        "kind": "connector",
+        "label": "",
+        "properties": {
+          "owner": "pub",
+          "from": "pub_lane2",
+          "to": "pub_lane6"
+        }
+      },
+      {
+        "id": "v_comm_pub_channel_2_6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_channel_2_6"
+        }
+      },
+      {
+        "id": "pub_m6",
+        "kind": "message",
+        "label": "Создать запись «отправка»",
+        "properties": {
+          "owner": "pub",
+          "send": "pub_m6_send",
+          "receive": "pub_m6_receive",
+          "sort": "synchCall",
+          "sequence": "6",
+          "connector": "pub_channel_2_6"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_m6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_m6"
+        }
+      },
+      {
+        "id": "v_comm_pub_m6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_m6"
+        }
+      },
+      {
+        "id": "pub_m7_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_ok",
+          "lifeline": "pub_lane2",
+          "order": "13"
+        }
+      },
+      {
+        "id": "pub_m7_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_ok",
+          "lifeline": "pub_lane4",
+          "order": "14"
+        }
+      },
+      {
+        "id": "pub_channel_2_4",
+        "kind": "connector",
+        "label": "",
+        "properties": {
+          "owner": "pub",
+          "from": "pub_lane2",
+          "to": "pub_lane4"
+        }
+      },
+      {
+        "id": "v_comm_pub_channel_2_4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_channel_2_4"
+        }
+      },
+      {
+        "id": "pub_m7",
+        "kind": "message",
+        "label": "Передать снимок",
+        "properties": {
+          "owner": "pub",
+          "send": "pub_m7_send",
+          "receive": "pub_m7_receive",
+          "sort": "synchCall",
+          "sequence": "7",
+          "connector": "pub_channel_2_4"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_m7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_m7"
+        }
+      },
+      {
+        "id": "v_comm_pub_m7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_m7"
+        }
+      },
+      {
+        "id": "pub_m8_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_ok",
+          "lifeline": "pub_lane4",
+          "order": "15"
+        }
+      },
+      {
+        "id": "pub_m8_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_ok",
+          "lifeline": "pub_lane5",
+          "order": "16"
+        }
+      },
+      {
+        "id": "pub_channel_4_5",
+        "kind": "connector",
+        "label": "",
+        "properties": {
+          "owner": "pub",
+          "from": "pub_lane4",
+          "to": "pub_lane5"
+        }
+      },
+      {
+        "id": "v_comm_pub_channel_4_5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_channel_4_5"
+        }
+      },
+      {
+        "id": "pub_m8",
+        "kind": "message",
+        "label": "Отправить карточку",
+        "properties": {
+          "owner": "pub",
+          "send": "pub_m8_send",
+          "receive": "pub_m8_receive",
+          "sort": "synchCall",
+          "sequence": "8",
+          "connector": "pub_channel_4_5"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_m8",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_m8"
+        }
+      },
+      {
+        "id": "v_comm_pub_m8",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_m8"
+        }
+      },
+      {
+        "id": "pub_m9_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_ok",
+          "lifeline": "pub_lane5",
+          "order": "17"
+        }
+      },
+      {
+        "id": "pub_m9_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_ok",
+          "lifeline": "pub_lane4",
+          "order": "18"
+        }
+      },
+      {
+        "id": "pub_m9",
+        "kind": "message",
+        "label": "Результат или ошибка",
+        "properties": {
+          "owner": "pub",
+          "send": "pub_m9_send",
+          "receive": "pub_m9_receive",
+          "sort": "reply",
+          "sequence": "9",
+          "connector": "pub_channel_4_5",
+          "replyTo": "pub_m8"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_m9",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_m9"
+        }
+      },
+      {
+        "id": "v_comm_pub_m9",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_m9"
+        }
+      },
+      {
+        "id": "pub_m10_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_ok",
+          "lifeline": "pub_lane4",
+          "order": "19"
+        }
+      },
+      {
+        "id": "pub_m10_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_ok",
+          "lifeline": "pub_lane2",
+          "order": "20"
+        }
+      },
+      {
+        "id": "pub_m10",
+        "kind": "message",
+        "label": "Результат обмена",
+        "properties": {
+          "owner": "pub",
+          "send": "pub_m10_send",
+          "receive": "pub_m10_receive",
+          "sort": "reply",
+          "sequence": "10",
+          "connector": "pub_channel_2_4",
+          "replyTo": "pub_m7"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_m10",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_m10"
+        }
+      },
+      {
+        "id": "v_comm_pub_m10",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_m10"
+        }
+      },
+      {
+        "id": "pub_m11_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_ok",
+          "lifeline": "pub_lane2",
+          "order": "21"
+        }
+      },
+      {
+        "id": "pub_m11_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_ok",
+          "lifeline": "pub_lane6",
+          "order": "22"
+        }
+      },
+      {
+        "id": "pub_m11",
+        "kind": "message",
+        "label": "Сохранить результат",
+        "properties": {
+          "owner": "pub",
+          "send": "pub_m11_send",
+          "receive": "pub_m11_receive",
+          "sort": "synchCall",
+          "sequence": "11",
+          "connector": "pub_channel_2_6"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_m11",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_m11"
+        }
+      },
+      {
+        "id": "v_comm_pub_m11",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_m11"
+        }
+      },
+      {
+        "id": "pub_m12_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_ok",
+          "lifeline": "pub_lane2",
+          "order": "23"
+        }
+      },
+      {
+        "id": "pub_m12_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_ok",
+          "lifeline": "pub_lane3",
+          "order": "24"
+        }
+      },
+      {
+        "id": "pub_m12",
+        "kind": "message",
+        "label": "Обновить статус",
+        "properties": {
+          "owner": "pub",
+          "send": "pub_m12_send",
+          "receive": "pub_m12_receive",
+          "sort": "synchCall",
+          "sequence": "12",
+          "connector": "pub_channel_2_3"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_m12",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_m12"
+        }
+      },
+      {
+        "id": "v_comm_pub_m12",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_m12"
+        }
+      },
+      {
+        "id": "pub_m13_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_ok",
+          "lifeline": "pub_lane2",
+          "order": "25"
+        }
+      },
+      {
+        "id": "pub_m13_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_ok",
+          "lifeline": "pub_lane1",
+          "order": "26"
+        }
+      },
+      {
+        "id": "pub_m13",
+        "kind": "message",
+        "label": "Итог публикации",
+        "properties": {
+          "owner": "pub",
+          "send": "pub_m13_send",
+          "receive": "pub_m13_receive",
+          "sort": "reply",
+          "sequence": "13",
+          "connector": "pub_channel_1_2",
+          "replyTo": "pub_m2"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_m13",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_m13"
+        }
+      },
+      {
+        "id": "v_comm_pub_m13",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_m13"
+        }
+      },
+      {
+        "id": "pub_m14_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_ok",
+          "lifeline": "pub_lane1",
+          "order": "27"
+        }
+      },
+      {
+        "id": "pub_m14_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_ok",
+          "lifeline": "pub_lane0",
+          "order": "28"
+        }
+      },
+      {
+        "id": "pub_m14",
+        "kind": "message",
+        "label": "Показать статус",
+        "properties": {
+          "owner": "pub",
+          "send": "pub_m14_send",
+          "receive": "pub_m14_receive",
+          "sort": "reply",
+          "sequence": "14",
+          "connector": "pub_channel_0_1",
+          "replyTo": "pub_m1"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_m14",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_m14"
+        }
+      },
+      {
+        "id": "v_comm_pub_m14",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "comm",
+          "element": "pub_m14"
+        }
+      },
+      {
+        "id": "pub_m15_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_bad",
+          "lifeline": "pub_lane2",
+          "order": "29"
+        }
+      },
+      {
+        "id": "pub_m15_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_bad",
+          "lifeline": "pub_lane1",
+          "order": "30"
+        }
+      },
+      {
+        "id": "pub_m15",
+        "kind": "message",
+        "label": "Ошибки готовности",
+        "properties": {
+          "owner": "pub",
+          "send": "pub_m15_send",
+          "receive": "pub_m15_receive",
+          "sort": "reply",
+          "sequence": "15",
+          "connector": "pub_channel_1_2",
+          "replyTo": "pub_m2"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_m15",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_m15"
+        }
+      },
+      {
+        "id": "pub_m16_send",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_bad",
+          "lifeline": "pub_lane1",
+          "order": "31"
+        }
+      },
+      {
+        "id": "pub_m16_receive",
+        "kind": "occurrence",
+        "label": "",
+        "properties": {
+          "owner": "pub_bad",
+          "lifeline": "pub_lane0",
+          "order": "32"
+        }
+      },
+      {
+        "id": "pub_m16",
+        "kind": "message",
+        "label": "Показать ошибки",
+        "properties": {
+          "owner": "pub",
+          "send": "pub_m16_send",
+          "receive": "pub_m16_receive",
+          "sort": "reply",
+          "sequence": "16",
+          "connector": "pub_channel_0_1",
+          "replyTo": "pub_m1"
+        }
+      },
+      {
+        "id": "v_pub_seq_pub_m16",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "pub_seq",
+          "element": "pub_m16"
+        }
+      },
+      {
+        "id": "ready_card",
+        "kind": "scenario",
+        "label": "Готовая карточка",
+        "properties": {
+          "owner": "pub",
+          "fingerprint": "56b78872:7606"
+        }
+      },
+      {
+        "id": "ready_choice",
+        "kind": "choice",
+        "label": "",
+        "properties": {
+          "owner": "ready_card",
+          "fragment": "pub_alt",
+          "operand": "pub_ok"
+        }
+      },
+      {
+        "id": "ready_step0",
+        "kind": "step",
+        "label": "",
+        "properties": {
+          "owner": "ready_card",
+          "message": "pub_m1",
+          "order": "1"
+        }
+      },
+      {
+        "id": "ready_step1",
+        "kind": "step",
+        "label": "",
+        "properties": {
+          "owner": "ready_card",
+          "message": "pub_m2",
+          "order": "2"
+        }
+      },
+      {
+        "id": "ready_step2",
+        "kind": "step",
+        "label": "",
+        "properties": {
+          "owner": "ready_card",
+          "message": "pub_m3",
+          "order": "3"
+        }
+      },
+      {
+        "id": "ready_step3",
+        "kind": "step",
+        "label": "",
+        "properties": {
+          "owner": "ready_card",
+          "message": "pub_m4",
+          "order": "4"
+        }
+      },
+      {
+        "id": "ready_step4",
+        "kind": "step",
+        "label": "",
+        "properties": {
+          "owner": "ready_card",
+          "message": "pub_m5",
+          "order": "5"
+        }
+      },
+      {
+        "id": "ready_step5",
+        "kind": "step",
+        "label": "",
+        "properties": {
+          "owner": "ready_card",
+          "message": "pub_m6",
+          "order": "6"
+        }
+      },
+      {
+        "id": "ready_step6",
+        "kind": "step",
+        "label": "",
+        "properties": {
+          "owner": "ready_card",
+          "message": "pub_m7",
+          "order": "7"
+        }
+      },
+      {
+        "id": "ready_step7",
+        "kind": "step",
+        "label": "",
+        "properties": {
+          "owner": "ready_card",
+          "message": "pub_m8",
+          "order": "8"
+        }
+      },
+      {
+        "id": "ready_step8",
+        "kind": "step",
+        "label": "",
+        "properties": {
+          "owner": "ready_card",
+          "message": "pub_m9",
+          "order": "9"
+        }
+      },
+      {
+        "id": "ready_step9",
+        "kind": "step",
+        "label": "",
+        "properties": {
+          "owner": "ready_card",
+          "message": "pub_m10",
+          "order": "10"
+        }
+      },
+      {
+        "id": "ready_step10",
+        "kind": "step",
+        "label": "",
+        "properties": {
+          "owner": "ready_card",
+          "message": "pub_m11",
+          "order": "11"
+        }
+      },
+      {
+        "id": "ready_step11",
+        "kind": "step",
+        "label": "",
+        "properties": {
+          "owner": "ready_card",
+          "message": "pub_m12",
+          "order": "12"
+        }
+      },
+      {
+        "id": "ready_step12",
+        "kind": "step",
+        "label": "",
+        "properties": {
+          "owner": "ready_card",
+          "message": "pub_m13",
+          "order": "13"
+        }
+      },
+      {
+        "id": "ready_step13",
+        "kind": "step",
+        "label": "",
+        "properties": {
+          "owner": "ready_card",
+          "message": "pub_m14",
+          "order": "14"
+        }
+      }
+    ]
+  },
+  "source": "uml ppois3 \"ППОИС 3 — Модель анализа ИС ООО «Юкомс»\"\ninteraction bom \"UC02 — Формирование версии BOM\"\ninteraction pub \"UC05 — Публикация карточки товара\"\ndiagram use \"1. Варианты использования\" type=usecase\ndiagram classes \"2. Классы анализа\" type=class\ndiagram bom_seq \"3. Последовательность UC02\" interaction=bom type=sequence\ndiagram pub_seq \"4. Последовательность UC05\" interaction=pub type=sequence\ndiagram comm \"5. Кооперация UC05\" interaction=pub scenario=ready_card type=communication\nactor manager \"Менеджер маркетплейсов\"\nview v_use_manager \"\" diagram=use element=manager\nactor specialist \"Технический специалист\"\nview v_use_specialist \"\" diagram=use element=specialist\nactor ozon Ozon\nview v_use_ozon \"\" diagram=use element=ozon\nactor suppliers \"PC4Games / ITPartner\"\nview v_use_suppliers \"\" diagram=use element=suppliers\nactor designer Дизайнер\nview v_use_designer \"\" diagram=use element=designer\nactor admin Администратор\nview v_use_admin \"\" diagram=use element=admin\nsystem system \"ИС формирования и актуализации карточек ООО «Юкомс»\"\nview v_use_system \"\" diagram=use element=system\nusecase UC01 \"UC01 — Зарегистрировать запрос\"\nsubject subject_UC01 \"\" owner=UC01 system=system\nview v_use_UC01 \"\" diagram=use element=UC01 parent=v_use_system\nusecase UC02 \"UC02 — Сформировать BOM\" interaction=bom\nsubject subject_UC02 \"\" owner=UC02 system=system\nview v_use_UC02 \"\" diagram=use element=UC02 parent=v_use_system\nusecase UC03 \"UC03 — Проверить совместимость\"\nsubject subject_UC03 \"\" owner=UC03 system=system\nview v_use_UC03 \"\" diagram=use element=UC03 parent=v_use_system\nusecase UC04 \"UC04 — Массово заменить компонент\"\nsubject subject_UC04 \"\" owner=UC04 system=system\nview v_use_UC04 \"\" diagram=use element=UC04 parent=v_use_system\nusecase UC05 \"UC05 — Опубликовать карточку\" interaction=pub\nsubject subject_UC05 \"\" owner=UC05 system=system\nview v_use_UC05 \"\" diagram=use element=UC05 parent=v_use_system\nusecase UC06 \"UC06 — Обновить предложения поставщиков\"\nsubject subject_UC06 \"\" owner=UC06 system=system\nview v_use_UC06 \"\" diagram=use element=UC06 parent=v_use_system\nusecase UC07 \"UC07 — Рассчитать цену, вес и подготовить контент\"\nsubject subject_UC07 \"\" owner=UC07 system=system\nview v_use_UC07 \"\" diagram=use element=UC07 parent=v_use_system\nusecase UC08 \"UC08 — Проверить готовность карточки\"\nsubject subject_UC08 \"\" owner=UC08 system=system\nview v_use_UC08 \"\" diagram=use element=UC08 parent=v_use_system\nusecase UC09 \"UC09 — Настроить шаблоны изображений\"\nsubject subject_UC09 \"\" owner=UC09 system=system\nview v_use_UC09 \"\" diagram=use element=UC09 parent=v_use_system\nusecase UC10 \"UC10 — Настроить доступ и интеграции\"\nsubject subject_UC10 \"\" owner=UC10 system=system\nview v_use_UC10 \"\" diagram=use element=UC10 parent=v_use_system\nparticipation manager_UC01 \"\" from=manager to=UC01\nview v_use_manager_UC01 \"\" diagram=use element=manager_UC01\nparticipation manager_UC05 \"\" from=manager to=UC05\nview v_use_manager_UC05 \"\" diagram=use element=manager_UC05\nparticipation manager_UC06 \"\" from=manager to=UC06\nview v_use_manager_UC06 \"\" diagram=use element=manager_UC06\nparticipation specialist_UC02 \"\" from=specialist to=UC02\nview v_use_specialist_UC02 \"\" diagram=use element=specialist_UC02\nparticipation specialist_UC03 \"\" from=specialist to=UC03\nview v_use_specialist_UC03 \"\" diagram=use element=specialist_UC03\nparticipation specialist_UC04 \"\" from=specialist to=UC04\nview v_use_specialist_UC04 \"\" diagram=use element=specialist_UC04\nparticipation designer_UC07 \"\" from=designer to=UC07\nview v_use_designer_UC07 \"\" diagram=use element=designer_UC07\nparticipation designer_UC09 \"\" from=designer to=UC09\nview v_use_designer_UC09 \"\" diagram=use element=designer_UC09\nparticipation admin_UC10 \"\" from=admin to=UC10\nview v_use_admin_UC10 \"\" diagram=use element=admin_UC10\nparticipation suppliers_UC06 \"\" from=suppliers to=UC06\nview v_use_suppliers_UC06 \"\" diagram=use element=suppliers_UC06\nparticipation ozon_UC05 \"\" from=ozon to=UC05\nview v_use_ozon_UC05 \"\" diagram=use element=ozon_UC05\ninclude UC02_UC03 \"\" from=UC02 to=UC03\nview v_use_UC02_UC03 \"\" diagram=use element=UC02_UC03\ninclude UC04_UC03 \"\" from=UC04 to=UC03\nview v_use_UC04_UC03 \"\" diagram=use element=UC04_UC03\ninclude UC05_UC08 \"\" from=UC05 to=UC08\nview v_use_UC05_UC08 \"\" diagram=use element=UC05_UC08\nclass FormBOM \"Форма BOM\" role=boundary\nview v_classes_FormBOM \"\" diagram=classes element=FormBOM\noperation FormBOM_f0 ввестиСлоты order=1 owner=FormBOM visibility=public\noperation FormBOM_f1 показатьРезультат order=2 owner=FormBOM visibility=public\nclass BOMController \"Контроллер BOM\" role=control\nview v_classes_BOMController \"\" diagram=classes element=BOMController\noperation BOMController_f0 сформироватьВерсию order=1 owner=BOMController visibility=public\noperation BOMController_f1 проверитьСовместимость order=2 owner=BOMController visibility=public\nclass Rule \"Правило совместимости\" role=entity\nview v_classes_Rule \"\" diagram=classes element=Rule\nattribute Rule_f0 тип order=1 owner=Rule visibility=private\nattribute Rule_f1 условие order=2 owner=Rule visibility=private\noperation Rule_f2 получитьПравила order=3 owner=Rule visibility=public\nclass Version \"Версия BOM\" role=entity\nview v_classes_Version \"\" diagram=classes element=Version\nattribute Version_f0 номер order=1 owner=Version visibility=private\nattribute Version_f1 статус order=2 owner=Version visibility=private\noperation Version_f2 создать order=3 owner=Version visibility=public\nclass Offer \"Предложение поставщика\" role=entity\nview v_classes_Offer \"\" diagram=classes element=Offer\nattribute Offer_f0 модель order=1 owner=Offer visibility=private\nattribute Offer_f1 цена order=2 owner=Offer visibility=private\nattribute Offer_f2 наличие order=3 owner=Offer visibility=private\noperation Offer_f3 получитьАктуальные order=4 owner=Offer visibility=public\nclass Slot \"Слот BOM\" role=entity\nview v_classes_Slot \"\" diagram=classes element=Slot\nattribute Slot_f0 тип order=1 owner=Slot visibility=private\nattribute Slot_f1 \"группа или модель\" order=2 owner=Slot visibility=private\nattribute Slot_f2 количество order=3 owner=Slot visibility=private\nclass FormCard \"Форма карточки\" role=boundary\nview v_classes_FormCard \"\" diagram=classes element=FormCard\noperation FormCard_f0 запроситьПубликацию order=1 owner=FormCard visibility=public\noperation FormCard_f1 показатьСтатус order=2 owner=FormCard visibility=public\nclass PubController \"Контроллер публикации\" role=control\nview v_classes_PubController \"\" diagram=classes element=PubController\noperation PubController_f0 проверитьГотовность order=1 owner=PubController visibility=public\noperation PubController_f1 опубликовать order=2 owner=PubController visibility=public\nclass Card \"Карточка товара\" role=entity\nview v_classes_Card \"\" diagram=classes element=Card\nattribute Card_f0 атрибуты order=1 owner=Card visibility=private\nattribute Card_f1 цена order=2 owner=Card visibility=private\nattribute Card_f2 версия order=3 owner=Card visibility=private\noperation Card_f3 получитьСнимок order=4 owner=Card visibility=public\noperation Card_f4 задатьСтатус order=5 owner=Card visibility=public\nclass Adapter \"Адаптер Ozon\" role=boundary\nview v_classes_Adapter \"\" diagram=classes element=Adapter\noperation Adapter_f0 отправитьКарточку order=1 owner=Adapter visibility=public\noperation Adapter_f1 получитьРезультат order=2 owner=Adapter visibility=public\nclass Publication Публикация role=entity\nview v_classes_Publication \"\" diagram=classes element=Publication\nattribute Publication_f0 запрос order=1 owner=Publication visibility=private\nattribute Publication_f1 ответ order=2 owner=Publication visibility=private\nattribute Publication_f2 время order=3 owner=Publication visibility=private\nattribute Publication_f3 статус order=4 owner=Publication visibility=private\noperation Publication_f4 создать order=5 owner=Publication visibility=public\noperation Publication_f5 сохранитьРезультат order=6 owner=Publication visibility=public\ndependency dep_FormBOM_BOMController \"\" from=FormBOM to=BOMController\nview v_classes_dep_FormBOM_BOMController \"\" diagram=classes element=dep_FormBOM_BOMController\ndependency dep_BOMController_Rule \"\" from=BOMController to=Rule\nview v_classes_dep_BOMController_Rule \"\" diagram=classes element=dep_BOMController_Rule\ndependency dep_BOMController_Version \"\" from=BOMController to=Version\nview v_classes_dep_BOMController_Version \"\" diagram=classes element=dep_BOMController_Version\ndependency dep_BOMController_Offer \"\" from=BOMController to=Offer\nview v_classes_dep_BOMController_Offer \"\" diagram=classes element=dep_BOMController_Offer\ndependency dep_FormCard_PubController \"\" from=FormCard to=PubController\nview v_classes_dep_FormCard_PubController \"\" diagram=classes element=dep_FormCard_PubController\ndependency dep_PubController_Card \"\" from=PubController to=Card\nview v_classes_dep_PubController_Card \"\" diagram=classes element=dep_PubController_Card\ndependency dep_PubController_Adapter \"\" from=PubController to=Adapter\nview v_classes_dep_PubController_Adapter \"\" diagram=classes element=dep_PubController_Adapter\ndependency dep_PubController_Publication \"\" from=PubController to=Publication\nview v_classes_dep_PubController_Publication \"\" diagram=classes element=dep_PubController_Publication\nassociation version_slots \"\"\nend version_slots_a \"\" classifier=Version lower=1 order=1 owner=version_slots upper=1\nend version_slots_b \"\" aggregation=composite classifier=Slot lower=1 order=0 owner=version_slots upper=\"*\"\nview v_classes_version_slots \"\" diagram=classes element=version_slots\nassociation slot_offer \"\"\nend slot_offer_a \"\" classifier=Slot lower=0 order=0 owner=slot_offer upper=\"*\"\nend slot_offer_b \"\" classifier=Offer lower=0 order=1 owner=slot_offer upper=1\nview v_classes_slot_offer \"\" diagram=classes element=slot_offer\nassociation card_version \"\"\nend card_version_a \"\" classifier=Card lower=0 order=1 owner=card_version upper=\"*\"\nend card_version_b \"\" classifier=Version lower=1 order=0 owner=card_version upper=1\nview v_classes_card_version \"\" diagram=classes element=card_version\nassociation card_publications \"\"\nend card_publications_a \"\" classifier=Card lower=1 order=0 owner=card_publications upper=1\nend card_publications_b \"\" classifier=Publication lower=0 order=1 owner=card_publications upper=\"*\"\nview v_classes_card_publications \"\" diagram=classes element=card_publications\nlifeline bom_lane0 u classifier=specialist owner=bom\nview v_bom_seq_bom_lane0 \"\" diagram=bom_seq element=bom_lane0\nlifeline bom_lane1 f classifier=FormBOM owner=bom\nview v_bom_seq_bom_lane1 \"\" diagram=bom_seq element=bom_lane1\nlifeline bom_lane2 c classifier=BOMController owner=bom\nview v_bom_seq_bom_lane2 \"\" diagram=bom_seq element=bom_lane2\nlifeline bom_lane3 d classifier=Rule owner=bom\nview v_bom_seq_bom_lane3 \"\" diagram=bom_seq element=bom_lane3\nlifeline bom_lane4 s classifier=Offer owner=bom\nview v_bom_seq_bom_lane4 \"\" diagram=bom_seq element=bom_lane4\nlifeline bom_lane5 r classifier=Version owner=bom\nview v_bom_seq_bom_lane5 \"\" diagram=bom_seq element=bom_lane5\noccurrence bom_m1_send \"\" lifeline=bom_lane0 order=0 owner=bom\noccurrence bom_m1_receive \"\" lifeline=bom_lane1 order=1 owner=bom\nmessage bom_m1 \"Ввести состав и сохранить\" owner=bom receive=bom_m1_receive send=bom_m1_send sequence=1 sort=synchCall\nview v_bom_seq_bom_m1 \"\" diagram=bom_seq element=bom_m1\noccurrence bom_m2_send \"\" lifeline=bom_lane1 order=2 owner=bom\noccurrence bom_m2_receive \"\" lifeline=bom_lane2 order=3 owner=bom\nmessage bom_m2 \"Сформировать версию\" owner=bom receive=bom_m2_receive send=bom_m2_send sequence=2 sort=synchCall\nview v_bom_seq_bom_m2 \"\" diagram=bom_seq element=bom_m2\noccurrence bom_m3_send \"\" lifeline=bom_lane2 order=4 owner=bom\noccurrence bom_m3_receive \"\" lifeline=bom_lane3 order=5 owner=bom\nmessage bom_m3 \"Получить правила\" owner=bom receive=bom_m3_receive send=bom_m3_send sequence=3 sort=synchCall\nview v_bom_seq_bom_m3 \"\" diagram=bom_seq element=bom_m3\noccurrence bom_m4_send \"\" lifeline=bom_lane3 order=6 owner=bom\noccurrence bom_m4_receive \"\" lifeline=bom_lane2 order=7 owner=bom\nmessage bom_m4 Правила owner=bom receive=bom_m4_receive replyTo=bom_m3 send=bom_m4_send sequence=4 sort=reply\nview v_bom_seq_bom_m4 \"\" diagram=bom_seq element=bom_m4\noccurrence bom_m5_send \"\" lifeline=bom_lane2 order=8 owner=bom\noccurrence bom_m5_receive \"\" lifeline=bom_lane4 order=9 owner=bom\nmessage bom_m5 \"Получить актуальные предложения\" owner=bom receive=bom_m5_receive send=bom_m5_send sequence=5 sort=synchCall\nview v_bom_seq_bom_m5 \"\" diagram=bom_seq element=bom_m5\noccurrence bom_m6_send \"\" lifeline=bom_lane4 order=10 owner=bom\noccurrence bom_m6_receive \"\" lifeline=bom_lane2 order=11 owner=bom\nmessage bom_m6 Предложения owner=bom receive=bom_m6_receive replyTo=bom_m5 send=bom_m6_send sequence=6 sort=reply\nview v_bom_seq_bom_m6 \"\" diagram=bom_seq element=bom_m6\noccurrence bom_m7_send \"\" lifeline=bom_lane2 order=12 owner=bom\noccurrence bom_m7_receive \"\" lifeline=bom_lane2 order=13 owner=bom\nmessage bom_m7 \"Проверить состав и совместимость\" owner=bom receive=bom_m7_receive send=bom_m7_send sequence=7 sort=synchCall\nview v_bom_seq_bom_m7 \"\" diagram=bom_seq element=bom_m7\nfragment bom_alt \"\" operator=alt order=14 owner=bom\nview v_bom_seq_bom_alt \"\" diagram=bom_seq element=bom_alt\ncoverage bom_cover_bom_lane0 \"\" lifeline=bom_lane0 owner=bom_alt\ncoverage bom_cover_bom_lane1 \"\" lifeline=bom_lane1 owner=bom_alt\ncoverage bom_cover_bom_lane2 \"\" lifeline=bom_lane2 owner=bom_alt\ncoverage bom_cover_bom_lane3 \"\" lifeline=bom_lane3 owner=bom_alt\ncoverage bom_cover_bom_lane4 \"\" lifeline=bom_lane4 owner=bom_alt\ncoverage bom_cover_bom_lane5 \"\" lifeline=bom_lane5 owner=bom_alt\noperand bom_ok \"\" guard=\"нет конфликтов и предложения выбраны\" order=0 owner=bom_alt\noperand bom_bad \"\" guard=\"есть конфликт или отсутствует предложение\" order=1 owner=bom_alt\noccurrence bom_m8_send \"\" lifeline=bom_lane2 order=15 owner=bom_ok\noccurrence bom_m8_receive \"\" lifeline=bom_lane5 order=16 owner=bom_ok\nmessage bom_m8 \"Создать версию и слоты\" owner=bom receive=bom_m8_receive send=bom_m8_send sequence=8 sort=synchCall\nview v_bom_seq_bom_m8 \"\" diagram=bom_seq element=bom_m8\noccurrence bom_m9_send \"\" lifeline=bom_lane5 order=17 owner=bom_ok\noccurrence bom_m9_receive \"\" lifeline=bom_lane2 order=18 owner=bom_ok\nmessage bom_m9 \"Идентификатор версии\" owner=bom receive=bom_m9_receive replyTo=bom_m8 send=bom_m9_send sequence=9 sort=reply\nview v_bom_seq_bom_m9 \"\" diagram=bom_seq element=bom_m9\noccurrence bom_m10_send \"\" lifeline=bom_lane2 order=19 owner=bom_ok\noccurrence bom_m10_receive \"\" lifeline=bom_lane1 order=20 owner=bom_ok\nmessage bom_m10 \"Версия сохранена\" owner=bom receive=bom_m10_receive replyTo=bom_m2 send=bom_m10_send sequence=10 sort=reply\nview v_bom_seq_bom_m10 \"\" diagram=bom_seq element=bom_m10\noccurrence bom_m11_send \"\" lifeline=bom_lane1 order=21 owner=bom_ok\noccurrence bom_m11_receive \"\" lifeline=bom_lane0 order=22 owner=bom_ok\nmessage bom_m11 \"Показать версию\" owner=bom receive=bom_m11_receive replyTo=bom_m1 send=bom_m11_send sequence=11 sort=reply\nview v_bom_seq_bom_m11 \"\" diagram=bom_seq element=bom_m11\noccurrence bom_m12_send \"\" lifeline=bom_lane2 order=23 owner=bom_bad\noccurrence bom_m12_receive \"\" lifeline=bom_lane1 order=24 owner=bom_bad\nmessage bom_m12 \"Перечень конфликтов\" owner=bom receive=bom_m12_receive replyTo=bom_m2 send=bom_m12_send sequence=12 sort=reply\nview v_bom_seq_bom_m12 \"\" diagram=bom_seq element=bom_m12\noccurrence bom_m13_send \"\" lifeline=bom_lane1 order=25 owner=bom_bad\noccurrence bom_m13_receive \"\" lifeline=bom_lane0 order=26 owner=bom_bad\nmessage bom_m13 \"Показать ошибки\" owner=bom receive=bom_m13_receive replyTo=bom_m1 send=bom_m13_send sequence=13 sort=reply\nview v_bom_seq_bom_m13 \"\" diagram=bom_seq element=bom_m13\nlifeline pub_lane0 u classifier=manager owner=pub\nview v_pub_seq_pub_lane0 \"\" diagram=pub_seq element=pub_lane0\nview v_comm_pub_lane0 \"\" diagram=comm element=pub_lane0\nlifeline pub_lane1 f classifier=FormCard owner=pub\nview v_pub_seq_pub_lane1 \"\" diagram=pub_seq element=pub_lane1\nview v_comm_pub_lane1 \"\" diagram=comm element=pub_lane1\nlifeline pub_lane2 c classifier=PubController owner=pub\nview v_pub_seq_pub_lane2 \"\" diagram=pub_seq element=pub_lane2\nview v_comm_pub_lane2 \"\" diagram=comm element=pub_lane2\nlifeline pub_lane3 d classifier=Card owner=pub\nview v_pub_seq_pub_lane3 \"\" diagram=pub_seq element=pub_lane3\nview v_comm_pub_lane3 \"\" diagram=comm element=pub_lane3\nlifeline pub_lane4 s classifier=Adapter owner=pub\nview v_pub_seq_pub_lane4 \"\" diagram=pub_seq element=pub_lane4\nview v_comm_pub_lane4 \"\" diagram=comm element=pub_lane4\nlifeline pub_lane5 r classifier=ozon owner=pub\nview v_pub_seq_pub_lane5 \"\" diagram=pub_seq element=pub_lane5\nview v_comm_pub_lane5 \"\" diagram=comm element=pub_lane5\nlifeline pub_lane6 p classifier=Publication owner=pub\nview v_pub_seq_pub_lane6 \"\" diagram=pub_seq element=pub_lane6\nview v_comm_pub_lane6 \"\" diagram=comm element=pub_lane6\noccurrence pub_m1_send \"\" lifeline=pub_lane0 order=0 owner=pub\noccurrence pub_m1_receive \"\" lifeline=pub_lane1 order=1 owner=pub\nconnector pub_channel_0_1 \"\" from=pub_lane0 owner=pub to=pub_lane1\nview v_comm_pub_channel_0_1 \"\" diagram=comm element=pub_channel_0_1\nmessage pub_m1 \"Запросить публикацию\" connector=pub_channel_0_1 owner=pub receive=pub_m1_receive send=pub_m1_send sequence=1 sort=synchCall\nview v_pub_seq_pub_m1 \"\" diagram=pub_seq element=pub_m1\nview v_comm_pub_m1 \"\" diagram=comm element=pub_m1\noccurrence pub_m2_send \"\" lifeline=pub_lane1 order=2 owner=pub\noccurrence pub_m2_receive \"\" lifeline=pub_lane2 order=3 owner=pub\nconnector pub_channel_1_2 \"\" from=pub_lane1 owner=pub to=pub_lane2\nview v_comm_pub_channel_1_2 \"\" diagram=comm element=pub_channel_1_2\nmessage pub_m2 \"Опубликовать карточку\" connector=pub_channel_1_2 owner=pub receive=pub_m2_receive send=pub_m2_send sequence=2 sort=synchCall\nview v_pub_seq_pub_m2 \"\" diagram=pub_seq element=pub_m2\nview v_comm_pub_m2 \"\" diagram=comm element=pub_m2\noccurrence pub_m3_send \"\" lifeline=pub_lane2 order=4 owner=pub\noccurrence pub_m3_receive \"\" lifeline=pub_lane3 order=5 owner=pub\nconnector pub_channel_2_3 \"\" from=pub_lane2 owner=pub to=pub_lane3\nview v_comm_pub_channel_2_3 \"\" diagram=comm element=pub_channel_2_3\nmessage pub_m3 \"Получить снимок карточки\" connector=pub_channel_2_3 owner=pub receive=pub_m3_receive send=pub_m3_send sequence=3 sort=synchCall\nview v_pub_seq_pub_m3 \"\" diagram=pub_seq element=pub_m3\nview v_comm_pub_m3 \"\" diagram=comm element=pub_m3\noccurrence pub_m4_send \"\" lifeline=pub_lane3 order=6 owner=pub\noccurrence pub_m4_receive \"\" lifeline=pub_lane2 order=7 owner=pub\nmessage pub_m4 \"Снимок и версия BOM\" connector=pub_channel_2_3 owner=pub receive=pub_m4_receive replyTo=pub_m3 send=pub_m4_send sequence=4 sort=reply\nview v_pub_seq_pub_m4 \"\" diagram=pub_seq element=pub_m4\nview v_comm_pub_m4 \"\" diagram=comm element=pub_m4\noccurrence pub_m5_send \"\" lifeline=pub_lane2 order=8 owner=pub\noccurrence pub_m5_receive \"\" lifeline=pub_lane2 order=9 owner=pub\nconnector pub_channel_2_2 \"\" from=pub_lane2 owner=pub to=pub_lane2\nview v_comm_pub_channel_2_2 \"\" diagram=comm element=pub_channel_2_2\nmessage pub_m5 \"Проверить готовность\" connector=pub_channel_2_2 owner=pub receive=pub_m5_receive send=pub_m5_send sequence=5 sort=synchCall\nview v_pub_seq_pub_m5 \"\" diagram=pub_seq element=pub_m5\nview v_comm_pub_m5 \"\" diagram=comm element=pub_m5\nfragment pub_alt \"\" operator=alt order=10 owner=pub\nview v_pub_seq_pub_alt \"\" diagram=pub_seq element=pub_alt\ncoverage pub_cover_pub_lane0 \"\" lifeline=pub_lane0 owner=pub_alt\ncoverage pub_cover_pub_lane1 \"\" lifeline=pub_lane1 owner=pub_alt\ncoverage pub_cover_pub_lane2 \"\" lifeline=pub_lane2 owner=pub_alt\ncoverage pub_cover_pub_lane3 \"\" lifeline=pub_lane3 owner=pub_alt\ncoverage pub_cover_pub_lane4 \"\" lifeline=pub_lane4 owner=pub_alt\ncoverage pub_cover_pub_lane5 \"\" lifeline=pub_lane5 owner=pub_alt\ncoverage pub_cover_pub_lane6 \"\" lifeline=pub_lane6 owner=pub_alt\noperand pub_ok \"\" guard=\"карточка готова к публикации\" order=0 owner=pub_alt\noperand pub_bad \"\" guard=\"есть ошибки готовности\" order=1 owner=pub_alt\noccurrence pub_m6_send \"\" lifeline=pub_lane2 order=11 owner=pub_ok\noccurrence pub_m6_receive \"\" lifeline=pub_lane6 order=12 owner=pub_ok\nconnector pub_channel_2_6 \"\" from=pub_lane2 owner=pub to=pub_lane6\nview v_comm_pub_channel_2_6 \"\" diagram=comm element=pub_channel_2_6\nmessage pub_m6 \"Создать запись «отправка»\" connector=pub_channel_2_6 owner=pub receive=pub_m6_receive send=pub_m6_send sequence=6 sort=synchCall\nview v_pub_seq_pub_m6 \"\" diagram=pub_seq element=pub_m6\nview v_comm_pub_m6 \"\" diagram=comm element=pub_m6\noccurrence pub_m7_send \"\" lifeline=pub_lane2 order=13 owner=pub_ok\noccurrence pub_m7_receive \"\" lifeline=pub_lane4 order=14 owner=pub_ok\nconnector pub_channel_2_4 \"\" from=pub_lane2 owner=pub to=pub_lane4\nview v_comm_pub_channel_2_4 \"\" diagram=comm element=pub_channel_2_4\nmessage pub_m7 \"Передать снимок\" connector=pub_channel_2_4 owner=pub receive=pub_m7_receive send=pub_m7_send sequence=7 sort=synchCall\nview v_pub_seq_pub_m7 \"\" diagram=pub_seq element=pub_m7\nview v_comm_pub_m7 \"\" diagram=comm element=pub_m7\noccurrence pub_m8_send \"\" lifeline=pub_lane4 order=15 owner=pub_ok\noccurrence pub_m8_receive \"\" lifeline=pub_lane5 order=16 owner=pub_ok\nconnector pub_channel_4_5 \"\" from=pub_lane4 owner=pub to=pub_lane5\nview v_comm_pub_channel_4_5 \"\" diagram=comm element=pub_channel_4_5\nmessage pub_m8 \"Отправить карточку\" connector=pub_channel_4_5 owner=pub receive=pub_m8_receive send=pub_m8_send sequence=8 sort=synchCall\nview v_pub_seq_pub_m8 \"\" diagram=pub_seq element=pub_m8\nview v_comm_pub_m8 \"\" diagram=comm element=pub_m8\noccurrence pub_m9_send \"\" lifeline=pub_lane5 order=17 owner=pub_ok\noccurrence pub_m9_receive \"\" lifeline=pub_lane4 order=18 owner=pub_ok\nmessage pub_m9 \"Результат или ошибка\" connector=pub_channel_4_5 owner=pub receive=pub_m9_receive replyTo=pub_m8 send=pub_m9_send sequence=9 sort=reply\nview v_pub_seq_pub_m9 \"\" diagram=pub_seq element=pub_m9\nview v_comm_pub_m9 \"\" diagram=comm element=pub_m9\noccurrence pub_m10_send \"\" lifeline=pub_lane4 order=19 owner=pub_ok\noccurrence pub_m10_receive \"\" lifeline=pub_lane2 order=20 owner=pub_ok\nmessage pub_m10 \"Результат обмена\" connector=pub_channel_2_4 owner=pub receive=pub_m10_receive replyTo=pub_m7 send=pub_m10_send sequence=10 sort=reply\nview v_pub_seq_pub_m10 \"\" diagram=pub_seq element=pub_m10\nview v_comm_pub_m10 \"\" diagram=comm element=pub_m10\noccurrence pub_m11_send \"\" lifeline=pub_lane2 order=21 owner=pub_ok\noccurrence pub_m11_receive \"\" lifeline=pub_lane6 order=22 owner=pub_ok\nmessage pub_m11 \"Сохранить результат\" connector=pub_channel_2_6 owner=pub receive=pub_m11_receive send=pub_m11_send sequence=11 sort=synchCall\nview v_pub_seq_pub_m11 \"\" diagram=pub_seq element=pub_m11\nview v_comm_pub_m11 \"\" diagram=comm element=pub_m11\noccurrence pub_m12_send \"\" lifeline=pub_lane2 order=23 owner=pub_ok\noccurrence pub_m12_receive \"\" lifeline=pub_lane3 order=24 owner=pub_ok\nmessage pub_m12 \"Обновить статус\" connector=pub_channel_2_3 owner=pub receive=pub_m12_receive send=pub_m12_send sequence=12 sort=synchCall\nview v_pub_seq_pub_m12 \"\" diagram=pub_seq element=pub_m12\nview v_comm_pub_m12 \"\" diagram=comm element=pub_m12\noccurrence pub_m13_send \"\" lifeline=pub_lane2 order=25 owner=pub_ok\noccurrence pub_m13_receive \"\" lifeline=pub_lane1 order=26 owner=pub_ok\nmessage pub_m13 \"Итог публикации\" connector=pub_channel_1_2 owner=pub receive=pub_m13_receive replyTo=pub_m2 send=pub_m13_send sequence=13 sort=reply\nview v_pub_seq_pub_m13 \"\" diagram=pub_seq element=pub_m13\nview v_comm_pub_m13 \"\" diagram=comm element=pub_m13\noccurrence pub_m14_send \"\" lifeline=pub_lane1 order=27 owner=pub_ok\noccurrence pub_m14_receive \"\" lifeline=pub_lane0 order=28 owner=pub_ok\nmessage pub_m14 \"Показать статус\" connector=pub_channel_0_1 owner=pub receive=pub_m14_receive replyTo=pub_m1 send=pub_m14_send sequence=14 sort=reply\nview v_pub_seq_pub_m14 \"\" diagram=pub_seq element=pub_m14\nview v_comm_pub_m14 \"\" diagram=comm element=pub_m14\noccurrence pub_m15_send \"\" lifeline=pub_lane2 order=29 owner=pub_bad\noccurrence pub_m15_receive \"\" lifeline=pub_lane1 order=30 owner=pub_bad\nmessage pub_m15 \"Ошибки готовности\" connector=pub_channel_1_2 owner=pub receive=pub_m15_receive replyTo=pub_m2 send=pub_m15_send sequence=15 sort=reply\nview v_pub_seq_pub_m15 \"\" diagram=pub_seq element=pub_m15\noccurrence pub_m16_send \"\" lifeline=pub_lane1 order=31 owner=pub_bad\noccurrence pub_m16_receive \"\" lifeline=pub_lane0 order=32 owner=pub_bad\nmessage pub_m16 \"Показать ошибки\" connector=pub_channel_0_1 owner=pub receive=pub_m16_receive replyTo=pub_m1 send=pub_m16_send sequence=16 sort=reply\nview v_pub_seq_pub_m16 \"\" diagram=pub_seq element=pub_m16\nscenario ready_card \"Готовая карточка\" fingerprint=\"56b78872:7606\" owner=pub\nchoice ready_choice \"\" fragment=pub_alt operand=pub_ok owner=ready_card\nstep ready_step0 \"\" message=pub_m1 order=1 owner=ready_card\nstep ready_step1 \"\" message=pub_m2 order=2 owner=ready_card\nstep ready_step2 \"\" message=pub_m3 order=3 owner=ready_card\nstep ready_step3 \"\" message=pub_m4 order=4 owner=ready_card\nstep ready_step4 \"\" message=pub_m5 order=5 owner=ready_card\nstep ready_step5 \"\" message=pub_m6 order=6 owner=ready_card\nstep ready_step6 \"\" message=pub_m7 order=7 owner=ready_card\nstep ready_step7 \"\" message=pub_m8 order=8 owner=ready_card\nstep ready_step8 \"\" message=pub_m9 order=9 owner=ready_card\nstep ready_step9 \"\" message=pub_m10 order=10 owner=ready_card\nstep ready_step10 \"\" message=pub_m11 order=11 owner=ready_card\nstep ready_step11 \"\" message=pub_m12 order=12 owner=ready_card\nstep ready_step12 \"\" message=pub_m13 order=13 owner=ready_card\nstep ready_step13 \"\" message=pub_m14 order=14 owner=ready_card\n",
+  "draft": "uml ppois3 \"ППОИС 3 — Модель анализа ИС ООО «Юкомс»\"\ninteraction bom \"UC02 — Формирование версии BOM\"\ninteraction pub \"UC05 — Публикация карточки товара\"\ndiagram use \"1. Варианты использования\" type=usecase\ndiagram classes \"2. Классы анализа\" type=class\ndiagram bom_seq \"3. Последовательность UC02\" interaction=bom type=sequence\ndiagram pub_seq \"4. Последовательность UC05\" interaction=pub type=sequence\ndiagram comm \"5. Кооперация UC05\" interaction=pub scenario=ready_card type=communication\nactor manager \"Менеджер маркетплейсов\"\nview v_use_manager \"\" diagram=use element=manager\nactor specialist \"Технический специалист\"\nview v_use_specialist \"\" diagram=use element=specialist\nactor ozon Ozon\nview v_use_ozon \"\" diagram=use element=ozon\nactor suppliers \"PC4Games / ITPartner\"\nview v_use_suppliers \"\" diagram=use element=suppliers\nactor designer Дизайнер\nview v_use_designer \"\" diagram=use element=designer\nactor admin Администратор\nview v_use_admin \"\" diagram=use element=admin\nsystem system \"ИС формирования и актуализации карточек ООО «Юкомс»\"\nview v_use_system \"\" diagram=use element=system\nusecase UC01 \"UC01 — Зарегистрировать запрос\"\nsubject subject_UC01 \"\" owner=UC01 system=system\nview v_use_UC01 \"\" diagram=use element=UC01 parent=v_use_system\nusecase UC02 \"UC02 — Сформировать BOM\" interaction=bom\nsubject subject_UC02 \"\" owner=UC02 system=system\nview v_use_UC02 \"\" diagram=use element=UC02 parent=v_use_system\nusecase UC03 \"UC03 — Проверить совместимость\"\nsubject subject_UC03 \"\" owner=UC03 system=system\nview v_use_UC03 \"\" diagram=use element=UC03 parent=v_use_system\nusecase UC04 \"UC04 — Массово заменить компонент\"\nsubject subject_UC04 \"\" owner=UC04 system=system\nview v_use_UC04 \"\" diagram=use element=UC04 parent=v_use_system\nusecase UC05 \"UC05 — Опубликовать карточку\" interaction=pub\nsubject subject_UC05 \"\" owner=UC05 system=system\nview v_use_UC05 \"\" diagram=use element=UC05 parent=v_use_system\nusecase UC06 \"UC06 — Обновить предложения поставщиков\"\nsubject subject_UC06 \"\" owner=UC06 system=system\nview v_use_UC06 \"\" diagram=use element=UC06 parent=v_use_system\nusecase UC07 \"UC07 — Рассчитать цену, вес и подготовить контент\"\nsubject subject_UC07 \"\" owner=UC07 system=system\nview v_use_UC07 \"\" diagram=use element=UC07 parent=v_use_system\nusecase UC08 \"UC08 — Проверить готовность карточки\"\nsubject subject_UC08 \"\" owner=UC08 system=system\nview v_use_UC08 \"\" diagram=use element=UC08 parent=v_use_system\nusecase UC09 \"UC09 — Настроить шаблоны изображений\"\nsubject subject_UC09 \"\" owner=UC09 system=system\nview v_use_UC09 \"\" diagram=use element=UC09 parent=v_use_system\nusecase UC10 \"UC10 — Настроить доступ и интеграции\"\nsubject subject_UC10 \"\" owner=UC10 system=system\nview v_use_UC10 \"\" diagram=use element=UC10 parent=v_use_system\nparticipation manager_UC01 \"\" from=manager to=UC01\nview v_use_manager_UC01 \"\" diagram=use element=manager_UC01\nparticipation manager_UC05 \"\" from=manager to=UC05\nview v_use_manager_UC05 \"\" diagram=use element=manager_UC05\nparticipation manager_UC06 \"\" from=manager to=UC06\nview v_use_manager_UC06 \"\" diagram=use element=manager_UC06\nparticipation specialist_UC02 \"\" from=specialist to=UC02\nview v_use_specialist_UC02 \"\" diagram=use element=specialist_UC02\nparticipation specialist_UC03 \"\" from=specialist to=UC03\nview v_use_specialist_UC03 \"\" diagram=use element=specialist_UC03\nparticipation specialist_UC04 \"\" from=specialist to=UC04\nview v_use_specialist_UC04 \"\" diagram=use element=specialist_UC04\nparticipation designer_UC07 \"\" from=designer to=UC07\nview v_use_designer_UC07 \"\" diagram=use element=designer_UC07\nparticipation designer_UC09 \"\" from=designer to=UC09\nview v_use_designer_UC09 \"\" diagram=use element=designer_UC09\nparticipation admin_UC10 \"\" from=admin to=UC10\nview v_use_admin_UC10 \"\" diagram=use element=admin_UC10\nparticipation suppliers_UC06 \"\" from=suppliers to=UC06\nview v_use_suppliers_UC06 \"\" diagram=use element=suppliers_UC06\nparticipation ozon_UC05 \"\" from=ozon to=UC05\nview v_use_ozon_UC05 \"\" diagram=use element=ozon_UC05\ninclude UC02_UC03 \"\" from=UC02 to=UC03\nview v_use_UC02_UC03 \"\" diagram=use element=UC02_UC03\ninclude UC04_UC03 \"\" from=UC04 to=UC03\nview v_use_UC04_UC03 \"\" diagram=use element=UC04_UC03\ninclude UC05_UC08 \"\" from=UC05 to=UC08\nview v_use_UC05_UC08 \"\" diagram=use element=UC05_UC08\nclass FormBOM \"Форма BOM\" role=boundary\nview v_classes_FormBOM \"\" diagram=classes element=FormBOM\noperation FormBOM_f0 ввестиСлоты order=1 owner=FormBOM visibility=public\noperation FormBOM_f1 показатьРезультат order=2 owner=FormBOM visibility=public\nclass BOMController \"Контроллер BOM\" role=control\nview v_classes_BOMController \"\" diagram=classes element=BOMController\noperation BOMController_f0 сформироватьВерсию order=1 owner=BOMController visibility=public\noperation BOMController_f1 проверитьСовместимость order=2 owner=BOMController visibility=public\nclass Rule \"Правило совместимости\" role=entity\nview v_classes_Rule \"\" diagram=classes element=Rule\nattribute Rule_f0 тип order=1 owner=Rule visibility=private\nattribute Rule_f1 условие order=2 owner=Rule visibility=private\noperation Rule_f2 получитьПравила order=3 owner=Rule visibility=public\nclass Version \"Версия BOM\" role=entity\nview v_classes_Version \"\" diagram=classes element=Version\nattribute Version_f0 номер order=1 owner=Version visibility=private\nattribute Version_f1 статус order=2 owner=Version visibility=private\noperation Version_f2 создать order=3 owner=Version visibility=public\nclass Offer \"Предложение поставщика\" role=entity\nview v_classes_Offer \"\" diagram=classes element=Offer\nattribute Offer_f0 модель order=1 owner=Offer visibility=private\nattribute Offer_f1 цена order=2 owner=Offer visibility=private\nattribute Offer_f2 наличие order=3 owner=Offer visibility=private\noperation Offer_f3 получитьАктуальные order=4 owner=Offer visibility=public\nclass Slot \"Слот BOM\" role=entity\nview v_classes_Slot \"\" diagram=classes element=Slot\nattribute Slot_f0 тип order=1 owner=Slot visibility=private\nattribute Slot_f1 \"группа или модель\" order=2 owner=Slot visibility=private\nattribute Slot_f2 количество order=3 owner=Slot visibility=private\nclass FormCard \"Форма карточки\" role=boundary\nview v_classes_FormCard \"\" diagram=classes element=FormCard\noperation FormCard_f0 запроситьПубликацию order=1 owner=FormCard visibility=public\noperation FormCard_f1 показатьСтатус order=2 owner=FormCard visibility=public\nclass PubController \"Контроллер публикации\" role=control\nview v_classes_PubController \"\" diagram=classes element=PubController\noperation PubController_f0 проверитьГотовность order=1 owner=PubController visibility=public\noperation PubController_f1 опубликовать order=2 owner=PubController visibility=public\nclass Card \"Карточка товара\" role=entity\nview v_classes_Card \"\" diagram=classes element=Card\nattribute Card_f0 атрибуты order=1 owner=Card visibility=private\nattribute Card_f1 цена order=2 owner=Card visibility=private\nattribute Card_f2 версия order=3 owner=Card visibility=private\noperation Card_f3 получитьСнимок order=4 owner=Card visibility=public\noperation Card_f4 задатьСтатус order=5 owner=Card visibility=public\nclass Adapter \"Адаптер Ozon\" role=boundary\nview v_classes_Adapter \"\" diagram=classes element=Adapter\noperation Adapter_f0 отправитьКарточку order=1 owner=Adapter visibility=public\noperation Adapter_f1 получитьРезультат order=2 owner=Adapter visibility=public\nclass Publication Публикация role=entity\nview v_classes_Publication \"\" diagram=classes element=Publication\nattribute Publication_f0 запрос order=1 owner=Publication visibility=private\nattribute Publication_f1 ответ order=2 owner=Publication visibility=private\nattribute Publication_f2 время order=3 owner=Publication visibility=private\nattribute Publication_f3 статус order=4 owner=Publication visibility=private\noperation Publication_f4 создать order=5 owner=Publication visibility=public\noperation Publication_f5 сохранитьРезультат order=6 owner=Publication visibility=public\ndependency dep_FormBOM_BOMController \"\" from=FormBOM to=BOMController\nview v_classes_dep_FormBOM_BOMController \"\" diagram=classes element=dep_FormBOM_BOMController\ndependency dep_BOMController_Rule \"\" from=BOMController to=Rule\nview v_classes_dep_BOMController_Rule \"\" diagram=classes element=dep_BOMController_Rule\ndependency dep_BOMController_Version \"\" from=BOMController to=Version\nview v_classes_dep_BOMController_Version \"\" diagram=classes element=dep_BOMController_Version\ndependency dep_BOMController_Offer \"\" from=BOMController to=Offer\nview v_classes_dep_BOMController_Offer \"\" diagram=classes element=dep_BOMController_Offer\ndependency dep_FormCard_PubController \"\" from=FormCard to=PubController\nview v_classes_dep_FormCard_PubController \"\" diagram=classes element=dep_FormCard_PubController\ndependency dep_PubController_Card \"\" from=PubController to=Card\nview v_classes_dep_PubController_Card \"\" diagram=classes element=dep_PubController_Card\ndependency dep_PubController_Adapter \"\" from=PubController to=Adapter\nview v_classes_dep_PubController_Adapter \"\" diagram=classes element=dep_PubController_Adapter\ndependency dep_PubController_Publication \"\" from=PubController to=Publication\nview v_classes_dep_PubController_Publication \"\" diagram=classes element=dep_PubController_Publication\nassociation version_slots \"\"\nend version_slots_a \"\" classifier=Version lower=1 order=1 owner=version_slots upper=1\nend version_slots_b \"\" aggregation=composite classifier=Slot lower=1 order=0 owner=version_slots upper=\"*\"\nview v_classes_version_slots \"\" diagram=classes element=version_slots\nassociation slot_offer \"\"\nend slot_offer_a \"\" classifier=Slot lower=0 order=0 owner=slot_offer upper=\"*\"\nend slot_offer_b \"\" classifier=Offer lower=0 order=1 owner=slot_offer upper=1\nview v_classes_slot_offer \"\" diagram=classes element=slot_offer\nassociation card_version \"\"\nend card_version_a \"\" classifier=Card lower=0 order=1 owner=card_version upper=\"*\"\nend card_version_b \"\" classifier=Version lower=1 order=0 owner=card_version upper=1\nview v_classes_card_version \"\" diagram=classes element=card_version\nassociation card_publications \"\"\nend card_publications_a \"\" classifier=Card lower=1 order=0 owner=card_publications upper=1\nend card_publications_b \"\" classifier=Publication lower=0 order=1 owner=card_publications upper=\"*\"\nview v_classes_card_publications \"\" diagram=classes element=card_publications\nlifeline bom_lane0 u classifier=specialist owner=bom\nview v_bom_seq_bom_lane0 \"\" diagram=bom_seq element=bom_lane0\nlifeline bom_lane1 f classifier=FormBOM owner=bom\nview v_bom_seq_bom_lane1 \"\" diagram=bom_seq element=bom_lane1\nlifeline bom_lane2 c classifier=BOMController owner=bom\nview v_bom_seq_bom_lane2 \"\" diagram=bom_seq element=bom_lane2\nlifeline bom_lane3 d classifier=Rule owner=bom\nview v_bom_seq_bom_lane3 \"\" diagram=bom_seq element=bom_lane3\nlifeline bom_lane4 s classifier=Offer owner=bom\nview v_bom_seq_bom_lane4 \"\" diagram=bom_seq element=bom_lane4\nlifeline bom_lane5 r classifier=Version owner=bom\nview v_bom_seq_bom_lane5 \"\" diagram=bom_seq element=bom_lane5\noccurrence bom_m1_send \"\" lifeline=bom_lane0 order=0 owner=bom\noccurrence bom_m1_receive \"\" lifeline=bom_lane1 order=1 owner=bom\nmessage bom_m1 \"Ввести состав и сохранить\" owner=bom receive=bom_m1_receive send=bom_m1_send sequence=1 sort=synchCall\nview v_bom_seq_bom_m1 \"\" diagram=bom_seq element=bom_m1\noccurrence bom_m2_send \"\" lifeline=bom_lane1 order=2 owner=bom\noccurrence bom_m2_receive \"\" lifeline=bom_lane2 order=3 owner=bom\nmessage bom_m2 \"Сформировать версию\" owner=bom receive=bom_m2_receive send=bom_m2_send sequence=2 sort=synchCall\nview v_bom_seq_bom_m2 \"\" diagram=bom_seq element=bom_m2\noccurrence bom_m3_send \"\" lifeline=bom_lane2 order=4 owner=bom\noccurrence bom_m3_receive \"\" lifeline=bom_lane3 order=5 owner=bom\nmessage bom_m3 \"Получить правила\" owner=bom receive=bom_m3_receive send=bom_m3_send sequence=3 sort=synchCall\nview v_bom_seq_bom_m3 \"\" diagram=bom_seq element=bom_m3\noccurrence bom_m4_send \"\" lifeline=bom_lane3 order=6 owner=bom\noccurrence bom_m4_receive \"\" lifeline=bom_lane2 order=7 owner=bom\nmessage bom_m4 Правила owner=bom receive=bom_m4_receive replyTo=bom_m3 send=bom_m4_send sequence=4 sort=reply\nview v_bom_seq_bom_m4 \"\" diagram=bom_seq element=bom_m4\noccurrence bom_m5_send \"\" lifeline=bom_lane2 order=8 owner=bom\noccurrence bom_m5_receive \"\" lifeline=bom_lane4 order=9 owner=bom\nmessage bom_m5 \"Получить актуальные предложения\" owner=bom receive=bom_m5_receive send=bom_m5_send sequence=5 sort=synchCall\nview v_bom_seq_bom_m5 \"\" diagram=bom_seq element=bom_m5\noccurrence bom_m6_send \"\" lifeline=bom_lane4 order=10 owner=bom\noccurrence bom_m6_receive \"\" lifeline=bom_lane2 order=11 owner=bom\nmessage bom_m6 Предложения owner=bom receive=bom_m6_receive replyTo=bom_m5 send=bom_m6_send sequence=6 sort=reply\nview v_bom_seq_bom_m6 \"\" diagram=bom_seq element=bom_m6\noccurrence bom_m7_send \"\" lifeline=bom_lane2 order=12 owner=bom\noccurrence bom_m7_receive \"\" lifeline=bom_lane2 order=13 owner=bom\nmessage bom_m7 \"Проверить состав и совместимость\" owner=bom receive=bom_m7_receive send=bom_m7_send sequence=7 sort=synchCall\nview v_bom_seq_bom_m7 \"\" diagram=bom_seq element=bom_m7\nfragment bom_alt \"\" operator=alt order=14 owner=bom\nview v_bom_seq_bom_alt \"\" diagram=bom_seq element=bom_alt\ncoverage bom_cover_bom_lane0 \"\" lifeline=bom_lane0 owner=bom_alt\ncoverage bom_cover_bom_lane1 \"\" lifeline=bom_lane1 owner=bom_alt\ncoverage bom_cover_bom_lane2 \"\" lifeline=bom_lane2 owner=bom_alt\ncoverage bom_cover_bom_lane3 \"\" lifeline=bom_lane3 owner=bom_alt\ncoverage bom_cover_bom_lane4 \"\" lifeline=bom_lane4 owner=bom_alt\ncoverage bom_cover_bom_lane5 \"\" lifeline=bom_lane5 owner=bom_alt\noperand bom_ok \"\" guard=\"нет конфликтов и предложения выбраны\" order=0 owner=bom_alt\noperand bom_bad \"\" guard=\"есть конфликт или отсутствует предложение\" order=1 owner=bom_alt\noccurrence bom_m8_send \"\" lifeline=bom_lane2 order=15 owner=bom_ok\noccurrence bom_m8_receive \"\" lifeline=bom_lane5 order=16 owner=bom_ok\nmessage bom_m8 \"Создать версию и слоты\" owner=bom receive=bom_m8_receive send=bom_m8_send sequence=8 sort=synchCall\nview v_bom_seq_bom_m8 \"\" diagram=bom_seq element=bom_m8\noccurrence bom_m9_send \"\" lifeline=bom_lane5 order=17 owner=bom_ok\noccurrence bom_m9_receive \"\" lifeline=bom_lane2 order=18 owner=bom_ok\nmessage bom_m9 \"Идентификатор версии\" owner=bom receive=bom_m9_receive replyTo=bom_m8 send=bom_m9_send sequence=9 sort=reply\nview v_bom_seq_bom_m9 \"\" diagram=bom_seq element=bom_m9\noccurrence bom_m10_send \"\" lifeline=bom_lane2 order=19 owner=bom_ok\noccurrence bom_m10_receive \"\" lifeline=bom_lane1 order=20 owner=bom_ok\nmessage bom_m10 \"Версия сохранена\" owner=bom receive=bom_m10_receive replyTo=bom_m2 send=bom_m10_send sequence=10 sort=reply\nview v_bom_seq_bom_m10 \"\" diagram=bom_seq element=bom_m10\noccurrence bom_m11_send \"\" lifeline=bom_lane1 order=21 owner=bom_ok\noccurrence bom_m11_receive \"\" lifeline=bom_lane0 order=22 owner=bom_ok\nmessage bom_m11 \"Показать версию\" owner=bom receive=bom_m11_receive replyTo=bom_m1 send=bom_m11_send sequence=11 sort=reply\nview v_bom_seq_bom_m11 \"\" diagram=bom_seq element=bom_m11\noccurrence bom_m12_send \"\" lifeline=bom_lane2 order=23 owner=bom_bad\noccurrence bom_m12_receive \"\" lifeline=bom_lane1 order=24 owner=bom_bad\nmessage bom_m12 \"Перечень конфликтов\" owner=bom receive=bom_m12_receive replyTo=bom_m2 send=bom_m12_send sequence=12 sort=reply\nview v_bom_seq_bom_m12 \"\" diagram=bom_seq element=bom_m12\noccurrence bom_m13_send \"\" lifeline=bom_lane1 order=25 owner=bom_bad\noccurrence bom_m13_receive \"\" lifeline=bom_lane0 order=26 owner=bom_bad\nmessage bom_m13 \"Показать ошибки\" owner=bom receive=bom_m13_receive replyTo=bom_m1 send=bom_m13_send sequence=13 sort=reply\nview v_bom_seq_bom_m13 \"\" diagram=bom_seq element=bom_m13\nlifeline pub_lane0 u classifier=manager owner=pub\nview v_pub_seq_pub_lane0 \"\" diagram=pub_seq element=pub_lane0\nview v_comm_pub_lane0 \"\" diagram=comm element=pub_lane0\nlifeline pub_lane1 f classifier=FormCard owner=pub\nview v_pub_seq_pub_lane1 \"\" diagram=pub_seq element=pub_lane1\nview v_comm_pub_lane1 \"\" diagram=comm element=pub_lane1\nlifeline pub_lane2 c classifier=PubController owner=pub\nview v_pub_seq_pub_lane2 \"\" diagram=pub_seq element=pub_lane2\nview v_comm_pub_lane2 \"\" diagram=comm element=pub_lane2\nlifeline pub_lane3 d classifier=Card owner=pub\nview v_pub_seq_pub_lane3 \"\" diagram=pub_seq element=pub_lane3\nview v_comm_pub_lane3 \"\" diagram=comm element=pub_lane3\nlifeline pub_lane4 s classifier=Adapter owner=pub\nview v_pub_seq_pub_lane4 \"\" diagram=pub_seq element=pub_lane4\nview v_comm_pub_lane4 \"\" diagram=comm element=pub_lane4\nlifeline pub_lane5 r classifier=ozon owner=pub\nview v_pub_seq_pub_lane5 \"\" diagram=pub_seq element=pub_lane5\nview v_comm_pub_lane5 \"\" diagram=comm element=pub_lane5\nlifeline pub_lane6 p classifier=Publication owner=pub\nview v_pub_seq_pub_lane6 \"\" diagram=pub_seq element=pub_lane6\nview v_comm_pub_lane6 \"\" diagram=comm element=pub_lane6\noccurrence pub_m1_send \"\" lifeline=pub_lane0 order=0 owner=pub\noccurrence pub_m1_receive \"\" lifeline=pub_lane1 order=1 owner=pub\nconnector pub_channel_0_1 \"\" from=pub_lane0 owner=pub to=pub_lane1\nview v_comm_pub_channel_0_1 \"\" diagram=comm element=pub_channel_0_1\nmessage pub_m1 \"Запросить публикацию\" connector=pub_channel_0_1 owner=pub receive=pub_m1_receive send=pub_m1_send sequence=1 sort=synchCall\nview v_pub_seq_pub_m1 \"\" diagram=pub_seq element=pub_m1\nview v_comm_pub_m1 \"\" diagram=comm element=pub_m1\noccurrence pub_m2_send \"\" lifeline=pub_lane1 order=2 owner=pub\noccurrence pub_m2_receive \"\" lifeline=pub_lane2 order=3 owner=pub\nconnector pub_channel_1_2 \"\" from=pub_lane1 owner=pub to=pub_lane2\nview v_comm_pub_channel_1_2 \"\" diagram=comm element=pub_channel_1_2\nmessage pub_m2 \"Опубликовать карточку\" connector=pub_channel_1_2 owner=pub receive=pub_m2_receive send=pub_m2_send sequence=2 sort=synchCall\nview v_pub_seq_pub_m2 \"\" diagram=pub_seq element=pub_m2\nview v_comm_pub_m2 \"\" diagram=comm element=pub_m2\noccurrence pub_m3_send \"\" lifeline=pub_lane2 order=4 owner=pub\noccurrence pub_m3_receive \"\" lifeline=pub_lane3 order=5 owner=pub\nconnector pub_channel_2_3 \"\" from=pub_lane2 owner=pub to=pub_lane3\nview v_comm_pub_channel_2_3 \"\" diagram=comm element=pub_channel_2_3\nmessage pub_m3 \"Получить снимок карточки\" connector=pub_channel_2_3 owner=pub receive=pub_m3_receive send=pub_m3_send sequence=3 sort=synchCall\nview v_pub_seq_pub_m3 \"\" diagram=pub_seq element=pub_m3\nview v_comm_pub_m3 \"\" diagram=comm element=pub_m3\noccurrence pub_m4_send \"\" lifeline=pub_lane3 order=6 owner=pub\noccurrence pub_m4_receive \"\" lifeline=pub_lane2 order=7 owner=pub\nmessage pub_m4 \"Снимок и версия BOM\" connector=pub_channel_2_3 owner=pub receive=pub_m4_receive replyTo=pub_m3 send=pub_m4_send sequence=4 sort=reply\nview v_pub_seq_pub_m4 \"\" diagram=pub_seq element=pub_m4\nview v_comm_pub_m4 \"\" diagram=comm element=pub_m4\noccurrence pub_m5_send \"\" lifeline=pub_lane2 order=8 owner=pub\noccurrence pub_m5_receive \"\" lifeline=pub_lane2 order=9 owner=pub\nconnector pub_channel_2_2 \"\" from=pub_lane2 owner=pub to=pub_lane2\nview v_comm_pub_channel_2_2 \"\" diagram=comm element=pub_channel_2_2\nmessage pub_m5 \"Проверить готовность\" connector=pub_channel_2_2 owner=pub receive=pub_m5_receive send=pub_m5_send sequence=5 sort=synchCall\nview v_pub_seq_pub_m5 \"\" diagram=pub_seq element=pub_m5\nview v_comm_pub_m5 \"\" diagram=comm element=pub_m5\nfragment pub_alt \"\" operator=alt order=10 owner=pub\nview v_pub_seq_pub_alt \"\" diagram=pub_seq element=pub_alt\ncoverage pub_cover_pub_lane0 \"\" lifeline=pub_lane0 owner=pub_alt\ncoverage pub_cover_pub_lane1 \"\" lifeline=pub_lane1 owner=pub_alt\ncoverage pub_cover_pub_lane2 \"\" lifeline=pub_lane2 owner=pub_alt\ncoverage pub_cover_pub_lane3 \"\" lifeline=pub_lane3 owner=pub_alt\ncoverage pub_cover_pub_lane4 \"\" lifeline=pub_lane4 owner=pub_alt\ncoverage pub_cover_pub_lane5 \"\" lifeline=pub_lane5 owner=pub_alt\ncoverage pub_cover_pub_lane6 \"\" lifeline=pub_lane6 owner=pub_alt\noperand pub_ok \"\" guard=\"карточка готова к публикации\" order=0 owner=pub_alt\noperand pub_bad \"\" guard=\"есть ошибки готовности\" order=1 owner=pub_alt\noccurrence pub_m6_send \"\" lifeline=pub_lane2 order=11 owner=pub_ok\noccurrence pub_m6_receive \"\" lifeline=pub_lane6 order=12 owner=pub_ok\nconnector pub_channel_2_6 \"\" from=pub_lane2 owner=pub to=pub_lane6\nview v_comm_pub_channel_2_6 \"\" diagram=comm element=pub_channel_2_6\nmessage pub_m6 \"Создать запись «отправка»\" connector=pub_channel_2_6 owner=pub receive=pub_m6_receive send=pub_m6_send sequence=6 sort=synchCall\nview v_pub_seq_pub_m6 \"\" diagram=pub_seq element=pub_m6\nview v_comm_pub_m6 \"\" diagram=comm element=pub_m6\noccurrence pub_m7_send \"\" lifeline=pub_lane2 order=13 owner=pub_ok\noccurrence pub_m7_receive \"\" lifeline=pub_lane4 order=14 owner=pub_ok\nconnector pub_channel_2_4 \"\" from=pub_lane2 owner=pub to=pub_lane4\nview v_comm_pub_channel_2_4 \"\" diagram=comm element=pub_channel_2_4\nmessage pub_m7 \"Передать снимок\" connector=pub_channel_2_4 owner=pub receive=pub_m7_receive send=pub_m7_send sequence=7 sort=synchCall\nview v_pub_seq_pub_m7 \"\" diagram=pub_seq element=pub_m7\nview v_comm_pub_m7 \"\" diagram=comm element=pub_m7\noccurrence pub_m8_send \"\" lifeline=pub_lane4 order=15 owner=pub_ok\noccurrence pub_m8_receive \"\" lifeline=pub_lane5 order=16 owner=pub_ok\nconnector pub_channel_4_5 \"\" from=pub_lane4 owner=pub to=pub_lane5\nview v_comm_pub_channel_4_5 \"\" diagram=comm element=pub_channel_4_5\nmessage pub_m8 \"Отправить карточку\" connector=pub_channel_4_5 owner=pub receive=pub_m8_receive send=pub_m8_send sequence=8 sort=synchCall\nview v_pub_seq_pub_m8 \"\" diagram=pub_seq element=pub_m8\nview v_comm_pub_m8 \"\" diagram=comm element=pub_m8\noccurrence pub_m9_send \"\" lifeline=pub_lane5 order=17 owner=pub_ok\noccurrence pub_m9_receive \"\" lifeline=pub_lane4 order=18 owner=pub_ok\nmessage pub_m9 \"Результат или ошибка\" connector=pub_channel_4_5 owner=pub receive=pub_m9_receive replyTo=pub_m8 send=pub_m9_send sequence=9 sort=reply\nview v_pub_seq_pub_m9 \"\" diagram=pub_seq element=pub_m9\nview v_comm_pub_m9 \"\" diagram=comm element=pub_m9\noccurrence pub_m10_send \"\" lifeline=pub_lane4 order=19 owner=pub_ok\noccurrence pub_m10_receive \"\" lifeline=pub_lane2 order=20 owner=pub_ok\nmessage pub_m10 \"Результат обмена\" connector=pub_channel_2_4 owner=pub receive=pub_m10_receive replyTo=pub_m7 send=pub_m10_send sequence=10 sort=reply\nview v_pub_seq_pub_m10 \"\" diagram=pub_seq element=pub_m10\nview v_comm_pub_m10 \"\" diagram=comm element=pub_m10\noccurrence pub_m11_send \"\" lifeline=pub_lane2 order=21 owner=pub_ok\noccurrence pub_m11_receive \"\" lifeline=pub_lane6 order=22 owner=pub_ok\nmessage pub_m11 \"Сохранить результат\" connector=pub_channel_2_6 owner=pub receive=pub_m11_receive send=pub_m11_send sequence=11 sort=synchCall\nview v_pub_seq_pub_m11 \"\" diagram=pub_seq element=pub_m11\nview v_comm_pub_m11 \"\" diagram=comm element=pub_m11\noccurrence pub_m12_send \"\" lifeline=pub_lane2 order=23 owner=pub_ok\noccurrence pub_m12_receive \"\" lifeline=pub_lane3 order=24 owner=pub_ok\nmessage pub_m12 \"Обновить статус\" connector=pub_channel_2_3 owner=pub receive=pub_m12_receive send=pub_m12_send sequence=12 sort=synchCall\nview v_pub_seq_pub_m12 \"\" diagram=pub_seq element=pub_m12\nview v_comm_pub_m12 \"\" diagram=comm element=pub_m12\noccurrence pub_m13_send \"\" lifeline=pub_lane2 order=25 owner=pub_ok\noccurrence pub_m13_receive \"\" lifeline=pub_lane1 order=26 owner=pub_ok\nmessage pub_m13 \"Итог публикации\" connector=pub_channel_1_2 owner=pub receive=pub_m13_receive replyTo=pub_m2 send=pub_m13_send sequence=13 sort=reply\nview v_pub_seq_pub_m13 \"\" diagram=pub_seq element=pub_m13\nview v_comm_pub_m13 \"\" diagram=comm element=pub_m13\noccurrence pub_m14_send \"\" lifeline=pub_lane1 order=27 owner=pub_ok\noccurrence pub_m14_receive \"\" lifeline=pub_lane0 order=28 owner=pub_ok\nmessage pub_m14 \"Показать статус\" connector=pub_channel_0_1 owner=pub receive=pub_m14_receive replyTo=pub_m1 send=pub_m14_send sequence=14 sort=reply\nview v_pub_seq_pub_m14 \"\" diagram=pub_seq element=pub_m14\nview v_comm_pub_m14 \"\" diagram=comm element=pub_m14\noccurrence pub_m15_send \"\" lifeline=pub_lane2 order=29 owner=pub_bad\noccurrence pub_m15_receive \"\" lifeline=pub_lane1 order=30 owner=pub_bad\nmessage pub_m15 \"Ошибки готовности\" connector=pub_channel_1_2 owner=pub receive=pub_m15_receive replyTo=pub_m2 send=pub_m15_send sequence=15 sort=reply\nview v_pub_seq_pub_m15 \"\" diagram=pub_seq element=pub_m15\noccurrence pub_m16_send \"\" lifeline=pub_lane1 order=31 owner=pub_bad\noccurrence pub_m16_receive \"\" lifeline=pub_lane0 order=32 owner=pub_bad\nmessage pub_m16 \"Показать ошибки\" connector=pub_channel_0_1 owner=pub receive=pub_m16_receive replyTo=pub_m1 send=pub_m16_send sequence=16 sort=reply\nview v_pub_seq_pub_m16 \"\" diagram=pub_seq element=pub_m16\nscenario ready_card \"Готовая карточка\" fingerprint=\"56b78872:7606\" owner=pub\nchoice ready_choice \"\" fragment=pub_alt operand=pub_ok owner=ready_card\nstep ready_step0 \"\" message=pub_m1 order=1 owner=ready_card\nstep ready_step1 \"\" message=pub_m2 order=2 owner=ready_card\nstep ready_step2 \"\" message=pub_m3 order=3 owner=ready_card\nstep ready_step3 \"\" message=pub_m4 order=4 owner=ready_card\nstep ready_step4 \"\" message=pub_m5 order=5 owner=ready_card\nstep ready_step5 \"\" message=pub_m6 order=6 owner=ready_card\nstep ready_step6 \"\" message=pub_m7 order=7 owner=ready_card\nstep ready_step7 \"\" message=pub_m8 order=8 owner=ready_card\nstep ready_step8 \"\" message=pub_m9 order=9 owner=ready_card\nstep ready_step9 \"\" message=pub_m10 order=10 owner=ready_card\nstep ready_step10 \"\" message=pub_m11 order=11 owner=ready_card\nstep ready_step11 \"\" message=pub_m12 order=12 owner=ready_card\nstep ready_step12 \"\" message=pub_m13 order=13 owner=ready_card\nstep ready_step13 \"\" message=pub_m14 order=14 owner=ready_card\n",
+  "layout": {
+    "nodes": {
+      "v_use_manager": {
+        "x": 30,
+        "y": 40,
+        "width": 145,
+        "height": 115
+      },
+      "v_use_specialist": {
+        "x": 30,
+        "y": 280,
+        "width": 145,
+        "height": 115
+      },
+      "v_use_ozon": {
+        "x": 30,
+        "y": 570,
+        "width": 145,
+        "height": 115
+      },
+      "v_use_suppliers": {
+        "x": 1140,
+        "y": 40,
+        "width": 145,
+        "height": 115
+      },
+      "v_use_designer": {
+        "x": 1140,
+        "y": 350,
+        "width": 145,
+        "height": 115
+      },
+      "v_use_admin": {
+        "x": 1140,
+        "y": 610,
+        "width": 145,
+        "height": 115
+      },
+      "v_use_system": {
+        "x": 210,
+        "y": 0,
+        "width": 880,
+        "height": 785
+      },
+      "v_use_UC01": {
+        "x": 270,
+        "y": 65,
+        "width": 265,
+        "height": 95
+      },
+      "v_use_UC02": {
+        "x": 270,
+        "y": 210,
+        "width": 265,
+        "height": 95
+      },
+      "v_use_UC03": {
+        "x": 270,
+        "y": 355,
+        "width": 265,
+        "height": 95
+      },
+      "v_use_UC04": {
+        "x": 270,
+        "y": 500,
+        "width": 265,
+        "height": 95
+      },
+      "v_use_UC05": {
+        "x": 270,
+        "y": 645,
+        "width": 265,
+        "height": 95
+      },
+      "v_use_UC06": {
+        "x": 765,
+        "y": 65,
+        "width": 265,
+        "height": 95
+      },
+      "v_use_UC07": {
+        "x": 765,
+        "y": 210,
+        "width": 265,
+        "height": 95
+      },
+      "v_use_UC08": {
+        "x": 765,
+        "y": 355,
+        "width": 265,
+        "height": 95
+      },
+      "v_use_UC09": {
+        "x": 765,
+        "y": 500,
+        "width": 265,
+        "height": 95
+      },
+      "v_use_UC10": {
+        "x": 765,
+        "y": 645,
+        "width": 265,
+        "height": 95
+      },
+      "v_use_manager_UC01": {
+        "x": 330,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_use_manager_UC05": {
+        "x": 580,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_use_manager_UC06": {
+        "x": 830,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_use_specialist_UC02": {
+        "x": 80,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_use_specialist_UC03": {
+        "x": 330,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_use_specialist_UC04": {
+        "x": 580,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_use_designer_UC07": {
+        "x": 830,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_use_designer_UC09": {
+        "x": 80,
+        "y": 1160,
+        "width": 210,
+        "height": 140
+      },
+      "v_use_admin_UC10": {
+        "x": 330,
+        "y": 1160,
+        "width": 210,
+        "height": 140
+      },
+      "v_use_suppliers_UC06": {
+        "x": 580,
+        "y": 1160,
+        "width": 210,
+        "height": 140
+      },
+      "v_use_ozon_UC05": {
+        "x": 830,
+        "y": 1160,
+        "width": 210,
+        "height": 140
+      },
+      "v_use_UC02_UC03": {
+        "x": 80,
+        "y": 1340,
+        "width": 210,
+        "height": 140
+      },
+      "v_use_UC04_UC03": {
+        "x": 330,
+        "y": 1340,
+        "width": 210,
+        "height": 140
+      },
+      "v_use_UC05_UC08": {
+        "x": 580,
+        "y": 1340,
+        "width": 210,
+        "height": 140
+      },
+      "v_classes_FormBOM": {
+        "x": 0,
+        "y": 0,
+        "width": 285,
+        "height": 195
+      },
+      "v_classes_BOMController": {
+        "x": 335,
+        "y": 0,
+        "width": 285,
+        "height": 195
+      },
+      "v_classes_Rule": {
+        "x": 670,
+        "y": 0,
+        "width": 285,
+        "height": 195
+      },
+      "v_classes_Version": {
+        "x": 335,
+        "y": 280,
+        "width": 285,
+        "height": 195
+      },
+      "v_classes_Offer": {
+        "x": 1005,
+        "y": 0,
+        "width": 285,
+        "height": 195
+      },
+      "v_classes_Slot": {
+        "x": 0,
+        "y": 280,
+        "width": 285,
+        "height": 195
+      },
+      "v_classes_FormCard": {
+        "x": 0,
+        "y": 580,
+        "width": 285,
+        "height": 195
+      },
+      "v_classes_PubController": {
+        "x": 335,
+        "y": 580,
+        "width": 285,
+        "height": 195
+      },
+      "v_classes_Card": {
+        "x": 670,
+        "y": 280,
+        "width": 285,
+        "height": 230
+      },
+      "v_classes_Adapter": {
+        "x": 670,
+        "y": 580,
+        "width": 285,
+        "height": 195
+      },
+      "v_classes_Publication": {
+        "x": 1005,
+        "y": 280,
+        "width": 285,
+        "height": 260
+      },
+      "v_classes_dep_FormBOM_BOMController": {
+        "x": 830,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_classes_dep_BOMController_Rule": {
+        "x": 80,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_classes_dep_BOMController_Version": {
+        "x": 330,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_classes_dep_BOMController_Offer": {
+        "x": 580,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_classes_dep_FormCard_PubController": {
+        "x": 830,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_classes_dep_PubController_Card": {
+        "x": 80,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_classes_dep_PubController_Adapter": {
+        "x": 330,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_classes_dep_PubController_Publication": {
+        "x": 580,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_classes_version_slots": {
+        "x": 830,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_classes_slot_offer": {
+        "x": 80,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_classes_card_version": {
+        "x": 330,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_classes_card_publications": {
+        "x": 580,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_bom_seq_bom_lane0": {
+        "x": 35,
+        "y": 30,
+        "width": 245,
+        "height": 500
+      },
+      "v_bom_seq_bom_lane1": {
+        "x": 305,
+        "y": 30,
+        "width": 155,
+        "height": 500
+      },
+      "v_bom_seq_bom_lane2": {
+        "x": 485,
+        "y": 30,
+        "width": 155,
+        "height": 500
+      },
+      "v_bom_seq_bom_lane3": {
+        "x": 665,
+        "y": 30,
+        "width": 155,
+        "height": 500
+      },
+      "v_bom_seq_bom_lane4": {
+        "x": 845,
+        "y": 30,
+        "width": 155,
+        "height": 500
+      },
+      "v_bom_seq_bom_lane5": {
+        "x": 1025,
+        "y": 30,
+        "width": 155,
+        "height": 500
+      },
+      "v_bom_seq_bom_m1": {
+        "x": 580,
+        "y": 260,
+        "width": 210,
+        "height": 140
+      },
+      "v_bom_seq_bom_m2": {
+        "x": 830,
+        "y": 260,
+        "width": 210,
+        "height": 140
+      },
+      "v_bom_seq_bom_m3": {
+        "x": 80,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_bom_seq_bom_m4": {
+        "x": 330,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_bom_seq_bom_m5": {
+        "x": 580,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_bom_seq_bom_m6": {
+        "x": 830,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_bom_seq_bom_m7": {
+        "x": 80,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_bom_seq_bom_alt": {
+        "x": 330,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_bom_seq_bom_m8": {
+        "x": 580,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_bom_seq_bom_m9": {
+        "x": 830,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_bom_seq_bom_m10": {
+        "x": 80,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_bom_seq_bom_m11": {
+        "x": 330,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_bom_seq_bom_m12": {
+        "x": 580,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_bom_seq_bom_m13": {
+        "x": 830,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_pub_seq_pub_lane0": {
+        "x": 35,
+        "y": 30,
+        "width": 245,
+        "height": 500
+      },
+      "v_pub_seq_pub_lane1": {
+        "x": 305,
+        "y": 30,
+        "width": 155,
+        "height": 500
+      },
+      "v_pub_seq_pub_lane2": {
+        "x": 485,
+        "y": 30,
+        "width": 155,
+        "height": 500
+      },
+      "v_pub_seq_pub_lane3": {
+        "x": 665,
+        "y": 30,
+        "width": 155,
+        "height": 500
+      },
+      "v_pub_seq_pub_lane4": {
+        "x": 845,
+        "y": 30,
+        "width": 155,
+        "height": 500
+      },
+      "v_pub_seq_pub_lane5": {
+        "x": 1025,
+        "y": 30,
+        "width": 155,
+        "height": 500
+      },
+      "v_pub_seq_pub_lane6": {
+        "x": 1205,
+        "y": 30,
+        "width": 155,
+        "height": 500
+      },
+      "v_pub_seq_pub_m1": {
+        "x": 830,
+        "y": 260,
+        "width": 210,
+        "height": 140
+      },
+      "v_pub_seq_pub_m2": {
+        "x": 80,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_pub_seq_pub_m3": {
+        "x": 330,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_pub_seq_pub_m4": {
+        "x": 580,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_pub_seq_pub_m5": {
+        "x": 830,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_pub_seq_pub_alt": {
+        "x": 80,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_pub_seq_pub_m6": {
+        "x": 330,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_pub_seq_pub_m7": {
+        "x": 580,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_pub_seq_pub_m8": {
+        "x": 830,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_pub_seq_pub_m9": {
+        "x": 80,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_pub_seq_pub_m10": {
+        "x": 330,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_pub_seq_pub_m11": {
+        "x": 580,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_pub_seq_pub_m12": {
+        "x": 830,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_pub_seq_pub_m13": {
+        "x": 80,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_pub_seq_pub_m14": {
+        "x": 330,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_pub_seq_pub_m15": {
+        "x": 580,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_pub_seq_pub_m16": {
+        "x": 830,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_lane0": {
+        "x": 0,
+        "y": 40,
+        "width": 260,
+        "height": 100
+      },
+      "v_comm_pub_lane1": {
+        "x": 450,
+        "y": 40,
+        "width": 260,
+        "height": 100
+      },
+      "v_comm_pub_lane2": {
+        "x": 1050,
+        "y": 40,
+        "width": 260,
+        "height": 100
+      },
+      "v_comm_pub_lane3": {
+        "x": 450,
+        "y": 330,
+        "width": 260,
+        "height": 100
+      },
+      "v_comm_pub_lane4": {
+        "x": 1050,
+        "y": 330,
+        "width": 260,
+        "height": 100
+      },
+      "v_comm_pub_lane5": {
+        "x": 1050,
+        "y": 650,
+        "width": 260,
+        "height": 100
+      },
+      "v_comm_pub_lane6": {
+        "x": 450,
+        "y": 650,
+        "width": 260,
+        "height": 100
+      },
+      "v_comm_pub_channel_0_1": {
+        "x": 830,
+        "y": 260,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_m1": {
+        "x": 80,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_channel_1_2": {
+        "x": 330,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_m2": {
+        "x": 580,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_channel_2_3": {
+        "x": 830,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_m3": {
+        "x": 80,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_m4": {
+        "x": 330,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_channel_2_2": {
+        "x": 580,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_m5": {
+        "x": 830,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_channel_2_6": {
+        "x": 80,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_m6": {
+        "x": 330,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_channel_2_4": {
+        "x": 580,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_m7": {
+        "x": 830,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_channel_4_5": {
+        "x": 80,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_m8": {
+        "x": 330,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_m9": {
+        "x": 580,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_m10": {
+        "x": 830,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_m11": {
+        "x": 80,
+        "y": 1160,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_m12": {
+        "x": 330,
+        "y": 1160,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_m13": {
+        "x": 580,
+        "y": 1160,
+        "width": 210,
+        "height": 140
+      },
+      "v_comm_pub_m14": {
+        "x": 830,
+        "y": 1160,
+        "width": 210,
+        "height": 140
+      }
+    },
+    "edges": {
+      "v_use_manager_UC06": {
+        "bends": [
+          {
+            "x": 190,
+            "y": 35
+          },
+          {
+            "x": 897,
+            "y": 35
+          }
+        ]
+      },
+      "v_use_manager_UC05": {
+        "bends": [
+          {
+            "x": 102.5,
+            "y": 190
+          },
+          {
+            "x": 235,
+            "y": 190
+          },
+          {
+            "x": 235,
+            "y": 620
+          },
+          {
+            "x": 402.5,
+            "y": 620
+          }
+        ]
+      },
+      "v_use_UC02_UC03": {
+        "label": {
+          "x": 445,
+          "y": 336
+        }
+      },
+      "v_use_UC04_UC03": {
+        "label": {
+          "x": 445,
+          "y": 470
+        }
+      },
+      "v_use_UC05_UC08": {
+        "label": {
+          "x": 650,
+          "y": 555
+        },
+        "bends": [
+          {
+            "x": 650,
+            "y": 690
+          },
+          {
+            "x": 650,
+            "y": 402
+          }
+        ]
+      },
+      "v_comm_pub_m1": {
+        "label": {
+          "x": 350,
+          "y": 50
+        }
+      },
+      "v_comm_pub_m2": {
+        "label": {
+          "x": 890,
+          "y": 50
+        }
+      },
+      "v_comm_pub_m3": {
+        "label": {
+          "x": 585,
+          "y": 205
+        }
+      },
+      "v_comm_pub_m4": {
+        "label": {
+          "x": 585,
+          "y": 255
+        }
+      },
+      "v_comm_pub_m5": {
+        "label": {
+          "x": 1190,
+          "y": 165
+        }
+      },
+      "v_comm_pub_m6": {
+        "label": {
+          "x": 585,
+          "y": 505
+        }
+      },
+      "v_comm_pub_m7": {
+        "label": {
+          "x": 1220,
+          "y": 210
+        }
+      },
+      "v_comm_pub_m8": {
+        "label": {
+          "x": 1180,
+          "y": 490
+        }
+      },
+      "v_comm_pub_m9": {
+        "label": {
+          "x": 1180,
+          "y": 565
+        }
+      },
+      "v_comm_pub_m10": {
+        "label": {
+          "x": 1220,
+          "y": 285
+        }
+      },
+      "v_comm_pub_m11": {
+        "label": {
+          "x": 585,
+          "y": 570
+        }
+      },
+      "v_comm_pub_m12": {
+        "label": {
+          "x": 585,
+          "y": 305
+        }
+      },
+      "v_comm_pub_m13": {
+        "label": {
+          "x": 890,
+          "y": 160
+        }
+      },
+      "v_comm_pub_m14": {
+        "label": {
+          "x": 350,
+          "y": 160
+        }
+      },
+      "v_comm_pub_channel_2_3": {
+        "bends": [
+          {
+            "x": 950,
+            "y": 90
+          },
+          {
+            "x": 950,
+            "y": 380
+          }
+        ]
+      },
+      "v_comm_pub_channel_2_6": {
+        "bends": [
+          {
+            "x": 850,
+            "y": 90
+          },
+          {
+            "x": 850,
+            "y": 700
+          }
+        ]
+      },
+      "v_classes_dep_BOMController_Offer": {
+        "bends": [
+          {
+            "x": 640,
+            "y": 98
+          },
+          {
+            "x": 640,
+            "y": -45
+          },
+          {
+            "x": 985,
+            "y": -45
+          },
+          {
+            "x": 985,
+            "y": 98
+          }
+        ]
+      },
+      "v_classes_dep_PubController_Publication": {
+        "bends": [
+          {
+            "x": 645,
+            "y": 677
+          },
+          {
+            "x": 645,
+            "y": 555
+          },
+          {
+            "x": 980,
+            "y": 555
+          },
+          {
+            "x": 980,
+            "y": 410
+          }
+        ]
+      },
+      "v_classes_slot_offer": {
+        "bends": [
+          {
+            "x": 315,
+            "y": 378
+          },
+          {
+            "x": 315,
+            "y": 235
+          },
+          {
+            "x": 975,
+            "y": 235
+          },
+          {
+            "x": 975,
+            "y": 98
+          }
+        ]
+      },
+      "v_bom_seq_bom_m1": {
+        "label": {
+          "x": 270,
+          "y": 150
+        }
+      },
+      "v_pub_seq_pub_m1": {
+        "label": {
+          "x": 270,
+          "y": 150
+        }
+      },
+      "v_use_ozon_UC05": {
+        "bends": [
+          {
+            "x": 210,
+            "y": 627.5
+          },
+          {
+            "x": 210,
+            "y": 692.5
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,533 @@
+{
+  "notation": "FUNCTION_TREE",
+  "formatVersion": 1,
+  "profile": "NS-FUNCTION-TREE-1",
+  "model": {
+    "id": "ropFunctions",
+    "label": "Дерево функций",
+    "elements": [
+      {
+        "id": "D01_function_tree",
+        "kind": "diagram",
+        "label": "Дерево функций",
+        "properties": {
+          "type": "tree",
+          "root": "root"
+        }
+      },
+      {
+        "id": "root",
+        "kind": "function",
+        "label": "Подготовить и актуализировать\nкарточки компьютерных систем",
+        "properties": {
+          "order": "0"
+        }
+      },
+      {
+        "id": "root_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "root"
+        }
+      },
+      {
+        "id": "b1",
+        "kind": "function",
+        "label": "BOM и правила",
+        "properties": {
+          "parent": "root",
+          "order": "0"
+        }
+      },
+      {
+        "id": "b1_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "b1"
+        }
+      },
+      {
+        "id": "b1d_1",
+        "kind": "function",
+        "label": "Версии и слоты",
+        "properties": {
+          "parent": "b1",
+          "order": "0"
+        }
+      },
+      {
+        "id": "b1d_1_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "b1d_1"
+        }
+      },
+      {
+        "id": "b1d_2",
+        "kind": "function",
+        "label": "Совместимость",
+        "properties": {
+          "parent": "b1",
+          "order": "1"
+        }
+      },
+      {
+        "id": "b1d_2_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "b1d_2"
+        }
+      },
+      {
+        "id": "b1d_3",
+        "kind": "function",
+        "label": "Массовая замена",
+        "properties": {
+          "parent": "b1",
+          "order": "2"
+        }
+      },
+      {
+        "id": "b1d_3_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "b1d_3"
+        }
+      },
+      {
+        "id": "b2",
+        "kind": "function",
+        "label": "Предложения",
+        "properties": {
+          "parent": "root",
+          "order": "1"
+        }
+      },
+      {
+        "id": "b2_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "b2"
+        }
+      },
+      {
+        "id": "b2d_1",
+        "kind": "function",
+        "label": "Сопоставление SKU",
+        "properties": {
+          "parent": "b2",
+          "order": "0"
+        }
+      },
+      {
+        "id": "b2d_1_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "b2d_1"
+        }
+      },
+      {
+        "id": "b2d_2",
+        "kind": "function",
+        "label": "Загрузка цен и остатков",
+        "properties": {
+          "parent": "b2",
+          "order": "1"
+        }
+      },
+      {
+        "id": "b2d_2_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "b2d_2"
+        }
+      },
+      {
+        "id": "b2d_3",
+        "kind": "function",
+        "label": "Выбор предложения",
+        "properties": {
+          "parent": "b2",
+          "order": "2"
+        }
+      },
+      {
+        "id": "b2d_3_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "b2d_3"
+        }
+      },
+      {
+        "id": "b3",
+        "kind": "function",
+        "label": "Расчёты и контент",
+        "properties": {
+          "parent": "root",
+          "order": "2"
+        }
+      },
+      {
+        "id": "b3_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "b3"
+        }
+      },
+      {
+        "id": "b3d_1",
+        "kind": "function",
+        "label": "Цена и масса",
+        "properties": {
+          "parent": "b3",
+          "order": "0"
+        }
+      },
+      {
+        "id": "b3d_1_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "b3d_1"
+        }
+      },
+      {
+        "id": "b3d_2",
+        "kind": "function",
+        "label": "Атрибуты и описание",
+        "properties": {
+          "parent": "b3",
+          "order": "1"
+        }
+      },
+      {
+        "id": "b3d_2_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "b3d_2"
+        }
+      },
+      {
+        "id": "b3d_3",
+        "kind": "function",
+        "label": "Изображения",
+        "properties": {
+          "parent": "b3",
+          "order": "2"
+        }
+      },
+      {
+        "id": "b3d_3_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "b3d_3"
+        }
+      },
+      {
+        "id": "b4",
+        "kind": "function",
+        "label": "Публикация",
+        "properties": {
+          "parent": "root",
+          "order": "3"
+        }
+      },
+      {
+        "id": "b4_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "b4"
+        }
+      },
+      {
+        "id": "b4d_1",
+        "kind": "function",
+        "label": "Контроль готовности",
+        "properties": {
+          "parent": "b4",
+          "order": "0"
+        }
+      },
+      {
+        "id": "b4d_1_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "b4d_1"
+        }
+      },
+      {
+        "id": "b4d_2",
+        "kind": "function",
+        "label": "Отправка и статус",
+        "properties": {
+          "parent": "b4",
+          "order": "1"
+        }
+      },
+      {
+        "id": "b4d_2_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "b4d_2"
+        }
+      },
+      {
+        "id": "b4d_3",
+        "kind": "function",
+        "label": "Повторы и уведомления",
+        "properties": {
+          "parent": "b4",
+          "order": "2"
+        }
+      },
+      {
+        "id": "b4d_3_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "b4d_3"
+        }
+      },
+      {
+        "id": "b5",
+        "kind": "function",
+        "label": "Администрирование",
+        "properties": {
+          "parent": "root",
+          "order": "4"
+        }
+      },
+      {
+        "id": "b5_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "b5"
+        }
+      },
+      {
+        "id": "b5d_1",
+        "kind": "function",
+        "label": "Пользователи и роли",
+        "properties": {
+          "parent": "b5",
+          "order": "0"
+        }
+      },
+      {
+        "id": "b5d_1_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "b5d_1"
+        }
+      },
+      {
+        "id": "b5d_2",
+        "kind": "function",
+        "label": "Аудит изменений",
+        "properties": {
+          "parent": "b5",
+          "order": "1"
+        }
+      },
+      {
+        "id": "b5d_2_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "b5d_2"
+        }
+      },
+      {
+        "id": "b5d_3",
+        "kind": "function",
+        "label": "Правила и справочники",
+        "properties": {
+          "parent": "b5",
+          "order": "2"
+        }
+      },
+      {
+        "id": "b5d_3_view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D01_function_tree",
+          "element": "b5d_3"
+        }
+      }
+    ]
+  },
+  "source": "functree ropFunctions \"Дерево функций\"\ndiagram D01_function_tree \"Дерево функций\" root=root type=tree\nfunction root \"Подготовить и актуализировать\\nкарточки компьютерных систем\" order=0\nview root_view \"\" diagram=D01_function_tree element=root\nfunction b1 \"BOM и правила\" order=0 parent=root\nview b1_view \"\" diagram=D01_function_tree element=b1\nfunction b1d_1 \"Версии и слоты\" order=0 parent=b1\nview b1d_1_view \"\" diagram=D01_function_tree element=b1d_1\nfunction b1d_2 Совместимость order=1 parent=b1\nview b1d_2_view \"\" diagram=D01_function_tree element=b1d_2\nfunction b1d_3 \"Массовая замена\" order=2 parent=b1\nview b1d_3_view \"\" diagram=D01_function_tree element=b1d_3\nfunction b2 Предложения order=1 parent=root\nview b2_view \"\" diagram=D01_function_tree element=b2\nfunction b2d_1 \"Сопоставление SKU\" order=0 parent=b2\nview b2d_1_view \"\" diagram=D01_function_tree element=b2d_1\nfunction b2d_2 \"Загрузка цен и остатков\" order=1 parent=b2\nview b2d_2_view \"\" diagram=D01_function_tree element=b2d_2\nfunction b2d_3 \"Выбор предложения\" order=2 parent=b2\nview b2d_3_view \"\" diagram=D01_function_tree element=b2d_3\nfunction b3 \"Расчёты и контент\" order=2 parent=root\nview b3_view \"\" diagram=D01_function_tree element=b3\nfunction b3d_1 \"Цена и масса\" order=0 parent=b3\nview b3d_1_view \"\" diagram=D01_function_tree element=b3d_1\nfunction b3d_2 \"Атрибуты и описание\" order=1 parent=b3\nview b3d_2_view \"\" diagram=D01_function_tree element=b3d_2\nfunction b3d_3 Изображения order=2 parent=b3\nview b3d_3_view \"\" diagram=D01_function_tree element=b3d_3\nfunction b4 Публикация order=3 parent=root\nview b4_view \"\" diagram=D01_function_tree element=b4\nfunction b4d_1 \"Контроль готовности\" order=0 parent=b4\nview b4d_1_view \"\" diagram=D01_function_tree element=b4d_1\nfunction b4d_2 \"Отправка и статус\" order=1 parent=b4\nview b4d_2_view \"\" diagram=D01_function_tree element=b4d_2\nfunction b4d_3 \"Повторы и уведомления\" order=2 parent=b4\nview b4d_3_view \"\" diagram=D01_function_tree element=b4d_3\nfunction b5 Администрирование order=4 parent=root\nview b5_view \"\" diagram=D01_function_tree element=b5\nfunction b5d_1 \"Пользователи и роли\" order=0 parent=b5\nview b5d_1_view \"\" diagram=D01_function_tree element=b5d_1\nfunction b5d_2 \"Аудит изменений\" order=1 parent=b5\nview b5d_2_view \"\" diagram=D01_function_tree element=b5d_2\nfunction b5d_3 \"Правила и справочники\" order=2 parent=b5\nview b5d_3_view \"\" diagram=D01_function_tree element=b5d_3\n",
+  "draft": "functree ropFunctions \"Дерево функций\"\ndiagram D01_function_tree \"Дерево функций\" root=root type=tree\nfunction root \"Подготовить и актуализировать\\nкарточки компьютерных систем\" order=0\nview root_view \"\" diagram=D01_function_tree element=root\nfunction b1 \"BOM и правила\" order=0 parent=root\nview b1_view \"\" diagram=D01_function_tree element=b1\nfunction b1d_1 \"Версии и слоты\" order=0 parent=b1\nview b1d_1_view \"\" diagram=D01_function_tree element=b1d_1\nfunction b1d_2 Совместимость order=1 parent=b1\nview b1d_2_view \"\" diagram=D01_function_tree element=b1d_2\nfunction b1d_3 \"Массовая замена\" order=2 parent=b1\nview b1d_3_view \"\" diagram=D01_function_tree element=b1d_3\nfunction b2 Предложения order=1 parent=root\nview b2_view \"\" diagram=D01_function_tree element=b2\nfunction b2d_1 \"Сопоставление SKU\" order=0 parent=b2\nview b2d_1_view \"\" diagram=D01_function_tree element=b2d_1\nfunction b2d_2 \"Загрузка цен и остатков\" order=1 parent=b2\nview b2d_2_view \"\" diagram=D01_function_tree element=b2d_2\nfunction b2d_3 \"Выбор предложения\" order=2 parent=b2\nview b2d_3_view \"\" diagram=D01_function_tree element=b2d_3\nfunction b3 \"Расчёты и контент\" order=2 parent=root\nview b3_view \"\" diagram=D01_function_tree element=b3\nfunction b3d_1 \"Цена и масса\" order=0 parent=b3\nview b3d_1_view \"\" diagram=D01_function_tree element=b3d_1\nfunction b3d_2 \"Атрибуты и описание\" order=1 parent=b3\nview b3d_2_view \"\" diagram=D01_function_tree element=b3d_2\nfunction b3d_3 Изображения order=2 parent=b3\nview b3d_3_view \"\" diagram=D01_function_tree element=b3d_3\nfunction b4 Публикация order=3 parent=root\nview b4_view \"\" diagram=D01_function_tree element=b4\nfunction b4d_1 \"Контроль готовности\" order=0 parent=b4\nview b4d_1_view \"\" diagram=D01_function_tree element=b4d_1\nfunction b4d_2 \"Отправка и статус\" order=1 parent=b4\nview b4d_2_view \"\" diagram=D01_function_tree element=b4d_2\nfunction b4d_3 \"Повторы и уведомления\" order=2 parent=b4\nview b4d_3_view \"\" diagram=D01_function_tree element=b4d_3\nfunction b5 Администрирование order=4 parent=root\nview b5_view \"\" diagram=D01_function_tree element=b5\nfunction b5d_1 \"Пользователи и роли\" order=0 parent=b5\nview b5d_1_view \"\" diagram=D01_function_tree element=b5d_1\nfunction b5d_2 \"Аудит изменений\" order=1 parent=b5\nview b5d_2_view \"\" diagram=D01_function_tree element=b5d_2\nfunction b5d_3 \"Правила и справочники\" order=2 parent=b5\nview b5d_3_view \"\" diagram=D01_function_tree element=b5d_3\n",
+  "layout": {
+    "nodes": {
+      "root_view": {
+        "x": 480,
+        "y": 20,
+        "width": 600,
+        "height": 85
+      },
+      "b1_view": {
+        "x": 20,
+        "y": 210,
+        "width": 280,
+        "height": 75
+      },
+      "b1d_1_view": {
+        "x": 20,
+        "y": 410,
+        "width": 280,
+        "height": 75
+      },
+      "b1d_2_view": {
+        "x": 20,
+        "y": 510,
+        "width": 280,
+        "height": 75
+      },
+      "b1d_3_view": {
+        "x": 20,
+        "y": 610,
+        "width": 280,
+        "height": 75
+      },
+      "b2_view": {
+        "x": 330,
+        "y": 210,
+        "width": 280,
+        "height": 75
+      },
+      "b2d_1_view": {
+        "x": 330,
+        "y": 410,
+        "width": 280,
+        "height": 75
+      },
+      "b2d_2_view": {
+        "x": 330,
+        "y": 510,
+        "width": 280,
+        "height": 75
+      },
+      "b2d_3_view": {
+        "x": 330,
+        "y": 610,
+        "width": 280,
+        "height": 75
+      },
+      "b3_view": {
+        "x": 640,
+        "y": 210,
+        "width": 280,
+        "height": 75
+      },
+      "b3d_1_view": {
+        "x": 640,
+        "y": 410,
+        "width": 280,
+        "height": 75
+      },
+      "b3d_2_view": {
+        "x": 640,
+        "y": 510,
+        "width": 280,
+        "height": 75
+      },
+      "b3d_3_view": {
+        "x": 640,
+        "y": 610,
+        "width": 280,
+        "height": 75
+      },
+      "b4_view": {
+        "x": 950,
+        "y": 210,
+        "width": 280,
+        "height": 75
+      },
+      "b4d_1_view": {
+        "x": 950,
+        "y": 410,
+        "width": 280,
+        "height": 75
+      },
+      "b4d_2_view": {
+        "x": 950,
+        "y": 510,
+        "width": 280,
+        "height": 75
+      },
+      "b4d_3_view": {
+        "x": 950,
+        "y": 610,
+        "width": 280,
+        "height": 75
+      },
+      "b5_view": {
+        "x": 1260,
+        "y": 210,
+        "width": 280,
+        "height": 75
+      },
+      "b5d_1_view": {
+        "x": 1260,
+        "y": 410,
+        "width": 280,
+        "height": 75
+      },
+      "b5d_2_view": {
+        "x": 1260,
+        "y": 510,
+        "width": 280,
+        "height": 75
+      },
+      "b5d_3_view": {
+        "x": 1260,
+        "y": 610,
+        "width": 280,
+        "height": 75
+      }
+    },
+    "edges": {},
+    "diagrams": {
+      "D01_function_tree": {}
+    }
+  }
+}

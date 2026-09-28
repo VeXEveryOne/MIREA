@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1640" height="900" viewBox="0 0 1640 900">
+<rect width="100%" height="100%" fill="white"/>
+<rect x="5" y="5" width="1630" height="890" fill="white" stroke="#202020" stroke-width="2"/>
+<polyline points="5,64 1635,64" fill="none" stroke="#202020" stroke-width="2"/>
+<polyline points="5,850 1635,850" fill="none" stroke="#202020" stroke-width="2"/>
+<text x="22" y="30.0" font-family="Times New Roman" font-size="21" font-weight="bold" text-anchor="start">ППОИС • Практическая работа № 2 • ООО «Юкомс»</text>
+<text x="1618" y="30.0" font-family="Times New Roman" font-size="20" font-weight="normal" text-anchor="end">Албахтин И.В. • 23.09.2026</text>
+<text x="22" y="882.0" font-family="Times New Roman" font-size="21" font-weight="bold" text-anchor="start">Узел A-0</text>
+<text x="200" y="882.0" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="start">Формировать и актуализировать карточки компьютерных систем</text>
+<rect x="620" y="365" width="365" height="195" fill="#eff5fa" stroke="#244963" stroke-width="2.4"/>
+<text x="802.5" y="440.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">Формировать и</text>
+<text x="802.5" y="463.1" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">актуализировать карточки</text>
+<text x="802.5" y="485.7" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">компьютерных систем</text>
+<text x="977" y="555.0" font-family="Times New Roman" font-size="14" font-weight="bold" text-anchor="end">0</text>
+<polyline points="5,410 620,410" fill="none" stroke="#244963" stroke-width="2"/>
+<polygon points="610.9103425032512,414.16870802429213 620,410 610.9103425032512,405.83129197570787" fill="#244963"/>
+<text x="295" y="373.0" font-family="Times New Roman" font-size="23" font-weight="normal" text-anchor="middle">Запрос на создание или</text>
+<text x="295" y="398.99" font-family="Times New Roman" font-size="23" font-weight="normal" text-anchor="middle">изменение карточки</text>
+<polyline points="5,515 620,515" fill="none" stroke="#244963" stroke-width="2"/>
+<polygon points="610.9103425032512,519.1687080242921 620,515 610.9103425032512,510.83129197570787" fill="#244963"/>
+<text x="295" y="478.0" font-family="Times New Roman" font-size="23" font-weight="normal" text-anchor="middle">Ассортимент, характеристики</text>
+<text x="295" y="503.99" font-family="Times New Roman" font-size="23" font-weight="normal" text-anchor="middle">и предложения поставщиков</text>
+<polyline points="170,65 170,215 655,215 655,365" fill="none" stroke="#80500a" stroke-width="2"/>
+<polygon points="650.8312919757079,355.9103425032512 655,365 659.1687080242921,355.9103425032512" fill="#80500a"/>
+<rect x="75.891845703125" y="94" width="188.21630859375" height="54.98" fill="white" stroke="white" stroke-width="0"/>
+<text x="170" y="117.0" font-family="Times New Roman" font-size="23" font-weight="normal" text-anchor="middle">Порядок создания</text>
+<text x="170" y="142.99" font-family="Times New Roman" font-size="23" font-weight="normal" text-anchor="middle">и актуализации</text>
+<polyline points="490,65 490,239 727,239 727,365" fill="none" stroke="#80500a" stroke-width="2"/>
+<polygon points="722.8312919757079,355.9103425032512 727,365 731.1687080242921,355.9103425032512" fill="#80500a"/>
+<rect x="404.9267578125" y="94" width="170.146484375" height="54.98" fill="white" stroke="white" stroke-width="0"/>
+<text x="490" y="117.0" font-family="Times New Roman" font-size="23" font-weight="normal" text-anchor="middle">Правила выбора</text>
+<text x="490" y="142.99" font-family="Times New Roman" font-size="23" font-weight="normal" text-anchor="middle">и замены</text>
+<polyline points="810,65 810,263 799,263 799,365" fill="none" stroke="#80500a" stroke-width="2"/>
+<polygon points="794.8312919757079,355.9103425032512 799,365 803.1687080242921,355.9103425032512" fill="#80500a"/>
+<rect x="730.738525390625" y="94" width="158.52294921875" height="54.98" fill="white" stroke="white" stroke-width="0"/>
+<text x="810" y="117.0" font-family="Times New Roman" font-size="23" font-weight="normal" text-anchor="middle">Правила</text>
+<text x="810" y="142.99" font-family="Times New Roman" font-size="23" font-weight="normal" text-anchor="middle">совместимости</text>
+<polyline points="1130,65 1130,287 871,287 871,365" fill="none" stroke="#80500a" stroke-width="2"/>
+<polygon points="866.8312919757079,355.9103425032512 871,365 875.1687080242921,355.9103425032512" fill="#80500a"/>
+<rect x="1028.906494140625" y="94" width="202.18701171875" height="54.98" fill="white" stroke="white" stroke-width="0"/>
+<text x="1130" y="117.0" font-family="Times New Roman" font-size="23" font-weight="normal" text-anchor="middle">Правила цены, веса</text>
+<text x="1130" y="142.99" font-family="Times New Roman" font-size="23" font-weight="normal" text-anchor="middle">и изображений</text>
+<polyline points="1450,65 1450,311 943,311 943,365" fill="none" stroke="#80500a" stroke-width="2"/>
+<polygon points="938.8312919757079,355.9103425032512 943,365 947.1687080242921,355.9103425032512" fill="#80500a"/>
+<rect x="1359.603515625" y="94" width="180.79296875" height="54.98" fill="white" stroke="white" stroke-width="0"/>
+<text x="1450" y="117.0" font-family="Times New Roman" font-size="23" font-weight="normal" text-anchor="middle">Требования Ozon</text>
+<text x="1450" y="142.99" font-family="Times New Roman" font-size="23" font-weight="normal" text-anchor="middle">к карточке</text>
+<polyline points="985,395 1040,395 1040,340 1635,340" fill="none" stroke="#244963" stroke-width="2"/>
+<polygon points="1625.910342503251,344.16870802429213 1635,340 1625.910342503251,335.83129197570787" fill="#244963"/>
+<text x="1370" y="368.0" font-family="Times New Roman" font-size="23" font-weight="normal" text-anchor="middle">Согласованная BOM</text>
+<polyline points="985,440 1082,440 1082,455 1635,455" fill="none" stroke="#244963" stroke-width="2"/>
+<polygon points="1625.910342503251,459.16870802429213 1635,455 1625.910342503251,450.83129197570787" fill="#244963"/>
+<text x="1370" y="441.0" font-family="Times New Roman" font-size="23" font-weight="normal" text-anchor="middle">Цена, вес и изображения</text>
+<polyline points="985,485 1124,485 1124,590 1635,590" fill="none" stroke="#244963" stroke-width="2"/>
+<polygon points="1625.910342503251,594.1687080242921 1635,590 1625.910342503251,585.8312919757079" fill="#244963"/>
+<text x="1370" y="555.0" font-family="Times New Roman" font-size="23" font-weight="normal" text-anchor="middle">Опубликованная или</text>
+<text x="1370" y="580.99" font-family="Times New Roman" font-size="23" font-weight="normal" text-anchor="middle">обновлённая карточка</text>
+<polyline points="985,530 1166,530 1166,700 1635,700" fill="none" stroke="#244963" stroke-width="2"/>
+<polygon points="1625.910342503251,704.1687080242921 1635,700 1625.910342503251,695.8312919757079" fill="#244963"/>
+<text x="1300" y="728.0" font-family="Times New Roman" font-size="23" font-weight="normal" text-anchor="middle">Сведения об ошибке</text>
+<text x="1300" y="753.99" font-family="Times New Roman" font-size="23" font-weight="normal" text-anchor="middle">публикации</text>
+<polyline points="170,850 170,755 655,755 655,560" fill="none" stroke="#586777" stroke-width="2"/>
+<polygon points="659.1687080242921,569.0896574967488 655,560 650.8312919757079,569.0896574967488" fill="#586777"/>
+<rect x="94.90185546875" y="771" width="150.1962890625" height="52.72" fill="white" stroke="white" stroke-width="0"/>
+<text x="170" y="793.0" font-family="Times New Roman" font-size="22" font-weight="normal" text-anchor="middle">Менеджер</text>
+<text x="170" y="817.86" font-family="Times New Roman" font-size="22" font-weight="normal" text-anchor="middle">маркетплейсов</text>
+<polyline points="490,850 490,735 727,735 727,560" fill="none" stroke="#586777" stroke-width="2"/>
+<polygon points="731.1687080242921,569.0896574967488 727,560 722.8312919757079,569.0896574967488" fill="#586777"/>
+<rect x="364.53173828125" y="771" width="250.9365234375" height="52.72" fill="white" stroke="white" stroke-width="0"/>
+<text x="490" y="793.0" font-family="Times New Roman" font-size="22" font-weight="normal" text-anchor="middle">Технический специалист;</text>
+<text x="490" y="817.86" font-family="Times New Roman" font-size="22" font-weight="normal" text-anchor="middle">PC4Games и ITPartner</text>
+<polyline points="810,850 810,715 799,715 799,560" fill="none" stroke="#586777" stroke-width="2"/>
+<polygon points="803.1687080242921,569.0896574967488 799,560 794.8312919757079,569.0896574967488" fill="#586777"/>
+<rect x="743.71044921875" y="771" width="132.5791015625" height="52.72" fill="white" stroke="white" stroke-width="0"/>
+<text x="810" y="793.0" font-family="Times New Roman" font-size="22" font-weight="normal" text-anchor="middle">Технический</text>
+<text x="810" y="817.86" font-family="Times New Roman" font-size="22" font-weight="normal" text-anchor="middle">специалист</text>
+<polyline points="1130,850 1130,695 871,695 871,560" fill="none" stroke="#586777" stroke-width="2"/>
+<polygon points="875.1687080242921,569.0896574967488 871,560 866.8312919757079,569.0896574967488" fill="#586777"/>
+<rect x="1036.376953125" y="771" width="187.24609375" height="52.72" fill="white" stroke="white" stroke-width="0"/>
+<text x="1130" y="793.0" font-family="Times New Roman" font-size="22" font-weight="normal" text-anchor="middle">Дизайнер;</text>
+<text x="1130" y="817.86" font-family="Times New Roman" font-size="22" font-weight="normal" text-anchor="middle">проектируемая ИС</text>
+<polyline points="1450,850 1450,675 943,675 943,560" fill="none" stroke="#586777" stroke-width="2"/>
+<polygon points="947.1687080242921,569.0896574967488 943,560 938.8312919757079,569.0896574967488" fill="#586777"/>
+<rect x="1392.9326171875" y="771" width="114.134765625" height="52.72" fill="white" stroke="white" stroke-width="0"/>
+<text x="1450" y="793.0" font-family="Times New Roman" font-size="22" font-weight="normal" text-anchor="middle">Менеджер;</text>
+<text x="1450" y="817.86" font-family="Times New Roman" font-size="22" font-weight="normal" text-anchor="middle">API Ozon</text>
+</svg>
