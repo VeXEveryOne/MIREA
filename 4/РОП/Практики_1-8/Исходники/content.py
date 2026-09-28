@@ -224,5 +224,79 @@ sources=[
 'Spring. Spring Boot Reference Documentation. https://docs.spring.io/spring-boot/.'
 ]
 for i,s in enumerate(sources,1):p(str(i)+'. '+s)
+
+# Чистовая нормализация объединённого отчёта. Графика берётся из актуальных
+# редактируемых моделей, а внутренние заметки о процессе подготовки исключаются.
+from prepare_submission_assets import replace_visible
+
+service_markers=(
+ 'Сданная работа Губарева',
+ 'Статус каждого графического материала',
+ 'представлены редактируемые SVG для дальнейшего построения',
+ 'Следующий этап — перенос черновиков',
+ 'Сданный пример по восьми практикам',
+ 'OmniNotation. Локальные AGENTS.md',
+ 'Албахтин И.В. РОП. Единый отчёт, практическое занятие 1.',
+)
+blocks=[b for b in blocks if not (b['type']=='p' and any(x in b['text'] for x in service_markers))]
+
+def clean_value(value):
+ if isinstance(value,str):
+  value=replace_visible(value)
+  return value.replace('[8–11]','[5–8]').replace('[12–14]','[9–11]').replace('[15–17]','[12–14]')
+ if isinstance(value,list):return [clean_value(x) for x in value]
+ if isinstance(value,dict):return {k:clean_value(v) for k,v in value.items()}
+ return value
+
+blocks=[clean_value(b) for b in blocks]
+registry=json.loads((ROOT/'Модели_OmniNotation_v2'/'Реестр_38_рисунков.json').read_text(encoding='utf-8'))
+pngs=[Path(x['export']['png']['file']) for x in registry['figures']]
+report_png_dir=ROOT/'Модели_для_отчёта'/'PNG_final2'
+report_pngs=sorted(report_png_dir.glob('*.png'),key=lambda x:int(x.name.split('_',1)[0]))
+figures=[b for b in blocks if b['type']=='fig']
+if len(figures)!=38:raise RuntimeError(f'Ожидалось 38 рисунков, получено {len(figures)}')
+if len(report_pngs)==38:pngs=report_pngs
+for b,path,item in zip(figures,pngs,registry['figures']):
+ b['path']=str(path)
+ b['title']=replace_visible(re.sub(r'^Рисунок\s+\d+\s+[—-]\s*','',item['title']))
+
+from PIL import Image
+def sequence_parts(block,segments,header=430,overlap=180):
+ source=Path(block['path'])
+ image=Image.open(source).convert('RGB')
+ part_dir=report_png_dir/'sequence_parts'
+ part_dir.mkdir(exist_ok=True)
+ body_start=0
+ parts=[]
+ body_height=(image.height-header+segments-1)//segments
+ for index in range(segments):
+  start=0 if index==0 else max(header,header+index*body_height-overlap)
+  end=image.height if index==segments-1 else min(image.height,header+(index+1)*body_height+overlap)
+  if index==0:
+   part=image.crop((0,0,image.width,end))
+  else:
+   top=image.crop((0,0,image.width,header))
+   body=image.crop((0,start,image.width,end))
+   part=Image.new('RGB',(image.width,top.height+body.height),'white')
+   part.paste(top,(0,0));part.paste(body,(0,top.height))
+  target=part_dir/f'{source.stem}_часть_{index+1}.png'
+  part.save(target,optimize=True)
+  parts.append(str(target))
+ block['parts']=parts
+ block['landscape']=True
+
+sequence_parts(figures[35],3)
+sequence_parts(figures[36],4)
+
+source_start=next(i for i,b in enumerate(blocks) if b['type']=='h' and b['text']=='Список использованных источников')
+source_number=0
+for b in blocks[source_start+1:]:
+ if b['type']!='p':continue
+ match=re.match(r'^\d+\.\s*(.*)$',b['text'])
+ if not match:continue
+ source_number+=1
+ b['text']=f'{source_number}. {match.group(1)}'
+ b['type']='source'
+
 (ROOT/'content.json').write_text(json.dumps(blocks,ensure_ascii=False,indent=2),encoding='utf-8')
 if __name__=='__main__':print(len(blocks),'blocks')

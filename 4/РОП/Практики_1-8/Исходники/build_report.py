@@ -36,13 +36,15 @@ for name in ['Normal','Body Text','Caption','Heading 1','Heading 2','Heading 3',
   st.font.bold=True;pf.first_line_indent=0;pf.keep_with_next=True;pf.keep_together=True;pf.space_before=Pt(12);pf.space_after=Pt(6);pf.alignment=WD_ALIGN_PARAGRAPH.CENTER if name=='Heading 1' else WD_ALIGN_PARAGRAPH.LEFT
   pf.page_break_before=name=='Heading 1'
  else:pf.alignment=WD_ALIGN_PARAGRAPH.JUSTIFY
-for name in ['TableCaptionROP','FigureCaptionROP','TableROP']:
+for name in ['TableCaptionROP','FigureCaptionROP','TableROP','ReferencesROP']:
  if name not in doc.styles:doc.styles.add_style(name,1)
  st=doc.styles[name];st.font.name='Times New Roman';st.font.size=Pt(14 if name=='FigureCaptionROP' else 12);st.font.color.rgb=RGBColor(0,0,0)
  st.font.italic=name=='TableCaptionROP';st.font.bold=False
  pf=st.paragraph_format;pf.left_indent=0;pf.right_indent=0;pf.first_line_indent=0;pf.line_spacing=1;pf.space_before=Pt(3 if name=='FigureCaptionROP' else 0);pf.space_after=Pt(6 if name=='FigureCaptionROP' else 0);pf.alignment=WD_ALIGN_PARAGRAPH.CENTER if name=='FigureCaptionROP' else WD_ALIGN_PARAGRAPH.LEFT
  if name=='TableCaptionROP':pf.keep_with_next=True;pf.space_before=Pt(6);pf.space_after=Pt(3)
  if name=='FigureCaptionROP':pf.keep_together=True
+ if name=='ReferencesROP':
+  st.font.size=Pt(14);pf.alignment=WD_ALIGN_PARAGRAPH.LEFT;pf.line_spacing=1.5;pf.first_line_indent=0;pf.left_indent=0;pf.space_after=Pt(0)
 def field(p,code,cached):
  r=p.add_run();begin=OxmlElement('w:fldChar');begin.set(qn('w:fldCharType'),'begin');r._r.append(begin)
  instr=OxmlElement('w:instrText');instr.set(qn('xml:space'),'preserve');instr.text=' '+code+' ';r._r.append(instr)
@@ -81,6 +83,8 @@ for bi,b in enumerate(blocks):
   pp=doc.add_paragraph(b['text'],'Heading '+str(b['level']));md+=['\n'+'#'*(b['level']+1)+' '+b['text']+'\n']
  elif b['type']=='p':
   page(False);para(b['text']);md+=[b['text']+'\n']
+ elif b['type']=='source':
+  page(False);doc.add_paragraph(b['text'],'ReferencesROP');md+=[b['text']+'\n']
  elif b['type']=='table':
   table+=1;heads=b['heads'];rows=b['rows'];wide=len(heads)>=5 or b['title'] in ['Сущности логической модели','Матрица RBAC']
   page(wide)
@@ -116,14 +120,23 @@ for bi,b in enumerate(blocks):
   pending=[]
   pp=para(f'На рисунке {figure} показана модель «{b["title"]}».');pp.paragraph_format.keep_with_next=True
   if not had_heading and same_page_orientation:pp.paragraph_format.page_break_before=True
-  image=Image.open(b['path']);wmax=25.2 if land else 16.5;hmax=(12 if had_heading else 13.3) if land else (19.5 if had_heading else 21)
-  iw,ih=image.size;w=min(wmax,hmax*iw/ih)
-  pp=doc.add_paragraph();pp.alignment=WD_ALIGN_PARAGRAPH.CENTER;pf=pp.paragraph_format;pf.first_line_indent=0;pf.space_after=0;pf.space_before=0;pf.line_spacing=1;pf.keep_with_next=True
-  pp.add_run().add_picture(b['path'],width=Cm(w))
-  cp=doc.add_paragraph(style='FigureCaptionROP');cp.add_run('Рисунок ');field(cp,'SEQ Figure \\* ARABIC',figure);cp.add_run(' – '+b['title'])
+  paths=b.get('parts') or [b['path']]
+  for part_index,image_path in enumerate(paths):
+   if part_index:page(land,True)
+   image=Image.open(image_path);wmax=25.2 if land else 16.5
+   if land and len(paths)>1:hmax=10.8 if had_heading and part_index==0 else 12
+   else:hmax=(12 if had_heading and part_index==0 else 13.3) if land else (19.5 if had_heading and part_index==0 else 21)
+   iw,ih=image.size;w=min(wmax,hmax*iw/ih)
+   pp=doc.add_paragraph();pp.alignment=WD_ALIGN_PARAGRAPH.CENTER;pf=pp.paragraph_format;pf.first_line_indent=0;pf.space_after=0;pf.space_before=0;pf.line_spacing=1;pf.keep_with_next=True
+   pp.add_run().add_picture(image_path,width=Cm(w))
+   cp=doc.add_paragraph(style='FigureCaptionROP')
+   if part_index==0:
+    cp.add_run('Рисунок ');field(cp,'SEQ Figure \\* ARABIC',figure);cp.add_run(' – '+b['title']+(f' (часть 1 из {len(paths)})' if len(paths)>1 else ''))
+   else:
+    cp.add_run(f'Продолжение рисунка {figure} – {b["title"]} (часть {part_index+1} из {len(paths)})')
   md+=['\n![Рисунок '+str(figure)+' — '+b['title']+']('+str(Path(b['path']).relative_to(ROOT) if Path(b['path']).is_relative_to(ROOT) else Path(b['path']))+')\n']
-output=ROOT/'РОП_Практики_1-8_АлбахтинИВ.docx';doc.save(output)
-(ROOT/'РОП_Практики_1-8_АлбахтинИВ.md').write_text('\n'.join(md),encoding='utf-8')
+output=ROOT/'РОП_Практики_1-8_АлбахтинИВ_готово.docx';doc.save(output)
+(ROOT/'РОП_Практики_1-8_АлбахтинИВ_готово.md').write_text('\n'.join(md),encoding='utf-8')
 (TMP/'artifact.md').write_text(f'''# Контракт титульного листа
 Источник: {template}
 SHA256: {hashlib.sha256(template.read_bytes()).hexdigest()}
