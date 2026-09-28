@@ -1,78 +1,87 @@
 idef0 rop_cards "Карточки компьютерных систем ООО Юкомс AS IS"
-diagram context "Формировать и актуализировать карточки компьютерных систем" node=A-0 purpose="Описать текущую подготовку карточек и выявить ручные операции" viewpoint="Менеджер маркетплейсов" author="Албахтин И.В." date="13.09.2026" project="РОП Практика 1 — ООО Юкомс" status=draft context=TOP pageNumber=1
-function root "Формировать и актуализировать карточки компьютерных систем" in=context number=0
-boundary ctx_request "Запрос на создание или изменение карточки" in=context side=left direction=in
-arrow c_request "Запрос на создание или изменение карточки" from=ctx_request to=root role=input
-boundary ctx_data "Ассортимент, характеристики и предложения поставщиков" in=context side=left direction=in
-arrow c_data "Ассортимент, характеристики и предложения поставщиков" from=ctx_data to=root role=input
-boundary ctx_regulation "Порядок создания и актуализации карточек" in=context side=top direction=in
-arrow c_regulation "Порядок создания и актуализации карточек" from=ctx_regulation to=root role=control
-boundary ctx_selection "Правила выбора и замены комплектующих" in=context side=top direction=in
-arrow c_selection "Правила выбора и замены комплектующих" from=ctx_selection to=root role=control
-boundary ctx_compatibility "Правила совместимости" in=context side=top direction=in
-arrow c_compatibility "Правила совместимости" from=ctx_compatibility to=root role=control
-boundary ctx_calculation "Правила цены, веса и изображений" in=context side=top direction=in
-arrow c_calculation "Правила цены, веса и изображений" from=ctx_calculation to=root role=control
-boundary ctx_ozon_rules "Требования Ozon к карточке" in=context side=top direction=in
-arrow c_ozon_rules "Требования Ozon к карточке" from=ctx_ozon_rules to=root role=control
-boundary ctx_bom "Согласованная BOM" in=context side=right direction=out
-arrow c_bom "Согласованная BOM" from=root to=ctx_bom role=output
-boundary ctx_values "Цена, вес и изображения" in=context side=right direction=out
-arrow c_values "Цена, вес и изображения" from=root to=ctx_values role=output
-boundary ctx_card "Опубликованная или обновлённая карточка" in=context side=right direction=out
-arrow c_card "Опубликованная или обновлённая карточка" from=root to=ctx_card role=output
-boundary ctx_error "Сведения об ошибке публикации" in=context side=right direction=out
-arrow c_error "Сведения об ошибке публикации" from=root to=ctx_error role=output
+diagram context "Вручную формировать и актуализировать карточки компьютерных систем" node=A-0 purpose="Показать разрозненные ручные операции, повторный ввод и позднее обнаружение ошибок" viewpoint="Менеджер маркетплейсов" author="Албахтин И.В." date="28.09.2026" project="РОП Практика 1 — ООО Юкомс" status=publication context=TOP pageNumber=1
+function root "Вручную формировать и актуализировать карточки компьютерных систем" in=context number=0
+boundary ctx_request "Запрос из почты или мессенджера" in=context side=left direction=in
+arrow c_request "Запрос из почты или мессенджера" from=ctx_request to=root role=input
+boundary ctx_data "Разрозненные прайс-листы, остатки, характеристики и изображения" in=context side=left direction=in
+arrow c_data "Разрозненные прайс-листы, остатки, характеристики и изображения" from=ctx_data to=root role=input
+boundary ctx_assignment "Неформальный порядок назначения исполнителей" in=context side=top direction=in
+arrow c_assignment "Неформальный порядок назначения исполнителей" from=ctx_assignment to=root role=control
+boundary ctx_templates "Локальные шаблоны Excel и устные договорённости" in=context side=top direction=in
+arrow c_templates "Локальные шаблоны Excel и устные договорённости" from=ctx_templates to=root role=control
+boundary ctx_compatibility "Неформализованные правила совместимости" in=context side=top direction=in
+arrow c_compatibility "Неформализованные правила совместимости" from=ctx_compatibility to=root role=control
+boundary ctx_supplierRoutine "Привычный способ запроса и сведения предложений" in=context side=top direction=in
+arrow c_supplierRoutine "Привычный способ запроса и сведения предложений" from=ctx_supplierRoutine to=root role=control
+boundary ctx_calculation "Формулы цены и массы, обновляемые вручную" in=context side=top direction=in
+arrow c_calculation "Формулы цены и массы, обновляемые вручную" from=ctx_calculation to=root role=control
+boundary ctx_ozon "Требования Ozon, проверяемые при заполнении" in=context side=top direction=in
+arrow c_ozon "Требования Ozon, проверяемые при заполнении" from=ctx_ozon to=root role=control
+boundary ctx_table "Локальная таблица состава без гарантированной версии" in=context side=right direction=out
+arrow c_table "Локальная таблица состава без гарантированной версии" from=root to=ctx_table role=output
+boundary ctx_values "Рассчитанные вручную цена, масса, изображения и текст" in=context side=right direction=out
+arrow c_values "Рассчитанные вручную цена, масса, изображения и текст" from=root to=ctx_values role=output
+boundary ctx_card "Карточка в Ozon или отклонение" in=context side=right direction=out
+arrow c_card "Карточка в Ozon или отклонение" from=root to=ctx_card role=output
+boundary ctx_waste "Расхождения, замечания и повторная работа" in=context side=right direction=out
+arrow c_waste "Расхождения, замечания и повторная работа" from=root to=ctx_waste role=output
 boundary ctx_manager "Менеджер маркетплейсов" in=context side=bottom direction=in
 arrow c_manager "Менеджер маркетплейсов" from=ctx_manager to=root role=mechanism
-boundary ctx_supply "Менеджер, склад и поставщики" in=context side=bottom direction=in
-arrow c_supply "Менеджер, склад и поставщики" from=ctx_supply to=root role=mechanism
-boundary ctx_engineer "Технический специалист" in=context side=bottom direction=in
-arrow c_engineer "Технический специалист" from=ctx_engineer to=root role=mechanism
-boundary ctx_design "Менеджер и дизайнер" in=context side=bottom direction=in
-arrow c_design "Менеджер и дизайнер" from=ctx_design to=root role=mechanism
-boundary ctx_publisher "Менеджер и кабинет Ozon Seller" in=context side=bottom direction=in
-arrow c_publisher "Менеджер и кабинет Ozon Seller" from=ctx_publisher to=root role=mechanism
-diagram decomposition "Формировать и актуализировать карточки компьютерных систем" in=root node=A0 purpose="Описать текущую подготовку карточек и выявить ручные операции" viewpoint="Менеджер маркетплейсов" author="Албахтин И.В." date="13.09.2026" project="РОП Практика 1 — ООО Юкомс" status=draft context=A-0 pageNumber=2
-function A1 "Инициировать создание или изменение карточки" in=decomposition number=1
-function A2 "Сформировать BOM и сопоставить товары поставщиков" in=decomposition number=2
-function A3 "Проверить совместимость комплектующих" in=decomposition number=3
-function A4 "Рассчитать цену и вес, подготовить изображения" in=decomposition number=4
-function A5 "Заполнить, проверить и опубликовать карточку в Ozon" in=decomposition number=5
-boundary dec_request "Запрос на создание или изменение карточки" in=decomposition side=left direction=in parentArrow=c_request parentEnd=to
-arrow d_request "Запрос на создание или изменение карточки" from=dec_request to=A1 role=input
-boundary dec_data "Ассортимент, характеристики и предложения поставщиков" in=decomposition side=left direction=in parentArrow=c_data parentEnd=to
-arrow d_data "Ассортимент, характеристики и предложения поставщиков" from=dec_data to=A2 role=input
-boundary dec_regulation "Порядок создания и актуализации карточек" in=decomposition side=top direction=in parentArrow=c_regulation parentEnd=to
-arrow d_regulation "Порядок создания и актуализации карточек" from=dec_regulation to=A1 role=control
-boundary dec_selection "Правила выбора и замены комплектующих" in=decomposition side=top direction=in parentArrow=c_selection parentEnd=to
-arrow d_selection "Правила выбора и замены комплектующих" from=dec_selection to=A2 role=control
-boundary dec_compatibility "Правила совместимости" in=decomposition side=top direction=in parentArrow=c_compatibility parentEnd=to
-arrow d_compatibility "Правила совместимости" from=dec_compatibility to=A3 role=control
-boundary dec_calculation "Правила цены, веса и изображений" in=decomposition side=top direction=in parentArrow=c_calculation parentEnd=to
-arrow d_calculation "Правила цены, веса и изображений" from=dec_calculation to=A4 role=control
-boundary dec_ozon_rules "Требования Ozon к карточке" in=decomposition side=top direction=in parentArrow=c_ozon_rules parentEnd=to
-arrow d_ozon_rules "Требования Ozon к карточке" from=dec_ozon_rules to=A5 role=control
-boundary dec_bom "Согласованная BOM" in=decomposition side=right direction=out parentArrow=c_bom parentEnd=from
-arrow d_bom "Согласованная BOM" from=A3 to=dec_bom role=output
-boundary dec_values "Цена, вес и изображения" in=decomposition side=right direction=out parentArrow=c_values parentEnd=from
-arrow d_values "Цена, вес и изображения" from=A4 to=dec_values role=output
-boundary dec_card "Опубликованная или обновлённая карточка" in=decomposition side=right direction=out parentArrow=c_card parentEnd=from
-arrow d_card "Опубликованная или обновлённая карточка" from=A5 to=dec_card role=output
-boundary dec_error "Сведения об ошибке публикации" in=decomposition side=right direction=out parentArrow=c_error parentEnd=from
-arrow d_error "Сведения об ошибке публикации" from=A5 to=dec_error role=output
+boundary ctx_staff "Технический специалист, склад и дизайнер" in=context side=bottom direction=in
+arrow c_staff "Технический специалист, склад и дизайнер" from=ctx_staff to=root role=mechanism
+boundary ctx_desktop "Excel, калькулятор и браузер" in=context side=bottom direction=in
+arrow c_desktop "Excel, калькулятор и браузер" from=ctx_desktop to=root role=mechanism
+boundary ctx_messages "Почта, мессенджеры и общие папки" in=context side=bottom direction=in
+arrow c_messages "Почта, мессенджеры и общие папки" from=ctx_messages to=root role=mechanism
+boundary ctx_seller "Кабинет Ozon Seller" in=context side=bottom direction=in
+arrow c_seller "Кабинет Ozon Seller" from=ctx_seller to=root role=mechanism
+diagram decomposition "Вручную формировать и актуализировать карточки компьютерных систем" in=root node=A0 purpose="Показать разрозненные ручные операции, повторный ввод и позднее обнаружение ошибок" viewpoint="Менеджер маркетплейсов" author="Албахтин И.В." date="28.09.2026" project="РОП Практика 1 — ООО Юкомс" status=publication context=A-0 pageNumber=2
+function A1 "Получить неформальный запрос и найти исходные материалы" in=decomposition number=1
+function A2 "Скопировать предыдущий состав и вручную подобрать комплектующие" in=decomposition number=2
+function A3 "Проверить совместимость по опыту, сайтам и переписке" in=decomposition number=3
+function A4 "Запросить и вручную свести цены и остатки поставщиков" in=decomposition number=4
+function A5 "Отдельно рассчитать цену и массу, подготовить изображения и текст" in=decomposition number=5
+function A6 "Повторно ввести данные в Ozon и исправлять отклонения" in=decomposition number=6
+boundary dec_request "Запрос из почты или мессенджера" in=decomposition side=left direction=in parentArrow=c_request parentEnd=to
+arrow d_request "Запрос из почты или мессенджера" from=dec_request to=A1 role=input
+boundary dec_data "Разрозненные прайс-листы, остатки, характеристики и изображения" in=decomposition side=left direction=in parentArrow=c_data parentEnd=to
+arrow d_data "Разрозненные прайс-листы, остатки, характеристики и изображения" from=dec_data to=A2 role=input
+boundary dec_assignment "Неформальный порядок назначения исполнителей" in=decomposition side=top direction=in parentArrow=c_assignment parentEnd=to
+arrow d_assignment "Неформальный порядок назначения исполнителей" from=dec_assignment to=A1 role=control
+boundary dec_templates "Локальные шаблоны Excel и устные договорённости" in=decomposition side=top direction=in parentArrow=c_templates parentEnd=to
+arrow d_templates "Локальные шаблоны Excel и устные договорённости" from=dec_templates to=A2 role=control
+boundary dec_compatibility "Неформализованные правила совместимости" in=decomposition side=top direction=in parentArrow=c_compatibility parentEnd=to
+arrow d_compatibility "Неформализованные правила совместимости" from=dec_compatibility to=A3 role=control
+boundary dec_supplierRoutine "Привычный способ запроса и сведения предложений" in=decomposition side=top direction=in parentArrow=c_supplierRoutine parentEnd=to
+arrow d_supplierRoutine "Привычный способ запроса и сведения предложений" from=dec_supplierRoutine to=A4 role=control
+boundary dec_calculation "Формулы цены и массы, обновляемые вручную" in=decomposition side=top direction=in parentArrow=c_calculation parentEnd=to
+arrow d_calculation "Формулы цены и массы, обновляемые вручную" from=dec_calculation to=A5 role=control
+boundary dec_ozon "Требования Ozon, проверяемые при заполнении" in=decomposition side=top direction=in parentArrow=c_ozon parentEnd=to
+arrow d_ozon "Требования Ozon, проверяемые при заполнении" from=dec_ozon to=A6 role=control
+boundary dec_table "Локальная таблица состава без гарантированной версии" in=decomposition side=right direction=out parentArrow=c_table parentEnd=from
+arrow d_table "Локальная таблица состава без гарантированной версии" from=A2 to=dec_table role=output
+boundary dec_values "Рассчитанные вручную цена, масса, изображения и текст" in=decomposition side=right direction=out parentArrow=c_values parentEnd=from
+arrow d_values "Рассчитанные вручную цена, масса, изображения и текст" from=A5 to=dec_values role=output
+boundary dec_card "Карточка в Ozon или отклонение" in=decomposition side=right direction=out parentArrow=c_card parentEnd=from
+arrow d_card "Карточка в Ozon или отклонение" from=A6 to=dec_card role=output
+boundary dec_waste "Расхождения, замечания и повторная работа" in=decomposition side=right direction=out parentArrow=c_waste parentEnd=from
+arrow d_waste "Расхождения, замечания и повторная работа" from=A6 to=dec_waste role=output
 boundary dec_manager "Менеджер маркетплейсов" in=decomposition side=bottom direction=in parentArrow=c_manager parentEnd=to
 arrow d_manager "Менеджер маркетплейсов" from=dec_manager to=A1 role=mechanism
-boundary dec_supply "Менеджер, склад и поставщики" in=decomposition side=bottom direction=in parentArrow=c_supply parentEnd=to
-arrow d_supply "Менеджер, склад и поставщики" from=dec_supply to=A2 role=mechanism
-boundary dec_engineer "Технический специалист" in=decomposition side=bottom direction=in parentArrow=c_engineer parentEnd=to
-arrow d_engineer "Технический специалист" from=dec_engineer to=A3 role=mechanism
-boundary dec_design "Менеджер и дизайнер" in=decomposition side=bottom direction=in parentArrow=c_design parentEnd=to
-arrow d_design "Менеджер и дизайнер" from=dec_design to=A4 role=mechanism
-boundary dec_publisher "Менеджер и кабинет Ozon Seller" in=decomposition side=bottom direction=in parentArrow=c_publisher parentEnd=to
-arrow d_publisher "Менеджер и кабинет Ozon Seller" from=dec_publisher to=A5 role=mechanism
-arrow step12 "Запрос и выбранный корпус" from=A1 to=A2 role=input
-arrow step23 "Проект конфигурации" from=A2 to=A3 role=input
-arrow step34 "Согласованная BOM" from=A3 to=A4 role=input
-arrow step45 "Данные карточки" from=A4 to=A5 role=input
-arrow correction "Замечания по совместимости" from=A3 to=A2 role=control
+boundary dec_staff "Технический специалист, склад и дизайнер" in=decomposition side=bottom direction=in parentArrow=c_staff parentEnd=to
+arrow d_staff "Технический специалист, склад и дизайнер" from=dec_staff to=A3 role=mechanism
+boundary dec_desktop "Excel, калькулятор и браузер" in=decomposition side=bottom direction=in parentArrow=c_desktop parentEnd=to
+arrow d_desktop "Excel, калькулятор и браузер" from=dec_desktop to=A5 role=mechanism
+boundary dec_messages "Почта, мессенджеры и общие папки" in=decomposition side=bottom direction=in parentArrow=c_messages parentEnd=to
+arrow d_messages "Почта, мессенджеры и общие папки" from=dec_messages to=A4 role=mechanism
+boundary dec_seller "Кабинет Ozon Seller" in=decomposition side=bottom direction=in parentArrow=c_seller parentEnd=to
+arrow d_seller "Кабинет Ozon Seller" from=dec_seller to=A6 role=mechanism
+arrow step12 "Найденные файлы и выбранная таблица" from=A1 to=A2 role=input
+arrow step23 "Черновой состав в локальном файле" from=A2 to=A3 role=input
+arrow step34 "Состав после ручной проверки" from=A3 to=A4 role=input
+arrow step45 "Сведённые вручную цены и остатки" from=A4 to=A5 role=input
+arrow step56 "Файлы и значения для повторного ввода" from=A5 to=A6 role=input
+arrow feedback_compat "Несовместимость и ручные замечания" from=A3 to=A2 role=control
+arrow feedback_unavailable "Нет товара или сведения устарели" from=A4 to=A2 role=control
+arrow feedback_missing "Не хватает характеристик или файлов" from=A5 to=A2 role=control
+arrow feedback_rejected "Отклонение Ozon и повторное исправление" from=A6 to=A5 role=control

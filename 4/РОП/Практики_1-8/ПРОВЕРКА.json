@@ -1,16 +1,16 @@
 {
-  "pdf_pages": 99,
+  "pdf_pages": 105,
   "figures": 38,
   "tables_in_report": 66,
-  "unchanged_FR": 22,
-  "unchanged_NFR": 12,
+  "FR": 22,
+  "NFR": 12,
   "database_tables": 29,
   "columns": 185,
   "foreign_keys_checked": 46,
   "drafts": 28,
   "pptx_slides": {
     "1": 15,
-    "2": 6,
+    "2": 10,
     "3": 6,
     "4": 6,
     "5": 6,
@@ -18,16 +18,18 @@
     "7": 6,
     "8": 6
   },
+  "technical_DRAFT_mentions_in_report": 6,
   "sql_executed_on_PostgreSQL": false,
   "checks": [
     "FK targets and types",
     "index columns",
     "draft files and edge endpoints",
     "decimal example",
-    "original FR/NFR unchanged",
+    "FR/NFR identifiers preserved",
     "DOCX/PDF captions and chapters",
-    "PPTX ZIP structure and slide count",
-    "PPTX 2–8 artifact-tool finalizer",
+    "38 current PNG exports and hashes",
+    "PPTX ZIP structure and slide counts",
+    "obsolete terminology and service text scan",
     "rendered all report pages and slides; inspected layouts"
   ]
 }

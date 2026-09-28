@@ -69,7 +69,7 @@ def page(land=False,force=False):
  global current
  if land!=current:
   setup_section(doc.add_section(WD_SECTION_START.NEW_PAGE),land);current=land
- elif force:doc.add_page_break()
+ elif force:setup_section(doc.add_section(WD_SECTION_START.NEW_PAGE),land)
 def para(text):return doc.add_paragraph(text,'Body Text')
 toc=doc.add_paragraph('Содержание','Title');toc.paragraph_format.first_line_indent=0;toc.alignment=WD_ALIGN_PARAGRAPH.CENTER
 field(doc.add_paragraph(),'TOC \\o "1-2" \\h \\z \\u','Содержание')
@@ -112,14 +112,12 @@ for bi,b in enumerate(blocks):
   md+=['\n*Таблица '+str(table)+' – '+b['title']+'*\n','| '+' | '.join(heads)+' |','| '+' | '.join('---' for x in heads)+' |']
   md+=['| '+' | '.join(str(x).replace('\n','<br>').replace('|','/') for x in row)+' |' for row in rows];md+=['']
  elif b['type']=='fig':
-  figure+=1;land=b.get('landscape',False);same_page_orientation=land==current;page(land)
+  figure+=1;land=b.get('landscape',False);same_page_orientation=land==current;page(land,same_page_orientation)
   had_heading=bool(pending)
   for hi,heading in enumerate(pending):
    hp=doc.add_paragraph(heading['text'],'Heading '+str(heading['level']))
-   if hi==0 and same_page_orientation:hp.paragraph_format.page_break_before=True
   pending=[]
   pp=para(f'На рисунке {figure} показана модель «{b["title"]}».');pp.paragraph_format.keep_with_next=True
-  if not had_heading and same_page_orientation:pp.paragraph_format.page_break_before=True
   paths=b.get('parts') or [b['path']]
   for part_index,image_path in enumerate(paths):
    if part_index:page(land,True)

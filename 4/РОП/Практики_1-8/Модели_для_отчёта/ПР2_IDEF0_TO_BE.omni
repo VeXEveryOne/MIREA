@@ -10,15 +10,15 @@
       {
         "id": "context",
         "kind": "diagram",
-        "label": "Формировать и актуализировать карточки компьютерных систем",
+        "label": "Управлять подготовкой и публикацией карточек компьютерных систем",
         "properties": {
           "node": "A-0",
-          "purpose": "Спроектировать автоматизированную подготовку и публикацию карточек",
+          "purpose": "Спроектировать единый версионированный процесс с автоматическими проверками и управляемой публикацией",
           "viewpoint": "Менеджер маркетплейсов",
           "author": "Албахтин И.В.",
-          "date": "17.09.2026",
+          "date": "28.09.2026",
           "project": "РОП Практика 2 — ООО Юкомс",
-          "status": "draft",
+          "status": "publication",
           "context": "TOP",
           "pageNumber": "1"
         }
@@ -26,7 +26,7 @@
       {
         "id": "root",
         "kind": "function",
-        "label": "Формировать и актуализировать карточки компьютерных систем",
+        "label": "Управлять подготовкой и публикацией карточек компьютерных систем",
         "parent": "context",
         "properties": {
           "number": "0"
@@ -35,7 +35,7 @@
       {
         "id": "ctx_request",
         "kind": "boundary",
-        "label": "Запрос на создание или изменение карточки",
+        "label": "Зарегистрированный запрос на создание или изменение",
         "parent": "context",
         "properties": {
           "side": "left",
@@ -43,9 +43,9 @@
         }
       },
       {
-        "id": "ctx_data",
+        "id": "ctx_catalog",
         "kind": "boundary",
-        "label": "Ассортимент, характеристики и предложения поставщиков",
+        "label": "Справочник компонентов и характеристики",
         "parent": "context",
         "properties": {
           "side": "left",
@@ -53,9 +53,19 @@
         }
       },
       {
-        "id": "ctx_regulation",
+        "id": "ctx_offers",
         "kind": "boundary",
-        "label": "Порядок создания и актуализации карточек",
+        "label": "Потоки предложений поставщиков и шаблоны контента",
+        "parent": "context",
+        "properties": {
+          "side": "left",
+          "direction": "in"
+        }
+      },
+      {
+        "id": "ctx_states",
+        "kind": "boundary",
+        "label": "Модель состояний, версии и правила утверждения",
         "parent": "context",
         "properties": {
           "side": "top",
@@ -63,9 +73,9 @@
         }
       },
       {
-        "id": "ctx_selection",
+        "id": "ctx_mapping",
         "kind": "boundary",
-        "label": "Правила выбора и замены комплектующих",
+        "label": "Правила сопоставления SKU и выбора предложений",
         "parent": "context",
         "properties": {
           "side": "top",
@@ -73,9 +83,9 @@
         }
       },
       {
-        "id": "ctx_compatibility",
+        "id": "ctx_rules",
         "kind": "boundary",
-        "label": "Правила совместимости",
+        "label": "Версионируемые правила совместимости, выбора, цены и массы",
         "parent": "context",
         "properties": {
           "side": "top",
@@ -83,9 +93,9 @@
         }
       },
       {
-        "id": "ctx_calculation",
+        "id": "ctx_ozon",
         "kind": "boundary",
-        "label": "Правила цены, веса и изображений",
+        "label": "Схема и требования Ozon к карточке",
         "parent": "context",
         "properties": {
           "side": "top",
@@ -93,9 +103,9 @@
         }
       },
       {
-        "id": "ctx_ozon_rules",
+        "id": "ctx_approval",
         "kind": "boundary",
-        "label": "Требования Ozon к карточке",
+        "label": "Маршрут проверки и критерии утверждения версии",
         "parent": "context",
         "properties": {
           "side": "top",
@@ -103,9 +113,19 @@
         }
       },
       {
-        "id": "ctx_bom",
+        "id": "ctx_security",
         "kind": "boundary",
-        "label": "Проверенная версия модельного ряда",
+        "label": "RBAC, контроль полноты и политика повторов",
+        "parent": "context",
+        "properties": {
+          "side": "top",
+          "direction": "in"
+        }
+      },
+      {
+        "id": "ctx_version",
+        "kind": "boundary",
+        "label": "Проверенная неизменяемая версия модельного ряда",
         "parent": "context",
         "properties": {
           "side": "right",
@@ -113,9 +133,9 @@
         }
       },
       {
-        "id": "ctx_values",
+        "id": "ctx_content",
         "kind": "boundary",
-        "label": "Цена, вес и изображения",
+        "label": "Воспроизводимый расчёт и версия контента",
         "parent": "context",
         "properties": {
           "side": "right",
@@ -123,9 +143,9 @@
         }
       },
       {
-        "id": "ctx_card",
+        "id": "ctx_status",
         "kind": "boundary",
-        "label": "Опубликованная или обновлённая карточка",
+        "label": "Подтверждённый статус публикации и внешний ID",
         "parent": "context",
         "properties": {
           "side": "right",
@@ -133,9 +153,9 @@
         }
       },
       {
-        "id": "ctx_error",
+        "id": "ctx_audit",
         "kind": "boundary",
-        "label": "Сведения об ошибке публикации",
+        "label": "Журнал аудита и уведомления ответственным",
         "parent": "context",
         "properties": {
           "side": "right",
@@ -143,9 +163,9 @@
         }
       },
       {
-        "id": "ctx_manager",
+        "id": "ctx_roles",
         "kind": "boundary",
-        "label": "Менеджер маркетплейсов",
+        "label": "Сотрудники с назначенными ролями",
         "parent": "context",
         "properties": {
           "side": "bottom",
@@ -153,9 +173,9 @@
         }
       },
       {
-        "id": "ctx_supply",
+        "id": "ctx_system",
         "kind": "boundary",
-        "label": "ИС и сотрудник склада",
+        "label": "Единая информационная система и API",
         "parent": "context",
         "properties": {
           "side": "bottom",
@@ -163,9 +183,9 @@
         }
       },
       {
-        "id": "ctx_engineer",
+        "id": "ctx_storage",
         "kind": "boundary",
-        "label": "ИС и технический специалист",
+        "label": "PostgreSQL и файловое хранилище",
         "parent": "context",
         "properties": {
           "side": "bottom",
@@ -173,9 +193,9 @@
         }
       },
       {
-        "id": "ctx_design",
+        "id": "ctx_adapters",
         "kind": "boundary",
-        "label": "ИС и дизайнер",
+        "label": "Адаптеры поставщиков и механизм правил",
         "parent": "context",
         "properties": {
           "side": "bottom",
@@ -183,9 +203,9 @@
         }
       },
       {
-        "id": "ctx_publisher",
+        "id": "ctx_worker",
         "kind": "boundary",
-        "label": "Менеджер и адаптер Ozon",
+        "label": "Worker и адаптер Ozon",
         "parent": "context",
         "properties": {
           "side": "bottom",
@@ -195,16 +215,16 @@
       {
         "id": "decomposition",
         "kind": "diagram",
-        "label": "Формировать и актуализировать карточки компьютерных систем",
+        "label": "Управлять подготовкой и публикацией карточек компьютерных систем",
         "parent": "root",
         "properties": {
           "node": "A0",
-          "purpose": "Спроектировать автоматизированную подготовку и публикацию карточек",
+          "purpose": "Спроектировать единый версионированный процесс с автоматическими проверками и управляемой публикацией",
           "viewpoint": "Менеджер маркетплейсов",
           "author": "Албахтин И.В.",
-          "date": "17.09.2026",
+          "date": "28.09.2026",
           "project": "РОП Практика 2 — ООО Юкомс",
-          "status": "draft",
+          "status": "publication",
           "context": "A-0",
           "pageNumber": "2"
         }
@@ -212,7 +232,7 @@
       {
         "id": "A1",
         "kind": "function",
-        "label": "Зарегистрировать запрос и версию модельного ряда",
+        "label": "Зарегистрировать запрос и создать черновую версию модельного ряда",
         "parent": "decomposition",
         "properties": {
           "number": "1"
@@ -221,7 +241,7 @@
       {
         "id": "A2",
         "kind": "function",
-        "label": "Разрешить слоты и загрузить предложения",
+        "label": "Загрузить предложения, сопоставить SKU и разрешить групповые слоты",
         "parent": "decomposition",
         "properties": {
           "number": "2"
@@ -230,7 +250,7 @@
       {
         "id": "A3",
         "kind": "function",
-        "label": "Проверить совместимость и актуальность",
+        "label": "Автоматически проверить совместимость, актуальность и полноту",
         "parent": "decomposition",
         "properties": {
           "number": "3"
@@ -239,7 +259,7 @@
       {
         "id": "A4",
         "kind": "function",
-        "label": "Рассчитать цену и вес, сформировать контент",
+        "label": "Рассчитать цену и массу, сформировать контент из одного снимка",
         "parent": "decomposition",
         "properties": {
           "number": "4"
@@ -248,16 +268,25 @@
       {
         "id": "A5",
         "kind": "function",
-        "label": "Утвердить и опубликовать версию карточки",
+        "label": "Проверить и утвердить конкретную версию карточки",
         "parent": "decomposition",
         "properties": {
           "number": "5"
         }
       },
       {
+        "id": "A6",
+        "kind": "function",
+        "label": "Поставить публикацию в очередь, сверить статус и уведомить ответственного",
+        "parent": "decomposition",
+        "properties": {
+          "number": "6"
+        }
+      },
+      {
         "id": "dec_request",
         "kind": "boundary",
-        "label": "Запрос на создание или изменение карточки",
+        "label": "Зарегистрированный запрос на создание или изменение",
         "parent": "decomposition",
         "properties": {
           "side": "left",
@@ -267,182 +296,206 @@
         }
       },
       {
-        "id": "dec_data",
+        "id": "dec_catalog",
         "kind": "boundary",
-        "label": "Ассортимент, характеристики и предложения поставщиков",
+        "label": "Справочник компонентов и характеристики",
         "parent": "decomposition",
         "properties": {
           "side": "left",
           "direction": "in",
-          "parentArrow": "c_data",
+          "parentArrow": "c_catalog",
           "parentEnd": "to"
         }
       },
       {
-        "id": "dec_regulation",
+        "id": "dec_offers",
         "kind": "boundary",
-        "label": "Порядок создания и актуализации карточек",
+        "label": "Потоки предложений поставщиков и шаблоны контента",
+        "parent": "decomposition",
+        "properties": {
+          "side": "left",
+          "direction": "in",
+          "parentArrow": "c_offers",
+          "parentEnd": "to"
+        }
+      },
+      {
+        "id": "dec_states",
+        "kind": "boundary",
+        "label": "Модель состояний, версии и правила утверждения",
         "parent": "decomposition",
         "properties": {
           "side": "top",
           "direction": "in",
-          "parentArrow": "c_regulation",
+          "parentArrow": "c_states",
           "parentEnd": "to"
         }
       },
       {
-        "id": "dec_selection",
+        "id": "dec_mapping",
         "kind": "boundary",
-        "label": "Правила выбора и замены комплектующих",
+        "label": "Правила сопоставления SKU и выбора предложений",
         "parent": "decomposition",
         "properties": {
           "side": "top",
           "direction": "in",
-          "parentArrow": "c_selection",
+          "parentArrow": "c_mapping",
           "parentEnd": "to"
         }
       },
       {
-        "id": "dec_compatibility",
+        "id": "dec_rules",
         "kind": "boundary",
-        "label": "Правила совместимости",
+        "label": "Версионируемые правила совместимости, выбора, цены и массы",
         "parent": "decomposition",
         "properties": {
           "side": "top",
           "direction": "in",
-          "parentArrow": "c_compatibility",
+          "parentArrow": "c_rules",
           "parentEnd": "to"
         }
       },
       {
-        "id": "dec_calculation",
+        "id": "dec_ozon",
         "kind": "boundary",
-        "label": "Правила цены, веса и изображений",
+        "label": "Схема и требования Ozon к карточке",
         "parent": "decomposition",
         "properties": {
           "side": "top",
           "direction": "in",
-          "parentArrow": "c_calculation",
+          "parentArrow": "c_ozon",
           "parentEnd": "to"
         }
       },
       {
-        "id": "dec_ozon_rules",
+        "id": "dec_approval",
         "kind": "boundary",
-        "label": "Требования Ozon к карточке",
+        "label": "Маршрут проверки и критерии утверждения версии",
         "parent": "decomposition",
         "properties": {
           "side": "top",
           "direction": "in",
-          "parentArrow": "c_ozon_rules",
+          "parentArrow": "c_approval",
           "parentEnd": "to"
         }
       },
       {
-        "id": "dec_bom",
+        "id": "dec_security",
         "kind": "boundary",
-        "label": "Проверенная версия модельного ряда",
+        "label": "RBAC, контроль полноты и политика повторов",
+        "parent": "decomposition",
+        "properties": {
+          "side": "top",
+          "direction": "in",
+          "parentArrow": "c_security",
+          "parentEnd": "to"
+        }
+      },
+      {
+        "id": "dec_version",
+        "kind": "boundary",
+        "label": "Проверенная неизменяемая версия модельного ряда",
         "parent": "decomposition",
         "properties": {
           "side": "right",
           "direction": "out",
-          "parentArrow": "c_bom",
+          "parentArrow": "c_version",
           "parentEnd": "from"
         }
       },
       {
-        "id": "dec_values",
+        "id": "dec_content",
         "kind": "boundary",
-        "label": "Цена, вес и изображения",
+        "label": "Воспроизводимый расчёт и версия контента",
         "parent": "decomposition",
         "properties": {
           "side": "right",
           "direction": "out",
-          "parentArrow": "c_values",
+          "parentArrow": "c_content",
           "parentEnd": "from"
         }
       },
       {
-        "id": "dec_card",
+        "id": "dec_status",
         "kind": "boundary",
-        "label": "Опубликованная или обновлённая карточка",
+        "label": "Подтверждённый статус публикации и внешний ID",
         "parent": "decomposition",
         "properties": {
           "side": "right",
           "direction": "out",
-          "parentArrow": "c_card",
+          "parentArrow": "c_status",
           "parentEnd": "from"
         }
       },
       {
-        "id": "dec_error",
+        "id": "dec_audit",
         "kind": "boundary",
-        "label": "Сведения об ошибке публикации",
+        "label": "Журнал аудита и уведомления ответственным",
         "parent": "decomposition",
         "properties": {
           "side": "right",
           "direction": "out",
-          "parentArrow": "c_error",
+          "parentArrow": "c_audit",
           "parentEnd": "from"
         }
       },
       {
-        "id": "dec_manager",
+        "id": "dec_roles",
         "kind": "boundary",
-        "label": "Менеджер маркетплейсов",
+        "label": "Сотрудники с назначенными ролями",
         "parent": "decomposition",
         "properties": {
           "side": "bottom",
           "direction": "in",
-          "parentArrow": "c_manager",
+          "parentArrow": "c_roles",
           "parentEnd": "to"
         }
       },
       {
-        "id": "dec_supply",
+        "id": "dec_system",
         "kind": "boundary",
-        "label": "ИС и сотрудник склада",
+        "label": "Единая информационная система и API",
         "parent": "decomposition",
         "properties": {
           "side": "bottom",
           "direction": "in",
-          "parentArrow": "c_supply",
+          "parentArrow": "c_system",
           "parentEnd": "to"
         }
       },
       {
-        "id": "dec_engineer",
+        "id": "dec_storage",
         "kind": "boundary",
-        "label": "ИС и технический специалист",
+        "label": "PostgreSQL и файловое хранилище",
         "parent": "decomposition",
         "properties": {
           "side": "bottom",
           "direction": "in",
-          "parentArrow": "c_engineer",
+          "parentArrow": "c_storage",
           "parentEnd": "to"
         }
       },
       {
-        "id": "dec_design",
+        "id": "dec_adapters",
         "kind": "boundary",
-        "label": "ИС и дизайнер",
+        "label": "Адаптеры поставщиков и механизм правил",
         "parent": "decomposition",
         "properties": {
           "side": "bottom",
           "direction": "in",
-          "parentArrow": "c_design",
+          "parentArrow": "c_adapters",
           "parentEnd": "to"
         }
       },
       {
-        "id": "dec_publisher",
+        "id": "dec_worker",
         "kind": "boundary",
-        "label": "Менеджер и адаптер Ozon",
+        "label": "Worker и адаптер Ozon",
         "parent": "decomposition",
         "properties": {
           "side": "bottom",
           "direction": "in",
-          "parentArrow": "c_publisher",
+          "parentArrow": "c_worker",
           "parentEnd": "to"
         }
       }
@@ -451,7 +504,7 @@
       {
         "id": "c_request",
         "kind": "arrow",
-        "label": "Запрос на создание или изменение карточки",
+        "label": "Зарегистрированный запрос на создание или изменение",
         "source": "ctx_request",
         "target": "root",
         "properties": {
@@ -459,150 +512,170 @@
         }
       },
       {
-        "id": "c_data",
+        "id": "c_catalog",
         "kind": "arrow",
-        "label": "Ассортимент, характеристики и предложения поставщиков",
-        "source": "ctx_data",
+        "label": "Справочник компонентов и характеристики",
+        "source": "ctx_catalog",
         "target": "root",
         "properties": {
           "role": "input"
         }
       },
       {
-        "id": "c_regulation",
+        "id": "c_offers",
         "kind": "arrow",
-        "label": "Порядок создания и актуализации карточек",
-        "source": "ctx_regulation",
+        "label": "Потоки предложений поставщиков и шаблоны контента",
+        "source": "ctx_offers",
+        "target": "root",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "c_states",
+        "kind": "arrow",
+        "label": "Модель состояний, версии и правила утверждения",
+        "source": "ctx_states",
         "target": "root",
         "properties": {
           "role": "control"
         }
       },
       {
-        "id": "c_selection",
+        "id": "c_mapping",
         "kind": "arrow",
-        "label": "Правила выбора и замены комплектующих",
-        "source": "ctx_selection",
+        "label": "Правила сопоставления SKU и выбора предложений",
+        "source": "ctx_mapping",
         "target": "root",
         "properties": {
           "role": "control"
         }
       },
       {
-        "id": "c_compatibility",
+        "id": "c_rules",
         "kind": "arrow",
-        "label": "Правила совместимости",
-        "source": "ctx_compatibility",
+        "label": "Версионируемые правила совместимости, выбора, цены и массы",
+        "source": "ctx_rules",
         "target": "root",
         "properties": {
           "role": "control"
         }
       },
       {
-        "id": "c_calculation",
+        "id": "c_ozon",
         "kind": "arrow",
-        "label": "Правила цены, веса и изображений",
-        "source": "ctx_calculation",
+        "label": "Схема и требования Ozon к карточке",
+        "source": "ctx_ozon",
         "target": "root",
         "properties": {
           "role": "control"
         }
       },
       {
-        "id": "c_ozon_rules",
+        "id": "c_approval",
         "kind": "arrow",
-        "label": "Требования Ozon к карточке",
-        "source": "ctx_ozon_rules",
+        "label": "Маршрут проверки и критерии утверждения версии",
+        "source": "ctx_approval",
         "target": "root",
         "properties": {
           "role": "control"
         }
       },
       {
-        "id": "c_bom",
+        "id": "c_security",
         "kind": "arrow",
-        "label": "Проверенная версия модельного ряда",
+        "label": "RBAC, контроль полноты и политика повторов",
+        "source": "ctx_security",
+        "target": "root",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "c_version",
+        "kind": "arrow",
+        "label": "Проверенная неизменяемая версия модельного ряда",
         "source": "root",
-        "target": "ctx_bom",
+        "target": "ctx_version",
         "properties": {
           "role": "output"
         }
       },
       {
-        "id": "c_values",
+        "id": "c_content",
         "kind": "arrow",
-        "label": "Цена, вес и изображения",
+        "label": "Воспроизводимый расчёт и версия контента",
         "source": "root",
-        "target": "ctx_values",
+        "target": "ctx_content",
         "properties": {
           "role": "output"
         }
       },
       {
-        "id": "c_card",
+        "id": "c_status",
         "kind": "arrow",
-        "label": "Опубликованная или обновлённая карточка",
+        "label": "Подтверждённый статус публикации и внешний ID",
         "source": "root",
-        "target": "ctx_card",
+        "target": "ctx_status",
         "properties": {
           "role": "output"
         }
       },
       {
-        "id": "c_error",
+        "id": "c_audit",
         "kind": "arrow",
-        "label": "Сведения об ошибке публикации",
+        "label": "Журнал аудита и уведомления ответственным",
         "source": "root",
-        "target": "ctx_error",
+        "target": "ctx_audit",
         "properties": {
           "role": "output"
         }
       },
       {
-        "id": "c_manager",
+        "id": "c_roles",
         "kind": "arrow",
-        "label": "Менеджер маркетплейсов",
-        "source": "ctx_manager",
+        "label": "Сотрудники с назначенными ролями",
+        "source": "ctx_roles",
         "target": "root",
         "properties": {
           "role": "mechanism"
         }
       },
       {
-        "id": "c_supply",
+        "id": "c_system",
         "kind": "arrow",
-        "label": "ИС и сотрудник склада",
-        "source": "ctx_supply",
+        "label": "Единая информационная система и API",
+        "source": "ctx_system",
         "target": "root",
         "properties": {
           "role": "mechanism"
         }
       },
       {
-        "id": "c_engineer",
+        "id": "c_storage",
         "kind": "arrow",
-        "label": "ИС и технический специалист",
-        "source": "ctx_engineer",
+        "label": "PostgreSQL и файловое хранилище",
+        "source": "ctx_storage",
         "target": "root",
         "properties": {
           "role": "mechanism"
         }
       },
       {
-        "id": "c_design",
+        "id": "c_adapters",
         "kind": "arrow",
-        "label": "ИС и дизайнер",
-        "source": "ctx_design",
+        "label": "Адаптеры поставщиков и механизм правил",
+        "source": "ctx_adapters",
         "target": "root",
         "properties": {
           "role": "mechanism"
         }
       },
       {
-        "id": "c_publisher",
+        "id": "c_worker",
         "kind": "arrow",
-        "label": "Менеджер и адаптер Ozon",
-        "source": "ctx_publisher",
+        "label": "Worker и адаптер Ozon",
+        "source": "ctx_worker",
         "target": "root",
         "properties": {
           "role": "mechanism"
@@ -611,7 +684,7 @@
       {
         "id": "d_request",
         "kind": "arrow",
-        "label": "Запрос на создание или изменение карточки",
+        "label": "Зарегистрированный запрос на создание или изменение",
         "source": "dec_request",
         "target": "A1",
         "properties": {
@@ -619,151 +692,171 @@
         }
       },
       {
-        "id": "d_data",
+        "id": "d_catalog",
         "kind": "arrow",
-        "label": "Ассортимент, характеристики и предложения поставщиков",
-        "source": "dec_data",
+        "label": "Справочник компонентов и характеристики",
+        "source": "dec_catalog",
         "target": "A2",
         "properties": {
           "role": "input"
         }
       },
       {
-        "id": "d_regulation",
+        "id": "d_offers",
         "kind": "arrow",
-        "label": "Порядок создания и актуализации карточек",
-        "source": "dec_regulation",
+        "label": "Потоки предложений поставщиков и шаблоны контента",
+        "source": "dec_offers",
+        "target": "A2",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "d_states",
+        "kind": "arrow",
+        "label": "Модель состояний, версии и правила утверждения",
+        "source": "dec_states",
         "target": "A1",
         "properties": {
           "role": "control"
         }
       },
       {
-        "id": "d_selection",
+        "id": "d_mapping",
         "kind": "arrow",
-        "label": "Правила выбора и замены комплектующих",
-        "source": "dec_selection",
+        "label": "Правила сопоставления SKU и выбора предложений",
+        "source": "dec_mapping",
         "target": "A2",
         "properties": {
           "role": "control"
         }
       },
       {
-        "id": "d_compatibility",
+        "id": "d_rules",
         "kind": "arrow",
-        "label": "Правила совместимости",
-        "source": "dec_compatibility",
+        "label": "Версионируемые правила совместимости, выбора, цены и массы",
+        "source": "dec_rules",
         "target": "A3",
         "properties": {
           "role": "control"
         }
       },
       {
-        "id": "d_calculation",
+        "id": "d_ozon",
         "kind": "arrow",
-        "label": "Правила цены, веса и изображений",
-        "source": "dec_calculation",
+        "label": "Схема и требования Ozon к карточке",
+        "source": "dec_ozon",
         "target": "A4",
         "properties": {
           "role": "control"
         }
       },
       {
-        "id": "d_ozon_rules",
+        "id": "d_approval",
         "kind": "arrow",
-        "label": "Требования Ozon к карточке",
-        "source": "dec_ozon_rules",
+        "label": "Маршрут проверки и критерии утверждения версии",
+        "source": "dec_approval",
         "target": "A5",
         "properties": {
           "role": "control"
         }
       },
       {
-        "id": "d_bom",
+        "id": "d_security",
         "kind": "arrow",
-        "label": "Проверенная версия модельного ряда",
+        "label": "RBAC, контроль полноты и политика повторов",
+        "source": "dec_security",
+        "target": "A6",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "d_version",
+        "kind": "arrow",
+        "label": "Проверенная неизменяемая версия модельного ряда",
         "source": "A3",
-        "target": "dec_bom",
+        "target": "dec_version",
         "properties": {
           "role": "output"
         }
       },
       {
-        "id": "d_values",
+        "id": "d_content",
         "kind": "arrow",
-        "label": "Цена, вес и изображения",
+        "label": "Воспроизводимый расчёт и версия контента",
         "source": "A4",
-        "target": "dec_values",
+        "target": "dec_content",
         "properties": {
           "role": "output"
         }
       },
       {
-        "id": "d_card",
+        "id": "d_status",
         "kind": "arrow",
-        "label": "Опубликованная или обновлённая карточка",
-        "source": "A5",
-        "target": "dec_card",
+        "label": "Подтверждённый статус публикации и внешний ID",
+        "source": "A6",
+        "target": "dec_status",
         "properties": {
           "role": "output"
         }
       },
       {
-        "id": "d_error",
+        "id": "d_audit",
         "kind": "arrow",
-        "label": "Сведения об ошибке публикации",
-        "source": "A5",
-        "target": "dec_error",
+        "label": "Журнал аудита и уведомления ответственным",
+        "source": "A6",
+        "target": "dec_audit",
         "properties": {
           "role": "output"
         }
       },
       {
-        "id": "d_manager",
+        "id": "d_roles",
         "kind": "arrow",
-        "label": "Менеджер маркетплейсов",
-        "source": "dec_manager",
+        "label": "Сотрудники с назначенными ролями",
+        "source": "dec_roles",
         "target": "A1",
         "properties": {
           "role": "mechanism"
         }
       },
       {
-        "id": "d_supply",
+        "id": "d_system",
         "kind": "arrow",
-        "label": "ИС и сотрудник склада",
-        "source": "dec_supply",
-        "target": "A2",
-        "properties": {
-          "role": "mechanism"
-        }
-      },
-      {
-        "id": "d_engineer",
-        "kind": "arrow",
-        "label": "ИС и технический специалист",
-        "source": "dec_engineer",
+        "label": "Единая информационная система и API",
+        "source": "dec_system",
         "target": "A3",
         "properties": {
           "role": "mechanism"
         }
       },
       {
-        "id": "d_design",
+        "id": "d_storage",
         "kind": "arrow",
-        "label": "ИС и дизайнер",
-        "source": "dec_design",
+        "label": "PostgreSQL и файловое хранилище",
+        "source": "dec_storage",
         "target": "A4",
         "properties": {
           "role": "mechanism"
         }
       },
       {
-        "id": "d_publisher",
+        "id": "d_adapters",
         "kind": "arrow",
-        "label": "Менеджер и адаптер Ozon",
-        "source": "dec_publisher",
-        "target": "A5",
+        "label": "Адаптеры поставщиков и механизм правил",
+        "source": "dec_adapters",
+        "target": "A2",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "d_worker",
+        "kind": "arrow",
+        "label": "Worker и адаптер Ozon",
+        "source": "dec_worker",
+        "target": "A6",
         "properties": {
           "role": "mechanism"
         }
@@ -771,7 +864,7 @@
       {
         "id": "step12",
         "kind": "arrow",
-        "label": "Запрос и выбранный корпус",
+        "label": "Черновая версия модельного ряда",
         "source": "A1",
         "target": "A2",
         "properties": {
@@ -781,7 +874,7 @@
       {
         "id": "step23",
         "kind": "arrow",
-        "label": "Модельный ряд с выбранными предложениями",
+        "label": "Версия с выбранными предложениями",
         "source": "A2",
         "target": "A3",
         "properties": {
@@ -791,7 +884,7 @@
       {
         "id": "step34",
         "kind": "arrow",
-        "label": "Проверенная версия модельного ряда",
+        "label": "Проверенный неизменяемый снимок",
         "source": "A3",
         "target": "A4",
         "properties": {
@@ -801,7 +894,7 @@
       {
         "id": "step45",
         "kind": "arrow",
-        "label": "Версия карточки",
+        "label": "Версия карточки с расчётом и контентом",
         "source": "A4",
         "target": "A5",
         "properties": {
@@ -809,9 +902,19 @@
         }
       },
       {
-        "id": "correction",
+        "id": "step56",
         "kind": "arrow",
-        "label": "Замечания по совместимости",
+        "label": "Утверждённая версия и ключ операции",
+        "source": "A5",
+        "target": "A6",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "feedback_correction",
+        "kind": "arrow",
+        "label": "Протокол проверки с точными причинами",
         "source": "A3",
         "target": "A2",
         "properties": {
@@ -820,854 +923,251 @@
       }
     ]
   },
-  "source": "idef0 rop_cards \"Карточки компьютерных систем ООО Юкомс TO BE\"\ndiagram context \"Формировать и актуализировать карточки компьютерных систем\" author=\"Албахтин И.В.\" context=TOP date=\"17.09.2026\" node=A-0 pageNumber=1 project=\"РОП Практика 2 — ООО Юкомс\" purpose=\"Спроектировать автоматизированную подготовку и публикацию карточек\" status=draft viewpoint=\"Менеджер маркетплейсов\"\nfunction root \"Формировать и актуализировать карточки компьютерных систем\" in=context number=0\nboundary ctx_request \"Запрос на создание или изменение карточки\" direction=in in=context side=left\nboundary ctx_data \"Ассортимент, характеристики и предложения поставщиков\" direction=in in=context side=left\nboundary ctx_regulation \"Порядок создания и актуализации карточек\" direction=in in=context side=top\nboundary ctx_selection \"Правила выбора и замены комплектующих\" direction=in in=context side=top\nboundary ctx_compatibility \"Правила совместимости\" direction=in in=context side=top\nboundary ctx_calculation \"Правила цены, веса и изображений\" direction=in in=context side=top\nboundary ctx_ozon_rules \"Требования Ozon к карточке\" direction=in in=context side=top\nboundary ctx_bom \"Проверенная версия модельного ряда\" direction=out in=context side=right\nboundary ctx_values \"Цена, вес и изображения\" direction=out in=context side=right\nboundary ctx_card \"Опубликованная или обновлённая карточка\" direction=out in=context side=right\nboundary ctx_error \"Сведения об ошибке публикации\" direction=out in=context side=right\nboundary ctx_manager \"Менеджер маркетплейсов\" direction=in in=context side=bottom\nboundary ctx_supply \"ИС и сотрудник склада\" direction=in in=context side=bottom\nboundary ctx_engineer \"ИС и технический специалист\" direction=in in=context side=bottom\nboundary ctx_design \"ИС и дизайнер\" direction=in in=context side=bottom\nboundary ctx_publisher \"Менеджер и адаптер Ozon\" direction=in in=context side=bottom\ndiagram decomposition \"Формировать и актуализировать карточки компьютерных систем\" author=\"Албахтин И.В.\" context=A-0 date=\"17.09.2026\" in=root node=A0 pageNumber=2 project=\"РОП Практика 2 — ООО Юкомс\" purpose=\"Спроектировать автоматизированную подготовку и публикацию карточек\" status=draft viewpoint=\"Менеджер маркетплейсов\"\nfunction A1 \"Зарегистрировать запрос и версию модельного ряда\" in=decomposition number=1\nfunction A2 \"Разрешить слоты и загрузить предложения\" in=decomposition number=2\nfunction A3 \"Проверить совместимость и актуальность\" in=decomposition number=3\nfunction A4 \"Рассчитать цену и вес, сформировать контент\" in=decomposition number=4\nfunction A5 \"Утвердить и опубликовать версию карточки\" in=decomposition number=5\nboundary dec_request \"Запрос на создание или изменение карточки\" direction=in in=decomposition parentArrow=c_request parentEnd=to side=left\nboundary dec_data \"Ассортимент, характеристики и предложения поставщиков\" direction=in in=decomposition parentArrow=c_data parentEnd=to side=left\nboundary dec_regulation \"Порядок создания и актуализации карточек\" direction=in in=decomposition parentArrow=c_regulation parentEnd=to side=top\nboundary dec_selection \"Правила выбора и замены комплектующих\" direction=in in=decomposition parentArrow=c_selection parentEnd=to side=top\nboundary dec_compatibility \"Правила совместимости\" direction=in in=decomposition parentArrow=c_compatibility parentEnd=to side=top\nboundary dec_calculation \"Правила цены, веса и изображений\" direction=in in=decomposition parentArrow=c_calculation parentEnd=to side=top\nboundary dec_ozon_rules \"Требования Ozon к карточке\" direction=in in=decomposition parentArrow=c_ozon_rules parentEnd=to side=top\nboundary dec_bom \"Проверенная версия модельного ряда\" direction=out in=decomposition parentArrow=c_bom parentEnd=from side=right\nboundary dec_values \"Цена, вес и изображения\" direction=out in=decomposition parentArrow=c_values parentEnd=from side=right\nboundary dec_card \"Опубликованная или обновлённая карточка\" direction=out in=decomposition parentArrow=c_card parentEnd=from side=right\nboundary dec_error \"Сведения об ошибке публикации\" direction=out in=decomposition parentArrow=c_error parentEnd=from side=right\nboundary dec_manager \"Менеджер маркетплейсов\" direction=in in=decomposition parentArrow=c_manager parentEnd=to side=bottom\nboundary dec_supply \"ИС и сотрудник склада\" direction=in in=decomposition parentArrow=c_supply parentEnd=to side=bottom\nboundary dec_engineer \"ИС и технический специалист\" direction=in in=decomposition parentArrow=c_engineer parentEnd=to side=bottom\nboundary dec_design \"ИС и дизайнер\" direction=in in=decomposition parentArrow=c_design parentEnd=to side=bottom\nboundary dec_publisher \"Менеджер и адаптер Ozon\" direction=in in=decomposition parentArrow=c_publisher parentEnd=to side=bottom\narrow c_request \"Запрос на создание или изменение карточки\" from=ctx_request role=input to=root\narrow c_data \"Ассортимент, характеристики и предложения поставщиков\" from=ctx_data role=input to=root\narrow c_regulation \"Порядок создания и актуализации карточек\" from=ctx_regulation role=control to=root\narrow c_selection \"Правила выбора и замены комплектующих\" from=ctx_selection role=control to=root\narrow c_compatibility \"Правила совместимости\" from=ctx_compatibility role=control to=root\narrow c_calculation \"Правила цены, веса и изображений\" from=ctx_calculation role=control to=root\narrow c_ozon_rules \"Требования Ozon к карточке\" from=ctx_ozon_rules role=control to=root\narrow c_bom \"Проверенная версия модельного ряда\" from=root role=output to=ctx_bom\narrow c_values \"Цена, вес и изображения\" from=root role=output to=ctx_values\narrow c_card \"Опубликованная или обновлённая карточка\" from=root role=output to=ctx_card\narrow c_error \"Сведения об ошибке публикации\" from=root role=output to=ctx_error\narrow c_manager \"Менеджер маркетплейсов\" from=ctx_manager role=mechanism to=root\narrow c_supply \"ИС и сотрудник склада\" from=ctx_supply role=mechanism to=root\narrow c_engineer \"ИС и технический специалист\" from=ctx_engineer role=mechanism to=root\narrow c_design \"ИС и дизайнер\" from=ctx_design role=mechanism to=root\narrow c_publisher \"Менеджер и адаптер Ozon\" from=ctx_publisher role=mechanism to=root\narrow d_request \"Запрос на создание или изменение карточки\" from=dec_request role=input to=A1\narrow d_data \"Ассортимент, характеристики и предложения поставщиков\" from=dec_data role=input to=A2\narrow d_regulation \"Порядок создания и актуализации карточек\" from=dec_regulation role=control to=A1\narrow d_selection \"Правила выбора и замены комплектующих\" from=dec_selection role=control to=A2\narrow d_compatibility \"Правила совместимости\" from=dec_compatibility role=control to=A3\narrow d_calculation \"Правила цены, веса и изображений\" from=dec_calculation role=control to=A4\narrow d_ozon_rules \"Требования Ozon к карточке\" from=dec_ozon_rules role=control to=A5\narrow d_bom \"Проверенная версия модельного ряда\" from=A3 role=output to=dec_bom\narrow d_values \"Цена, вес и изображения\" from=A4 role=output to=dec_values\narrow d_card \"Опубликованная или обновлённая карточка\" from=A5 role=output to=dec_card\narrow d_error \"Сведения об ошибке публикации\" from=A5 role=output to=dec_error\narrow d_manager \"Менеджер маркетплейсов\" from=dec_manager role=mechanism to=A1\narrow d_supply \"ИС и сотрудник склада\" from=dec_supply role=mechanism to=A2\narrow d_engineer \"ИС и технический специалист\" from=dec_engineer role=mechanism to=A3\narrow d_design \"ИС и дизайнер\" from=dec_design role=mechanism to=A4\narrow d_publisher \"Менеджер и адаптер Ozon\" from=dec_publisher role=mechanism to=A5\narrow step12 \"Запрос и выбранный корпус\" from=A1 role=input to=A2\narrow step23 \"Модельный ряд с выбранными предложениями\" from=A2 role=input to=A3\narrow step34 \"Проверенная версия модельного ряда\" from=A3 role=input to=A4\narrow step45 \"Версия карточки\" from=A4 role=input to=A5\narrow correction \"Замечания по совместимости\" from=A3 role=control to=A2\n",
-  "draft": "idef0 rop_cards \"Карточки компьютерных систем ООО Юкомс TO BE\"\ndiagram context \"Формировать и актуализировать карточки компьютерных систем\" author=\"Албахтин И.В.\" context=TOP date=\"17.09.2026\" node=A-0 pageNumber=1 project=\"РОП Практика 2 — ООО Юкомс\" purpose=\"Спроектировать автоматизированную подготовку и публикацию карточек\" status=draft viewpoint=\"Менеджер маркетплейсов\"\nfunction root \"Формировать и актуализировать карточки компьютерных систем\" in=context number=0\nboundary ctx_request \"Запрос на создание или изменение карточки\" direction=in in=context side=left\nboundary ctx_data \"Ассортимент, характеристики и предложения поставщиков\" direction=in in=context side=left\nboundary ctx_regulation \"Порядок создания и актуализации карточек\" direction=in in=context side=top\nboundary ctx_selection \"Правила выбора и замены комплектующих\" direction=in in=context side=top\nboundary ctx_compatibility \"Правила совместимости\" direction=in in=context side=top\nboundary ctx_calculation \"Правила цены, веса и изображений\" direction=in in=context side=top\nboundary ctx_ozon_rules \"Требования Ozon к карточке\" direction=in in=context side=top\nboundary ctx_bom \"Проверенная версия модельного ряда\" direction=out in=context side=right\nboundary ctx_values \"Цена, вес и изображения\" direction=out in=context side=right\nboundary ctx_card \"Опубликованная или обновлённая карточка\" direction=out in=context side=right\nboundary ctx_error \"Сведения об ошибке публикации\" direction=out in=context side=right\nboundary ctx_manager \"Менеджер маркетплейсов\" direction=in in=context side=bottom\nboundary ctx_supply \"ИС и сотрудник склада\" direction=in in=context side=bottom\nboundary ctx_engineer \"ИС и технический специалист\" direction=in in=context side=bottom\nboundary ctx_design \"ИС и дизайнер\" direction=in in=context side=bottom\nboundary ctx_publisher \"Менеджер и адаптер Ozon\" direction=in in=context side=bottom\ndiagram decomposition \"Формировать и актуализировать карточки компьютерных систем\" author=\"Албахтин И.В.\" context=A-0 date=\"17.09.2026\" in=root node=A0 pageNumber=2 project=\"РОП Практика 2 — ООО Юкомс\" purpose=\"Спроектировать автоматизированную подготовку и публикацию карточек\" status=draft viewpoint=\"Менеджер маркетплейсов\"\nfunction A1 \"Зарегистрировать запрос и версию модельного ряда\" in=decomposition number=1\nfunction A2 \"Разрешить слоты и загрузить предложения\" in=decomposition number=2\nfunction A3 \"Проверить совместимость и актуальность\" in=decomposition number=3\nfunction A4 \"Рассчитать цену и вес, сформировать контент\" in=decomposition number=4\nfunction A5 \"Утвердить и опубликовать версию карточки\" in=decomposition number=5\nboundary dec_request \"Запрос на создание или изменение карточки\" direction=in in=decomposition parentArrow=c_request parentEnd=to side=left\nboundary dec_data \"Ассортимент, характеристики и предложения поставщиков\" direction=in in=decomposition parentArrow=c_data parentEnd=to side=left\nboundary dec_regulation \"Порядок создания и актуализации карточек\" direction=in in=decomposition parentArrow=c_regulation parentEnd=to side=top\nboundary dec_selection \"Правила выбора и замены комплектующих\" direction=in in=decomposition parentArrow=c_selection parentEnd=to side=top\nboundary dec_compatibility \"Правила совместимости\" direction=in in=decomposition parentArrow=c_compatibility parentEnd=to side=top\nboundary dec_calculation \"Правила цены, веса и изображений\" direction=in in=decomposition parentArrow=c_calculation parentEnd=to side=top\nboundary dec_ozon_rules \"Требования Ozon к карточке\" direction=in in=decomposition parentArrow=c_ozon_rules parentEnd=to side=top\nboundary dec_bom \"Проверенная версия модельного ряда\" direction=out in=decomposition parentArrow=c_bom parentEnd=from side=right\nboundary dec_values \"Цена, вес и изображения\" direction=out in=decomposition parentArrow=c_values parentEnd=from side=right\nboundary dec_card \"Опубликованная или обновлённая карточка\" direction=out in=decomposition parentArrow=c_card parentEnd=from side=right\nboundary dec_error \"Сведения об ошибке публикации\" direction=out in=decomposition parentArrow=c_error parentEnd=from side=right\nboundary dec_manager \"Менеджер маркетплейсов\" direction=in in=decomposition parentArrow=c_manager parentEnd=to side=bottom\nboundary dec_supply \"ИС и сотрудник склада\" direction=in in=decomposition parentArrow=c_supply parentEnd=to side=bottom\nboundary dec_engineer \"ИС и технический специалист\" direction=in in=decomposition parentArrow=c_engineer parentEnd=to side=bottom\nboundary dec_design \"ИС и дизайнер\" direction=in in=decomposition parentArrow=c_design parentEnd=to side=bottom\nboundary dec_publisher \"Менеджер и адаптер Ozon\" direction=in in=decomposition parentArrow=c_publisher parentEnd=to side=bottom\narrow c_request \"Запрос на создание или изменение карточки\" from=ctx_request role=input to=root\narrow c_data \"Ассортимент, характеристики и предложения поставщиков\" from=ctx_data role=input to=root\narrow c_regulation \"Порядок создания и актуализации карточек\" from=ctx_regulation role=control to=root\narrow c_selection \"Правила выбора и замены комплектующих\" from=ctx_selection role=control to=root\narrow c_compatibility \"Правила совместимости\" from=ctx_compatibility role=control to=root\narrow c_calculation \"Правила цены, веса и изображений\" from=ctx_calculation role=control to=root\narrow c_ozon_rules \"Требования Ozon к карточке\" from=ctx_ozon_rules role=control to=root\narrow c_bom \"Проверенная версия модельного ряда\" from=root role=output to=ctx_bom\narrow c_values \"Цена, вес и изображения\" from=root role=output to=ctx_values\narrow c_card \"Опубликованная или обновлённая карточка\" from=root role=output to=ctx_card\narrow c_error \"Сведения об ошибке публикации\" from=root role=output to=ctx_error\narrow c_manager \"Менеджер маркетплейсов\" from=ctx_manager role=mechanism to=root\narrow c_supply \"ИС и сотрудник склада\" from=ctx_supply role=mechanism to=root\narrow c_engineer \"ИС и технический специалист\" from=ctx_engineer role=mechanism to=root\narrow c_design \"ИС и дизайнер\" from=ctx_design role=mechanism to=root\narrow c_publisher \"Менеджер и адаптер Ozon\" from=ctx_publisher role=mechanism to=root\narrow d_request \"Запрос на создание или изменение карточки\" from=dec_request role=input to=A1\narrow d_data \"Ассортимент, характеристики и предложения поставщиков\" from=dec_data role=input to=A2\narrow d_regulation \"Порядок создания и актуализации карточек\" from=dec_regulation role=control to=A1\narrow d_selection \"Правила выбора и замены комплектующих\" from=dec_selection role=control to=A2\narrow d_compatibility \"Правила совместимости\" from=dec_compatibility role=control to=A3\narrow d_calculation \"Правила цены, веса и изображений\" from=dec_calculation role=control to=A4\narrow d_ozon_rules \"Требования Ozon к карточке\" from=dec_ozon_rules role=control to=A5\narrow d_bom \"Проверенная версия модельного ряда\" from=A3 role=output to=dec_bom\narrow d_values \"Цена, вес и изображения\" from=A4 role=output to=dec_values\narrow d_card \"Опубликованная или обновлённая карточка\" from=A5 role=output to=dec_card\narrow d_error \"Сведения об ошибке публикации\" from=A5 role=output to=dec_error\narrow d_manager \"Менеджер маркетплейсов\" from=dec_manager role=mechanism to=A1\narrow d_supply \"ИС и сотрудник склада\" from=dec_supply role=mechanism to=A2\narrow d_engineer \"ИС и технический специалист\" from=dec_engineer role=mechanism to=A3\narrow d_design \"ИС и дизайнер\" from=dec_design role=mechanism to=A4\narrow d_publisher \"Менеджер и адаптер Ozon\" from=dec_publisher role=mechanism to=A5\narrow step12 \"Запрос и выбранный корпус\" from=A1 role=input to=A2\narrow step23 \"Модельный ряд с выбранными предложениями\" from=A2 role=input to=A3\narrow step34 \"Проверенная версия модельного ряда\" from=A3 role=input to=A4\narrow step45 \"Версия карточки\" from=A4 role=input to=A5\narrow correction \"Замечания по совместимости\" from=A3 role=control to=A2\n",
+  "source": "idef0 rop_cards \"Карточки компьютерных систем ООО Юкомс TO BE\"\ndiagram context \"Управлять подготовкой и публикацией карточек компьютерных систем\" author=\"Албахтин И.В.\" context=TOP date=\"28.09.2026\" node=A-0 pageNumber=1 project=\"РОП Практика 2 — ООО Юкомс\" purpose=\"Спроектировать единый версионированный процесс с автоматическими проверками и управляемой публикацией\" status=publication viewpoint=\"Менеджер маркетплейсов\"\nfunction root \"Управлять подготовкой и публикацией карточек компьютерных систем\" in=context number=0\nboundary ctx_request \"Зарегистрированный запрос на создание или изменение\" direction=in in=context side=left\nboundary ctx_catalog \"Справочник компонентов и характеристики\" direction=in in=context side=left\nboundary ctx_offers \"Потоки предложений поставщиков и шаблоны контента\" direction=in in=context side=left\nboundary ctx_states \"Модель состояний, версии и правила утверждения\" direction=in in=context side=top\nboundary ctx_mapping \"Правила сопоставления SKU и выбора предложений\" direction=in in=context side=top\nboundary ctx_rules \"Версионируемые правила совместимости, выбора, цены и массы\" direction=in in=context side=top\nboundary ctx_ozon \"Схема и требования Ozon к карточке\" direction=in in=context side=top\nboundary ctx_approval \"Маршрут проверки и критерии утверждения версии\" direction=in in=context side=top\nboundary ctx_security \"RBAC, контроль полноты и политика повторов\" direction=in in=context side=top\nboundary ctx_version \"Проверенная неизменяемая версия модельного ряда\" direction=out in=context side=right\nboundary ctx_content \"Воспроизводимый расчёт и версия контента\" direction=out in=context side=right\nboundary ctx_status \"Подтверждённый статус публикации и внешний ID\" direction=out in=context side=right\nboundary ctx_audit \"Журнал аудита и уведомления ответственным\" direction=out in=context side=right\nboundary ctx_roles \"Сотрудники с назначенными ролями\" direction=in in=context side=bottom\nboundary ctx_system \"Единая информационная система и API\" direction=in in=context side=bottom\nboundary ctx_storage \"PostgreSQL и файловое хранилище\" direction=in in=context side=bottom\nboundary ctx_adapters \"Адаптеры поставщиков и механизм правил\" direction=in in=context side=bottom\nboundary ctx_worker \"Worker и адаптер Ozon\" direction=in in=context side=bottom\ndiagram decomposition \"Управлять подготовкой и публикацией карточек компьютерных систем\" author=\"Албахтин И.В.\" context=A-0 date=\"28.09.2026\" in=root node=A0 pageNumber=2 project=\"РОП Практика 2 — ООО Юкомс\" purpose=\"Спроектировать единый версионированный процесс с автоматическими проверками и управляемой публикацией\" status=publication viewpoint=\"Менеджер маркетплейсов\"\nfunction A1 \"Зарегистрировать запрос и создать черновую версию модельного ряда\" in=decomposition number=1\nfunction A2 \"Загрузить предложения, сопоставить SKU и разрешить групповые слоты\" in=decomposition number=2\nfunction A3 \"Автоматически проверить совместимость, актуальность и полноту\" in=decomposition number=3\nfunction A4 \"Рассчитать цену и массу, сформировать контент из одного снимка\" in=decomposition number=4\nfunction A5 \"Проверить и утвердить конкретную версию карточки\" in=decomposition number=5\nfunction A6 \"Поставить публикацию в очередь, сверить статус и уведомить ответственного\" in=decomposition number=6\nboundary dec_request \"Зарегистрированный запрос на создание или изменение\" direction=in in=decomposition parentArrow=c_request parentEnd=to side=left\nboundary dec_catalog \"Справочник компонентов и характеристики\" direction=in in=decomposition parentArrow=c_catalog parentEnd=to side=left\nboundary dec_offers \"Потоки предложений поставщиков и шаблоны контента\" direction=in in=decomposition parentArrow=c_offers parentEnd=to side=left\nboundary dec_states \"Модель состояний, версии и правила утверждения\" direction=in in=decomposition parentArrow=c_states parentEnd=to side=top\nboundary dec_mapping \"Правила сопоставления SKU и выбора предложений\" direction=in in=decomposition parentArrow=c_mapping parentEnd=to side=top\nboundary dec_rules \"Версионируемые правила совместимости, выбора, цены и массы\" direction=in in=decomposition parentArrow=c_rules parentEnd=to side=top\nboundary dec_ozon \"Схема и требования Ozon к карточке\" direction=in in=decomposition parentArrow=c_ozon parentEnd=to side=top\nboundary dec_approval \"Маршрут проверки и критерии утверждения версии\" direction=in in=decomposition parentArrow=c_approval parentEnd=to side=top\nboundary dec_security \"RBAC, контроль полноты и политика повторов\" direction=in in=decomposition parentArrow=c_security parentEnd=to side=top\nboundary dec_version \"Проверенная неизменяемая версия модельного ряда\" direction=out in=decomposition parentArrow=c_version parentEnd=from side=right\nboundary dec_content \"Воспроизводимый расчёт и версия контента\" direction=out in=decomposition parentArrow=c_content parentEnd=from side=right\nboundary dec_status \"Подтверждённый статус публикации и внешний ID\" direction=out in=decomposition parentArrow=c_status parentEnd=from side=right\nboundary dec_audit \"Журнал аудита и уведомления ответственным\" direction=out in=decomposition parentArrow=c_audit parentEnd=from side=right\nboundary dec_roles \"Сотрудники с назначенными ролями\" direction=in in=decomposition parentArrow=c_roles parentEnd=to side=bottom\nboundary dec_system \"Единая информационная система и API\" direction=in in=decomposition parentArrow=c_system parentEnd=to side=bottom\nboundary dec_storage \"PostgreSQL и файловое хранилище\" direction=in in=decomposition parentArrow=c_storage parentEnd=to side=bottom\nboundary dec_adapters \"Адаптеры поставщиков и механизм правил\" direction=in in=decomposition parentArrow=c_adapters parentEnd=to side=bottom\nboundary dec_worker \"Worker и адаптер Ozon\" direction=in in=decomposition parentArrow=c_worker parentEnd=to side=bottom\narrow c_request \"Зарегистрированный запрос на создание или изменение\" from=ctx_request role=input to=root\narrow c_catalog \"Справочник компонентов и характеристики\" from=ctx_catalog role=input to=root\narrow c_offers \"Потоки предложений поставщиков и шаблоны контента\" from=ctx_offers role=input to=root\narrow c_states \"Модель состояний, версии и правила утверждения\" from=ctx_states role=control to=root\narrow c_mapping \"Правила сопоставления SKU и выбора предложений\" from=ctx_mapping role=control to=root\narrow c_rules \"Версионируемые правила совместимости, выбора, цены и массы\" from=ctx_rules role=control to=root\narrow c_ozon \"Схема и требования Ozon к карточке\" from=ctx_ozon role=control to=root\narrow c_approval \"Маршрут проверки и критерии утверждения версии\" from=ctx_approval role=control to=root\narrow c_security \"RBAC, контроль полноты и политика повторов\" from=ctx_security role=control to=root\narrow c_version \"Проверенная неизменяемая версия модельного ряда\" from=root role=output to=ctx_version\narrow c_content \"Воспроизводимый расчёт и версия контента\" from=root role=output to=ctx_content\narrow c_status \"Подтверждённый статус публикации и внешний ID\" from=root role=output to=ctx_status\narrow c_audit \"Журнал аудита и уведомления ответственным\" from=root role=output to=ctx_audit\narrow c_roles \"Сотрудники с назначенными ролями\" from=ctx_roles role=mechanism to=root\narrow c_system \"Единая информационная система и API\" from=ctx_system role=mechanism to=root\narrow c_storage \"PostgreSQL и файловое хранилище\" from=ctx_storage role=mechanism to=root\narrow c_adapters \"Адаптеры поставщиков и механизм правил\" from=ctx_adapters role=mechanism to=root\narrow c_worker \"Worker и адаптер Ozon\" from=ctx_worker role=mechanism to=root\narrow d_request \"Зарегистрированный запрос на создание или изменение\" from=dec_request role=input to=A1\narrow d_catalog \"Справочник компонентов и характеристики\" from=dec_catalog role=input to=A2\narrow d_offers \"Потоки предложений поставщиков и шаблоны контента\" from=dec_offers role=input to=A2\narrow d_states \"Модель состояний, версии и правила утверждения\" from=dec_states role=control to=A1\narrow d_mapping \"Правила сопоставления SKU и выбора предложений\" from=dec_mapping role=control to=A2\narrow d_rules \"Версионируемые правила совместимости, выбора, цены и массы\" from=dec_rules role=control to=A3\narrow d_ozon \"Схема и требования Ozon к карточке\" from=dec_ozon role=control to=A4\narrow d_approval \"Маршрут проверки и критерии утверждения версии\" from=dec_approval role=control to=A5\narrow d_security \"RBAC, контроль полноты и политика повторов\" from=dec_security role=control to=A6\narrow d_version \"Проверенная неизменяемая версия модельного ряда\" from=A3 role=output to=dec_version\narrow d_content \"Воспроизводимый расчёт и версия контента\" from=A4 role=output to=dec_content\narrow d_status \"Подтверждённый статус публикации и внешний ID\" from=A6 role=output to=dec_status\narrow d_audit \"Журнал аудита и уведомления ответственным\" from=A6 role=output to=dec_audit\narrow d_roles \"Сотрудники с назначенными ролями\" from=dec_roles role=mechanism to=A1\narrow d_system \"Единая информационная система и API\" from=dec_system role=mechanism to=A3\narrow d_storage \"PostgreSQL и файловое хранилище\" from=dec_storage role=mechanism to=A4\narrow d_adapters \"Адаптеры поставщиков и механизм правил\" from=dec_adapters role=mechanism to=A2\narrow d_worker \"Worker и адаптер Ozon\" from=dec_worker role=mechanism to=A6\narrow step12 \"Черновая версия модельного ряда\" from=A1 role=input to=A2\narrow step23 \"Версия с выбранными предложениями\" from=A2 role=input to=A3\narrow step34 \"Проверенный неизменяемый снимок\" from=A3 role=input to=A4\narrow step45 \"Версия карточки с расчётом и контентом\" from=A4 role=input to=A5\narrow step56 \"Утверждённая версия и ключ операции\" from=A5 role=input to=A6\narrow feedback_correction \"Протокол проверки с точными причинами\" from=A3 role=control to=A2\n",
+  "draft": "idef0 rop_cards \"Карточки компьютерных систем ООО Юкомс TO BE\"\ndiagram context \"Управлять подготовкой и публикацией карточек компьютерных систем\" author=\"Албахтин И.В.\" context=TOP date=\"28.09.2026\" node=A-0 pageNumber=1 project=\"РОП Практика 2 — ООО Юкомс\" purpose=\"Спроектировать единый версионированный процесс с автоматическими проверками и управляемой публикацией\" status=publication viewpoint=\"Менеджер маркетплейсов\"\nfunction root \"Управлять подготовкой и публикацией карточек компьютерных систем\" in=context number=0\nboundary ctx_request \"Зарегистрированный запрос на создание или изменение\" direction=in in=context side=left\nboundary ctx_catalog \"Справочник компонентов и характеристики\" direction=in in=context side=left\nboundary ctx_offers \"Потоки предложений поставщиков и шаблоны контента\" direction=in in=context side=left\nboundary ctx_states \"Модель состояний, версии и правила утверждения\" direction=in in=context side=top\nboundary ctx_mapping \"Правила сопоставления SKU и выбора предложений\" direction=in in=context side=top\nboundary ctx_rules \"Версионируемые правила совместимости, выбора, цены и массы\" direction=in in=context side=top\nboundary ctx_ozon \"Схема и требования Ozon к карточке\" direction=in in=context side=top\nboundary ctx_approval \"Маршрут проверки и критерии утверждения версии\" direction=in in=context side=top\nboundary ctx_security \"RBAC, контроль полноты и политика повторов\" direction=in in=context side=top\nboundary ctx_version \"Проверенная неизменяемая версия модельного ряда\" direction=out in=context side=right\nboundary ctx_content \"Воспроизводимый расчёт и версия контента\" direction=out in=context side=right\nboundary ctx_status \"Подтверждённый статус публикации и внешний ID\" direction=out in=context side=right\nboundary ctx_audit \"Журнал аудита и уведомления ответственным\" direction=out in=context side=right\nboundary ctx_roles \"Сотрудники с назначенными ролями\" direction=in in=context side=bottom\nboundary ctx_system \"Единая информационная система и API\" direction=in in=context side=bottom\nboundary ctx_storage \"PostgreSQL и файловое хранилище\" direction=in in=context side=bottom\nboundary ctx_adapters \"Адаптеры поставщиков и механизм правил\" direction=in in=context side=bottom\nboundary ctx_worker \"Worker и адаптер Ozon\" direction=in in=context side=bottom\ndiagram decomposition \"Управлять подготовкой и публикацией карточек компьютерных систем\" author=\"Албахтин И.В.\" context=A-0 date=\"28.09.2026\" in=root node=A0 pageNumber=2 project=\"РОП Практика 2 — ООО Юкомс\" purpose=\"Спроектировать единый версионированный процесс с автоматическими проверками и управляемой публикацией\" status=publication viewpoint=\"Менеджер маркетплейсов\"\nfunction A1 \"Зарегистрировать запрос и создать черновую версию модельного ряда\" in=decomposition number=1\nfunction A2 \"Загрузить предложения, сопоставить SKU и разрешить групповые слоты\" in=decomposition number=2\nfunction A3 \"Автоматически проверить совместимость, актуальность и полноту\" in=decomposition number=3\nfunction A4 \"Рассчитать цену и массу, сформировать контент из одного снимка\" in=decomposition number=4\nfunction A5 \"Проверить и утвердить конкретную версию карточки\" in=decomposition number=5\nfunction A6 \"Поставить публикацию в очередь, сверить статус и уведомить ответственного\" in=decomposition number=6\nboundary dec_request \"Зарегистрированный запрос на создание или изменение\" direction=in in=decomposition parentArrow=c_request parentEnd=to side=left\nboundary dec_catalog \"Справочник компонентов и характеристики\" direction=in in=decomposition parentArrow=c_catalog parentEnd=to side=left\nboundary dec_offers \"Потоки предложений поставщиков и шаблоны контента\" direction=in in=decomposition parentArrow=c_offers parentEnd=to side=left\nboundary dec_states \"Модель состояний, версии и правила утверждения\" direction=in in=decomposition parentArrow=c_states parentEnd=to side=top\nboundary dec_mapping \"Правила сопоставления SKU и выбора предложений\" direction=in in=decomposition parentArrow=c_mapping parentEnd=to side=top\nboundary dec_rules \"Версионируемые правила совместимости, выбора, цены и массы\" direction=in in=decomposition parentArrow=c_rules parentEnd=to side=top\nboundary dec_ozon \"Схема и требования Ozon к карточке\" direction=in in=decomposition parentArrow=c_ozon parentEnd=to side=top\nboundary dec_approval \"Маршрут проверки и критерии утверждения версии\" direction=in in=decomposition parentArrow=c_approval parentEnd=to side=top\nboundary dec_security \"RBAC, контроль полноты и политика повторов\" direction=in in=decomposition parentArrow=c_security parentEnd=to side=top\nboundary dec_version \"Проверенная неизменяемая версия модельного ряда\" direction=out in=decomposition parentArrow=c_version parentEnd=from side=right\nboundary dec_content \"Воспроизводимый расчёт и версия контента\" direction=out in=decomposition parentArrow=c_content parentEnd=from side=right\nboundary dec_status \"Подтверждённый статус публикации и внешний ID\" direction=out in=decomposition parentArrow=c_status parentEnd=from side=right\nboundary dec_audit \"Журнал аудита и уведомления ответственным\" direction=out in=decomposition parentArrow=c_audit parentEnd=from side=right\nboundary dec_roles \"Сотрудники с назначенными ролями\" direction=in in=decomposition parentArrow=c_roles parentEnd=to side=bottom\nboundary dec_system \"Единая информационная система и API\" direction=in in=decomposition parentArrow=c_system parentEnd=to side=bottom\nboundary dec_storage \"PostgreSQL и файловое хранилище\" direction=in in=decomposition parentArrow=c_storage parentEnd=to side=bottom\nboundary dec_adapters \"Адаптеры поставщиков и механизм правил\" direction=in in=decomposition parentArrow=c_adapters parentEnd=to side=bottom\nboundary dec_worker \"Worker и адаптер Ozon\" direction=in in=decomposition parentArrow=c_worker parentEnd=to side=bottom\narrow c_request \"Зарегистрированный запрос на создание или изменение\" from=ctx_request role=input to=root\narrow c_catalog \"Справочник компонентов и характеристики\" from=ctx_catalog role=input to=root\narrow c_offers \"Потоки предложений поставщиков и шаблоны контента\" from=ctx_offers role=input to=root\narrow c_states \"Модель состояний, версии и правила утверждения\" from=ctx_states role=control to=root\narrow c_mapping \"Правила сопоставления SKU и выбора предложений\" from=ctx_mapping role=control to=root\narrow c_rules \"Версионируемые правила совместимости, выбора, цены и массы\" from=ctx_rules role=control to=root\narrow c_ozon \"Схема и требования Ozon к карточке\" from=ctx_ozon role=control to=root\narrow c_approval \"Маршрут проверки и критерии утверждения версии\" from=ctx_approval role=control to=root\narrow c_security \"RBAC, контроль полноты и политика повторов\" from=ctx_security role=control to=root\narrow c_version \"Проверенная неизменяемая версия модельного ряда\" from=root role=output to=ctx_version\narrow c_content \"Воспроизводимый расчёт и версия контента\" from=root role=output to=ctx_content\narrow c_status \"Подтверждённый статус публикации и внешний ID\" from=root role=output to=ctx_status\narrow c_audit \"Журнал аудита и уведомления ответственным\" from=root role=output to=ctx_audit\narrow c_roles \"Сотрудники с назначенными ролями\" from=ctx_roles role=mechanism to=root\narrow c_system \"Единая информационная система и API\" from=ctx_system role=mechanism to=root\narrow c_storage \"PostgreSQL и файловое хранилище\" from=ctx_storage role=mechanism to=root\narrow c_adapters \"Адаптеры поставщиков и механизм правил\" from=ctx_adapters role=mechanism to=root\narrow c_worker \"Worker и адаптер Ozon\" from=ctx_worker role=mechanism to=root\narrow d_request \"Зарегистрированный запрос на создание или изменение\" from=dec_request role=input to=A1\narrow d_catalog \"Справочник компонентов и характеристики\" from=dec_catalog role=input to=A2\narrow d_offers \"Потоки предложений поставщиков и шаблоны контента\" from=dec_offers role=input to=A2\narrow d_states \"Модель состояний, версии и правила утверждения\" from=dec_states role=control to=A1\narrow d_mapping \"Правила сопоставления SKU и выбора предложений\" from=dec_mapping role=control to=A2\narrow d_rules \"Версионируемые правила совместимости, выбора, цены и массы\" from=dec_rules role=control to=A3\narrow d_ozon \"Схема и требования Ozon к карточке\" from=dec_ozon role=control to=A4\narrow d_approval \"Маршрут проверки и критерии утверждения версии\" from=dec_approval role=control to=A5\narrow d_security \"RBAC, контроль полноты и политика повторов\" from=dec_security role=control to=A6\narrow d_version \"Проверенная неизменяемая версия модельного ряда\" from=A3 role=output to=dec_version\narrow d_content \"Воспроизводимый расчёт и версия контента\" from=A4 role=output to=dec_content\narrow d_status \"Подтверждённый статус публикации и внешний ID\" from=A6 role=output to=dec_status\narrow d_audit \"Журнал аудита и уведомления ответственным\" from=A6 role=output to=dec_audit\narrow d_roles \"Сотрудники с назначенными ролями\" from=dec_roles role=mechanism to=A1\narrow d_system \"Единая информационная система и API\" from=dec_system role=mechanism to=A3\narrow d_storage \"PostgreSQL и файловое хранилище\" from=dec_storage role=mechanism to=A4\narrow d_adapters \"Адаптеры поставщиков и механизм правил\" from=dec_adapters role=mechanism to=A2\narrow d_worker \"Worker и адаптер Ozon\" from=dec_worker role=mechanism to=A6\narrow step12 \"Черновая версия модельного ряда\" from=A1 role=input to=A2\narrow step23 \"Версия с выбранными предложениями\" from=A2 role=input to=A3\narrow step34 \"Проверенный неизменяемый снимок\" from=A3 role=input to=A4\narrow step45 \"Версия карточки с расчётом и контентом\" from=A4 role=input to=A5\narrow step56 \"Утверждённая версия и ключ операции\" from=A5 role=input to=A6\narrow feedback_correction \"Протокол проверки с точными причинами\" from=A3 role=control to=A2\n",
   "layout": {
     "frames": {
       "context": {
         "x": 0,
         "y": 0,
-        "width": 1200,
-        "height": 720
+        "width": 2100,
+        "height": 980
       },
       "decomposition": {
-        "x": 0,
-        "y": 0,
-        "width": 1800,
-        "height": 920
+        "x": -60,
+        "y": -30,
+        "width": 2960,
+        "height": 1575
       }
     },
     "positions": {
       "root": {
-        "x": 490,
-        "y": 280
+        "x": 860,
+        "y": 390
       },
       "ctx_request": {
         "x": 0,
-        "y": 300
+        "y": 245
       },
-      "ctx_data": {
+      "ctx_catalog": {
         "x": 0,
-        "y": 390
+        "y": 490
       },
-      "ctx_regulation": {
-        "x": 150,
+      "ctx_offers": {
+        "x": 0,
+        "y": 735
+      },
+      "ctx_states": {
+        "x": 300,
         "y": 0
       },
-      "ctx_selection": {
-        "x": 375,
-        "y": 0
-      },
-      "ctx_compatibility": {
+      "ctx_mapping": {
         "x": 600,
         "y": 0
       },
-      "ctx_calculation": {
-        "x": 825,
+      "ctx_rules": {
+        "x": 900,
         "y": 0
       },
-      "ctx_ozon_rules": {
-        "x": 1050,
+      "ctx_ozon": {
+        "x": 1200,
         "y": 0
       },
-      "ctx_bom": {
-        "x": 1200,
-        "y": 230
+      "ctx_approval": {
+        "x": 1500,
+        "y": 0
       },
-      "ctx_values": {
-        "x": 1200,
-        "y": 335
+      "ctx_security": {
+        "x": 1800,
+        "y": 0
       },
-      "ctx_card": {
-        "x": 1200,
-        "y": 440
+      "ctx_version": {
+        "x": 2100,
+        "y": 196
       },
-      "ctx_error": {
-        "x": 1200,
-        "y": 545
+      "ctx_content": {
+        "x": 2100,
+        "y": 392
       },
-      "ctx_manager": {
-        "x": 150,
-        "y": 720
+      "ctx_status": {
+        "x": 2100,
+        "y": 588
       },
-      "ctx_supply": {
-        "x": 375,
-        "y": 720
+      "ctx_audit": {
+        "x": 2100,
+        "y": 784
       },
-      "ctx_engineer": {
-        "x": 600,
-        "y": 720
+      "ctx_roles": {
+        "x": 350,
+        "y": 980
       },
-      "ctx_design": {
-        "x": 825,
-        "y": 720
+      "ctx_system": {
+        "x": 700,
+        "y": 980
       },
-      "ctx_publisher": {
+      "ctx_storage": {
         "x": 1050,
-        "y": 720
+        "y": 980
+      },
+      "ctx_adapters": {
+        "x": 1400,
+        "y": 980
+      },
+      "ctx_worker": {
+        "x": 1750,
+        "y": 980
       },
       "A1": {
-        "x": 170,
-        "y": 150
+        "x": 100,
+        "y": 250
       },
       "A2": {
-        "x": 450,
-        "y": 270
+        "x": 550,
+        "y": 430
       },
       "A3": {
-        "x": 730,
-        "y": 390
+        "x": 1000,
+        "y": 610
       },
       "A4": {
-        "x": 1010,
-        "y": 510
+        "x": 1450,
+        "y": 790
       },
       "A5": {
-        "x": 1290,
-        "y": 630
+        "x": 1900,
+        "y": 970
+      },
+      "A6": {
+        "x": 2350,
+        "y": 1150
       },
       "dec_request": {
-        "x": 0,
-        "y": 210
+        "x": -60,
+        "y": 375
       },
-      "dec_data": {
-        "x": 0,
-        "y": 310
+      "dec_catalog": {
+        "x": -60,
+        "y": 750
       },
-      "dec_regulation": {
-        "x": 280,
-        "y": 0
+      "dec_offers": {
+        "x": -60,
+        "y": 1125
       },
-      "dec_selection": {
-        "x": 472,
-        "y": 0
+      "dec_states": {
+        "x": 400,
+        "y": -30
       },
-      "dec_compatibility": {
-        "x": 752,
-        "y": 0
+      "dec_mapping": {
+        "x": 800,
+        "y": -30
       },
-      "dec_calculation": {
-        "x": 1032,
-        "y": 0
+      "dec_rules": {
+        "x": 1200,
+        "y": -30
       },
-      "dec_ozon_rules": {
-        "x": 1312,
-        "y": 0
+      "dec_ozon": {
+        "x": 1600,
+        "y": -30
       },
-      "dec_bom": {
-        "x": 1800,
-        "y": 440
+      "dec_approval": {
+        "x": 2000,
+        "y": -30
       },
-      "dec_values": {
-        "x": 1800,
-        "y": 560
+      "dec_security": {
+        "x": 2400,
+        "y": -30
       },
-      "dec_card": {
-        "x": 1800,
-        "y": 675
+      "dec_version": {
+        "x": 2900,
+        "y": 300
       },
-      "dec_error": {
-        "x": 1800,
-        "y": 720
+      "dec_content": {
+        "x": 2900,
+        "y": 600
       },
-      "dec_manager": {
-        "x": 280,
-        "y": 920
+      "dec_status": {
+        "x": 2900,
+        "y": 900
       },
-      "dec_supply": {
-        "x": 560,
-        "y": 920
+      "dec_audit": {
+        "x": 2900,
+        "y": 1200
       },
-      "dec_engineer": {
-        "x": 840,
-        "y": 920
+      "dec_roles": {
+        "x": 466.66666666666663,
+        "y": 1545
       },
-      "dec_design": {
-        "x": 1120,
-        "y": 920
+      "dec_system": {
+        "x": 933.3333333333333,
+        "y": 1545
       },
-      "dec_publisher": {
+      "dec_storage": {
         "x": 1400,
-        "y": 920
+        "y": 1545
+      },
+      "dec_adapters": {
+        "x": 1866.6666666666665,
+        "y": 1545
+      },
+      "dec_worker": {
+        "x": 2333.3333333333335,
+        "y": 1545
+      }
+    },
+    "textStyles": {},
+    "sizes": {
+      "root": {
+        "width": 380,
+        "height": 180
+      },
+      "A1": {
+        "width": 350,
+        "height": 155
+      },
+      "A2": {
+        "width": 350,
+        "height": 155
+      },
+      "A3": {
+        "width": 350,
+        "height": 155
+      },
+      "A4": {
+        "width": 350,
+        "height": 155
+      },
+      "A5": {
+        "width": 350,
+        "height": 155
+      },
+      "A6": {
+        "width": 350,
+        "height": 155
       }
     },
     "arrows": {
-      "c_request": {
-        "fromOffset": 0.5,
-        "toOffset": 0.3333333333333333,
+      "feedback_correction": {
         "bends": [
           {
-            "x": 28,
-            "y": 300
+            "x": 1380,
+            "y": 714.625
           },
           {
-            "x": 370,
-            "y": 300
+            "x": 1350,
+            "y": 500
           },
           {
-            "x": 370,
-            "y": 320
+            "x": 765.8333333333333,
+            "y": 500
           },
           {
-            "x": 462,
-            "y": 320
+            "x": 765.8333333333333,
+            "y": 400
           }
         ],
         "label": {
-          "x": 220,
-          "y": 270
-        }
-      },
-      "c_data": {
-        "fromOffset": 0.5,
-        "toOffset": 0.6666666666666666,
-        "bends": [
-          {
-            "x": 28,
-            "y": 390
-          },
-          {
-            "x": 370,
-            "y": 390
-          },
-          {
-            "x": 370,
-            "y": 360
-          },
-          {
-            "x": 462,
-            "y": 360
-          }
-        ],
-        "label": {
-          "x": 220,
-          "y": 360
-        }
-      },
-      "c_regulation": {
-        "fromOffset": 0.5,
-        "toOffset": 0.16666666666666666,
-        "bends": [
-          {
-            "x": 150,
-            "y": 28
-          },
-          {
-            "x": 150,
-            "y": 190
-          },
-          {
-            "x": 526.6666666666666,
-            "y": 190
-          },
-          {
-            "x": 526.6666666666666,
-            "y": 252
-          }
-        ],
-        "label": {
-          "x": 150,
-          "y": 65
-        }
-      },
-      "c_selection": {
-        "fromOffset": 0.5,
-        "toOffset": 0.3333333333333333,
-        "bends": [
-          {
-            "x": 375,
-            "y": 28
-          },
-          {
-            "x": 375,
-            "y": 150
-          },
-          {
-            "x": 563.3333333333334,
-            "y": 150
-          },
-          {
-            "x": 563.3333333333334,
-            "y": 252
-          }
-        ],
-        "label": {
-          "x": 375,
-          "y": 65
-        }
-      },
-      "c_compatibility": {
-        "fromOffset": 0.5,
-        "toOffset": 0.5,
-        "bends": [
-          {
-            "x": 600,
-            "y": 28
-          },
-          {
-            "x": 600,
-            "y": 110
-          },
-          {
-            "x": 600,
-            "y": 110
-          },
-          {
-            "x": 600,
-            "y": 252
-          }
-        ],
-        "label": {
-          "x": 600,
-          "y": 65
-        }
-      },
-      "c_calculation": {
-        "fromOffset": 0.5,
-        "toOffset": 0.6666666666666666,
-        "bends": [
-          {
-            "x": 825,
-            "y": 28
-          },
-          {
-            "x": 825,
-            "y": 150
-          },
-          {
-            "x": 636.6666666666666,
-            "y": 150
-          },
-          {
-            "x": 636.6666666666666,
-            "y": 252
-          }
-        ],
-        "label": {
-          "x": 825,
-          "y": 65
-        }
-      },
-      "c_ozon_rules": {
-        "fromOffset": 0.5,
-        "toOffset": 0.8333333333333334,
-        "bends": [
-          {
-            "x": 1050,
-            "y": 28
-          },
-          {
-            "x": 1050,
-            "y": 190
-          },
-          {
-            "x": 673.3333333333334,
-            "y": 190
-          },
-          {
-            "x": 673.3333333333334,
-            "y": 252
-          }
-        ],
-        "label": {
-          "x": 1050,
-          "y": 65
-        }
-      },
-      "c_bom": {
-        "fromOffset": 0.2,
-        "toOffset": 0.5,
-        "bends": [
-          {
-            "x": 738,
-            "y": 304
-          },
-          {
-            "x": 780,
-            "y": 304
-          },
-          {
-            "x": 780,
-            "y": 230
-          },
-          {
-            "x": 1172,
-            "y": 230
-          }
-        ],
-        "label": {
-          "x": 1030,
-          "y": 236
-        }
-      },
-      "c_values": {
-        "fromOffset": 0.4,
-        "toOffset": 0.5,
-        "bends": [
-          {
-            "x": 738,
-            "y": 328
-          },
-          {
-            "x": 820,
-            "y": 328
-          },
-          {
-            "x": 820,
-            "y": 335
-          },
-          {
-            "x": 1172,
-            "y": 335
-          }
-        ],
-        "label": {
-          "x": 1030,
-          "y": 341
-        }
-      },
-      "c_card": {
-        "fromOffset": 0.6,
-        "toOffset": 0.5,
-        "bends": [
-          {
-            "x": 738,
-            "y": 352
-          },
-          {
-            "x": 900,
-            "y": 352
-          },
-          {
-            "x": 900,
-            "y": 440
-          },
-          {
-            "x": 1172,
-            "y": 440
-          }
-        ],
-        "label": {
-          "x": 1030,
-          "y": 446
-        }
-      },
-      "c_error": {
-        "fromOffset": 0.8,
-        "toOffset": 0.5,
-        "bends": [
-          {
-            "x": 738,
-            "y": 376
-          },
-          {
-            "x": 860,
-            "y": 376
-          },
-          {
-            "x": 860,
-            "y": 545
-          },
-          {
-            "x": 1172,
-            "y": 545
-          }
-        ],
-        "label": {
-          "x": 1030,
-          "y": 551
-        }
-      },
-      "c_manager": {
-        "fromOffset": 0.5,
-        "toOffset": 0.16666666666666666,
-        "bends": [
-          {
-            "x": 150,
-            "y": 692
-          },
-          {
-            "x": 150,
-            "y": 490
-          },
-          {
-            "x": 526.6666666666666,
-            "y": 490
-          },
-          {
-            "x": 526.6666666666666,
-            "y": 428
-          }
-        ],
-        "label": {
-          "x": 150,
-          "y": 655
-        }
-      },
-      "c_supply": {
-        "fromOffset": 0.5,
-        "toOffset": 0.3333333333333333,
-        "bends": [
-          {
-            "x": 375,
-            "y": 692
-          },
-          {
-            "x": 375,
-            "y": 540
-          },
-          {
-            "x": 563.3333333333334,
-            "y": 540
-          },
-          {
-            "x": 563.3333333333334,
-            "y": 428
-          }
-        ],
-        "label": {
-          "x": 375,
-          "y": 655
-        }
-      },
-      "c_engineer": {
-        "fromOffset": 0.5,
-        "toOffset": 0.5,
-        "bends": [
-          {
-            "x": 600,
-            "y": 692
-          },
-          {
-            "x": 600,
-            "y": 590
-          },
-          {
-            "x": 600,
-            "y": 590
-          },
-          {
-            "x": 600,
-            "y": 428
-          }
-        ],
-        "label": {
-          "x": 600,
-          "y": 655
-        }
-      },
-      "c_design": {
-        "fromOffset": 0.5,
-        "toOffset": 0.6666666666666666,
-        "bends": [
-          {
-            "x": 825,
-            "y": 692
-          },
-          {
-            "x": 825,
-            "y": 540
-          },
-          {
-            "x": 636.6666666666666,
-            "y": 540
-          },
-          {
-            "x": 636.6666666666666,
-            "y": 428
-          }
-        ],
-        "label": {
-          "x": 825,
-          "y": 655
-        }
-      },
-      "c_publisher": {
-        "fromOffset": 0.5,
-        "toOffset": 0.8333333333333334,
-        "bends": [
-          {
-            "x": 1050,
-            "y": 692
-          },
-          {
-            "x": 1050,
-            "y": 490
-          },
-          {
-            "x": 673.3333333333334,
-            "y": 490
-          },
-          {
-            "x": 673.3333333333334,
-            "y": 428
-          }
-        ],
-        "label": {
-          "x": 1050,
-          "y": 655
-        }
-      },
-      "d_request": {
-        "fromOffset": 0.5,
-        "toOffset": 0.5,
-        "label": {
-          "x": 115,
-          "y": 145
-        }
-      },
-      "d_data": {
-        "fromOffset": 0.5,
-        "toOffset": 0.35,
-        "label": {
-          "x": 165,
-          "y": 360
-        }
-      },
-      "d_regulation": {
-        "fromOffset": 0.5,
-        "toOffset": 0.5,
-        "label": {
-          "x": 280,
-          "y": 85
-        }
-      },
-      "d_selection": {
-        "fromOffset": 0.5,
-        "toOffset": 0.1,
-        "label": {
-          "x": 560,
-          "y": 85
-        }
-      },
-      "d_compatibility": {
-        "fromOffset": 0.5,
-        "toOffset": 0.1,
-        "label": {
-          "x": 840,
-          "y": 85
-        }
-      },
-      "d_calculation": {
-        "fromOffset": 0.5,
-        "toOffset": 0.1,
-        "label": {
-          "x": 1120,
-          "y": 85
-        }
-      },
-      "d_ozon_rules": {
-        "fromOffset": 0.5,
-        "toOffset": 0.1,
-        "label": {
-          "x": 1400,
-          "y": 85
-        }
-      },
-      "d_bom": {
-        "fromOffset": 0.35,
-        "toOffset": 0.5,
-        "label": {
-          "x": 1655,
-          "y": 428
-        }
-      },
-      "d_values": {
-        "fromOffset": 0.35,
-        "toOffset": 0.5,
-        "label": {
-          "x": 1655,
-          "y": 548
-        }
-      },
-      "d_card": {
-        "fromOffset": 0.375,
-        "toOffset": 0.5,
-        "label": {
-          "x": 1655,
-          "y": 663
-        }
-      },
-      "d_error": {
-        "fromOffset": 0.75,
-        "toOffset": 0.5,
-        "label": {
-          "x": 1655,
-          "y": 780
-        }
-      },
-      "d_manager": {
-        "fromOffset": 0.5,
-        "toOffset": 0.5,
-        "label": {
-          "x": 280,
-          "y": 835
-        }
-      },
-      "d_supply": {
-        "fromOffset": 0.5,
-        "toOffset": 0.5,
-        "label": {
-          "x": 560,
-          "y": 835
-        }
-      },
-      "d_engineer": {
-        "fromOffset": 0.5,
-        "toOffset": 0.5,
-        "label": {
-          "x": 840,
-          "y": 835
-        }
-      },
-      "d_design": {
-        "fromOffset": 0.5,
-        "toOffset": 0.5,
-        "label": {
-          "x": 1120,
-          "y": 835
-        }
-      },
-      "d_publisher": {
-        "fromOffset": 0.5,
-        "toOffset": 0.5,
-        "label": {
-          "x": 1400,
-          "y": 835
-        }
-      },
-      "step12": {
-        "fromOffset": 0.5,
-        "toOffset": 0.7,
-        "bends": [
-          {
-            "x": 418,
-            "y": 210
-          },
-          {
-            "x": 420,
-            "y": 210
-          },
-          {
-            "x": 420,
-            "y": 354
-          },
-          {
-            "x": 422,
-            "y": 354
-          }
-        ],
-        "label": {
-          "x": 595,
-          "y": 258
-        }
-      },
-      "step23": {
-        "fromOffset": 0.5,
-        "toOffset": 0.5,
-        "bends": [
-          {
-            "x": 698,
-            "y": 330
-          },
-          {
-            "x": 700,
-            "y": 330
-          },
-          {
-            "x": 700,
-            "y": 450
-          },
-          {
-            "x": 702,
-            "y": 450
-          }
-        ],
-        "label": {
-          "x": 875,
-          "y": 378
-        }
-      },
-      "step34": {
-        "fromOffset": 0.7,
-        "toOffset": 0.5,
-        "bends": [
-          {
-            "x": 978,
-            "y": 474
-          },
-          {
-            "x": 980,
-            "y": 474
-          },
-          {
-            "x": 980,
-            "y": 570
-          },
-          {
-            "x": 982,
-            "y": 570
-          }
-        ],
-        "label": {
-          "x": 1155,
-          "y": 498
-        }
-      },
-      "step45": {
-        "fromOffset": 0.7,
-        "toOffset": 0.5,
-        "bends": [
-          {
-            "x": 1258,
-            "y": 594
-          },
-          {
-            "x": 1260,
-            "y": 594
-          },
-          {
-            "x": 1260,
-            "y": 690
-          },
-          {
-            "x": 1262,
-            "y": 690
-          }
-        ],
-        "label": {
-          "x": 1435,
-          "y": 618
-        }
-      },
-      "correction": {
-        "fromOffset": 0.15,
-        "toOffset": 0.8,
-        "bends": [
-          {
-            "x": 978,
-            "y": 408
-          },
-          {
-            "x": 980,
-            "y": 408
-          },
-          {
-            "x": 980,
-            "y": 220
-          },
-          {
-            "x": 626,
-            "y": 220
-          },
-          {
-            "x": 626,
-            "y": 242
-          }
-        ],
-        "label": {
-          "x": 875,
-          "y": 205
+          "x": 977.9166666666665,
+          "y": 475
         }
       }
     }

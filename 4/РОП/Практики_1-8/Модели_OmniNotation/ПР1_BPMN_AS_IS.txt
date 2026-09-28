@@ -1,54 +1,61 @@
-bpmn Collaboration "Публикация и внешние участники"
+bpmn Collaboration "AS IS: ручная подготовка и повторный ввод"
 pool Ucoms "ООО «Юкомс»"
 pool PC4Games "Поставщик PC4Games"
 pool ITPartner "Поставщик ITPartner"
 pool Ozon Ozon
-event Start "Потребность\nв карточке" in=Ucoms position=start
-process Init "Инициировать\nновую карточку\nили изменение" in=Ucoms
-process Prepare "Подготовить\nданные карточки" in=Ucoms type=subprocess
-process Submit "Ввести данные\nв Ozon и отправить\nкарточку" in=Ucoms
-process Result "Получить статус\nиз Ozon" in=Ucoms type=receive
-gateway Accepted "Опубликована?" in=Ucoms type=exclusive
-event Published "Карточка\nопубликована\nили обновлена" in=Ucoms position=end
-process RecordError "Зафиксировать\nошибку и замечания\nдля исправления" in=Ucoms
-event Failed "Ошибка\nпубликации" in=Ucoms position=end
+event Start "Запрос в почте\nили мессенджере" in=Ucoms position=start
+process Init "Найти старые файлы\nи договориться\nоб исполнителях" in=Ucoms type=manual
+process Prepare "Вручную подготовить\nданные карточки" in=Ucoms type=subprocess
+process Submit "Скопировать данные\nв кабинет Ozon" in=Ucoms type=manual
+process Result "Проверить статус\nвручную" in=Ucoms type=manual
+gateway Accepted "Карточка принята?" in=Ucoms type=exclusive
+event Published "Карточка\nопубликована" in=Ucoms position=end
+process RecordError "Разобрать замечания\nи исправить файлы" in=Ucoms type=manual
+lane Manager "Менеджер маркетплейсов" in=Prepare
 lane Technical "Технический специалист" in=Prepare
 lane Stock "Сотрудник склада" in=Prepare
 lane Designer Дизайнер in=Prepare
-event PrepStart "Начало\nподготовки" in=Prepare position=start
-process BOM "Сформировать BOM\nи сопоставить\nмодели поставщиков" in=Prepare
-process Check "Проверить\nсовместимость\nкомплектующих" in=Prepare
+event PrepStart "Начало\nручной подготовки" in=Prepare position=start
+process FindFiles "Найти переписку,\nтаблицы и изображения" in=Prepare type=manual
+process Copy "Скопировать прежний состав\nв локальную таблицу" in=Prepare type=manual
+process Check "Сверить совместимость\nпо опыту и сайтам" in=Prepare type=manual
 gateway Compatible "Совместимо?" in=Prepare type=exclusive
-process Fix "Исправить\nнесовместимую\nконфигурацию" in=Prepare
-process Offers "Запросить и собрать\nцены и наличие\nу обоих поставщиков" in=Prepare
-gateway Available "Всё доступно?" in=Prepare type=exclusive
-process Replace "Локально заменить\nнедоступный\nкомпонент в BOM" in=Prepare
-process Calculate "Рассчитать\nцену и вес" in=Prepare
-process Images "Подготовить\nизображения" in=Prepare
-event PrepEnd "Данные\nподготовлены" in=Prepare position=end
+process Fix "Исправить состав\nв локальном файле" in=Prepare type=manual
+process Offers "Запросить цены и остатки\nв переписке" in=Prepare type=manual
+gateway Available "Данные актуальны\nи товар доступен?" in=Prepare type=exclusive
+process Replace "Подобрать замену\nи переписать состав" in=Prepare type=manual
+process Calculate "Посчитать цену и массу\nв Excel и калькуляторе" in=Prepare type=manual
+process Images "Подготовить изображения\nи текст в отдельных файлах" in=Prepare type=manual
+gateway Complete "Все данные найдены?" in=Prepare type=exclusive
+process Missing "Искать недостающие\nхарактеристики и файлы" in=Prepare type=manual
+event PrepEnd "Файлы переданы\nменеджеру" in=Prepare position=end
 flow F01 "" from=Start to=Init
 flow F02 "" from=Init to=Prepare
 flow F03 "" from=Prepare to=Submit
 flow F04 "" from=Submit to=Result
 flow F05 "" from=Result to=Accepted
 flow F06 Да condition="status = published" from=Accepted to=Published
-flow F07 Нет condition="status = error" from=Accepted to=RecordError
-flow F08 "" from=RecordError to=Failed
-flow M01 "Запрос цен\nи наличия" from=Prepare to=PC4Games type=message
-flow M02 "Цены\nи наличие" from=PC4Games to=Prepare type=message
-flow M03 "Запрос цен\nи наличия" from=Prepare to=ITPartner type=message
-flow M04 "Цены\nи наличие" from=ITPartner to=Prepare type=message
-flow M05 "Данные карточки" from=Submit to=Ozon type=message
+flow F07 Нет condition="status = rejected" from=Accepted to=RecordError
+flow F08 "Повторить подготовку и ввод" from=RecordError to=Prepare
+flow M01 "Запрос цен и наличия" from=Prepare to=PC4Games type=message
+flow M02 "Прайс-лист или сообщение" from=PC4Games to=Prepare type=message
+flow M03 "Запрос цен и наличия" from=Prepare to=ITPartner type=message
+flow M04 "Прайс-лист или сообщение" from=ITPartner to=Prepare type=message
+flow M05 "Повторно введённые данные" from=Submit to=Ozon type=message
 flow M06 "Статус и замечания" from=Ozon to=Result type=message
-flow D01 "" from=PrepStart to=BOM
-flow D02 "" from=BOM to=Check
-flow D03 "" from=Check to=Compatible
-flow D04 Нет condition="compatible = false" from=Compatible to=Fix
-flow D05 "" from=Fix to=Check
-flow D06 Да condition="compatible = true" from=Compatible to=Offers
-flow D07 "" from=Offers to=Available
-flow D08 Нет condition="available = false" from=Available to=Replace
-flow D09 "" from=Replace to=Check
-flow D10 Да condition="available = true" from=Available to=Calculate
-flow D11 "" from=Calculate to=Images
-flow D12 "" from=Images to=PrepEnd
+flow D01 "" from=PrepStart to=FindFiles
+flow D02 "" from=FindFiles to=Copy
+flow D03 "" from=Copy to=Check
+flow D04 "" from=Check to=Compatible
+flow D05 Нет condition="compatible = false" from=Compatible to=Fix
+flow D06 "Повторная ручная проверка" from=Fix to=Check
+flow D07 Да condition="compatible = true" from=Compatible to=Offers
+flow D08 "" from=Offers to=Available
+flow D09 Нет condition="available = false" from=Available to=Replace
+flow D10 "Вернуться к составу" from=Replace to=Copy
+flow D11 Да condition="available = true" from=Available to=Calculate
+flow D12 "" from=Calculate to=Images
+flow D13 "" from=Images to=Complete
+flow D14 Нет condition="complete = false" from=Complete to=Missing
+flow D15 "Повторно собрать данные" from=Missing to=FindFiles
+flow D16 Да condition="complete = true" from=Complete to=PrepEnd

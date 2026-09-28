@@ -76,9 +76,6 @@
               "ref": "id:RecordError"
             },
             {
-              "ref": "id:Failed"
-            },
-            {
               "ref": "id:F01"
             },
             {
@@ -110,7 +107,7 @@
         "type": "bpmn:Collaboration",
         "properties": {
           "id": "Collaboration",
-          "name": "Публикация и внешние участники",
+          "name": "AS IS: ручная подготовка и повторный ввод",
           "participants": [
             {
               "ref": "id:Ucoms"
@@ -193,7 +190,8 @@
         "type": "bpmn:StartEvent",
         "properties": {
           "id": "Start",
-          "name": "Потребность\nв карточке",
+          "name": "Запрос в почте\nили мессенджере",
+          "incoming": [],
           "outgoing": [
             {
               "ref": "id:F01"
@@ -202,10 +200,10 @@
         }
       },
       "id:Init": {
-        "type": "bpmn:Task",
+        "type": "bpmn:ManualTask",
         "properties": {
           "id": "Init",
-          "name": "Инициировать\nновую карточку\nили изменение",
+          "name": "Найти старые файлы\nи договориться\nоб исполнителях",
           "incoming": [
             {
               "ref": "id:F01"
@@ -222,10 +220,13 @@
         "type": "bpmn:SubProcess",
         "properties": {
           "id": "Prepare",
-          "name": "Подготовить\nданные карточки",
+          "name": "Вручную подготовить\nданные карточки",
           "incoming": [
             {
               "ref": "id:F02"
+            },
+            {
+              "ref": "id:F08"
             }
           ],
           "outgoing": [
@@ -241,9 +242,6 @@
           "flowElements": [
             {
               "ref": "id:PrepStart"
-            },
-            {
-              "ref": "id:BOM"
             },
             {
               "ref": "id:Check"
@@ -271,6 +269,18 @@
             },
             {
               "ref": "id:PrepEnd"
+            },
+            {
+              "ref": "id:FindFiles"
+            },
+            {
+              "ref": "id:Copy"
+            },
+            {
+              "ref": "id:Complete"
+            },
+            {
+              "ref": "id:Missing"
             },
             {
               "ref": "id:D01"
@@ -307,15 +317,27 @@
             },
             {
               "ref": "id:D12"
+            },
+            {
+              "ref": "id:D13"
+            },
+            {
+              "ref": "id:D14"
+            },
+            {
+              "ref": "id:D15"
+            },
+            {
+              "ref": "id:D16"
             }
           ]
         }
       },
       "id:Submit": {
-        "type": "bpmn:Task",
+        "type": "bpmn:ManualTask",
         "properties": {
           "id": "Submit",
-          "name": "Ввести данные\nв Ozon и отправить\nкарточку",
+          "name": "Скопировать данные\nв кабинет Ozon",
           "incoming": [
             {
               "ref": "id:F03"
@@ -329,10 +351,10 @@
         }
       },
       "id:Result": {
-        "type": "bpmn:ReceiveTask",
+        "type": "bpmn:ManualTask",
         "properties": {
           "id": "Result",
-          "name": "Получить статус\nиз Ozon",
+          "name": "Проверить статус\nвручную",
           "incoming": [
             {
               "ref": "id:F04"
@@ -349,7 +371,7 @@
         "type": "bpmn:ExclusiveGateway",
         "properties": {
           "id": "Accepted",
-          "name": "Опубликована?",
+          "name": "Карточка принята?",
           "incoming": [
             {
               "ref": "id:F05"
@@ -369,37 +391,26 @@
         "type": "bpmn:EndEvent",
         "properties": {
           "id": "Published",
-          "name": "Карточка\nопубликована\nили обновлена",
+          "name": "Карточка\nопубликована",
           "incoming": [
             {
               "ref": "id:F06"
             }
-          ]
+          ],
+          "outgoing": []
         }
       },
       "id:RecordError": {
-        "type": "bpmn:Task",
+        "type": "bpmn:ManualTask",
         "properties": {
           "id": "RecordError",
-          "name": "Зафиксировать\nошибку и замечания\nдля исправления",
+          "name": "Разобрать замечания\nи исправить файлы",
           "incoming": [
             {
               "ref": "id:F07"
             }
           ],
           "outgoing": [
-            {
-              "ref": "id:F08"
-            }
-          ]
-        }
-      },
-      "id:Failed": {
-        "type": "bpmn:EndEvent",
-        "properties": {
-          "id": "Failed",
-          "name": "Ошибка\nпубликации",
-          "incoming": [
             {
               "ref": "id:F08"
             }
@@ -507,12 +518,12 @@
         "type": "bpmn:SequenceFlow",
         "properties": {
           "id": "F08",
-          "name": "",
+          "name": "Повторить подготовку и ввод",
           "sourceRef": {
             "ref": "id:RecordError"
           },
           "targetRef": {
-            "ref": "id:Failed"
+            "ref": "id:Prepare"
           }
         }
       },
@@ -551,7 +562,7 @@
         "type": "bpmn:MessageFlow",
         "properties": {
           "id": "M01",
-          "name": "Запрос цен\nи наличия",
+          "name": "Запрос цен и наличия",
           "sourceRef": {
             "ref": "id:Prepare"
           },
@@ -567,7 +578,7 @@
         "type": "bpmn:MessageFlow",
         "properties": {
           "id": "M02",
-          "name": "Цены\nи наличие",
+          "name": "Прайс-лист или сообщение",
           "sourceRef": {
             "ref": "id:PC4Games"
           },
@@ -583,7 +594,7 @@
         "type": "bpmn:MessageFlow",
         "properties": {
           "id": "M03",
-          "name": "Запрос цен\nи наличия",
+          "name": "Запрос цен и наличия",
           "sourceRef": {
             "ref": "id:Prepare"
           },
@@ -599,7 +610,7 @@
         "type": "bpmn:MessageFlow",
         "properties": {
           "id": "M04",
-          "name": "Цены\nи наличие",
+          "name": "Прайс-лист или сообщение",
           "sourceRef": {
             "ref": "id:ITPartner"
           },
@@ -615,7 +626,7 @@
         "type": "bpmn:MessageFlow",
         "properties": {
           "id": "M05",
-          "name": "Данные карточки",
+          "name": "Повторно введённые данные",
           "sourceRef": {
             "ref": "id:Submit"
           },
@@ -656,6 +667,9 @@
             },
             {
               "ref": "id:Designer"
+            },
+            {
+              "ref": "id:Manager"
             }
           ]
         }
@@ -664,50 +678,31 @@
         "type": "bpmn:StartEvent",
         "properties": {
           "id": "PrepStart",
-          "name": "Начало\nподготовки",
+          "name": "Начало\nручной подготовки",
+          "incoming": [],
           "outgoing": [
             {
               "ref": "id:D01"
-            }
-          ]
-        }
-      },
-      "id:BOM": {
-        "type": "bpmn:Task",
-        "properties": {
-          "id": "BOM",
-          "name": "Сформировать Модельный ряд\nи сопоставить\nмодели поставщиков",
-          "incoming": [
-            {
-              "ref": "id:D01"
-            }
-          ],
-          "outgoing": [
-            {
-              "ref": "id:D02"
             }
           ]
         }
       },
       "id:Check": {
-        "type": "bpmn:Task",
+        "type": "bpmn:ManualTask",
         "properties": {
           "id": "Check",
-          "name": "Проверить\nсовместимость\nкомплектующих",
+          "name": "Сверить совместимость\nпо опыту и сайтам",
           "incoming": [
             {
-              "ref": "id:D02"
+              "ref": "id:D03"
             },
             {
-              "ref": "id:D05"
-            },
-            {
-              "ref": "id:D09"
+              "ref": "id:D06"
             }
           ],
           "outgoing": [
             {
-              "ref": "id:D03"
+              "ref": "id:D04"
             }
           ]
         }
@@ -719,49 +714,49 @@
           "name": "Совместимо?",
           "incoming": [
             {
-              "ref": "id:D03"
-            }
-          ],
-          "outgoing": [
-            {
-              "ref": "id:D04"
-            },
-            {
-              "ref": "id:D06"
-            }
-          ]
-        }
-      },
-      "id:Fix": {
-        "type": "bpmn:Task",
-        "properties": {
-          "id": "Fix",
-          "name": "Исправить\nнесовместимую\nконфигурацию",
-          "incoming": [
-            {
               "ref": "id:D04"
             }
           ],
           "outgoing": [
             {
               "ref": "id:D05"
+            },
+            {
+              "ref": "id:D07"
+            }
+          ]
+        }
+      },
+      "id:Fix": {
+        "type": "bpmn:ManualTask",
+        "properties": {
+          "id": "Fix",
+          "name": "Исправить состав\nв локальном файле",
+          "incoming": [
+            {
+              "ref": "id:D05"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:D06"
             }
           ]
         }
       },
       "id:Offers": {
-        "type": "bpmn:Task",
+        "type": "bpmn:ManualTask",
         "properties": {
           "id": "Offers",
-          "name": "Запросить и собрать\nцены и наличие\nу обоих поставщиков",
+          "name": "Запросить цены и остатки\nв переписке",
           "incoming": [
             {
-              "ref": "id:D06"
+              "ref": "id:D07"
             }
           ],
           "outgoing": [
             {
-              "ref": "id:D07"
+              "ref": "id:D08"
             }
           ]
         }
@@ -770,27 +765,7 @@
         "type": "bpmn:ExclusiveGateway",
         "properties": {
           "id": "Available",
-          "name": "Всё доступно?",
-          "incoming": [
-            {
-              "ref": "id:D07"
-            }
-          ],
-          "outgoing": [
-            {
-              "ref": "id:D08"
-            },
-            {
-              "ref": "id:D10"
-            }
-          ]
-        }
-      },
-      "id:Replace": {
-        "type": "bpmn:Task",
-        "properties": {
-          "id": "Replace",
-          "name": "Локально заменить\nнедоступный\nкомпонент в модельном ряду",
+          "name": "Данные актуальны\nи товар доступен?",
           "incoming": [
             {
               "ref": "id:D08"
@@ -799,32 +774,35 @@
           "outgoing": [
             {
               "ref": "id:D09"
-            }
-          ]
-        }
-      },
-      "id:Calculate": {
-        "type": "bpmn:Task",
-        "properties": {
-          "id": "Calculate",
-          "name": "Рассчитать\nцену и вес",
-          "incoming": [
-            {
-              "ref": "id:D10"
-            }
-          ],
-          "outgoing": [
+            },
             {
               "ref": "id:D11"
             }
           ]
         }
       },
-      "id:Images": {
-        "type": "bpmn:Task",
+      "id:Replace": {
+        "type": "bpmn:ManualTask",
         "properties": {
-          "id": "Images",
-          "name": "Подготовить\nизображения",
+          "id": "Replace",
+          "name": "Подобрать замену\nи переписать состав",
+          "incoming": [
+            {
+              "ref": "id:D09"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:D10"
+            }
+          ]
+        }
+      },
+      "id:Calculate": {
+        "type": "bpmn:ManualTask",
+        "properties": {
+          "id": "Calculate",
+          "name": "Посчитать цену и массу\nв Excel и калькуляторе",
           "incoming": [
             {
               "ref": "id:D11"
@@ -833,6 +811,23 @@
           "outgoing": [
             {
               "ref": "id:D12"
+            }
+          ]
+        }
+      },
+      "id:Images": {
+        "type": "bpmn:ManualTask",
+        "properties": {
+          "id": "Images",
+          "name": "Подготовить изображения\nи текст в отдельных файлах",
+          "incoming": [
+            {
+              "ref": "id:D12"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:D13"
             }
           ]
         }
@@ -841,10 +836,88 @@
         "type": "bpmn:EndEvent",
         "properties": {
           "id": "PrepEnd",
-          "name": "Данные\nподготовлены",
+          "name": "Файлы переданы\nменеджеру",
           "incoming": [
             {
-              "ref": "id:D12"
+              "ref": "id:D16"
+            }
+          ],
+          "outgoing": []
+        }
+      },
+      "id:FindFiles": {
+        "type": "bpmn:ManualTask",
+        "properties": {
+          "id": "FindFiles",
+          "name": "Найти переписку,\nтаблицы и изображения",
+          "incoming": [
+            {
+              "ref": "id:D01"
+            },
+            {
+              "ref": "id:D15"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:D02"
+            }
+          ]
+        }
+      },
+      "id:Copy": {
+        "type": "bpmn:ManualTask",
+        "properties": {
+          "id": "Copy",
+          "name": "Скопировать прежний состав\nв локальную таблицу",
+          "incoming": [
+            {
+              "ref": "id:D02"
+            },
+            {
+              "ref": "id:D10"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:D03"
+            }
+          ]
+        }
+      },
+      "id:Complete": {
+        "type": "bpmn:ExclusiveGateway",
+        "properties": {
+          "id": "Complete",
+          "name": "Все данные найдены?",
+          "incoming": [
+            {
+              "ref": "id:D13"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:D14"
+            },
+            {
+              "ref": "id:D16"
+            }
+          ]
+        }
+      },
+      "id:Missing": {
+        "type": "bpmn:ManualTask",
+        "properties": {
+          "id": "Missing",
+          "name": "Искать недостающие\nхарактеристики и файлы",
+          "incoming": [
+            {
+              "ref": "id:D14"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:D15"
             }
           ]
         }
@@ -858,7 +931,7 @@
             "ref": "id:PrepStart"
           },
           "targetRef": {
-            "ref": "id:BOM"
+            "ref": "id:FindFiles"
           }
         }
       },
@@ -868,10 +941,10 @@
           "id": "D02",
           "name": "",
           "sourceRef": {
-            "ref": "id:BOM"
+            "ref": "id:FindFiles"
           },
           "targetRef": {
-            "ref": "id:Check"
+            "ref": "id:Copy"
           }
         }
       },
@@ -881,10 +954,10 @@
           "id": "D03",
           "name": "",
           "sourceRef": {
-            "ref": "id:Check"
+            "ref": "id:Copy"
           },
           "targetRef": {
-            "ref": "id:Compatible"
+            "ref": "id:Check"
           }
         }
       },
@@ -892,6 +965,19 @@
         "type": "bpmn:SequenceFlow",
         "properties": {
           "id": "D04",
+          "name": "",
+          "sourceRef": {
+            "ref": "id:Check"
+          },
+          "targetRef": {
+            "ref": "id:Compatible"
+          }
+        }
+      },
+      "id:D05": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "D05",
           "name": "Нет",
           "conditionExpression": {
             "ref": "object:3"
@@ -904,11 +990,11 @@
           }
         }
       },
-      "id:D05": {
+      "id:D06": {
         "type": "bpmn:SequenceFlow",
         "properties": {
-          "id": "D05",
-          "name": "",
+          "id": "D06",
+          "name": "Повторная ручная проверка",
           "sourceRef": {
             "ref": "id:Fix"
           },
@@ -917,10 +1003,10 @@
           }
         }
       },
-      "id:D06": {
+      "id:D07": {
         "type": "bpmn:SequenceFlow",
         "properties": {
-          "id": "D06",
+          "id": "D07",
           "name": "Да",
           "conditionExpression": {
             "ref": "object:4"
@@ -933,10 +1019,10 @@
           }
         }
       },
-      "id:D07": {
+      "id:D08": {
         "type": "bpmn:SequenceFlow",
         "properties": {
-          "id": "D07",
+          "id": "D08",
           "name": "",
           "sourceRef": {
             "ref": "id:Offers"
@@ -946,10 +1032,10 @@
           }
         }
       },
-      "id:D08": {
+      "id:D09": {
         "type": "bpmn:SequenceFlow",
         "properties": {
-          "id": "D08",
+          "id": "D09",
           "name": "Нет",
           "conditionExpression": {
             "ref": "object:5"
@@ -962,23 +1048,23 @@
           }
         }
       },
-      "id:D09": {
-        "type": "bpmn:SequenceFlow",
-        "properties": {
-          "id": "D09",
-          "name": "",
-          "sourceRef": {
-            "ref": "id:Replace"
-          },
-          "targetRef": {
-            "ref": "id:Check"
-          }
-        }
-      },
       "id:D10": {
         "type": "bpmn:SequenceFlow",
         "properties": {
           "id": "D10",
+          "name": "Вернуться к составу",
+          "sourceRef": {
+            "ref": "id:Replace"
+          },
+          "targetRef": {
+            "ref": "id:Copy"
+          }
+        }
+      },
+      "id:D11": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "D11",
           "name": "Да",
           "conditionExpression": {
             "ref": "object:6"
@@ -991,10 +1077,10 @@
           }
         }
       },
-      "id:D11": {
+      "id:D12": {
         "type": "bpmn:SequenceFlow",
         "properties": {
-          "id": "D11",
+          "id": "D12",
           "name": "",
           "sourceRef": {
             "ref": "id:Calculate"
@@ -1004,13 +1090,58 @@
           }
         }
       },
-      "id:D12": {
+      "id:D13": {
         "type": "bpmn:SequenceFlow",
         "properties": {
-          "id": "D12",
+          "id": "D13",
           "name": "",
           "sourceRef": {
             "ref": "id:Images"
+          },
+          "targetRef": {
+            "ref": "id:Complete"
+          }
+        }
+      },
+      "id:D14": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "D14",
+          "name": "Нет",
+          "conditionExpression": {
+            "ref": "object:7"
+          },
+          "sourceRef": {
+            "ref": "id:Complete"
+          },
+          "targetRef": {
+            "ref": "id:Missing"
+          }
+        }
+      },
+      "id:D15": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "D15",
+          "name": "Повторно собрать данные",
+          "sourceRef": {
+            "ref": "id:Missing"
+          },
+          "targetRef": {
+            "ref": "id:FindFiles"
+          }
+        }
+      },
+      "id:D16": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "D16",
+          "name": "Да",
+          "conditionExpression": {
+            "ref": "object:8"
+          },
+          "sourceRef": {
+            "ref": "id:Complete"
           },
           "targetRef": {
             "ref": "id:PrepEnd"
@@ -1026,7 +1157,7 @@
       "object:2": {
         "type": "bpmn:FormalExpression",
         "properties": {
-          "body": "status = error"
+          "body": "status = rejected"
         }
       },
       "id:Technical": {
@@ -1037,9 +1168,6 @@
           "flowNodeRef": [
             {
               "ref": "id:PrepStart"
-            },
-            {
-              "ref": "id:BOM"
             },
             {
               "ref": "id:Check"
@@ -1089,6 +1217,13 @@
           ]
         }
       },
+      "id:Manager": {
+        "type": "bpmn:Lane",
+        "properties": {
+          "id": "Manager",
+          "name": "Менеджер маркетплейсов"
+        }
+      },
       "object:3": {
         "type": "bpmn:FormalExpression",
         "properties": {
@@ -1111,6 +1246,18 @@
         "type": "bpmn:FormalExpression",
         "properties": {
           "body": "available = true"
+        }
+      },
+      "object:7": {
+        "type": "bpmn:FormalExpression",
+        "properties": {
+          "body": "complete = false"
+        }
+      },
+      "object:8": {
+        "type": "bpmn:FormalExpression",
+        "properties": {
+          "body": "complete = true"
         }
       }
     }
@@ -1182,9 +1329,6 @@
               "ref": "id:Main_RecordError_di"
             },
             {
-              "ref": "id:Main_Failed_di"
-            },
-            {
               "ref": "id:Main_F01_di"
             },
             {
@@ -1238,6 +1382,9 @@
           },
           "planeElement": [
             {
+              "ref": "id:Manager_di_1"
+            },
+            {
               "ref": "id:Prep_Technical_di"
             },
             {
@@ -1250,7 +1397,10 @@
               "ref": "id:Prep_PrepStart_di"
             },
             {
-              "ref": "id:Prep_BOM_di"
+              "ref": "id:FindFiles_di_1"
+            },
+            {
+              "ref": "id:Copy_di_1"
             },
             {
               "ref": "id:Prep_Check_di"
@@ -1275,6 +1425,12 @@
             },
             {
               "ref": "id:Prep_Images_di"
+            },
+            {
+              "ref": "id:Complete_di_1"
+            },
+            {
+              "ref": "id:Missing_di_1"
             },
             {
               "ref": "id:Prep_PrepEnd_di"
@@ -1314,6 +1470,18 @@
             },
             {
               "ref": "id:Prep_D12_di"
+            },
+            {
+              "ref": "id:D13_di_1"
+            },
+            {
+              "ref": "id:D14_di_1"
+            },
+            {
+              "ref": "id:D15_di_1"
+            },
+            {
+              "ref": "id:D16_di_1"
             }
           ]
         }
@@ -1326,7 +1494,7 @@
             "ref": "id:Ucoms"
           },
           "bounds": {
-            "ref": "object:7"
+            "ref": "object:9"
           },
           "isHorizontal": true
         }
@@ -1339,7 +1507,7 @@
             "ref": "id:PC4Games"
           },
           "bounds": {
-            "ref": "object:8"
+            "ref": "object:10"
           },
           "isHorizontal": true
         }
@@ -1352,7 +1520,7 @@
             "ref": "id:ITPartner"
           },
           "bounds": {
-            "ref": "object:9"
+            "ref": "object:11"
           },
           "isHorizontal": true
         }
@@ -1365,7 +1533,7 @@
             "ref": "id:Ozon"
           },
           "bounds": {
-            "ref": "object:10"
+            "ref": "object:12"
           },
           "isHorizontal": true
         }
@@ -1378,10 +1546,10 @@
             "ref": "id:Start"
           },
           "bounds": {
-            "ref": "object:11"
+            "ref": "object:13"
           },
           "label": {
-            "ref": "object:12"
+            "ref": "object:14"
           }
         }
       },
@@ -1393,7 +1561,7 @@
             "ref": "id:Init"
           },
           "bounds": {
-            "ref": "object:13"
+            "ref": "object:15"
           }
         }
       },
@@ -1405,7 +1573,7 @@
             "ref": "id:Prepare"
           },
           "bounds": {
-            "ref": "object:14"
+            "ref": "object:16"
           },
           "isExpanded": false
         }
@@ -1418,7 +1586,7 @@
             "ref": "id:Submit"
           },
           "bounds": {
-            "ref": "object:15"
+            "ref": "object:17"
           }
         }
       },
@@ -1430,7 +1598,7 @@
             "ref": "id:Result"
           },
           "bounds": {
-            "ref": "object:16"
+            "ref": "object:18"
           }
         }
       },
@@ -1442,10 +1610,10 @@
             "ref": "id:Accepted"
           },
           "bounds": {
-            "ref": "object:17"
+            "ref": "object:19"
           },
           "label": {
-            "ref": "object:18"
+            "ref": "object:20"
           }
         }
       },
@@ -1457,10 +1625,10 @@
             "ref": "id:Published"
           },
           "bounds": {
-            "ref": "object:19"
+            "ref": "object:21"
           },
           "label": {
-            "ref": "object:20"
+            "ref": "object:22"
           }
         }
       },
@@ -1472,21 +1640,6 @@
             "ref": "id:RecordError"
           },
           "bounds": {
-            "ref": "object:21"
-          }
-        }
-      },
-      "id:Main_Failed_di": {
-        "type": "bpmndi:BPMNShape",
-        "properties": {
-          "id": "Main_Failed_di",
-          "bpmnElement": {
-            "ref": "id:Failed"
-          },
-          "bounds": {
-            "ref": "object:22"
-          },
-          "label": {
             "ref": "object:23"
           }
         }
@@ -1500,10 +1653,10 @@
           },
           "waypoint": [
             {
-              "ref": "object:24"
+              "ref": "object:rop_as_is_layout_1"
             },
             {
-              "ref": "object:25"
+              "ref": "object:rop_as_is_layout_2"
             }
           ]
         }
@@ -1517,10 +1670,10 @@
           },
           "waypoint": [
             {
-              "ref": "object:26"
+              "ref": "object:rop_as_is_layout_3"
             },
             {
-              "ref": "object:27"
+              "ref": "object:rop_as_is_layout_4"
             }
           ]
         }
@@ -1534,10 +1687,10 @@
           },
           "waypoint": [
             {
-              "ref": "object:28"
+              "ref": "object:rop_as_is_layout_5"
             },
             {
-              "ref": "object:29"
+              "ref": "object:rop_as_is_layout_6"
             }
           ]
         }
@@ -1551,10 +1704,10 @@
           },
           "waypoint": [
             {
-              "ref": "object:30"
+              "ref": "object:rop_as_is_layout_7"
             },
             {
-              "ref": "object:31"
+              "ref": "object:rop_as_is_layout_8"
             }
           ]
         }
@@ -1568,10 +1721,10 @@
           },
           "waypoint": [
             {
-              "ref": "object:32"
+              "ref": "object:rop_as_is_layout_9"
             },
             {
-              "ref": "object:33"
+              "ref": "object:rop_as_is_layout_10"
             }
           ]
         }
@@ -1585,14 +1738,14 @@
           },
           "waypoint": [
             {
-              "ref": "object:34"
+              "ref": "object:rop_as_is_layout_11"
             },
             {
-              "ref": "object:35"
+              "ref": "object:rop_as_is_layout_12"
             }
           ],
           "label": {
-            "ref": "object:36"
+            "ref": "object:rop_as_is_layout_41"
           }
         }
       },
@@ -1605,14 +1758,14 @@
           },
           "waypoint": [
             {
-              "ref": "object:37"
+              "ref": "object:rop_as_is_layout_13"
             },
             {
-              "ref": "object:38"
+              "ref": "object:rop_as_is_layout_14"
             }
           ],
           "label": {
-            "ref": "object:39"
+            "ref": "object:rop_as_is_layout_43"
           }
         }
       },
@@ -1625,12 +1778,24 @@
           },
           "waypoint": [
             {
-              "ref": "object:40"
+              "ref": "object:rop_as_is_layout_15"
             },
             {
-              "ref": "object:41"
+              "ref": "object:rop_as_is_layout_16"
+            },
+            {
+              "ref": "object:rop_as_is_layout_17"
+            },
+            {
+              "ref": "object:rop_as_is_layout_18"
+            },
+            {
+              "ref": "object:rop_as_is_layout_19"
             }
-          ]
+          ],
+          "label": {
+            "ref": "object:rop_as_is_layout_45"
+          }
         }
       },
       "id:Main_M01_di": {
@@ -1642,20 +1807,20 @@
           },
           "waypoint": [
             {
-              "ref": "object:42"
+              "ref": "object:rop_as_is_layout_20"
             },
             {
-              "ref": "object:43"
+              "ref": "object:rop_as_is_layout_21"
             },
             {
-              "ref": "object:44"
+              "ref": "object:rop_as_is_layout_22"
             },
             {
-              "ref": "object:45"
+              "ref": "object:rop_as_is_layout_23"
             }
           ],
           "label": {
-            "ref": "object:46"
+            "ref": "object:rop_as_is_layout_47"
           }
         }
       },
@@ -1668,20 +1833,20 @@
           },
           "waypoint": [
             {
-              "ref": "object:47"
+              "ref": "object:rop_as_is_layout_24"
             },
             {
-              "ref": "object:48"
+              "ref": "object:rop_as_is_layout_25"
             },
             {
-              "ref": "object:49"
+              "ref": "object:rop_as_is_layout_26"
             },
             {
-              "ref": "object:50"
+              "ref": "object:rop_as_is_layout_27"
             }
           ],
           "label": {
-            "ref": "object:51"
+            "ref": "object:rop_as_is_layout_49"
           }
         }
       },
@@ -1694,26 +1859,20 @@
           },
           "waypoint": [
             {
-              "ref": "object:52"
+              "ref": "object:rop_as_is_layout_28"
             },
             {
-              "ref": "object:53"
+              "ref": "object:rop_as_is_layout_29"
             },
             {
-              "ref": "object:54"
+              "ref": "object:rop_as_is_layout_30"
             },
             {
-              "ref": "object:55"
-            },
-            {
-              "ref": "object:56"
-            },
-            {
-              "ref": "object:57"
+              "ref": "object:rop_as_is_layout_31"
             }
           ],
           "label": {
-            "ref": "object:58"
+            "ref": "object:rop_as_is_layout_51"
           }
         }
       },
@@ -1726,20 +1885,20 @@
           },
           "waypoint": [
             {
-              "ref": "object:59"
+              "ref": "object:rop_as_is_layout_32"
             },
             {
-              "ref": "object:60"
+              "ref": "object:rop_as_is_layout_33"
             },
             {
-              "ref": "object:61"
+              "ref": "object:rop_as_is_layout_34"
             },
             {
-              "ref": "object:62"
+              "ref": "object:rop_as_is_layout_35"
             }
           ],
           "label": {
-            "ref": "object:63"
+            "ref": "object:rop_as_is_layout_53"
           }
         }
       },
@@ -1752,14 +1911,14 @@
           },
           "waypoint": [
             {
-              "ref": "object:64"
+              "ref": "object:rop_as_is_layout_36"
             },
             {
-              "ref": "object:65"
+              "ref": "object:rop_as_is_layout_37"
             }
           ],
           "label": {
-            "ref": "object:66"
+            "ref": "object:rop_as_is_layout_55"
           }
         }
       },
@@ -1772,14 +1931,176 @@
           },
           "waypoint": [
             {
-              "ref": "object:67"
+              "ref": "object:rop_as_is_layout_38"
             },
             {
-              "ref": "object:68"
+              "ref": "object:rop_as_is_layout_39"
             }
           ],
           "label": {
-            "ref": "object:69"
+            "ref": "object:rop_as_is_layout_57"
+          }
+        }
+      },
+      "id:Manager_di_1": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Manager_di_1",
+          "bpmnElement": {
+            "ref": "id:Manager"
+          },
+          "bounds": {
+            "ref": "object:76"
+          },
+          "isHorizontal": true
+        }
+      },
+      "id:FindFiles_di_1": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "FindFiles_di_1",
+          "bpmnElement": {
+            "ref": "id:FindFiles"
+          },
+          "bounds": {
+            "ref": "object:77"
+          }
+        }
+      },
+      "id:Copy_di_1": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Copy_di_1",
+          "bpmnElement": {
+            "ref": "id:Copy"
+          },
+          "bounds": {
+            "ref": "object:78"
+          }
+        }
+      },
+      "id:Complete_di_1": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Complete_di_1",
+          "bpmnElement": {
+            "ref": "id:Complete"
+          },
+          "bounds": {
+            "ref": "object:79"
+          },
+          "label": {
+            "ref": "object:rop_as_is_layout_136"
+          }
+        }
+      },
+      "id:Missing_di_1": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Missing_di_1",
+          "bpmnElement": {
+            "ref": "id:Missing"
+          },
+          "bounds": {
+            "ref": "object:80"
+          }
+        }
+      },
+      "id:D13_di_1": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "D13_di_1",
+          "bpmnElement": {
+            "ref": "id:D13"
+          },
+          "waypoint": [
+            {
+              "ref": "object:rop_as_is_layout_98"
+            },
+            {
+              "ref": "object:rop_as_is_layout_99"
+            },
+            {
+              "ref": "object:rop_as_is_layout_100"
+            },
+            {
+              "ref": "object:rop_as_is_layout_101"
+            }
+          ]
+        }
+      },
+      "id:D14_di_1": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "D14_di_1",
+          "bpmnElement": {
+            "ref": "id:D14"
+          },
+          "waypoint": [
+            {
+              "ref": "object:rop_as_is_layout_102"
+            },
+            {
+              "ref": "object:rop_as_is_layout_103"
+            },
+            {
+              "ref": "object:rop_as_is_layout_104"
+            },
+            {
+              "ref": "object:rop_as_is_layout_105"
+            }
+          ],
+          "label": {
+            "ref": "object:rop_as_is_layout_126"
+          }
+        }
+      },
+      "id:D15_di_1": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "D15_di_1",
+          "bpmnElement": {
+            "ref": "id:D15"
+          },
+          "waypoint": [
+            {
+              "ref": "object:rop_as_is_layout_106"
+            },
+            {
+              "ref": "object:rop_as_is_layout_107"
+            },
+            {
+              "ref": "object:rop_as_is_layout_108"
+            },
+            {
+              "ref": "object:rop_as_is_layout_109"
+            },
+            {
+              "ref": "object:rop_as_is_layout_110"
+            }
+          ],
+          "label": {
+            "ref": "object:rop_as_is_layout_128"
+          }
+        }
+      },
+      "id:D16_di_1": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "D16_di_1",
+          "bpmnElement": {
+            "ref": "id:D16"
+          },
+          "waypoint": [
+            {
+              "ref": "object:rop_as_is_layout_111"
+            },
+            {
+              "ref": "object:rop_as_is_layout_112"
+            }
+          ],
+          "label": {
+            "ref": "object:rop_as_is_layout_130"
           }
         }
       },
@@ -1791,7 +2112,7 @@
             "ref": "id:Technical"
           },
           "bounds": {
-            "ref": "object:70"
+            "ref": "object:101"
           },
           "isHorizontal": true
         }
@@ -1804,7 +2125,7 @@
             "ref": "id:Stock"
           },
           "bounds": {
-            "ref": "object:71"
+            "ref": "object:102"
           },
           "isHorizontal": true
         }
@@ -1817,7 +2138,7 @@
             "ref": "id:Designer"
           },
           "bounds": {
-            "ref": "object:72"
+            "ref": "object:103"
           },
           "isHorizontal": true
         }
@@ -1830,22 +2151,10 @@
             "ref": "id:PrepStart"
           },
           "bounds": {
-            "ref": "object:73"
+            "ref": "object:104"
           },
           "label": {
-            "ref": "object:74"
-          }
-        }
-      },
-      "id:Prep_BOM_di": {
-        "type": "bpmndi:BPMNShape",
-        "properties": {
-          "id": "Prep_BOM_di",
-          "bpmnElement": {
-            "ref": "id:BOM"
-          },
-          "bounds": {
-            "ref": "object:75"
+            "ref": "object:105"
           }
         }
       },
@@ -1857,7 +2166,7 @@
             "ref": "id:Check"
           },
           "bounds": {
-            "ref": "object:76"
+            "ref": "object:106"
           }
         }
       },
@@ -1869,10 +2178,10 @@
             "ref": "id:Compatible"
           },
           "bounds": {
-            "ref": "object:77"
+            "ref": "object:107"
           },
           "label": {
-            "ref": "object:78"
+            "ref": "object:rop_as_is_layout_132"
           }
         }
       },
@@ -1884,7 +2193,7 @@
             "ref": "id:Fix"
           },
           "bounds": {
-            "ref": "object:79"
+            "ref": "object:109"
           }
         }
       },
@@ -1896,7 +2205,7 @@
             "ref": "id:Offers"
           },
           "bounds": {
-            "ref": "object:80"
+            "ref": "object:110"
           }
         }
       },
@@ -1908,10 +2217,10 @@
             "ref": "id:Available"
           },
           "bounds": {
-            "ref": "object:81"
+            "ref": "object:111"
           },
           "label": {
-            "ref": "object:82"
+            "ref": "object:rop_as_is_layout_134"
           }
         }
       },
@@ -1923,7 +2232,7 @@
             "ref": "id:Replace"
           },
           "bounds": {
-            "ref": "object:83"
+            "ref": "object:113"
           }
         }
       },
@@ -1935,7 +2244,7 @@
             "ref": "id:Calculate"
           },
           "bounds": {
-            "ref": "object:84"
+            "ref": "object:114"
           }
         }
       },
@@ -1947,7 +2256,7 @@
             "ref": "id:Images"
           },
           "bounds": {
-            "ref": "object:85"
+            "ref": "object:115"
           }
         }
       },
@@ -1959,10 +2268,10 @@
             "ref": "id:PrepEnd"
           },
           "bounds": {
-            "ref": "object:86"
+            "ref": "object:116"
           },
           "label": {
-            "ref": "object:87"
+            "ref": "object:117"
           }
         }
       },
@@ -1975,10 +2284,10 @@
           },
           "waypoint": [
             {
-              "ref": "object:88"
+              "ref": "object:rop_as_is_layout_58"
             },
             {
-              "ref": "object:89"
+              "ref": "object:rop_as_is_layout_59"
             }
           ]
         }
@@ -1992,10 +2301,16 @@
           },
           "waypoint": [
             {
-              "ref": "object:90"
+              "ref": "object:rop_as_is_layout_60"
             },
             {
-              "ref": "object:91"
+              "ref": "object:rop_as_is_layout_61"
+            },
+            {
+              "ref": "object:rop_as_is_layout_62"
+            },
+            {
+              "ref": "object:rop_as_is_layout_63"
             }
           ]
         }
@@ -2009,10 +2324,10 @@
           },
           "waypoint": [
             {
-              "ref": "object:92"
+              "ref": "object:rop_as_is_layout_64"
             },
             {
-              "ref": "object:93"
+              "ref": "object:rop_as_is_layout_65"
             }
           ]
         }
@@ -2026,15 +2341,12 @@
           },
           "waypoint": [
             {
-              "ref": "object:94"
+              "ref": "object:rop_as_is_layout_66"
             },
             {
-              "ref": "object:95"
+              "ref": "object:rop_as_is_layout_67"
             }
-          ],
-          "label": {
-            "ref": "object:96"
-          }
+          ]
         }
       },
       "id:Prep_D05_di": {
@@ -2046,15 +2358,15 @@
           },
           "waypoint": [
             {
-              "ref": "object:97"
+              "ref": "object:rop_as_is_layout_68"
             },
             {
-              "ref": "object:98"
-            },
-            {
-              "ref": "object:99"
+              "ref": "object:rop_as_is_layout_69"
             }
-          ]
+          ],
+          "label": {
+            "ref": "object:rop_as_is_layout_114"
+          }
         }
       },
       "id:Prep_D06_di": {
@@ -2066,23 +2378,23 @@
           },
           "waypoint": [
             {
-              "ref": "object:100"
+              "ref": "object:rop_as_is_layout_70"
             },
             {
-              "ref": "object:101"
+              "ref": "object:rop_as_is_layout_71"
             },
             {
-              "ref": "object:102"
+              "ref": "object:rop_as_is_layout_72"
             },
             {
-              "ref": "object:103"
+              "ref": "object:rop_as_is_layout_73"
             },
             {
-              "ref": "object:104"
+              "ref": "object:rop_as_is_layout_74"
             }
           ],
           "label": {
-            "ref": "object:105"
+            "ref": "object:rop_as_is_layout_116"
           }
         }
       },
@@ -2095,12 +2407,21 @@
           },
           "waypoint": [
             {
-              "ref": "object:106"
+              "ref": "object:rop_as_is_layout_75"
             },
             {
-              "ref": "object:107"
+              "ref": "object:rop_as_is_layout_76"
+            },
+            {
+              "ref": "object:rop_as_is_layout_77"
+            },
+            {
+              "ref": "object:rop_as_is_layout_78"
             }
-          ]
+          ],
+          "label": {
+            "ref": "object:rop_as_is_layout_118"
+          }
         }
       },
       "id:Prep_D08_di": {
@@ -2112,15 +2433,12 @@
           },
           "waypoint": [
             {
-              "ref": "object:108"
+              "ref": "object:rop_as_is_layout_79"
             },
             {
-              "ref": "object:109"
+              "ref": "object:rop_as_is_layout_80"
             }
-          ],
-          "label": {
-            "ref": "object:110"
-          }
+          ]
         }
       },
       "id:Prep_D09_di": {
@@ -2132,18 +2450,21 @@
           },
           "waypoint": [
             {
-              "ref": "object:111"
+              "ref": "object:rop_as_is_layout_81"
             },
             {
-              "ref": "object:112"
+              "ref": "object:rop_as_is_layout_82"
             },
             {
-              "ref": "object:113"
+              "ref": "object:rop_as_is_layout_83"
             },
             {
-              "ref": "object:114"
+              "ref": "object:rop_as_is_layout_84"
             }
-          ]
+          ],
+          "label": {
+            "ref": "object:rop_as_is_layout_120"
+          }
         }
       },
       "id:Prep_D10_di": {
@@ -2155,20 +2476,23 @@
           },
           "waypoint": [
             {
-              "ref": "object:115"
+              "ref": "object:rop_as_is_layout_85"
             },
             {
-              "ref": "object:116"
+              "ref": "object:rop_as_is_layout_86"
             },
             {
-              "ref": "object:117"
+              "ref": "object:rop_as_is_layout_87"
             },
             {
-              "ref": "object:118"
+              "ref": "object:rop_as_is_layout_88"
+            },
+            {
+              "ref": "object:rop_as_is_layout_89"
             }
           ],
           "label": {
-            "ref": "object:119"
+            "ref": "object:rop_as_is_layout_122"
           }
         }
       },
@@ -2181,12 +2505,21 @@
           },
           "waypoint": [
             {
-              "ref": "object:120"
+              "ref": "object:rop_as_is_layout_90"
             },
             {
-              "ref": "object:121"
+              "ref": "object:rop_as_is_layout_91"
+            },
+            {
+              "ref": "object:rop_as_is_layout_92"
+            },
+            {
+              "ref": "object:rop_as_is_layout_93"
             }
-          ]
+          ],
+          "label": {
+            "ref": "object:rop_as_is_layout_124"
+          }
         }
       },
       "id:Prep_D12_di": {
@@ -2198,908 +2531,331 @@
           },
           "waypoint": [
             {
-              "ref": "object:122"
+              "ref": "object:rop_as_is_layout_94"
             },
             {
-              "ref": "object:123"
+              "ref": "object:rop_as_is_layout_95"
+            },
+            {
+              "ref": "object:rop_as_is_layout_96"
+            },
+            {
+              "ref": "object:rop_as_is_layout_97"
             }
           ]
-        }
-      },
-      "object:7": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 20,
-          "y": 280,
-          "width": 1420,
-          "height": 420
-        }
-      },
-      "object:8": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 290,
-          "y": 20,
-          "width": 390,
-          "height": 65
         }
       },
       "object:9": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 790,
-          "y": 20,
-          "width": 390,
-          "height": 65
+          "x": 20,
+          "y": 250,
+          "width": 2180,
+          "height": 420
         }
       },
       "object:10": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 20,
-          "y": 830,
-          "width": 1420,
-          "height": 65
+          "x": 360,
+          "y": 20,
+          "width": 520,
+          "height": 70
         }
       },
       "object:11": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 90,
-          "y": 383,
-          "width": 44,
-          "height": 44
+          "x": 1080,
+          "y": 20,
+          "width": 520,
+          "height": 70
         }
       },
       "object:12": {
-        "type": "bpmndi:BPMNLabel",
+        "type": "dc:Bounds",
         "properties": {
-          "bounds": {
-            "ref": "object:124"
-          }
+          "x": 20,
+          "y": 790,
+          "width": 2180,
+          "height": 70
         }
       },
       "object:13": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 180,
-          "y": 355,
-          "width": 200,
-          "height": 100
+          "x": 80,
+          "y": 383,
+          "width": 44,
+          "height": 44
         }
       },
       "object:14": {
-        "type": "dc:Bounds",
+        "type": "bpmndi:BPMNLabel",
         "properties": {
-          "x": 435,
-          "y": 350,
-          "width": 210,
-          "height": 110
+          "bounds": {
+            "ref": "object:182"
+          }
         }
       },
       "object:15": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 700,
-          "y": 355,
-          "width": 210,
-          "height": 100
+          "x": 180,
+          "y": 350,
+          "width": 220,
+          "height": 110
         }
       },
       "object:16": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 960,
-          "y": 355,
-          "width": 200,
-          "height": 100
+          "x": 480,
+          "y": 350,
+          "width": 240,
+          "height": 110
         }
       },
       "object:17": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1205,
-          "y": 378,
-          "width": 54,
-          "height": 54
+          "x": 800,
+          "y": 350,
+          "width": 220,
+          "height": 110
         }
       },
       "object:18": {
-        "type": "bpmndi:BPMNLabel",
+        "type": "dc:Bounds",
         "properties": {
-          "bounds": {
-            "ref": "object:125"
-          }
+          "x": 1090,
+          "y": 350,
+          "width": 220,
+          "height": 110
         }
       },
       "object:19": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1350,
-          "y": 383,
-          "width": 44,
-          "height": 44
+          "x": 1380,
+          "y": 378,
+          "width": 54,
+          "height": 54
         }
       },
       "object:20": {
         "type": "bpmndi:BPMNLabel",
         "properties": {
           "bounds": {
-            "ref": "object:126"
+            "ref": "object:183"
           }
         }
       },
       "object:21": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1120,
-          "y": 545,
-          "width": 220,
-          "height": 100
+          "x": 1770,
+          "y": 383,
+          "width": 44,
+          "height": 44
         }
       },
       "object:22": {
-        "type": "dc:Bounds",
+        "type": "bpmndi:BPMNLabel",
         "properties": {
-          "x": 1370,
-          "y": 573,
-          "width": 44,
-          "height": 44
+          "bounds": {
+            "ref": "object:184"
+          }
         }
       },
       "object:23": {
-        "type": "bpmndi:BPMNLabel",
-        "properties": {
-          "bounds": {
-            "ref": "object:127"
-          }
-        }
-      },
-      "object:24": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 134,
-          "y": 405
-        }
-      },
-      "object:25": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 180,
-          "y": 405
-        }
-      },
-      "object:26": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 380,
-          "y": 405
-        }
-      },
-      "object:27": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 435,
-          "y": 405
-        }
-      },
-      "object:28": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 645,
-          "y": 405
-        }
-      },
-      "object:29": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 700,
-          "y": 405
-        }
-      },
-      "object:30": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 910,
-          "y": 405
-        }
-      },
-      "object:31": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 960,
-          "y": 405
-        }
-      },
-      "object:32": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 1160,
-          "y": 405
-        }
-      },
-      "object:33": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 1205,
-          "y": 405
-        }
-      },
-      "object:34": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 1259,
-          "y": 405
-        }
-      },
-      "object:35": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 1350,
-          "y": 405
-        }
-      },
-      "object:36": {
-        "type": "bpmndi:BPMNLabel",
-        "properties": {
-          "bounds": {
-            "ref": "object:128"
-          }
-        }
-      },
-      "object:37": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 1232,
-          "y": 432
-        }
-      },
-      "object:38": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 1232,
-          "y": 545
-        }
-      },
-      "object:39": {
-        "type": "bpmndi:BPMNLabel",
-        "properties": {
-          "bounds": {
-            "ref": "object:129"
-          }
-        }
-      },
-      "object:40": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 1340,
-          "y": 595
-        }
-      },
-      "object:41": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 1370,
-          "y": 595
-        }
-      },
-      "object:42": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 470,
-          "y": 350
-        }
-      },
-      "object:43": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 470,
-          "y": 170
-        }
-      },
-      "object:44": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 365,
-          "y": 170
-        }
-      },
-      "object:45": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 365,
-          "y": 85
-        }
-      },
-      "object:46": {
-        "type": "bpmndi:BPMNLabel",
-        "properties": {
-          "bounds": {
-            "ref": "object:130"
-          }
-        }
-      },
-      "object:47": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 610,
-          "y": 85
-        }
-      },
-      "object:48": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 610,
-          "y": 150
-        }
-      },
-      "object:49": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 520,
-          "y": 150
-        }
-      },
-      "object:50": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 520,
-          "y": 350
-        }
-      },
-      "object:51": {
-        "type": "bpmndi:BPMNLabel",
-        "properties": {
-          "bounds": {
-            "ref": "object:131"
-          }
-        }
-      },
-      "object:52": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 570,
-          "y": 350
-        }
-      },
-      "object:53": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 570,
-          "y": 280
-        }
-      },
-      "object:54": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 800,
-          "y": 280
-        }
-      },
-      "object:55": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 800,
-          "y": 160
-        }
-      },
-      "object:56": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 865,
-          "y": 160
-        }
-      },
-      "object:57": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 865,
-          "y": 85
-        }
-      },
-      "object:58": {
-        "type": "bpmndi:BPMNLabel",
-        "properties": {
-          "bounds": {
-            "ref": "object:132"
-          }
-        }
-      },
-      "object:59": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 1110,
-          "y": 85
-        }
-      },
-      "object:60": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 1110,
-          "y": 300
-        }
-      },
-      "object:61": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 615,
-          "y": 300
-        }
-      },
-      "object:62": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 615,
-          "y": 350
-        }
-      },
-      "object:63": {
-        "type": "bpmndi:BPMNLabel",
-        "properties": {
-          "bounds": {
-            "ref": "object:133"
-          }
-        }
-      },
-      "object:64": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 805,
-          "y": 455
-        }
-      },
-      "object:65": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 805,
-          "y": 830
-        }
-      },
-      "object:66": {
-        "type": "bpmndi:BPMNLabel",
-        "properties": {
-          "bounds": {
-            "ref": "object:134"
-          }
-        }
-      },
-      "object:67": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 1060,
-          "y": 830
-        }
-      },
-      "object:68": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 1060,
-          "y": 455
-        }
-      },
-      "object:69": {
-        "type": "bpmndi:BPMNLabel",
-        "properties": {
-          "bounds": {
-            "ref": "object:135"
-          }
-        }
-      },
-      "object:70": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 20,
-          "y": 20,
-          "width": 1420,
-          "height": 370
-        }
-      },
-      "object:71": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 20,
-          "y": 390,
-          "width": 1420,
-          "height": 210
-        }
-      },
-      "object:72": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 20,
-          "y": 600,
-          "width": 1420,
-          "height": 190
-        }
-      },
-      "object:73": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 90,
-          "y": 128,
-          "width": 44,
-          "height": 44
-        }
-      },
-      "object:74": {
-        "type": "bpmndi:BPMNLabel",
-        "properties": {
-          "bounds": {
-            "ref": "object:136"
-          }
-        }
-      },
-      "object:75": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 185,
-          "y": 100,
-          "width": 215,
-          "height": 100
+          "x": 1310,
+          "y": 525,
+          "width": 250,
+          "height": 105
         }
       },
       "object:76": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 445,
-          "y": 100,
-          "width": 210,
-          "height": 100
+          "x": 20,
+          "y": 20,
+          "width": 2600,
+          "height": 250
         }
       },
       "object:77": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 705,
-          "y": 123,
-          "width": 54,
-          "height": 54
+          "x": 170,
+          "y": 75,
+          "width": 250,
+          "height": 110
         }
       },
       "object:78": {
-        "type": "bpmndi:BPMNLabel",
+        "type": "dc:Bounds",
         "properties": {
-          "bounds": {
-            "ref": "object:137"
-          }
+          "x": 490,
+          "y": 385,
+          "width": 250,
+          "height": 110
         }
       },
       "object:79": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 625,
-          "y": 270,
-          "width": 210,
-          "height": 100
+          "x": 2270,
+          "y": 103,
+          "width": 54,
+          "height": 54
         }
       },
       "object:80": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 675,
-          "y": 445,
-          "width": 245,
-          "height": 100
-        }
-      },
-      "object:81": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 995,
-          "y": 468,
-          "width": 54,
-          "height": 54
-        }
-      },
-      "object:82": {
-        "type": "bpmndi:BPMNLabel",
-        "properties": {
-          "bounds": {
-            "ref": "object:138"
-          }
-        }
-      },
-      "object:83": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 900,
-          "y": 265,
-          "width": 235,
-          "height": 100
-        }
-      },
-      "object:84": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 1185,
-          "y": 100,
-          "width": 220,
-          "height": 100
-        }
-      },
-      "object:85": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 1185,
-          "y": 645,
-          "width": 220,
+          "x": 1980,
+          "y": 165,
+          "width": 240,
           "height": 90
         }
       },
-      "object:86": {
+      "object:101": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1045,
-          "y": 668,
-          "width": 44,
-          "height": 44
-        }
-      },
-      "object:87": {
-        "type": "bpmndi:BPMNLabel",
-        "properties": {
-          "bounds": {
-            "ref": "object:139"
-          }
-        }
-      },
-      "object:88": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 134,
-          "y": 150
-        }
-      },
-      "object:89": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 185,
-          "y": 150
-        }
-      },
-      "object:90": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 400,
-          "y": 150
-        }
-      },
-      "object:91": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 445,
-          "y": 150
-        }
-      },
-      "object:92": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 655,
-          "y": 150
-        }
-      },
-      "object:93": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 705,
-          "y": 150
-        }
-      },
-      "object:94": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 732,
-          "y": 177
-        }
-      },
-      "object:95": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 732,
-          "y": 270
-        }
-      },
-      "object:96": {
-        "type": "bpmndi:BPMNLabel",
-        "properties": {
-          "bounds": {
-            "ref": "object:140"
-          }
-        }
-      },
-      "object:97": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 625,
-          "y": 320
-        }
-      },
-      "object:98": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 550,
-          "y": 320
-        }
-      },
-      "object:99": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 550,
-          "y": 200
-        }
-      },
-      "object:100": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 759,
-          "y": 150
-        }
-      },
-      "object:101": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 860,
-          "y": 150
+          "x": 20,
+          "y": 270,
+          "width": 2600,
+          "height": 360
         }
       },
       "object:102": {
-        "type": "dc:Point",
+        "type": "dc:Bounds",
         "properties": {
-          "x": 860,
-          "y": 420
+          "x": 20,
+          "y": 630,
+          "width": 2600,
+          "height": 270
         }
       },
       "object:103": {
-        "type": "dc:Point",
+        "type": "dc:Bounds",
         "properties": {
-          "x": 795,
-          "y": 420
+          "x": 20,
+          "y": 900,
+          "width": 2600,
+          "height": 250
         }
       },
       "object:104": {
-        "type": "dc:Point",
+        "type": "dc:Bounds",
         "properties": {
-          "x": 795,
-          "y": 445
+          "x": 70,
+          "y": 108,
+          "width": 44,
+          "height": 44
         }
       },
       "object:105": {
         "type": "bpmndi:BPMNLabel",
         "properties": {
           "bounds": {
-            "ref": "object:141"
+            "ref": "object:193"
           }
         }
       },
       "object:106": {
-        "type": "dc:Point",
+        "type": "dc:Bounds",
         "properties": {
-          "x": 920,
-          "y": 495
+          "x": 810,
+          "y": 385,
+          "width": 250,
+          "height": 110
         }
       },
       "object:107": {
-        "type": "dc:Point",
+        "type": "dc:Bounds",
         "properties": {
-          "x": 995,
-          "y": 495
-        }
-      },
-      "object:108": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 1022,
-          "y": 468
+          "x": 1120,
+          "y": 413,
+          "width": 54,
+          "height": 54
         }
       },
       "object:109": {
-        "type": "dc:Point",
+        "type": "dc:Bounds",
         "properties": {
-          "x": 1022,
-          "y": 365
+          "x": 1020,
+          "y": 505,
+          "width": 250,
+          "height": 100
         }
       },
       "object:110": {
-        "type": "bpmndi:BPMNLabel",
+        "type": "dc:Bounds",
         "properties": {
-          "bounds": {
-            "ref": "object:142"
-          }
+          "x": 1220,
+          "y": 700,
+          "width": 260,
+          "height": 105
         }
       },
       "object:111": {
-        "type": "dc:Point",
+        "type": "dc:Bounds",
         "properties": {
-          "x": 1017,
-          "y": 265
-        }
-      },
-      "object:112": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 1017,
-          "y": 230
+          "x": 1550,
+          "y": 726,
+          "width": 54,
+          "height": 54
         }
       },
       "object:113": {
-        "type": "dc:Point",
+        "type": "dc:Bounds",
         "properties": {
-          "x": 620,
-          "y": 230
+          "x": 1430,
+          "y": 385,
+          "width": 260,
+          "height": 110
         }
       },
       "object:114": {
-        "type": "dc:Point",
+        "type": "dc:Bounds",
         "properties": {
-          "x": 620,
-          "y": 200
+          "x": 1750,
+          "y": 75,
+          "width": 250,
+          "height": 110
         }
       },
       "object:115": {
-        "type": "dc:Point",
+        "type": "dc:Bounds",
         "properties": {
-          "x": 1049,
-          "y": 495
+          "x": 2050,
+          "y": 970,
+          "width": 260,
+          "height": 105
         }
       },
       "object:116": {
-        "type": "dc:Point",
+        "type": "dc:Bounds",
         "properties": {
-          "x": 1148,
-          "y": 495
+          "x": 2500,
+          "y": 108,
+          "width": 44,
+          "height": 44
         }
       },
       "object:117": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 1148,
-          "y": 150
-        }
-      },
-      "object:118": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 1185,
-          "y": 150
-        }
-      },
-      "object:119": {
         "type": "bpmndi:BPMNLabel",
         "properties": {
           "bounds": {
-            "ref": "object:143"
+            "ref": "object:196"
           }
         }
       },
-      "object:120": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 1295,
-          "y": 200
-        }
-      },
-      "object:121": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 1295,
-          "y": 645
-        }
-      },
-      "object:122": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 1185,
-          "y": 690
-        }
-      },
-      "object:123": {
-        "type": "dc:Point",
-        "properties": {
-          "x": 1089,
-          "y": 690
-        }
-      },
-      "object:124": {
+      "object:182": {
         "type": "dc:Bounds",
         "properties": {
           "x": 45,
@@ -3108,7 +2864,7 @@
           "height": 70
         }
       },
-      "object:125": {
+      "object:183": {
         "type": "dc:Bounds",
         "properties": {
           "x": 1150,
@@ -3117,7 +2873,7 @@
           "height": 40
         }
       },
-      "object:126": {
+      "object:184": {
         "type": "dc:Bounds",
         "properties": {
           "x": 1290,
@@ -3126,88 +2882,7 @@
           "height": 90
         }
       },
-      "object:127": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 1315,
-          "y": 632,
-          "width": 120,
-          "height": 55
-        }
-      },
-      "object:128": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 1280,
-          "y": 368,
-          "width": 50,
-          "height": 30
-        }
-      },
-      "object:129": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 1248,
-          "y": 490,
-          "width": 55,
-          "height": 30
-        }
-      },
-      "object:130": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 303,
-          "y": 188,
-          "width": 160,
-          "height": 65
-        }
-      },
-      "object:131": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 535,
-          "y": 200,
-          "width": 110,
-          "height": 65
-        }
-      },
-      "object:132": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 802,
-          "y": 200,
-          "width": 160,
-          "height": 65
-        }
-      },
-      "object:133": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 1140,
-          "y": 170,
-          "width": 145,
-          "height": 65
-        }
-      },
-      "object:134": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 615,
-          "y": 745,
-          "width": 185,
-          "height": 35
-        }
-      },
-      "object:135": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 1075,
-          "y": 750,
-          "width": 220,
-          "height": 35
-        }
-      },
-      "object:136": {
+      "object:193": {
         "type": "dc:Bounds",
         "properties": {
           "x": 50,
@@ -3216,25 +2891,7 @@
           "height": 60
         }
       },
-      "object:137": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 667,
-          "y": 70,
-          "width": 135,
-          "height": 40
-        }
-      },
-      "object:138": {
-        "type": "dc:Bounds",
-        "properties": {
-          "x": 950,
-          "y": 535,
-          "width": 160,
-          "height": 40
-        }
-      },
-      "object:139": {
+      "object:196": {
         "type": "dc:Bounds",
         "properties": {
           "x": 986,
@@ -3243,44 +2900,1023 @@
           "height": 55
         }
       },
-      "object:140": {
-        "type": "dc:Bounds",
+      "object:rop_as_is_layout_1": {
+        "type": "dc:Point",
         "properties": {
-          "x": 742,
-          "y": 210,
-          "width": 55,
-          "height": 30
+          "x": 124,
+          "y": 405
         }
       },
-      "object:141": {
-        "type": "dc:Bounds",
+      "object:rop_as_is_layout_2": {
+        "type": "dc:Point",
         "properties": {
-          "x": 805,
-          "y": 160,
-          "width": 50,
-          "height": 30
+          "x": 180,
+          "y": 405
         }
       },
-      "object:142": {
-        "type": "dc:Bounds",
+      "object:rop_as_is_layout_3": {
+        "type": "dc:Point",
         "properties": {
-          "x": 1032,
-          "y": 414,
-          "width": 55,
-          "height": 30
+          "x": 400,
+          "y": 405
         }
       },
-      "object:143": {
+      "object:rop_as_is_layout_4": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 480,
+          "y": 405
+        }
+      },
+      "object:rop_as_is_layout_5": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 720,
+          "y": 405
+        }
+      },
+      "object:rop_as_is_layout_6": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 800,
+          "y": 405
+        }
+      },
+      "object:rop_as_is_layout_7": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1020,
+          "y": 405
+        }
+      },
+      "object:rop_as_is_layout_8": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1090,
+          "y": 405
+        }
+      },
+      "object:rop_as_is_layout_9": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1310,
+          "y": 405
+        }
+      },
+      "object:rop_as_is_layout_10": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1380,
+          "y": 405
+        }
+      },
+      "object:rop_as_is_layout_11": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1434,
+          "y": 405
+        }
+      },
+      "object:rop_as_is_layout_12": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1770,
+          "y": 405
+        }
+      },
+      "object:rop_as_is_layout_13": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1407,
+          "y": 432
+        }
+      },
+      "object:rop_as_is_layout_14": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1407,
+          "y": 525
+        }
+      },
+      "object:rop_as_is_layout_15": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1310,
+          "y": 578
+        }
+      },
+      "object:rop_as_is_layout_16": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1180,
+          "y": 578
+        }
+      },
+      "object:rop_as_is_layout_17": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1180,
+          "y": 655
+        }
+      },
+      "object:rop_as_is_layout_18": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 600,
+          "y": 655
+        }
+      },
+      "object:rop_as_is_layout_19": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 600,
+          "y": 460
+        }
+      },
+      "object:rop_as_is_layout_20": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 560,
+          "y": 350
+        }
+      },
+      "object:rop_as_is_layout_21": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 560,
+          "y": 135
+        }
+      },
+      "object:rop_as_is_layout_22": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 620,
+          "y": 135
+        }
+      },
+      "object:rop_as_is_layout_23": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 620,
+          "y": 90
+        }
+      },
+      "object:rop_as_is_layout_24": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 700,
+          "y": 90
+        }
+      },
+      "object:rop_as_is_layout_25": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 700,
+          "y": 150
+        }
+      },
+      "object:rop_as_is_layout_26": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 650,
+          "y": 150
+        }
+      },
+      "object:rop_as_is_layout_27": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 650,
+          "y": 350
+        }
+      },
+      "object:rop_as_is_layout_28": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 610,
+          "y": 350
+        }
+      },
+      "object:rop_as_is_layout_29": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 610,
+          "y": 180
+        }
+      },
+      "object:rop_as_is_layout_30": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1300,
+          "y": 180
+        }
+      },
+      "object:rop_as_is_layout_31": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1300,
+          "y": 90
+        }
+      },
+      "object:rop_as_is_layout_32": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1420,
+          "y": 90
+        }
+      },
+      "object:rop_as_is_layout_33": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1420,
+          "y": 210
+        }
+      },
+      "object:rop_as_is_layout_34": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 690,
+          "y": 210
+        }
+      },
+      "object:rop_as_is_layout_35": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 690,
+          "y": 350
+        }
+      },
+      "object:rop_as_is_layout_36": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 910,
+          "y": 460
+        }
+      },
+      "object:rop_as_is_layout_37": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 910,
+          "y": 790
+        }
+      },
+      "object:rop_as_is_layout_38": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1200,
+          "y": 790
+        }
+      },
+      "object:rop_as_is_layout_39": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1200,
+          "y": 460
+        }
+      },
+      "object:rop_as_is_layout_40": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1075,
-          "y": 462,
-          "width": 50,
-          "height": 30
+          "x": 1540,
+          "y": 365,
+          "width": 70,
+          "height": 32
+        }
+      },
+      "object:rop_as_is_layout_41": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_40"
+          }
+        }
+      },
+      "object:rop_as_is_layout_42": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 1420,
+          "y": 465,
+          "width": 70,
+          "height": 32
+        }
+      },
+      "object:rop_as_is_layout_43": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_42"
+          }
+        }
+      },
+      "object:rop_as_is_layout_44": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 760,
+          "y": 605,
+          "width": 310,
+          "height": 42
+        }
+      },
+      "object:rop_as_is_layout_45": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_44"
+          }
+        }
+      },
+      "object:rop_as_is_layout_46": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 390,
+          "y": 105,
+          "width": 190,
+          "height": 44
+        }
+      },
+      "object:rop_as_is_layout_47": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_46"
+          }
+        }
+      },
+      "object:rop_as_is_layout_48": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 700,
+          "y": 105,
+          "width": 220,
+          "height": 44
+        }
+      },
+      "object:rop_as_is_layout_49": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_48"
+          }
+        }
+      },
+      "object:rop_as_is_layout_50": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 1050,
+          "y": 145,
+          "width": 190,
+          "height": 44
+        }
+      },
+      "object:rop_as_is_layout_51": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_50"
+          }
+        }
+      },
+      "object:rop_as_is_layout_52": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 1425,
+          "y": 145,
+          "width": 220,
+          "height": 44
+        }
+      },
+      "object:rop_as_is_layout_53": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_52"
+          }
+        }
+      },
+      "object:rop_as_is_layout_54": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 920,
+          "y": 630,
+          "width": 240,
+          "height": 44
+        }
+      },
+      "object:rop_as_is_layout_55": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_54"
+          }
+        }
+      },
+      "object:rop_as_is_layout_56": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 1210,
+          "y": 630,
+          "width": 210,
+          "height": 44
+        }
+      },
+      "object:rop_as_is_layout_57": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_56"
+          }
+        }
+      },
+      "object:rop_as_is_layout_58": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 114,
+          "y": 130
+        }
+      },
+      "object:rop_as_is_layout_59": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 170,
+          "y": 130
+        }
+      },
+      "object:rop_as_is_layout_60": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 420,
+          "y": 130
+        }
+      },
+      "object:rop_as_is_layout_61": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 455,
+          "y": 130
+        }
+      },
+      "object:rop_as_is_layout_62": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 455,
+          "y": 440
+        }
+      },
+      "object:rop_as_is_layout_63": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 490,
+          "y": 440
+        }
+      },
+      "object:rop_as_is_layout_64": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 740,
+          "y": 440
+        }
+      },
+      "object:rop_as_is_layout_65": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 810,
+          "y": 440
+        }
+      },
+      "object:rop_as_is_layout_66": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1060,
+          "y": 440
+        }
+      },
+      "object:rop_as_is_layout_67": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1120,
+          "y": 440
+        }
+      },
+      "object:rop_as_is_layout_68": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1147,
+          "y": 467
+        }
+      },
+      "object:rop_as_is_layout_69": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1147,
+          "y": 505
+        }
+      },
+      "object:rop_as_is_layout_70": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1020,
+          "y": 555
+        }
+      },
+      "object:rop_as_is_layout_71": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 965,
+          "y": 555
+        }
+      },
+      "object:rop_as_is_layout_72": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 965,
+          "y": 600
+        }
+      },
+      "object:rop_as_is_layout_73": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 935,
+          "y": 600
+        }
+      },
+      "object:rop_as_is_layout_74": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 935,
+          "y": 495
+        }
+      },
+      "object:rop_as_is_layout_75": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1174,
+          "y": 440
+        }
+      },
+      "object:rop_as_is_layout_76": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1195,
+          "y": 440
+        }
+      },
+      "object:rop_as_is_layout_77": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1195,
+          "y": 752
+        }
+      },
+      "object:rop_as_is_layout_78": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1220,
+          "y": 752
+        }
+      },
+      "object:rop_as_is_layout_79": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1480,
+          "y": 752
+        }
+      },
+      "object:rop_as_is_layout_80": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1550,
+          "y": 752
+        }
+      },
+      "object:rop_as_is_layout_81": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1577,
+          "y": 726
+        }
+      },
+      "object:rop_as_is_layout_82": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1577,
+          "y": 650
+        }
+      },
+      "object:rop_as_is_layout_83": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1560,
+          "y": 650
+        }
+      },
+      "object:rop_as_is_layout_84": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1560,
+          "y": 495
+        }
+      },
+      "object:rop_as_is_layout_85": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1430,
+          "y": 440
+        }
+      },
+      "object:rop_as_is_layout_86": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1380,
+          "y": 440
+        }
+      },
+      "object:rop_as_is_layout_87": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1380,
+          "y": 315
+        }
+      },
+      "object:rop_as_is_layout_88": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 615,
+          "y": 315
+        }
+      },
+      "object:rop_as_is_layout_89": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 615,
+          "y": 385
+        }
+      },
+      "object:rop_as_is_layout_90": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1604,
+          "y": 753
+        }
+      },
+      "object:rop_as_is_layout_91": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1660,
+          "y": 753
+        }
+      },
+      "object:rop_as_is_layout_92": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1660,
+          "y": 130
+        }
+      },
+      "object:rop_as_is_layout_93": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1750,
+          "y": 130
+        }
+      },
+      "object:rop_as_is_layout_94": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2000,
+          "y": 130
+        }
+      },
+      "object:rop_as_is_layout_95": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2020,
+          "y": 130
+        }
+      },
+      "object:rop_as_is_layout_96": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2020,
+          "y": 1022
+        }
+      },
+      "object:rop_as_is_layout_97": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2050,
+          "y": 1022
+        }
+      },
+      "object:rop_as_is_layout_98": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2310,
+          "y": 1022
+        }
+      },
+      "object:rop_as_is_layout_99": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2350,
+          "y": 1022
+        }
+      },
+      "object:rop_as_is_layout_100": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2350,
+          "y": 130
+        }
+      },
+      "object:rop_as_is_layout_101": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2324,
+          "y": 130
+        }
+      },
+      "object:rop_as_is_layout_102": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2270,
+          "y": 130
+        }
+      },
+      "object:rop_as_is_layout_103": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2240,
+          "y": 130
+        }
+      },
+      "object:rop_as_is_layout_104": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2240,
+          "y": 210
+        }
+      },
+      "object:rop_as_is_layout_105": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2220,
+          "y": 210
+        }
+      },
+      "object:rop_as_is_layout_106": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1980,
+          "y": 210
+        }
+      },
+      "object:rop_as_is_layout_107": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1940,
+          "y": 210
+        }
+      },
+      "object:rop_as_is_layout_108": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1940,
+          "y": 5
+        }
+      },
+      "object:rop_as_is_layout_109": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 295,
+          "y": 5
+        }
+      },
+      "object:rop_as_is_layout_110": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 295,
+          "y": 75
+        }
+      },
+      "object:rop_as_is_layout_111": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2324,
+          "y": 130
+        }
+      },
+      "object:rop_as_is_layout_112": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2500,
+          "y": 130
+        }
+      },
+      "object:rop_as_is_layout_113": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 1160,
+          "y": 470,
+          "width": 70,
+          "height": 32
+        }
+      },
+      "object:rop_as_is_layout_114": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_113"
+          }
+        }
+      },
+      "object:rop_as_is_layout_115": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 775,
+          "y": 555,
+          "width": 230,
+          "height": 42
+        }
+      },
+      "object:rop_as_is_layout_116": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_115"
+          }
+        }
+      },
+      "object:rop_as_is_layout_117": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 1180,
+          "y": 510,
+          "width": 70,
+          "height": 32
+        }
+      },
+      "object:rop_as_is_layout_118": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_117"
+          }
+        }
+      },
+      "object:rop_as_is_layout_119": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 1590,
+          "y": 635,
+          "width": 70,
+          "height": 32
+        }
+      },
+      "object:rop_as_is_layout_120": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_119"
+          }
+        }
+      },
+      "object:rop_as_is_layout_121": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 850,
+          "y": 320,
+          "width": 240,
+          "height": 42
+        }
+      },
+      "object:rop_as_is_layout_122": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_121"
+          }
+        }
+      },
+      "object:rop_as_is_layout_123": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 1620,
+          "y": 650,
+          "width": 70,
+          "height": 32
+        }
+      },
+      "object:rop_as_is_layout_124": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_123"
+          }
+        }
+      },
+      "object:rop_as_is_layout_125": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 2180,
+          "y": 120,
+          "width": 70,
+          "height": 32
+        }
+      },
+      "object:rop_as_is_layout_126": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_125"
+          }
+        }
+      },
+      "object:rop_as_is_layout_127": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 970,
+          "y": 10,
+          "width": 250,
+          "height": 42
+        }
+      },
+      "object:rop_as_is_layout_128": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_127"
+          }
+        }
+      },
+      "object:rop_as_is_layout_129": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 2390,
+          "y": 88,
+          "width": 70,
+          "height": 32
+        }
+      },
+      "object:rop_as_is_layout_130": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_129"
+          }
+        }
+      },
+      "object:rop_as_is_layout_131": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 1050,
+          "y": 350,
+          "width": 200,
+          "height": 42
+        }
+      },
+      "object:rop_as_is_layout_132": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_131"
+          }
+        }
+      },
+      "object:rop_as_is_layout_133": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 1460,
+          "y": 655,
+          "width": 230,
+          "height": 52
+        }
+      },
+      "object:rop_as_is_layout_134": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_133"
+          }
+        }
+      },
+      "object:rop_as_is_layout_135": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 2200,
+          "y": 55,
+          "width": 190,
+          "height": 42
+        }
+      },
+      "object:rop_as_is_layout_136": {
+        "type": "bpmndi:BPMNLabel",
+        "properties": {
+          "bounds": {
+            "ref": "object:rop_as_is_layout_135"
+          }
         }
       }
     }
   },
-  "source": "bpmn Collaboration \"Публикация и внешние участники\"\npool Ucoms \"ООО «Юкомс»\"\npool PC4Games \"Поставщик PC4Games\"\npool ITPartner \"Поставщик ITPartner\"\npool Ozon Ozon\nevent Start \"Потребность\\nв карточке\" in=Ucoms position=start\nprocess Init \"Инициировать\\nновую карточку\\nили изменение\" in=Ucoms\nprocess Prepare \"Подготовить\\nданные карточки\" in=Ucoms type=subprocess\nprocess Submit \"Ввести данные\\nв Ozon и отправить\\nкарточку\" in=Ucoms\nprocess Result \"Получить статус\\nиз Ozon\" in=Ucoms type=receive\ngateway Accepted \"Опубликована?\" in=Ucoms type=exclusive\nevent Published \"Карточка\\nопубликована\\nили обновлена\" in=Ucoms position=end\nprocess RecordError \"Зафиксировать\\nошибку и замечания\\nдля исправления\" in=Ucoms\nevent Failed \"Ошибка\\nпубликации\" in=Ucoms position=end\nlane Technical \"Технический специалист\" in=Prepare\nlane Stock \"Сотрудник склада\" in=Prepare\nlane Designer Дизайнер in=Prepare\nevent PrepStart \"Начало\\nподготовки\" in=Prepare position=start\nprocess BOM \"Сформировать Модельный ряд\\nи сопоставить\\nмодели поставщиков\" in=Prepare\nprocess Check \"Проверить\\nсовместимость\\nкомплектующих\" in=Prepare\ngateway Compatible \"Совместимо?\" in=Prepare type=exclusive\nprocess Fix \"Исправить\\nнесовместимую\\nконфигурацию\" in=Prepare\nprocess Offers \"Запросить и собрать\\nцены и наличие\\nу обоих поставщиков\" in=Prepare\ngateway Available \"Всё доступно?\" in=Prepare type=exclusive\nprocess Replace \"Локально заменить\\nнедоступный\\nкомпонент в модельном ряду\" in=Prepare\nprocess Calculate \"Рассчитать\\nцену и вес\" in=Prepare\nprocess Images \"Подготовить\\nизображения\" in=Prepare\nevent PrepEnd \"Данные\\nподготовлены\" in=Prepare position=end\nflow F01 \"\" from=Start to=Init\nflow F02 \"\" from=Init to=Prepare\nflow F03 \"\" from=Prepare to=Submit\nflow F04 \"\" from=Submit to=Result\nflow F05 \"\" from=Result to=Accepted\nflow F06 Да condition=\"status = published\" from=Accepted to=Published\nflow F07 Нет condition=\"status = error\" from=Accepted to=RecordError\nflow F08 \"\" from=RecordError to=Failed\nflow M01 \"Запрос цен\\nи наличия\" from=Prepare to=PC4Games type=message\nflow M02 \"Цены\\nи наличие\" from=PC4Games to=Prepare type=message\nflow M03 \"Запрос цен\\nи наличия\" from=Prepare to=ITPartner type=message\nflow M04 \"Цены\\nи наличие\" from=ITPartner to=Prepare type=message\nflow M05 \"Данные карточки\" from=Submit to=Ozon type=message\nflow M06 \"Статус и замечания\" from=Ozon to=Result type=message\nflow D01 \"\" from=PrepStart to=BOM\nflow D02 \"\" from=BOM to=Check\nflow D03 \"\" from=Check to=Compatible\nflow D04 Нет condition=\"compatible = false\" from=Compatible to=Fix\nflow D05 \"\" from=Fix to=Check\nflow D06 Да condition=\"compatible = true\" from=Compatible to=Offers\nflow D07 \"\" from=Offers to=Available\nflow D08 Нет condition=\"available = false\" from=Available to=Replace\nflow D09 \"\" from=Replace to=Check\nflow D10 Да condition=\"available = true\" from=Available to=Calculate\nflow D11 \"\" from=Calculate to=Images\nflow D12 \"\" from=Images to=PrepEnd\n",
-  "draft": "bpmn Collaboration \"Публикация и внешние участники\"\npool Ucoms \"ООО «Юкомс»\"\npool PC4Games \"Поставщик PC4Games\"\npool ITPartner \"Поставщик ITPartner\"\npool Ozon Ozon\nevent Start \"Потребность\\nв карточке\" in=Ucoms position=start\nprocess Init \"Инициировать\\nновую карточку\\nили изменение\" in=Ucoms\nprocess Prepare \"Подготовить\\nданные карточки\" in=Ucoms type=subprocess\nprocess Submit \"Ввести данные\\nв Ozon и отправить\\nкарточку\" in=Ucoms\nprocess Result \"Получить статус\\nиз Ozon\" in=Ucoms type=receive\ngateway Accepted \"Опубликована?\" in=Ucoms type=exclusive\nevent Published \"Карточка\\nопубликована\\nили обновлена\" in=Ucoms position=end\nprocess RecordError \"Зафиксировать\\nошибку и замечания\\nдля исправления\" in=Ucoms\nevent Failed \"Ошибка\\nпубликации\" in=Ucoms position=end\nlane Technical \"Технический специалист\" in=Prepare\nlane Stock \"Сотрудник склада\" in=Prepare\nlane Designer Дизайнер in=Prepare\nevent PrepStart \"Начало\\nподготовки\" in=Prepare position=start\nprocess BOM \"Сформировать Модельный ряд\\nи сопоставить\\nмодели поставщиков\" in=Prepare\nprocess Check \"Проверить\\nсовместимость\\nкомплектующих\" in=Prepare\ngateway Compatible \"Совместимо?\" in=Prepare type=exclusive\nprocess Fix \"Исправить\\nнесовместимую\\nконфигурацию\" in=Prepare\nprocess Offers \"Запросить и собрать\\nцены и наличие\\nу обоих поставщиков\" in=Prepare\ngateway Available \"Всё доступно?\" in=Prepare type=exclusive\nprocess Replace \"Локально заменить\\nнедоступный\\nкомпонент в модельном ряду\" in=Prepare\nprocess Calculate \"Рассчитать\\nцену и вес\" in=Prepare\nprocess Images \"Подготовить\\nизображения\" in=Prepare\nevent PrepEnd \"Данные\\nподготовлены\" in=Prepare position=end\nflow F01 \"\" from=Start to=Init\nflow F02 \"\" from=Init to=Prepare\nflow F03 \"\" from=Prepare to=Submit\nflow F04 \"\" from=Submit to=Result\nflow F05 \"\" from=Result to=Accepted\nflow F06 Да condition=\"status = published\" from=Accepted to=Published\nflow F07 Нет condition=\"status = error\" from=Accepted to=RecordError\nflow F08 \"\" from=RecordError to=Failed\nflow M01 \"Запрос цен\\nи наличия\" from=Prepare to=PC4Games type=message\nflow M02 \"Цены\\nи наличие\" from=PC4Games to=Prepare type=message\nflow M03 \"Запрос цен\\nи наличия\" from=Prepare to=ITPartner type=message\nflow M04 \"Цены\\nи наличие\" from=ITPartner to=Prepare type=message\nflow M05 \"Данные карточки\" from=Submit to=Ozon type=message\nflow M06 \"Статус и замечания\" from=Ozon to=Result type=message\nflow D01 \"\" from=PrepStart to=BOM\nflow D02 \"\" from=BOM to=Check\nflow D03 \"\" from=Check to=Compatible\nflow D04 Нет condition=\"compatible = false\" from=Compatible to=Fix\nflow D05 \"\" from=Fix to=Check\nflow D06 Да condition=\"compatible = true\" from=Compatible to=Offers\nflow D07 \"\" from=Offers to=Available\nflow D08 Нет condition=\"available = false\" from=Available to=Replace\nflow D09 \"\" from=Replace to=Check\nflow D10 Да condition=\"available = true\" from=Available to=Calculate\nflow D11 \"\" from=Calculate to=Images\nflow D12 \"\" from=Images to=PrepEnd\n"
+  "source": "bpmn Collaboration \"AS IS: ручная подготовка и повторный ввод\"\npool Ucoms \"ООО «Юкомс»\"\npool PC4Games \"Поставщик PC4Games\"\npool ITPartner \"Поставщик ITPartner\"\npool Ozon Ozon\nevent Start \"Запрос в почте\\nили мессенджере\" in=Ucoms position=start\nprocess Init \"Найти старые файлы\\nи договориться\\nоб исполнителях\" in=Ucoms type=manual\nprocess Prepare \"Вручную подготовить\\nданные карточки\" in=Ucoms type=subprocess\nprocess Submit \"Скопировать данные\\nв кабинет Ozon\" in=Ucoms type=manual\nprocess Result \"Проверить статус\\nвручную\" in=Ucoms type=manual\ngateway Accepted \"Карточка принята?\" in=Ucoms type=exclusive\nevent Published \"Карточка\\nопубликована\" in=Ucoms position=end\nprocess RecordError \"Разобрать замечания\\nи исправить файлы\" in=Ucoms type=manual\nlane Manager \"Менеджер маркетплейсов\" in=Prepare\nprocess FindFiles \"Найти переписку,\\nтаблицы и изображения\" in=Prepare type=manual\nprocess Copy \"Скопировать прежний состав\\nв локальную таблицу\" in=Prepare type=manual\ngateway Complete \"Все данные найдены?\" in=Prepare type=exclusive\nprocess Missing \"Искать недостающие\\nхарактеристики и файлы\" in=Prepare type=manual\nlane Technical \"Технический специалист\" in=Prepare\nlane Stock \"Сотрудник склада\" in=Prepare\nlane Designer Дизайнер in=Prepare\nevent PrepStart \"Начало\\nручной подготовки\" in=Prepare position=start\nprocess Check \"Сверить совместимость\\nпо опыту и сайтам\" in=Prepare type=manual\ngateway Compatible \"Совместимо?\" in=Prepare type=exclusive\nprocess Fix \"Исправить состав\\nв локальном файле\" in=Prepare type=manual\nprocess Offers \"Запросить цены и остатки\\nв переписке\" in=Prepare type=manual\ngateway Available \"Данные актуальны\\nи товар доступен?\" in=Prepare type=exclusive\nprocess Replace \"Подобрать замену\\nи переписать состав\" in=Prepare type=manual\nprocess Calculate \"Посчитать цену и массу\\nв Excel и калькуляторе\" in=Prepare type=manual\nprocess Images \"Подготовить изображения\\nи текст в отдельных файлах\" in=Prepare type=manual\nevent PrepEnd \"Файлы переданы\\nменеджеру\" in=Prepare position=end\nflow F01 \"\" from=Start to=Init\nflow F02 \"\" from=Init to=Prepare\nflow F03 \"\" from=Prepare to=Submit\nflow F04 \"\" from=Submit to=Result\nflow F05 \"\" from=Result to=Accepted\nflow F06 Да condition=\"status = published\" from=Accepted to=Published\nflow F07 Нет condition=\"status = rejected\" from=Accepted to=RecordError\nflow F08 \"Повторить подготовку и ввод\" from=RecordError to=Prepare\nflow M01 \"Запрос цен и наличия\" from=Prepare to=PC4Games type=message\nflow M02 \"Прайс-лист или сообщение\" from=PC4Games to=Prepare type=message\nflow M03 \"Запрос цен и наличия\" from=Prepare to=ITPartner type=message\nflow M04 \"Прайс-лист или сообщение\" from=ITPartner to=Prepare type=message\nflow M05 \"Повторно введённые данные\" from=Submit to=Ozon type=message\nflow M06 \"Статус и замечания\" from=Ozon to=Result type=message\nflow D13 \"\" from=Images to=Complete\nflow D14 Нет condition=\"complete = false\" from=Complete to=Missing\nflow D15 \"Повторно собрать данные\" from=Missing to=FindFiles\nflow D16 Да condition=\"complete = true\" from=Complete to=PrepEnd\nflow D01 \"\" from=PrepStart to=FindFiles\nflow D02 \"\" from=FindFiles to=Copy\nflow D03 \"\" from=Copy to=Check\nflow D04 \"\" from=Check to=Compatible\nflow D05 Нет condition=\"compatible = false\" from=Compatible to=Fix\nflow D06 \"Повторная ручная проверка\" from=Fix to=Check\nflow D07 Да condition=\"compatible = true\" from=Compatible to=Offers\nflow D08 \"\" from=Offers to=Available\nflow D09 Нет condition=\"available = false\" from=Available to=Replace\nflow D10 \"Вернуться к составу\" from=Replace to=Copy\nflow D11 Да condition=\"available = true\" from=Available to=Calculate\nflow D12 \"\" from=Calculate to=Images\n",
+  "draft": "bpmn Collaboration \"AS IS: ручная подготовка и повторный ввод\"\npool Ucoms \"ООО «Юкомс»\"\npool PC4Games \"Поставщик PC4Games\"\npool ITPartner \"Поставщик ITPartner\"\npool Ozon Ozon\nevent Start \"Запрос в почте\\nили мессенджере\" in=Ucoms position=start\nprocess Init \"Найти старые файлы\\nи договориться\\nоб исполнителях\" in=Ucoms type=manual\nprocess Prepare \"Вручную подготовить\\nданные карточки\" in=Ucoms type=subprocess\nprocess Submit \"Скопировать данные\\nв кабинет Ozon\" in=Ucoms type=manual\nprocess Result \"Проверить статус\\nвручную\" in=Ucoms type=manual\ngateway Accepted \"Карточка принята?\" in=Ucoms type=exclusive\nevent Published \"Карточка\\nопубликована\" in=Ucoms position=end\nprocess RecordError \"Разобрать замечания\\nи исправить файлы\" in=Ucoms type=manual\nlane Manager \"Менеджер маркетплейсов\" in=Prepare\nprocess FindFiles \"Найти переписку,\\nтаблицы и изображения\" in=Prepare type=manual\nprocess Copy \"Скопировать прежний состав\\nв локальную таблицу\" in=Prepare type=manual\ngateway Complete \"Все данные найдены?\" in=Prepare type=exclusive\nprocess Missing \"Искать недостающие\\nхарактеристики и файлы\" in=Prepare type=manual\nlane Technical \"Технический специалист\" in=Prepare\nlane Stock \"Сотрудник склада\" in=Prepare\nlane Designer Дизайнер in=Prepare\nevent PrepStart \"Начало\\nручной подготовки\" in=Prepare position=start\nprocess Check \"Сверить совместимость\\nпо опыту и сайтам\" in=Prepare type=manual\ngateway Compatible \"Совместимо?\" in=Prepare type=exclusive\nprocess Fix \"Исправить состав\\nв локальном файле\" in=Prepare type=manual\nprocess Offers \"Запросить цены и остатки\\nв переписке\" in=Prepare type=manual\ngateway Available \"Данные актуальны\\nи товар доступен?\" in=Prepare type=exclusive\nprocess Replace \"Подобрать замену\\nи переписать состав\" in=Prepare type=manual\nprocess Calculate \"Посчитать цену и массу\\nв Excel и калькуляторе\" in=Prepare type=manual\nprocess Images \"Подготовить изображения\\nи текст в отдельных файлах\" in=Prepare type=manual\nevent PrepEnd \"Файлы переданы\\nменеджеру\" in=Prepare position=end\nflow F01 \"\" from=Start to=Init\nflow F02 \"\" from=Init to=Prepare\nflow F03 \"\" from=Prepare to=Submit\nflow F04 \"\" from=Submit to=Result\nflow F05 \"\" from=Result to=Accepted\nflow F06 Да condition=\"status = published\" from=Accepted to=Published\nflow F07 Нет condition=\"status = rejected\" from=Accepted to=RecordError\nflow F08 \"Повторить подготовку и ввод\" from=RecordError to=Prepare\nflow M01 \"Запрос цен и наличия\" from=Prepare to=PC4Games type=message\nflow M02 \"Прайс-лист или сообщение\" from=PC4Games to=Prepare type=message\nflow M03 \"Запрос цен и наличия\" from=Prepare to=ITPartner type=message\nflow M04 \"Прайс-лист или сообщение\" from=ITPartner to=Prepare type=message\nflow M05 \"Повторно введённые данные\" from=Submit to=Ozon type=message\nflow M06 \"Статус и замечания\" from=Ozon to=Result type=message\nflow D13 \"\" from=Images to=Complete\nflow D14 Нет condition=\"complete = false\" from=Complete to=Missing\nflow D15 \"Повторно собрать данные\" from=Missing to=FindFiles\nflow D16 Да condition=\"complete = true\" from=Complete to=PrepEnd\nflow D01 \"\" from=PrepStart to=FindFiles\nflow D02 \"\" from=FindFiles to=Copy\nflow D03 \"\" from=Copy to=Check\nflow D04 \"\" from=Check to=Compatible\nflow D05 Нет condition=\"compatible = false\" from=Compatible to=Fix\nflow D06 \"Повторная ручная проверка\" from=Fix to=Check\nflow D07 Да condition=\"compatible = true\" from=Compatible to=Offers\nflow D08 \"\" from=Offers to=Available\nflow D09 Нет condition=\"available = false\" from=Available to=Replace\nflow D10 \"Вернуться к составу\" from=Replace to=Copy\nflow D11 Да condition=\"available = true\" from=Available to=Calculate\nflow D12 \"\" from=Calculate to=Images\n"
 }

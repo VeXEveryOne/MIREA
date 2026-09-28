@@ -1,10 +1,10 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {Presentation,PresentationFile} from '@oai/artifact-tool';
-import {finalizePresentation} from 'file:///C:/Users/VeX/.codex/plugins/cache/openai-primary-runtime/presentations/26.905.11957/skills/presentations/container_tools/artifact_tool_utils.mjs';
+import {finalizePresentation} from 'file:///C:/Users/VeX/.codex/plugins/cache/openai-primary-runtime/presentations/26.909.12148/skills/presentations/container_tools/artifact_tool_utils.mjs';
 const workspaceDir='D:/GitHub/MIREA/tmp/rop_all';
 const root='D:/GitHub/MIREA/4/РОП/Практики_1-8';
-const skill='C:/Users/VeX/.codex/plugins/cache/openai-primary-runtime/presentations/26.905.11957/skills/presentations';
+const skill='C:/Users/VeX/.codex/plugins/cache/openai-primary-runtime/presentations/26.909.12148/skills/presentations';
 const python='C:/Users/VeX/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe';
 process.env.RUNTIME_NODE_MODULES='C:/Users/VeX/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules';
 await fs.mkdir(root+'/Презентации',{recursive:true});
@@ -14,14 +14,17 @@ function text(slide,tx,x,y,w,h,size=28,bold=false,color='#161616'){
  const s=slide.shapes.add({geometry:'textbox',position:{left:x,top:y,width:w,height:h},fill:'none',line:{fill:'none',width:0}});s.text=tx;s.text.style={typeface:'Arial',fontSize:size,bold,color,autoFit:'none'};return s;
 }
 function slide(title,notes=''){
- const s=deck.slides.add();s.background.fill='#FFFFFF';text(s,title,58,35,1160,90,42,true);s.speakerNotes.textFrame.setText(sources+'\n'+notes);return s;
+ const s=deck.slides.add();s.background.fill='#FFFFFF';
+ const heading=text(s,title,58,28,1160,78,36,true);
+ heading.text.style={typeface:'Arial',fontSize:36,bold:true,color:'#161616',alignment:'left',verticalAlignment:'middle',autoFit:'none'};
+ s.speakerNotes.textFrame.setText(sources+'\n'+notes);return s;
 }
 function cover(n,title,summary){let s=slide('Практическое занятие '+n);text(s,title,58,200,1120,175,50,true);text(s,summary,58,405,1100,125,30);text(s,'Албахтин И.В.   ИНБО-12-23\nРазработка обеспечивающих подсистем   2026',58,585,1100,80,24);return s;}
 function bullets(title,lines,notes=''){let s=slide(title,notes);lines.forEach((l,i)=>text(s,l,70,160+i*112,1130,96,29));return s;}
-function table(title,values,widths,notes=''){
- let s=slide(title,notes);const tb=s.tables.add({rows:values.length,columns:values[0].length,left:60,top:150,width:1160,height:480,values,columnWidths:widths});
+function table(title,values,widths,notes='',fontSize=24,height=480,top=150){
+ let s=slide(title,notes);const tb=s.tables.add({rows:values.length,columns:values[0].length,left:60,top,width:1160,height,values,columnWidths:widths});
  for(let r=0;r<values.length;r++)for(let c=0;c<values[0].length;c++){
-  let cell=tb.getCell(r,c);cell.fill=r===0?'#F1F1F1':'#FFFFFF';cell.text.style={typeface:'Arial',fontSize:24,bold:r===0,color:'#161616'};
+  let cell=tb.getCell(r,c);cell.fill=r===0?'#F1F1F1':'#FFFFFF';cell.text.style={typeface:'Arial',fontSize,bold:r===0,color:'#161616'};
  }
  tb.borders.assign({style:'solid',fill:'#888888',width:1});return s;
 }
@@ -39,16 +42,73 @@ function sequence(title,people,steps,note){
  steps.forEach(([a,b,label],i)=>{let y=263+i*65;let x=Math.min(xs[a],xs[b]);s.shapes.add({geometry:a<b?'rightArrow':'leftArrow',position:{left:x,top:y,width:Math.abs(xs[b]-xs[a]),height:11},fill:'#333333',line:{fill:'none',width:0}});text(s,label,x+10,y-36,Math.abs(xs[b]-xs[a])-12,38,22);});
  text(s,note,62,638,1150,65,22);return s;
 }
+function twoColumns(title,leftTitle,leftLines,rightTitle,rightLines,notes=''){
+ let s=slide(title,notes);text(s,leftTitle,70,145,520,55,28,true);text(s,rightTitle,690,145,520,55,28,true);
+ leftLines.forEach((line,i)=>text(s,line,70,220+i*68,520,58,22));
+ rightLines.forEach((line,i)=>text(s,line,690,220+i*68,520,58,22));
+ return s;
+}
 const drafts=root+'/Черновики_схем/';const native=root+'/Модели_OmniNotation/';
-for(num=Number(process.argv[2]||2);num<=Number(process.argv[3]||8);num++){
+const exportDir=root+'/Модели_для_отчёта/PNG_final4';
+const exported=(await fs.readdir(exportDir)).filter(name=>/^\d{2}_.*\.png$/i.test(name)).sort();
+function figure(number){const prefix=String(number).padStart(2,'0')+'_';const name=exported.find(value=>value.startsWith(prefix));if(!name)throw new Error('Не найден рисунок '+number);return exportDir+'/'+name;}
+const firstNumber=Number(process.argv[2]||1),lastNumber=Number(process.argv[3]||8);
+for(num=firstNumber;num<=lastNumber;num++){
  deck=Presentation.create({slideSize:{width:1280,height:720}});
- if(num===2){
- cover(2,'Целевой процесс и архитектура','Версия BOM связывает состав, расчёты и публикацию карточки.');
- await picture('Целевой процесс BPMN',native+'ПР2_BPMN_Процесс.png','Изображение из редактора OmniNotation. Редактируемый .nsbpmn находится в комплекте.');
- flow('Функциональная структура',['BOM\nи правила','Предложения\nпоставщиков','Расчёты\nи контент','Публикация\nи статус'],'Администрирование обеспечивает доступ, справочники и аудит для всех функций.');
- flow('Компоненты модульного монолита',['Web\nинтерфейс','Бизнес\nсервисы','Данные\nи очередь','Worker\nи адаптеры'],'PostgreSQL хранит версии и устойчивую очередь. Изображения находятся в отдельном хранилище.');
- table('Ключевые сценарии',[['Сценарий','Ответственный','Результат'],['Создание и проверка BOM','Инженер','Проверенная версия'],['Обновление предложений','Склад','Свежие снимки'],['Массовая замена','Инженер','Версии и конфликты'],['Подготовка и публикация','Менеджер, дизайнер, ИС','Карточка и итог отправки']],[400,320,440]);
- bullets('Условия согласованности',['Изменение состава повторно запускает совместимость, цену, массу и полноту.','Менеджер утверждает конкретную версию перед публикацией.','При потере ответа сначала сверяется результат внешней операции.','Целевые NFR требуют проверки на будущей реализации.']);
+ if(num===1){
+ cover(1,'Анализ текущего процесса','AS IS показывает ручную работу, повторный ввод и позднее обнаружение ошибок.');
+ twoColumns('Границы анализа AS IS','Начало и результат',['Запрос приходит в почту или мессенджер.','Результат: карточка Ozon либо отклонение.','Описание представляет учебную модель.'],'Участники и инструменты',['Менеджер, технический специалист, склад, дизайнер.','Excel, калькулятор, браузер, почта и общие папки.','Прайс-листы, сообщения, характеристики и изображения.']);
+ await picture('IDEF0 AS IS: контекст ручной подготовки',figure(1));
+ await picture('IDEF0 AS IS: шесть ручных функций',figure(2));
+ await picture('BPMN AS IS: ручная публикация',figure(3));
+ await picture('BPMN AS IS: циклы повторной работы',figure(4));
+ table('Проблемы текущего процесса',[
+  ['Код','Проблема','Последствие'],
+  ['P-01','Повторный ввод между файлами и Ozon','Ошибки копирования'],
+  ['P-02','Совместимость проверяет специалист','Зависимость от опыта'],
+  ['P-03','Остатки запрашиваются после подбора','Повторный подбор'],
+  ['P-04','Предложения быстро устаревают','Неверные цена и наличие'],
+  ['P-05','Полнота проверяется поздно','Отклонение карточки'],
+  ['P-06','Нет общей версии и аудита','Результат трудно воспроизвести'],
+ ],[150,535,475],'',20,500,145);
+ twoColumns('Функциональные требования FR-01–FR-10','Управление модельным рядом',['FR-01 Запрос на создание или изменение.','FR-02 Версии состава.','FR-03 Точные и групповые слоты.','FR-04 Автоматическая совместимость.','FR-05 Протокол конфликтов.'],'Предложения и расчёты',['FR-06 Сопоставление SKU.','FR-07 Импорт предложений.','FR-08 Выбор актуального предложения.','FR-09 Расчёт цены.','FR-10 Расчёт массы.']);
+ twoColumns('Функциональные требования FR-11–FR-22','Изменения и публикация',['FR-11 Предпросмотр массовой замены.','FR-12 Новая версия при замене.','FR-13 Повторная проверка.','FR-14 Контент и изображения.','FR-15 Карточка из одной версии.','FR-16 Контроль готовности.'],'Результат и история',['FR-17 Очередь публикации.','FR-18 Статус и внешний ID.','FR-19 Ограниченные повторы.','FR-20 Аудит изменений.','FR-21 Уведомления.','FR-22 Поиск и фильтрация.']);
+ twoColumns('Нефункциональные требования NFR-01–NFR-05','Производительность',['NFR-01 Основные формы: до 2 с для 95% запросов.','NFR-02 Пакетная операция: до 1000 модельных рядов.','NFR-03 Фоновая публикация не блокирует интерфейс.'],'Надёжность',['NFR-04 Контроль целостности версий.','NFR-05 Резервное копирование и проверка восстановления.','Пороговые значения проверяются после реализации.']);
+ twoColumns('Нефункциональные требования NFR-06–NFR-12','Защита и доступ',['NFR-06 Индивидуальная аутентификация.','NFR-07 RBAC на сервере.','NFR-08 Аудит действий.','NFR-09 TLS и защита секретов.'],'Эксплуатация',['NFR-10 Обработка ошибок интеграций.','NFR-11 Наблюдаемость и уведомления.','NFR-12 Расширяемые адаптеры и правила.','Требования служат критериями будущей приёмки.']);
+ table('Сравнение программных аналогов',[
+  ['Критерий','Ozon','1С','Pimcore','Akeneo','ИС'],
+  ['Модельный ряд','0','5','3','2','5'],
+  ['Совместимость','0','2','3','1','5'],
+  ['Поставщики','1','5','3','4','5'],
+  ['Массовая замена','2','3','4','4','5'],
+  ['Контент','5','2','5','5','5'],
+  ['Публикация Ozon','5','2','2','2','5'],
+  ['Средняя оценка','2,1','3,7','3,7','3,1','5,0'],
+ ],[350,155,155,170,170,160],'Оценки 0–5 являются экспертными и не заменяют измерения продуктов.',20,490,150);
+ await picture('Средняя экспертная оценка аналогов',figure(5),'Оценки 0–5 получены в рамках учебного сравнения.');
+ bullets('Результаты практики 1',['Построены контекст и декомпозиция IDEF0 AS IS.','BPMN показывает четыре роли, переписку и повторное заполнение Ozon.','Выявлены шесть проблем текущего процесса.','Сформулированы FR-01–FR-22 и NFR-01–NFR-12.','Определена потребность в единой версионированной системе.']);
+ bullets('Источники',['Методические материалы РОП, практическое занятие 1.','OMG Business Process Model and Notation 2.0.2.','Документация Ozon Seller API.','Единый отчёт по практическим занятиям 1–8.']);
+ }else if(num===2){
+ cover(2,'Целевой процесс и архитектура','TO BE связывает проверенную версию модельного ряда, расчёты, контент и публикацию.');
+ table('Сравнение AS IS и TO BE',[
+  ['Аспект','AS IS','TO BE'],
+  ['Хранение','Файлы и переписка','Единая ИС и версии'],
+  ['Ввод','Копирование и повторный ввод','Карточка из снимка'],
+  ['Совместимость','Опыт и сайты','Механизм правил'],
+  ['Предложения','Ручное сведение','Импорт и контроль времени'],
+  ['Расчёты','Excel и калькулятор','Воспроизводимый расчёт'],
+  ['Публикация','Ручное заполнение','Утверждение и очередь'],
+  ['Аудит','Разрозненная история','Журнал и уведомления'],
+  ['Ошибки','Неуправляемые циклы','Бизнес-возврат и повторы'],
+ ],[260,430,470],'',20,505,145);
+ await picture('IDEF0 TO BE: контекст управляемого процесса',figure(6));
+ await picture('IDEF0 TO BE: шесть целевых функций',figure(7));
+ await picture('BPMN TO BE: общий процесс',figure(8));
+ await picture('BPMN TO BE: подготовка',figure(9));
+ await picture('BPMN TO BE: очередь и результат',figure(10));
+ await picture('Дерево функций системы',figure(11));
+ await picture('Компоненты целевой системы',figure(12));
+ bullets('Результаты практики 2',['Запрос сразу создаёт черновую версию модельного ряда.','Правила проверяют совместимость, актуальность и полноту до публикации.','Менеджер утверждает конкретную неизменяемую версию.','Worker сверяет неизвестный результат перед ограниченным повтором.','PostgreSQL, хранилище, адаптеры и аудит поддерживают целевой процесс.']);
  }else if(num===3){
  cover(3,'Логическая модель данных','29 сущностей обеспечивают BOM, предложения, версии карточек и историю.');
  flow('Основная цепочка данных',['BOM','Версия\nBOM','Версия\nкарточки','Публикация'],'Публикация относится к неизменяемому снимку. Новая BOM не перезаписывает историю.');
@@ -95,11 +155,13 @@ for(num=Number(process.argv[2]||2);num<=Number(process.argv[3]||8);num++){
  const staging=workspaceDir+'/slides_v2/pr'+num;await fs.mkdir(staging,{recursive:true});
  const candidate=staging+'/candidate.pptx';await(await PresentationFile.exportPptx(deck)).save(candidate);
  await fs.mkdir(staging+'/final',{recursive:true});const final=staging+'/final/final.pptx';await fs.rm(final,{force:true});
- const result=await finalizePresentation({workspaceDir,candidatePath:candidate,finalPath:final,pythonExecutable:python,integrityValidatorPath:skill+'/container_tools/inspect_presentation_package_integrity.py',layoutValidatorPath:skill+'/container_tools/inspect_presentation_layout_geometry.py',layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-bullet-geometry','--validate-heading-fit'],fontPolicy:{basis:'design',families:['Arial']},verifyArtifactToolImport:true,receiptPath:staging+'/validation.json'});
+ await fs.rm(staging+'/validation.json',{force:true});
+ const requiredNativeTableOwnerSlides=num===1?[7,12]:num===2?[2]:[];
+ const result=await finalizePresentation({workspaceDir,candidatePath:candidate,finalPath:final,pythonExecutable:python,integrityValidatorPath:skill+'/container_tools/inspect_presentation_package_integrity.py',layoutValidatorPath:skill+'/container_tools/inspect_presentation_layout_geometry.py',layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-bullet-geometry','--validate-heading-fit',...requiredNativeTableOwnerSlides.flatMap(number=>['--require-native-table-slide',String(number)])],explicitTotalSlideCount:num===1?15:num===2?10:6,requiredNativeTableOwnerSlides,fontPolicy:{basis:'design',families:['Arial']},verifyArtifactToolImport:true,receiptPath:staging+'/validation.json'});
  await fs.copyFile(final,root+'/Презентации/РОП_Практическая_'+num+'_АлбахтинИВ.pptx');
  for(let i=0;i<deck.slides.items.length;i++){
   const blob=await deck.export({slide:deck.slides.items[i],format:'png',scale:1});await fs.writeFile(staging+'/slide-'+(i+1)+'.png',new Uint8Array(await blob.arrayBuffer()));
  }
  console.log('Completed practice',num,deck.slides.items.length);
 }
-await fs.copyFile('D:/GitHub/MIREA/4/РОП/РОП_Практическая_1_АлбахтинИВ.pptx',root+'/Презентации/РОП_Практическая_1_АлбахтинИВ.pptx');
+if(firstNumber<=1&&lastNumber>=1)await fs.copyFile(root+'/Презентации/РОП_Практическая_1_АлбахтинИВ.pptx','D:/GitHub/MIREA/4/РОП/РОП_Практическая_1_АлбахтинИВ.pptx');

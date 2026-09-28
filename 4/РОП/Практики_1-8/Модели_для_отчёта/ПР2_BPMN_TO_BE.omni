@@ -95,7 +95,7 @@
         "type": "bpmn:Collaboration",
         "properties": {
           "id": "Collaboration",
-          "name": "Целевой процесс",
+          "name": "TO BE: управляемая подготовка и публикация",
           "participants": [
             {
               "ref": "id:Ucoms"
@@ -178,7 +178,8 @@
         "type": "bpmn:StartEvent",
         "properties": {
           "id": "Start",
-          "name": "Запрос на создание\nили изменение",
+          "name": "Зарегистрированный\nзапрос",
+          "incoming": [],
           "outgoing": [
             {
               "ref": "id:F1"
@@ -190,7 +191,7 @@
         "type": "bpmn:UserTask",
         "properties": {
           "id": "Init",
-          "name": "Зарегистрировать\nзапрос и выбрать Модельный ряд",
+          "name": "Создать запрос\nи черновую версию",
           "incoming": [
             {
               "ref": "id:F1"
@@ -207,7 +208,7 @@
         "type": "bpmn:SubProcess",
         "properties": {
           "id": "Prepare",
-          "name": "Подготовить\nверсию карточки",
+          "name": "Подготовить и проверить\nверсию карточки",
           "incoming": [
             {
               "ref": "id:F2"
@@ -300,7 +301,7 @@
         "type": "bpmn:UserTask",
         "properties": {
           "id": "Approve",
-          "name": "Проверить карточку\nи разрешить публикацию",
+          "name": "Утвердить конкретную\nверсию карточки",
           "incoming": [
             {
               "ref": "id:F3"
@@ -317,7 +318,7 @@
         "type": "bpmn:SubProcess",
         "properties": {
           "id": "Publish",
-          "name": "Опубликовать\nи обработать результат",
+          "name": "Опубликовать, сверить\nи зафиксировать результат",
           "incoming": [
             {
               "ref": "id:F4"
@@ -408,12 +409,13 @@
         "type": "bpmn:EndEvent",
         "properties": {
           "id": "Finish",
-          "name": "Результат\nзафиксирован",
+          "name": "Статус, аудит\nи уведомление сохранены",
           "incoming": [
             {
               "ref": "id:F5"
             }
-          ]
+          ],
+          "outgoing": []
         }
       },
       "id:F1": {
@@ -532,7 +534,7 @@
         "type": "bpmn:MessageFlow",
         "properties": {
           "id": "M2",
-          "name": "Цены и наличие",
+          "name": "Цены, остатки и время",
           "sourceRef": {
             "ref": "id:PC4Games"
           },
@@ -564,7 +566,7 @@
         "type": "bpmn:MessageFlow",
         "properties": {
           "id": "M4",
-          "name": "Цены и наличие",
+          "name": "Цены, остатки и время",
           "sourceRef": {
             "ref": "id:ITPartner"
           },
@@ -580,7 +582,7 @@
         "type": "bpmn:MessageFlow",
         "properties": {
           "id": "M5",
-          "name": "Карточка / запрос статуса",
+          "name": "Версия карточки или запрос статуса",
           "sourceRef": {
             "ref": "id:Publish"
           },
@@ -596,7 +598,7 @@
         "type": "bpmn:MessageFlow",
         "properties": {
           "id": "M6",
-          "name": "ID операции / результат",
+          "name": "ID операции и итоговый результат",
           "sourceRef": {
             "ref": "id:Ozon"
           },
@@ -630,6 +632,7 @@
         "properties": {
           "id": "PStart",
           "name": "Начало",
+          "incoming": [],
           "outgoing": [
             {
               "ref": "id:P1"
@@ -641,7 +644,7 @@
         "type": "bpmn:UserTask",
         "properties": {
           "id": "Version",
-          "name": "Создать версию модельного ряда\nи выбрать состав",
+          "name": "Выбрать состав\nчерновой версии",
           "incoming": [
             {
               "ref": "id:P1"
@@ -658,7 +661,7 @@
         "type": "bpmn:ServiceTask",
         "properties": {
           "id": "Offers",
-          "name": "Загрузить предложения\nи разрешить слоты",
+          "name": "Импортировать предложения,\nсопоставить SKU и разрешить слоты",
           "incoming": [
             {
               "ref": "id:P2"
@@ -678,7 +681,7 @@
         "type": "bpmn:BusinessRuleTask",
         "properties": {
           "id": "Validate",
-          "name": "Проверить совместимость\nи свежесть предложений",
+          "name": "Проверить совместимость,\nактуальность и полноту",
           "incoming": [
             {
               "ref": "id:P3"
@@ -695,7 +698,7 @@
         "type": "bpmn:ExclusiveGateway",
         "properties": {
           "id": "Valid",
-          "name": "Данные допустимы?",
+          "name": "Проверка успешна?",
           "incoming": [
             {
               "ref": "id:P4"
@@ -715,7 +718,7 @@
         "type": "bpmn:UserTask",
         "properties": {
           "id": "Fix",
-          "name": "Исправить состав,\nатрибуты или сопоставление",
+          "name": "Исправить состав\nили сопоставление",
           "incoming": [
             {
               "ref": "id:P5"
@@ -735,7 +738,7 @@
         "type": "bpmn:ServiceTask",
         "properties": {
           "id": "Calc",
-          "name": "Рассчитать цену и вес\nсохранить снимок",
+          "name": "Рассчитать цену и массу,\nсохранить единый снимок",
           "incoming": [
             {
               "ref": "id:P7"
@@ -769,7 +772,7 @@
         "type": "bpmn:ServiceTask",
         "properties": {
           "id": "Content",
-          "name": "Сформировать контент\nпроверить полноту",
+          "name": "Сформировать контент\nиз проверенного снимка",
           "incoming": [
             {
               "ref": "id:P9"
@@ -786,7 +789,7 @@
         "type": "bpmn:ExclusiveGateway",
         "properties": {
           "id": "Complete",
-          "name": "Карточка полна?",
+          "name": "Версия готова?",
           "incoming": [
             {
               "ref": "id:P10"
@@ -806,12 +809,13 @@
         "type": "bpmn:EndEvent",
         "properties": {
           "id": "PDone",
-          "name": "Готова\nк публикации",
+          "name": "Версия готова\nк утверждению",
           "incoming": [
             {
               "ref": "id:P12"
             }
-          ]
+          ],
+          "outgoing": []
         }
       },
       "id:P1": {
@@ -886,7 +890,7 @@
         "type": "bpmn:SequenceFlow",
         "properties": {
           "id": "P6",
-          "name": "",
+          "name": "Контролируемое исправление",
           "sourceRef": {
             "ref": "id:Fix"
           },
@@ -987,6 +991,7 @@
         "properties": {
           "id": "QStart",
           "name": "Публикация разрешена",
+          "incoming": [],
           "outgoing": [
             {
               "ref": "id:Q1"
@@ -998,7 +1003,7 @@
         "type": "bpmn:ServiceTask",
         "properties": {
           "id": "Save",
-          "name": "Зафиксировать версию\nи ключ операции",
+          "name": "Поставить версию в очередь\nи сохранить ключ операции",
           "incoming": [
             {
               "ref": "id:Q1"
@@ -1015,7 +1020,7 @@
         "type": "bpmn:ServiceTask",
         "properties": {
           "id": "Send",
-          "name": "Сверить статус и отправить\nпри отсутствии операции",
+          "name": "Сверить статус и отправить\nтолько отсутствующую операцию",
           "incoming": [
             {
               "ref": "id:Q2"
@@ -1035,7 +1040,7 @@
         "type": "bpmn:ServiceTask",
         "properties": {
           "id": "Result",
-          "name": "Получить результат\nили ошибку связи",
+          "name": "Получить ID, результат\nили ошибку связи",
           "incoming": [
             {
               "ref": "id:Q3"
@@ -1072,7 +1077,7 @@
         "type": "bpmn:ServiceTask",
         "properties": {
           "id": "Success",
-          "name": "Сохранить ID Ozon\nи опубликованную версию",
+          "name": "Сохранить внешний ID,\nстатус и аудит",
           "incoming": [
             {
               "ref": "id:Q5"
@@ -1089,19 +1094,20 @@
         "type": "bpmn:EndEvent",
         "properties": {
           "id": "QDone",
-          "name": "Опубликовано",
+          "name": "Опубликовано\nи уведомлено",
           "incoming": [
             {
               "ref": "id:Q6"
             }
-          ]
+          ],
+          "outgoing": []
         }
       },
       "id:Retry": {
         "type": "bpmn:ExclusiveGateway",
         "properties": {
           "id": "Retry",
-          "name": "Повтор допустим?",
+          "name": "Временный сбой\nи повтор допустим?",
           "incoming": [
             {
               "ref": "id:Q7"
@@ -1160,7 +1166,7 @@
         "type": "bpmn:ServiceTask",
         "properties": {
           "id": "Error",
-          "name": "Сохранить ошибку\nуведомить менеджера",
+          "name": "Сохранить точную ошибку,\nаудит и уведомление",
           "incoming": [
             {
               "ref": "id:Q11"
@@ -1177,12 +1183,13 @@
         "type": "bpmn:EndEvent",
         "properties": {
           "id": "QFail",
-          "name": "Ошибка публикации",
+          "name": "Ошибка публикации\nзафиксирована",
           "incoming": [
             {
               "ref": "id:Q12"
             }
-          ]
+          ],
+          "outgoing": []
         }
       },
       "id:Q1": {
@@ -1270,7 +1277,7 @@
         "type": "bpmn:SequenceFlow",
         "properties": {
           "id": "Q7",
-          "name": "Ошибка / ожидание",
+          "name": "Ошибка или неизвестный результат",
           "conditionExpression": {
             "ref": "object:7"
           },
@@ -1315,7 +1322,7 @@
         "type": "bpmn:SequenceFlow",
         "properties": {
           "id": "Q10",
-          "name": "",
+          "name": "Сверить перед повтором",
           "sourceRef": {
             "ref": "id:Increment"
           },
@@ -4284,6 +4291,6 @@
       }
     }
   },
-  "source": "bpmn Collaboration \"Целевой процесс\"\npool Ucoms \"ООО «Юкомс»\"\npool PC4Games PC4Games\npool ITPartner ITPartner\npool Ozon Ozon\nevent Start \"Запрос на создание\\nили изменение\" in=Ucoms position=start\nprocess Init \"Зарегистрировать\\nзапрос и выбрать Модельный ряд\" in=Ucoms type=user\nprocess Prepare \"Подготовить\\nверсию карточки\" in=Ucoms type=subprocess\nprocess Approve \"Проверить карточку\\nи разрешить публикацию\" in=Ucoms type=user\nprocess Publish \"Опубликовать\\nи обработать результат\" in=Ucoms type=subprocess\nevent Finish \"Результат\\nзафиксирован\" in=Ucoms position=end\nlane Technical \"Технический специалист\" in=Prepare\nlane System \"Информационная система\" in=Prepare\nlane Designer Дизайнер in=Prepare\nevent PStart Начало in=Prepare position=start\nprocess Version \"Создать версию модельного ряда\\nи выбрать состав\" in=Prepare type=user\nprocess Fix \"Исправить состав,\\nатрибуты или сопоставление\" in=Prepare type=user\nprocess Offers \"Загрузить предложения\\nи разрешить слоты\" in=Prepare type=service\nprocess Validate \"Проверить совместимость\\nи свежесть предложений\" in=Prepare type=rule\ngateway Valid \"Данные допустимы?\" in=Prepare type=exclusive\nprocess Calc \"Рассчитать цену и вес\\nсохранить снимок\" in=Prepare type=service\nprocess Media \"Подтвердить шаблон\\nи изображения\" in=Prepare type=user\nprocess Content \"Сформировать контент\\nпроверить полноту\" in=Prepare type=service\ngateway Complete \"Карточка полна?\" in=Prepare type=exclusive\nevent PDone \"Готова\\nк публикации\" in=Prepare position=end\nevent QStart \"Публикация разрешена\" in=Publish position=start\nprocess Save \"Зафиксировать версию\\nи ключ операции\" in=Publish type=service\nprocess Send \"Сверить статус и отправить\\nпри отсутствии операции\" in=Publish type=service\nprocess Result \"Получить результат\\nили ошибку связи\" in=Publish type=service\ngateway Outcome \"Результат?\" in=Publish type=exclusive\nprocess Success \"Сохранить ID Ozon\\nи опубликованную версию\" in=Publish type=service\nevent QDone Опубликовано in=Publish position=end\ngateway Retry \"Повтор допустим?\" in=Publish type=exclusive\nevent Wait \"Задержка повтора\" definition=timer in=Publish position=catch timeDuration=PT1M\nprocess Increment \"Увеличить счётчик\\nповторов\" in=Publish type=service\nprocess Error \"Сохранить ошибку\\nуведомить менеджера\" in=Publish type=service\nevent QFail \"Ошибка публикации\" in=Publish position=end\nflow F1 \"\" from=Start to=Init\nflow F2 \"\" from=Init to=Prepare\nflow F3 \"\" from=Prepare to=Approve\nflow F4 \"\" from=Approve to=Publish\nflow F5 \"\" from=Publish to=Finish\nflow M1 \"Запрос предложений\" from=Prepare to=PC4Games type=message\nflow M2 \"Цены и наличие\" from=PC4Games to=Prepare type=message\nflow M3 \"Запрос предложений\" from=Prepare to=ITPartner type=message\nflow M4 \"Цены и наличие\" from=ITPartner to=Prepare type=message\nflow M5 \"Карточка / запрос статуса\" from=Publish to=Ozon type=message\nflow M6 \"ID операции / результат\" from=Ozon to=Publish type=message\nflow P1 \"\" from=PStart to=Version\nflow P2 \"\" from=Version to=Offers\nflow P3 \"\" from=Offers to=Validate\nflow P4 \"\" from=Validate to=Valid\nflow P5 Нет condition=\"valid = false\" from=Valid to=Fix\nflow P6 \"\" from=Fix to=Offers\nflow P7 Да condition=\"valid = true\" from=Valid to=Calc\nflow P8 \"\" from=Calc to=Media\nflow P9 \"\" from=Media to=Content\nflow P10 \"\" from=Content to=Complete\nflow P11 Нет condition=\"complete = false\" from=Complete to=Fix\nflow P12 Да condition=\"complete = true\" from=Complete to=PDone\nflow Q1 \"\" from=QStart to=Save\nflow Q2 \"\" from=Save to=Send\nflow Q3 \"\" from=Send to=Result\nflow Q4 \"\" from=Result to=Outcome\nflow Q5 Успех condition=\"result = success\" from=Outcome to=Success\nflow Q6 \"\" from=Success to=QDone\nflow Q7 \"Ошибка / ожидание\" condition=\"result != success\" from=Outcome to=Retry\nflow Q8 Да condition=\"temporary = true and retries < 3\" from=Retry to=Wait\nflow Q9 \"\" from=Wait to=Increment\nflow Q10 \"\" from=Increment to=Send\nflow Q11 Нет condition=\"temporary = false or retries >= 3\" from=Retry to=Error\nflow Q12 \"\" from=Error to=QFail\n",
-  "draft": "bpmn Collaboration \"Целевой процесс\"\npool Ucoms \"ООО «Юкомс»\"\npool PC4Games PC4Games\npool ITPartner ITPartner\npool Ozon Ozon\nevent Start \"Запрос на создание\\nили изменение\" in=Ucoms position=start\nprocess Init \"Зарегистрировать\\nзапрос и выбрать Модельный ряд\" in=Ucoms type=user\nprocess Prepare \"Подготовить\\nверсию карточки\" in=Ucoms type=subprocess\nprocess Approve \"Проверить карточку\\nи разрешить публикацию\" in=Ucoms type=user\nprocess Publish \"Опубликовать\\nи обработать результат\" in=Ucoms type=subprocess\nevent Finish \"Результат\\nзафиксирован\" in=Ucoms position=end\nlane Technical \"Технический специалист\" in=Prepare\nlane System \"Информационная система\" in=Prepare\nlane Designer Дизайнер in=Prepare\nevent PStart Начало in=Prepare position=start\nprocess Version \"Создать версию модельного ряда\\nи выбрать состав\" in=Prepare type=user\nprocess Fix \"Исправить состав,\\nатрибуты или сопоставление\" in=Prepare type=user\nprocess Offers \"Загрузить предложения\\nи разрешить слоты\" in=Prepare type=service\nprocess Validate \"Проверить совместимость\\nи свежесть предложений\" in=Prepare type=rule\ngateway Valid \"Данные допустимы?\" in=Prepare type=exclusive\nprocess Calc \"Рассчитать цену и вес\\nсохранить снимок\" in=Prepare type=service\nprocess Media \"Подтвердить шаблон\\nи изображения\" in=Prepare type=user\nprocess Content \"Сформировать контент\\nпроверить полноту\" in=Prepare type=service\ngateway Complete \"Карточка полна?\" in=Prepare type=exclusive\nevent PDone \"Готова\\nк публикации\" in=Prepare position=end\nevent QStart \"Публикация разрешена\" in=Publish position=start\nprocess Save \"Зафиксировать версию\\nи ключ операции\" in=Publish type=service\nprocess Send \"Сверить статус и отправить\\nпри отсутствии операции\" in=Publish type=service\nprocess Result \"Получить результат\\nили ошибку связи\" in=Publish type=service\ngateway Outcome \"Результат?\" in=Publish type=exclusive\nprocess Success \"Сохранить ID Ozon\\nи опубликованную версию\" in=Publish type=service\nevent QDone Опубликовано in=Publish position=end\ngateway Retry \"Повтор допустим?\" in=Publish type=exclusive\nevent Wait \"Задержка повтора\" definition=timer in=Publish position=catch timeDuration=PT1M\nprocess Increment \"Увеличить счётчик\\nповторов\" in=Publish type=service\nprocess Error \"Сохранить ошибку\\nуведомить менеджера\" in=Publish type=service\nevent QFail \"Ошибка публикации\" in=Publish position=end\nflow F1 \"\" from=Start to=Init\nflow F2 \"\" from=Init to=Prepare\nflow F3 \"\" from=Prepare to=Approve\nflow F4 \"\" from=Approve to=Publish\nflow F5 \"\" from=Publish to=Finish\nflow M1 \"Запрос предложений\" from=Prepare to=PC4Games type=message\nflow M2 \"Цены и наличие\" from=PC4Games to=Prepare type=message\nflow M3 \"Запрос предложений\" from=Prepare to=ITPartner type=message\nflow M4 \"Цены и наличие\" from=ITPartner to=Prepare type=message\nflow M5 \"Карточка / запрос статуса\" from=Publish to=Ozon type=message\nflow M6 \"ID операции / результат\" from=Ozon to=Publish type=message\nflow P1 \"\" from=PStart to=Version\nflow P2 \"\" from=Version to=Offers\nflow P3 \"\" from=Offers to=Validate\nflow P4 \"\" from=Validate to=Valid\nflow P5 Нет condition=\"valid = false\" from=Valid to=Fix\nflow P6 \"\" from=Fix to=Offers\nflow P7 Да condition=\"valid = true\" from=Valid to=Calc\nflow P8 \"\" from=Calc to=Media\nflow P9 \"\" from=Media to=Content\nflow P10 \"\" from=Content to=Complete\nflow P11 Нет condition=\"complete = false\" from=Complete to=Fix\nflow P12 Да condition=\"complete = true\" from=Complete to=PDone\nflow Q1 \"\" from=QStart to=Save\nflow Q2 \"\" from=Save to=Send\nflow Q3 \"\" from=Send to=Result\nflow Q4 \"\" from=Result to=Outcome\nflow Q5 Успех condition=\"result = success\" from=Outcome to=Success\nflow Q6 \"\" from=Success to=QDone\nflow Q7 \"Ошибка / ожидание\" condition=\"result != success\" from=Outcome to=Retry\nflow Q8 Да condition=\"temporary = true and retries < 3\" from=Retry to=Wait\nflow Q9 \"\" from=Wait to=Increment\nflow Q10 \"\" from=Increment to=Send\nflow Q11 Нет condition=\"temporary = false or retries >= 3\" from=Retry to=Error\nflow Q12 \"\" from=Error to=QFail\n"
+  "source": "bpmn Collaboration \"TO BE: управляемая подготовка и публикация\"\npool Ucoms \"ООО «Юкомс»\"\npool PC4Games PC4Games\npool ITPartner ITPartner\npool Ozon Ozon\nevent Start \"Зарегистрированный\\nзапрос\" in=Ucoms position=start\nprocess Init \"Создать запрос\\nи черновую версию\" in=Ucoms type=user\nprocess Prepare \"Подготовить и проверить\\nверсию карточки\" in=Ucoms type=subprocess\nprocess Approve \"Утвердить конкретную\\nверсию карточки\" in=Ucoms type=user\nprocess Publish \"Опубликовать, сверить\\nи зафиксировать результат\" in=Ucoms type=subprocess\nevent Finish \"Статус, аудит\\nи уведомление сохранены\" in=Ucoms position=end\nlane Technical \"Технический специалист\" in=Prepare\nlane System \"Информационная система\" in=Prepare\nlane Designer Дизайнер in=Prepare\nevent PStart Начало in=Prepare position=start\nprocess Version \"Выбрать состав\\nчерновой версии\" in=Prepare type=user\nprocess Fix \"Исправить состав\\nили сопоставление\" in=Prepare type=user\nprocess Offers \"Импортировать предложения,\\nсопоставить SKU и разрешить слоты\" in=Prepare type=service\nprocess Validate \"Проверить совместимость,\\nактуальность и полноту\" in=Prepare type=rule\ngateway Valid \"Проверка успешна?\" in=Prepare type=exclusive\nprocess Calc \"Рассчитать цену и массу,\\nсохранить единый снимок\" in=Prepare type=service\nprocess Media \"Подтвердить шаблон\\nи изображения\" in=Prepare type=user\nprocess Content \"Сформировать контент\\nиз проверенного снимка\" in=Prepare type=service\ngateway Complete \"Версия готова?\" in=Prepare type=exclusive\nevent PDone \"Версия готова\\nк утверждению\" in=Prepare position=end\nevent QStart \"Публикация разрешена\" in=Publish position=start\nprocess Save \"Поставить версию в очередь\\nи сохранить ключ операции\" in=Publish type=service\nprocess Send \"Сверить статус и отправить\\nтолько отсутствующую операцию\" in=Publish type=service\nprocess Result \"Получить ID, результат\\nили ошибку связи\" in=Publish type=service\ngateway Outcome \"Результат?\" in=Publish type=exclusive\nprocess Success \"Сохранить внешний ID,\\nстатус и аудит\" in=Publish type=service\nevent QDone \"Опубликовано\\nи уведомлено\" in=Publish position=end\ngateway Retry \"Временный сбой\\nи повтор допустим?\" in=Publish type=exclusive\nevent Wait \"Задержка повтора\" definition=timer in=Publish position=catch timeDuration=PT1M\nprocess Increment \"Увеличить счётчик\\nповторов\" in=Publish type=service\nprocess Error \"Сохранить точную ошибку,\\nаудит и уведомление\" in=Publish type=service\nevent QFail \"Ошибка публикации\\nзафиксирована\" in=Publish position=end\nflow F1 \"\" from=Start to=Init\nflow F2 \"\" from=Init to=Prepare\nflow F3 \"\" from=Prepare to=Approve\nflow F4 \"\" from=Approve to=Publish\nflow F5 \"\" from=Publish to=Finish\nflow M1 \"Запрос предложений\" from=Prepare to=PC4Games type=message\nflow M2 \"Цены, остатки и время\" from=PC4Games to=Prepare type=message\nflow M3 \"Запрос предложений\" from=Prepare to=ITPartner type=message\nflow M4 \"Цены, остатки и время\" from=ITPartner to=Prepare type=message\nflow M5 \"Версия карточки или запрос статуса\" from=Publish to=Ozon type=message\nflow M6 \"ID операции и итоговый результат\" from=Ozon to=Publish type=message\nflow P1 \"\" from=PStart to=Version\nflow P2 \"\" from=Version to=Offers\nflow P3 \"\" from=Offers to=Validate\nflow P4 \"\" from=Validate to=Valid\nflow P5 Нет condition=\"valid = false\" from=Valid to=Fix\nflow P6 \"Контролируемое исправление\" from=Fix to=Offers\nflow P7 Да condition=\"valid = true\" from=Valid to=Calc\nflow P8 \"\" from=Calc to=Media\nflow P9 \"\" from=Media to=Content\nflow P10 \"\" from=Content to=Complete\nflow P11 Нет condition=\"complete = false\" from=Complete to=Fix\nflow P12 Да condition=\"complete = true\" from=Complete to=PDone\nflow Q1 \"\" from=QStart to=Save\nflow Q2 \"\" from=Save to=Send\nflow Q3 \"\" from=Send to=Result\nflow Q4 \"\" from=Result to=Outcome\nflow Q5 Успех condition=\"result = success\" from=Outcome to=Success\nflow Q6 \"\" from=Success to=QDone\nflow Q7 \"Ошибка или неизвестный результат\" condition=\"result != success\" from=Outcome to=Retry\nflow Q8 Да condition=\"temporary = true and retries < 3\" from=Retry to=Wait\nflow Q9 \"\" from=Wait to=Increment\nflow Q10 \"Сверить перед повтором\" from=Increment to=Send\nflow Q11 Нет condition=\"temporary = false or retries >= 3\" from=Retry to=Error\nflow Q12 \"\" from=Error to=QFail\n",
+  "draft": "bpmn Collaboration \"TO BE: управляемая подготовка и публикация\"\npool Ucoms \"ООО «Юкомс»\"\npool PC4Games PC4Games\npool ITPartner ITPartner\npool Ozon Ozon\nevent Start \"Зарегистрированный\\nзапрос\" in=Ucoms position=start\nprocess Init \"Создать запрос\\nи черновую версию\" in=Ucoms type=user\nprocess Prepare \"Подготовить и проверить\\nверсию карточки\" in=Ucoms type=subprocess\nprocess Approve \"Утвердить конкретную\\nверсию карточки\" in=Ucoms type=user\nprocess Publish \"Опубликовать, сверить\\nи зафиксировать результат\" in=Ucoms type=subprocess\nevent Finish \"Статус, аудит\\nи уведомление сохранены\" in=Ucoms position=end\nlane Technical \"Технический специалист\" in=Prepare\nlane System \"Информационная система\" in=Prepare\nlane Designer Дизайнер in=Prepare\nevent PStart Начало in=Prepare position=start\nprocess Version \"Выбрать состав\\nчерновой версии\" in=Prepare type=user\nprocess Fix \"Исправить состав\\nили сопоставление\" in=Prepare type=user\nprocess Offers \"Импортировать предложения,\\nсопоставить SKU и разрешить слоты\" in=Prepare type=service\nprocess Validate \"Проверить совместимость,\\nактуальность и полноту\" in=Prepare type=rule\ngateway Valid \"Проверка успешна?\" in=Prepare type=exclusive\nprocess Calc \"Рассчитать цену и массу,\\nсохранить единый снимок\" in=Prepare type=service\nprocess Media \"Подтвердить шаблон\\nи изображения\" in=Prepare type=user\nprocess Content \"Сформировать контент\\nиз проверенного снимка\" in=Prepare type=service\ngateway Complete \"Версия готова?\" in=Prepare type=exclusive\nevent PDone \"Версия готова\\nк утверждению\" in=Prepare position=end\nevent QStart \"Публикация разрешена\" in=Publish position=start\nprocess Save \"Поставить версию в очередь\\nи сохранить ключ операции\" in=Publish type=service\nprocess Send \"Сверить статус и отправить\\nтолько отсутствующую операцию\" in=Publish type=service\nprocess Result \"Получить ID, результат\\nили ошибку связи\" in=Publish type=service\ngateway Outcome \"Результат?\" in=Publish type=exclusive\nprocess Success \"Сохранить внешний ID,\\nстатус и аудит\" in=Publish type=service\nevent QDone \"Опубликовано\\nи уведомлено\" in=Publish position=end\ngateway Retry \"Временный сбой\\nи повтор допустим?\" in=Publish type=exclusive\nevent Wait \"Задержка повтора\" definition=timer in=Publish position=catch timeDuration=PT1M\nprocess Increment \"Увеличить счётчик\\nповторов\" in=Publish type=service\nprocess Error \"Сохранить точную ошибку,\\nаудит и уведомление\" in=Publish type=service\nevent QFail \"Ошибка публикации\\nзафиксирована\" in=Publish position=end\nflow F1 \"\" from=Start to=Init\nflow F2 \"\" from=Init to=Prepare\nflow F3 \"\" from=Prepare to=Approve\nflow F4 \"\" from=Approve to=Publish\nflow F5 \"\" from=Publish to=Finish\nflow M1 \"Запрос предложений\" from=Prepare to=PC4Games type=message\nflow M2 \"Цены, остатки и время\" from=PC4Games to=Prepare type=message\nflow M3 \"Запрос предложений\" from=Prepare to=ITPartner type=message\nflow M4 \"Цены, остатки и время\" from=ITPartner to=Prepare type=message\nflow M5 \"Версия карточки или запрос статуса\" from=Publish to=Ozon type=message\nflow M6 \"ID операции и итоговый результат\" from=Ozon to=Publish type=message\nflow P1 \"\" from=PStart to=Version\nflow P2 \"\" from=Version to=Offers\nflow P3 \"\" from=Offers to=Validate\nflow P4 \"\" from=Validate to=Valid\nflow P5 Нет condition=\"valid = false\" from=Valid to=Fix\nflow P6 \"Контролируемое исправление\" from=Fix to=Offers\nflow P7 Да condition=\"valid = true\" from=Valid to=Calc\nflow P8 \"\" from=Calc to=Media\nflow P9 \"\" from=Media to=Content\nflow P10 \"\" from=Content to=Complete\nflow P11 Нет condition=\"complete = false\" from=Complete to=Fix\nflow P12 Да condition=\"complete = true\" from=Complete to=PDone\nflow Q1 \"\" from=QStart to=Save\nflow Q2 \"\" from=Save to=Send\nflow Q3 \"\" from=Send to=Result\nflow Q4 \"\" from=Result to=Outcome\nflow Q5 Успех condition=\"result = success\" from=Outcome to=Success\nflow Q6 \"\" from=Success to=QDone\nflow Q7 \"Ошибка или неизвестный результат\" condition=\"result != success\" from=Outcome to=Retry\nflow Q8 Да condition=\"temporary = true and retries < 3\" from=Retry to=Wait\nflow Q9 \"\" from=Wait to=Increment\nflow Q10 \"Сверить перед повтором\" from=Increment to=Send\nflow Q11 Нет condition=\"temporary = false or retries >= 3\" from=Retry to=Error\nflow Q12 \"\" from=Error to=QFail\n"
 }

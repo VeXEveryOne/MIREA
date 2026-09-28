@@ -1,20 +1,48 @@
 [
   {
+    "kind": "canonical",
+    "file": "ПР1_BPMN_AS_IS.omni",
+    "notation": "BPMN",
+    "diagnostics": []
+  },
+  {
+    "kind": "canonical",
+    "file": "ПР1_IDEF0_AS_IS.omni",
+    "notation": "IDEF0",
+    "diagnostics": []
+  },
+  {
+    "kind": "canonical",
+    "file": "ПР2_BPMN_TO_BE.omni",
+    "notation": "BPMN",
+    "diagnostics": []
+  },
+  {
+    "kind": "canonical",
+    "file": "ПР2_IDEF0_TO_BE.omni",
+    "notation": "IDEF0",
+    "diagnostics": []
+  },
+  {
+    "kind": "compatible",
     "file": "ПР1_BPMN_AS_IS.nsbpmn",
     "notation": "BPMN",
     "diagnostics": []
   },
   {
+    "kind": "compatible",
     "file": "ПР1_IDEF0_AS_IS.nsidef0",
     "notation": "IDEF0",
     "diagnostics": []
   },
   {
+    "kind": "compatible",
     "file": "ПР2_BPMN_TO_BE.nsbpmn",
     "notation": "BPMN",
     "diagnostics": []
   },
   {
+    "kind": "compatible",
     "file": "ПР2_IDEF0_TO_BE.nsidef0",
     "notation": "IDEF0",
     "diagnostics": []

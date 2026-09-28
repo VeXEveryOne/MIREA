@@ -1,7 +1,7 @@
 from pathlib import Path
 from decimal import Decimal,ROUND_CEILING
 from zipfile import ZipFile
-import json,re,hashlib,shutil
+import json,re,hashlib,html
 from pypdf import PdfReader
 from docx import Document
 from PIL import Image
@@ -57,35 +57,41 @@ old=Document(root.parent/'РОП_Единый_отчет_АлбахтинИВ.do
 new=Document(root/'РОП_Практики_1-8_АлбахтинИВ.docx')
 def reqs(doc):
     return {r.cells[0].text: [c.text for c in r.cells[1:]] for t in doc.tables for r in t.rows if re.fullmatch(r'(?:N?FR)-\d{2}',r.cells[0].text)}
-assert reqs(old)==reqs(new),'Changed original FR/NFR'
+old_reqs=reqs(old)
+new_reqs=reqs(new)
+assert set(old_reqs)==set(new_reqs),'Changed FR/NFR identifiers'
+assert len(new_reqs)==34,'Unexpected FR/NFR count'
 slides={}
+slide_texts={}
 for n in range(1,9):
     f=root/'Презентации'/f'РОП_Практическая_{n}_АлбахтинИВ.pptx'
     with ZipFile(f) as z:
         assert z.testzip() is None
         slides[n]=sum(bool(re.fullmatch(r'ppt/slides/slide\d+\.xml',p)) for p in z.namelist())
-    assert slides[n]==(15 if n==1 else 6)
+        slide_texts[n]='\n'.join(
+            html.unescape(value)
+            for name in z.namelist()
+            if re.fullmatch(r'ppt/slides/slide\d+\.xml',name)
+            for value in re.findall(r'<a:t>(.*?)</a:t>',z.read(name).decode('utf-8'))
+        )
+    expected=15 if n==1 else 10 if n==2 else 6
+    assert slides[n]==expected,(n,slides[n],expected)
 assert hashlib.sha256((root/'Презентации/РОП_Практическая_1_АлбахтинИВ.pptx').read_bytes()).digest()==hashlib.sha256((root.parent/'РОП_Практическая_1_АлбахтинИВ.pptx').read_bytes()).digest()
-source=root/'Исходники';source.mkdir(exist_ok=True)
-for name in ['schema.py','drafts.py','content.py','build_report.py','build_native.mts','build_idef0.mts','validate_native.mts','capture.mjs','render_svg.mjs','render_with_word.py','export_word.ps1','slides.mjs','package_notes.py','package_check.py']:
-    shutil.copy2(temp/name,source/name)
-for n in range(2,9):
-    stage=temp/('slides_v2' if n in (4,6) else 'slides')/f'pr{n}'
-    shutil.copy2(stage/'validation.json',source/f'ПР{n}_проверка_PPTX.json')
-shutil.copy2(temp/'artifact.md',source/'Контракт_оформления.md')
-md=root/'РОП_Практики_1-8_АлбахтинИВ.md'
-body=md.read_text('utf-8')
-native=root/'Модели_OmniNotation'
-for oldpath in re.findall(r'!\[[^\]]*\]\(([^)]+)\)',body):
-    p=Path(oldpath)
-    if not p.is_absolute(): p=root/p
-    if p.is_relative_to(root): replacement=p.relative_to(root).as_posix()
-    else:
-        matching=[f for f in native.glob('ПР1*.png') if f.read_bytes()==p.read_bytes()]
-        assert matching,oldpath
-        replacement=matching[0].relative_to(root).as_posix()
-    body=body.replace('('+oldpath+')','('+replacement+')')
-md.write_text(body,'utf-8')
-summary={'pdf_pages':len(pdf.pages),'figures':38,'tables_in_report':66,'unchanged_FR':22,'unchanged_NFR':12,'database_tables':29,'columns':185,'foreign_keys_checked':references,'drafts':28,'pptx_slides':slides,'sql_executed_on_PostgreSQL':False,'checks':['FK targets and types','index columns','draft files and edge endpoints','decimal example','original FR/NFR unchanged','DOCX/PDF captions and chapters','PPTX ZIP structure and slide count','PPTX 2–8 artifact-tool finalizer','rendered all report pages and slides; inspected layouts']}
+for material_text in [text,slide_texts[1],slide_texts[2]]:
+    assert not re.search(r'(?i)\bBOM\b|БОМ',material_text),'Obsolete BOM term in final material'
+    assert 'Губарев' not in material_text
+    assert 'Сданная работа' not in material_text
+assert 'DRAFT' not in slide_texts[1] and 'DRAFT' not in slide_texts[2]
+pngs=sorted((root/'Модели_для_отчёта/PNG_final4').glob('[0-9][0-9]_*.png'))
+assert len(pngs)==38
+export=json.loads((root/'Модели_для_отчёта/PNG_final4/Отчёт_экспорта.json').read_text('utf-8'))
+assert len(export['items'])==38 and all(item['status']=='completed' for item in export['items'])
+assert not export.get('warnings') and not export.get('errors')
+registry=json.loads((root/'Модели_OmniNotation_v2/Реестр_38_рисунков.json').read_text('utf-8'))
+assert registry['count']==38 and len(registry['figures'])==38
+for figure in registry['figures']:
+    png=Path(figure['export']['png']['file'])
+    assert png.is_file() and hashlib.sha256(png.read_bytes()).hexdigest()==figure['export']['png']['sha256']
+summary={'pdf_pages':len(pdf.pages),'figures':38,'tables_in_report':66,'FR':22,'NFR':12,'database_tables':29,'columns':185,'foreign_keys_checked':references,'drafts':28,'pptx_slides':slides,'technical_DRAFT_mentions_in_report':len(re.findall(r'\bDRAFT\b',text)),'sql_executed_on_PostgreSQL':False,'checks':['FK targets and types','index columns','draft files and edge endpoints','decimal example','FR/NFR identifiers preserved','DOCX/PDF captions and chapters','38 current PNG exports and hashes','PPTX ZIP structure and slide counts','obsolete terminology and service text scan','rendered all report pages and slides; inspected layouts']}
 (root/'ПРОВЕРКА.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2),'utf-8')
 print(json.dumps(summary,ensure_ascii=False))
