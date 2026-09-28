@@ -168,11 +168,15 @@
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-ca34a03a110f4871b9d5d7e3acb84ca3" targetConnections="id-cb1b59d754a2433394daee6d340f0075" archimateElement="id-7e5750905b374a4e8c4b2c4fe3e6a114">
         <bounds x="428" y="216" width="120" height="55"/>
-        <sourceConnection xsi:type="archimate:Connection" id="id-c412d5870ce544b385980edf0bd19325" source="id-ca34a03a110f4871b9d5d7e3acb84ca3" target="id-c96ee4bde18140b7a1dd641c709a3ca0" archimateRelationship="id-6faa21838f8446b68fa90d0e90bb07ff"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-c412d5870ce544b385980edf0bd19325" source="id-ca34a03a110f4871b9d5d7e3acb84ca3" target="id-c96ee4bde18140b7a1dd641c709a3ca0" archimateRelationship="id-6faa21838f8446b68fa90d0e90bb07ff">
+          <feature name="labelExpression" value="Объекст данных создаёт/&#xD;&#xA;накладная создаётся на основании&#xD;&#xA;"/>
+        </sourceConnection>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-4487b9546ec5474c899e61f464a6f2e1" archimateElement="id-3343ee00eee24e4cbd0feec6183aeffd">
         <bounds x="192" y="348" width="120" height="55"/>
-        <sourceConnection xsi:type="archimate:Connection" id="id-02786c9451554e6aa322f670ac3ff567" source="id-4487b9546ec5474c899e61f464a6f2e1" target="id-51d885586b404f419b300123935e21d7" archimateRelationship="id-8b2a51a2d64d47a6a127f408bbd82bb6"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-02786c9451554e6aa322f670ac3ff567" source="id-4487b9546ec5474c899e61f464a6f2e1" target="id-51d885586b404f419b300123935e21d7" archimateRelationship="id-8b2a51a2d64d47a6a127f408bbd82bb6">
+          <feature name="labelExpression" value="Компонент обеспечивает функционирование/&#xD;&#xA;Серфис функционирует за счёт &#xD;&#xA;"/>
+        </sourceConnection>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-51d885586b404f419b300123935e21d7" targetConnections="id-02786c9451554e6aa322f670ac3ff567" archimateElement="id-ebf07756132542038cf489e13cc954af">
         <bounds x="192" y="216" width="120" height="55"/>
