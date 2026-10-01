@@ -1,0 +1,731 @@
+{
+  "formatVersion": 2,
+  "notation": "UML",
+  "profile": "NS-UML-2.5.1-2",
+  "model": {
+    "id": "parallel",
+    "label": "Параллельная подготовка",
+    "elements": [
+      {
+        "id": "work",
+        "kind": "activity",
+        "label": "Актуализировать карточку",
+        "properties": {}
+      },
+      {
+        "id": "main",
+        "kind": "diagram",
+        "label": "Параллельная подготовка BOM и контента",
+        "properties": {
+          "type": "activity",
+          "activity": "work"
+        }
+      },
+      {
+        "id": "payload",
+        "kind": "class",
+        "label": "Версия BOM",
+        "properties": {}
+      },
+      {
+        "id": "start",
+        "kind": "initial",
+        "label": "",
+        "properties": {
+          "owner": "work"
+        }
+      },
+      {
+        "id": "split",
+        "kind": "fork",
+        "label": "",
+        "properties": {
+          "owner": "work"
+        }
+      },
+      {
+        "id": "compose",
+        "kind": "action",
+        "label": "Сформировать BOM",
+        "properties": {
+          "owner": "work",
+          "kind": "opaque"
+        }
+      },
+      {
+        "id": "fetch",
+        "kind": "action",
+        "label": "Загрузить цены и наличие",
+        "properties": {
+          "owner": "work",
+          "kind": "opaque"
+        }
+      },
+      {
+        "id": "sync",
+        "kind": "join",
+        "label": "",
+        "properties": {
+          "owner": "work",
+          "joinSpec": "and"
+        }
+      },
+      {
+        "id": "check",
+        "kind": "decision",
+        "label": "Готова к публикации?",
+        "properties": {
+          "owner": "work"
+        }
+      },
+      {
+        "id": "accept",
+        "kind": "action",
+        "label": "Опубликовать карточку",
+        "properties": {
+          "owner": "work",
+          "kind": "opaque"
+        }
+      },
+      {
+        "id": "reject",
+        "kind": "action",
+        "label": "Показать ошибки и вернуть на доработку",
+        "properties": {
+          "owner": "work",
+          "kind": "opaque"
+        }
+      },
+      {
+        "id": "merge",
+        "kind": "merge",
+        "label": "",
+        "properties": {
+          "owner": "work"
+        }
+      },
+      {
+        "id": "done",
+        "kind": "activityFinal",
+        "label": "",
+        "properties": {
+          "owner": "work"
+        }
+      },
+      {
+        "id": "drop",
+        "kind": "flowFinal",
+        "label": "",
+        "properties": {
+          "owner": "work"
+        }
+      },
+      {
+        "id": "dataOut",
+        "kind": "outputPin",
+        "label": "Версия BOM",
+        "properties": {
+          "owner": "compose",
+          "classifier": "payload",
+          "lower": "1",
+          "upper": "1"
+        }
+      },
+      {
+        "id": "dataIn",
+        "kind": "inputPin",
+        "label": "Версия BOM",
+        "properties": {
+          "owner": "fetch",
+          "classifier": "payload",
+          "lower": "1",
+          "upper": "1"
+        }
+      },
+      {
+        "id": "unused",
+        "kind": "outputPin",
+        "label": "Незавершённые данные",
+        "properties": {
+          "owner": "fetch",
+          "classifier": "payload",
+          "lower": "0",
+          "upper": "1"
+        }
+      },
+      {
+        "id": "c1",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "work",
+          "from": "start",
+          "to": "split"
+        }
+      },
+      {
+        "id": "c2",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "work",
+          "from": "split",
+          "to": "compose"
+        }
+      },
+      {
+        "id": "c3",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "work",
+          "from": "split",
+          "to": "fetch"
+        }
+      },
+      {
+        "id": "c4",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "work",
+          "from": "compose",
+          "to": "sync"
+        }
+      },
+      {
+        "id": "c5",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "work",
+          "from": "fetch",
+          "to": "sync"
+        }
+      },
+      {
+        "id": "c6",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "work",
+          "from": "sync",
+          "to": "check"
+        }
+      },
+      {
+        "id": "c7",
+        "kind": "controlFlow",
+        "label": "Да",
+        "properties": {
+          "owner": "work",
+          "from": "check",
+          "to": "accept",
+          "guard": "ready"
+        }
+      },
+      {
+        "id": "c8",
+        "kind": "controlFlow",
+        "label": "Нет",
+        "properties": {
+          "owner": "work",
+          "from": "check",
+          "to": "reject",
+          "guard": "else"
+        }
+      },
+      {
+        "id": "c9",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "work",
+          "from": "accept",
+          "to": "merge"
+        }
+      },
+      {
+        "id": "c10",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "work",
+          "from": "reject",
+          "to": "merge"
+        }
+      },
+      {
+        "id": "c11",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "work",
+          "from": "merge",
+          "to": "done"
+        }
+      },
+      {
+        "id": "data",
+        "kind": "objectFlow",
+        "label": "Версия BOM",
+        "properties": {
+          "owner": "work",
+          "from": "dataOut",
+          "to": "dataIn"
+        }
+      },
+      {
+        "id": "discard",
+        "kind": "objectFlow",
+        "label": "Зафиксировать ошибку",
+        "properties": {
+          "owner": "work",
+          "from": "unused",
+          "to": "drop"
+        }
+      },
+      {
+        "id": "v_start",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "start"
+        }
+      },
+      {
+        "id": "v_split",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "split"
+        }
+      },
+      {
+        "id": "v_compose",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "compose"
+        }
+      },
+      {
+        "id": "v_fetch",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "fetch"
+        }
+      },
+      {
+        "id": "v_dataOut",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dataOut",
+          "parent": "v_compose"
+        }
+      },
+      {
+        "id": "v_dataIn",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dataIn",
+          "parent": "v_fetch"
+        }
+      },
+      {
+        "id": "v_unused",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "unused",
+          "parent": "v_fetch"
+        }
+      },
+      {
+        "id": "v_drop",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "drop"
+        }
+      },
+      {
+        "id": "v_sync",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "sync"
+        }
+      },
+      {
+        "id": "v_check",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "check"
+        }
+      },
+      {
+        "id": "v_accept",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "accept"
+        }
+      },
+      {
+        "id": "v_reject",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "reject"
+        }
+      },
+      {
+        "id": "v_merge",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "merge"
+        }
+      },
+      {
+        "id": "v_done",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "done"
+        }
+      },
+      {
+        "id": "v_c1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "c1",
+          "from": "v_start",
+          "to": "v_split"
+        }
+      },
+      {
+        "id": "v_c2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "c2",
+          "from": "v_split",
+          "to": "v_compose"
+        }
+      },
+      {
+        "id": "v_c3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "c3",
+          "from": "v_split",
+          "to": "v_fetch"
+        }
+      },
+      {
+        "id": "v_c4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "c4",
+          "from": "v_compose",
+          "to": "v_sync"
+        }
+      },
+      {
+        "id": "v_c5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "c5",
+          "from": "v_fetch",
+          "to": "v_sync"
+        }
+      },
+      {
+        "id": "v_c6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "c6",
+          "from": "v_sync",
+          "to": "v_check"
+        }
+      },
+      {
+        "id": "v_c7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "c7",
+          "from": "v_check",
+          "to": "v_accept"
+        }
+      },
+      {
+        "id": "v_c8",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "c8",
+          "from": "v_check",
+          "to": "v_reject"
+        }
+      },
+      {
+        "id": "v_c9",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "c9",
+          "from": "v_accept",
+          "to": "v_merge"
+        }
+      },
+      {
+        "id": "v_c10",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "c10",
+          "from": "v_reject",
+          "to": "v_merge"
+        }
+      },
+      {
+        "id": "v_c11",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "c11",
+          "from": "v_merge",
+          "to": "v_done"
+        }
+      },
+      {
+        "id": "v_data",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "data",
+          "from": "v_dataOut",
+          "to": "v_dataIn"
+        }
+      },
+      {
+        "id": "v_discard",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "discard",
+          "from": "v_unused",
+          "to": "v_drop"
+        }
+      }
+    ]
+  },
+  "source": "uml parallel \"Актуализация карточки товара\"\nactivity work \"Актуализировать карточку\"\ndiagram main \"Параллельная подготовка BOM и контента\" activity=work type=activity\nclass payload \"Версия BOM BOM\"\ninitial start \"\" owner=work\nfork split \"\" owner=work\naction compose \"Сформировать BOM\" kind=opaque owner=work\naction fetch \"Загрузить цены и наличие\" kind=opaque owner=work\njoin sync \"\" joinSpec=and owner=work\ndecision check \"Готова к публикации?\" owner=work\naction accept Опубликовать карточку kind=opaque owner=work\naction reject \"Показать ошибки и вернуть на доработку\" kind=opaque owner=work\nmerge merge \"\" owner=work\nactivityFinal done \"\" owner=work\nflowFinal drop \"\" owner=work\noutputPin dataOut Версия BOM classifier=payload lower=1 owner=compose upper=1\ninputPin dataIn Версия BOM classifier=payload lower=1 owner=fetch upper=1\noutputPin unused Незавершённые данные classifier=payload lower=0 owner=fetch upper=1\ncontrolFlow c1 \"\" from=start owner=work to=split\ncontrolFlow c2 \"\" from=split owner=work to=compose\ncontrolFlow c3 \"\" from=split owner=work to=fetch\ncontrolFlow c4 \"\" from=compose owner=work to=sync\ncontrolFlow c5 \"\" from=fetch owner=work to=sync\ncontrolFlow c6 \"\" from=sync owner=work to=check\ncontrolFlow c7 Да from=check guard=ready owner=work to=accept\ncontrolFlow c8 Нет from=check guard=else owner=work to=reject\ncontrolFlow c9 \"\" from=accept owner=work to=merge\ncontrolFlow c10 \"\" from=reject owner=work to=merge\ncontrolFlow c11 \"\" from=merge owner=work to=done\nobjectFlow data Версия BOM from=dataOut owner=work to=dataIn\nobjectFlow discard Зафиксировать ошибку from=unused owner=work to=drop\nview v_start \"\" diagram=main element=start\nview v_split \"\" diagram=main element=split\nview v_compose \"\" diagram=main element=compose\nview v_fetch \"\" diagram=main element=fetch\nview v_dataOut \"\" diagram=main element=dataOut parent=v_compose\nview v_dataIn \"\" diagram=main element=dataIn parent=v_fetch\nview v_unused \"\" diagram=main element=unused parent=v_fetch\nview v_drop \"\" diagram=main element=drop\nview v_sync \"\" diagram=main element=sync\nview v_check \"\" diagram=main element=check\nview v_accept \"\" diagram=main element=accept\nview v_reject \"\" diagram=main element=reject\nview v_merge \"\" diagram=main element=merge\nview v_done \"\" diagram=main element=done\nview v_c1 \"\" diagram=main element=c1 from=v_start to=v_split\nview v_c2 \"\" diagram=main element=c2 from=v_split to=v_compose\nview v_c3 \"\" diagram=main element=c3 from=v_split to=v_fetch\nview v_c4 \"\" diagram=main element=c4 from=v_compose to=v_sync\nview v_c5 \"\" diagram=main element=c5 from=v_fetch to=v_sync\nview v_c6 \"\" diagram=main element=c6 from=v_sync to=v_check\nview v_c7 \"\" diagram=main element=c7 from=v_check to=v_accept\nview v_c8 \"\" diagram=main element=c8 from=v_check to=v_reject\nview v_c9 \"\" diagram=main element=c9 from=v_accept to=v_merge\nview v_c10 \"\" diagram=main element=c10 from=v_reject to=v_merge\nview v_c11 \"\" diagram=main element=c11 from=v_merge to=v_done\nview v_data \"\" diagram=main element=data from=v_dataOut to=v_dataIn\nview v_discard \"\" diagram=main element=discard from=v_unused to=v_drop\n",
+  "draft": "uml parallel \"Актуализация карточки товара\"\nactivity work \"Актуализировать карточку\"\ndiagram main \"Параллельная подготовка BOM и контента\" activity=work type=activity\nclass payload \"Версия BOM BOM\"\ninitial start \"\" owner=work\nfork split \"\" owner=work\naction compose \"Сформировать BOM\" kind=opaque owner=work\naction fetch \"Загрузить цены и наличие\" kind=opaque owner=work\njoin sync \"\" joinSpec=and owner=work\ndecision check \"Готова к публикации?\" owner=work\naction accept Опубликовать карточку kind=opaque owner=work\naction reject \"Показать ошибки и вернуть на доработку\" kind=opaque owner=work\nmerge merge \"\" owner=work\nactivityFinal done \"\" owner=work\nflowFinal drop \"\" owner=work\noutputPin dataOut Версия BOM classifier=payload lower=1 owner=compose upper=1\ninputPin dataIn Версия BOM classifier=payload lower=1 owner=fetch upper=1\noutputPin unused Незавершённые данные classifier=payload lower=0 owner=fetch upper=1\ncontrolFlow c1 \"\" from=start owner=work to=split\ncontrolFlow c2 \"\" from=split owner=work to=compose\ncontrolFlow c3 \"\" from=split owner=work to=fetch\ncontrolFlow c4 \"\" from=compose owner=work to=sync\ncontrolFlow c5 \"\" from=fetch owner=work to=sync\ncontrolFlow c6 \"\" from=sync owner=work to=check\ncontrolFlow c7 Да from=check guard=ready owner=work to=accept\ncontrolFlow c8 Нет from=check guard=else owner=work to=reject\ncontrolFlow c9 \"\" from=accept owner=work to=merge\ncontrolFlow c10 \"\" from=reject owner=work to=merge\ncontrolFlow c11 \"\" from=merge owner=work to=done\nobjectFlow data Версия BOM from=dataOut owner=work to=dataIn\nobjectFlow discard Зафиксировать ошибку from=unused owner=work to=drop\nview v_start \"\" diagram=main element=start\nview v_split \"\" diagram=main element=split\nview v_compose \"\" diagram=main element=compose\nview v_fetch \"\" diagram=main element=fetch\nview v_dataOut \"\" diagram=main element=dataOut parent=v_compose\nview v_dataIn \"\" diagram=main element=dataIn parent=v_fetch\nview v_unused \"\" diagram=main element=unused parent=v_fetch\nview v_drop \"\" diagram=main element=drop\nview v_sync \"\" diagram=main element=sync\nview v_check \"\" diagram=main element=check\nview v_accept \"\" diagram=main element=accept\nview v_reject \"\" diagram=main element=reject\nview v_merge \"\" diagram=main element=merge\nview v_done \"\" diagram=main element=done\nview v_c1 \"\" diagram=main element=c1 from=v_start to=v_split\nview v_c2 \"\" diagram=main element=c2 from=v_split to=v_compose\nview v_c3 \"\" diagram=main element=c3 from=v_split to=v_fetch\nview v_c4 \"\" diagram=main element=c4 from=v_compose to=v_sync\nview v_c5 \"\" diagram=main element=c5 from=v_fetch to=v_sync\nview v_c6 \"\" diagram=main element=c6 from=v_sync to=v_check\nview v_c7 \"\" diagram=main element=c7 from=v_check to=v_accept\nview v_c8 \"\" diagram=main element=c8 from=v_check to=v_reject\nview v_c9 \"\" diagram=main element=c9 from=v_accept to=v_merge\nview v_c10 \"\" diagram=main element=c10 from=v_reject to=v_merge\nview v_c11 \"\" diagram=main element=c11 from=v_merge to=v_done\nview v_data \"\" diagram=main element=data from=v_dataOut to=v_dataIn\nview v_discard \"\" diagram=main element=discard from=v_unused to=v_drop\n",
+  "layout": {
+    "nodes": {
+      "v_start": {
+        "x": 440,
+        "y": 40,
+        "width": 32,
+        "height": 32
+      },
+      "v_split": {
+        "x": 355,
+        "y": 115,
+        "width": 200,
+        "height": 18
+      },
+      "v_compose": {
+        "x": 100,
+        "y": 215,
+        "width": 240,
+        "height": 75
+      },
+      "v_fetch": {
+        "x": 580,
+        "y": 215,
+        "width": 250,
+        "height": 75
+      },
+      "v_dataOut": {
+        "x": 328,
+        "y": 242,
+        "width": 24,
+        "height": 24
+      },
+      "v_dataIn": {
+        "x": 568,
+        "y": 242,
+        "width": 24,
+        "height": 24
+      },
+      "v_unused": {
+        "x": 818,
+        "y": 242,
+        "width": 24,
+        "height": 24
+      },
+      "v_drop": {
+        "x": 920,
+        "y": 238,
+        "width": 32,
+        "height": 32
+      },
+      "v_sync": {
+        "x": 355,
+        "y": 365,
+        "width": 200,
+        "height": 18
+      },
+      "v_check": {
+        "x": 395,
+        "y": 430,
+        "width": 120,
+        "height": 80
+      },
+      "v_accept": {
+        "x": 110,
+        "y": 570,
+        "width": 220,
+        "height": 75
+      },
+      "v_reject": {
+        "x": 580,
+        "y": 570,
+        "width": 260,
+        "height": 75
+      },
+      "v_merge": {
+        "x": 400,
+        "y": 710,
+        "width": 110,
+        "height": 65
+      },
+      "v_done": {
+        "x": 435,
+        "y": 860,
+        "width": 40,
+        "height": 40
+      },
+      "v_c1": {
+        "x": 580,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_c2": {
+        "x": 830,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_c3": {
+        "x": 80,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_c4": {
+        "x": 330,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_c5": {
+        "x": 580,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_c6": {
+        "x": 830,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_c7": {
+        "x": 80,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_c8": {
+        "x": 330,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_c9": {
+        "x": 580,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_c10": {
+        "x": 830,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_c11": {
+        "x": 80,
+        "y": 1160,
+        "width": 210,
+        "height": 140
+      },
+      "v_data": {
+        "x": 330,
+        "y": 1160,
+        "width": 210,
+        "height": 140
+      },
+      "v_discard": {
+        "x": 580,
+        "y": 1160,
+        "width": 210,
+        "height": 140
+      }
+    },
+    "edges": {}
+  }
+}

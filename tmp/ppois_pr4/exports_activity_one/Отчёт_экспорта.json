@@ -1,0 +1,54 @@
+{
+  "cancelled": false,
+  "items": [
+    {
+      "order": 1,
+      "notation": "UML",
+      "documentId": "parallel",
+      "diagramId": "main",
+      "title": "activity",
+      "status": "completed",
+      "files": [
+        "D:\\GitHub\\MIREA\\tmp\\ppois_pr4\\exports_activity_one\\01_activity.png"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "D:\\GitHub\\MIREA\\tmp\\ppois_pr4\\exports_activity_one\\01_activity.png",
+      "title": "activity",
+      "diagramId": "main"
+    }
+  ],
+  "errors": [],
+  "pages": [
+    {
+      "width": 900,
+      "height": 908,
+      "title": "activity",
+      "diagramId": "main",
+      "scale": 1,
+      "warnings": []
+    }
+  ],
+  "warnings": [],
+  "settings": {
+    "format": "png",
+    "background": "white",
+    "scale": 1,
+    "margin": 24,
+    "title": false,
+    "legend": false,
+    "monochrome": false,
+    "font": "Arial",
+    "includeHidden": false,
+    "page": "A4",
+    "orientation": "landscape",
+    "widthMm": 297,
+    "heightMm": 210,
+    "pagination": "fit",
+    "overlap": 20
+  },
+  "generatedAt": "2026-10-01T07:20:20.746Z",
+  "pdfRendering": "Штатная печать Chromium: HTML-текст и SVG. Возможная растеризация CSS-эффектов не исключается; полностью векторный PDF не заявляется."
+}

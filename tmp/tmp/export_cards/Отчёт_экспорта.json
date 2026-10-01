@@ -1,0 +1,54 @@
+{
+  "cancelled": false,
+  "items": [
+    {
+      "order": 1,
+      "notation": "UML",
+      "documentId": "cards_uml",
+      "diagramId": "analysis",
+      "title": "class",
+      "status": "completed",
+      "files": [
+        "D:\\GitHub\\MIREA\\tmp\\tmp\\export_cards\\01_class.png"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "D:\\GitHub\\MIREA\\tmp\\tmp\\export_cards\\01_class.png",
+      "title": "class",
+      "diagramId": "analysis"
+    }
+  ],
+  "errors": [],
+  "pages": [
+    {
+      "width": 1788,
+      "height": 1509,
+      "title": "class",
+      "diagramId": "analysis",
+      "scale": 1.2,
+      "warnings": []
+    }
+  ],
+  "warnings": [],
+  "settings": {
+    "format": "png",
+    "background": "white",
+    "scale": 1.2,
+    "margin": 24,
+    "title": true,
+    "legend": true,
+    "monochrome": false,
+    "font": "Arial",
+    "includeHidden": false,
+    "page": "A4",
+    "orientation": "landscape",
+    "widthMm": 297,
+    "heightMm": 210,
+    "pagination": "fit",
+    "overlap": 20
+  },
+  "generatedAt": "2026-10-01T07:11:24.316Z",
+  "pdfRendering": "Штатная печать Chromium: HTML-текст и SVG. Возможная растеризация CSS-эффектов не исключается; полностью векторный PDF не заявляется."
+}
