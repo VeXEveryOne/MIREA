@@ -1,6 +1,6 @@
 from pathlib import Path
 import json
-ROOT=Path('D:/GitHub/MIREA/4/РОП/Практики_1-8')
+from config import ROOT
 DB=ROOT/'База_данных';DB.mkdir(parents=True,exist_ok=True)
 tables=[]
 def col(name,typ,rule='',meaning='',ref=None):return dict(name=name,type=typ,rule=rule,meaning=meaning,ref=ref)

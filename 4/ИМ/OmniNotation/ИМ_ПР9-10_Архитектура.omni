@@ -1,0 +1,2248 @@
+{
+  "formatVersion": 2,
+  "notation": "UML",
+  "profile": "NS-UML-2.5.1-2",
+  "model": {
+    "id": "im_architecture",
+    "label": "ИС подготовки карточек · деятельность и архитектура",
+    "elements": [
+      {
+        "id": "publish",
+        "kind": "activity",
+        "label": "Подготовить и передать карточку",
+        "properties": {
+          "precondition": "Менеджер выбрал карточку и имеет право отправки; используется согласованная версия.",
+          "postcondition": "Попытка сохранена до внешнего вызова; зафиксирован результат либо ожидание. Исправление завершает текущий сценарий.",
+          "description": "Источник: отчёт ИМ, таблицы 9.1–9.3. Учебная модель; guard не исполняется."
+        }
+      },
+      {
+        "id": "activity",
+        "kind": "diagram",
+        "label": "ИМ · Проверка и отправка карточки",
+        "properties": {
+          "type": "activity",
+          "activity": "publish"
+        }
+      },
+      {
+        "id": "managerLane",
+        "kind": "partition",
+        "label": "Менеджер",
+        "properties": {
+          "owner": "publish"
+        }
+      },
+      {
+        "id": "v_activity_managerLane",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "managerLane"
+        }
+      },
+      {
+        "id": "systemLane",
+        "kind": "partition",
+        "label": "Информационная система",
+        "properties": {
+          "owner": "publish"
+        }
+      },
+      {
+        "id": "v_activity_systemLane",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "systemLane"
+        }
+      },
+      {
+        "id": "ozonLane",
+        "kind": "partition",
+        "label": "Ozon",
+        "properties": {
+          "owner": "publish"
+        }
+      },
+      {
+        "id": "v_activity_ozonLane",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "ozonLane"
+        }
+      },
+      {
+        "id": "start",
+        "kind": "initial",
+        "label": "",
+        "properties": {
+          "owner": "publish"
+        }
+      },
+      {
+        "id": "responsibility_start",
+        "kind": "partitionMember",
+        "label": "",
+        "properties": {
+          "owner": "managerLane",
+          "element": "start"
+        }
+      },
+      {
+        "id": "v_activity_start",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "start",
+          "parent": "v_activity_managerLane"
+        }
+      },
+      {
+        "id": "selectCard",
+        "kind": "action",
+        "label": "Выбрать и подтвердить карточку",
+        "properties": {
+          "owner": "publish",
+          "kind": "opaque"
+        }
+      },
+      {
+        "id": "responsibility_selectCard",
+        "kind": "partitionMember",
+        "label": "",
+        "properties": {
+          "owner": "managerLane",
+          "element": "selectCard"
+        }
+      },
+      {
+        "id": "v_activity_selectCard",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "selectCard",
+          "parent": "v_activity_managerLane"
+        }
+      },
+      {
+        "id": "check",
+        "kind": "action",
+        "label": "Проверить поля и версии",
+        "properties": {
+          "owner": "publish",
+          "kind": "opaque"
+        }
+      },
+      {
+        "id": "responsibility_check",
+        "kind": "partitionMember",
+        "label": "",
+        "properties": {
+          "owner": "systemLane",
+          "element": "check"
+        }
+      },
+      {
+        "id": "v_activity_check",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "check",
+          "parent": "v_activity_systemLane"
+        }
+      },
+      {
+        "id": "ready",
+        "kind": "decision",
+        "label": "Карточка готова?",
+        "properties": {
+          "owner": "publish"
+        }
+      },
+      {
+        "id": "responsibility_ready",
+        "kind": "partitionMember",
+        "label": "",
+        "properties": {
+          "owner": "systemLane",
+          "element": "ready"
+        }
+      },
+      {
+        "id": "v_activity_ready",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "ready",
+          "parent": "v_activity_systemLane"
+        }
+      },
+      {
+        "id": "fix",
+        "kind": "action",
+        "label": "Исправить замечания",
+        "properties": {
+          "owner": "publish",
+          "kind": "opaque"
+        }
+      },
+      {
+        "id": "responsibility_fix",
+        "kind": "partitionMember",
+        "label": "",
+        "properties": {
+          "owner": "managerLane",
+          "element": "fix"
+        }
+      },
+      {
+        "id": "v_activity_fix",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "fix",
+          "parent": "v_activity_managerLane"
+        }
+      },
+      {
+        "id": "saveAttempt",
+        "kind": "action",
+        "label": "Сохранить попытку до вызова",
+        "properties": {
+          "owner": "publish",
+          "kind": "opaque"
+        }
+      },
+      {
+        "id": "responsibility_saveAttempt",
+        "kind": "partitionMember",
+        "label": "",
+        "properties": {
+          "owner": "systemLane",
+          "element": "saveAttempt"
+        }
+      },
+      {
+        "id": "v_activity_saveAttempt",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "saveAttempt",
+          "parent": "v_activity_systemLane"
+        }
+      },
+      {
+        "id": "send",
+        "kind": "action",
+        "label": "Передать пакет",
+        "properties": {
+          "owner": "publish",
+          "kind": "opaque"
+        }
+      },
+      {
+        "id": "responsibility_send",
+        "kind": "partitionMember",
+        "label": "",
+        "properties": {
+          "owner": "systemLane",
+          "element": "send"
+        }
+      },
+      {
+        "id": "v_activity_send",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "send",
+          "parent": "v_activity_systemLane"
+        }
+      },
+      {
+        "id": "process",
+        "kind": "action",
+        "label": "Принять и обработать",
+        "properties": {
+          "owner": "publish",
+          "kind": "opaque"
+        }
+      },
+      {
+        "id": "responsibility_process",
+        "kind": "partitionMember",
+        "label": "",
+        "properties": {
+          "owner": "ozonLane",
+          "element": "process"
+        }
+      },
+      {
+        "id": "v_activity_process",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "process",
+          "parent": "v_activity_ozonLane"
+        }
+      },
+      {
+        "id": "receive",
+        "kind": "action",
+        "label": "Получить статус / тайм-аут",
+        "properties": {
+          "owner": "publish",
+          "kind": "opaque"
+        }
+      },
+      {
+        "id": "responsibility_receive",
+        "kind": "partitionMember",
+        "label": "",
+        "properties": {
+          "owner": "systemLane",
+          "element": "receive"
+        }
+      },
+      {
+        "id": "v_activity_receive",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "receive",
+          "parent": "v_activity_systemLane"
+        }
+      },
+      {
+        "id": "answer",
+        "kind": "decision",
+        "label": "Ответ есть?",
+        "properties": {
+          "owner": "publish"
+        }
+      },
+      {
+        "id": "responsibility_answer",
+        "kind": "partitionMember",
+        "label": "",
+        "properties": {
+          "owner": "systemLane",
+          "element": "answer"
+        }
+      },
+      {
+        "id": "v_activity_answer",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "answer",
+          "parent": "v_activity_systemLane"
+        }
+      },
+      {
+        "id": "waiting",
+        "kind": "action",
+        "label": "Сохранить ожидание той же операции",
+        "properties": {
+          "owner": "publish",
+          "kind": "opaque"
+        }
+      },
+      {
+        "id": "responsibility_waiting",
+        "kind": "partitionMember",
+        "label": "",
+        "properties": {
+          "owner": "systemLane",
+          "element": "waiting"
+        }
+      },
+      {
+        "id": "v_activity_waiting",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "waiting",
+          "parent": "v_activity_systemLane"
+        }
+      },
+      {
+        "id": "result",
+        "kind": "action",
+        "label": "Сохранить итог и замечания",
+        "properties": {
+          "owner": "publish",
+          "kind": "opaque"
+        }
+      },
+      {
+        "id": "responsibility_result",
+        "kind": "partitionMember",
+        "label": "",
+        "properties": {
+          "owner": "systemLane",
+          "element": "result"
+        }
+      },
+      {
+        "id": "v_activity_result",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "result",
+          "parent": "v_activity_systemLane"
+        }
+      },
+      {
+        "id": "done",
+        "kind": "activityFinal",
+        "label": "",
+        "properties": {
+          "owner": "publish"
+        }
+      },
+      {
+        "id": "responsibility_done",
+        "kind": "partitionMember",
+        "label": "",
+        "properties": {
+          "owner": "systemLane",
+          "element": "done"
+        }
+      },
+      {
+        "id": "v_activity_done",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "done",
+          "parent": "v_activity_systemLane"
+        }
+      },
+      {
+        "id": "fixDone",
+        "kind": "activityFinal",
+        "label": "",
+        "properties": {
+          "owner": "publish"
+        }
+      },
+      {
+        "id": "responsibility_fixDone",
+        "kind": "partitionMember",
+        "label": "",
+        "properties": {
+          "owner": "managerLane",
+          "element": "fixDone"
+        }
+      },
+      {
+        "id": "v_activity_fixDone",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "fixDone",
+          "parent": "v_activity_managerLane"
+        }
+      },
+      {
+        "id": "flow1",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "publish",
+          "from": "start",
+          "to": "selectCard"
+        }
+      },
+      {
+        "id": "flow2",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "publish",
+          "from": "selectCard",
+          "to": "check"
+        }
+      },
+      {
+        "id": "flow3",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "publish",
+          "from": "check",
+          "to": "ready"
+        }
+      },
+      {
+        "id": "flow4",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "publish",
+          "from": "ready",
+          "to": "saveAttempt",
+          "guard": "да"
+        }
+      },
+      {
+        "id": "flow5",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "publish",
+          "from": "ready",
+          "to": "fix",
+          "guard": "else"
+        }
+      },
+      {
+        "id": "flow6",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "publish",
+          "from": "fix",
+          "to": "fixDone"
+        }
+      },
+      {
+        "id": "flow7",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "publish",
+          "from": "saveAttempt",
+          "to": "send"
+        }
+      },
+      {
+        "id": "flow8",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "publish",
+          "from": "send",
+          "to": "process"
+        }
+      },
+      {
+        "id": "flow9",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "publish",
+          "from": "process",
+          "to": "receive"
+        }
+      },
+      {
+        "id": "flow10",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "publish",
+          "from": "receive",
+          "to": "answer"
+        }
+      },
+      {
+        "id": "flow11",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "publish",
+          "from": "answer",
+          "to": "result",
+          "guard": "ответ есть"
+        }
+      },
+      {
+        "id": "flow12",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "publish",
+          "from": "answer",
+          "to": "waiting",
+          "guard": "else"
+        }
+      },
+      {
+        "id": "flow13",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "publish",
+          "from": "waiting",
+          "to": "done"
+        }
+      },
+      {
+        "id": "flow14",
+        "kind": "controlFlow",
+        "label": "",
+        "properties": {
+          "owner": "publish",
+          "from": "result",
+          "to": "done"
+        }
+      },
+      {
+        "id": "v_activity_flow1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "flow1",
+          "from": "v_activity_start",
+          "to": "v_activity_selectCard"
+        }
+      },
+      {
+        "id": "v_activity_flow2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "flow2",
+          "from": "v_activity_selectCard",
+          "to": "v_activity_check"
+        }
+      },
+      {
+        "id": "v_activity_flow3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "flow3",
+          "from": "v_activity_check",
+          "to": "v_activity_ready"
+        }
+      },
+      {
+        "id": "v_activity_flow4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "flow4",
+          "from": "v_activity_ready",
+          "to": "v_activity_saveAttempt"
+        }
+      },
+      {
+        "id": "v_activity_flow5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "flow5",
+          "from": "v_activity_ready",
+          "to": "v_activity_fix"
+        }
+      },
+      {
+        "id": "v_activity_flow6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "flow6",
+          "from": "v_activity_fix",
+          "to": "v_activity_fixDone"
+        }
+      },
+      {
+        "id": "v_activity_flow7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "flow7",
+          "from": "v_activity_saveAttempt",
+          "to": "v_activity_send"
+        }
+      },
+      {
+        "id": "v_activity_flow8",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "flow8",
+          "from": "v_activity_send",
+          "to": "v_activity_process"
+        }
+      },
+      {
+        "id": "v_activity_flow9",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "flow9",
+          "from": "v_activity_process",
+          "to": "v_activity_receive"
+        }
+      },
+      {
+        "id": "v_activity_flow10",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "flow10",
+          "from": "v_activity_receive",
+          "to": "v_activity_answer"
+        }
+      },
+      {
+        "id": "v_activity_flow11",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "flow11",
+          "from": "v_activity_answer",
+          "to": "v_activity_result"
+        }
+      },
+      {
+        "id": "v_activity_flow12",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "flow12",
+          "from": "v_activity_answer",
+          "to": "v_activity_waiting"
+        }
+      },
+      {
+        "id": "v_activity_flow13",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "flow13",
+          "from": "v_activity_waiting",
+          "to": "v_activity_done"
+        }
+      },
+      {
+        "id": "v_activity_flow14",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "activity",
+          "element": "flow14",
+          "from": "v_activity_result",
+          "to": "v_activity_done"
+        }
+      },
+      {
+        "id": "components",
+        "kind": "diagram",
+        "label": "ИМ · Компоненты и общие интерфейсы",
+        "properties": {
+          "type": "component"
+        }
+      },
+      {
+        "id": "web",
+        "kind": "component",
+        "label": "Веб-интерфейс",
+        "properties": {
+          "description": "Экран карточки, формы импорта, модельный ряд, изображений и отчётов; HTTPS API. Вызывает прикладные сервисы; U-01–U-03. Не содержит единственного экземпляра предметных правил. Источник: таблица 10.2."
+        }
+      },
+      {
+        "id": "services",
+        "kind": "component",
+        "label": "Прикладные сервисы",
+        "properties": {
+          "description": "Component, ModelRangeVersion, Card, PublicationAttempt; команды и запросы. Используют IAccess и IRepository; F-01–F-11. Выполняют расчёты и проверку состояния. Источник: таблица 10.2."
+        }
+      },
+      {
+        "id": "access",
+        "kind": "component",
+        "label": "Контроль доступа и аудит",
+        "properties": {
+          "description": "User, Role, AuditEvent; IAccess. Проверяет роли для каждой операции и фиксирует события; F-10, F-12. Хранение через общий репозиторий. Источник: таблица 10.2."
+        }
+      },
+      {
+        "id": "repository",
+        "kind": "component",
+        "label": "Репозиторий данных",
+        "properties": {
+          "description": "IRepository: загрузка сущностей, транзакции, выборки и фиксация версий. Реляционная БД и файловые объекты; R-01, R-02. Не зависит от формата Ozon. Источник: таблица 10.2."
+        }
+      },
+      {
+        "id": "importer",
+        "kind": "component",
+        "label": "Импорт источников",
+        "properties": {
+          "description": "SupplierOffer, StockSnapshot; проверка файла и нормализованные записи. Передаёт корректные значения прикладным сервисам; F-01, S-02. Источник: таблица 10.2."
+        }
+      },
+      {
+        "id": "ozonAdapter",
+        "kind": "component",
+        "label": "Адаптер Ozon",
+        "properties": {
+          "description": "IPublisher: отправка пакета, получение результата, перевод ошибок. Вызывается прикладными сервисами; внешний защищённый интерфейс; F-08, F-09, R-03. Источник: таблица 10.2."
+        }
+      },
+      {
+        "id": "iAccess",
+        "kind": "interface",
+        "label": "IAccess",
+        "properties": {}
+      },
+      {
+        "id": "iRepository",
+        "kind": "interface",
+        "label": "IRepository",
+        "properties": {}
+      },
+      {
+        "id": "iPublisher",
+        "kind": "interface",
+        "label": "IPublisher",
+        "properties": {}
+      },
+      {
+        "id": "v_components_web",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "web"
+        }
+      },
+      {
+        "id": "v_components_services",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "services"
+        }
+      },
+      {
+        "id": "v_components_importer",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "importer"
+        }
+      },
+      {
+        "id": "v_components_access",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "access"
+        }
+      },
+      {
+        "id": "v_components_repository",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "repository"
+        }
+      },
+      {
+        "id": "v_components_ozonAdapter",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "ozonAdapter"
+        }
+      },
+      {
+        "id": "v_components_iAccess",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "iAccess"
+        }
+      },
+      {
+        "id": "v_components_iRepository",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "iRepository"
+        }
+      },
+      {
+        "id": "v_components_iPublisher",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "iPublisher"
+        }
+      },
+      {
+        "id": "webCalls",
+        "kind": "dependency",
+        "label": "Команды и запросы",
+        "properties": {
+          "from": "web",
+          "to": "services"
+        }
+      },
+      {
+        "id": "importCalls",
+        "kind": "dependency",
+        "label": "Нормализованные записи",
+        "properties": {
+          "from": "importer",
+          "to": "services"
+        }
+      },
+      {
+        "id": "provides_access",
+        "kind": "realization",
+        "label": "",
+        "properties": {
+          "from": "access",
+          "to": "iAccess"
+        }
+      },
+      {
+        "id": "provides_repository",
+        "kind": "realization",
+        "label": "",
+        "properties": {
+          "from": "repository",
+          "to": "iRepository"
+        }
+      },
+      {
+        "id": "provides_ozonAdapter",
+        "kind": "realization",
+        "label": "",
+        "properties": {
+          "from": "ozonAdapter",
+          "to": "iPublisher"
+        }
+      },
+      {
+        "id": "uses_iAccess",
+        "kind": "usage",
+        "label": "",
+        "properties": {
+          "from": "services",
+          "to": "iAccess"
+        }
+      },
+      {
+        "id": "uses_iRepository",
+        "kind": "usage",
+        "label": "",
+        "properties": {
+          "from": "services",
+          "to": "iRepository"
+        }
+      },
+      {
+        "id": "uses_iPublisher",
+        "kind": "usage",
+        "label": "",
+        "properties": {
+          "from": "services",
+          "to": "iPublisher"
+        }
+      },
+      {
+        "id": "accessUsesRepository",
+        "kind": "usage",
+        "label": "",
+        "properties": {
+          "from": "access",
+          "to": "iRepository"
+        }
+      },
+      {
+        "id": "v_components_webCalls",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "webCalls",
+          "from": "v_components_web",
+          "to": "v_components_services"
+        }
+      },
+      {
+        "id": "v_components_importCalls",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "importCalls",
+          "from": "v_components_importer",
+          "to": "v_components_services"
+        }
+      },
+      {
+        "id": "v_components_provides_access",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "provides_access",
+          "from": "v_components_access",
+          "to": "v_components_iAccess"
+        }
+      },
+      {
+        "id": "v_components_provides_repository",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "provides_repository",
+          "from": "v_components_repository",
+          "to": "v_components_iRepository"
+        }
+      },
+      {
+        "id": "v_components_provides_ozonAdapter",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "provides_ozonAdapter",
+          "from": "v_components_ozonAdapter",
+          "to": "v_components_iPublisher"
+        }
+      },
+      {
+        "id": "v_components_uses_iAccess",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "uses_iAccess",
+          "from": "v_components_services",
+          "to": "v_components_iAccess"
+        }
+      },
+      {
+        "id": "v_components_uses_iRepository",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "uses_iRepository",
+          "from": "v_components_services",
+          "to": "v_components_iRepository"
+        }
+      },
+      {
+        "id": "v_components_uses_iPublisher",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "uses_iPublisher",
+          "from": "v_components_services",
+          "to": "v_components_iPublisher"
+        }
+      },
+      {
+        "id": "v_components_accessUsesRepository",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "accessUsesRepository",
+          "from": "v_components_access",
+          "to": "v_components_iRepository"
+        }
+      },
+      {
+        "id": "classes",
+        "kind": "diagram",
+        "label": "ИМ · Классы реализации компонентов",
+        "properties": {
+          "type": "class"
+        }
+      },
+      {
+        "id": "classComponent",
+        "kind": "class",
+        "label": "Component",
+        "properties": {
+          "description": "Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе."
+        }
+      },
+      {
+        "id": "implementsComponent",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "services",
+          "classifier": "classComponent"
+        }
+      },
+      {
+        "id": "v_classes_classComponent",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "classComponent"
+        }
+      },
+      {
+        "id": "classModelRangeVersion",
+        "kind": "class",
+        "label": "ModelRangeVersion",
+        "properties": {
+          "description": "Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе."
+        }
+      },
+      {
+        "id": "implementsModelRangeVersion",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "services",
+          "classifier": "classModelRangeVersion"
+        }
+      },
+      {
+        "id": "v_classes_classModelRangeVersion",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "classModelRangeVersion"
+        }
+      },
+      {
+        "id": "classCard",
+        "kind": "class",
+        "label": "Card",
+        "properties": {
+          "description": "Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе."
+        }
+      },
+      {
+        "id": "implementsCard",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "services",
+          "classifier": "classCard"
+        }
+      },
+      {
+        "id": "v_classes_classCard",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "classCard"
+        }
+      },
+      {
+        "id": "classPublicationAttempt",
+        "kind": "class",
+        "label": "PublicationAttempt",
+        "properties": {
+          "description": "Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе."
+        }
+      },
+      {
+        "id": "implementsPublicationAttempt",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "services",
+          "classifier": "classPublicationAttempt"
+        }
+      },
+      {
+        "id": "v_classes_classPublicationAttempt",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "classPublicationAttempt"
+        }
+      },
+      {
+        "id": "classUser",
+        "kind": "class",
+        "label": "User",
+        "properties": {
+          "description": "Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе."
+        }
+      },
+      {
+        "id": "implementsUser",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "access",
+          "classifier": "classUser"
+        }
+      },
+      {
+        "id": "v_classes_classUser",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "classUser"
+        }
+      },
+      {
+        "id": "classRole",
+        "kind": "class",
+        "label": "Role",
+        "properties": {
+          "description": "Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе."
+        }
+      },
+      {
+        "id": "implementsRole",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "access",
+          "classifier": "classRole"
+        }
+      },
+      {
+        "id": "v_classes_classRole",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "classRole"
+        }
+      },
+      {
+        "id": "classAuditEvent",
+        "kind": "class",
+        "label": "AuditEvent",
+        "properties": {
+          "description": "Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе."
+        }
+      },
+      {
+        "id": "implementsAuditEvent",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "access",
+          "classifier": "classAuditEvent"
+        }
+      },
+      {
+        "id": "v_classes_classAuditEvent",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "classAuditEvent"
+        }
+      },
+      {
+        "id": "classSupplierOffer",
+        "kind": "class",
+        "label": "SupplierOffer",
+        "properties": {
+          "description": "Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе."
+        }
+      },
+      {
+        "id": "implementsSupplierOffer",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "importer",
+          "classifier": "classSupplierOffer"
+        }
+      },
+      {
+        "id": "v_classes_classSupplierOffer",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "classSupplierOffer"
+        }
+      },
+      {
+        "id": "classStockSnapshot",
+        "kind": "class",
+        "label": "StockSnapshot",
+        "properties": {
+          "description": "Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе."
+        }
+      },
+      {
+        "id": "implementsStockSnapshot",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "importer",
+          "classifier": "classStockSnapshot"
+        }
+      },
+      {
+        "id": "v_classes_classStockSnapshot",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "classes",
+          "element": "classStockSnapshot"
+        }
+      },
+      {
+        "id": "deployment",
+        "kind": "diagram",
+        "label": "ИМ · Узлы и размещение артефактов",
+        "properties": {
+          "type": "deployment"
+        }
+      },
+      {
+        "id": "workstation",
+        "kind": "device",
+        "label": "Рабочий компьютер",
+        "properties": {
+          "description": "Рабочий компьютер. Браузер; интерфейс приложения. Установка отдельного клиента не требуется.. HTTPS к приложению. Пользователь работает под личной учётной записью."
+        }
+      },
+      {
+        "id": "server",
+        "kind": "node",
+        "label": "Серверная виртуальная машина",
+        "properties": {
+          "description": "Серверная виртуальная машина. Приложение и фоновые задачи, PostgreSQL, файлы изображений; ориентир 4 vCPU, 8 ГБ RAM, SSD 100 ГБ.. Принимает клиентские запросы, выполняет расчёты и обмен. Параметры являются стартовой оценкой, не результатом теста."
+        }
+      },
+      {
+        "id": "application",
+        "kind": "executionEnvironment",
+        "label": "Среда приложения и фоновых задач",
+        "properties": {
+          "owner": "server",
+          "technology": "Серверное приложение"
+        }
+      },
+      {
+        "id": "postgres",
+        "kind": "executionEnvironment",
+        "label": "PostgreSQL",
+        "properties": {
+          "owner": "server",
+          "technology": "PostgreSQL"
+        }
+      },
+      {
+        "id": "backupStore",
+        "kind": "node",
+        "label": "Отдельное хранилище копий",
+        "properties": {
+          "description": "Отдельное хранилище копий. Ежедневные копии БД и файлов, журнал выполнения; доступ только роли резервирования.. Изолировано от рабочего каталога. Восстановление проверяет администратор."
+        }
+      },
+      {
+        "id": "externalOzon",
+        "kind": "node",
+        "label": "Внешний узел Ozon",
+        "properties": {
+          "description": "Внешний узел Ozon. Сервис обработки данных продавца вне управления проектной команды.. Защищённый канал; ограничения интерфейса подтверждаются перед интеграцией."
+        }
+      },
+      {
+        "id": "v_deployment_workstation",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "workstation"
+        }
+      },
+      {
+        "id": "v_deployment_server",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "server"
+        }
+      },
+      {
+        "id": "v_deployment_application",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "application",
+          "parent": "v_deployment_server"
+        }
+      },
+      {
+        "id": "v_deployment_postgres",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "postgres",
+          "parent": "v_deployment_server"
+        }
+      },
+      {
+        "id": "v_deployment_backupStore",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "backupStore"
+        }
+      },
+      {
+        "id": "v_deployment_externalOzon",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "externalOzon"
+        }
+      },
+      {
+        "id": "frontend",
+        "kind": "artifact",
+        "label": "Интерфейс приложения в браузере",
+        "properties": {
+          "description": "Учебный тип артефакта по таблицам 10.1–10.3; не фактическая поставленная сборка."
+        }
+      },
+      {
+        "id": "deploy_frontend",
+        "kind": "deployment",
+        "label": "",
+        "properties": {
+          "location": "workstation",
+          "artifact": "frontend"
+        }
+      },
+      {
+        "id": "manifest_frontend",
+        "kind": "manifestation",
+        "label": "",
+        "properties": {
+          "from": "frontend",
+          "to": "web"
+        }
+      },
+      {
+        "id": "v_deployment_frontend",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "frontend",
+          "parent": "v_deployment_workstation"
+        }
+      },
+      {
+        "id": "appBuild",
+        "kind": "artifact",
+        "label": "Сборка приложения и фоновых задач",
+        "properties": {
+          "description": "Учебный тип артефакта по таблицам 10.1–10.3; не фактическая поставленная сборка."
+        }
+      },
+      {
+        "id": "deploy_appBuild",
+        "kind": "deployment",
+        "label": "",
+        "properties": {
+          "location": "application",
+          "artifact": "appBuild"
+        }
+      },
+      {
+        "id": "manifest_appBuild",
+        "kind": "manifestation",
+        "label": "",
+        "properties": {
+          "from": "appBuild",
+          "to": "services"
+        }
+      },
+      {
+        "id": "v_deployment_appBuild",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "appBuild",
+          "parent": "v_deployment_application"
+        }
+      },
+      {
+        "id": "dbSchema",
+        "kind": "artifact",
+        "label": "Схема БД и миграции",
+        "properties": {
+          "description": "Учебный тип артефакта по таблицам 10.1–10.3; не фактическая поставленная сборка."
+        }
+      },
+      {
+        "id": "deploy_dbSchema",
+        "kind": "deployment",
+        "label": "",
+        "properties": {
+          "location": "postgres",
+          "artifact": "dbSchema"
+        }
+      },
+      {
+        "id": "manifest_dbSchema",
+        "kind": "manifestation",
+        "label": "",
+        "properties": {
+          "from": "dbSchema",
+          "to": "repository"
+        }
+      },
+      {
+        "id": "v_deployment_dbSchema",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "dbSchema",
+          "parent": "v_deployment_postgres"
+        }
+      },
+      {
+        "id": "backups",
+        "kind": "artifact",
+        "label": "Копии БД и файлов",
+        "properties": {
+          "description": "Учебный тип артефакта по таблицам 10.1–10.3; не фактическая поставленная сборка."
+        }
+      },
+      {
+        "id": "deploy_backups",
+        "kind": "deployment",
+        "label": "",
+        "properties": {
+          "location": "backupStore",
+          "artifact": "backups"
+        }
+      },
+      {
+        "id": "manifest_backups",
+        "kind": "manifestation",
+        "label": "",
+        "properties": {
+          "from": "backups",
+          "to": "repository"
+        }
+      },
+      {
+        "id": "v_deployment_backups",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "backups",
+          "parent": "v_deployment_backupStore"
+        }
+      },
+      {
+        "id": "v_deployment_web",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "web"
+        }
+      },
+      {
+        "id": "v_deployment_services",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "services"
+        }
+      },
+      {
+        "id": "v_deployment_repository",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "repository"
+        }
+      },
+      {
+        "id": "https",
+        "kind": "communicationPath",
+        "label": "",
+        "properties": {
+          "from": "workstation",
+          "to": "application",
+          "protocol": "HTTPS",
+          "port": "443"
+        }
+      },
+      {
+        "id": "marketplace",
+        "kind": "communicationPath",
+        "label": "",
+        "properties": {
+          "from": "application",
+          "to": "externalOzon",
+          "protocol": "Защищённый интерфейс Ozon"
+        }
+      },
+      {
+        "id": "sql",
+        "kind": "communicationPath",
+        "label": "",
+        "properties": {
+          "from": "application",
+          "to": "postgres",
+          "protocol": "Доступ к PostgreSQL"
+        }
+      },
+      {
+        "id": "backupChannel",
+        "kind": "communicationPath",
+        "label": "",
+        "properties": {
+          "from": "server",
+          "to": "backupStore",
+          "protocol": "Резервирование БД и файлов"
+        }
+      },
+      {
+        "id": "v_deployment_https",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "https",
+          "from": "v_deployment_workstation",
+          "to": "v_deployment_application"
+        }
+      },
+      {
+        "id": "v_deployment_marketplace",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "marketplace",
+          "from": "v_deployment_application",
+          "to": "v_deployment_externalOzon"
+        }
+      },
+      {
+        "id": "v_deployment_sql",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "sql",
+          "from": "v_deployment_application",
+          "to": "v_deployment_postgres"
+        }
+      },
+      {
+        "id": "v_deployment_backupChannel",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "backupChannel",
+          "from": "v_deployment_server",
+          "to": "v_deployment_backupStore"
+        }
+      },
+      {
+        "id": "v_deployment_manifest_frontend",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "manifest_frontend",
+          "from": "v_deployment_frontend",
+          "to": "v_deployment_web"
+        }
+      },
+      {
+        "id": "v_deployment_manifest_appBuild",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "manifest_appBuild",
+          "from": "v_deployment_appBuild",
+          "to": "v_deployment_services"
+        }
+      },
+      {
+        "id": "v_deployment_manifest_dbSchema",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "manifest_dbSchema",
+          "from": "v_deployment_dbSchema",
+          "to": "v_deployment_repository"
+        }
+      },
+      {
+        "id": "v_deployment_manifest_backups",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "manifest_backups",
+          "from": "v_deployment_backups",
+          "to": "v_deployment_repository"
+        }
+      },
+      {
+        "id": "appSizing",
+        "kind": "deploymentSetting",
+        "label": "Стартовая оценка",
+        "properties": {
+          "owner": "deploy_appBuild",
+          "key": "Ресурсы VM",
+          "value": "4 vCPU; 8 ГБ RAM; SSD 100 ГБ — ориентир, не результат испытаний"
+        }
+      }
+    ]
+  },
+  "source": "// Источник содержания: ИМ_АлбахтинИВ_Отчёт.docx, таблицы 9.1–9.3 и 10.1–10.4. Учебная модель.\numl im_architecture \"ИС подготовки карточек · деятельность и архитектура\"\nactivity publish \"Подготовить и передать карточку\" description=\"Источник: отчёт ИМ, таблицы 9.1–9.3. Учебная модель; guard не исполняется.\" postcondition=\"Попытка сохранена до внешнего вызова; зафиксирован результат либо ожидание. Исправление завершает текущий сценарий.\" precondition=\"Менеджер выбрал карточку и имеет право отправки; используется согласованная версия.\"\ndiagram activity \"ИМ · Проверка и отправка карточки\" activity=publish type=activity\npartition managerLane Менеджер owner=publish\nview v_activity_managerLane \"\" diagram=activity element=managerLane\npartition systemLane \"Информационная система\" owner=publish\nview v_activity_systemLane \"\" diagram=activity element=systemLane\npartition ozonLane Ozon owner=publish\nview v_activity_ozonLane \"\" diagram=activity element=ozonLane\ninitial start \"\" owner=publish\npartitionMember responsibility_start \"\" element=start owner=managerLane\nview v_activity_start \"\" diagram=activity element=start parent=v_activity_managerLane\naction selectCard \"Выбрать и подтвердить карточку\" kind=opaque owner=publish\npartitionMember responsibility_selectCard \"\" element=selectCard owner=managerLane\nview v_activity_selectCard \"\" diagram=activity element=selectCard parent=v_activity_managerLane\naction check \"Проверить поля и версии\" kind=opaque owner=publish\npartitionMember responsibility_check \"\" element=check owner=systemLane\nview v_activity_check \"\" diagram=activity element=check parent=v_activity_systemLane\ndecision ready \"Карточка готова?\" owner=publish\npartitionMember responsibility_ready \"\" element=ready owner=systemLane\nview v_activity_ready \"\" diagram=activity element=ready parent=v_activity_systemLane\naction fix \"Исправить замечания\" kind=opaque owner=publish\npartitionMember responsibility_fix \"\" element=fix owner=managerLane\nview v_activity_fix \"\" diagram=activity element=fix parent=v_activity_managerLane\naction saveAttempt \"Сохранить попытку до вызова\" kind=opaque owner=publish\npartitionMember responsibility_saveAttempt \"\" element=saveAttempt owner=systemLane\nview v_activity_saveAttempt \"\" diagram=activity element=saveAttempt parent=v_activity_systemLane\naction send \"Передать пакет\" kind=opaque owner=publish\npartitionMember responsibility_send \"\" element=send owner=systemLane\nview v_activity_send \"\" diagram=activity element=send parent=v_activity_systemLane\naction process \"Принять и обработать\" kind=opaque owner=publish\npartitionMember responsibility_process \"\" element=process owner=ozonLane\nview v_activity_process \"\" diagram=activity element=process parent=v_activity_ozonLane\naction receive \"Получить статус / тайм-аут\" kind=opaque owner=publish\npartitionMember responsibility_receive \"\" element=receive owner=systemLane\nview v_activity_receive \"\" diagram=activity element=receive parent=v_activity_systemLane\ndecision answer \"Ответ есть?\" owner=publish\npartitionMember responsibility_answer \"\" element=answer owner=systemLane\nview v_activity_answer \"\" diagram=activity element=answer parent=v_activity_systemLane\naction waiting \"Сохранить ожидание той же операции\" kind=opaque owner=publish\npartitionMember responsibility_waiting \"\" element=waiting owner=systemLane\nview v_activity_waiting \"\" diagram=activity element=waiting parent=v_activity_systemLane\naction result \"Сохранить итог и замечания\" kind=opaque owner=publish\npartitionMember responsibility_result \"\" element=result owner=systemLane\nview v_activity_result \"\" diagram=activity element=result parent=v_activity_systemLane\nactivityFinal done \"\" owner=publish\npartitionMember responsibility_done \"\" element=done owner=systemLane\nview v_activity_done \"\" diagram=activity element=done parent=v_activity_systemLane\nactivityFinal fixDone \"\" owner=publish\npartitionMember responsibility_fixDone \"\" element=fixDone owner=managerLane\nview v_activity_fixDone \"\" diagram=activity element=fixDone parent=v_activity_managerLane\ncontrolFlow flow1 \"\" from=start owner=publish to=selectCard\ncontrolFlow flow2 \"\" from=selectCard owner=publish to=check\ncontrolFlow flow3 \"\" from=check owner=publish to=ready\ncontrolFlow flow4 \"\" from=ready guard=да owner=publish to=saveAttempt\ncontrolFlow flow5 \"\" from=ready guard=else owner=publish to=fix\ncontrolFlow flow6 \"\" from=fix owner=publish to=fixDone\ncontrolFlow flow7 \"\" from=saveAttempt owner=publish to=send\ncontrolFlow flow8 \"\" from=send owner=publish to=process\ncontrolFlow flow9 \"\" from=process owner=publish to=receive\ncontrolFlow flow10 \"\" from=receive owner=publish to=answer\ncontrolFlow flow11 \"\" from=answer guard=\"ответ есть\" owner=publish to=result\ncontrolFlow flow12 \"\" from=answer guard=else owner=publish to=waiting\ncontrolFlow flow13 \"\" from=waiting owner=publish to=done\ncontrolFlow flow14 \"\" from=result owner=publish to=done\nview v_activity_flow1 \"\" diagram=activity element=flow1 from=v_activity_start to=v_activity_selectCard\nview v_activity_flow2 \"\" diagram=activity element=flow2 from=v_activity_selectCard to=v_activity_check\nview v_activity_flow3 \"\" diagram=activity element=flow3 from=v_activity_check to=v_activity_ready\nview v_activity_flow4 \"\" diagram=activity element=flow4 from=v_activity_ready to=v_activity_saveAttempt\nview v_activity_flow5 \"\" diagram=activity element=flow5 from=v_activity_ready to=v_activity_fix\nview v_activity_flow6 \"\" diagram=activity element=flow6 from=v_activity_fix to=v_activity_fixDone\nview v_activity_flow7 \"\" diagram=activity element=flow7 from=v_activity_saveAttempt to=v_activity_send\nview v_activity_flow8 \"\" diagram=activity element=flow8 from=v_activity_send to=v_activity_process\nview v_activity_flow9 \"\" diagram=activity element=flow9 from=v_activity_process to=v_activity_receive\nview v_activity_flow10 \"\" diagram=activity element=flow10 from=v_activity_receive to=v_activity_answer\nview v_activity_flow11 \"\" diagram=activity element=flow11 from=v_activity_answer to=v_activity_result\nview v_activity_flow12 \"\" diagram=activity element=flow12 from=v_activity_answer to=v_activity_waiting\nview v_activity_flow13 \"\" diagram=activity element=flow13 from=v_activity_waiting to=v_activity_done\nview v_activity_flow14 \"\" diagram=activity element=flow14 from=v_activity_result to=v_activity_done\ndiagram components \"ИМ · Компоненты и общие интерфейсы\" type=component\ncomponent web Веб-интерфейс description=\"Экран карточки, формы импорта, модельный ряд, изображений и отчётов; HTTPS API. Вызывает прикладные сервисы; U-01–U-03. Не содержит единственного экземпляра предметных правил. Источник: таблица 10.2.\"\ncomponent services \"Прикладные сервисы\" description=\"Component, ModelRangeVersion, Card, PublicationAttempt; команды и запросы. Используют IAccess и IRepository; F-01–F-11. Выполняют расчёты и проверку состояния. Источник: таблица 10.2.\"\ncomponent access \"Контроль доступа и аудит\" description=\"User, Role, AuditEvent; IAccess. Проверяет роли для каждой операции и фиксирует события; F-10, F-12. Хранение через общий репозиторий. Источник: таблица 10.2.\"\ncomponent repository \"Репозиторий данных\" description=\"IRepository: загрузка сущностей, транзакции, выборки и фиксация версий. Реляционная БД и файловые объекты; R-01, R-02. Не зависит от формата Ozon. Источник: таблица 10.2.\"\ncomponent importer \"Импорт источников\" description=\"SupplierOffer, StockSnapshot; проверка файла и нормализованные записи. Передаёт корректные значения прикладным сервисам; F-01, S-02. Источник: таблица 10.2.\"\ncomponent ozonAdapter \"Адаптер Ozon\" description=\"IPublisher: отправка пакета, получение результата, перевод ошибок. Вызывается прикладными сервисами; внешний защищённый интерфейс; F-08, F-09, R-03. Источник: таблица 10.2.\"\ninterface iAccess IAccess\ninterface iRepository IRepository\ninterface iPublisher IPublisher\nview v_components_web \"\" diagram=components element=web\nview v_components_services \"\" diagram=components element=services\nview v_components_importer \"\" diagram=components element=importer\nview v_components_access \"\" diagram=components element=access\nview v_components_repository \"\" diagram=components element=repository\nview v_components_ozonAdapter \"\" diagram=components element=ozonAdapter\nview v_components_iAccess \"\" diagram=components element=iAccess\nview v_components_iRepository \"\" diagram=components element=iRepository\nview v_components_iPublisher \"\" diagram=components element=iPublisher\ndependency webCalls \"Команды и запросы\" from=web to=services\ndependency importCalls \"Нормализованные записи\" from=importer to=services\nrealization provides_access \"\" from=access to=iAccess\nrealization provides_repository \"\" from=repository to=iRepository\nrealization provides_ozonAdapter \"\" from=ozonAdapter to=iPublisher\nusage uses_iAccess \"\" from=services to=iAccess\nusage uses_iRepository \"\" from=services to=iRepository\nusage uses_iPublisher \"\" from=services to=iPublisher\nusage accessUsesRepository \"\" from=access to=iRepository\nview v_components_webCalls \"\" diagram=components element=webCalls from=v_components_web to=v_components_services\nview v_components_importCalls \"\" diagram=components element=importCalls from=v_components_importer to=v_components_services\nview v_components_provides_access \"\" diagram=components element=provides_access from=v_components_access to=v_components_iAccess\nview v_components_provides_repository \"\" diagram=components element=provides_repository from=v_components_repository to=v_components_iRepository\nview v_components_provides_ozonAdapter \"\" diagram=components element=provides_ozonAdapter from=v_components_ozonAdapter to=v_components_iPublisher\nview v_components_uses_iAccess \"\" diagram=components element=uses_iAccess from=v_components_services to=v_components_iAccess\nview v_components_uses_iRepository \"\" diagram=components element=uses_iRepository from=v_components_services to=v_components_iRepository\nview v_components_uses_iPublisher \"\" diagram=components element=uses_iPublisher from=v_components_services to=v_components_iPublisher\nview v_components_accessUsesRepository \"\" diagram=components element=accessUsesRepository from=v_components_access to=v_components_iRepository\ndiagram classes \"ИМ · Классы реализации компонентов\" type=class\nclass classComponent Component description=\"Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе.\"\ncomponentRealization implementsComponent \"\" classifier=classComponent owner=services\nview v_classes_classComponent \"\" diagram=classes element=classComponent\nclass classModelRangeVersion ModelRangeVersion description=\"Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе.\"\ncomponentRealization implementsModelRangeVersion \"\" classifier=classModelRangeVersion owner=services\nview v_classes_classModelRangeVersion \"\" diagram=classes element=classModelRangeVersion\nclass classCard Card description=\"Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе.\"\ncomponentRealization implementsCard \"\" classifier=classCard owner=services\nview v_classes_classCard \"\" diagram=classes element=classCard\nclass classPublicationAttempt PublicationAttempt description=\"Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе.\"\ncomponentRealization implementsPublicationAttempt \"\" classifier=classPublicationAttempt owner=services\nview v_classes_classPublicationAttempt \"\" diagram=classes element=classPublicationAttempt\nclass classUser User description=\"Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе.\"\ncomponentRealization implementsUser \"\" classifier=classUser owner=access\nview v_classes_classUser \"\" diagram=classes element=classUser\nclass classRole Role description=\"Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе.\"\ncomponentRealization implementsRole \"\" classifier=classRole owner=access\nview v_classes_classRole \"\" diagram=classes element=classRole\nclass classAuditEvent AuditEvent description=\"Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе.\"\ncomponentRealization implementsAuditEvent \"\" classifier=classAuditEvent owner=access\nview v_classes_classAuditEvent \"\" diagram=classes element=classAuditEvent\nclass classSupplierOffer SupplierOffer description=\"Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе.\"\ncomponentRealization implementsSupplierOffer \"\" classifier=classSupplierOffer owner=importer\nview v_classes_classSupplierOffer \"\" diagram=classes element=classSupplierOffer\nclass classStockSnapshot StockSnapshot description=\"Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе.\"\ncomponentRealization implementsStockSnapshot \"\" classifier=classStockSnapshot owner=importer\nview v_classes_classStockSnapshot \"\" diagram=classes element=classStockSnapshot\ndiagram deployment \"ИМ · Узлы и размещение артефактов\" type=deployment\ndevice workstation \"Рабочий компьютер\" description=\"Рабочий компьютер. Браузер; интерфейс приложения. Установка отдельного клиента не требуется.. HTTPS к приложению. Пользователь работает под личной учётной записью.\"\nnode server \"Серверная виртуальная машина\" description=\"Серверная виртуальная машина. Приложение и фоновые задачи, PostgreSQL, файлы изображений; ориентир 4 vCPU, 8 ГБ RAM, SSD 100 ГБ.. Принимает клиентские запросы, выполняет расчёты и обмен. Параметры являются стартовой оценкой, не результатом теста.\"\nexecutionEnvironment application \"Среда приложения и фоновых задач\" owner=server technology=\"Серверное приложение\"\nexecutionEnvironment postgres PostgreSQL owner=server technology=PostgreSQL\nnode backupStore \"Отдельное хранилище копий\" description=\"Отдельное хранилище копий. Ежедневные копии БД и файлов, журнал выполнения; доступ только роли резервирования.. Изолировано от рабочего каталога. Восстановление проверяет администратор.\"\nnode externalOzon \"Внешний узел Ozon\" description=\"Внешний узел Ozon. Сервис обработки данных продавца вне управления проектной команды.. Защищённый канал; ограничения интерфейса подтверждаются перед интеграцией.\"\nview v_deployment_workstation \"\" diagram=deployment element=workstation\nview v_deployment_server \"\" diagram=deployment element=server\nview v_deployment_application \"\" diagram=deployment element=application parent=v_deployment_server\nview v_deployment_postgres \"\" diagram=deployment element=postgres parent=v_deployment_server\nview v_deployment_backupStore \"\" diagram=deployment element=backupStore\nview v_deployment_externalOzon \"\" diagram=deployment element=externalOzon\nartifact frontend \"Интерфейс приложения в браузере\" description=\"Учебный тип артефакта по таблицам 10.1–10.3; не фактическая поставленная сборка.\"\ndeployment deploy_frontend \"\" artifact=frontend location=workstation\nmanifestation manifest_frontend \"\" from=frontend to=web\nview v_deployment_frontend \"\" diagram=deployment element=frontend parent=v_deployment_workstation\nartifact appBuild \"Сборка приложения и фоновых задач\" description=\"Учебный тип артефакта по таблицам 10.1–10.3; не фактическая поставленная сборка.\"\ndeployment deploy_appBuild \"\" artifact=appBuild location=application\nmanifestation manifest_appBuild \"\" from=appBuild to=services\nview v_deployment_appBuild \"\" diagram=deployment element=appBuild parent=v_deployment_application\nartifact dbSchema \"Схема БД и миграции\" description=\"Учебный тип артефакта по таблицам 10.1–10.3; не фактическая поставленная сборка.\"\ndeployment deploy_dbSchema \"\" artifact=dbSchema location=postgres\nmanifestation manifest_dbSchema \"\" from=dbSchema to=repository\nview v_deployment_dbSchema \"\" diagram=deployment element=dbSchema parent=v_deployment_postgres\nartifact backups \"Копии БД и файлов\" description=\"Учебный тип артефакта по таблицам 10.1–10.3; не фактическая поставленная сборка.\"\ndeployment deploy_backups \"\" artifact=backups location=backupStore\nmanifestation manifest_backups \"\" from=backups to=repository\nview v_deployment_backups \"\" diagram=deployment element=backups parent=v_deployment_backupStore\nview v_deployment_web \"\" diagram=deployment element=web\nview v_deployment_services \"\" diagram=deployment element=services\nview v_deployment_repository \"\" diagram=deployment element=repository\ncommunicationPath https \"\" from=workstation port=443 protocol=HTTPS to=application\ncommunicationPath marketplace \"\" from=application protocol=\"Защищённый интерфейс Ozon\" to=externalOzon\ncommunicationPath sql \"\" from=application protocol=\"Доступ к PostgreSQL\" to=postgres\ncommunicationPath backupChannel \"\" from=server protocol=\"Резервирование БД и файлов\" to=backupStore\nview v_deployment_https \"\" diagram=deployment element=https from=v_deployment_workstation to=v_deployment_application\nview v_deployment_marketplace \"\" diagram=deployment element=marketplace from=v_deployment_application to=v_deployment_externalOzon\nview v_deployment_sql \"\" diagram=deployment element=sql from=v_deployment_application to=v_deployment_postgres\nview v_deployment_backupChannel \"\" diagram=deployment element=backupChannel from=v_deployment_server to=v_deployment_backupStore\nview v_deployment_manifest_frontend \"\" diagram=deployment element=manifest_frontend from=v_deployment_frontend to=v_deployment_web\nview v_deployment_manifest_appBuild \"\" diagram=deployment element=manifest_appBuild from=v_deployment_appBuild to=v_deployment_services\nview v_deployment_manifest_dbSchema \"\" diagram=deployment element=manifest_dbSchema from=v_deployment_dbSchema to=v_deployment_repository\nview v_deployment_manifest_backups \"\" diagram=deployment element=manifest_backups from=v_deployment_backups to=v_deployment_repository\ndeploymentSetting appSizing \"Стартовая оценка\" key=\"Ресурсы VM\" owner=deploy_appBuild value=\"4 vCPU; 8 ГБ RAM; SSD 100 ГБ — ориентир, не результат испытаний\"\n",
+  "draft": "// Источник содержания: ИМ_АлбахтинИВ_Отчёт.docx, таблицы 9.1–9.3 и 10.1–10.4. Учебная модель.\numl im_architecture \"ИС подготовки карточек · деятельность и архитектура\"\nactivity publish \"Подготовить и передать карточку\" description=\"Источник: отчёт ИМ, таблицы 9.1–9.3. Учебная модель; guard не исполняется.\" postcondition=\"Попытка сохранена до внешнего вызова; зафиксирован результат либо ожидание. Исправление завершает текущий сценарий.\" precondition=\"Менеджер выбрал карточку и имеет право отправки; используется согласованная версия.\"\ndiagram activity \"ИМ · Проверка и отправка карточки\" activity=publish type=activity\npartition managerLane Менеджер owner=publish\nview v_activity_managerLane \"\" diagram=activity element=managerLane\npartition systemLane \"Информационная система\" owner=publish\nview v_activity_systemLane \"\" diagram=activity element=systemLane\npartition ozonLane Ozon owner=publish\nview v_activity_ozonLane \"\" diagram=activity element=ozonLane\ninitial start \"\" owner=publish\npartitionMember responsibility_start \"\" element=start owner=managerLane\nview v_activity_start \"\" diagram=activity element=start parent=v_activity_managerLane\naction selectCard \"Выбрать и подтвердить карточку\" kind=opaque owner=publish\npartitionMember responsibility_selectCard \"\" element=selectCard owner=managerLane\nview v_activity_selectCard \"\" diagram=activity element=selectCard parent=v_activity_managerLane\naction check \"Проверить поля и версии\" kind=opaque owner=publish\npartitionMember responsibility_check \"\" element=check owner=systemLane\nview v_activity_check \"\" diagram=activity element=check parent=v_activity_systemLane\ndecision ready \"Карточка готова?\" owner=publish\npartitionMember responsibility_ready \"\" element=ready owner=systemLane\nview v_activity_ready \"\" diagram=activity element=ready parent=v_activity_systemLane\naction fix \"Исправить замечания\" kind=opaque owner=publish\npartitionMember responsibility_fix \"\" element=fix owner=managerLane\nview v_activity_fix \"\" diagram=activity element=fix parent=v_activity_managerLane\naction saveAttempt \"Сохранить попытку до вызова\" kind=opaque owner=publish\npartitionMember responsibility_saveAttempt \"\" element=saveAttempt owner=systemLane\nview v_activity_saveAttempt \"\" diagram=activity element=saveAttempt parent=v_activity_systemLane\naction send \"Передать пакет\" kind=opaque owner=publish\npartitionMember responsibility_send \"\" element=send owner=systemLane\nview v_activity_send \"\" diagram=activity element=send parent=v_activity_systemLane\naction process \"Принять и обработать\" kind=opaque owner=publish\npartitionMember responsibility_process \"\" element=process owner=ozonLane\nview v_activity_process \"\" diagram=activity element=process parent=v_activity_ozonLane\naction receive \"Получить статус / тайм-аут\" kind=opaque owner=publish\npartitionMember responsibility_receive \"\" element=receive owner=systemLane\nview v_activity_receive \"\" diagram=activity element=receive parent=v_activity_systemLane\ndecision answer \"Ответ есть?\" owner=publish\npartitionMember responsibility_answer \"\" element=answer owner=systemLane\nview v_activity_answer \"\" diagram=activity element=answer parent=v_activity_systemLane\naction waiting \"Сохранить ожидание той же операции\" kind=opaque owner=publish\npartitionMember responsibility_waiting \"\" element=waiting owner=systemLane\nview v_activity_waiting \"\" diagram=activity element=waiting parent=v_activity_systemLane\naction result \"Сохранить итог и замечания\" kind=opaque owner=publish\npartitionMember responsibility_result \"\" element=result owner=systemLane\nview v_activity_result \"\" diagram=activity element=result parent=v_activity_systemLane\nactivityFinal done \"\" owner=publish\npartitionMember responsibility_done \"\" element=done owner=systemLane\nview v_activity_done \"\" diagram=activity element=done parent=v_activity_systemLane\nactivityFinal fixDone \"\" owner=publish\npartitionMember responsibility_fixDone \"\" element=fixDone owner=managerLane\nview v_activity_fixDone \"\" diagram=activity element=fixDone parent=v_activity_managerLane\ncontrolFlow flow1 \"\" from=start owner=publish to=selectCard\ncontrolFlow flow2 \"\" from=selectCard owner=publish to=check\ncontrolFlow flow3 \"\" from=check owner=publish to=ready\ncontrolFlow flow4 \"\" from=ready guard=да owner=publish to=saveAttempt\ncontrolFlow flow5 \"\" from=ready guard=else owner=publish to=fix\ncontrolFlow flow6 \"\" from=fix owner=publish to=fixDone\ncontrolFlow flow7 \"\" from=saveAttempt owner=publish to=send\ncontrolFlow flow8 \"\" from=send owner=publish to=process\ncontrolFlow flow9 \"\" from=process owner=publish to=receive\ncontrolFlow flow10 \"\" from=receive owner=publish to=answer\ncontrolFlow flow11 \"\" from=answer guard=\"ответ есть\" owner=publish to=result\ncontrolFlow flow12 \"\" from=answer guard=else owner=publish to=waiting\ncontrolFlow flow13 \"\" from=waiting owner=publish to=done\ncontrolFlow flow14 \"\" from=result owner=publish to=done\nview v_activity_flow1 \"\" diagram=activity element=flow1 from=v_activity_start to=v_activity_selectCard\nview v_activity_flow2 \"\" diagram=activity element=flow2 from=v_activity_selectCard to=v_activity_check\nview v_activity_flow3 \"\" diagram=activity element=flow3 from=v_activity_check to=v_activity_ready\nview v_activity_flow4 \"\" diagram=activity element=flow4 from=v_activity_ready to=v_activity_saveAttempt\nview v_activity_flow5 \"\" diagram=activity element=flow5 from=v_activity_ready to=v_activity_fix\nview v_activity_flow6 \"\" diagram=activity element=flow6 from=v_activity_fix to=v_activity_fixDone\nview v_activity_flow7 \"\" diagram=activity element=flow7 from=v_activity_saveAttempt to=v_activity_send\nview v_activity_flow8 \"\" diagram=activity element=flow8 from=v_activity_send to=v_activity_process\nview v_activity_flow9 \"\" diagram=activity element=flow9 from=v_activity_process to=v_activity_receive\nview v_activity_flow10 \"\" diagram=activity element=flow10 from=v_activity_receive to=v_activity_answer\nview v_activity_flow11 \"\" diagram=activity element=flow11 from=v_activity_answer to=v_activity_result\nview v_activity_flow12 \"\" diagram=activity element=flow12 from=v_activity_answer to=v_activity_waiting\nview v_activity_flow13 \"\" diagram=activity element=flow13 from=v_activity_waiting to=v_activity_done\nview v_activity_flow14 \"\" diagram=activity element=flow14 from=v_activity_result to=v_activity_done\ndiagram components \"ИМ · Компоненты и общие интерфейсы\" type=component\ncomponent web Веб-интерфейс description=\"Экран карточки, формы импорта, модельный ряд, изображений и отчётов; HTTPS API. Вызывает прикладные сервисы; U-01–U-03. Не содержит единственного экземпляра предметных правил. Источник: таблица 10.2.\"\ncomponent services \"Прикладные сервисы\" description=\"Component, ModelRangeVersion, Card, PublicationAttempt; команды и запросы. Используют IAccess и IRepository; F-01–F-11. Выполняют расчёты и проверку состояния. Источник: таблица 10.2.\"\ncomponent access \"Контроль доступа и аудит\" description=\"User, Role, AuditEvent; IAccess. Проверяет роли для каждой операции и фиксирует события; F-10, F-12. Хранение через общий репозиторий. Источник: таблица 10.2.\"\ncomponent repository \"Репозиторий данных\" description=\"IRepository: загрузка сущностей, транзакции, выборки и фиксация версий. Реляционная БД и файловые объекты; R-01, R-02. Не зависит от формата Ozon. Источник: таблица 10.2.\"\ncomponent importer \"Импорт источников\" description=\"SupplierOffer, StockSnapshot; проверка файла и нормализованные записи. Передаёт корректные значения прикладным сервисам; F-01, S-02. Источник: таблица 10.2.\"\ncomponent ozonAdapter \"Адаптер Ozon\" description=\"IPublisher: отправка пакета, получение результата, перевод ошибок. Вызывается прикладными сервисами; внешний защищённый интерфейс; F-08, F-09, R-03. Источник: таблица 10.2.\"\ninterface iAccess IAccess\ninterface iRepository IRepository\ninterface iPublisher IPublisher\nview v_components_web \"\" diagram=components element=web\nview v_components_services \"\" diagram=components element=services\nview v_components_importer \"\" diagram=components element=importer\nview v_components_access \"\" diagram=components element=access\nview v_components_repository \"\" diagram=components element=repository\nview v_components_ozonAdapter \"\" diagram=components element=ozonAdapter\nview v_components_iAccess \"\" diagram=components element=iAccess\nview v_components_iRepository \"\" diagram=components element=iRepository\nview v_components_iPublisher \"\" diagram=components element=iPublisher\ndependency webCalls \"Команды и запросы\" from=web to=services\ndependency importCalls \"Нормализованные записи\" from=importer to=services\nrealization provides_access \"\" from=access to=iAccess\nrealization provides_repository \"\" from=repository to=iRepository\nrealization provides_ozonAdapter \"\" from=ozonAdapter to=iPublisher\nusage uses_iAccess \"\" from=services to=iAccess\nusage uses_iRepository \"\" from=services to=iRepository\nusage uses_iPublisher \"\" from=services to=iPublisher\nusage accessUsesRepository \"\" from=access to=iRepository\nview v_components_webCalls \"\" diagram=components element=webCalls from=v_components_web to=v_components_services\nview v_components_importCalls \"\" diagram=components element=importCalls from=v_components_importer to=v_components_services\nview v_components_provides_access \"\" diagram=components element=provides_access from=v_components_access to=v_components_iAccess\nview v_components_provides_repository \"\" diagram=components element=provides_repository from=v_components_repository to=v_components_iRepository\nview v_components_provides_ozonAdapter \"\" diagram=components element=provides_ozonAdapter from=v_components_ozonAdapter to=v_components_iPublisher\nview v_components_uses_iAccess \"\" diagram=components element=uses_iAccess from=v_components_services to=v_components_iAccess\nview v_components_uses_iRepository \"\" diagram=components element=uses_iRepository from=v_components_services to=v_components_iRepository\nview v_components_uses_iPublisher \"\" diagram=components element=uses_iPublisher from=v_components_services to=v_components_iPublisher\nview v_components_accessUsesRepository \"\" diagram=components element=accessUsesRepository from=v_components_access to=v_components_iRepository\ndiagram classes \"ИМ · Классы реализации компонентов\" type=class\nclass classComponent Component description=\"Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе.\"\ncomponentRealization implementsComponent \"\" classifier=classComponent owner=services\nview v_classes_classComponent \"\" diagram=classes element=classComponent\nclass classModelRangeVersion ModelRangeVersion description=\"Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе.\"\ncomponentRealization implementsModelRangeVersion \"\" classifier=classModelRangeVersion owner=services\nview v_classes_classModelRangeVersion \"\" diagram=classes element=classModelRangeVersion\nclass classCard Card description=\"Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе.\"\ncomponentRealization implementsCard \"\" classifier=classCard owner=services\nview v_classes_classCard \"\" diagram=classes element=classCard\nclass classPublicationAttempt PublicationAttempt description=\"Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе.\"\ncomponentRealization implementsPublicationAttempt \"\" classifier=classPublicationAttempt owner=services\nview v_classes_classPublicationAttempt \"\" diagram=classes element=classPublicationAttempt\nclass classUser User description=\"Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе.\"\ncomponentRealization implementsUser \"\" classifier=classUser owner=access\nview v_classes_classUser \"\" diagram=classes element=classUser\nclass classRole Role description=\"Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе.\"\ncomponentRealization implementsRole \"\" classifier=classRole owner=access\nview v_classes_classRole \"\" diagram=classes element=classRole\nclass classAuditEvent AuditEvent description=\"Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе.\"\ncomponentRealization implementsAuditEvent \"\" classifier=classAuditEvent owner=access\nview v_classes_classAuditEvent \"\" diagram=classes element=classAuditEvent\nclass classSupplierOffer SupplierOffer description=\"Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе.\"\ncomponentRealization implementsSupplierOffer \"\" classifier=classSupplierOffer owner=importer\nview v_classes_classSupplierOffer \"\" diagram=classes element=classSupplierOffer\nclass classStockSnapshot StockSnapshot description=\"Предметная сущность из таблицы 10.2. Поля и методы не выдумываются в этом архитектурном срезе.\"\ncomponentRealization implementsStockSnapshot \"\" classifier=classStockSnapshot owner=importer\nview v_classes_classStockSnapshot \"\" diagram=classes element=classStockSnapshot\ndiagram deployment \"ИМ · Узлы и размещение артефактов\" type=deployment\ndevice workstation \"Рабочий компьютер\" description=\"Рабочий компьютер. Браузер; интерфейс приложения. Установка отдельного клиента не требуется.. HTTPS к приложению. Пользователь работает под личной учётной записью.\"\nnode server \"Серверная виртуальная машина\" description=\"Серверная виртуальная машина. Приложение и фоновые задачи, PostgreSQL, файлы изображений; ориентир 4 vCPU, 8 ГБ RAM, SSD 100 ГБ.. Принимает клиентские запросы, выполняет расчёты и обмен. Параметры являются стартовой оценкой, не результатом теста.\"\nexecutionEnvironment application \"Среда приложения и фоновых задач\" owner=server technology=\"Серверное приложение\"\nexecutionEnvironment postgres PostgreSQL owner=server technology=PostgreSQL\nnode backupStore \"Отдельное хранилище копий\" description=\"Отдельное хранилище копий. Ежедневные копии БД и файлов, журнал выполнения; доступ только роли резервирования.. Изолировано от рабочего каталога. Восстановление проверяет администратор.\"\nnode externalOzon \"Внешний узел Ozon\" description=\"Внешний узел Ozon. Сервис обработки данных продавца вне управления проектной команды.. Защищённый канал; ограничения интерфейса подтверждаются перед интеграцией.\"\nview v_deployment_workstation \"\" diagram=deployment element=workstation\nview v_deployment_server \"\" diagram=deployment element=server\nview v_deployment_application \"\" diagram=deployment element=application parent=v_deployment_server\nview v_deployment_postgres \"\" diagram=deployment element=postgres parent=v_deployment_server\nview v_deployment_backupStore \"\" diagram=deployment element=backupStore\nview v_deployment_externalOzon \"\" diagram=deployment element=externalOzon\nartifact frontend \"Интерфейс приложения в браузере\" description=\"Учебный тип артефакта по таблицам 10.1–10.3; не фактическая поставленная сборка.\"\ndeployment deploy_frontend \"\" artifact=frontend location=workstation\nmanifestation manifest_frontend \"\" from=frontend to=web\nview v_deployment_frontend \"\" diagram=deployment element=frontend parent=v_deployment_workstation\nartifact appBuild \"Сборка приложения и фоновых задач\" description=\"Учебный тип артефакта по таблицам 10.1–10.3; не фактическая поставленная сборка.\"\ndeployment deploy_appBuild \"\" artifact=appBuild location=application\nmanifestation manifest_appBuild \"\" from=appBuild to=services\nview v_deployment_appBuild \"\" diagram=deployment element=appBuild parent=v_deployment_application\nartifact dbSchema \"Схема БД и миграции\" description=\"Учебный тип артефакта по таблицам 10.1–10.3; не фактическая поставленная сборка.\"\ndeployment deploy_dbSchema \"\" artifact=dbSchema location=postgres\nmanifestation manifest_dbSchema \"\" from=dbSchema to=repository\nview v_deployment_dbSchema \"\" diagram=deployment element=dbSchema parent=v_deployment_postgres\nartifact backups \"Копии БД и файлов\" description=\"Учебный тип артефакта по таблицам 10.1–10.3; не фактическая поставленная сборка.\"\ndeployment deploy_backups \"\" artifact=backups location=backupStore\nmanifestation manifest_backups \"\" from=backups to=repository\nview v_deployment_backups \"\" diagram=deployment element=backups parent=v_deployment_backupStore\nview v_deployment_web \"\" diagram=deployment element=web\nview v_deployment_services \"\" diagram=deployment element=services\nview v_deployment_repository \"\" diagram=deployment element=repository\ncommunicationPath https \"\" from=workstation port=443 protocol=HTTPS to=application\ncommunicationPath marketplace \"\" from=application protocol=\"Защищённый интерфейс Ozon\" to=externalOzon\ncommunicationPath sql \"\" from=application protocol=\"Доступ к PostgreSQL\" to=postgres\ncommunicationPath backupChannel \"\" from=server protocol=\"Резервирование БД и файлов\" to=backupStore\nview v_deployment_https \"\" diagram=deployment element=https from=v_deployment_workstation to=v_deployment_application\nview v_deployment_marketplace \"\" diagram=deployment element=marketplace from=v_deployment_application to=v_deployment_externalOzon\nview v_deployment_sql \"\" diagram=deployment element=sql from=v_deployment_application to=v_deployment_postgres\nview v_deployment_backupChannel \"\" diagram=deployment element=backupChannel from=v_deployment_server to=v_deployment_backupStore\nview v_deployment_manifest_frontend \"\" diagram=deployment element=manifest_frontend from=v_deployment_frontend to=v_deployment_web\nview v_deployment_manifest_appBuild \"\" diagram=deployment element=manifest_appBuild from=v_deployment_appBuild to=v_deployment_services\nview v_deployment_manifest_dbSchema \"\" diagram=deployment element=manifest_dbSchema from=v_deployment_dbSchema to=v_deployment_repository\nview v_deployment_manifest_backups \"\" diagram=deployment element=manifest_backups from=v_deployment_backups to=v_deployment_repository\ndeploymentSetting appSizing \"Стартовая оценка\" key=\"Ресурсы VM\" owner=deploy_appBuild value=\"4 vCPU; 8 ГБ RAM; SSD 100 ГБ — ориентир, не результат испытаний\"\n",
+  "layout": {
+    "nodes": {
+      "v_activity_managerLane": {
+        "x": 0,
+        "y": 0,
+        "width": 410,
+        "height": 1900
+      },
+      "v_activity_systemLane": {
+        "x": 440,
+        "y": 0,
+        "width": 410,
+        "height": 1900
+      },
+      "v_activity_ozonLane": {
+        "x": 880,
+        "y": 0,
+        "width": 410,
+        "height": 1900
+      },
+      "v_activity_start": {
+        "x": 185,
+        "y": 80,
+        "width": 32,
+        "height": 32
+      },
+      "v_activity_selectCard": {
+        "x": 70,
+        "y": 170,
+        "width": 270,
+        "height": 86
+      },
+      "v_activity_check": {
+        "x": 520,
+        "y": 300,
+        "width": 250,
+        "height": 86
+      },
+      "v_activity_ready": {
+        "x": 585,
+        "y": 445,
+        "width": 120,
+        "height": 95
+      },
+      "v_activity_fix": {
+        "x": 70,
+        "y": 590,
+        "width": 270,
+        "height": 86
+      },
+      "v_activity_saveAttempt": {
+        "x": 500,
+        "y": 620,
+        "width": 280,
+        "height": 86
+      },
+      "v_activity_send": {
+        "x": 525,
+        "y": 780,
+        "width": 250,
+        "height": 86
+      },
+      "v_activity_process": {
+        "x": 955,
+        "y": 900,
+        "width": 255,
+        "height": 86
+      },
+      "v_activity_receive": {
+        "x": 500,
+        "y": 1050,
+        "width": 280,
+        "height": 86
+      },
+      "v_activity_answer": {
+        "x": 585,
+        "y": 1190,
+        "width": 120,
+        "height": 95
+      },
+      "v_activity_waiting": {
+        "x": 500,
+        "y": 1530,
+        "width": 290,
+        "height": 86
+      },
+      "v_activity_result": {
+        "x": 500,
+        "y": 1370,
+        "width": 280,
+        "height": 86
+      },
+      "v_activity_done": {
+        "x": 625,
+        "y": 1810,
+        "width": 32,
+        "height": 32
+      },
+      "v_activity_fixDone": {
+        "x": 185,
+        "y": 790,
+        "width": 32,
+        "height": 32
+      },
+      "v_activity_flow1": {
+        "x": 330,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_activity_flow2": {
+        "x": 580,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_activity_flow3": {
+        "x": 830,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_activity_flow4": {
+        "x": 80,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_activity_flow5": {
+        "x": 330,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_activity_flow6": {
+        "x": 580,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_activity_flow7": {
+        "x": 830,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      },
+      "v_activity_flow8": {
+        "x": 80,
+        "y": 1160,
+        "width": 210,
+        "height": 140
+      },
+      "v_activity_flow9": {
+        "x": 330,
+        "y": 1160,
+        "width": 210,
+        "height": 140
+      },
+      "v_activity_flow10": {
+        "x": 580,
+        "y": 1160,
+        "width": 210,
+        "height": 140
+      },
+      "v_activity_flow11": {
+        "x": 830,
+        "y": 1160,
+        "width": 210,
+        "height": 140
+      },
+      "v_activity_flow12": {
+        "x": 80,
+        "y": 1340,
+        "width": 210,
+        "height": 140
+      },
+      "v_activity_flow13": {
+        "x": 330,
+        "y": 1340,
+        "width": 210,
+        "height": 140
+      },
+      "v_activity_flow14": {
+        "x": 580,
+        "y": 1340,
+        "width": 210,
+        "height": 140
+      },
+      "v_components_web": {
+        "x": 20,
+        "y": 40,
+        "width": 310,
+        "height": 150
+      },
+      "v_components_services": {
+        "x": 455,
+        "y": 40,
+        "width": 345,
+        "height": 240
+      },
+      "v_components_importer": {
+        "x": 930,
+        "y": 40,
+        "width": 300,
+        "height": 155
+      },
+      "v_components_access": {
+        "x": 20,
+        "y": 570,
+        "width": 310,
+        "height": 215
+      },
+      "v_components_repository": {
+        "x": 455,
+        "y": 570,
+        "width": 345,
+        "height": 250
+      },
+      "v_components_ozonAdapter": {
+        "x": 930,
+        "y": 570,
+        "width": 300,
+        "height": 165
+      },
+      "v_components_iAccess": {
+        "x": 20,
+        "y": 345,
+        "width": 260,
+        "height": 95
+      },
+      "v_components_iRepository": {
+        "x": 485,
+        "y": 350,
+        "width": 265,
+        "height": 95
+      },
+      "v_components_iPublisher": {
+        "x": 930,
+        "y": 345,
+        "width": 265,
+        "height": 95
+      },
+      "v_components_webCalls": {
+        "x": 330,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_components_importCalls": {
+        "x": 580,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_components_provides_access": {
+        "x": 830,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_components_provides_repository": {
+        "x": 80,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_components_provides_ozonAdapter": {
+        "x": 330,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_components_uses_iAccess": {
+        "x": 580,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_components_uses_iRepository": {
+        "x": 830,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_components_uses_iPublisher": {
+        "x": 80,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_components_accessUsesRepository": {
+        "x": 330,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_classes_classComponent": {
+        "x": 60,
+        "y": 60,
+        "width": 230,
+        "height": 145
+      },
+      "v_classes_classModelRangeVersion": {
+        "x": 350,
+        "y": 60,
+        "width": 230,
+        "height": 145
+      },
+      "v_classes_classCard": {
+        "x": 640,
+        "y": 60,
+        "width": 230,
+        "height": 145
+      },
+      "v_classes_classPublicationAttempt": {
+        "x": 60,
+        "y": 270,
+        "width": 230,
+        "height": 145
+      },
+      "v_classes_classUser": {
+        "x": 350,
+        "y": 270,
+        "width": 230,
+        "height": 145
+      },
+      "v_classes_classRole": {
+        "x": 640,
+        "y": 270,
+        "width": 230,
+        "height": 145
+      },
+      "v_classes_classAuditEvent": {
+        "x": 60,
+        "y": 480,
+        "width": 230,
+        "height": 145
+      },
+      "v_classes_classSupplierOffer": {
+        "x": 350,
+        "y": 480,
+        "width": 230,
+        "height": 145
+      },
+      "v_classes_classStockSnapshot": {
+        "x": 640,
+        "y": 480,
+        "width": 230,
+        "height": 145
+      },
+      "v_deployment_workstation": {
+        "x": 0,
+        "y": 80,
+        "width": 330,
+        "height": 260
+      },
+      "v_deployment_server": {
+        "x": 465,
+        "y": 20,
+        "width": 620,
+        "height": 820
+      },
+      "v_deployment_application": {
+        "x": 500,
+        "y": 110,
+        "width": 540,
+        "height": 285
+      },
+      "v_deployment_postgres": {
+        "x": 500,
+        "y": 450,
+        "width": 300,
+        "height": 230
+      },
+      "v_deployment_backupStore": {
+        "x": 0,
+        "y": 570,
+        "width": 330,
+        "height": 245
+      },
+      "v_deployment_externalOzon": {
+        "x": 1220,
+        "y": 95,
+        "width": 335,
+        "height": 220
+      },
+      "v_deployment_frontend": {
+        "x": 35,
+        "y": 200,
+        "width": 250,
+        "height": 100
+      },
+      "v_deployment_appBuild": {
+        "x": 560,
+        "y": 260,
+        "width": 310,
+        "height": 95
+      },
+      "v_deployment_dbSchema": {
+        "x": 535,
+        "y": 560,
+        "width": 230,
+        "height": 90
+      },
+      "v_deployment_backups": {
+        "x": 35,
+        "y": 695,
+        "width": 250,
+        "height": 95
+      },
+      "v_deployment_web": {
+        "x": 0,
+        "y": 950,
+        "width": 300,
+        "height": 150
+      },
+      "v_deployment_services": {
+        "x": 440,
+        "y": 950,
+        "width": 345,
+        "height": 250
+      },
+      "v_deployment_repository": {
+        "x": 920,
+        "y": 950,
+        "width": 350,
+        "height": 250
+      },
+      "v_deployment_https": {
+        "x": 330,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_deployment_marketplace": {
+        "x": 580,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_deployment_sql": {
+        "x": 830,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_deployment_backupChannel": {
+        "x": 80,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_deployment_manifest_frontend": {
+        "x": 330,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_deployment_manifest_appBuild": {
+        "x": 580,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_deployment_manifest_dbSchema": {
+        "x": 830,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_deployment_manifest_backups": {
+        "x": 80,
+        "y": 980,
+        "width": 210,
+        "height": 140
+      }
+    },
+    "edges": {}
+  }
+}

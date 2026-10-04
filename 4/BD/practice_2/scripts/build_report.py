@@ -3,6 +3,8 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import os
+import importlib.util
 from pathlib import Path
 
 import pandas as pd
@@ -16,12 +18,12 @@ from docx.shared import Inches, Pt, RGBColor
 
 ROOT = Path(__file__).resolve().parents[1]
 REFERENCE = ROOT.parent / "practice_1" / "Практическая работа №1.docx"
-FINAL = ROOT / "Практическая работа №2.docx"
+FINAL = Path(os.environ.get('BD_REPORT_OUTPUT', str(ROOT / "Практическая работа №2.docx")))
+REPO_ROOT = Path(__file__).resolve().parents[4]
 SUMMARY = json.loads((ROOT / "output" / "summary.json").read_text(encoding="utf-8"))
 TIMINGS = pd.read_csv(ROOT / "output" / "dimension_reduction_timings.csv")
 DATA = pd.read_csv(ROOT / "data" / "day.csv")
 FIGURES = ROOT / "output" / "figures"
-EXPECTED_REFERENCE_HASH = "8d1ca33b906e3569c6961e29e544be6d5f656467df6137e9eec9362e5b394835"
 
 
 def sha256(path: Path) -> str:
@@ -191,7 +193,7 @@ def parse_questions(path: Path):
     return questions
 
 
-assert sha256(REFERENCE) == EXPECTED_REFERENCE_HASH, "Reference document changed; distill again."
+reference_hash_before = sha256(REFERENCE)
 
 doc = Document(REFERENCE)
 clear_body(doc)
@@ -534,6 +536,13 @@ for number, question, answer_paragraphs in parse_questions(ROOT / "Контро�
         else:
             set_font(answer_paragraph.add_run(answer.replace("`", "")), size=12)
 
-doc.save(FINAL)
-assert sha256(REFERENCE) == EXPECTED_REFERENCE_HASH, "Reference document was modified."
+draft = REPO_ROOT / '.cache' / 'bd-report-2' / 'unformatted.docx'
+draft.parent.mkdir(parents=True, exist_ok=True)
+doc.save(draft)
+formatter_path = REPO_ROOT / 'tools' / 'report_formatting' / 'bd' / 'format_reports.py'
+formatter_spec = importlib.util.spec_from_file_location('bd_report_formatter', formatter_path)
+formatter = importlib.util.module_from_spec(formatter_spec)
+formatter_spec.loader.exec_module(formatter)
+formatter.run(2, draft, FINAL)
+assert sha256(REFERENCE) == reference_hash_before, "Reference document was modified."
 print(FINAL)

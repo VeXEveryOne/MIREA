@@ -1,8 +1,8 @@
 from pathlib import Path
 import re
-import json,shutil
-from docx import Document
+import json
 from schema import tables,indexes,ROOT
+from config import EXPORT_DIR, MODEL_DIR
 blocks=[]
 def h(text,level=2):blocks.append(dict(type='h',text=text,level=level))
 def p(text):blocks.append(dict(type='p',text=text))
@@ -10,14 +10,13 @@ def t(title,heads,rows,widths=None):blocks.append(dict(type='table',title=title,
 def f(path,title,landscape=False,note=''):
  blocks.append(dict(type='fig',path=str(path),title=title,landscape=landscape,note=note))
 def draft(id,title,landscape=True):f(ROOT/'Черновики_схем'/(id+'.png'),title,landscape)
+def exported(number,title,landscape=True):
+ matches=list(EXPORT_DIR.glob(f'{number:02}_*.png'))
+ if len(matches)!=1:raise RuntimeError(f'Ожидался один PNG рисунка {number}')
+ f(matches[0],title,landscape)
 def practice(n,title,goal):
  h(f'Практическое занятие {n} {title}',1);p('Цель занятия — '+goal)
-base=Path('D:/GitHub/MIREA/4/РОП')
-old=Document(base/'РОП_Единый_отчет_АлбахтинИВ.docx')
-old_tables=[]
-for tb in old.tables:
- rows=[[c.text for c in r.cells] for r in tb.rows]
- if rows and rows[0][0] in ('Элемент','Функция','Код','Критерий'):old_tables.append(rows)
+old_tables=json.loads(Path(__file__).with_name('baseline_tables.json').read_text('utf-8'))
 
 h('Введение',1)
 p('Проект посвящён информационной системе поддержки формирования и актуализации карточек компьютерных систем ООО «Юкомс». Разработаны текущая и целевая модели процесса, данные, интерфейсы, расчётные алгоритмы, инфраструктура и интеграционные взаимодействия. Центральным объектом является версионируемый модельный ряд: изменение его состава должно согласованно обновлять результаты проверки, цену, массу, изображения и данные карточки.')
@@ -39,10 +38,10 @@ t('Границы процесса',['Элемент','Описание'],[
 h('1.2 Модели AS IS')
 p('Контекст IDEF0 показывает ручное формирование карточки из разрозненных входных данных. Управлением служат локальные шаблоны, устные договорённости, неформализованные правила совместимости и требования Ozon, которые фактически проверяются при заполнении. Механизмы процесса — сотрудники, Excel, калькулятор, браузер, почта, мессенджеры, общие папки и кабинет продавца.')
 p('Декомпозиция A0 содержит шесть последовательных ручных функций. Между ними передаются таблицы, файлы и сообщения. Четыре возврата показывают повторную работу из-за несовместимости, отсутствия товара, неполных характеристик и отклонения карточки Ozon. BPMN раскрывает тех же участников и операции: поиск старых материалов, копирование состава, переписку с поставщиками, отдельные расчёты и повторный ввод в Ozon.')
-f(base/'IDEF0/A-0.png','IDEF0 AS IS Контекст A-0',True)
-f(base/'IDEF0/A0.png','IDEF0 AS IS Декомпозиция A0',True)
-f(base/'BPMN/BPMN_1_Публикация.png','BPMN AS IS Публикация и внешние участники',True)
-f(base/'BPMN/BPMN_2_Подготовка.png','BPMN AS IS Подготовка данных карточки',True)
+exported(1,'IDEF0 AS IS Контекст A-0')
+exported(2,'IDEF0 AS IS Декомпозиция A0')
+exported(3,'BPMN AS IS Публикация и внешние участники')
+exported(4,'BPMN AS IS Подготовка данных карточки')
 t('Функции процесса AS IS',['Код','Содержание','Результат'],[
  ['A1','Получить неформальный запрос и найти исходные материалы','Найденные файлы и выбранная локальная таблица'],
  ['A2','Скопировать предыдущий состав и вручную подобрать комплектующие','Черновой состав в локальном файле'],
@@ -74,8 +73,8 @@ h('2.1 Целевой процесс')
 p('В TO BE запрос регистрируется в единой информационной системе, которая сразу создаёт черновую версию модельного ряда. Адаптеры загружают предложения поставщиков, сопоставляют SKU и разрешают групповые слоты. Механизм правил автоматически проверяет совместимость, актуальность и полноту до расчётов и подготовки публикации. При нарушении формируется протокол с точными причинами и выполняется один контролируемый возврат к исправлению состава или сопоставления.')
 p('После успешной проверки система фиксирует неизменяемый снимок, рассчитывает цену и массу и формирует контент из одной версии данных. Сотрудник проверяет результат, менеджер утверждает конкретную версию карточки. Публикация ставится в устойчивую очередь; worker отправляет запрос, сверяет неизвестный результат перед повтором, сохраняет внешний идентификатор, статус и аудит и уведомляет ответственного.')
 p('Публикация выполняется в фоне. Перед отправкой сохраняются неизменяемый снимок и уникальный локальный ключ операции. Асинхронное принятие запроса не равно успешной публикации: окончательный статус устанавливается после получения результата. При временном сбое допускаются до трёх повторных попыток с задержкой. Если результат отправки неизвестен, сначала выполняется сверка по внешнему идентификатору или стабильному offer_id; слепая повторная отправка не допускается.')
-native=ROOT/'Модели_OmniNotation'
-for name,title in [('ПР2_IDEF0_A-0','IDEF0 TO BE Контекст A-0'),('ПР2_IDEF0_A0','IDEF0 TO BE Декомпозиция A0'),('ПР2_BPMN_Процесс','BPMN TO BE Общий процесс'),('ПР2_BPMN_Подготовка','BPMN TO BE Подготовка версии карточки'),('ПР2_BPMN_Публикация','BPMN TO BE Публикация и повторы')]:f(native/(name+'.png'),title,True)
+p('В отличие от AS IS, декомпозиция TO BE содержит пять укрупнённых управляемых функций. Ручной поиск и повторный ввод заменены регистрацией версии, импортом предложений, ранней автоматической проверкой, формированием утверждаемого контента из неизменяемого снимка и фоновой публикацией с аудитом. Единственный бизнес-возврат передаёт из проверки точный протокол исправления; технические повторы публикации выполняются внутри последней функции и не возвращают процесс к ручному вводу.')
+for number,title in [(6,'IDEF0 TO BE Контекст A-0'),(7,'IDEF0 TO BE Декомпозиция A0'),(8,'BPMN TO BE Общий процесс'),(9,'BPMN TO BE Подготовка версии карточки'),(10,'BPMN TO BE Публикация и повторы')]:exported(number,title)
 t('Сравнение процессов AS IS и TO BE',['Аспект','AS IS','TO BE'],[
  ['Хранение данных','Локальные таблицы, файлы, переписка и общие папки','Единая ИС, PostgreSQL, файловое хранилище и неизменяемые версии'],
  ['Ввод данных','Копирование прежнего состава и повторный ввод в кабинет Ozon','Однократное изменение версии и формирование карточки из снимка'],
@@ -190,7 +189,7 @@ for tb in tables:
  for c in tb['columns']:
   rules=c['rule'].replace('GENERATED ALWAYS AS IDENTITY PRIMARY KEY','PK; IDENTITY').replace('NOT NULL','NN').replace('PRIMARY KEY','PK').replace('UNIQUE','UQ').replace('REFERENCES','FK →').replace('CURRENT_TIMESTAMP','now()')
   rows.append([c['name'],c['type'],rules or 'NULL допустим'])
- t('Атрибуты '+tb['name']+' '+tb['title'],['Атрибут','Тип и размер','Ограничения'],rows,[4.8,3.8,7.9])
+ t('Атрибуты таблицы '+tb['name']+' («'+tb['title']+'»)',['Атрибут','Тип и размер','Ограничения'],rows,[4.8,3.8,7.9])
  if tb['constraints']:p('Ограничения таблицы: '+'; '.join(tb['constraints'])+'.')
 h('7.3 Индексы и целостность')
 t('Дополнительные индексы',['Индекс','Таблица и поля','Назначение'],[[a,b+' ('+c+')',{'ix_offer_latest':'Выбрать свежий снимок','ix_product_component':'Поиск сопоставлений','ix_bom_case':'Фильтр по корпусу','ix_slot_component':'Анализ затронутых BOM','ix_slot_group':'Разрешение групп','ix_slot_product':'Замена точного SKU','ix_card_status':'Список по статусу и ответственному','ix_publication_due':'Выбор готовых к обработке операций','ix_audit_time':'Аудит за период','ix_notification_user':'Непрочитанные уведомления'}[a]] for a,b,c in indexes]+[['ux_publication_active_version','publication(card_version_id), WHERE state NOT IN (SUCCESS, FAILED)','Не больше одной незавершённой публикации версии']],[4.8,6.4,5.3])
@@ -256,7 +255,7 @@ for i,s in enumerate(sources,1):p(str(i)+'. '+s)
 
 # Чистовая нормализация объединённого отчёта. Графика берётся из актуальных
 # редактируемых моделей, а внутренние заметки о процессе подготовки исключаются.
-from prepare_submission_assets import replace_visible
+from terminology import replace_visible
 
 service_markers=(
  'Сданная работа Губарева',
@@ -278,9 +277,9 @@ def clean_value(value):
  return value
 
 blocks=[clean_value(b) for b in blocks]
-registry=json.loads((ROOT/'Модели_OmniNotation_v2'/'Реестр_38_рисунков.json').read_text(encoding='utf-8'))
-pngs=[Path(x['export']['png']['file']) for x in registry['figures']]
-report_png_dir=ROOT/'Модели_для_отчёта'/'PNG_final4'
+registry=json.loads((MODEL_DIR/'Реестр_38_рисунков.json').read_text(encoding='utf-8'))
+pngs=[ROOT/Path(x['export']['png']['file']) for x in registry['figures']]
+report_png_dir=EXPORT_DIR
 report_pngs=sorted(report_png_dir.glob('*.png'),key=lambda x:int(x.name.split('_',1)[0]))
 figures=[b for b in blocks if b['type']=='fig']
 if len(figures)!=38:raise RuntimeError(f'Ожидалось 38 рисунков, получено {len(figures)}')
@@ -327,5 +326,13 @@ for b in blocks[source_start+1:]:
  b['text']=f'{source_number}. {match.group(1)}'
  b['type']='source'
 
-(ROOT/'content.json').write_text(json.dumps(blocks,ensure_ascii=False,indent=2),encoding='utf-8')
+serialized_blocks=[]
+for block in blocks:
+ serialized=dict(block)
+ if block['type']=='fig':
+  serialized['path']=Path(block['path']).relative_to(ROOT).as_posix()
+  if 'parts' in block:
+   serialized['parts']=[Path(part).relative_to(ROOT).as_posix() for part in block['parts']]
+ serialized_blocks.append(serialized)
+(ROOT/'content.json').write_text(json.dumps(serialized_blocks,ensure_ascii=False,indent=2),encoding='utf-8')
 if __name__=='__main__':print(len(blocks),'blocks')

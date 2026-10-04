@@ -1,0 +1,942 @@
+{
+  "cancelled": false,
+  "items": [
+    {
+      "order": 1,
+      "notation": "IDEF0",
+      "documentId": "rop_cards",
+      "diagramId": "context",
+      "title": "Рисунок 01 — IDEF0 AS IS: контекст ручной подготовки карточки",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/01_Рисунок 01 — IDEF0 AS IS_ контекст ручной подготовки карточки.png"
+      ]
+    },
+    {
+      "order": 2,
+      "notation": "IDEF0",
+      "documentId": "rop_cards",
+      "diagramId": "decomposition",
+      "title": "Рисунок 02 — IDEF0 AS IS: ручная подготовка и повторный ввод",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/02_Рисунок 02 — IDEF0 AS IS_ ручная подготовка и повторный ввод.png"
+      ]
+    },
+    {
+      "order": 3,
+      "notation": "BPMN",
+      "documentId": "Plane_Main",
+      "diagramId": "Plane_Main",
+      "title": "Рисунок 03 — BPMN AS IS: ручная публикация и возврат отклонённой карточки",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/03_Рисунок 03 — BPMN AS IS_ ручная публикация и возврат отклонённой карточки.png"
+      ]
+    },
+    {
+      "order": 4,
+      "notation": "BPMN",
+      "documentId": "Plane_Preparation",
+      "diagramId": "Plane_Preparation",
+      "title": "Рисунок 04 — BPMN AS IS: подготовка данных в разрозненных инструментах",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/04_Рисунок 04 — BPMN AS IS_ подготовка данных в разрозненных инструментах.png"
+      ]
+    },
+    {
+      "order": 5,
+      "notation": "CHART",
+      "documentId": "ropComparison",
+      "diagramId": "D00_comparison",
+      "title": "Рисунок 05 — Сравнение аналогов",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/05_Рисунок 05 — Сравнение аналогов.png"
+      ]
+    },
+    {
+      "order": 6,
+      "notation": "IDEF0",
+      "documentId": "rop_cards",
+      "diagramId": "context",
+      "title": "Рисунок 06 — IDEF0 TO BE: контекст управляемого процесса",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/06_Рисунок 06 — IDEF0 TO BE_ контекст управляемого процесса.png"
+      ]
+    },
+    {
+      "order": 7,
+      "notation": "IDEF0",
+      "documentId": "rop_cards",
+      "diagramId": "decomposition",
+      "title": "Рисунок 07 — IDEF0 TO BE: версионированная подготовка и публикация",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/07_Рисунок 07 — IDEF0 TO BE_ версионированная подготовка и публикация.png"
+      ]
+    },
+    {
+      "order": 8,
+      "notation": "BPMN",
+      "documentId": "Plane_Main",
+      "diagramId": "Plane_Main",
+      "title": "Рисунок 08 — BPMN TO BE: целевой процесс подготовки и публикации",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/08_Рисунок 08 — BPMN TO BE_ целевой процесс подготовки и публикации.png"
+      ]
+    },
+    {
+      "order": 9,
+      "notation": "BPMN",
+      "documentId": "Plane_Preparation",
+      "diagramId": "Plane_Preparation",
+      "title": "Рисунок 09 — BPMN TO BE: автоматизированная подготовка версии карточки",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/09_Рисунок 09 — BPMN TO BE_ автоматизированная подготовка версии карточки.png"
+      ]
+    },
+    {
+      "order": 10,
+      "notation": "BPMN",
+      "documentId": "Plane_Publication",
+      "diagramId": "Plane_Publication",
+      "title": "Рисунок 10 — BPMN TO BE: очередь, сверка статуса и обработка результата",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/10_Рисунок 10 — BPMN TO BE_ очередь, сверка статуса и обработка результата.png"
+      ]
+    },
+    {
+      "order": 11,
+      "notation": "FUNCTION_TREE",
+      "documentId": "ropFunctions",
+      "diagramId": "D01_function_tree",
+      "title": "Рисунок 11 — Дерево функций",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/11_Рисунок 11 — Дерево функций.png"
+      ]
+    },
+    {
+      "order": 12,
+      "notation": "UML",
+      "documentId": "ropUmlStructure",
+      "diagramId": "D02_component",
+      "title": "Рисунок 12 — Диаграмма компонентов",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/12_Рисунок 12 — Диаграмма компонентов.png"
+      ]
+    },
+    {
+      "order": 13,
+      "notation": "ERD",
+      "documentId": "ropData",
+      "diagramId": "D03_logical_1",
+      "title": "Рисунок 13 — Логическая модель данных, вид 1",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/13_Рисунок 13 — Логическая модель данных, вид 1.png"
+      ]
+    },
+    {
+      "order": 14,
+      "notation": "ERD",
+      "documentId": "ropData",
+      "diagramId": "D03_logical_2",
+      "title": "Рисунок 14 — Логическая модель данных, вид 2",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/14_Рисунок 14 — Логическая модель данных, вид 2.png"
+      ]
+    },
+    {
+      "order": 15,
+      "notation": "ERD",
+      "documentId": "ropData",
+      "diagramId": "D03_logical_3",
+      "title": "Рисунок 15 — Логическая модель данных, вид 3",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/15_Рисунок 15 — Логическая модель данных, вид 3.png"
+      ]
+    },
+    {
+      "order": 16,
+      "notation": "ERD",
+      "documentId": "ropData",
+      "diagramId": "D03_logical_4",
+      "title": "Рисунок 16 — Логическая модель данных, вид 4",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/16_Рисунок 16 — Логическая модель данных, вид 4.png"
+      ]
+    },
+    {
+      "order": 17,
+      "notation": "ERD",
+      "documentId": "ropData",
+      "diagramId": "D03_logical_5",
+      "title": "Рисунок 17 — Логическая модель данных, вид 5",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/17_Рисунок 17 — Логическая модель данных, вид 5.png"
+      ]
+    },
+    {
+      "order": 18,
+      "notation": "SCHEME",
+      "documentId": "ropSchemes",
+      "diagramId": "D04_coding",
+      "title": "Рисунок 18 — Схема кодирования модельного ряда",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/18_Рисунок 18 — Схема кодирования модельного ряда.png"
+      ]
+    },
+    {
+      "order": 19,
+      "notation": "WIREFRAME",
+      "documentId": "ropPrototype",
+      "diagramId": "D05_wireframe_01",
+      "title": "Рисунок 19 — Экран Список карточек",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/19_Рисунок 19 — Экран Список карточек.png"
+      ]
+    },
+    {
+      "order": 20,
+      "notation": "WIREFRAME",
+      "documentId": "ropPrototype",
+      "diagramId": "D05_wireframe_02",
+      "title": "Рисунок 20 — Экран Редактор версии модельного ряда",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/20_Рисунок 20 — Экран Редактор версии модельного ряда.png"
+      ]
+    },
+    {
+      "order": 21,
+      "notation": "WIREFRAME",
+      "documentId": "ropPrototype",
+      "diagramId": "D05_wireframe_03",
+      "title": "Рисунок 21 — Экран Предложения и сопоставления",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/21_Рисунок 21 — Экран Предложения и сопоставления.png"
+      ]
+    },
+    {
+      "order": 22,
+      "notation": "WIREFRAME",
+      "documentId": "ropPrototype",
+      "diagramId": "D05_wireframe_04",
+      "title": "Рисунок 22 — Экран Массовая замена",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/22_Рисунок 22 — Экран Массовая замена.png"
+      ]
+    },
+    {
+      "order": 23,
+      "notation": "WIREFRAME",
+      "documentId": "ropPrototype",
+      "diagramId": "D05_wireframe_05",
+      "title": "Рисунок 23 — Экран Карточка и публикация",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/23_Рисунок 23 — Экран Карточка и публикация.png"
+      ]
+    },
+    {
+      "order": 24,
+      "notation": "WIREFRAME",
+      "documentId": "ropPrototype",
+      "diagramId": "D05_wireframe_06",
+      "title": "Рисунок 24 — Экран Журнал публикаций и уведомления",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/24_Рисунок 24 — Экран Журнал публикаций и уведомления.png"
+      ]
+    },
+    {
+      "order": 25,
+      "notation": "UML",
+      "documentId": "ropUmlStructure",
+      "diagramId": "D06_activity",
+      "title": "Рисунок 25 — Деятельность по подготовке и публикации карточки",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/25_Рисунок 25 — Деятельность по подготовке и публикации карточки.png"
+      ]
+    },
+    {
+      "order": 26,
+      "notation": "FLOWCHART",
+      "documentId": "ropAlgorithms",
+      "diagramId": "D07_algorithm_price",
+      "title": "Рисунок 26 — Алгоритм расчёта цены и массы",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/26_Рисунок 26 — Алгоритм расчёта цены и массы.png"
+      ]
+    },
+    {
+      "order": 27,
+      "notation": "FLOWCHART",
+      "documentId": "ropAlgorithms",
+      "diagramId": "D08_algorithm_offer",
+      "title": "Рисунок 27 — Алгоритм выбора предложения для слота",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/27_Рисунок 27 — Алгоритм выбора предложения для слота.png"
+      ]
+    },
+    {
+      "order": 28,
+      "notation": "FLOWCHART",
+      "documentId": "ropAlgorithms",
+      "diagramId": "D09_algorithm_replace",
+      "title": "Рисунок 28 — Алгоритм массовой замены",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/28_Рисунок 28 — Алгоритм массовой замены.png"
+      ]
+    },
+    {
+      "order": 29,
+      "notation": "SCHEME",
+      "documentId": "ropSchemes",
+      "diagramId": "D10_infrastructure",
+      "title": "Рисунок 29 — Инфраструктурная схема",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/29_Рисунок 29 — Инфраструктурная схема.png"
+      ]
+    },
+    {
+      "order": 30,
+      "notation": "ERD",
+      "documentId": "ropData",
+      "diagramId": "D20_physical_1",
+      "title": "Рисунок 30 — Физическая модель данных, вид 1",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/30_Рисунок 30 — Физическая модель данных, вид 1.png"
+      ]
+    },
+    {
+      "order": 31,
+      "notation": "ERD",
+      "documentId": "ropData",
+      "diagramId": "D20_physical_2",
+      "title": "Рисунок 31 — Физическая модель данных, вид 2",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/31_Рисунок 31 — Физическая модель данных, вид 2.png"
+      ]
+    },
+    {
+      "order": 32,
+      "notation": "ERD",
+      "documentId": "ropData",
+      "diagramId": "D20_physical_3",
+      "title": "Рисунок 32 — Физическая модель данных, вид 3",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/32_Рисунок 32 — Физическая модель данных, вид 3.png"
+      ]
+    },
+    {
+      "order": 33,
+      "notation": "ERD",
+      "documentId": "ropData",
+      "diagramId": "D20_physical_4",
+      "title": "Рисунок 33 — Физическая модель данных, вид 4",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/33_Рисунок 33 — Физическая модель данных, вид 4.png"
+      ]
+    },
+    {
+      "order": 34,
+      "notation": "ERD",
+      "documentId": "ropData",
+      "diagramId": "D20_physical_5",
+      "title": "Рисунок 34 — Физическая модель данных, вид 5",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/34_Рисунок 34 — Физическая модель данных, вид 5.png"
+      ]
+    },
+    {
+      "order": 35,
+      "notation": "UML",
+      "documentId": "ropUmlStructure",
+      "diagramId": "D21_deployment",
+      "title": "Рисунок 35 — Диаграмма развёртывания",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/35_Рисунок 35 — Диаграмма развёртывания.png"
+      ]
+    },
+    {
+      "order": 36,
+      "notation": "UML",
+      "documentId": "ropSequences",
+      "diagramId": "D22_sequence_suppliers",
+      "title": "Рисунок 36 — Последовательность обновления предложений",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/36_Рисунок 36 — Последовательность обновления предложений.png"
+      ]
+    },
+    {
+      "order": 37,
+      "notation": "UML",
+      "documentId": "ropSequences",
+      "diagramId": "D23_sequence_ozon",
+      "title": "Рисунок 37 — Последовательность публикации версии карточки",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/37_Рисунок 37 — Последовательность публикации версии карточки.png"
+      ]
+    },
+    {
+      "order": 38,
+      "notation": "SCHEME",
+      "documentId": "ropSchemes",
+      "diagramId": "D24_access",
+      "title": "Рисунок 38 — Схема проверки доступа",
+      "status": "completed",
+      "files": [
+        "Экспорт/PNG/38_Рисунок 38 — Схема проверки доступа.png"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "Экспорт/PNG/01_Рисунок 01 — IDEF0 AS IS_ контекст ручной подготовки карточки.png",
+      "title": "Рисунок 01 — IDEF0 AS IS: контекст ручной подготовки карточки",
+      "diagramId": "context"
+    },
+    {
+      "path": "Экспорт/PNG/02_Рисунок 02 — IDEF0 AS IS_ ручная подготовка и повторный ввод.png",
+      "title": "Рисунок 02 — IDEF0 AS IS: ручная подготовка и повторный ввод",
+      "diagramId": "decomposition"
+    },
+    {
+      "path": "Экспорт/PNG/03_Рисунок 03 — BPMN AS IS_ ручная публикация и возврат отклонённой карточки.png",
+      "title": "Рисунок 03 — BPMN AS IS: ручная публикация и возврат отклонённой карточки",
+      "diagramId": "Plane_Main"
+    },
+    {
+      "path": "Экспорт/PNG/04_Рисунок 04 — BPMN AS IS_ подготовка данных в разрозненных инструментах.png",
+      "title": "Рисунок 04 — BPMN AS IS: подготовка данных в разрозненных инструментах",
+      "diagramId": "Plane_Preparation"
+    },
+    {
+      "path": "Экспорт/PNG/05_Рисунок 05 — Сравнение аналогов.png",
+      "title": "Рисунок 05 — Сравнение аналогов",
+      "diagramId": "D00_comparison"
+    },
+    {
+      "path": "Экспорт/PNG/06_Рисунок 06 — IDEF0 TO BE_ контекст управляемого процесса.png",
+      "title": "Рисунок 06 — IDEF0 TO BE: контекст управляемого процесса",
+      "diagramId": "context"
+    },
+    {
+      "path": "Экспорт/PNG/07_Рисунок 07 — IDEF0 TO BE_ версионированная подготовка и публикация.png",
+      "title": "Рисунок 07 — IDEF0 TO BE: версионированная подготовка и публикация",
+      "diagramId": "decomposition"
+    },
+    {
+      "path": "Экспорт/PNG/08_Рисунок 08 — BPMN TO BE_ целевой процесс подготовки и публикации.png",
+      "title": "Рисунок 08 — BPMN TO BE: целевой процесс подготовки и публикации",
+      "diagramId": "Plane_Main"
+    },
+    {
+      "path": "Экспорт/PNG/09_Рисунок 09 — BPMN TO BE_ автоматизированная подготовка версии карточки.png",
+      "title": "Рисунок 09 — BPMN TO BE: автоматизированная подготовка версии карточки",
+      "diagramId": "Plane_Preparation"
+    },
+    {
+      "path": "Экспорт/PNG/10_Рисунок 10 — BPMN TO BE_ очередь, сверка статуса и обработка результата.png",
+      "title": "Рисунок 10 — BPMN TO BE: очередь, сверка статуса и обработка результата",
+      "diagramId": "Plane_Publication"
+    },
+    {
+      "path": "Экспорт/PNG/11_Рисунок 11 — Дерево функций.png",
+      "title": "Рисунок 11 — Дерево функций",
+      "diagramId": "D01_function_tree"
+    },
+    {
+      "path": "Экспорт/PNG/12_Рисунок 12 — Диаграмма компонентов.png",
+      "title": "Рисунок 12 — Диаграмма компонентов",
+      "diagramId": "D02_component"
+    },
+    {
+      "path": "Экспорт/PNG/13_Рисунок 13 — Логическая модель данных, вид 1.png",
+      "title": "Рисунок 13 — Логическая модель данных, вид 1",
+      "diagramId": "D03_logical_1"
+    },
+    {
+      "path": "Экспорт/PNG/14_Рисунок 14 — Логическая модель данных, вид 2.png",
+      "title": "Рисунок 14 — Логическая модель данных, вид 2",
+      "diagramId": "D03_logical_2"
+    },
+    {
+      "path": "Экспорт/PNG/15_Рисунок 15 — Логическая модель данных, вид 3.png",
+      "title": "Рисунок 15 — Логическая модель данных, вид 3",
+      "diagramId": "D03_logical_3"
+    },
+    {
+      "path": "Экспорт/PNG/16_Рисунок 16 — Логическая модель данных, вид 4.png",
+      "title": "Рисунок 16 — Логическая модель данных, вид 4",
+      "diagramId": "D03_logical_4"
+    },
+    {
+      "path": "Экспорт/PNG/17_Рисунок 17 — Логическая модель данных, вид 5.png",
+      "title": "Рисунок 17 — Логическая модель данных, вид 5",
+      "diagramId": "D03_logical_5"
+    },
+    {
+      "path": "Экспорт/PNG/18_Рисунок 18 — Схема кодирования модельного ряда.png",
+      "title": "Рисунок 18 — Схема кодирования модельного ряда",
+      "diagramId": "D04_coding"
+    },
+    {
+      "path": "Экспорт/PNG/19_Рисунок 19 — Экран Список карточек.png",
+      "title": "Рисунок 19 — Экран Список карточек",
+      "diagramId": "D05_wireframe_01"
+    },
+    {
+      "path": "Экспорт/PNG/20_Рисунок 20 — Экран Редактор версии модельного ряда.png",
+      "title": "Рисунок 20 — Экран Редактор версии модельного ряда",
+      "diagramId": "D05_wireframe_02"
+    },
+    {
+      "path": "Экспорт/PNG/21_Рисунок 21 — Экран Предложения и сопоставления.png",
+      "title": "Рисунок 21 — Экран Предложения и сопоставления",
+      "diagramId": "D05_wireframe_03"
+    },
+    {
+      "path": "Экспорт/PNG/22_Рисунок 22 — Экран Массовая замена.png",
+      "title": "Рисунок 22 — Экран Массовая замена",
+      "diagramId": "D05_wireframe_04"
+    },
+    {
+      "path": "Экспорт/PNG/23_Рисунок 23 — Экран Карточка и публикация.png",
+      "title": "Рисунок 23 — Экран Карточка и публикация",
+      "diagramId": "D05_wireframe_05"
+    },
+    {
+      "path": "Экспорт/PNG/24_Рисунок 24 — Экран Журнал публикаций и уведомления.png",
+      "title": "Рисунок 24 — Экран Журнал публикаций и уведомления",
+      "diagramId": "D05_wireframe_06"
+    },
+    {
+      "path": "Экспорт/PNG/25_Рисунок 25 — Деятельность по подготовке и публикации карточки.png",
+      "title": "Рисунок 25 — Деятельность по подготовке и публикации карточки",
+      "diagramId": "D06_activity"
+    },
+    {
+      "path": "Экспорт/PNG/26_Рисунок 26 — Алгоритм расчёта цены и массы.png",
+      "title": "Рисунок 26 — Алгоритм расчёта цены и массы",
+      "diagramId": "D07_algorithm_price"
+    },
+    {
+      "path": "Экспорт/PNG/27_Рисунок 27 — Алгоритм выбора предложения для слота.png",
+      "title": "Рисунок 27 — Алгоритм выбора предложения для слота",
+      "diagramId": "D08_algorithm_offer"
+    },
+    {
+      "path": "Экспорт/PNG/28_Рисунок 28 — Алгоритм массовой замены.png",
+      "title": "Рисунок 28 — Алгоритм массовой замены",
+      "diagramId": "D09_algorithm_replace"
+    },
+    {
+      "path": "Экспорт/PNG/29_Рисунок 29 — Инфраструктурная схема.png",
+      "title": "Рисунок 29 — Инфраструктурная схема",
+      "diagramId": "D10_infrastructure"
+    },
+    {
+      "path": "Экспорт/PNG/30_Рисунок 30 — Физическая модель данных, вид 1.png",
+      "title": "Рисунок 30 — Физическая модель данных, вид 1",
+      "diagramId": "D20_physical_1"
+    },
+    {
+      "path": "Экспорт/PNG/31_Рисунок 31 — Физическая модель данных, вид 2.png",
+      "title": "Рисунок 31 — Физическая модель данных, вид 2",
+      "diagramId": "D20_physical_2"
+    },
+    {
+      "path": "Экспорт/PNG/32_Рисунок 32 — Физическая модель данных, вид 3.png",
+      "title": "Рисунок 32 — Физическая модель данных, вид 3",
+      "diagramId": "D20_physical_3"
+    },
+    {
+      "path": "Экспорт/PNG/33_Рисунок 33 — Физическая модель данных, вид 4.png",
+      "title": "Рисунок 33 — Физическая модель данных, вид 4",
+      "diagramId": "D20_physical_4"
+    },
+    {
+      "path": "Экспорт/PNG/34_Рисунок 34 — Физическая модель данных, вид 5.png",
+      "title": "Рисунок 34 — Физическая модель данных, вид 5",
+      "diagramId": "D20_physical_5"
+    },
+    {
+      "path": "Экспорт/PNG/35_Рисунок 35 — Диаграмма развёртывания.png",
+      "title": "Рисунок 35 — Диаграмма развёртывания",
+      "diagramId": "D21_deployment"
+    },
+    {
+      "path": "Экспорт/PNG/36_Рисунок 36 — Последовательность обновления предложений.png",
+      "title": "Рисунок 36 — Последовательность обновления предложений",
+      "diagramId": "D22_sequence_suppliers"
+    },
+    {
+      "path": "Экспорт/PNG/37_Рисунок 37 — Последовательность публикации версии карточки.png",
+      "title": "Рисунок 37 — Последовательность публикации версии карточки",
+      "diagramId": "D23_sequence_ozon"
+    },
+    {
+      "path": "Экспорт/PNG/38_Рисунок 38 — Схема проверки доступа.png",
+      "title": "Рисунок 38 — Схема проверки доступа",
+      "diagramId": "D24_access"
+    }
+  ],
+  "errors": [],
+  "pages": [
+    {
+      "width": 3206,
+      "height": 1862,
+      "title": "Рисунок 01 — IDEF0 AS IS: контекст ручной подготовки карточки",
+      "diagramId": "context",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 4436,
+      "height": 2755,
+      "title": "Рисунок 02 — IDEF0 AS IS: ручная подготовка и повторный ввод",
+      "diagramId": "decomposition",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 3326,
+      "height": 1376,
+      "title": "Рисунок 03 — BPMN AS IS: ручная публикация и возврат отклонённой карточки",
+      "diagramId": "Plane_Main",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 3956,
+      "height": 1834,
+      "title": "Рисунок 04 — BPMN AS IS: подготовка данных в разрозненных инструментах",
+      "diagramId": "Plane_Preparation",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 1706,
+      "height": 1151,
+      "title": "Рисунок 05 — Сравнение аналогов",
+      "diagramId": "D00_comparison",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 3206,
+      "height": 1862,
+      "title": "Рисунок 06 — IDEF0 TO BE: контекст управляемого процесса",
+      "diagramId": "context",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 4496,
+      "height": 2755,
+      "title": "Рисунок 07 — IDEF0 TO BE: версионированная подготовка и публикация",
+      "diagramId": "decomposition",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 2516,
+      "height": 1406,
+      "title": "Рисунок 08 — BPMN TO BE: целевой процесс подготовки и публикации",
+      "diagramId": "Plane_Main",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 2621,
+      "height": 1511,
+      "title": "Рисунок 09 — BPMN TO BE: автоматизированная подготовка версии карточки",
+      "diagramId": "Plane_Preparation",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 2462,
+      "height": 949,
+      "title": "Рисунок 10 — BPMN TO BE: очередь, сверка статуса и обработка результата",
+      "diagramId": "Plane_Publication",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 2336,
+      "height": 1114,
+      "title": "Рисунок 11 — Дерево функций",
+      "diagramId": "D01_function_tree",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 2186,
+      "height": 1511,
+      "title": "Рисунок 12 — Диаграмма компонентов",
+      "diagramId": "D02_component",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 4721,
+      "height": 1800,
+      "title": "Рисунок 13 — Логическая модель данных, вид 1",
+      "diagramId": "D03_logical_1",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 4805,
+      "height": 1749,
+      "title": "Рисунок 14 — Логическая модель данных, вид 2",
+      "diagramId": "D03_logical_2",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 4721,
+      "height": 740,
+      "title": "Рисунок 15 — Логическая модель данных, вид 3",
+      "diagramId": "D03_logical_3",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 4846,
+      "height": 2106,
+      "title": "Рисунок 16 — Логическая модель данных, вид 4",
+      "diagramId": "D03_logical_4",
+      "scale": 1.5001565925461948,
+      "warnings": []
+    },
+    {
+      "width": 4804,
+      "height": 1842,
+      "title": "Рисунок 17 — Логическая модель данных, вид 5",
+      "diagramId": "D03_logical_5",
+      "scale": 1.5001579778830965,
+      "warnings": []
+    },
+    {
+      "width": 1631,
+      "height": 1032,
+      "title": "Рисунок 18 — Схема кодирования модельного ряда",
+      "diagramId": "D04_coding",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 1976,
+      "height": 1466,
+      "title": "Рисунок 19 — Экран Список карточек",
+      "diagramId": "D05_wireframe_01",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 1976,
+      "height": 1466,
+      "title": "Рисунок 20 — Экран Редактор версии модельного ряда",
+      "diagramId": "D05_wireframe_02",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 1976,
+      "height": 1466,
+      "title": "Рисунок 21 — Экран Предложения и сопоставления",
+      "diagramId": "D05_wireframe_03",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 1976,
+      "height": 1466,
+      "title": "Рисунок 22 — Экран Массовая замена",
+      "diagramId": "D05_wireframe_04",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 1976,
+      "height": 1466,
+      "title": "Рисунок 23 — Экран Карточка и публикация",
+      "diagramId": "D05_wireframe_05",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 1976,
+      "height": 1466,
+      "title": "Рисунок 24 — Экран Журнал публикаций и уведомления",
+      "diagramId": "D05_wireframe_06",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 1256,
+      "height": 1819,
+      "title": "Рисунок 25 — Деятельность по подготовке и публикации карточки",
+      "diagramId": "D06_activity",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 1445,
+      "height": 1751,
+      "title": "Рисунок 26 — Алгоритм расчёта цены и массы",
+      "diagramId": "D07_algorithm_price",
+      "scale": 1.5000000367470847,
+      "warnings": []
+    },
+    {
+      "width": 1331,
+      "height": 1789,
+      "title": "Рисунок 27 — Алгоритм выбора предложения для слота",
+      "diagramId": "D08_algorithm_offer",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 2029,
+      "height": 1871,
+      "title": "Рисунок 28 — Алгоритм массовой замены",
+      "diagramId": "D09_algorithm_replace",
+      "scale": 1.5000000342344635,
+      "warnings": []
+    },
+    {
+      "width": 2216,
+      "height": 1610,
+      "title": "Рисунок 29 — Инфраструктурная схема",
+      "diagramId": "D10_infrastructure",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 4830,
+      "height": 1896,
+      "title": "Рисунок 30 — Физическая модель данных, вид 1",
+      "diagramId": "D20_physical_1",
+      "scale": 1.5001256573165764,
+      "warnings": []
+    },
+    {
+      "width": 4884,
+      "height": 1839,
+      "title": "Рисунок 31 — Физическая модель данных, вид 2",
+      "diagramId": "D20_physical_2",
+      "scale": 1.500124250864751,
+      "warnings": []
+    },
+    {
+      "width": 4762,
+      "height": 831,
+      "title": "Рисунок 32 — Физическая модель данных, вид 3",
+      "diagramId": "D20_physical_3",
+      "scale": 1.5000637507508423,
+      "warnings": []
+    },
+    {
+      "width": 4871,
+      "height": 2253,
+      "title": "Рисунок 33 — Физическая модель данных, вид 4",
+      "diagramId": "D20_physical_4",
+      "scale": 1.500280391653131,
+      "warnings": []
+    },
+    {
+      "width": 4844,
+      "height": 1896,
+      "title": "Рисунок 34 — Физическая модель данных, вид 5",
+      "diagramId": "D20_physical_5",
+      "scale": 1.5002819448619045,
+      "warnings": []
+    },
+    {
+      "width": 3176,
+      "height": 1969,
+      "title": "Рисунок 35 — Диаграмма развёртывания",
+      "diagramId": "D21_deployment",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 3398,
+      "height": 5137,
+      "title": "Рисунок 36 — Последовательность обновления предложений",
+      "diagramId": "D22_sequence_suppliers",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 2900,
+      "height": 7387,
+      "title": "Рисунок 37 — Последовательность публикации версии карточки",
+      "diagramId": "D23_sequence_ozon",
+      "scale": 1.5,
+      "warnings": []
+    },
+    {
+      "width": 2126,
+      "height": 1204,
+      "title": "Рисунок 38 — Схема проверки доступа",
+      "diagramId": "D24_access",
+      "scale": 1.5,
+      "warnings": []
+    }
+  ],
+  "warnings": [],
+  "settings": {
+    "format": "png",
+    "background": "white",
+    "scale": 1.5,
+    "margin": 28,
+    "title": true,
+    "legend": true,
+    "monochrome": false,
+    "font": "Arial",
+    "includeHidden": false,
+    "page": "A4",
+    "orientation": "landscape",
+    "widthMm": 297,
+    "heightMm": 210,
+    "pagination": "fit",
+    "overlap": 20
+  },
+  "generatedAt": "2026-09-28T12:06:01.697Z",
+  "pdfRendering": "Штатная печать Chromium: HTML-текст и SVG. Возможная растеризация CSS-эффектов не исключается; полностью векторный PDF не заявляется."
+}

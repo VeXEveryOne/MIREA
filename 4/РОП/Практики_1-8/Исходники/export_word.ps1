@@ -1,10 +1,10 @@
 $ErrorActionPreference='Stop'
-$taskRoot='D:\GitHub\MIREA\4\РОП\Практики_1-8'
+$taskRoot=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $taskWord=New-Object -ComObject Word.Application
 $taskWord.Visible=$false
 $taskWord.DisplayAlerts=0
 try {
- $taskDoc=$taskWord.Documents.Open((Join-Path $taskRoot 'РОП_Практики_1-8_АлбахтинИВ_готово.docx'),$false,$false)
+ $taskDoc=$taskWord.Documents.Open((Join-Path $taskRoot 'РОП_Практики_1-8_АлбахтинИВ.docx'),$false,$false)
  $taskDoc.Repaginate()
  foreach($taskToc in $taskDoc.TablesOfContents){$taskToc.Update()}
  $taskDoc.Fields.Update() | Out-Null
@@ -29,7 +29,7 @@ try {
  $taskDoc.Repaginate()
  foreach($taskToc in $taskDoc.TablesOfContents){$taskToc.UpdatePageNumbers()}
  $taskDoc.Save()
- $taskDoc.ExportAsFixedFormat((Join-Path $taskRoot 'РОП_Практики_1-8_АлбахтинИВ_готово.pdf'),17)
+ $taskDoc.ExportAsFixedFormat((Join-Path $taskRoot 'РОП_Практики_1-8_АлбахтинИВ.pdf'),17)
  Write-Output ('Pages: '+$taskDoc.ComputeStatistics(2))
  $taskDoc.Close(0)
 } finally {$taskWord.Quit();[void][Runtime.InteropServices.Marshal]::ReleaseComObject($taskWord)}

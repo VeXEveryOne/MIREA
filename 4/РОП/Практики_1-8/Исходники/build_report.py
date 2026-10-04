@@ -9,8 +9,8 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from PIL import Image
 from content import blocks,ROOT
-TMP=Path('D:/GitHub/MIREA/tmp/rop_all')
-template=Path('D:/GitHub/MIREA/4/ИСУРО/ИСУРО_1_АлбахтинИВ.docx')
+from config import BUILD_DIR as TMP, TITLE_TEMPLATE as template, REPORT_NAME
+TMP.mkdir(parents=True, exist_ok=True)
 doc=Document(template)
 body=doc.element.body
 sect=deepcopy(body[15].xpath('.//w:sectPr')[0])
@@ -69,15 +69,18 @@ def page(land=False,force=False):
  global current
  if land!=current:
   setup_section(doc.add_section(WD_SECTION_START.NEW_PAGE),land);current=land
- elif force:setup_section(doc.add_section(WD_SECTION_START.NEW_PAGE),land)
+ elif force:doc.add_page_break()
 def para(text):return doc.add_paragraph(text,'Body Text')
+def in_sentence(title):
+ # Preserve leading abbreviations such as UC, RBAC and AS IS.
+ return title if len(title)>1 and title[:2].isupper() else title[0].lower()+title[1:]
 toc=doc.add_paragraph('Содержание','Title');toc.paragraph_format.first_line_indent=0;toc.alignment=WD_ALIGN_PARAGRAPH.CENTER
 field(doc.add_paragraph(),'TOC \\o "1-2" \\h \\z \\u','Содержание')
 figure=table=0;md=['# РОП Практические занятия 1–8','\nАлбахтин И.В. ИНБО-12-23. ООО «Юкомс».\n']
 pending=[]
 for bi,b in enumerate(blocks):
  if b['type']=='h':
-  if bi+1<len(blocks) and blocks[bi+1]['type']=='fig':
+  if bi+1<len(blocks) and blocks[bi+1]['type'] in ('fig','table'):
    pending.append(b);md+=['\n'+'#'*(b['level']+1)+' '+b['text']+'\n'];continue
   page(False)
   pp=doc.add_paragraph(b['text'],'Heading '+str(b['level']));md+=['\n'+'#'*(b['level']+1)+' '+b['text']+'\n']
@@ -87,45 +90,69 @@ for bi,b in enumerate(blocks):
   page(False);doc.add_paragraph(b['text'],'ReferencesROP');md+=[b['text']+'\n']
  elif b['type']=='table':
   table+=1;heads=b['heads'];rows=b['rows'];wide=len(heads)>=5 or b['title'] in ['Сущности логической модели','Матрица RBAC']
-  page(wide)
-  para(f'В таблице {table} представлены '+b['title'][0].lower()+b['title'][1:]+'.')
+  # Each table starts on a clean page. Long tables are split before insertion,
+  # because Word and LibreOffice paginate tall mixed-width rows differently.
+  page(wide,True)
+  for heading in pending:
+   doc.add_paragraph(heading['text'],'Heading '+str(heading['level']))
+  pending=[]
+  para(f'В таблице {table} представлены '+in_sentence(b['title'])+'.')
   caption=doc.add_paragraph(style='TableCaptionROP');caption.add_run('Таблица ');field(caption,'SEQ Table \\* ARABIC',table);caption.add_run(' – '+b['title'])
-  tb=doc.add_table(rows=1, cols=len(heads));tb.autofit=False;tb.style='Table Grid'
   width=25.2 if wide else 16.5;ww=b.get('widths') or [1]*len(heads);ww=[width*v/sum(ww) for v in ww]
-  for c,w in zip(tb.columns,ww):c.width=Cm(w)
-  for i,tx in enumerate(heads):tb.rows[0].cells[i].text=str(tx)
-  for row in rows:
-   cs=tb.add_row().cells
-   for i,tx in enumerate(row):cs[i].text=str(tx)
-  for ri,row in enumerate(tb.rows):
-   trPr=row._tr.get_or_add_trPr();nr=OxmlElement('w:cantSplit');trPr.append(nr)
-   if ri==0:
-    rp=OxmlElement('w:tblHeader');trPr.append(rp)
-   for ci,cell in enumerate(row.cells):
-    cell.width=Cm(ww[ci]);pr=cell._tc.get_or_add_tcPr();marg=OxmlElement('w:tcMar')
-    for side in ['top','left','bottom','right']:
-     z=OxmlElement('w:'+side);z.set(qn('w:w'),'65' if side in ['top','bottom'] else '80');z.set(qn('w:type'),'dxa');marg.append(z)
-    pr.append(marg)
-    for pp in cell.paragraphs:
-     pp.style='TableROP';pp.paragraph_format.keep_with_next=False
-     for r in pp.runs:r.font.name='Times New Roman';r.font.size=Pt(12);r.bold=ri==0
+  capacity=21 if wide else 32
+  chunks=[];chunk=[];used=0
+  for source_row in rows:
+   lines=max(max(1,(len(str(tx))+max(8,int(ww[i]*4.2))-1)//max(8,int(ww[i]*4.2))) for i,tx in enumerate(source_row))+1
+   if chunk and used+lines>capacity:
+    chunks.append(chunk);chunk=[];used=0
+   chunk.append((source_row,lines));used+=lines
+  if chunk:chunks.append(chunk)
+  for chunk_index,chunk_rows in enumerate(chunks):
+   if chunk_index:
+    page(wide,True)
+    continuation=doc.add_paragraph(style='TableCaptionROP')
+    continuation.add_run(f'Продолжение таблицы {table} – '+b['title'])
+   tb=doc.add_table(rows=1, cols=len(heads));tb.autofit=False;tb.style='Table Grid'
+   for c,w in zip(tb.columns,ww):c.width=Cm(w)
+   for i,tx in enumerate(heads):tb.rows[0].cells[i].text=str(tx)
+   for source_row,row_lines in chunk_rows:
+    cs=tb.add_row().cells
+    for i,tx in enumerate(source_row):cs[i].text=str(tx)
+   for ri,row in enumerate(tb.rows):
+    trPr=row._tr.get_or_add_trPr()
+    row_lines=1 if ri==0 else chunk_rows[ri-1][1]
+    if ri==0 or row_lines<=capacity:
+     nr=OxmlElement('w:cantSplit');trPr.append(nr)
+    if ri==0:
+     rp=OxmlElement('w:tblHeader');trPr.append(rp)
+    for ci,cell in enumerate(row.cells):
+     cell.width=Cm(ww[ci]);pr=cell._tc.get_or_add_tcPr();marg=OxmlElement('w:tcMar')
+     for side in ['top','left','bottom','right']:
+      z=OxmlElement('w:'+side);z.set(qn('w:w'),'65' if side in ['top','bottom'] else '80');z.set(qn('w:type'),'dxa');marg.append(z)
+     pr.append(marg)
+     for pp in cell.paragraphs:
+      pp.style='TableROP';pp.paragraph_format.keep_with_next=False
+      for r in pp.runs:r.font.name='Times New Roman';r.font.size=Pt(12);r.bold=ri==0
   md+=['\n*Таблица '+str(table)+' – '+b['title']+'*\n','| '+' | '.join(heads)+' |','| '+' | '.join('---' for x in heads)+' |']
   md+=['| '+' | '.join(str(x).replace('\n','<br>').replace('|','/') for x in row)+' |' for row in rows];md+=['']
  elif b['type']=='fig':
-  figure+=1;land=b.get('landscape',False);same_page_orientation=land==current;page(land,same_page_orientation)
+  figure+=1;land=b.get('landscape',False);same_page_orientation=land==current
+  if not same_page_orientation:page(land)
   had_heading=bool(pending)
   for hi,heading in enumerate(pending):
    hp=doc.add_paragraph(heading['text'],'Heading '+str(heading['level']))
+   if hi==0 and same_page_orientation:hp.paragraph_format.page_break_before=True
   pending=[]
-  pp=para(f'На рисунке {figure} показана модель «{b["title"]}».');pp.paragraph_format.keep_with_next=True
+  pp=para(f'На рисунке {figure} показана модель «{b["title"]}».');pp.paragraph_format.keep_with_next=False;pp.paragraph_format.keep_together=True
+  if same_page_orientation and not had_heading:pp.paragraph_format.page_break_before=True
   paths=b.get('parts') or [b['path']]
   for part_index,image_path in enumerate(paths):
-   if part_index:page(land,True)
    image=Image.open(image_path);wmax=25.2 if land else 16.5
-   if land and len(paths)>1:hmax=10.8 if had_heading and part_index==0 else 12
-   else:hmax=(12 if had_heading and part_index==0 else 13.3) if land else (19.5 if had_heading and part_index==0 else 21)
+   if land and len(paths)>1:hmax=8.6 if had_heading and part_index==0 else 9.2
+   else:hmax=(11.0 if had_heading and part_index==0 else 11.6) if land else (18 if had_heading and part_index==0 else 19)
    iw,ih=image.size;w=min(wmax,hmax*iw/ih)
    pp=doc.add_paragraph();pp.alignment=WD_ALIGN_PARAGRAPH.CENTER;pf=pp.paragraph_format;pf.first_line_indent=0;pf.space_after=0;pf.space_before=0;pf.line_spacing=1;pf.keep_with_next=True
+   if part_index:pf.page_break_before=True
    pp.add_run().add_picture(image_path,width=Cm(w))
    cp=doc.add_paragraph(style='FigureCaptionROP')
    if part_index==0:
@@ -133,8 +160,8 @@ for bi,b in enumerate(blocks):
    else:
     cp.add_run(f'Продолжение рисунка {figure} – {b["title"]} (часть {part_index+1} из {len(paths)})')
   md+=['\n![Рисунок '+str(figure)+' — '+b['title']+']('+str(Path(b['path']).relative_to(ROOT) if Path(b['path']).is_relative_to(ROOT) else Path(b['path']))+')\n']
-output=ROOT/'РОП_Практики_1-8_АлбахтинИВ_готово.docx';doc.save(output)
-(ROOT/'РОП_Практики_1-8_АлбахтинИВ_готово.md').write_text('\n'.join(md),encoding='utf-8')
+output=ROOT/(REPORT_NAME+'.docx');doc.save(output)
+(ROOT/(REPORT_NAME+'.md')).write_text('\n'.join(md),encoding='utf-8')
 (TMP/'artifact.md').write_text(f'''# Контракт титульного листа
 Источник: {template}
 SHA256: {hashlib.sha256(template.read_bytes()).hexdigest()}

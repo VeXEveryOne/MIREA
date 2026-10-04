@@ -434,7 +434,7 @@ node analysis Обоснование kind=summary parent=root order=0
 node survey "Обследование и модель процесса" kind=workPackage parent=analysis order=0 effortHours=32 deliverable="Реестр потоков и подтверждённые границы"
 node requirements "Требования и критерии" kind=workPackage parent=analysis order=1 effortHours=40 deliverable="Согласованные требования"
 node build Реализация kind=summary parent=root order=1
-node catalog "Справочники и BOM" kind=workPackage parent=build order=0 effortHours=56
+node catalog "Справочники и модельный ряд" kind=workPackage parent=build order=0 effortHours=56
 view root_v "" diagram=wbs element=root
 view analysis_v "" diagram=wbs element=analysis
 view survey_v "" diagram=wbs element=survey

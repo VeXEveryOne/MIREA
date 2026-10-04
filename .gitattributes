@@ -1,0 +1,13 @@
+# Preserve exact package bytes: SHA256.json includes text sources and native models.
+# Do not apply automatic CRLF conversion to this verified submission package.
+4/РОП/Практики_1-8/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Office documents and exported media are binary artifacts.
+*.docx binary
+*.xlsx binary
+*.pptx binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.zip binary

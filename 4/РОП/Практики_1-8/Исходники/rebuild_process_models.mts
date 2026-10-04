@@ -1,23 +1,13 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { createHash } from "node:crypto";
-import {
-  idef0DocumentFromSource,
-  layoutIdef0,
-} from "file:///D:/OmniNotation/src/notations/idef0/document.ts";
-import { arrowAnchor } from "file:///D:/OmniNotation/src/notations/idef0/arrows.ts";
-import { validateIdef0Complete } from "file:///D:/OmniNotation/src/notations/idef0/model.ts";
-import { bpmnAdapter } from "file:///D:/OmniNotation/src/notations/bpmn/adapter.ts";
-import { validateBpmnData } from "file:///D:/OmniNotation/src/notations/bpmn/validation.ts";
-import {
-  decodeProject,
-  encodeProject,
-} from "file:///D:/OmniNotation/src/persistence/project.ts";
-
-const root = "D:/GitHub/MIREA/4/РОП/Практики_1-8";
-const canonical = path.join(root, "Модели_OmniNotation_v2");
-const legacy = path.join(root, "Модели_OmniNotation");
-const courseRoot = "D:/GitHub/MIREA/4/РОП";
+import { ROOT as root, MODEL_DIR as canonical, omniModule } from './runtime.mjs';
+const {idef0DocumentFromSource, layoutIdef0} = await omniModule('src/notations/idef0/document.ts');
+const {arrowAnchor} = await omniModule('src/notations/idef0/arrows.ts');
+const {validateIdef0Complete} = await omniModule('src/notations/idef0/model.ts');
+const {bpmnAdapter} = await omniModule('src/notations/bpmn/adapter.ts');
+const {validateBpmnData} = await omniModule('src/notations/bpmn/validation.ts');
+const {decodeProject, encodeProject} = await omniModule('src/persistence/project.ts');
 
 type Role = "input" | "control" | "output" | "mechanism";
 type Side = "left" | "top" | "right" | "bottom";
@@ -98,12 +88,11 @@ const toBeIdef0: Idef0Spec = {
   date: "28.09.2026",
   project: "РОП Практика 2 — ООО Юкомс",
   functions: [
-    "Зарегистрировать запрос и создать черновую версию модельного ряда",
-    "Загрузить предложения, сопоставить SKU и разрешить групповые слоты",
-    "Автоматически проверить совместимость, актуальность и полноту",
-    "Рассчитать цену и массу, сформировать контент из одного снимка",
-    "Проверить и утвердить конкретную версию карточки",
-    "Поставить публикацию в очередь, сверить статус и уведомить ответственного",
+    "Зарегистрировать запрос и открыть управляемую версию",
+    "Импортировать предложения и сформировать конфигурацию",
+    "Проверить и зафиксировать неизменяемый снимок",
+    "Рассчитать показатели, сформировать и утвердить контент",
+    "Опубликовать, сверить результат и зафиксировать аудит",
   ],
   interfaces: [
     { id: "request", label: "Зарегистрированный запрос на создание или изменение", role: "input", side: "left", target: "A1" },
@@ -113,24 +102,23 @@ const toBeIdef0: Idef0Spec = {
     { id: "mapping", label: "Правила сопоставления SKU и выбора предложений", role: "control", side: "top", target: "A2" },
     { id: "rules", label: "Версионируемые правила совместимости, выбора, цены и массы", role: "control", side: "top", target: "A3" },
     { id: "ozon", label: "Схема и требования Ozon к карточке", role: "control", side: "top", target: "A4" },
-    { id: "approval", label: "Маршрут проверки и критерии утверждения версии", role: "control", side: "top", target: "A5" },
-    { id: "security", label: "RBAC, контроль полноты и политика повторов", role: "control", side: "top", target: "A6" },
+    { id: "approval", label: "Маршрут проверки и критерии утверждения версии", role: "control", side: "top", target: "A4" },
+    { id: "security", label: "RBAC, идемпотентность и политика повторов", role: "control", side: "top", target: "A5" },
     { id: "version", label: "Проверенная неизменяемая версия модельного ряда", role: "output", side: "right", target: "A3" },
     { id: "content", label: "Воспроизводимый расчёт и версия контента", role: "output", side: "right", target: "A4" },
-    { id: "status", label: "Подтверждённый статус публикации и внешний ID", role: "output", side: "right", target: "A6" },
-    { id: "audit", label: "Журнал аудита и уведомления ответственным", role: "output", side: "right", target: "A6" },
+    { id: "status", label: "Подтверждённый статус публикации и внешний ID", role: "output", side: "right", target: "A5" },
+    { id: "audit", label: "Журнал аудита и уведомления ответственным", role: "output", side: "right", target: "A5" },
     { id: "roles", label: "Сотрудники с назначенными ролями", role: "mechanism", side: "bottom", target: "A1" },
     { id: "system", label: "Единая информационная система и API", role: "mechanism", side: "bottom", target: "A3" },
     { id: "storage", label: "PostgreSQL и файловое хранилище", role: "mechanism", side: "bottom", target: "A4" },
     { id: "adapters", label: "Адаптеры поставщиков и механизм правил", role: "mechanism", side: "bottom", target: "A2" },
-    { id: "worker", label: "Worker и адаптер Ozon", role: "mechanism", side: "bottom", target: "A6" },
+    { id: "worker", label: "Worker и адаптер Ozon", role: "mechanism", side: "bottom", target: "A5" },
   ],
   steps: [
     "Черновая версия модельного ряда",
     "Версия с выбранными предложениями",
     "Проверенный неизменяемый снимок",
-    "Версия карточки с расчётом и контентом",
-    "Утверждённая версия и ключ операции",
+    "Утверждённая версия карточки и ключ операции",
   ],
   feedback: [
     { id: "correction", label: "Протокол проверки с точными причинами", from: "A3", to: "A2" },
@@ -174,59 +162,263 @@ function buildIdef0(spec: Idef0Spec) {
   );
   let document = idef0DocumentFromSource(lines.join("\n") + "\n");
   const frameContext = { x: 0, y: 0, width: 2100, height: 980 };
-  const frameDecomposition = { x: 0, y: 0, width: 2800, height: 1500 };
+  const frameDecomposition = { x: 0, y: 0, width: 3000, height: 1600 };
   document.layout.frames = { context: frameContext, decomposition: frameDecomposition };
-  document.layout.positions.root = { x: 860, y: 390 };
-  document.layout.sizes.root = { width: 380, height: 180 };
-  const functionPositions = [
-    { x: 100, y: 250 },
-    { x: 550, y: 430 },
-    { x: 1000, y: 610 },
-    { x: 1450, y: 790 },
-    { x: 1900, y: 970 },
-    { x: 2350, y: 1150 },
-  ];
+  document.layout.positions.root = { x: 690, y: 335 };
+  document.layout.sizes.root = { width: 720, height: 250 };
+  // AS IS preserves the long manual staircase. TO BE is a regular managed
+  // pipeline. The different geometry reinforces the change in the process,
+  // while explicit ICOM lanes below keep both diagrams readable.
+  const functionPositions = spec.key === "AS_IS"
+    ? [
+        { x: 140, y: 230 },
+        { x: 600, y: 410 },
+        { x: 1060, y: 590 },
+        { x: 1520, y: 770 },
+        { x: 1980, y: 950 },
+        { x: 2440, y: 1130 },
+      ]
+    : [
+        { x: 100, y: 650 },
+        { x: 650, y: 650 },
+        { x: 1200, y: 650 },
+        { x: 1750, y: 650 },
+        { x: 2300, y: 650 },
+      ];
   functionPositions.forEach((position, index) => {
     document.layout.positions[`A${index + 1}`] = position;
-    document.layout.sizes[`A${index + 1}`] = { width: 350, height: 155 };
+    document.layout.sizes[`A${index + 1}`] = spec.key === "AS_IS"
+      ? { width: 360, height: 160 }
+      : { width: 420, height: 190 };
   });
-  for (const owner of ["context", "decomposition"] as const) {
-    const frame = owner === "context" ? frameContext : frameDecomposition;
-    for (const side of ["left", "top", "right", "bottom"] as const) {
-      const items = spec.interfaces.filter((item) => item.side === side);
-      items.forEach((item, index) => {
-        const ratio = (index + 1) / (items.length + 1);
-        const id = `${owner === "context" ? "ctx" : "dec"}_${item.id}`;
-        document.layout.positions[id] =
-          side === "left"
-            ? { x: frame.x, y: frame.y + frame.height * ratio }
-            : side === "right"
-              ? { x: frame.x + frame.width, y: frame.y + frame.height * ratio }
-              : side === "top"
-                ? { x: frame.x + frame.width * ratio, y: frame.y }
-                : { x: frame.x + frame.width * ratio, y: frame.y + frame.height };
-      });
-    }
+
+  // Give every arrow a stable editable layout record before routing.
+  for (const edge of document.model.edges)
+    document.layout.arrows[edge.id] = {
+      ...document.layout.arrows[edge.id],
+      fromOffset: 0.5,
+      toOffset: 0.5,
+    };
+
+  const byRole = (role: Role) => spec.interfaces.filter((item) => item.role === role);
+  for (const role of ["input", "control", "output", "mechanism"] as Role[]) {
+    const items = byRole(role);
+    items.forEach((item, index) => {
+      const offset = (index + 1) / (items.length + 1);
+      const arrow = document.layout.arrows[`c_${item.id}`];
+      if (role === "output") arrow.fromOffset = offset;
+      else arrow.toOffset = offset;
+    });
+  }
+
+  // Decomposition ports are distributed only among arrows that use the same
+  // ICOM side of the same function. This prevents piled-up arrowheads.
+  for (const item of spec.interfaces) {
+    const peers = spec.interfaces.filter(
+      (candidate) => candidate.target === item.target && candidate.role === item.role,
+    );
+    const index = peers.findIndex((candidate) => candidate.id === item.id);
+    const offset = peers.length === 1 ? 0.5 : 0.25 + (0.5 * index) / (peers.length - 1);
+    const arrow = document.layout.arrows[`d_${item.id}`];
+    if (item.role === "output") arrow.fromOffset = offset;
+    else arrow.toOffset = offset;
+  }
+  spec.steps.forEach((_, index) => {
+    const arrow = document.layout.arrows[`step${index + 1}${index + 2}`];
+    arrow.fromOffset = spec.key === "AS_IS" ? 0.62 : 0.5;
+    arrow.toOffset = spec.key === "AS_IS" ? 0.38 : 0.5;
+  });
+  if (spec.key === "AS_IS") {
+    document.layout.arrows.d_templates.toOffset = 0.12;
+    document.layout.arrows.feedback_compat.toOffset = 0.34;
+    document.layout.arrows.feedback_unavailable.toOffset = 0.56;
+    document.layout.arrows.feedback_missing.toOffset = 0.78;
+    document.layout.arrows.feedback_compat.fromOffset = 0.22;
+    document.layout.arrows.feedback_unavailable.fromOffset = 0.28;
+    document.layout.arrows.feedback_missing.fromOffset = 0.34;
+    document.layout.arrows.feedback_rejected.fromOffset = 0.28;
+    document.layout.arrows.feedback_rejected.toOffset = 0.78;
+  } else {
+    document.layout.arrows.d_mapping.toOffset = 0.32;
+    document.layout.arrows.feedback_correction.toOffset = 0.72;
+    document.layout.arrows.feedback_correction.fromOffset = 0.3;
+  }
+
+  // Boundary ports are aligned with their function ports. Most interfaces are
+  // therefore single straight orthogonal segments instead of long detours.
+  const rootPosition = document.layout.positions.root;
+  const rootSize = document.layout.sizes.root;
+  for (const item of spec.interfaces) {
+    const contextArrow = document.layout.arrows[`c_${item.id}`];
+    const contextOffset = item.role === "output"
+      ? contextArrow.fromOffset ?? 0.5
+      : contextArrow.toOffset ?? 0.5;
+    document.layout.positions[`ctx_${item.id}`] =
+      item.side === "left"
+        ? { x: 0, y: rootPosition.y + rootSize.height * contextOffset }
+        : item.side === "right"
+          ? { x: frameContext.width, y: rootPosition.y + rootSize.height * contextOffset }
+          : item.side === "top"
+            ? { x: rootPosition.x + rootSize.width * contextOffset, y: 0 }
+            : { x: rootPosition.x + rootSize.width * contextOffset, y: frameContext.height };
+
+    const functionPosition = document.layout.positions[item.target];
+    const functionSize = document.layout.sizes[item.target];
+    const decompositionArrow = document.layout.arrows[`d_${item.id}`];
+    const decompositionOffset = item.role === "output"
+      ? decompositionArrow.fromOffset ?? 0.5
+      : decompositionArrow.toOffset ?? 0.5;
+    document.layout.positions[`dec_${item.id}`] =
+      item.side === "left"
+        ? { x: 0, y: functionPosition.y + functionSize.height * decompositionOffset }
+        : item.side === "right"
+          ? { x: frameDecomposition.width, y: functionPosition.y + functionSize.height * decompositionOffset }
+          : item.side === "top"
+            ? { x: functionPosition.x + functionSize.width * decompositionOffset, y: 0 }
+            : {
+                x: functionPosition.x + functionSize.width * decompositionOffset,
+                y: frameDecomposition.height,
+              };
   }
   document.layout = layoutIdef0(document.model, document.layout);
+
+  const route = (
+    id: string,
+    middle: { x: number; y: number }[],
+    label: { x: number; y: number },
+  ) => {
+    const from = arrowAnchor(document, id, "from");
+    const to = arrowAnchor(document, id, "to");
+    document.layout.arrows[id] = {
+      ...document.layout.arrows[id],
+      bends: [
+        { x: from.point.x + from.normal.x * 34, y: from.point.y + from.normal.y * 34 },
+        ...middle,
+        { x: to.point.x + to.normal.x * 34, y: to.point.y + to.normal.y * 34 },
+      ],
+      label,
+    };
+  };
+
+  // Context: four compact ICOM groups around one function, without crossings.
+  for (const item of spec.interfaces) {
+    const id = `c_${item.id}`;
+    const boundary = arrowAnchor(document, id, item.role === "output" ? "to" : "from");
+    const roleIndex = byRole(item.role).findIndex((candidate) => candidate.id === item.id);
+    const label = item.role === "input"
+      ? { x: 95, y: boundary.point.y - 42 }
+      : item.role === "output"
+        ? { x: 1570, y: boundary.point.y - 42 }
+        : item.role === "control"
+          ? { x: boundary.point.x - 90, y: 72 + (roleIndex % 2) * 82 }
+          : { x: boundary.point.x - 90, y: 790 + (roleIndex % 2) * 72 };
+    route(id, [], label);
+  }
+
+  // Decomposition interfaces: vertical control/mechanism lanes and horizontal
+  // input/output lanes, each aligned to its destination/source port.
+  if (spec.key === "TO_BE") {
+    // The target model is one horizontal pipeline. External data for A2 and
+    // intermediate outputs therefore use lanes above/below the function row
+    // instead of cutting through neighbouring blocks.
+    const actualFrame = document.layout.frames.decomposition;
+    document.layout.positions.dec_catalog = { x: actualFrame.x, y: 515 };
+    document.layout.positions.dec_offers = { x: actualFrame.x, y: 900 };
+    document.layout.positions.dec_version = {
+      x: actualFrame.x + actualFrame.width,
+      y: 470,
+    };
+    document.layout.positions.dec_content = {
+      x: actualFrame.x + actualFrame.width,
+      y: 540,
+    };
+  }
+  for (const item of spec.interfaces) {
+    const id = `d_${item.id}`;
+    const boundary = arrowAnchor(document, id, item.role === "output" ? "to" : "from");
+    const roleIndex = byRole(item.role).findIndex((candidate) => candidate.id === item.id);
+    const label = item.role === "input"
+      ? { x: 80, y: boundary.point.y - 42 }
+      : item.role === "output"
+        ? { x: 2700, y: boundary.point.y - 42 }
+        : item.role === "control"
+          ? { x: boundary.point.x - 95, y: 72 + (roleIndex % 2) * 72 }
+          : { x: boundary.point.x - 95, y: 1430 + (roleIndex % 2) * 62 };
+    if (spec.key === "TO_BE" && (item.id === "catalog" || item.id === "offers")) {
+      const from = arrowAnchor(document, id, "from");
+      const to = arrowAnchor(document, id, "to");
+      const laneX = 575;
+      route(
+        id,
+        [
+          { x: laneX, y: from.point.y },
+          { x: laneX, y: to.point.y },
+        ],
+        { x: 80, y: from.point.y - 42 },
+      );
+    } else if (spec.key === "TO_BE" && (item.id === "version" || item.id === "content")) {
+      const from = arrowAnchor(document, id, "from");
+      const corridorY = item.id === "version" ? 470 : 540;
+      const laneX = from.point.x + 55;
+      route(
+        id,
+        [
+          { x: laneX, y: from.point.y },
+          { x: laneX, y: corridorY },
+          {
+            x:
+              document.layout.frames.decomposition.x +
+              document.layout.frames.decomposition.width,
+            y: corridorY,
+          },
+        ],
+        { x: 2700, y: corridorY - 42 },
+      );
+    } else {
+      route(id, [], label);
+    }
+  }
+
+  // Main process flows use only a short elbow between neighbouring functions.
+  spec.steps.forEach((label, index) => {
+    const id = `step${index + 1}${index + 2}`;
+    const from = arrowAnchor(document, id, "from");
+    const to = arrowAnchor(document, id, "to");
+    const middleX = (from.point.x + to.point.x) / 2;
+    route(
+      id,
+      Math.abs(from.point.y - to.point.y) < 4
+        ? []
+        : [
+            { x: middleX, y: from.point.y },
+            { x: middleX, y: to.point.y },
+          ],
+      { x: middleX - 100, y: Math.min(from.point.y, to.point.y) - 52 },
+    );
+  });
+
+  // Feedback is deliberately separated into dedicated upper corridors. No
+  // feedback line runs through a function block or through another label.
   spec.feedback.forEach((item, index) => {
     const id = `feedback_${item.id}`;
     const from = arrowAnchor(document, id, "from");
     const to = arrowAnchor(document, id, "to");
-    const y =
-      spec.key === "AS_IS"
-        ? [420, 350, 280, 1080][index]
-        : 500;
-    document.layout.arrows[id] = {
-      ...document.layout.arrows[id],
-      bends: [
-        { x: from.point.x + from.normal.x * 30, y: from.point.y + from.normal.y * 30 },
-        { x: from.point.x, y },
-        { x: to.point.x, y },
-        { x: to.point.x + to.normal.x * 30, y: to.point.y + to.normal.y * 30 },
+    const corridorY = spec.key === "AS_IS"
+      ? [370, 295, 135, 890][index]
+      : 505;
+    const outerX = from.point.x + 70;
+    route(
+      id,
+      [
+        { x: outerX, y: from.point.y },
+        { x: outerX, y: corridorY },
+        { x: to.point.x, y: corridorY },
       ],
-      label: { x: (from.point.x + to.point.x) / 2 - 80, y: y - 25 },
-    };
+      {
+        x: (outerX + to.point.x) / 2 - 100,
+        y: corridorY - 48,
+      },
+    );
   });
   const diagnostics = validateIdef0Complete(document.model);
   const errors = diagnostics.filter((item) => item.severity === "error");
@@ -386,57 +578,22 @@ async function updateBpmn(fileName: string, source: string) {
   return { document, diagnostics: validation };
 }
 
-async function writeProjectCopies(
-  canonicalName: string,
-  legacyName: string,
-  document: any,
-  extraTargets: string[] = [],
-) {
+async function writeProject(canonicalName: string, document: any) {
   const encoded = await encodeProject(document);
   await fs.writeFile(path.join(canonical, canonicalName), encoded, "utf8");
-  await fs.writeFile(path.join(legacy, legacyName), encoded, "utf8");
-  await fs.writeFile(path.join(legacy, legacyName.replace(/\.[^.]+$/, ".txt")), document.source, "utf8");
-  for (const target of extraTargets) {
-    await fs.writeFile(target, target.endsWith(".txt") ? document.source : encoded, "utf8");
-  }
 }
 
 await fs.mkdir(canonical, { recursive: true });
-await fs.mkdir(legacy, { recursive: true });
 
 const asIs = buildIdef0(asIsIdef0);
 const toBe = buildIdef0(toBeIdef0);
-await writeProjectCopies(
-  "ПР1_IDEF0_AS_IS.omni",
-  "ПР1_IDEF0_AS_IS.nsidef0",
-  asIs.document,
-  [
-    path.join(courseRoot, "IDEF0", "РОП_Практика_1_AS_IS.nsidef0"),
-    path.join(courseRoot, "IDEF0", "РОП_Практика_1_AS_IS.txt"),
-  ],
-);
-await writeProjectCopies(
-  "ПР2_IDEF0_TO_BE.omni",
-  "ПР2_IDEF0_TO_BE.nsidef0",
-  toBe.document,
-);
+await writeProject('ПР1_IDEF0_AS_IS.omni', asIs.document);
+await writeProject('ПР2_IDEF0_TO_BE.omni', toBe.document);
 
 const asIsBpmn = await updateBpmn("ПР1_BPMN_AS_IS.omni", asIsBpmnSource);
 const toBeBpmn = await updateBpmn("ПР2_BPMN_TO_BE.omni", toBeBpmnSource);
-await writeProjectCopies(
-  "ПР1_BPMN_AS_IS.omni",
-  "ПР1_BPMN_AS_IS.nsbpmn",
-  asIsBpmn.document,
-  [
-    path.join(courseRoot, "BPMN", "РОП_Практика_1_AS_IS.nsbpmn"),
-    path.join(courseRoot, "BPMN", "РОП_Практика_1_AS_IS.txt"),
-  ],
-);
-await writeProjectCopies(
-  "ПР2_BPMN_TO_BE.omni",
-  "ПР2_BPMN_TO_BE.nsbpmn",
-  toBeBpmn.document,
-);
+await writeProject('ПР1_BPMN_AS_IS.omni', asIsBpmn.document);
+await writeProject('ПР2_BPMN_TO_BE.omni', toBeBpmn.document);
 
 const figureTitles = new Map<string, string>([
   ["ПР1_IDEF0_AS_IS.omni|context", "Рисунок 01 — IDEF0 AS IS: контекст ручной подготовки карточки"],
@@ -466,10 +623,10 @@ for (const item of registry.figures) {
   const title = figureTitles.get(`${fileName}|${item.diagramId}`);
   if (!title) continue;
   item.title = title;
-  const canonicalBytes = await fs.readFile(item.file);
+  const canonicalBytes = await fs.readFile(path.resolve(root, item.file));
   item.modelSha256 = digest(canonicalBytes);
   if (item.source) {
-    const sourceBytes = await fs.readFile(item.source);
+    const sourceBytes = await fs.readFile(path.resolve(root, item.source));
     item.sha256 = digest(sourceBytes);
   }
 }

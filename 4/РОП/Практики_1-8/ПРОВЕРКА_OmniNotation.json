@@ -24,27 +24,51 @@
     "diagnostics": []
   },
   {
-    "kind": "compatible",
-    "file": "ПР1_BPMN_AS_IS.nsbpmn",
-    "notation": "BPMN",
+    "kind": "auxiliary",
+    "file": "РОП_ERD.omni",
+    "notation": "ERD",
     "diagnostics": []
   },
   {
-    "kind": "compatible",
-    "file": "ПР1_IDEF0_AS_IS.nsidef0",
-    "notation": "IDEF0",
+    "kind": "auxiliary",
+    "file": "РОП_UML_Последовательности.omni",
+    "notation": "UML",
     "diagnostics": []
   },
   {
-    "kind": "compatible",
-    "file": "ПР2_BPMN_TO_BE.nsbpmn",
-    "notation": "BPMN",
+    "kind": "auxiliary",
+    "file": "РОП_UML_Структура.omni",
+    "notation": "UML",
     "diagnostics": []
   },
   {
-    "kind": "compatible",
-    "file": "ПР2_IDEF0_TO_BE.nsidef0",
-    "notation": "IDEF0",
+    "kind": "auxiliary",
+    "file": "РОП_Алгоритмы.omni",
+    "notation": "FLOWCHART",
+    "diagnostics": []
+  },
+  {
+    "kind": "auxiliary",
+    "file": "РОП_Дерево_функций.omni",
+    "notation": "FUNCTION_TREE",
+    "diagnostics": []
+  },
+  {
+    "kind": "auxiliary",
+    "file": "РОП_Каркасы.omni",
+    "notation": "WIREFRAME",
+    "diagnostics": []
+  },
+  {
+    "kind": "auxiliary",
+    "file": "РОП_Общие_схемы.omni",
+    "notation": "SCHEME",
+    "diagnostics": []
+  },
+  {
+    "kind": "auxiliary",
+    "file": "РОП_Сравнение.omni",
+    "notation": "CHART",
     "diagnostics": []
   }
 ]

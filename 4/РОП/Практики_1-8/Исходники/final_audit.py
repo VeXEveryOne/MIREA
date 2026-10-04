@@ -10,7 +10,7 @@ import re
 from pypdf import PdfReader
 
 
-ROOT = Path(r"D:\GitHub\MIREA\4\РОП\Практики_1-8")
+from config import ROOT, MODEL_DIR
 DOCX = ROOT / "РОП_Практики_1-8_АлбахтинИВ.docx"
 PDF = ROOT / "РОП_Практики_1-8_АлбахтинИВ.pdf"
 
@@ -52,7 +52,7 @@ for number in (1, 2):
 with ZipFile(DOCX) as archive:
     embedded_media = [name for name in archive.namelist() if name.startswith("word/media/")]
 
-process_models = ROOT / "Модели_OmniNotation_v2"
+process_models = MODEL_DIR
 idef0_statuses = {}
 for name in ("ПР1_IDEF0_AS_IS.omni", "ПР2_IDEF0_TO_BE.omni"):
     project = json.loads((process_models / name).read_text("utf-8"))
@@ -67,6 +67,20 @@ for name in ("ПР1_IDEF0_AS_IS.omni", "ПР2_IDEF0_TO_BE.omni"):
 model_check = json.loads((ROOT / "ПРОВЕРКА_OmniNotation.json").read_text("utf-8"))
 canonical = [item for item in model_check if item["kind"] == "canonical"]
 assert len(canonical) == 4 and all(not item["diagnostics"] for item in canonical)
+assert len(model_check) == 12 and all(not item['diagnostics'] for item in model_check)
+
+registry = json.loads((MODEL_DIR / 'Реестр_38_рисунков.json').read_text('utf-8'))
+for entry in [item for figure in registry['figures']
+              for item in ({'file': figure['file'], 'sha256': figure['modelSha256']}, figure['export']['png'])] + list(registry['exportReports'].values()):
+    relative = Path(entry['file'])
+    assert not relative.is_absolute() and '..' not in relative.parts, relative
+    assert digest(ROOT / relative) == entry['sha256'], relative
+
+for block in json.loads((ROOT / 'content.json').read_text('utf-8')):
+    if block['type'] == 'fig':
+        for name in [block['path'], *block.get('parts', [])]:
+            relative = Path(name)
+            assert not relative.is_absolute() and (ROOT / relative).is_file(), name
 
 checksums = json.loads((ROOT / "SHA256.json").read_text("utf-8"))
 for relative, expected in checksums.items():
@@ -74,20 +88,15 @@ for relative, expected in checksums.items():
     assert path.is_file(), relative
     assert digest(path) == expected, relative
 
-assert digest(ROOT / "РОП_Практики_1-8_АлбахтинИВ_готово.docx") == digest(DOCX)
-assert digest(ROOT / "РОП_Практики_1-8_АлбахтинИВ_готово.pdf") == digest(PDF)
-assert digest(ROOT / "РОП_Практики_1-8_АлбахтинИВ_готово.md") == digest(
-    ROOT / "РОП_Практики_1-8_АлбахтинИВ.md"
-)
-assert digest(ROOT / "Презентации/РОП_Практическая_1_АлбахтинИВ.pptx") == digest(
-    ROOT.parent / "РОП_Практическая_1_АлбахтинИВ.pptx"
-)
+assert not list(ROOT.glob('*_готово.*')), 'Duplicate report files'
+assert len(list(MODEL_DIR.glob('*.omni'))) == 12, 'Expected twelve current models'
 
 summary = {
     "status": "pass",
     "pdf_pages": len(pdf_reader.pages),
     "docx_embedded_media": len(embedded_media),
     "canonical_process_models": len(canonical),
+    "all_native_models_checked": len(model_check),
     "idef0_statuses": idef0_statuses,
     "practice_1_slides": 15,
     "practice_2_slides": 10,

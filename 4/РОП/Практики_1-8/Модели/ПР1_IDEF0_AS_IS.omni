@@ -1,0 +1,1299 @@
+{
+  "formatVersion": 4,
+  "notation": "IDEF0",
+  "profile": "NS-IDEF0-31320-1-2012-1",
+  "model": {
+    "notation": "IDEF0",
+    "id": "rop_cards",
+    "label": "Карточки компьютерных систем ООО Юкомс AS IS",
+    "nodes": [
+      {
+        "id": "context",
+        "kind": "diagram",
+        "label": "Вручную формировать и актуализировать карточки компьютерных систем",
+        "properties": {
+          "node": "A-0",
+          "purpose": "Показать разрозненные ручные операции, повторный ввод и позднее обнаружение ошибок",
+          "viewpoint": "Менеджер маркетплейсов",
+          "author": "Албахтин И.В.",
+          "date": "28.09.2026",
+          "project": "РОП Практика 1 — ООО Юкомс",
+          "status": "publication",
+          "context": "TOP",
+          "pageNumber": "1"
+        }
+      },
+      {
+        "id": "root",
+        "kind": "function",
+        "label": "Вручную формировать и актуализировать карточки компьютерных систем",
+        "parent": "context",
+        "properties": {
+          "number": "0"
+        }
+      },
+      {
+        "id": "ctx_request",
+        "kind": "boundary",
+        "label": "Запрос из почты или мессенджера",
+        "parent": "context",
+        "properties": {
+          "side": "left",
+          "direction": "in"
+        }
+      },
+      {
+        "id": "ctx_data",
+        "kind": "boundary",
+        "label": "Разрозненные прайс-листы, остатки, характеристики и изображения",
+        "parent": "context",
+        "properties": {
+          "side": "left",
+          "direction": "in"
+        }
+      },
+      {
+        "id": "ctx_assignment",
+        "kind": "boundary",
+        "label": "Неформальный порядок назначения исполнителей",
+        "parent": "context",
+        "properties": {
+          "side": "top",
+          "direction": "in"
+        }
+      },
+      {
+        "id": "ctx_templates",
+        "kind": "boundary",
+        "label": "Локальные шаблоны Excel и устные договорённости",
+        "parent": "context",
+        "properties": {
+          "side": "top",
+          "direction": "in"
+        }
+      },
+      {
+        "id": "ctx_compatibility",
+        "kind": "boundary",
+        "label": "Неформализованные правила совместимости",
+        "parent": "context",
+        "properties": {
+          "side": "top",
+          "direction": "in"
+        }
+      },
+      {
+        "id": "ctx_supplierRoutine",
+        "kind": "boundary",
+        "label": "Привычный способ запроса и сведения предложений",
+        "parent": "context",
+        "properties": {
+          "side": "top",
+          "direction": "in"
+        }
+      },
+      {
+        "id": "ctx_calculation",
+        "kind": "boundary",
+        "label": "Формулы цены и массы, обновляемые вручную",
+        "parent": "context",
+        "properties": {
+          "side": "top",
+          "direction": "in"
+        }
+      },
+      {
+        "id": "ctx_ozon",
+        "kind": "boundary",
+        "label": "Требования Ozon, проверяемые при заполнении",
+        "parent": "context",
+        "properties": {
+          "side": "top",
+          "direction": "in"
+        }
+      },
+      {
+        "id": "ctx_table",
+        "kind": "boundary",
+        "label": "Локальная таблица состава без гарантированной версии",
+        "parent": "context",
+        "properties": {
+          "side": "right",
+          "direction": "out"
+        }
+      },
+      {
+        "id": "ctx_values",
+        "kind": "boundary",
+        "label": "Рассчитанные вручную цена, масса, изображения и текст",
+        "parent": "context",
+        "properties": {
+          "side": "right",
+          "direction": "out"
+        }
+      },
+      {
+        "id": "ctx_card",
+        "kind": "boundary",
+        "label": "Карточка в Ozon или отклонение",
+        "parent": "context",
+        "properties": {
+          "side": "right",
+          "direction": "out"
+        }
+      },
+      {
+        "id": "ctx_waste",
+        "kind": "boundary",
+        "label": "Расхождения, замечания и повторная работа",
+        "parent": "context",
+        "properties": {
+          "side": "right",
+          "direction": "out"
+        }
+      },
+      {
+        "id": "ctx_manager",
+        "kind": "boundary",
+        "label": "Менеджер маркетплейсов",
+        "parent": "context",
+        "properties": {
+          "side": "bottom",
+          "direction": "in"
+        }
+      },
+      {
+        "id": "ctx_staff",
+        "kind": "boundary",
+        "label": "Технический специалист, склад и дизайнер",
+        "parent": "context",
+        "properties": {
+          "side": "bottom",
+          "direction": "in"
+        }
+      },
+      {
+        "id": "ctx_desktop",
+        "kind": "boundary",
+        "label": "Excel, калькулятор и браузер",
+        "parent": "context",
+        "properties": {
+          "side": "bottom",
+          "direction": "in"
+        }
+      },
+      {
+        "id": "ctx_messages",
+        "kind": "boundary",
+        "label": "Почта, мессенджеры и общие папки",
+        "parent": "context",
+        "properties": {
+          "side": "bottom",
+          "direction": "in"
+        }
+      },
+      {
+        "id": "ctx_seller",
+        "kind": "boundary",
+        "label": "Кабинет Ozon Seller",
+        "parent": "context",
+        "properties": {
+          "side": "bottom",
+          "direction": "in"
+        }
+      },
+      {
+        "id": "decomposition",
+        "kind": "diagram",
+        "label": "Вручную формировать и актуализировать карточки компьютерных систем",
+        "parent": "root",
+        "properties": {
+          "node": "A0",
+          "purpose": "Показать разрозненные ручные операции, повторный ввод и позднее обнаружение ошибок",
+          "viewpoint": "Менеджер маркетплейсов",
+          "author": "Албахтин И.В.",
+          "date": "28.09.2026",
+          "project": "РОП Практика 1 — ООО Юкомс",
+          "status": "publication",
+          "context": "A-0",
+          "pageNumber": "2"
+        }
+      },
+      {
+        "id": "A1",
+        "kind": "function",
+        "label": "Получить неформальный запрос и найти исходные материалы",
+        "parent": "decomposition",
+        "properties": {
+          "number": "1"
+        }
+      },
+      {
+        "id": "A2",
+        "kind": "function",
+        "label": "Скопировать предыдущий состав и вручную подобрать комплектующие",
+        "parent": "decomposition",
+        "properties": {
+          "number": "2"
+        }
+      },
+      {
+        "id": "A3",
+        "kind": "function",
+        "label": "Проверить совместимость по опыту, сайтам и переписке",
+        "parent": "decomposition",
+        "properties": {
+          "number": "3"
+        }
+      },
+      {
+        "id": "A4",
+        "kind": "function",
+        "label": "Запросить и вручную свести цены и остатки поставщиков",
+        "parent": "decomposition",
+        "properties": {
+          "number": "4"
+        }
+      },
+      {
+        "id": "A5",
+        "kind": "function",
+        "label": "Отдельно рассчитать цену и массу, подготовить изображения и текст",
+        "parent": "decomposition",
+        "properties": {
+          "number": "5"
+        }
+      },
+      {
+        "id": "A6",
+        "kind": "function",
+        "label": "Повторно ввести данные в Ozon и исправлять отклонения",
+        "parent": "decomposition",
+        "properties": {
+          "number": "6"
+        }
+      },
+      {
+        "id": "dec_request",
+        "kind": "boundary",
+        "label": "Запрос из почты или мессенджера",
+        "parent": "decomposition",
+        "properties": {
+          "side": "left",
+          "direction": "in",
+          "parentArrow": "c_request",
+          "parentEnd": "to"
+        }
+      },
+      {
+        "id": "dec_data",
+        "kind": "boundary",
+        "label": "Разрозненные прайс-листы, остатки, характеристики и изображения",
+        "parent": "decomposition",
+        "properties": {
+          "side": "left",
+          "direction": "in",
+          "parentArrow": "c_data",
+          "parentEnd": "to"
+        }
+      },
+      {
+        "id": "dec_assignment",
+        "kind": "boundary",
+        "label": "Неформальный порядок назначения исполнителей",
+        "parent": "decomposition",
+        "properties": {
+          "side": "top",
+          "direction": "in",
+          "parentArrow": "c_assignment",
+          "parentEnd": "to"
+        }
+      },
+      {
+        "id": "dec_templates",
+        "kind": "boundary",
+        "label": "Локальные шаблоны Excel и устные договорённости",
+        "parent": "decomposition",
+        "properties": {
+          "side": "top",
+          "direction": "in",
+          "parentArrow": "c_templates",
+          "parentEnd": "to"
+        }
+      },
+      {
+        "id": "dec_compatibility",
+        "kind": "boundary",
+        "label": "Неформализованные правила совместимости",
+        "parent": "decomposition",
+        "properties": {
+          "side": "top",
+          "direction": "in",
+          "parentArrow": "c_compatibility",
+          "parentEnd": "to"
+        }
+      },
+      {
+        "id": "dec_supplierRoutine",
+        "kind": "boundary",
+        "label": "Привычный способ запроса и сведения предложений",
+        "parent": "decomposition",
+        "properties": {
+          "side": "top",
+          "direction": "in",
+          "parentArrow": "c_supplierRoutine",
+          "parentEnd": "to"
+        }
+      },
+      {
+        "id": "dec_calculation",
+        "kind": "boundary",
+        "label": "Формулы цены и массы, обновляемые вручную",
+        "parent": "decomposition",
+        "properties": {
+          "side": "top",
+          "direction": "in",
+          "parentArrow": "c_calculation",
+          "parentEnd": "to"
+        }
+      },
+      {
+        "id": "dec_ozon",
+        "kind": "boundary",
+        "label": "Требования Ozon, проверяемые при заполнении",
+        "parent": "decomposition",
+        "properties": {
+          "side": "top",
+          "direction": "in",
+          "parentArrow": "c_ozon",
+          "parentEnd": "to"
+        }
+      },
+      {
+        "id": "dec_table",
+        "kind": "boundary",
+        "label": "Локальная таблица состава без гарантированной версии",
+        "parent": "decomposition",
+        "properties": {
+          "side": "right",
+          "direction": "out",
+          "parentArrow": "c_table",
+          "parentEnd": "from"
+        }
+      },
+      {
+        "id": "dec_values",
+        "kind": "boundary",
+        "label": "Рассчитанные вручную цена, масса, изображения и текст",
+        "parent": "decomposition",
+        "properties": {
+          "side": "right",
+          "direction": "out",
+          "parentArrow": "c_values",
+          "parentEnd": "from"
+        }
+      },
+      {
+        "id": "dec_card",
+        "kind": "boundary",
+        "label": "Карточка в Ozon или отклонение",
+        "parent": "decomposition",
+        "properties": {
+          "side": "right",
+          "direction": "out",
+          "parentArrow": "c_card",
+          "parentEnd": "from"
+        }
+      },
+      {
+        "id": "dec_waste",
+        "kind": "boundary",
+        "label": "Расхождения, замечания и повторная работа",
+        "parent": "decomposition",
+        "properties": {
+          "side": "right",
+          "direction": "out",
+          "parentArrow": "c_waste",
+          "parentEnd": "from"
+        }
+      },
+      {
+        "id": "dec_manager",
+        "kind": "boundary",
+        "label": "Менеджер маркетплейсов",
+        "parent": "decomposition",
+        "properties": {
+          "side": "bottom",
+          "direction": "in",
+          "parentArrow": "c_manager",
+          "parentEnd": "to"
+        }
+      },
+      {
+        "id": "dec_staff",
+        "kind": "boundary",
+        "label": "Технический специалист, склад и дизайнер",
+        "parent": "decomposition",
+        "properties": {
+          "side": "bottom",
+          "direction": "in",
+          "parentArrow": "c_staff",
+          "parentEnd": "to"
+        }
+      },
+      {
+        "id": "dec_desktop",
+        "kind": "boundary",
+        "label": "Excel, калькулятор и браузер",
+        "parent": "decomposition",
+        "properties": {
+          "side": "bottom",
+          "direction": "in",
+          "parentArrow": "c_desktop",
+          "parentEnd": "to"
+        }
+      },
+      {
+        "id": "dec_messages",
+        "kind": "boundary",
+        "label": "Почта, мессенджеры и общие папки",
+        "parent": "decomposition",
+        "properties": {
+          "side": "bottom",
+          "direction": "in",
+          "parentArrow": "c_messages",
+          "parentEnd": "to"
+        }
+      },
+      {
+        "id": "dec_seller",
+        "kind": "boundary",
+        "label": "Кабинет Ozon Seller",
+        "parent": "decomposition",
+        "properties": {
+          "side": "bottom",
+          "direction": "in",
+          "parentArrow": "c_seller",
+          "parentEnd": "to"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "c_request",
+        "kind": "arrow",
+        "label": "Запрос из почты или мессенджера",
+        "source": "ctx_request",
+        "target": "root",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "c_data",
+        "kind": "arrow",
+        "label": "Разрозненные прайс-листы, остатки, характеристики и изображения",
+        "source": "ctx_data",
+        "target": "root",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "c_assignment",
+        "kind": "arrow",
+        "label": "Неформальный порядок назначения исполнителей",
+        "source": "ctx_assignment",
+        "target": "root",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "c_templates",
+        "kind": "arrow",
+        "label": "Локальные шаблоны Excel и устные договорённости",
+        "source": "ctx_templates",
+        "target": "root",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "c_compatibility",
+        "kind": "arrow",
+        "label": "Неформализованные правила совместимости",
+        "source": "ctx_compatibility",
+        "target": "root",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "c_supplierRoutine",
+        "kind": "arrow",
+        "label": "Привычный способ запроса и сведения предложений",
+        "source": "ctx_supplierRoutine",
+        "target": "root",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "c_calculation",
+        "kind": "arrow",
+        "label": "Формулы цены и массы, обновляемые вручную",
+        "source": "ctx_calculation",
+        "target": "root",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "c_ozon",
+        "kind": "arrow",
+        "label": "Требования Ozon, проверяемые при заполнении",
+        "source": "ctx_ozon",
+        "target": "root",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "c_table",
+        "kind": "arrow",
+        "label": "Локальная таблица состава без гарантированной версии",
+        "source": "root",
+        "target": "ctx_table",
+        "properties": {
+          "role": "output"
+        }
+      },
+      {
+        "id": "c_values",
+        "kind": "arrow",
+        "label": "Рассчитанные вручную цена, масса, изображения и текст",
+        "source": "root",
+        "target": "ctx_values",
+        "properties": {
+          "role": "output"
+        }
+      },
+      {
+        "id": "c_card",
+        "kind": "arrow",
+        "label": "Карточка в Ozon или отклонение",
+        "source": "root",
+        "target": "ctx_card",
+        "properties": {
+          "role": "output"
+        }
+      },
+      {
+        "id": "c_waste",
+        "kind": "arrow",
+        "label": "Расхождения, замечания и повторная работа",
+        "source": "root",
+        "target": "ctx_waste",
+        "properties": {
+          "role": "output"
+        }
+      },
+      {
+        "id": "c_manager",
+        "kind": "arrow",
+        "label": "Менеджер маркетплейсов",
+        "source": "ctx_manager",
+        "target": "root",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "c_staff",
+        "kind": "arrow",
+        "label": "Технический специалист, склад и дизайнер",
+        "source": "ctx_staff",
+        "target": "root",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "c_desktop",
+        "kind": "arrow",
+        "label": "Excel, калькулятор и браузер",
+        "source": "ctx_desktop",
+        "target": "root",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "c_messages",
+        "kind": "arrow",
+        "label": "Почта, мессенджеры и общие папки",
+        "source": "ctx_messages",
+        "target": "root",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "c_seller",
+        "kind": "arrow",
+        "label": "Кабинет Ozon Seller",
+        "source": "ctx_seller",
+        "target": "root",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "d_request",
+        "kind": "arrow",
+        "label": "Запрос из почты или мессенджера",
+        "source": "dec_request",
+        "target": "A1",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "d_data",
+        "kind": "arrow",
+        "label": "Разрозненные прайс-листы, остатки, характеристики и изображения",
+        "source": "dec_data",
+        "target": "A2",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "d_assignment",
+        "kind": "arrow",
+        "label": "Неформальный порядок назначения исполнителей",
+        "source": "dec_assignment",
+        "target": "A1",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "d_templates",
+        "kind": "arrow",
+        "label": "Локальные шаблоны Excel и устные договорённости",
+        "source": "dec_templates",
+        "target": "A2",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "d_compatibility",
+        "kind": "arrow",
+        "label": "Неформализованные правила совместимости",
+        "source": "dec_compatibility",
+        "target": "A3",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "d_supplierRoutine",
+        "kind": "arrow",
+        "label": "Привычный способ запроса и сведения предложений",
+        "source": "dec_supplierRoutine",
+        "target": "A4",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "d_calculation",
+        "kind": "arrow",
+        "label": "Формулы цены и массы, обновляемые вручную",
+        "source": "dec_calculation",
+        "target": "A5",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "d_ozon",
+        "kind": "arrow",
+        "label": "Требования Ozon, проверяемые при заполнении",
+        "source": "dec_ozon",
+        "target": "A6",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "d_table",
+        "kind": "arrow",
+        "label": "Локальная таблица состава без гарантированной версии",
+        "source": "A2",
+        "target": "dec_table",
+        "properties": {
+          "role": "output"
+        }
+      },
+      {
+        "id": "d_values",
+        "kind": "arrow",
+        "label": "Рассчитанные вручную цена, масса, изображения и текст",
+        "source": "A5",
+        "target": "dec_values",
+        "properties": {
+          "role": "output"
+        }
+      },
+      {
+        "id": "d_card",
+        "kind": "arrow",
+        "label": "Карточка в Ozon или отклонение",
+        "source": "A6",
+        "target": "dec_card",
+        "properties": {
+          "role": "output"
+        }
+      },
+      {
+        "id": "d_waste",
+        "kind": "arrow",
+        "label": "Расхождения, замечания и повторная работа",
+        "source": "A6",
+        "target": "dec_waste",
+        "properties": {
+          "role": "output"
+        }
+      },
+      {
+        "id": "d_manager",
+        "kind": "arrow",
+        "label": "Менеджер маркетплейсов",
+        "source": "dec_manager",
+        "target": "A1",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "d_staff",
+        "kind": "arrow",
+        "label": "Технический специалист, склад и дизайнер",
+        "source": "dec_staff",
+        "target": "A3",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "d_desktop",
+        "kind": "arrow",
+        "label": "Excel, калькулятор и браузер",
+        "source": "dec_desktop",
+        "target": "A5",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "d_messages",
+        "kind": "arrow",
+        "label": "Почта, мессенджеры и общие папки",
+        "source": "dec_messages",
+        "target": "A4",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "d_seller",
+        "kind": "arrow",
+        "label": "Кабинет Ozon Seller",
+        "source": "dec_seller",
+        "target": "A6",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "step12",
+        "kind": "arrow",
+        "label": "Найденные файлы и выбранная таблица",
+        "source": "A1",
+        "target": "A2",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "step23",
+        "kind": "arrow",
+        "label": "Черновой состав в локальном файле",
+        "source": "A2",
+        "target": "A3",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "step34",
+        "kind": "arrow",
+        "label": "Состав после ручной проверки",
+        "source": "A3",
+        "target": "A4",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "step45",
+        "kind": "arrow",
+        "label": "Сведённые вручную цены и остатки",
+        "source": "A4",
+        "target": "A5",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "step56",
+        "kind": "arrow",
+        "label": "Файлы и значения для повторного ввода",
+        "source": "A5",
+        "target": "A6",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "feedback_compat",
+        "kind": "arrow",
+        "label": "Несовместимость и ручные замечания",
+        "source": "A3",
+        "target": "A2",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "feedback_unavailable",
+        "kind": "arrow",
+        "label": "Нет товара или сведения устарели",
+        "source": "A4",
+        "target": "A2",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "feedback_missing",
+        "kind": "arrow",
+        "label": "Не хватает характеристик или файлов",
+        "source": "A5",
+        "target": "A2",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "feedback_rejected",
+        "kind": "arrow",
+        "label": "Отклонение Ozon и повторное исправление",
+        "source": "A6",
+        "target": "A5",
+        "properties": {
+          "role": "control"
+        }
+      }
+    ]
+  },
+  "source": "idef0 rop_cards \"Карточки компьютерных систем ООО Юкомс AS IS\"\ndiagram context \"Вручную формировать и актуализировать карточки компьютерных систем\" node=A-0 purpose=\"Показать разрозненные ручные операции, повторный ввод и позднее обнаружение ошибок\" viewpoint=\"Менеджер маркетплейсов\" author=\"Албахтин И.В.\" date=\"28.09.2026\" project=\"РОП Практика 1 — ООО Юкомс\" status=publication context=TOP pageNumber=1\nfunction root \"Вручную формировать и актуализировать карточки компьютерных систем\" in=context number=0\nboundary ctx_request \"Запрос из почты или мессенджера\" in=context side=left direction=in\narrow c_request \"Запрос из почты или мессенджера\" from=ctx_request to=root role=input\nboundary ctx_data \"Разрозненные прайс-листы, остатки, характеристики и изображения\" in=context side=left direction=in\narrow c_data \"Разрозненные прайс-листы, остатки, характеристики и изображения\" from=ctx_data to=root role=input\nboundary ctx_assignment \"Неформальный порядок назначения исполнителей\" in=context side=top direction=in\narrow c_assignment \"Неформальный порядок назначения исполнителей\" from=ctx_assignment to=root role=control\nboundary ctx_templates \"Локальные шаблоны Excel и устные договорённости\" in=context side=top direction=in\narrow c_templates \"Локальные шаблоны Excel и устные договорённости\" from=ctx_templates to=root role=control\nboundary ctx_compatibility \"Неформализованные правила совместимости\" in=context side=top direction=in\narrow c_compatibility \"Неформализованные правила совместимости\" from=ctx_compatibility to=root role=control\nboundary ctx_supplierRoutine \"Привычный способ запроса и сведения предложений\" in=context side=top direction=in\narrow c_supplierRoutine \"Привычный способ запроса и сведения предложений\" from=ctx_supplierRoutine to=root role=control\nboundary ctx_calculation \"Формулы цены и массы, обновляемые вручную\" in=context side=top direction=in\narrow c_calculation \"Формулы цены и массы, обновляемые вручную\" from=ctx_calculation to=root role=control\nboundary ctx_ozon \"Требования Ozon, проверяемые при заполнении\" in=context side=top direction=in\narrow c_ozon \"Требования Ozon, проверяемые при заполнении\" from=ctx_ozon to=root role=control\nboundary ctx_table \"Локальная таблица состава без гарантированной версии\" in=context side=right direction=out\narrow c_table \"Локальная таблица состава без гарантированной версии\" from=root to=ctx_table role=output\nboundary ctx_values \"Рассчитанные вручную цена, масса, изображения и текст\" in=context side=right direction=out\narrow c_values \"Рассчитанные вручную цена, масса, изображения и текст\" from=root to=ctx_values role=output\nboundary ctx_card \"Карточка в Ozon или отклонение\" in=context side=right direction=out\narrow c_card \"Карточка в Ozon или отклонение\" from=root to=ctx_card role=output\nboundary ctx_waste \"Расхождения, замечания и повторная работа\" in=context side=right direction=out\narrow c_waste \"Расхождения, замечания и повторная работа\" from=root to=ctx_waste role=output\nboundary ctx_manager \"Менеджер маркетплейсов\" in=context side=bottom direction=in\narrow c_manager \"Менеджер маркетплейсов\" from=ctx_manager to=root role=mechanism\nboundary ctx_staff \"Технический специалист, склад и дизайнер\" in=context side=bottom direction=in\narrow c_staff \"Технический специалист, склад и дизайнер\" from=ctx_staff to=root role=mechanism\nboundary ctx_desktop \"Excel, калькулятор и браузер\" in=context side=bottom direction=in\narrow c_desktop \"Excel, калькулятор и браузер\" from=ctx_desktop to=root role=mechanism\nboundary ctx_messages \"Почта, мессенджеры и общие папки\" in=context side=bottom direction=in\narrow c_messages \"Почта, мессенджеры и общие папки\" from=ctx_messages to=root role=mechanism\nboundary ctx_seller \"Кабинет Ozon Seller\" in=context side=bottom direction=in\narrow c_seller \"Кабинет Ozon Seller\" from=ctx_seller to=root role=mechanism\ndiagram decomposition \"Вручную формировать и актуализировать карточки компьютерных систем\" in=root node=A0 purpose=\"Показать разрозненные ручные операции, повторный ввод и позднее обнаружение ошибок\" viewpoint=\"Менеджер маркетплейсов\" author=\"Албахтин И.В.\" date=\"28.09.2026\" project=\"РОП Практика 1 — ООО Юкомс\" status=publication context=A-0 pageNumber=2\nfunction A1 \"Получить неформальный запрос и найти исходные материалы\" in=decomposition number=1\nfunction A2 \"Скопировать предыдущий состав и вручную подобрать комплектующие\" in=decomposition number=2\nfunction A3 \"Проверить совместимость по опыту, сайтам и переписке\" in=decomposition number=3\nfunction A4 \"Запросить и вручную свести цены и остатки поставщиков\" in=decomposition number=4\nfunction A5 \"Отдельно рассчитать цену и массу, подготовить изображения и текст\" in=decomposition number=5\nfunction A6 \"Повторно ввести данные в Ozon и исправлять отклонения\" in=decomposition number=6\nboundary dec_request \"Запрос из почты или мессенджера\" in=decomposition side=left direction=in parentArrow=c_request parentEnd=to\narrow d_request \"Запрос из почты или мессенджера\" from=dec_request to=A1 role=input\nboundary dec_data \"Разрозненные прайс-листы, остатки, характеристики и изображения\" in=decomposition side=left direction=in parentArrow=c_data parentEnd=to\narrow d_data \"Разрозненные прайс-листы, остатки, характеристики и изображения\" from=dec_data to=A2 role=input\nboundary dec_assignment \"Неформальный порядок назначения исполнителей\" in=decomposition side=top direction=in parentArrow=c_assignment parentEnd=to\narrow d_assignment \"Неформальный порядок назначения исполнителей\" from=dec_assignment to=A1 role=control\nboundary dec_templates \"Локальные шаблоны Excel и устные договорённости\" in=decomposition side=top direction=in parentArrow=c_templates parentEnd=to\narrow d_templates \"Локальные шаблоны Excel и устные договорённости\" from=dec_templates to=A2 role=control\nboundary dec_compatibility \"Неформализованные правила совместимости\" in=decomposition side=top direction=in parentArrow=c_compatibility parentEnd=to\narrow d_compatibility \"Неформализованные правила совместимости\" from=dec_compatibility to=A3 role=control\nboundary dec_supplierRoutine \"Привычный способ запроса и сведения предложений\" in=decomposition side=top direction=in parentArrow=c_supplierRoutine parentEnd=to\narrow d_supplierRoutine \"Привычный способ запроса и сведения предложений\" from=dec_supplierRoutine to=A4 role=control\nboundary dec_calculation \"Формулы цены и массы, обновляемые вручную\" in=decomposition side=top direction=in parentArrow=c_calculation parentEnd=to\narrow d_calculation \"Формулы цены и массы, обновляемые вручную\" from=dec_calculation to=A5 role=control\nboundary dec_ozon \"Требования Ozon, проверяемые при заполнении\" in=decomposition side=top direction=in parentArrow=c_ozon parentEnd=to\narrow d_ozon \"Требования Ozon, проверяемые при заполнении\" from=dec_ozon to=A6 role=control\nboundary dec_table \"Локальная таблица состава без гарантированной версии\" in=decomposition side=right direction=out parentArrow=c_table parentEnd=from\narrow d_table \"Локальная таблица состава без гарантированной версии\" from=A2 to=dec_table role=output\nboundary dec_values \"Рассчитанные вручную цена, масса, изображения и текст\" in=decomposition side=right direction=out parentArrow=c_values parentEnd=from\narrow d_values \"Рассчитанные вручную цена, масса, изображения и текст\" from=A5 to=dec_values role=output\nboundary dec_card \"Карточка в Ozon или отклонение\" in=decomposition side=right direction=out parentArrow=c_card parentEnd=from\narrow d_card \"Карточка в Ozon или отклонение\" from=A6 to=dec_card role=output\nboundary dec_waste \"Расхождения, замечания и повторная работа\" in=decomposition side=right direction=out parentArrow=c_waste parentEnd=from\narrow d_waste \"Расхождения, замечания и повторная работа\" from=A6 to=dec_waste role=output\nboundary dec_manager \"Менеджер маркетплейсов\" in=decomposition side=bottom direction=in parentArrow=c_manager parentEnd=to\narrow d_manager \"Менеджер маркетплейсов\" from=dec_manager to=A1 role=mechanism\nboundary dec_staff \"Технический специалист, склад и дизайнер\" in=decomposition side=bottom direction=in parentArrow=c_staff parentEnd=to\narrow d_staff \"Технический специалист, склад и дизайнер\" from=dec_staff to=A3 role=mechanism\nboundary dec_desktop \"Excel, калькулятор и браузер\" in=decomposition side=bottom direction=in parentArrow=c_desktop parentEnd=to\narrow d_desktop \"Excel, калькулятор и браузер\" from=dec_desktop to=A5 role=mechanism\nboundary dec_messages \"Почта, мессенджеры и общие папки\" in=decomposition side=bottom direction=in parentArrow=c_messages parentEnd=to\narrow d_messages \"Почта, мессенджеры и общие папки\" from=dec_messages to=A4 role=mechanism\nboundary dec_seller \"Кабинет Ozon Seller\" in=decomposition side=bottom direction=in parentArrow=c_seller parentEnd=to\narrow d_seller \"Кабинет Ozon Seller\" from=dec_seller to=A6 role=mechanism\narrow step12 \"Найденные файлы и выбранная таблица\" from=A1 to=A2 role=input\narrow step23 \"Черновой состав в локальном файле\" from=A2 to=A3 role=input\narrow step34 \"Состав после ручной проверки\" from=A3 to=A4 role=input\narrow step45 \"Сведённые вручную цены и остатки\" from=A4 to=A5 role=input\narrow step56 \"Файлы и значения для повторного ввода\" from=A5 to=A6 role=input\narrow feedback_compat \"Несовместимость и ручные замечания\" from=A3 to=A2 role=control\narrow feedback_unavailable \"Нет товара или сведения устарели\" from=A4 to=A2 role=control\narrow feedback_missing \"Не хватает характеристик или файлов\" from=A5 to=A2 role=control\narrow feedback_rejected \"Отклонение Ozon и повторное исправление\" from=A6 to=A5 role=control\n",
+  "draft": "idef0 rop_cards \"Карточки компьютерных систем ООО Юкомс AS IS\"\ndiagram context \"Вручную формировать и актуализировать карточки компьютерных систем\" node=A-0 purpose=\"Показать разрозненные ручные операции, повторный ввод и позднее обнаружение ошибок\" viewpoint=\"Менеджер маркетплейсов\" author=\"Албахтин И.В.\" date=\"28.09.2026\" project=\"РОП Практика 1 — ООО Юкомс\" status=publication context=TOP pageNumber=1\nfunction root \"Вручную формировать и актуализировать карточки компьютерных систем\" in=context number=0\nboundary ctx_request \"Запрос из почты или мессенджера\" in=context side=left direction=in\narrow c_request \"Запрос из почты или мессенджера\" from=ctx_request to=root role=input\nboundary ctx_data \"Разрозненные прайс-листы, остатки, характеристики и изображения\" in=context side=left direction=in\narrow c_data \"Разрозненные прайс-листы, остатки, характеристики и изображения\" from=ctx_data to=root role=input\nboundary ctx_assignment \"Неформальный порядок назначения исполнителей\" in=context side=top direction=in\narrow c_assignment \"Неформальный порядок назначения исполнителей\" from=ctx_assignment to=root role=control\nboundary ctx_templates \"Локальные шаблоны Excel и устные договорённости\" in=context side=top direction=in\narrow c_templates \"Локальные шаблоны Excel и устные договорённости\" from=ctx_templates to=root role=control\nboundary ctx_compatibility \"Неформализованные правила совместимости\" in=context side=top direction=in\narrow c_compatibility \"Неформализованные правила совместимости\" from=ctx_compatibility to=root role=control\nboundary ctx_supplierRoutine \"Привычный способ запроса и сведения предложений\" in=context side=top direction=in\narrow c_supplierRoutine \"Привычный способ запроса и сведения предложений\" from=ctx_supplierRoutine to=root role=control\nboundary ctx_calculation \"Формулы цены и массы, обновляемые вручную\" in=context side=top direction=in\narrow c_calculation \"Формулы цены и массы, обновляемые вручную\" from=ctx_calculation to=root role=control\nboundary ctx_ozon \"Требования Ozon, проверяемые при заполнении\" in=context side=top direction=in\narrow c_ozon \"Требования Ozon, проверяемые при заполнении\" from=ctx_ozon to=root role=control\nboundary ctx_table \"Локальная таблица состава без гарантированной версии\" in=context side=right direction=out\narrow c_table \"Локальная таблица состава без гарантированной версии\" from=root to=ctx_table role=output\nboundary ctx_values \"Рассчитанные вручную цена, масса, изображения и текст\" in=context side=right direction=out\narrow c_values \"Рассчитанные вручную цена, масса, изображения и текст\" from=root to=ctx_values role=output\nboundary ctx_card \"Карточка в Ozon или отклонение\" in=context side=right direction=out\narrow c_card \"Карточка в Ozon или отклонение\" from=root to=ctx_card role=output\nboundary ctx_waste \"Расхождения, замечания и повторная работа\" in=context side=right direction=out\narrow c_waste \"Расхождения, замечания и повторная работа\" from=root to=ctx_waste role=output\nboundary ctx_manager \"Менеджер маркетплейсов\" in=context side=bottom direction=in\narrow c_manager \"Менеджер маркетплейсов\" from=ctx_manager to=root role=mechanism\nboundary ctx_staff \"Технический специалист, склад и дизайнер\" in=context side=bottom direction=in\narrow c_staff \"Технический специалист, склад и дизайнер\" from=ctx_staff to=root role=mechanism\nboundary ctx_desktop \"Excel, калькулятор и браузер\" in=context side=bottom direction=in\narrow c_desktop \"Excel, калькулятор и браузер\" from=ctx_desktop to=root role=mechanism\nboundary ctx_messages \"Почта, мессенджеры и общие папки\" in=context side=bottom direction=in\narrow c_messages \"Почта, мессенджеры и общие папки\" from=ctx_messages to=root role=mechanism\nboundary ctx_seller \"Кабинет Ozon Seller\" in=context side=bottom direction=in\narrow c_seller \"Кабинет Ozon Seller\" from=ctx_seller to=root role=mechanism\ndiagram decomposition \"Вручную формировать и актуализировать карточки компьютерных систем\" in=root node=A0 purpose=\"Показать разрозненные ручные операции, повторный ввод и позднее обнаружение ошибок\" viewpoint=\"Менеджер маркетплейсов\" author=\"Албахтин И.В.\" date=\"28.09.2026\" project=\"РОП Практика 1 — ООО Юкомс\" status=publication context=A-0 pageNumber=2\nfunction A1 \"Получить неформальный запрос и найти исходные материалы\" in=decomposition number=1\nfunction A2 \"Скопировать предыдущий состав и вручную подобрать комплектующие\" in=decomposition number=2\nfunction A3 \"Проверить совместимость по опыту, сайтам и переписке\" in=decomposition number=3\nfunction A4 \"Запросить и вручную свести цены и остатки поставщиков\" in=decomposition number=4\nfunction A5 \"Отдельно рассчитать цену и массу, подготовить изображения и текст\" in=decomposition number=5\nfunction A6 \"Повторно ввести данные в Ozon и исправлять отклонения\" in=decomposition number=6\nboundary dec_request \"Запрос из почты или мессенджера\" in=decomposition side=left direction=in parentArrow=c_request parentEnd=to\narrow d_request \"Запрос из почты или мессенджера\" from=dec_request to=A1 role=input\nboundary dec_data \"Разрозненные прайс-листы, остатки, характеристики и изображения\" in=decomposition side=left direction=in parentArrow=c_data parentEnd=to\narrow d_data \"Разрозненные прайс-листы, остатки, характеристики и изображения\" from=dec_data to=A2 role=input\nboundary dec_assignment \"Неформальный порядок назначения исполнителей\" in=decomposition side=top direction=in parentArrow=c_assignment parentEnd=to\narrow d_assignment \"Неформальный порядок назначения исполнителей\" from=dec_assignment to=A1 role=control\nboundary dec_templates \"Локальные шаблоны Excel и устные договорённости\" in=decomposition side=top direction=in parentArrow=c_templates parentEnd=to\narrow d_templates \"Локальные шаблоны Excel и устные договорённости\" from=dec_templates to=A2 role=control\nboundary dec_compatibility \"Неформализованные правила совместимости\" in=decomposition side=top direction=in parentArrow=c_compatibility parentEnd=to\narrow d_compatibility \"Неформализованные правила совместимости\" from=dec_compatibility to=A3 role=control\nboundary dec_supplierRoutine \"Привычный способ запроса и сведения предложений\" in=decomposition side=top direction=in parentArrow=c_supplierRoutine parentEnd=to\narrow d_supplierRoutine \"Привычный способ запроса и сведения предложений\" from=dec_supplierRoutine to=A4 role=control\nboundary dec_calculation \"Формулы цены и массы, обновляемые вручную\" in=decomposition side=top direction=in parentArrow=c_calculation parentEnd=to\narrow d_calculation \"Формулы цены и массы, обновляемые вручную\" from=dec_calculation to=A5 role=control\nboundary dec_ozon \"Требования Ozon, проверяемые при заполнении\" in=decomposition side=top direction=in parentArrow=c_ozon parentEnd=to\narrow d_ozon \"Требования Ozon, проверяемые при заполнении\" from=dec_ozon to=A6 role=control\nboundary dec_table \"Локальная таблица состава без гарантированной версии\" in=decomposition side=right direction=out parentArrow=c_table parentEnd=from\narrow d_table \"Локальная таблица состава без гарантированной версии\" from=A2 to=dec_table role=output\nboundary dec_values \"Рассчитанные вручную цена, масса, изображения и текст\" in=decomposition side=right direction=out parentArrow=c_values parentEnd=from\narrow d_values \"Рассчитанные вручную цена, масса, изображения и текст\" from=A5 to=dec_values role=output\nboundary dec_card \"Карточка в Ozon или отклонение\" in=decomposition side=right direction=out parentArrow=c_card parentEnd=from\narrow d_card \"Карточка в Ozon или отклонение\" from=A6 to=dec_card role=output\nboundary dec_waste \"Расхождения, замечания и повторная работа\" in=decomposition side=right direction=out parentArrow=c_waste parentEnd=from\narrow d_waste \"Расхождения, замечания и повторная работа\" from=A6 to=dec_waste role=output\nboundary dec_manager \"Менеджер маркетплейсов\" in=decomposition side=bottom direction=in parentArrow=c_manager parentEnd=to\narrow d_manager \"Менеджер маркетплейсов\" from=dec_manager to=A1 role=mechanism\nboundary dec_staff \"Технический специалист, склад и дизайнер\" in=decomposition side=bottom direction=in parentArrow=c_staff parentEnd=to\narrow d_staff \"Технический специалист, склад и дизайнер\" from=dec_staff to=A3 role=mechanism\nboundary dec_desktop \"Excel, калькулятор и браузер\" in=decomposition side=bottom direction=in parentArrow=c_desktop parentEnd=to\narrow d_desktop \"Excel, калькулятор и браузер\" from=dec_desktop to=A5 role=mechanism\nboundary dec_messages \"Почта, мессенджеры и общие папки\" in=decomposition side=bottom direction=in parentArrow=c_messages parentEnd=to\narrow d_messages \"Почта, мессенджеры и общие папки\" from=dec_messages to=A4 role=mechanism\nboundary dec_seller \"Кабинет Ozon Seller\" in=decomposition side=bottom direction=in parentArrow=c_seller parentEnd=to\narrow d_seller \"Кабинет Ozon Seller\" from=dec_seller to=A6 role=mechanism\narrow step12 \"Найденные файлы и выбранная таблица\" from=A1 to=A2 role=input\narrow step23 \"Черновой состав в локальном файле\" from=A2 to=A3 role=input\narrow step34 \"Состав после ручной проверки\" from=A3 to=A4 role=input\narrow step45 \"Сведённые вручную цены и остатки\" from=A4 to=A5 role=input\narrow step56 \"Файлы и значения для повторного ввода\" from=A5 to=A6 role=input\narrow feedback_compat \"Несовместимость и ручные замечания\" from=A3 to=A2 role=control\narrow feedback_unavailable \"Нет товара или сведения устарели\" from=A4 to=A2 role=control\narrow feedback_missing \"Не хватает характеристик или файлов\" from=A5 to=A2 role=control\narrow feedback_rejected \"Отклонение Ozon и повторное исправление\" from=A6 to=A5 role=control\n",
+  "layout": {
+    "frames": {
+      "context": {
+        "x": 0,
+        "y": 0,
+        "width": 2100,
+        "height": 980
+      },
+      "decomposition": {
+        "x": -20,
+        "y": -30,
+        "width": 2920,
+        "height": 1575
+      }
+    },
+    "positions": {
+      "root": {
+        "x": 860,
+        "y": 390
+      },
+      "ctx_request": {
+        "x": 0,
+        "y": 326.66666666666663
+      },
+      "ctx_data": {
+        "x": 0,
+        "y": 653.3333333333333
+      },
+      "ctx_assignment": {
+        "x": 300,
+        "y": 0
+      },
+      "ctx_templates": {
+        "x": 600,
+        "y": 0
+      },
+      "ctx_compatibility": {
+        "x": 900,
+        "y": 0
+      },
+      "ctx_supplierRoutine": {
+        "x": 1200,
+        "y": 0
+      },
+      "ctx_calculation": {
+        "x": 1500,
+        "y": 0
+      },
+      "ctx_ozon": {
+        "x": 1800,
+        "y": 0
+      },
+      "ctx_table": {
+        "x": 2100,
+        "y": 196
+      },
+      "ctx_values": {
+        "x": 2100,
+        "y": 392
+      },
+      "ctx_card": {
+        "x": 2100,
+        "y": 588
+      },
+      "ctx_waste": {
+        "x": 2100,
+        "y": 784
+      },
+      "ctx_manager": {
+        "x": 350,
+        "y": 980
+      },
+      "ctx_staff": {
+        "x": 700,
+        "y": 980
+      },
+      "ctx_desktop": {
+        "x": 1050,
+        "y": 980
+      },
+      "ctx_messages": {
+        "x": 1400,
+        "y": 980
+      },
+      "ctx_seller": {
+        "x": 1750,
+        "y": 980
+      },
+      "A1": {
+        "x": 100,
+        "y": 250
+      },
+      "A2": {
+        "x": 550,
+        "y": 430
+      },
+      "A3": {
+        "x": 1000,
+        "y": 610
+      },
+      "A4": {
+        "x": 1450,
+        "y": 790
+      },
+      "A5": {
+        "x": 1900,
+        "y": 970
+      },
+      "A6": {
+        "x": 2350,
+        "y": 1150
+      },
+      "dec_request": {
+        "x": -20,
+        "y": 500
+      },
+      "dec_data": {
+        "x": -20,
+        "y": 1000
+      },
+      "dec_assignment": {
+        "x": 400,
+        "y": -30
+      },
+      "dec_templates": {
+        "x": 800,
+        "y": -30
+      },
+      "dec_compatibility": {
+        "x": 1200,
+        "y": -30
+      },
+      "dec_supplierRoutine": {
+        "x": 1600,
+        "y": -30
+      },
+      "dec_calculation": {
+        "x": 2000,
+        "y": -30
+      },
+      "dec_ozon": {
+        "x": 2400,
+        "y": -30
+      },
+      "dec_table": {
+        "x": 2900,
+        "y": 300
+      },
+      "dec_values": {
+        "x": 2900,
+        "y": 600
+      },
+      "dec_card": {
+        "x": 2900,
+        "y": 900
+      },
+      "dec_waste": {
+        "x": 2900,
+        "y": 1200
+      },
+      "dec_manager": {
+        "x": 466.66666666666663,
+        "y": 1545
+      },
+      "dec_staff": {
+        "x": 933.3333333333333,
+        "y": 1545
+      },
+      "dec_desktop": {
+        "x": 1400,
+        "y": 1545
+      },
+      "dec_messages": {
+        "x": 1866.6666666666665,
+        "y": 1545
+      },
+      "dec_seller": {
+        "x": 2333.3333333333335,
+        "y": 1545
+      }
+    },
+    "textStyles": {},
+    "sizes": {
+      "root": {
+        "width": 380,
+        "height": 180
+      },
+      "A1": {
+        "width": 350,
+        "height": 155
+      },
+      "A2": {
+        "width": 350,
+        "height": 155
+      },
+      "A3": {
+        "width": 350,
+        "height": 155
+      },
+      "A4": {
+        "width": 350,
+        "height": 155
+      },
+      "A5": {
+        "width": 350,
+        "height": 155
+      },
+      "A6": {
+        "width": 350,
+        "height": 155
+      }
+    },
+    "arrows": {
+      "c_request": {
+        "label": {
+          "x": 360,
+          "y": 290.66666666666663
+        }
+      },
+      "c_data": {
+        "label": {
+          "x": 360,
+          "y": 617.3333333333333
+        }
+      },
+      "c_table": {
+        "label": {
+          "x": 1490,
+          "y": 160
+        }
+      },
+      "c_values": {
+        "label": {
+          "x": 1490,
+          "y": 356
+        }
+      },
+      "c_card": {
+        "label": {
+          "x": 1490,
+          "y": 552
+        }
+      },
+      "c_waste": {
+        "label": {
+          "x": 1490,
+          "y": 748
+        }
+      },
+      "d_request": {
+        "label": {
+          "x": 360,
+          "y": 464
+        }
+      },
+      "d_data": {
+        "label": {
+          "x": 360,
+          "y": 964
+        }
+      },
+      "d_table": {
+        "label": {
+          "x": 2190,
+          "y": 264
+        }
+      },
+      "d_values": {
+        "label": {
+          "x": 2190,
+          "y": 564
+        }
+      },
+      "d_card": {
+        "label": {
+          "x": 2190,
+          "y": 864
+        }
+      },
+      "d_waste": {
+        "label": {
+          "x": 2190,
+          "y": 1164
+        }
+      },
+      "feedback_compat": {
+        "bends": [
+          {
+            "x": 1380,
+            "y": 705.5833333333333
+          },
+          {
+            "x": 1350,
+            "y": 420
+          },
+          {
+            "x": 700.5,
+            "y": 420
+          },
+          {
+            "x": 700.5,
+            "y": 400
+          }
+        ],
+        "label": {
+          "x": 945.25,
+          "y": 395
+        }
+      },
+      "feedback_unavailable": {
+        "bends": [
+          {
+            "x": 1830,
+            "y": 885.5833333333333
+          },
+          {
+            "x": 1800,
+            "y": 350
+          },
+          {
+            "x": 749.5,
+            "y": 350
+          },
+          {
+            "x": 749.5,
+            "y": 400
+          }
+        ],
+        "label": {
+          "x": 1194.75,
+          "y": 325
+        }
+      },
+      "feedback_missing": {
+        "bends": [
+          {
+            "x": 2280,
+            "y": 1074.625
+          },
+          {
+            "x": 2250,
+            "y": 280
+          },
+          {
+            "x": 798.5,
+            "y": 280
+          },
+          {
+            "x": 798.5,
+            "y": 400
+          }
+        ],
+        "label": {
+          "x": 1444.25,
+          "y": 255
+        }
+      },
+      "feedback_rejected": {
+        "bends": [
+          {
+            "x": 2730,
+            "y": 1254.625
+          },
+          {
+            "x": 2700,
+            "y": 1080
+          },
+          {
+            "x": 2115.8333333333335,
+            "y": 1080
+          },
+          {
+            "x": 2115.8333333333335,
+            "y": 940
+          }
+        ],
+        "label": {
+          "x": 2327.916666666667,
+          "y": 1055
+        }
+      }
+    }
+  }
+}

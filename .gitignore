@@ -1,5 +1,43 @@
+# Temporary report builds and visual QA
+/tmp/
+/.cache/
+/.codex-build/
+/.codex-docx-qa/
+**/tmp/
+
+# Installed dependencies and Python caches
+**/node_modules/
+**/.venv/
+**/venv/
+**/__pycache__/
+*.py[cod]
+**/.pytest_cache/
+**/.ipynb_checkpoints/
+
+# IDE and compiled project output
+**/.gradle/
+**/build/
+**/cmake-build-*/
+**/out/production/
+**/.idea/workspace.xml
+**/.idea/tasks.xml
+**/.idea/shelf/
+**/local.properties
+*.class
+*.obj
+*.pdb
+*.ilk
+*.idb
+*.tlog
+
+# Office lock files and recoverable editor backups
+~$*
+~WRL*.tmp
+*.bak
+*.orig
+.DS_Store
+Thumbs.db
+
+# Large local-only teaching material
 3/VR/
 4/ИСУРО/VID_20260916_125645.mp4
-4/BD/.venv/
-
-tmp/im_docx_render*/

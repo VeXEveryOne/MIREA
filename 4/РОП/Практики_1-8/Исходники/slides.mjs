@@ -1,12 +1,11 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import {Presentation,PresentationFile} from '@oai/artifact-tool';
-import {finalizePresentation} from 'file:///C:/Users/VeX/.codex/plugins/cache/openai-primary-runtime/presentations/26.909.12148/skills/presentations/container_tools/artifact_tool_utils.mjs';
-const workspaceDir='D:/GitHub/MIREA/tmp/rop_all';
-const root='D:/GitHub/MIREA/4/РОП/Практики_1-8';
-const skill='C:/Users/VeX/.codex/plugins/cache/openai-primary-runtime/presentations/26.909.12148/skills/presentations';
-const python='C:/Users/VeX/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe';
-process.env.RUNTIME_NODE_MODULES='C:/Users/VeX/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules';
+import { pathToFileURL } from 'node:url';
+import {ROOT as root, BUILD_DIR as workspaceDir, EXPORT_DIR as exportDir, runtimeModule, skillDirectory, PYTHON as python, NODE_MODULES} from './runtime.mjs';
+const {Presentation,PresentationFile} = await runtimeModule('@oai/artifact-tool');
+const skill = skillDirectory('presentations');
+const {finalizePresentation} = await import(pathToFileURL(path.join(skill, 'container_tools', 'artifact_tool_utils.mjs')).href);
+process.env.RUNTIME_NODE_MODULES=NODE_MODULES;
 await fs.mkdir(root+'/Презентации',{recursive:true});
 const sources='Методические материалы РОП, практические занятия 1–8, 2026–2027. Вариант: первая практика Албахтина И.В. Полные схемы и описание: единый отчёт в комплекте. Все параметры нагрузки и примеры расчётов — учебные проектные значения.';
 let deck,num;
@@ -48,8 +47,7 @@ function twoColumns(title,leftTitle,leftLines,rightTitle,rightLines,notes=''){
  rightLines.forEach((line,i)=>text(s,line,690,220+i*68,520,58,22));
  return s;
 }
-const drafts=root+'/Черновики_схем/';const native=root+'/Модели_OmniNotation/';
-const exportDir=root+'/Модели_для_отчёта/PNG_final4';
+const drafts=root+'/Черновики_схем/';
 const exported=(await fs.readdir(exportDir)).filter(name=>/^\d{2}_.*\.png$/i.test(name)).sort();
 function figure(number){const prefix=String(number).padStart(2,'0')+'_';const name=exported.find(value=>value.startsWith(prefix));if(!name)throw new Error('Не найден рисунок '+number);return exportDir+'/'+name;}
 const firstNumber=Number(process.argv[2]||1),lastNumber=Number(process.argv[3]||8);
@@ -164,4 +162,3 @@ for(num=firstNumber;num<=lastNumber;num++){
  }
  console.log('Completed practice',num,deck.slides.items.length);
 }
-if(firstNumber<=1&&lastNumber>=1)await fs.copyFile(root+'/Презентации/РОП_Практическая_1_АлбахтинИВ.pptx','D:/GitHub/MIREA/4/РОП/РОП_Практическая_1_АлбахтинИВ.pptx');

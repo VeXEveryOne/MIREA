@@ -5,13 +5,9 @@ import json
 from pathlib import Path
 
 
-ROOT = Path(r"D:\GitHub\MIREA\4\РОП\Практики_1-8")
-CANONICAL = ROOT / "Модели_OmniNotation_v2" / "ПР1_BPMN_AS_IS.omni"
-TARGETS = [
-    CANONICAL,
-    ROOT / "Модели_OmniNotation" / "ПР1_BPMN_AS_IS.nsbpmn",
-    Path(r"D:\GitHub\MIREA\4\РОП\BPMN\РОП_Практика_1_AS_IS.nsbpmn"),
-]
+from config import MODEL_DIR
+CANONICAL = MODEL_DIR / "ПР1_BPMN_AS_IS.omni"
+TARGETS = [CANONICAL]
 
 
 document = json.loads(CANONICAL.read_text(encoding="utf-8"))

@@ -1,0 +1,1159 @@
+{
+  "notation": "GANTT",
+  "formatVersion": 1,
+  "profile": "NS-GANTT-1",
+  "model": {
+    "id": "im_plan",
+    "label": "План реализации ИС · Н1–Н12",
+    "elements": [
+      {
+        "id": "weekdays",
+        "kind": "calendar",
+        "label": "Пятидневная неделя",
+        "properties": {
+          "hoursPerDay": "8",
+          "monday": "true",
+          "tuesday": "true",
+          "wednesday": "true",
+          "thursday": "true",
+          "friday": "true",
+          "saturday": "false",
+          "sunday": "false"
+        }
+      },
+      {
+        "id": "plan",
+        "kind": "plan",
+        "label": "План проекта",
+        "properties": {
+          "start": "2026-09-28",
+          "calendar": "weekdays",
+          "mode": "auto",
+          "description": "Отчёт ИМ: таблицы 11.1–11.3 и 3.7. Н1–Н12 — первичный ориентир. 28.09.2026 — только демонстрационный старт пятидневного календаря без автоматически добавленных праздников. Не фактическая дата проекта. Часы распределены равномерно; доступность разработчика ограничена 40 ч/нед. Максимальная расчётная загрузка составляет 36 ч/нед.",
+          "sourceDocumentId": "im_wbs"
+        }
+      },
+      {
+        "id": "main",
+        "kind": "diagram",
+        "label": "План проекта",
+        "properties": {
+          "type": "gantt",
+          "plan": "plan"
+        }
+      },
+      {
+        "id": "root",
+        "kind": "task",
+        "label": "ИС подготовки и актуализации карточек",
+        "properties": {
+          "kind": "summary",
+          "order": "0",
+          "sourceDocumentId": "im_wbs",
+          "sourceNodeId": "root",
+          "wbsCode": "0"
+        }
+      },
+      {
+        "id": "stage1",
+        "kind": "task",
+        "label": "Обследование и требования",
+        "properties": {
+          "kind": "summary",
+          "order": "0",
+          "parent": "root",
+          "sourceDocumentId": "im_wbs",
+          "sourceNodeId": "stage1",
+          "wbsCode": "1"
+        }
+      },
+      {
+        "id": "stage2",
+        "kind": "task",
+        "label": "Проектирование",
+        "properties": {
+          "kind": "summary",
+          "order": "1",
+          "parent": "root",
+          "sourceDocumentId": "im_wbs",
+          "sourceNodeId": "stage2",
+          "wbsCode": "2"
+        }
+      },
+      {
+        "id": "stage3",
+        "kind": "task",
+        "label": "Разработка",
+        "properties": {
+          "kind": "summary",
+          "order": "2",
+          "parent": "root",
+          "sourceDocumentId": "im_wbs",
+          "sourceNodeId": "stage3",
+          "wbsCode": "3"
+        }
+      },
+      {
+        "id": "stage4",
+        "kind": "task",
+        "label": "Испытания и внедрение",
+        "properties": {
+          "kind": "summary",
+          "order": "3",
+          "parent": "root",
+          "sourceDocumentId": "im_wbs",
+          "sourceNodeId": "stage4",
+          "wbsCode": "4"
+        }
+      },
+      {
+        "id": "wp1_1",
+        "kind": "task",
+        "label": "Обследование и модель «как есть»",
+        "properties": {
+          "kind": "task",
+          "order": "0",
+          "parent": "stage1",
+          "sourceDocumentId": "im_wbs",
+          "sourceNodeId": "wp1_1",
+          "wbsCode": "1.1",
+          "duration": "5",
+          "effortHours": "32",
+          "deliverable": "Согласованный реестр, примеры файлов и исходные метрики.",
+          "description": "Недельный ориентир: Н1 / 1–5. Проверка границ, источников и потоков; замер базы. Старт проекта."
+        }
+      },
+      {
+        "id": "wp1_2",
+        "kind": "task",
+        "label": "Требования и критерии приёмки",
+        "properties": {
+          "kind": "task",
+          "order": "1",
+          "parent": "stage1",
+          "sourceDocumentId": "im_wbs",
+          "sourceNodeId": "wp1_2",
+          "wbsCode": "1.2",
+          "duration": "5",
+          "effortHours": "40",
+          "deliverable": "Версия требований и список исключений из первой поставки.",
+          "description": "Недельный ориентир: Н2 / 6–10. FURPS+, сценарии, приоритеты и критерии приёмки. После 1.1."
+        }
+      },
+      {
+        "id": "wp2_1",
+        "kind": "task",
+        "label": "Модель данных и версий",
+        "properties": {
+          "kind": "task",
+          "order": "0",
+          "parent": "stage2",
+          "sourceDocumentId": "im_wbs",
+          "sourceNodeId": "wp2_1",
+          "wbsCode": "2.1",
+          "duration": "5",
+          "effortHours": "32",
+          "deliverable": "Модель данных и проверочные примеры миграции.",
+          "description": "Недельный ориентир: Н3 / 11–15. Сущности, версии, связи и ограничения целостности. После 1.2."
+        }
+      },
+      {
+        "id": "wp2_2",
+        "kind": "task",
+        "label": "Проект интерфейсов и правил",
+        "properties": {
+          "kind": "task",
+          "order": "1",
+          "parent": "stage2",
+          "sourceDocumentId": "im_wbs",
+          "sourceNodeId": "wp2_2",
+          "wbsCode": "2.2",
+          "duration": "10",
+          "effortHours": "40",
+          "deliverable": "Согласованные макеты и контрактные примеры.",
+          "description": "Недельный ориентир: Н3–Н4 / 11–20. Экран карточки, правила, форматы импорта и контракты адаптера. После 1.2; параллельно 2.1."
+        }
+      },
+      {
+        "id": "wp3_1",
+        "kind": "task",
+        "label": "Справочники и модельный ряд",
+        "properties": {
+          "kind": "task",
+          "order": "0",
+          "parent": "stage3",
+          "sourceDocumentId": "im_wbs",
+          "sourceNodeId": "wp3_1",
+          "wbsCode": "3.1",
+          "duration": "15",
+          "effortHours": "56",
+          "deliverable": "Версионирование и обнаружение критических ошибок.",
+          "description": "Недельный ориентир: Н4–Н6 / 16–30. Справочники, составы, согласование и совместимость. После 2.1; уточнения 2.2 до конца Н4."
+        }
+      },
+      {
+        "id": "wp3_2",
+        "kind": "task",
+        "label": "Расчёты и карточки",
+        "properties": {
+          "kind": "task",
+          "order": "1",
+          "parent": "stage3",
+          "sourceDocumentId": "im_wbs",
+          "sourceNodeId": "wp3_2",
+          "wbsCode": "3.2",
+          "duration": "10",
+          "effortHours": "48",
+          "deliverable": "Карточка воспроизводится по сохранённым исходным данным.",
+        "description": "Недельный ориентир: Н6–Н7 / 26–35. Цена, масса, изображения, характеристики и пакет карточки. Рабочая версия модельного ряда передаётся в начале Н6."
+        }
+      },
+      {
+        "id": "wp3_3",
+        "kind": "task",
+        "label": "Обмен и аудит",
+        "properties": {
+          "kind": "task",
+          "order": "2",
+          "parent": "stage3",
+          "sourceDocumentId": "im_wbs",
+          "sourceNodeId": "wp3_3",
+          "wbsCode": "3.3",
+          "duration": "10",
+          "effortHours": "48",
+          "deliverable": "Прослеживается путь от источника до результата отправки.",
+          "description": "Недельный ориентир: Н7–Н8 / 31–40. Импорт, передача, статусы, повторы, аудит и права. Контракт карточки готов к началу Н7."
+        }
+      },
+      {
+        "id": "wp4_1",
+        "kind": "task",
+        "label": "Интеграционные испытания",
+        "properties": {
+          "kind": "task",
+          "order": "0",
+          "parent": "stage4",
+          "sourceDocumentId": "im_wbs",
+          "sourceNodeId": "wp4_1",
+          "wbsCode": "4.1",
+          "duration": "5",
+          "effortHours": "56",
+          "deliverable": "Протокол без блокирующих дефектов, выполненные критерии.",
+          "description": "Недельный ориентир: Н9 / 41–45. Проверка функций, нагрузка, сбои и восстановление. После 3.1–3.3."
+        }
+      },
+      {
+        "id": "wp4_2",
+        "kind": "task",
+        "label": "Инструкции, обучение и пилот",
+        "properties": {
+          "kind": "task",
+          "order": "1",
+          "parent": "stage4",
+          "sourceDocumentId": "im_wbs",
+          "sourceNodeId": "wp4_2",
+          "wbsCode": "4.2",
+          "duration": "10",
+          "effortHours": "48",
+          "deliverable": "Журнал 100 контрольных операций, замечания и итоговые метрики.",
+          "description": "Недельный ориентир: Н10–Н11 / 46–55. Инструкции, обучение и контролируемый пилот. После успешной 4.1."
+        }
+      },
+      {
+        "id": "wp4_3",
+        "kind": "task",
+        "label": "Приёмка и передача",
+        "properties": {
+          "kind": "task",
+          "order": "2",
+          "parent": "stage4",
+          "sourceDocumentId": "im_wbs",
+          "sourceNodeId": "wp4_3",
+          "wbsCode": "4.3",
+          "duration": "5",
+          "effortHours": "32",
+          "deliverable": "Акт приёмки, сборка, исходники, инструкции и ответственные.",
+          "description": "Недельный ориентир: Н12 / 56–60. Закрытие замечаний, проверка поставки, резервирование. После пилота 4.2."
+        }
+      },
+      {
+        "id": "analyst",
+        "kind": "resource",
+        "label": "Аналитик",
+        "properties": {
+          "capacityHoursPerDay": "8",
+          "role": "Требования, интерфейсы и обучение",
+          "description": "Учебная доступность; не фактический табель."
+        }
+      },
+      {
+        "id": "lead",
+        "kind": "resource",
+        "label": "Ведущий разработчик / руководитель",
+        "properties": {
+          "capacityHoursPerDay": "8",
+          "role": "Архитектура, координация и приёмка",
+          "description": "Учебная доступность; не фактический табель."
+        }
+      },
+      {
+        "id": "developer",
+        "kind": "resource",
+        "label": "Разработчик",
+        "properties": {
+          "capacityHoursPerDay": "8",
+          "role": "Реализация и исправления",
+          "description": "Учебная доступность; не фактический табель."
+        }
+      },
+      {
+        "id": "qa",
+        "kind": "resource",
+        "label": "Тестировщик",
+        "properties": {
+          "capacityHoursPerDay": "8",
+          "role": "Испытания и контроль пилота",
+          "description": "Учебная доступность; не фактический табель."
+        }
+      },
+      {
+        "id": "experts",
+        "kind": "resource",
+        "label": "Менеджер и эксперты",
+        "properties": {
+          "capacityHoursPerDay": "8",
+          "role": "Проверка предметных правил и результатов",
+          "description": "Учебная доступность; не фактический табель."
+        }
+      },
+      {
+        "id": "admin",
+        "kind": "resource",
+        "label": "Администратор",
+        "properties": {
+          "capacityHoursPerDay": "8",
+          "role": "Развёртывание, доступ и копии",
+          "description": "Учебная доступность; не фактический табель."
+        }
+      },
+      {
+        "id": "assign1_1_analyst",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp1_1",
+          "resource": "analyst",
+          "effortHours": "20"
+        }
+      },
+      {
+        "id": "assign1_1_lead",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp1_1",
+          "resource": "lead",
+          "effortHours": "4"
+        }
+      },
+      {
+        "id": "assign1_1_experts",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp1_1",
+          "resource": "experts",
+          "effortHours": "8"
+        }
+      },
+      {
+        "id": "assign1_2_analyst",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp1_2",
+          "resource": "analyst",
+          "effortHours": "24"
+        }
+      },
+      {
+        "id": "assign1_2_lead",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp1_2",
+          "resource": "lead",
+          "effortHours": "8"
+        }
+      },
+      {
+        "id": "assign1_2_experts",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp1_2",
+          "resource": "experts",
+          "effortHours": "8"
+        }
+      },
+      {
+        "id": "assign2_1_lead",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp2_1",
+          "resource": "lead",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "assign2_1_developer",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp2_1",
+          "resource": "developer",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "assign2_2_analyst",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp2_2",
+          "resource": "analyst",
+          "effortHours": "12"
+        }
+      },
+      {
+        "id": "assign2_2_lead",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp2_2",
+          "resource": "lead",
+          "effortHours": "4"
+        }
+      },
+      {
+        "id": "assign2_2_developer",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp2_2",
+          "resource": "developer",
+          "effortHours": "24"
+        }
+      },
+      {
+        "id": "assign3_1_lead",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp3_1",
+          "resource": "lead",
+          "effortHours": "4"
+        }
+      },
+      {
+        "id": "assign3_1_developer",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp3_1",
+          "resource": "developer",
+          "effortHours": "48"
+        }
+      },
+      {
+        "id": "assign3_1_qa",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp3_1",
+          "resource": "qa",
+          "effortHours": "4"
+        }
+      },
+      {
+        "id": "assign3_2_developer",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp3_2",
+          "resource": "developer",
+          "effortHours": "40"
+        }
+      },
+      {
+        "id": "assign3_2_qa",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp3_2",
+          "resource": "qa",
+          "effortHours": "8"
+        }
+      },
+      {
+        "id": "assign3_3_lead",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp3_3",
+          "resource": "lead",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "assign3_3_developer",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp3_3",
+          "resource": "developer",
+          "effortHours": "24"
+        }
+      },
+      {
+        "id": "assign3_3_admin",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp3_3",
+          "resource": "admin",
+          "effortHours": "8"
+        }
+      },
+      {
+        "id": "assign4_1_lead",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp4_1",
+          "resource": "lead",
+          "effortHours": "4"
+        }
+      },
+      {
+        "id": "assign4_1_developer",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp4_1",
+          "resource": "developer",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "assign4_1_qa",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp4_1",
+          "resource": "qa",
+          "effortHours": "28"
+        }
+      },
+      {
+        "id": "assign4_1_experts",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp4_1",
+          "resource": "experts",
+          "effortHours": "8"
+        }
+      },
+      {
+        "id": "assign4_2_analyst",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp4_2",
+          "resource": "analyst",
+          "effortHours": "8"
+        }
+      },
+      {
+        "id": "assign4_2_developer",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp4_2",
+          "resource": "developer",
+          "effortHours": "8"
+        }
+      },
+      {
+        "id": "assign4_2_qa",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp4_2",
+          "resource": "qa",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "assign4_2_experts",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp4_2",
+          "resource": "experts",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "assign4_3_lead",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp4_3",
+          "resource": "lead",
+          "effortHours": "8"
+        }
+      },
+      {
+        "id": "assign4_3_developer",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp4_3",
+          "resource": "developer",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "assign4_3_admin",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "wp4_3",
+          "resource": "admin",
+          "effortHours": "8"
+        }
+      },
+      {
+        "id": "dependency1",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "wp1_1",
+          "to": "wp1_2",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dependency2",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "wp1_2",
+          "to": "wp2_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dependency3",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "wp1_2",
+          "to": "wp2_2",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dependency4",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "wp2_1",
+          "to": "wp3_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dependency5",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "wp2_2",
+          "to": "wp3_1",
+          "type": "SS",
+          "lag": "5"
+        }
+      },
+      {
+        "id": "dependency6",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "wp3_1",
+          "to": "wp3_2",
+          "type": "SS",
+          "lag": "10"
+        }
+      },
+      {
+        "id": "dependency7",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "wp3_2",
+          "to": "wp3_3",
+          "type": "SS",
+          "lag": "5"
+        }
+      },
+      {
+        "id": "dependency8",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "wp3_1",
+          "to": "wp4_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dependency9",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "wp3_2",
+          "to": "wp4_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dependency10",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "wp3_3",
+          "to": "wp4_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dependency11",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "wp4_1",
+          "to": "wp4_2",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dependency12",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "wp4_2",
+          "to": "wp4_3",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "view1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "root"
+        }
+      },
+      {
+        "id": "view2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage1"
+        }
+      },
+      {
+        "id": "view3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage2"
+        }
+      },
+      {
+        "id": "view4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage3"
+        }
+      },
+      {
+        "id": "view5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage4"
+        }
+      },
+      {
+        "id": "view6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "wp1_1"
+        }
+      },
+      {
+        "id": "view7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "wp1_2"
+        }
+      },
+      {
+        "id": "view8",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "wp2_1"
+        }
+      },
+      {
+        "id": "view9",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "wp2_2"
+        }
+      },
+      {
+        "id": "view10",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "wp3_1"
+        }
+      },
+      {
+        "id": "view11",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "wp3_2"
+        }
+      },
+      {
+        "id": "view12",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "wp3_3"
+        }
+      },
+      {
+        "id": "view13",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "wp4_1"
+        }
+      },
+      {
+        "id": "view14",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "wp4_2"
+        }
+      },
+      {
+        "id": "view15",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "wp4_3"
+        }
+      },
+      {
+        "id": "view16",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dependency1",
+          "from": "view6",
+          "to": "view7"
+        }
+      },
+      {
+        "id": "view17",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dependency2",
+          "from": "view7",
+          "to": "view8"
+        }
+      },
+      {
+        "id": "view18",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dependency3",
+          "from": "view7",
+          "to": "view9"
+        }
+      },
+      {
+        "id": "view19",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dependency4",
+          "from": "view8",
+          "to": "view10"
+        }
+      },
+      {
+        "id": "view20",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dependency5",
+          "from": "view9",
+          "to": "view10"
+        }
+      },
+      {
+        "id": "view21",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dependency6",
+          "from": "view10",
+          "to": "view11"
+        }
+      },
+      {
+        "id": "view22",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dependency7",
+          "from": "view11",
+          "to": "view12"
+        }
+      },
+      {
+        "id": "view23",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dependency8",
+          "from": "view10",
+          "to": "view13"
+        }
+      },
+      {
+        "id": "view24",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dependency9",
+          "from": "view11",
+          "to": "view13"
+        }
+      },
+      {
+        "id": "view25",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dependency10",
+          "from": "view12",
+          "to": "view13"
+        }
+      },
+      {
+        "id": "view26",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dependency11",
+          "from": "view13",
+          "to": "view14"
+        }
+      },
+      {
+        "id": "view27",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dependency12",
+          "from": "view14",
+          "to": "view15"
+        }
+      }
+    ]
+  },
+  "source": "gantt im_plan \"План реализации ИС · Н1–Н12\"\ncalendar weekdays \"Пятидневная неделя\" friday=true hoursPerDay=8 monday=true saturday=false sunday=false thursday=true tuesday=true wednesday=true\nplan plan \"План проекта\" calendar=weekdays description=\"Отчёт ИМ: таблицы 11.1–11.3 и 3.7. Н1–Н12 — первичный ориентир. 28.09.2026 — только демонстрационный старт пятидневного календаря без автоматически добавленных праздников. Не фактическая дата проекта. Часы распределены равномерно; доступность разработчика ограничена 40 ч/нед. Максимальная расчётная загрузка составляет 36 ч/нед.\" mode=auto sourceDocumentId=im_wbs start=\"2026-09-28\"\ndiagram main \"План проекта\" plan=plan type=gantt\ntask root \"ИС подготовки и актуализации карточек\" kind=summary order=0 sourceDocumentId=im_wbs sourceNodeId=root wbsCode=0\ntask stage1 \"Обследование и требования\" kind=summary order=0 parent=root sourceDocumentId=im_wbs sourceNodeId=stage1 wbsCode=1\ntask stage2 Проектирование kind=summary order=1 parent=root sourceDocumentId=im_wbs sourceNodeId=stage2 wbsCode=2\ntask stage3 Разработка kind=summary order=2 parent=root sourceDocumentId=im_wbs sourceNodeId=stage3 wbsCode=3\ntask stage4 \"Испытания и внедрение\" kind=summary order=3 parent=root sourceDocumentId=im_wbs sourceNodeId=stage4 wbsCode=4\ntask wp1_1 \"Обследование и модель «как есть»\" deliverable=\"Согласованный реестр, примеры файлов и исходные метрики.\" description=\"Недельный ориентир: Н1 / 1–5. Проверка границ, источников и потоков; замер базы. Старт проекта.\" duration=5 effortHours=32 kind=task order=0 parent=stage1 sourceDocumentId=im_wbs sourceNodeId=wp1_1 wbsCode=1.1\ntask wp1_2 \"Требования и критерии приёмки\" deliverable=\"Версия требований и список исключений из первой поставки.\" description=\"Недельный ориентир: Н2 / 6–10. FURPS+, сценарии, приоритеты и критерии приёмки. После 1.1.\" duration=5 effortHours=40 kind=task order=1 parent=stage1 sourceDocumentId=im_wbs sourceNodeId=wp1_2 wbsCode=1.2\ntask wp2_1 \"Модель данных и версий\" deliverable=\"Модель данных и проверочные примеры миграции.\" description=\"Недельный ориентир: Н3 / 11–15. Сущности, версии, связи и ограничения целостности. После 1.2.\" duration=5 effortHours=32 kind=task order=0 parent=stage2 sourceDocumentId=im_wbs sourceNodeId=wp2_1 wbsCode=2.1\ntask wp2_2 \"Проект интерфейсов и правил\" deliverable=\"Согласованные макеты и контрактные примеры.\" description=\"Недельный ориентир: Н3–Н4 / 11–20. Экран карточки, правила, форматы импорта и контракты адаптера. После 1.2; параллельно 2.1.\" duration=10 effortHours=40 kind=task order=1 parent=stage2 sourceDocumentId=im_wbs sourceNodeId=wp2_2 wbsCode=2.2\ntask wp3_1 \"Справочники и модельный ряд\" deliverable=\"Версионирование и обнаружение критических ошибок.\" description=\"Недельный ориентир: Н4–Н6 / 16–30. Справочники, составы, согласование и совместимость. После 2.1; уточнения 2.2 до конца Н4.\" duration=15 effortHours=56 kind=task order=0 parent=stage3 sourceDocumentId=im_wbs sourceNodeId=wp3_1 wbsCode=3.1\ntask wp3_2 \"Расчёты и карточки\" deliverable=\"Карточка воспроизводится по сохранённым исходным данным.\" description=\"Недельный ориентир: Н6–Н7 / 26–35. Цена, масса, изображения, характеристики и пакет карточки. Рабочая версия модельного ряда передаётся в начале Н6.\" duration=10 effortHours=48 kind=task order=1 parent=stage3 sourceDocumentId=im_wbs sourceNodeId=wp3_2 wbsCode=3.2\ntask wp3_3 \"Обмен и аудит\" deliverable=\"Прослеживается путь от источника до результата отправки.\" description=\"Недельный ориентир: Н7–Н8 / 31–40. Импорт, передача, статусы, повторы, аудит и права. Контракт карточки готов к началу Н7.\" duration=10 effortHours=48 kind=task order=2 parent=stage3 sourceDocumentId=im_wbs sourceNodeId=wp3_3 wbsCode=3.3\ntask wp4_1 \"Интеграционные испытания\" deliverable=\"Протокол без блокирующих дефектов, выполненные критерии.\" description=\"Недельный ориентир: Н9 / 41–45. Проверка функций, нагрузка, сбои и восстановление. После 3.1–3.3.\" duration=5 effortHours=56 kind=task order=0 parent=stage4 sourceDocumentId=im_wbs sourceNodeId=wp4_1 wbsCode=4.1\ntask wp4_2 \"Инструкции, обучение и пилот\" deliverable=\"Журнал 100 контрольных операций, замечания и итоговые метрики.\" description=\"Недельный ориентир: Н10–Н11 / 46–55. Инструкции, обучение и контролируемый пилот. После успешной 4.1.\" duration=10 effortHours=48 kind=task order=1 parent=stage4 sourceDocumentId=im_wbs sourceNodeId=wp4_2 wbsCode=4.2\ntask wp4_3 \"Приёмка и передача\" deliverable=\"Акт приёмки, сборка, исходники, инструкции и ответственные.\" description=\"Недельный ориентир: Н12 / 56–60. Закрытие замечаний, проверка поставки, резервирование. После пилота 4.2.\" duration=5 effortHours=32 kind=task order=2 parent=stage4 sourceDocumentId=im_wbs sourceNodeId=wp4_3 wbsCode=4.3\nresource analyst Аналитик capacityHoursPerDay=8 description=\"Учебная доступность; не фактический табель.\" role=\"Требования, интерфейсы и обучение\"\nresource lead \"Ведущий разработчик / руководитель\" capacityHoursPerDay=8 description=\"Учебная доступность; не фактический табель.\" role=\"Архитектура, координация и приёмка\"\nresource developer Разработчик capacityHoursPerDay=8 description=\"Учебная доступность; не фактический табель.\" role=\"Реализация и исправления\"\nresource qa Тестировщик capacityHoursPerDay=8 description=\"Учебная доступность; не фактический табель.\" role=\"Испытания и контроль пилота\"\nresource experts \"Менеджер и эксперты\" capacityHoursPerDay=8 description=\"Учебная доступность; не фактический табель.\" role=\"Проверка предметных правил и результатов\"\nresource admin Администратор capacityHoursPerDay=8 description=\"Учебная доступность; не фактический табель.\" role=\"Развёртывание, доступ и копии\"\nassignment assign1_1_analyst \"\" effortHours=20 resource=analyst task=wp1_1\nassignment assign1_1_lead \"\" effortHours=4 resource=lead task=wp1_1\nassignment assign1_1_experts \"\" effortHours=8 resource=experts task=wp1_1\nassignment assign1_2_analyst \"\" effortHours=24 resource=analyst task=wp1_2\nassignment assign1_2_lead \"\" effortHours=8 resource=lead task=wp1_2\nassignment assign1_2_experts \"\" effortHours=8 resource=experts task=wp1_2\nassignment assign2_1_lead \"\" effortHours=16 resource=lead task=wp2_1\nassignment assign2_1_developer \"\" effortHours=16 resource=developer task=wp2_1\nassignment assign2_2_analyst \"\" effortHours=12 resource=analyst task=wp2_2\nassignment assign2_2_lead \"\" effortHours=4 resource=lead task=wp2_2\nassignment assign2_2_developer \"\" effortHours=24 resource=developer task=wp2_2\nassignment assign3_1_lead \"\" effortHours=4 resource=lead task=wp3_1\nassignment assign3_1_developer \"\" effortHours=48 resource=developer task=wp3_1\nassignment assign3_1_qa \"\" effortHours=4 resource=qa task=wp3_1\nassignment assign3_2_developer \"\" effortHours=40 resource=developer task=wp3_2\nassignment assign3_2_qa \"\" effortHours=8 resource=qa task=wp3_2\nassignment assign3_3_lead \"\" effortHours=16 resource=lead task=wp3_3\nassignment assign3_3_developer \"\" effortHours=24 resource=developer task=wp3_3\nassignment assign3_3_admin \"\" effortHours=8 resource=admin task=wp3_3\nassignment assign4_1_lead \"\" effortHours=4 resource=lead task=wp4_1\nassignment assign4_1_developer \"\" effortHours=16 resource=developer task=wp4_1\nassignment assign4_1_qa \"\" effortHours=28 resource=qa task=wp4_1\nassignment assign4_1_experts \"\" effortHours=8 resource=experts task=wp4_1\nassignment assign4_2_analyst \"\" effortHours=8 resource=analyst task=wp4_2\nassignment assign4_2_developer \"\" effortHours=8 resource=developer task=wp4_2\nassignment assign4_2_qa \"\" effortHours=16 resource=qa task=wp4_2\nassignment assign4_2_experts \"\" effortHours=16 resource=experts task=wp4_2\nassignment assign4_3_lead \"\" effortHours=8 resource=lead task=wp4_3\nassignment assign4_3_developer \"\" effortHours=16 resource=developer task=wp4_3\nassignment assign4_3_admin \"\" effortHours=8 resource=admin task=wp4_3\ndependency dependency1 \"\" from=wp1_1 lag=0 to=wp1_2 type=FS\ndependency dependency2 \"\" from=wp1_2 lag=0 to=wp2_1 type=FS\ndependency dependency3 \"\" from=wp1_2 lag=0 to=wp2_2 type=FS\ndependency dependency4 \"\" from=wp2_1 lag=0 to=wp3_1 type=FS\ndependency dependency5 \"\" from=wp2_2 lag=5 to=wp3_1 type=SS\ndependency dependency6 \"\" from=wp3_1 lag=10 to=wp3_2 type=SS\ndependency dependency7 \"\" from=wp3_2 lag=5 to=wp3_3 type=SS\ndependency dependency8 \"\" from=wp3_1 lag=0 to=wp4_1 type=FS\ndependency dependency9 \"\" from=wp3_2 lag=0 to=wp4_1 type=FS\ndependency dependency10 \"\" from=wp3_3 lag=0 to=wp4_1 type=FS\ndependency dependency11 \"\" from=wp4_1 lag=0 to=wp4_2 type=FS\ndependency dependency12 \"\" from=wp4_2 lag=0 to=wp4_3 type=FS\nview view1 \"\" diagram=main element=root\nview view2 \"\" diagram=main element=stage1\nview view3 \"\" diagram=main element=stage2\nview view4 \"\" diagram=main element=stage3\nview view5 \"\" diagram=main element=stage4\nview view6 \"\" diagram=main element=wp1_1\nview view7 \"\" diagram=main element=wp1_2\nview view8 \"\" diagram=main element=wp2_1\nview view9 \"\" diagram=main element=wp2_2\nview view10 \"\" diagram=main element=wp3_1\nview view11 \"\" diagram=main element=wp3_2\nview view12 \"\" diagram=main element=wp3_3\nview view13 \"\" diagram=main element=wp4_1\nview view14 \"\" diagram=main element=wp4_2\nview view15 \"\" diagram=main element=wp4_3\nview view16 \"\" diagram=main element=dependency1 from=view6 to=view7\nview view17 \"\" diagram=main element=dependency2 from=view7 to=view8\nview view18 \"\" diagram=main element=dependency3 from=view7 to=view9\nview view19 \"\" diagram=main element=dependency4 from=view8 to=view10\nview view20 \"\" diagram=main element=dependency5 from=view9 to=view10\nview view21 \"\" diagram=main element=dependency6 from=view10 to=view11\nview view22 \"\" diagram=main element=dependency7 from=view11 to=view12\nview view23 \"\" diagram=main element=dependency8 from=view10 to=view13\nview view24 \"\" diagram=main element=dependency9 from=view11 to=view13\nview view25 \"\" diagram=main element=dependency10 from=view12 to=view13\nview view26 \"\" diagram=main element=dependency11 from=view13 to=view14\nview view27 \"\" diagram=main element=dependency12 from=view14 to=view15\n",
+  "draft": "gantt im_plan \"План реализации ИС · Н1–Н12\"\ncalendar weekdays \"Пятидневная неделя\" friday=true hoursPerDay=8 monday=true saturday=false sunday=false thursday=true tuesday=true wednesday=true\nplan plan \"План проекта\" calendar=weekdays description=\"Отчёт ИМ: таблицы 11.1–11.3 и 3.7. Н1–Н12 — первичный ориентир. 28.09.2026 — только демонстрационный старт пятидневного календаря без автоматически добавленных праздников. Не фактическая дата проекта. Часы распределены равномерно; доступность разработчика ограничена 40 ч/нед. Максимальная расчётная загрузка составляет 36 ч/нед.\" mode=auto sourceDocumentId=im_wbs start=\"2026-09-28\"\ndiagram main \"План проекта\" plan=plan type=gantt\ntask root \"ИС подготовки и актуализации карточек\" kind=summary order=0 sourceDocumentId=im_wbs sourceNodeId=root wbsCode=0\ntask stage1 \"Обследование и требования\" kind=summary order=0 parent=root sourceDocumentId=im_wbs sourceNodeId=stage1 wbsCode=1\ntask stage2 Проектирование kind=summary order=1 parent=root sourceDocumentId=im_wbs sourceNodeId=stage2 wbsCode=2\ntask stage3 Разработка kind=summary order=2 parent=root sourceDocumentId=im_wbs sourceNodeId=stage3 wbsCode=3\ntask stage4 \"Испытания и внедрение\" kind=summary order=3 parent=root sourceDocumentId=im_wbs sourceNodeId=stage4 wbsCode=4\ntask wp1_1 \"Обследование и модель «как есть»\" deliverable=\"Согласованный реестр, примеры файлов и исходные метрики.\" description=\"Недельный ориентир: Н1 / 1–5. Проверка границ, источников и потоков; замер базы. Старт проекта.\" duration=5 effortHours=32 kind=task order=0 parent=stage1 sourceDocumentId=im_wbs sourceNodeId=wp1_1 wbsCode=1.1\ntask wp1_2 \"Требования и критерии приёмки\" deliverable=\"Версия требований и список исключений из первой поставки.\" description=\"Недельный ориентир: Н2 / 6–10. FURPS+, сценарии, приоритеты и критерии приёмки. После 1.1.\" duration=5 effortHours=40 kind=task order=1 parent=stage1 sourceDocumentId=im_wbs sourceNodeId=wp1_2 wbsCode=1.2\ntask wp2_1 \"Модель данных и версий\" deliverable=\"Модель данных и проверочные примеры миграции.\" description=\"Недельный ориентир: Н3 / 11–15. Сущности, версии, связи и ограничения целостности. После 1.2.\" duration=5 effortHours=32 kind=task order=0 parent=stage2 sourceDocumentId=im_wbs sourceNodeId=wp2_1 wbsCode=2.1\ntask wp2_2 \"Проект интерфейсов и правил\" deliverable=\"Согласованные макеты и контрактные примеры.\" description=\"Недельный ориентир: Н3–Н4 / 11–20. Экран карточки, правила, форматы импорта и контракты адаптера. После 1.2; параллельно 2.1.\" duration=10 effortHours=40 kind=task order=1 parent=stage2 sourceDocumentId=im_wbs sourceNodeId=wp2_2 wbsCode=2.2\ntask wp3_1 \"Справочники и модельный ряд\" deliverable=\"Версионирование и обнаружение критических ошибок.\" description=\"Недельный ориентир: Н4–Н6 / 16–30. Справочники, составы, согласование и совместимость. После 2.1; уточнения 2.2 до конца Н4.\" duration=15 effortHours=56 kind=task order=0 parent=stage3 sourceDocumentId=im_wbs sourceNodeId=wp3_1 wbsCode=3.1\ntask wp3_2 \"Расчёты и карточки\" deliverable=\"Карточка воспроизводится по сохранённым исходным данным.\" description=\"Недельный ориентир: Н6–Н7 / 26–35. Цена, масса, изображения, характеристики и пакет карточки. Рабочая версия модельного ряда передаётся в начале Н6.\" duration=10 effortHours=48 kind=task order=1 parent=stage3 sourceDocumentId=im_wbs sourceNodeId=wp3_2 wbsCode=3.2\ntask wp3_3 \"Обмен и аудит\" deliverable=\"Прослеживается путь от источника до результата отправки.\" description=\"Недельный ориентир: Н7–Н8 / 31–40. Импорт, передача, статусы, повторы, аудит и права. Контракт карточки готов к началу Н7.\" duration=10 effortHours=48 kind=task order=2 parent=stage3 sourceDocumentId=im_wbs sourceNodeId=wp3_3 wbsCode=3.3\ntask wp4_1 \"Интеграционные испытания\" deliverable=\"Протокол без блокирующих дефектов, выполненные критерии.\" description=\"Недельный ориентир: Н9 / 41–45. Проверка функций, нагрузка, сбои и восстановление. После 3.1–3.3.\" duration=5 effortHours=56 kind=task order=0 parent=stage4 sourceDocumentId=im_wbs sourceNodeId=wp4_1 wbsCode=4.1\ntask wp4_2 \"Инструкции, обучение и пилот\" deliverable=\"Журнал 100 контрольных операций, замечания и итоговые метрики.\" description=\"Недельный ориентир: Н10–Н11 / 46–55. Инструкции, обучение и контролируемый пилот. После успешной 4.1.\" duration=10 effortHours=48 kind=task order=1 parent=stage4 sourceDocumentId=im_wbs sourceNodeId=wp4_2 wbsCode=4.2\ntask wp4_3 \"Приёмка и передача\" deliverable=\"Акт приёмки, сборка, исходники, инструкции и ответственные.\" description=\"Недельный ориентир: Н12 / 56–60. Закрытие замечаний, проверка поставки, резервирование. После пилота 4.2.\" duration=5 effortHours=32 kind=task order=2 parent=stage4 sourceDocumentId=im_wbs sourceNodeId=wp4_3 wbsCode=4.3\nresource analyst Аналитик capacityHoursPerDay=8 description=\"Учебная доступность; не фактический табель.\" role=\"Требования, интерфейсы и обучение\"\nresource lead \"Ведущий разработчик / руководитель\" capacityHoursPerDay=8 description=\"Учебная доступность; не фактический табель.\" role=\"Архитектура, координация и приёмка\"\nresource developer Разработчик capacityHoursPerDay=8 description=\"Учебная доступность; не фактический табель.\" role=\"Реализация и исправления\"\nresource qa Тестировщик capacityHoursPerDay=8 description=\"Учебная доступность; не фактический табель.\" role=\"Испытания и контроль пилота\"\nresource experts \"Менеджер и эксперты\" capacityHoursPerDay=8 description=\"Учебная доступность; не фактический табель.\" role=\"Проверка предметных правил и результатов\"\nresource admin Администратор capacityHoursPerDay=8 description=\"Учебная доступность; не фактический табель.\" role=\"Развёртывание, доступ и копии\"\nassignment assign1_1_analyst \"\" effortHours=20 resource=analyst task=wp1_1\nassignment assign1_1_lead \"\" effortHours=4 resource=lead task=wp1_1\nassignment assign1_1_experts \"\" effortHours=8 resource=experts task=wp1_1\nassignment assign1_2_analyst \"\" effortHours=24 resource=analyst task=wp1_2\nassignment assign1_2_lead \"\" effortHours=8 resource=lead task=wp1_2\nassignment assign1_2_experts \"\" effortHours=8 resource=experts task=wp1_2\nassignment assign2_1_lead \"\" effortHours=16 resource=lead task=wp2_1\nassignment assign2_1_developer \"\" effortHours=16 resource=developer task=wp2_1\nassignment assign2_2_analyst \"\" effortHours=12 resource=analyst task=wp2_2\nassignment assign2_2_lead \"\" effortHours=4 resource=lead task=wp2_2\nassignment assign2_2_developer \"\" effortHours=24 resource=developer task=wp2_2\nassignment assign3_1_lead \"\" effortHours=4 resource=lead task=wp3_1\nassignment assign3_1_developer \"\" effortHours=48 resource=developer task=wp3_1\nassignment assign3_1_qa \"\" effortHours=4 resource=qa task=wp3_1\nassignment assign3_2_developer \"\" effortHours=40 resource=developer task=wp3_2\nassignment assign3_2_qa \"\" effortHours=8 resource=qa task=wp3_2\nassignment assign3_3_lead \"\" effortHours=16 resource=lead task=wp3_3\nassignment assign3_3_developer \"\" effortHours=24 resource=developer task=wp3_3\nassignment assign3_3_admin \"\" effortHours=8 resource=admin task=wp3_3\nassignment assign4_1_lead \"\" effortHours=4 resource=lead task=wp4_1\nassignment assign4_1_developer \"\" effortHours=16 resource=developer task=wp4_1\nassignment assign4_1_qa \"\" effortHours=28 resource=qa task=wp4_1\nassignment assign4_1_experts \"\" effortHours=8 resource=experts task=wp4_1\nassignment assign4_2_analyst \"\" effortHours=8 resource=analyst task=wp4_2\nassignment assign4_2_developer \"\" effortHours=8 resource=developer task=wp4_2\nassignment assign4_2_qa \"\" effortHours=16 resource=qa task=wp4_2\nassignment assign4_2_experts \"\" effortHours=16 resource=experts task=wp4_2\nassignment assign4_3_lead \"\" effortHours=8 resource=lead task=wp4_3\nassignment assign4_3_developer \"\" effortHours=16 resource=developer task=wp4_3\nassignment assign4_3_admin \"\" effortHours=8 resource=admin task=wp4_3\ndependency dependency1 \"\" from=wp1_1 lag=0 to=wp1_2 type=FS\ndependency dependency2 \"\" from=wp1_2 lag=0 to=wp2_1 type=FS\ndependency dependency3 \"\" from=wp1_2 lag=0 to=wp2_2 type=FS\ndependency dependency4 \"\" from=wp2_1 lag=0 to=wp3_1 type=FS\ndependency dependency5 \"\" from=wp2_2 lag=5 to=wp3_1 type=SS\ndependency dependency6 \"\" from=wp3_1 lag=10 to=wp3_2 type=SS\ndependency dependency7 \"\" from=wp3_2 lag=5 to=wp3_3 type=SS\ndependency dependency8 \"\" from=wp3_1 lag=0 to=wp4_1 type=FS\ndependency dependency9 \"\" from=wp3_2 lag=0 to=wp4_1 type=FS\ndependency dependency10 \"\" from=wp3_3 lag=0 to=wp4_1 type=FS\ndependency dependency11 \"\" from=wp4_1 lag=0 to=wp4_2 type=FS\ndependency dependency12 \"\" from=wp4_2 lag=0 to=wp4_3 type=FS\nview view1 \"\" diagram=main element=root\nview view2 \"\" diagram=main element=stage1\nview view3 \"\" diagram=main element=stage2\nview view4 \"\" diagram=main element=stage3\nview view5 \"\" diagram=main element=stage4\nview view6 \"\" diagram=main element=wp1_1\nview view7 \"\" diagram=main element=wp1_2\nview view8 \"\" diagram=main element=wp2_1\nview view9 \"\" diagram=main element=wp2_2\nview view10 \"\" diagram=main element=wp3_1\nview view11 \"\" diagram=main element=wp3_2\nview view12 \"\" diagram=main element=wp3_3\nview view13 \"\" diagram=main element=wp4_1\nview view14 \"\" diagram=main element=wp4_2\nview view15 \"\" diagram=main element=wp4_3\nview view16 \"\" diagram=main element=dependency1 from=view6 to=view7\nview view17 \"\" diagram=main element=dependency2 from=view7 to=view8\nview view18 \"\" diagram=main element=dependency3 from=view7 to=view9\nview view19 \"\" diagram=main element=dependency4 from=view8 to=view10\nview view20 \"\" diagram=main element=dependency5 from=view9 to=view10\nview view21 \"\" diagram=main element=dependency6 from=view10 to=view11\nview view22 \"\" diagram=main element=dependency7 from=view11 to=view12\nview view23 \"\" diagram=main element=dependency8 from=view10 to=view13\nview view24 \"\" diagram=main element=dependency9 from=view11 to=view13\nview view25 \"\" diagram=main element=dependency10 from=view12 to=view13\nview view26 \"\" diagram=main element=dependency11 from=view13 to=view14\nview view27 \"\" diagram=main element=dependency12 from=view14 to=view15\n",
+  "layout": {
+    "nodes": {
+      "view1": {
+        "x": 60,
+        "y": 60,
+        "width": 180,
+        "height": 32
+      },
+      "view2": {
+        "x": 460,
+        "y": 60,
+        "width": 180,
+        "height": 32
+      },
+      "view3": {
+        "x": 860,
+        "y": 60,
+        "width": 180,
+        "height": 32
+      },
+      "view4": {
+        "x": 1260,
+        "y": 60,
+        "width": 180,
+        "height": 32
+      },
+      "view5": {
+        "x": 60,
+        "y": 560,
+        "width": 180,
+        "height": 32
+      },
+      "view6": {
+        "x": 460,
+        "y": 560,
+        "width": 180,
+        "height": 32
+      },
+      "view7": {
+        "x": 860,
+        "y": 560,
+        "width": 180,
+        "height": 32
+      },
+      "view8": {
+        "x": 1260,
+        "y": 560,
+        "width": 180,
+        "height": 32
+      },
+      "view9": {
+        "x": 60,
+        "y": 1060,
+        "width": 180,
+        "height": 32
+      },
+      "view10": {
+        "x": 460,
+        "y": 1060,
+        "width": 180,
+        "height": 32
+      },
+      "view11": {
+        "x": 860,
+        "y": 1060,
+        "width": 180,
+        "height": 32
+      },
+      "view12": {
+        "x": 1260,
+        "y": 1060,
+        "width": 180,
+        "height": 32
+      },
+      "view13": {
+        "x": 60,
+        "y": 1560,
+        "width": 180,
+        "height": 32
+      },
+      "view14": {
+        "x": 460,
+        "y": 1560,
+        "width": 180,
+        "height": 32
+      },
+      "view15": {
+        "x": 860,
+        "y": 1560,
+        "width": 180,
+        "height": 32
+      }
+    },
+    "edges": {
+      "view16": {},
+      "view17": {},
+      "view18": {},
+      "view19": {},
+      "view20": {},
+      "view21": {},
+      "view22": {},
+      "view23": {},
+      "view24": {},
+      "view25": {},
+      "view26": {},
+      "view27": {}
+    },
+    "diagrams": {
+      "main": {
+        "gantt": {
+          "scale": "weeks",
+          "tableWidth": 1000,
+          "today": false
+        }
+      }
+    }
+  }
+}

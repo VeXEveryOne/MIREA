@@ -1,14 +1,50 @@
-import sys,importlib.util,shutil,os
+"""Render an already Word-exported PDF using the installed document tools."""
+import argparse
+import importlib.util
+import os
+import shutil
+import sys
 from pathlib import Path
-runtime=Path('C:/Users/VeX/.cache/codex-runtimes/codex-primary-runtime/dependencies')
-os.environ['PATH']=str(runtime/'native/poppler/bin')+os.pathsep+os.environ['PATH']
-source=Path('C:/Users/VeX/.codex/plugins/cache/openai-primary-runtime/documents/26.905.11957/skills/documents/render_docx.py')
-spec=importlib.util.spec_from_file_location('packaged_render_docx',source);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
-pdf=Path(sys.argv[2]).resolve();docx=Path(sys.argv[1]).resolve();out=Path(sys.argv[3]).resolve()
-def convert(doc_path,user_profile,convert_tmp_dir,stem,verbose):
- dst=Path(convert_tmp_dir)/(stem+'.pdf');shutil.copy2(pdf,dst);return str(dst),'PDF exported by Microsoft Word; bundled Poppler rasterization'
-module.convert_to_pdf=convert
-dpi=sys.argv[4] if len(sys.argv)>4 else '130'
-sys.argv=[str(source),str(docx),'--output_dir',str(out),'--dpi',dpi]
-module.main()
+
+from config import REPO_ROOT
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('docx', type=Path)
+    parser.add_argument('pdf', type=Path)
+    parser.add_argument('output', type=Path)
+    parser.add_argument('dpi', type=int, nargs='?', default=130)
+    args = parser.parse_args()
+    for path in (args.docx, args.pdf):
+        if not path.is_file():
+            parser.error(f'Missing input: {path}')
+    if args.dpi <= 0:
+        parser.error('DPI must be positive')
+
+    runtime_spec = importlib.util.spec_from_file_location('repository_runtime', REPO_ROOT / 'tools/runtime.py')
+    runtime = importlib.util.module_from_spec(runtime_spec)
+    runtime_spec.loader.exec_module(runtime)
+    os.environ['PATH'] = str(runtime.RUNTIME_ROOT / 'native/poppler/bin') + os.pathsep + os.environ.get('PATH', '')
+    source = runtime.skill_directory('documents') / 'render_docx.py'
+    spec = importlib.util.spec_from_file_location('packaged_render_docx', source)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    def convert(doc_path, user_profile, convert_tmp_dir, stem, verbose):
+        destination = Path(convert_tmp_dir) / (stem + '.pdf')
+        shutil.copy2(args.pdf.resolve(), destination)
+        return str(destination), 'PDF exported by Microsoft Word; bundled Poppler rasterization'
+
+    module.convert_to_pdf = convert
+    previous_args = sys.argv
+    try:
+        sys.argv = [str(source), str(args.docx.resolve()), '--output_dir', str(args.output.resolve()), '--dpi', str(args.dpi)]
+        module.main()
+    finally:
+        sys.argv = previous_args
+
+
+if __name__ == '__main__':
+    main()
 

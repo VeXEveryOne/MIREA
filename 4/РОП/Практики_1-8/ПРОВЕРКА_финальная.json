@@ -1,8 +1,9 @@
 {
   "status": "pass",
-  "pdf_pages": 105,
+  "pdf_pages": 143,
   "docx_embedded_media": 44,
   "canonical_process_models": 4,
+  "all_native_models_checked": 12,
   "idef0_statuses": {
     "ПР1_IDEF0_AS_IS.omni": {
       "context": "publication",
@@ -16,6 +17,6 @@
   "practice_1_slides": 15,
   "practice_2_slides": 10,
   "technical_DRAFT_mentions_in_report": 6,
-  "checksum_entries_verified": 192,
+  "checksum_entries_verified": 196,
   "forbidden_visible_terms": []
 }

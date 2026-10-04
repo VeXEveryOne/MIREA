@@ -1,113 +1,64 @@
-from __future__ import annotations
-
-from datetime import datetime
+"""Refresh the figure registry and checksums without creating duplicate files."""
 from hashlib import sha256
 from pathlib import Path
 import json
-import shutil
 
-
-ROOT = Path(r"D:\GitHub\MIREA\4\РОП\Практики_1-8")
-EXPORT_DIR = ROOT / "Модели_для_отчёта" / "PNG_final4"
-CANONICAL_DIR = ROOT / "Модели_OmniNotation_v2"
-LEGACY_DIR = ROOT / "Модели_OmniNotation"
+from config import ROOT, EXPORT_DIR, MODEL_DIR
 
 
 def file_hash(path: Path) -> str:
     return sha256(path.read_bytes()).hexdigest()
 
 
-def sync_reports() -> None:
-    for suffix in ("docx", "pdf", "md"):
-        source = ROOT / f"РОП_Практики_1-8_АлбахтинИВ_готово.{suffix}"
-        target = ROOT / f"РОП_Практики_1-8_АлбахтинИВ.{suffix}"
-        shutil.copy2(source, target)
-
-
-def sync_legacy_png() -> None:
-    mapping = {
-        1: "ПР1_IDEF0_A-0.png",
-        2: "ПР1_IDEF0_A0.png",
-        3: "ПР1_BPMN_Публикация.png",
-        4: "ПР1_BPMN_Подготовка.png",
-        6: "ПР2_IDEF0_A-0.png",
-        7: "ПР2_IDEF0_A0.png",
-        8: "ПР2_BPMN_Процесс.png",
-        9: "ПР2_BPMN_Подготовка.png",
-        10: "ПР2_BPMN_Публикация.png",
-    }
-    for number, target_name in mapping.items():
-        source = next(EXPORT_DIR.glob(f"{number:02}_*.png"))
-        shutil.copy2(source, LEGACY_DIR / target_name)
-
-
 def update_registry() -> None:
-    report = json.loads((EXPORT_DIR / "Отчёт_экспорта.json").read_text("utf-8"))
-    exported = {item["order"]: item for item in report["items"]}
-    registry_path = CANONICAL_DIR / "Реестр_38_рисунков.json"
-    registry = json.loads(registry_path.read_text("utf-8"))
-    for figure in registry["figures"]:
-        item = exported[figure["figure"]]
-        png = Path(item["files"][0])
-        figure["title"] = item["title"]
-        figure.setdefault("export", {}).setdefault("png", {})["file"] = str(png)
-        figure["export"]["png"]["sha256"] = file_hash(png)
-        figure["export"]["warnings"] = []
-        model_path = Path(figure.get("file", ""))
-        if model_path.is_file():
-            digest = file_hash(model_path)
-            figure["sha256"] = digest
-            figure["modelSha256"] = digest
-        figure["manualReview"] = (
-            "Итоговый PNG визуально проверен 28.09.2026; подписи, границы и связи "
-            "читаются в отчёте и презентациях."
-        )
-    registry["generatedAt"] = datetime.now().astimezone().isoformat(timespec="seconds")
-    registry["count"] = len(registry["figures"])
-    registry_path.write_text(json.dumps(registry, ensure_ascii=False, indent=2), "utf-8")
+    registry_path = MODEL_DIR / 'Реестр_38_рисунков.json'
+    registry = json.loads(registry_path.read_text('utf-8'))
+    report_path = EXPORT_DIR / 'Отчёт_экспорта.json'
+    report = json.loads(report_path.read_text('utf-8'))
+    exported = {item['order']: item for item in report['items']}
+    png_paths = {}
+    for figure in registry['figures']:
+        item = exported[figure['figure']]
+        matches = list(EXPORT_DIR.glob(f"{figure['figure']:02}_*.png"))
+        if len(matches) != 1:
+            raise RuntimeError(f"Expected one PNG for figure {figure['figure']}")
+        png = matches[0]
+        relative_png = png.relative_to(ROOT).as_posix()
+        png_paths[png.name] = relative_png
+        item['files'] = [relative_png]
+        figure['title'] = item['title']
+        figure['export'] = {'png': {'file': relative_png, 'sha256': file_hash(png)}, 'warnings': []}
+        model = ROOT / figure['file']
+        if not model.is_file():
+            raise FileNotFoundError(model)
+        figure['file'] = model.relative_to(ROOT).as_posix()
+        figure['sha256'] = file_hash(model)
+        figure['modelSha256'] = figure['sha256']
+        figure.pop('source', None)
+        figure.pop('report', None)  # obsolete migration receipts are archived, not current inputs
+    registry['count'] = len(registry['figures'])
+    for item in report['files']:
+        item['path'] = png_paths[Path(item['path']).name]
+    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', 'utf-8')
+    registry['exportReports'] = {'png': {'file': report_path.relative_to(ROOT).as_posix(),
+                                       'sha256': file_hash(report_path)}}
+    registry.pop('pdfHashes', None)
+    registry['reviewedAt'] = '2026-10-04'
+    registry_path.write_text(json.dumps(registry, ensure_ascii=False, indent=2) + '\n', 'utf-8')
 
 
 def update_checksums() -> None:
-    manifest_path = ROOT / "SHA256.json"
-    existing = json.loads(manifest_path.read_text("utf-8")) if manifest_path.is_file() else {}
-    names = {name for name in existing if (ROOT / name).is_file()}
-    names.update(
-        path.relative_to(ROOT).as_posix()
-        for path in [
-            ROOT / "РОП_Практики_1-8_АлбахтинИВ.docx",
-            ROOT / "РОП_Практики_1-8_АлбахтинИВ.pdf",
-            ROOT / "РОП_Практики_1-8_АлбахтинИВ.md",
-            ROOT / "ПРОВЕРКА.json",
-            ROOT / "ПРОВЕРКА_OmniNotation.json",
-            ROOT / "ПРОВЕРКА_процессных_моделей.json",
-            ROOT / "ПРОВЕРКА_финальная.json",
-            CANONICAL_DIR / "Реестр_38_рисунков.json",
-            EXPORT_DIR / "Отчёт_экспорта.json",
-            ROOT / "Исходники/rebuild_process_models.mts",
-            ROOT / "Исходники/fix_as_is_bpmn_layout.py",
-            ROOT / "Исходники/slides.mjs",
-            ROOT / "Исходники/package_check.py",
-            ROOT / "Исходники/validate_native.mts",
-            ROOT / "Исходники/final_audit.py",
-            ROOT / "Исходники/sync_final_outputs.py",
-        ]
-        if path.is_file()
-    )
-    names.update(
-        path.relative_to(ROOT).as_posix()
-        for path in CANONICAL_DIR.glob("ПР[12]_*.omni")
-    )
-    names.update(
-        path.relative_to(ROOT).as_posix()
-        for path in EXPORT_DIR.glob("[0-9][0-9]_*.png")
-    )
-    manifest = {name: file_hash(ROOT / name) for name in sorted(names)}
-    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), "utf-8")
+    # Audit receipts are deliberately excluded: an audit cannot hash its own output.
+    files = sorted(path for path in ROOT.rglob('*') if path.is_file()
+                   and path.name != 'SHA256.json'
+                   and not path.name.startswith(('ПРОВЕРКА', '~$'))
+                   and '__pycache__' not in path.parts
+                   and path.suffix != '.pyc')
+    manifest = {path.relative_to(ROOT).as_posix(): file_hash(path) for path in files}
+    (ROOT / 'SHA256.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', 'utf-8')
 
 
-if __name__ == "__main__":
-    sync_reports()
-    sync_legacy_png()
+if __name__ == '__main__':
     update_registry()
     update_checksums()
-    print("Синхронизированы отчёты, совместимые PNG и реестр 38 рисунков.")
+    print('Обновлены реестр 38 рисунков и контрольные суммы единого комплекта.')
