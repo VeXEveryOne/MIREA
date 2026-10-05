@@ -1,6 +1,7 @@
 from pathlib import Path
 import json
 from config import ROOT
+from terminology import transform, replace_technical
 DB=ROOT/'База_данных';DB.mkdir(parents=True,exist_ok=True)
 tables=[]
 def col(name,typ,rule='',meaning='',ref=None):return dict(name=name,type=typ,rule=rule,meaning=meaning,ref=ref)
@@ -39,11 +40,13 @@ tab('publication','Публикация и очередь',[ident(),fk('card_ver
 tab('audit_event','Событие аудита',[ident(),fk('actor_id','app_user',True),txt('actor_kind',12,"NOT NULL CHECK (actor_kind IN ('USER','SERVICE'))"),txt('resource_type',40),txt('resource_key',100),txt('action',40),col('before_data','jsonb'),col('after_data','jsonb'),ts()],group=3)
 tab('notification','Уведомление',[ident(),fk('recipient_id','app_user'),fk('card_id','card',True),txt('kind',32),col('message','text','NOT NULL'),ts(),ts('read_at',True)],group=3)
 indexes=[('ix_offer_latest','supplier_offer','product_id, observed_at DESC'),('ix_product_component','supplier_product','component_id'),('ix_bom_case','bom_version','case_component_id'),('ix_slot_component','bom_slot','component_id'),('ix_slot_group','bom_slot','group_id'),('ix_slot_product','bom_slot','pinned_product_id'),('ix_card_status','card','status, responsible_id'),('ix_publication_due','publication','state, next_attempt_at'),('ix_audit_time','audit_event','created_at'),('ix_notification_user','notification','recipient_id, read_at')]
-for table_name,prefix in [('bom','BOM'),('component','CMP'),('card','UCOMS')]:
+tables=transform(tables)
+indexes=[tuple(replace_technical(value) for value in index) for index in indexes]
+for table_name,prefix in [('model_line','MR'),('component','CMP'),('card','UCOMS')]:
  field='offer_id' if table_name=='card' else 'code'
  next(c for t in tables if t['name']==table_name for c in t['columns'] if c['name']==field)['rule']+=f" DEFAULT ('{prefix}-' || lpad(nextval('{table_name}_code_seq')::text, 6, '0'))"
 ddl=['-- Учебный проект РОП. PostgreSQL 18. Кодировка UTF8.','-- Создание в отдельной пустой схеме. Исторические версии не удаляются.','BEGIN;','CREATE SCHEMA IF NOT EXISTS rop;','SET search_path TO rop, public;']
-ddl += [f'CREATE SEQUENCE {name}_code_seq MINVALUE 1 MAXVALUE 999999 NO CYCLE;' for name in ['bom','component','card']]
+ddl += [f'CREATE SEQUENCE {name}_code_seq MINVALUE 1 MAXVALUE 999999 NO CYCLE;' for name in ['model_line','component','card']]
 for t in tables:
  fields=[f"  {c['name']} {c['type']} {c['rule']}".rstrip() for c in t['columns']]+['  '+x for x in t['constraints']]
  ddl.append(f"CREATE TABLE {t['name']} (\n"+',\n'.join(fields)+'\n);')

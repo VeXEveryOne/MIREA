@@ -1,0 +1,47 @@
+[
+  {
+    "file": "ПР1_BPMN_AS_IS.omni",
+    "planeId": "Plane_Main",
+    "shapes": 12,
+    "flows": 14,
+    "fontSizeMin": 22,
+    "labels": 12,
+    "png": "Экспорт\\PNG\\03_Рисунок 03 — BPMN AS IS_ ручная публикация и возврат отклонённой карточки.png"
+  },
+  {
+    "file": "ПР1_BPMN_AS_IS.omni",
+    "planeId": "Plane_Preparation",
+    "shapes": 18,
+    "flows": 16,
+    "fontSizeMin": 22,
+    "labels": 14,
+    "png": "Экспорт\\PNG\\04_Рисунок 04 — BPMN AS IS_ подготовка данных в разрозненных инструментах.png"
+  },
+  {
+    "file": "ПР2_BPMN_TO_BE.omni",
+    "planeId": "Plane_Main",
+    "shapes": 10,
+    "flows": 11,
+    "fontSizeMin": 22,
+    "labels": 8,
+    "png": "Экспорт\\PNG\\08_Рисунок 08 — BPMN TO BE_ целевой процесс подготовки и публикации.png"
+  },
+  {
+    "file": "ПР2_BPMN_TO_BE.omni",
+    "planeId": "Plane_Preparation",
+    "shapes": 14,
+    "flows": 12,
+    "fontSizeMin": 22,
+    "labels": 9,
+    "png": "Экспорт\\PNG\\09_Рисунок 09 — BPMN TO BE_ автоматизированная подготовка версии карточки.png"
+  },
+  {
+    "file": "ПР2_BPMN_TO_BE.omni",
+    "planeId": "Plane_Publication",
+    "shapes": 12,
+    "flows": 12,
+    "fontSizeMin": 22,
+    "labels": 11,
+    "png": "Экспорт\\PNG\\10_Рисунок 10 — BPMN TO BE_ очередь, сверка статуса и обработка результата.png"
+  }
+]

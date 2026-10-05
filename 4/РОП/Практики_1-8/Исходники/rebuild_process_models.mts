@@ -95,7 +95,7 @@ const toBeIdef0: Idef0Spec = {
     "Опубликовать, сверить результат и зафиксировать аудит",
   ],
   interfaces: [
-    { id: "request", label: "Зарегистрированный запрос на создание или изменение", role: "input", side: "left", target: "A1" },
+    { id: "request", label: "Запрос на создание или изменение карточки", role: "input", side: "left", target: "A1" },
     { id: "catalog", label: "Справочник компонентов и характеристики", role: "input", side: "left", target: "A2" },
     { id: "offers", label: "Потоки предложений поставщиков и шаблоны контента", role: "input", side: "left", target: "A2" },
     { id: "states", label: "Модель состояний, версии и правила утверждения", role: "control", side: "top", target: "A1" },
@@ -435,8 +435,8 @@ event Start "Запрос в почте\nили мессенджере" in=Ucoms
 process Init "Найти старые файлы\nи договориться\nоб исполнителях" in=Ucoms type=manual
 process Prepare "Вручную подготовить\nданные карточки" in=Ucoms type=subprocess
 process Submit "Скопировать данные\nв кабинет Ozon" in=Ucoms type=manual
-process Result "Проверить статус\nвручную" in=Ucoms type=manual
-gateway Accepted "Карточка принята?" in=Ucoms type=exclusive
+process Result "Ожидать итоговый\nстатус вручную" in=Ucoms type=manual
+gateway Accepted "Карточка опубликована?" in=Ucoms type=exclusive
 event Published "Карточка\nопубликована" in=Ucoms position=end
 process RecordError "Разобрать замечания\nи исправить файлы" in=Ucoms type=manual
 lane Manager "Менеджер маркетплейсов" in=Prepare
@@ -494,7 +494,7 @@ pool Ucoms "ООО «Юкомс»"
 pool PC4Games PC4Games
 pool ITPartner ITPartner
 pool Ozon Ozon
-event Start "Зарегистрированный\nзапрос" in=Ucoms position=start
+event Start "Запрос на создание\nили изменение карточки" in=Ucoms position=start
 process Init "Создать запрос\nи черновую версию" in=Ucoms type=user
 process Prepare "Подготовить и проверить\nверсию карточки" in=Ucoms type=subprocess
 process Approve "Утвердить конкретную\nверсию карточки" in=Ucoms type=user
@@ -517,15 +517,15 @@ event PDone "Версия готова\nк утверждению" in=Prepare po
 event QStart "Публикация разрешена" in=Publish position=start
 process Save "Поставить версию в очередь\nи сохранить ключ операции" in=Publish type=service
 process Send "Сверить статус и отправить\nтолько отсутствующую операцию" in=Publish type=service
-process Result "Получить ID, результат\nили ошибку связи" in=Publish type=service
-gateway Outcome "Результат?" in=Publish type=exclusive
+process Result "Ожидать итоговый статус;\nсверить потерянный ответ" in=Publish type=service
+gateway Outcome "Публикация успешна?" in=Publish type=exclusive
 process Success "Сохранить внешний ID,\nстатус и аудит" in=Publish type=service
 event QDone "Опубликовано\nи уведомлено" in=Publish position=end
 gateway Retry "Временный сбой\nи повтор допустим?" in=Publish type=exclusive
 event Wait "Задержка повтора" definition=timer in=Publish position=catch timeDuration=PT1M
 process Increment "Увеличить счётчик\nповторов" in=Publish type=service
-process Error "Сохранить точную ошибку,\nаудит и уведомление" in=Publish type=service
-event QFail "Ошибка публикации\nзафиксирована" in=Publish position=end
+process Error "Сохранить ошибку или UNCERTAIN,\nаудит и уведомление" in=Publish type=service
+event QFail "Публикация приостановлена;\nнужна проверка" in=Publish position=end
 flow F1 "" from=Start to=Init
 flow F2 "" from=Init to=Prepare
 flow F3 "" from=Prepare to=Approve
@@ -553,13 +553,13 @@ flow Q1 "" from=QStart to=Save
 flow Q2 "" from=Save to=Send
 flow Q3 "" from=Send to=Result
 flow Q4 "" from=Result to=Outcome
-flow Q5 Успех condition="result = success" from=Outcome to=Success
+flow Q5 Да condition="result = success" from=Outcome to=Success
 flow Q6 "" from=Success to=QDone
 flow Q7 "Ошибка или неизвестный результат" condition="result != success" from=Outcome to=Retry
-flow Q8 Да condition="temporary = true and retries < 3" from=Retry to=Wait
+flow Q8 Да condition="result = retryable_failure and current_version = true and retries < 3" from=Retry to=Wait
 flow Q9 "" from=Wait to=Increment
 flow Q10 "Сверить перед повтором" from=Increment to=Send
-flow Q11 Нет condition="temporary = false or retries >= 3" from=Retry to=Error
+flow Q11 Нет condition="result != retryable_failure or current_version = false or retries >= 3" from=Retry to=Error
 flow Q12 "" from=Error to=QFail
 `;
 

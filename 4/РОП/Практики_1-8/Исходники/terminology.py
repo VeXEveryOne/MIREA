@@ -59,17 +59,10 @@ def replace_technical(value: str) -> str:
     value = re.sub(r"\bBOM\b", "ModelLine", value)
     return value
 
-def replace_visible(value: str) -> str:
-    value = value.replace("bom_", "model_line_")
-    value = value.replace("bom_version_id", "model_line_version_id")
-    value = value.replace("bom_slot", "model_line_slot")
-    value = value.replace("bom_version", "model_line_version")
-    value = value.replace("bom_id", "model_line_id")
-    value = value.replace("ix_bom_case", "ix_model_line_case")
-    value = re.sub(r"\bbom\b", "model_line", value)
-    for old, new in PHRASES:
-        value = value.replace(old, new)
-    grammar_fixes = [
+GRAMMAR_FIXES = [
+        ("составу Модельный ряд", "составу модельного ряда"),
+        ("Версия\\nмодельный ряд", "Версия\\nмодельного ряда"),
+        ("Новая модельный ряд", "Новый модельный ряд"),
         ("Модули модельный ряд", "Модули модельного ряда"),
         ("новая модельный ряд", "новый модельный ряд"),
         ("к карточкам, модельный ряд,", "к карточкам, модельным рядам,"),
@@ -104,10 +97,27 @@ def replace_visible(value: str) -> str:
         ("затронутые модельный ряд", "затронутые модельные ряды"),
         ("Экран модельный ряд", "Экран модельного ряда"),
         ("Версии модельный ряд", "Версии модельного ряда"),
-    ]
-    for old, new in grammar_fixes:
+]
+
+
+def replace_visible(value: str) -> str:
+    value = value.replace("bom_", "model_line_")
+    value = value.replace("bom_version_id", "model_line_version_id")
+    value = value.replace("bom_slot", "model_line_slot")
+    value = value.replace("bom_version", "model_line_version")
+    value = value.replace("bom_id", "model_line_id")
+    value = value.replace("ix_bom_case", "ix_model_line_case")
+    value = re.sub(r"\bbom\b", "model_line", value)
+    for old, new in PHRASES:
+        value = value.replace(old, new)
+    for old, new in GRAMMAR_FIXES:
         value = value.replace(old, new)
     return value
+
+
+def normalization_rules():
+    """Export the same literal rules to the JS slide builder, without copying them."""
+    return {'phrases': PHRASES, 'grammar': GRAMMAR_FIXES}
 
 
 def replace_source(value: str) -> str:

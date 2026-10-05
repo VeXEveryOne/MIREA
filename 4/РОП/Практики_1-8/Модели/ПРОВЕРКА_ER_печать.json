@@ -1,0 +1,270 @@
+[
+  {
+    "sheet": "D03_logical_1",
+    "part": 1,
+    "file": "13_Рисунок 13 — Логическая модель данных, вид 1.png",
+    "entities": [
+      "supplier",
+      "component",
+      "characteristic",
+      "component_value"
+    ],
+    "internalRelations": 2,
+    "crossReferences": [
+      "D03_logical_1.supplier_product.fk1.view",
+      "D03_logical_1.supplier_product.fk2.view"
+    ]
+  },
+  {
+    "sheet": "D03_logical_1",
+    "part": 2,
+    "file": "13_Рисунок 13 — Логическая модель данных, вид 1_часть2.png",
+    "entities": [
+      "component_group",
+      "supplier_product",
+      "supplier_offer"
+    ],
+    "internalRelations": 1,
+    "crossReferences": [
+      "D03_logical_1.supplier_product.fk1.view",
+      "D03_logical_1.supplier_product.fk2.view"
+    ]
+  },
+  {
+    "sheet": "D03_logical_2",
+    "part": 1,
+    "file": "14_Рисунок 14 — Логическая модель данных, вид 2.png",
+    "entities": [
+      "model_line",
+      "change_request",
+      "model_line_version",
+      "model_line_slot"
+    ],
+    "internalRelations": 4,
+    "crossReferences": [
+      "D03_logical_2.slot_selection.fk1.view",
+      "D03_logical_2.validation_result.fk1.view"
+    ]
+  },
+  {
+    "sheet": "D03_logical_2",
+    "part": 2,
+    "file": "14_Рисунок 14 — Логическая модель данных, вид 2_часть2.png",
+    "entities": [
+      "slot_selection",
+      "compatibility_rule",
+      "validation_result"
+    ],
+    "internalRelations": 0,
+    "crossReferences": [
+      "D03_logical_2.slot_selection.fk1.view",
+      "D03_logical_2.validation_result.fk1.view"
+    ]
+  },
+  {
+    "sheet": "D03_logical_3",
+    "part": 1,
+    "file": "15_Рисунок 15 — Логическая модель данных, вид 3.png",
+    "entities": [
+      "replacement_rule",
+      "replacement_batch",
+      "replacement_item",
+      "calculation_rule"
+    ],
+    "internalRelations": 2,
+    "crossReferences": []
+  },
+  {
+    "sheet": "D03_logical_4",
+    "part": 1,
+    "file": "16_Рисунок 16 — Логическая модель данных, вид 4.png",
+    "entities": [
+      "card",
+      "card_version",
+      "image_template",
+      "image_asset"
+    ],
+    "internalRelations": 2,
+    "crossReferences": [
+      "D03_logical_4.card_image.fk1.view",
+      "D03_logical_4.card_image.fk2.view",
+      "D03_logical_4.publication.fk1.view"
+    ]
+  },
+  {
+    "sheet": "D03_logical_4",
+    "part": 2,
+    "file": "16_Рисунок 16 — Логическая модель данных, вид 4_часть2.png",
+    "entities": [
+      "card_image",
+      "publication"
+    ],
+    "internalRelations": 0,
+    "crossReferences": [
+      "D03_logical_4.card_image.fk1.view",
+      "D03_logical_4.card_image.fk2.view",
+      "D03_logical_4.publication.fk1.view"
+    ]
+  },
+  {
+    "sheet": "D03_logical_5",
+    "part": 1,
+    "file": "17_Рисунок 17 — Логическая модель данных, вид 5.png",
+    "entities": [
+      "role",
+      "app_user",
+      "user_role",
+      "audit_event"
+    ],
+    "internalRelations": 3,
+    "crossReferences": [
+      "D03_logical_5.notification.fk1.view"
+    ]
+  },
+  {
+    "sheet": "D03_logical_5",
+    "part": 2,
+    "file": "17_Рисунок 17 — Логическая модель данных, вид 5_часть2.png",
+    "entities": [
+      "notification"
+    ],
+    "internalRelations": 0,
+    "crossReferences": [
+      "D03_logical_5.notification.fk1.view"
+    ]
+  },
+  {
+    "sheet": "D20_physical_1",
+    "part": 1,
+    "file": "30_Рисунок 30 — Физическая модель данных, вид 1.png",
+    "entities": [
+      "supplier",
+      "component",
+      "characteristic",
+      "component_value"
+    ],
+    "internalRelations": 2,
+    "crossReferences": [
+      "D20_physical_1.supplier_product.fk1.view",
+      "D20_physical_1.supplier_product.fk2.view"
+    ]
+  },
+  {
+    "sheet": "D20_physical_1",
+    "part": 2,
+    "file": "30_Рисунок 30 — Физическая модель данных, вид 1_часть2.png",
+    "entities": [
+      "component_group",
+      "supplier_product",
+      "supplier_offer"
+    ],
+    "internalRelations": 1,
+    "crossReferences": [
+      "D20_physical_1.supplier_product.fk1.view",
+      "D20_physical_1.supplier_product.fk2.view"
+    ]
+  },
+  {
+    "sheet": "D20_physical_2",
+    "part": 1,
+    "file": "31_Рисунок 31 — Физическая модель данных, вид 2.png",
+    "entities": [
+      "model_line",
+      "change_request",
+      "model_line_version",
+      "model_line_slot"
+    ],
+    "internalRelations": 4,
+    "crossReferences": [
+      "D20_physical_2.slot_selection.fk1.view",
+      "D20_physical_2.validation_result.fk1.view"
+    ]
+  },
+  {
+    "sheet": "D20_physical_2",
+    "part": 2,
+    "file": "31_Рисунок 31 — Физическая модель данных, вид 2_часть2.png",
+    "entities": [
+      "slot_selection",
+      "compatibility_rule",
+      "validation_result"
+    ],
+    "internalRelations": 0,
+    "crossReferences": [
+      "D20_physical_2.slot_selection.fk1.view",
+      "D20_physical_2.validation_result.fk1.view"
+    ]
+  },
+  {
+    "sheet": "D20_physical_3",
+    "part": 1,
+    "file": "32_Рисунок 32 — Физическая модель данных, вид 3.png",
+    "entities": [
+      "replacement_rule",
+      "replacement_batch",
+      "replacement_item",
+      "calculation_rule"
+    ],
+    "internalRelations": 2,
+    "crossReferences": []
+  },
+  {
+    "sheet": "D20_physical_4",
+    "part": 1,
+    "file": "33_Рисунок 33 — Физическая модель данных, вид 4.png",
+    "entities": [
+      "card",
+      "card_version",
+      "image_template",
+      "image_asset"
+    ],
+    "internalRelations": 2,
+    "crossReferences": [
+      "D20_physical_4.card_image.fk1.view",
+      "D20_physical_4.card_image.fk2.view",
+      "D20_physical_4.publication.fk1.view"
+    ]
+  },
+  {
+    "sheet": "D20_physical_4",
+    "part": 2,
+    "file": "33_Рисунок 33 — Физическая модель данных, вид 4_часть2.png",
+    "entities": [
+      "card_image",
+      "publication"
+    ],
+    "internalRelations": 0,
+    "crossReferences": [
+      "D20_physical_4.card_image.fk1.view",
+      "D20_physical_4.card_image.fk2.view",
+      "D20_physical_4.publication.fk1.view"
+    ]
+  },
+  {
+    "sheet": "D20_physical_5",
+    "part": 1,
+    "file": "34_Рисунок 34 — Физическая модель данных, вид 5.png",
+    "entities": [
+      "role",
+      "app_user",
+      "user_role",
+      "audit_event"
+    ],
+    "internalRelations": 3,
+    "crossReferences": [
+      "D20_physical_5.notification.fk1.view"
+    ]
+  },
+  {
+    "sheet": "D20_physical_5",
+    "part": 2,
+    "file": "34_Рисунок 34 — Физическая модель данных, вид 5_часть2.png",
+    "entities": [
+      "notification"
+    ],
+    "internalRelations": 0,
+    "crossReferences": [
+      "D20_physical_5.notification.fk1.view"
+    ]
+  }
+]

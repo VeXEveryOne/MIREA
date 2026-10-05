@@ -1,0 +1,389 @@
+[
+  {
+    "view": "ПР3_03_Последовательность_UC02",
+    "part": 1,
+    "id": "bom_m1",
+    "sequence": 1,
+    "from": "bom_lane0",
+    "to": "bom_lane1",
+    "sort": "synchCall"
+  },
+  {
+    "view": "ПР3_03_Последовательность_UC02",
+    "part": 1,
+    "id": "bom_m2",
+    "sequence": 2,
+    "from": "bom_lane1",
+    "to": "bom_lane2",
+    "sort": "synchCall"
+  },
+  {
+    "view": "ПР3_03_Последовательность_UC02",
+    "part": 1,
+    "id": "bom_m3",
+    "sequence": 3,
+    "from": "bom_lane2",
+    "to": "bom_lane3",
+    "sort": "synchCall"
+  },
+  {
+    "view": "ПР3_03_Последовательность_UC02",
+    "part": 1,
+    "id": "bom_m4",
+    "sequence": 4,
+    "from": "bom_lane3",
+    "to": "bom_lane2",
+    "sort": "reply"
+  },
+  {
+    "view": "ПР3_03_Последовательность_UC02",
+    "part": 1,
+    "id": "bom_m5",
+    "sequence": 5,
+    "from": "bom_lane2",
+    "to": "bom_lane4",
+    "sort": "synchCall"
+  },
+  {
+    "view": "ПР3_03_Последовательность_UC02",
+    "part": 1,
+    "id": "bom_m6",
+    "sequence": 6,
+    "from": "bom_lane4",
+    "to": "bom_lane2",
+    "sort": "reply"
+  },
+  {
+    "view": "ПР3_03_Последовательность_UC02",
+    "part": 1,
+    "id": "bom_m7",
+    "sequence": 7,
+    "from": "bom_lane2",
+    "to": "bom_lane2",
+    "sort": "synchCall"
+  },
+  {
+    "view": "ПР3_03_Последовательность_UC02",
+    "part": 2,
+    "id": "bom_m8",
+    "sequence": 8,
+    "from": "bom_lane2",
+    "to": "bom_lane5",
+    "sort": "synchCall"
+  },
+  {
+    "view": "ПР3_03_Последовательность_UC02",
+    "part": 2,
+    "id": "bom_m9",
+    "sequence": 9,
+    "from": "bom_lane5",
+    "to": "bom_lane2",
+    "sort": "reply"
+  },
+  {
+    "view": "ПР3_03_Последовательность_UC02",
+    "part": 2,
+    "id": "bom_m10",
+    "sequence": 10,
+    "from": "bom_lane2",
+    "to": "bom_lane1",
+    "sort": "reply"
+  },
+  {
+    "view": "ПР3_03_Последовательность_UC02",
+    "part": 2,
+    "id": "bom_m11",
+    "sequence": 11,
+    "from": "bom_lane1",
+    "to": "bom_lane0",
+    "sort": "reply"
+  },
+  {
+    "view": "ПР3_03_Последовательность_UC02",
+    "part": 2,
+    "id": "bom_m12",
+    "sequence": 12,
+    "from": "bom_lane2",
+    "to": "bom_lane1",
+    "sort": "reply"
+  },
+  {
+    "view": "ПР3_03_Последовательность_UC02",
+    "part": 2,
+    "id": "bom_m13",
+    "sequence": 13,
+    "from": "bom_lane1",
+    "to": "bom_lane0",
+    "sort": "reply"
+  },
+  {
+    "view": "ПР3_04_Последовательность_UC05",
+    "part": 1,
+    "id": "pub_m1",
+    "sequence": 1,
+    "from": "pub_lane0",
+    "to": "pub_lane1",
+    "sort": "synchCall"
+  },
+  {
+    "view": "ПР3_04_Последовательность_UC05",
+    "part": 1,
+    "id": "pub_m2",
+    "sequence": 2,
+    "from": "pub_lane1",
+    "to": "pub_lane2",
+    "sort": "synchCall"
+  },
+  {
+    "view": "ПР3_04_Последовательность_UC05",
+    "part": 1,
+    "id": "pub_m3",
+    "sequence": 3,
+    "from": "pub_lane2",
+    "to": "pub_lane3",
+    "sort": "synchCall"
+  },
+  {
+    "view": "ПР3_04_Последовательность_UC05",
+    "part": 1,
+    "id": "pub_m4",
+    "sequence": 4,
+    "from": "pub_lane3",
+    "to": "pub_lane2",
+    "sort": "reply"
+  },
+  {
+    "view": "ПР3_04_Последовательность_UC05",
+    "part": 1,
+    "id": "pub_m5",
+    "sequence": 5,
+    "from": "pub_lane2",
+    "to": "pub_lane2",
+    "sort": "synchCall"
+  },
+  {
+    "view": "ПР3_04_Последовательность_UC05",
+    "part": 2,
+    "id": "pub_m6",
+    "sequence": 6,
+    "from": "pub_lane2",
+    "to": "pub_lane6",
+    "sort": "synchCall"
+  },
+  {
+    "view": "ПР3_04_Последовательность_UC05",
+    "part": 2,
+    "id": "pub_m7",
+    "sequence": 7,
+    "from": "pub_lane2",
+    "to": "pub_lane4",
+    "sort": "synchCall"
+  },
+  {
+    "view": "ПР3_04_Последовательность_UC05",
+    "part": 2,
+    "id": "pub_m8",
+    "sequence": 8,
+    "from": "pub_lane4",
+    "to": "pub_lane5",
+    "sort": "synchCall"
+  },
+  {
+    "view": "ПР3_04_Последовательность_UC05",
+    "part": 2,
+    "id": "pub_m9",
+    "sequence": 9,
+    "from": "pub_lane5",
+    "to": "pub_lane4",
+    "sort": "reply"
+  },
+  {
+    "view": "ПР3_04_Последовательность_UC05",
+    "part": 2,
+    "id": "pub_m10",
+    "sequence": 10,
+    "from": "pub_lane4",
+    "to": "pub_lane2",
+    "sort": "reply"
+  },
+  {
+    "view": "ПР3_04_Последовательность_UC05",
+    "part": 2,
+    "id": "pub_m11",
+    "sequence": 11,
+    "from": "pub_lane2",
+    "to": "pub_lane6",
+    "sort": "synchCall"
+  },
+  {
+    "view": "ПР3_04_Последовательность_UC05",
+    "part": 2,
+    "id": "pub_m12",
+    "sequence": 12,
+    "from": "pub_lane2",
+    "to": "pub_lane3",
+    "sort": "synchCall"
+  },
+  {
+    "view": "ПР3_04_Последовательность_UC05",
+    "part": 2,
+    "id": "pub_m13",
+    "sequence": 13,
+    "from": "pub_lane2",
+    "to": "pub_lane1",
+    "sort": "reply"
+  },
+  {
+    "view": "ПР3_04_Последовательность_UC05",
+    "part": 2,
+    "id": "pub_m14",
+    "sequence": 14,
+    "from": "pub_lane1",
+    "to": "pub_lane0",
+    "sort": "reply"
+  },
+  {
+    "view": "ПР3_04_Последовательность_UC05",
+    "part": 2,
+    "id": "pub_m15",
+    "sequence": 15,
+    "from": "pub_lane2",
+    "to": "pub_lane1",
+    "sort": "reply"
+  },
+  {
+    "view": "ПР3_04_Последовательность_UC05",
+    "part": 2,
+    "id": "pub_m16",
+    "sequence": 16,
+    "from": "pub_lane1",
+    "to": "pub_lane0",
+    "sort": "reply"
+  },
+  {
+    "view": "ПР3_05_Кооперация_UC05",
+    "id": "pub_m1",
+    "sequence": 1,
+    "from": "pub_lane0",
+    "to": "pub_lane1",
+    "sort": "synchCall",
+    "scenario": "ready_card"
+  },
+  {
+    "view": "ПР3_05_Кооперация_UC05",
+    "id": "pub_m14",
+    "sequence": 14,
+    "from": "pub_lane1",
+    "to": "pub_lane0",
+    "sort": "reply",
+    "scenario": "ready_card"
+  },
+  {
+    "view": "ПР3_05_Кооперация_UC05",
+    "id": "pub_m2",
+    "sequence": 2,
+    "from": "pub_lane1",
+    "to": "pub_lane2",
+    "sort": "synchCall",
+    "scenario": "ready_card"
+  },
+  {
+    "view": "ПР3_05_Кооперация_UC05",
+    "id": "pub_m13",
+    "sequence": 13,
+    "from": "pub_lane2",
+    "to": "pub_lane1",
+    "sort": "reply",
+    "scenario": "ready_card"
+  },
+  {
+    "view": "ПР3_05_Кооперация_UC05",
+    "id": "pub_m3",
+    "sequence": 3,
+    "from": "pub_lane2",
+    "to": "pub_lane3",
+    "sort": "synchCall",
+    "scenario": "ready_card"
+  },
+  {
+    "view": "ПР3_05_Кооперация_UC05",
+    "id": "pub_m12",
+    "sequence": 12,
+    "from": "pub_lane2",
+    "to": "pub_lane3",
+    "sort": "synchCall",
+    "scenario": "ready_card"
+  },
+  {
+    "view": "ПР3_05_Кооперация_UC05",
+    "id": "pub_m4",
+    "sequence": 4,
+    "from": "pub_lane3",
+    "to": "pub_lane2",
+    "sort": "reply",
+    "scenario": "ready_card"
+  },
+  {
+    "view": "ПР3_05_Кооперация_UC05",
+    "id": "pub_m5",
+    "sequence": 5,
+    "from": "pub_lane2",
+    "to": "pub_lane2",
+    "sort": "synchCall",
+    "scenario": "ready_card"
+  },
+  {
+    "view": "ПР3_05_Кооперация_UC05",
+    "id": "pub_m6",
+    "sequence": 6,
+    "from": "pub_lane2",
+    "to": "pub_lane6",
+    "sort": "synchCall",
+    "scenario": "ready_card"
+  },
+  {
+    "view": "ПР3_05_Кооперация_UC05",
+    "id": "pub_m11",
+    "sequence": 11,
+    "from": "pub_lane2",
+    "to": "pub_lane6",
+    "sort": "synchCall",
+    "scenario": "ready_card"
+  },
+  {
+    "view": "ПР3_05_Кооперация_UC05",
+    "id": "pub_m7",
+    "sequence": 7,
+    "from": "pub_lane2",
+    "to": "pub_lane4",
+    "sort": "synchCall",
+    "scenario": "ready_card"
+  },
+  {
+    "view": "ПР3_05_Кооперация_UC05",
+    "id": "pub_m10",
+    "sequence": 10,
+    "from": "pub_lane4",
+    "to": "pub_lane2",
+    "sort": "reply",
+    "scenario": "ready_card"
+  },
+  {
+    "view": "ПР3_05_Кооперация_UC05",
+    "id": "pub_m8",
+    "sequence": 8,
+    "from": "pub_lane4",
+    "to": "pub_lane5",
+    "sort": "synchCall",
+    "scenario": "ready_card"
+  },
+  {
+    "view": "ПР3_05_Кооперация_UC05",
+    "id": "pub_m9",
+    "sequence": 9,
+    "from": "pub_lane5",
+    "to": "pub_lane4",
+    "sort": "reply",
+    "scenario": "ready_card"
+  }
+]

@@ -433,8 +433,8 @@
       "group": 1
     },
     {
-      "name": "bom",
-      "title": "BOM",
+      "name": "model_line",
+      "title": "модельный ряд",
       "columns": [
         {
           "name": "id",
@@ -446,7 +446,7 @@
         {
           "name": "code",
           "type": "varchar(24)",
-          "rule": "NOT NULL UNIQUE DEFAULT ('BOM-' || lpad(nextval('bom_code_seq')::text, 6, '0'))",
+          "rule": "NOT NULL UNIQUE DEFAULT ('MR-' || lpad(nextval('model_line_code_seq')::text, 6, '0'))",
           "meaning": "",
           "ref": null
         },
@@ -487,11 +487,11 @@
           "ref": null
         },
         {
-          "name": "bom_id",
+          "name": "model_line_id",
           "type": "bigint",
-          "rule": "NOT NULL REFERENCES bom(id)",
-          "meaning": "Ссылка на bom",
-          "ref": "bom"
+          "rule": "NOT NULL REFERENCES model_line(id)",
+          "meaning": "Ссылка на model_line",
+          "ref": "model_line"
         },
         {
           "name": "created_by",
@@ -526,8 +526,8 @@
       "group": 2
     },
     {
-      "name": "bom_version",
-      "title": "Версия BOM",
+      "name": "model_line_version",
+      "title": "Версия модельного ряда",
       "columns": [
         {
           "name": "id",
@@ -537,11 +537,11 @@
           "ref": null
         },
         {
-          "name": "bom_id",
+          "name": "model_line_id",
           "type": "bigint",
-          "rule": "NOT NULL REFERENCES bom(id)",
-          "meaning": "Ссылка на bom",
-          "ref": "bom"
+          "rule": "NOT NULL REFERENCES model_line(id)",
+          "meaning": "Ссылка на model_line",
+          "ref": "model_line"
         },
         {
           "name": "version_no",
@@ -587,13 +587,13 @@
         }
       ],
       "constraints": [
-        "UNIQUE (bom_id, version_no)"
+        "UNIQUE (model_line_id, version_no)"
       ],
       "group": 2
     },
     {
-      "name": "bom_slot",
-      "title": "Слот BOM",
+      "name": "model_line_slot",
+      "title": "Слот модельного ряда",
       "columns": [
         {
           "name": "id",
@@ -605,9 +605,9 @@
         {
           "name": "version_id",
           "type": "bigint",
-          "rule": "NOT NULL REFERENCES bom_version(id)",
-          "meaning": "Ссылка на bom_version",
-          "ref": "bom_version"
+          "rule": "NOT NULL REFERENCES model_line_version(id)",
+          "meaning": "Ссылка на model_line_version",
+          "ref": "model_line_version"
         },
         {
           "name": "slot_code",
@@ -659,9 +659,9 @@
         {
           "name": "slot_id",
           "type": "bigint",
-          "rule": "PRIMARY KEY REFERENCES bom_slot(id)",
+          "rule": "PRIMARY KEY REFERENCES model_line_slot(id)",
           "meaning": "Слот",
-          "ref": "bom_slot"
+          "ref": "model_line_slot"
         },
         {
           "name": "offer_id",
@@ -754,9 +754,9 @@
         {
           "name": "version_id",
           "type": "bigint",
-          "rule": "NOT NULL REFERENCES bom_version(id)",
-          "meaning": "Ссылка на bom_version",
-          "ref": "bom_version"
+          "rule": "NOT NULL REFERENCES model_line_version(id)",
+          "meaning": "Ссылка на model_line_version",
+          "ref": "model_line_version"
         },
         {
           "name": "valid",
@@ -908,7 +908,7 @@
     },
     {
       "name": "replacement_item",
-      "title": "Результат замены BOM",
+      "title": "Результат замены модельного ряда",
       "columns": [
         {
           "name": "batch_id",
@@ -918,25 +918,25 @@
           "ref": "replacement_batch"
         },
         {
-          "name": "bom_id",
+          "name": "model_line_id",
           "type": "bigint",
-          "rule": "NOT NULL REFERENCES bom(id)",
-          "meaning": "Ссылка на bom",
-          "ref": "bom"
+          "rule": "NOT NULL REFERENCES model_line(id)",
+          "meaning": "Ссылка на model_line",
+          "ref": "model_line"
         },
         {
           "name": "old_version_id",
           "type": "bigint",
-          "rule": "NOT NULL REFERENCES bom_version(id)",
-          "meaning": "Ссылка на bom_version",
-          "ref": "bom_version"
+          "rule": "NOT NULL REFERENCES model_line_version(id)",
+          "meaning": "Ссылка на model_line_version",
+          "ref": "model_line_version"
         },
         {
           "name": "new_version_id",
           "type": "bigint",
-          "rule": "REFERENCES bom_version(id)",
-          "meaning": "Ссылка на bom_version",
-          "ref": "bom_version"
+          "rule": "REFERENCES model_line_version(id)",
+          "meaning": "Ссылка на model_line_version",
+          "ref": "model_line_version"
         },
         {
           "name": "result",
@@ -954,7 +954,7 @@
         }
       ],
       "constraints": [
-        "PRIMARY KEY (batch_id, bom_id)"
+        "PRIMARY KEY (batch_id, model_line_id)"
       ],
       "group": 2
     },
@@ -1043,11 +1043,11 @@
           "ref": null
         },
         {
-          "name": "bom_id",
+          "name": "model_line_id",
           "type": "bigint",
-          "rule": "NOT NULL REFERENCES bom(id)",
-          "meaning": "Ссылка на bom",
-          "ref": "bom"
+          "rule": "NOT NULL REFERENCES model_line(id)",
+          "meaning": "Ссылка на model_line",
+          "ref": "model_line"
         },
         {
           "name": "offer_id",
@@ -1107,11 +1107,11 @@
           "ref": null
         },
         {
-          "name": "bom_version_id",
+          "name": "model_line_version_id",
           "type": "bigint",
-          "rule": "NOT NULL REFERENCES bom_version(id)",
-          "meaning": "Ссылка на bom_version",
-          "ref": "bom_version"
+          "rule": "NOT NULL REFERENCES model_line_version(id)",
+          "meaning": "Ссылка на model_line_version",
+          "ref": "model_line_version"
         },
         {
           "name": "validation_id",
@@ -1570,23 +1570,23 @@
       "component_id"
     ],
     [
-      "ix_bom_case",
-      "bom_version",
+      "ix_model_line_case",
+      "model_line_version",
       "case_component_id"
     ],
     [
       "ix_slot_component",
-      "bom_slot",
+      "model_line_slot",
       "component_id"
     ],
     [
       "ix_slot_group",
-      "bom_slot",
+      "model_line_slot",
       "group_id"
     ],
     [
       "ix_slot_product",
-      "bom_slot",
+      "model_line_slot",
       "pinned_product_id"
     ],
     [

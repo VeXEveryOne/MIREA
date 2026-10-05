@@ -1,107 +1,121 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="900" viewBox="0 0 1800 900">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1000" viewBox="0 0 1800 1000">
 <rect width="100%" height="100%" fill="white"/>
-<rect x="5" y="5" width="1790" height="890" fill="white" stroke="#202020" stroke-width="2"/>
-<polyline points="5,64 1795,64" fill="none" stroke="#202020" stroke-width="2"/>
-<polyline points="5,850 1795,850" fill="none" stroke="#202020" stroke-width="2"/>
-<text x="22" y="30.0" font-family="Times New Roman" font-size="21" font-weight="bold" text-anchor="start">ППОИС • Практическая работа № 2 • ООО «Юкомс»</text>
-<text x="1778" y="30.0" font-family="Times New Roman" font-size="20" font-weight="normal" text-anchor="end">Албахтин И.В. • 23.09.2026</text>
-<text x="22" y="882.0" font-family="Times New Roman" font-size="21" font-weight="bold" text-anchor="start">Узел A2</text>
-<text x="200" y="882.0" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="start">Сформировать BOM и сопоставить товары поставщиков</text>
-<polyline points="330,65 330,180" fill="none" stroke="#80500a" stroke-width="2"/>
-<polygon points="325.83129197570787,170.91034250325114 330,180 334.16870802429213,170.91034250325114" fill="#80500a"/>
-<rect x="196.722900390625" y="78" width="176.55419921875" height="50.459999999999994" fill="white" stroke="white" stroke-width="0"/>
-<text x="285" y="99.0" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Порядок</text>
-<text x="285" y="122.72999999999999" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">обработки запроса</text>
-<polyline points="340,850 340,265" fill="none" stroke="#586777" stroke-width="2"/>
-<polygon points="344.16870802429213,274.0896574967488 340,265 335.83129197570787,274.0896574967488" fill="#586777"/>
-<rect x="268.088134765625" y="773" width="143.82373046875" height="50.459999999999994" fill="white" stroke="white" stroke-width="0"/>
-<text x="340" y="794.0" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Менеджер</text>
-<text x="340" y="817.73" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">маркетплейсов</text>
+<rect x="5" y="5" width="1790" height="990" fill="white" stroke="#202020" stroke-width="2"/>
+<path d="M5 64 H1795 M5 945 H1795" stroke="#202020" stroke-width="2"/>
+<text x="670" y="32" font-family="Times New Roman" font-size="21" font-weight="bold" text-anchor="middle">ППОИС · Практическая работа № 2 · ООО «Юкомс»</text>
+<text x="1620" y="32" font-family="Times New Roman" font-size="20" font-weight="normal" text-anchor="middle">Албахтин И.В. · 2026</text>
+<text x="90" y="980" font-family="Times New Roman" font-size="21" font-weight="bold" text-anchor="middle">Узел A2</text>
+<text x="980" y="980" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Сформировать BOM и сопоставить товары поставщиков</text>
+<polyline points="315,65 315,180" fill="none" stroke="white" stroke-width="6"/><polyline points="315,65 315,180" fill="none" stroke="#80500a" stroke-width="2.2"/>
+<polygon points="315,180 319,170 311,170" fill="#80500a"/>
+<polyline points="615,65 615,155 1470,155 1470,668" fill="none" stroke="white" stroke-width="6"/><polyline points="615,65 615,155 1470,155 1470,668" fill="none" stroke="#80500a" stroke-width="2.2"/>
+<polygon points="1470,668 1474,658 1466,658" fill="#80500a"/>
+<polyline points="615,155 615,302" fill="none" stroke="white" stroke-width="6"/><polyline points="615,155 615,302" fill="none" stroke="#80500a" stroke-width="2.2"/>
+<polygon points="615,302 619,292 611,292" fill="#80500a"/>
+<polyline points="900,155 900,424" fill="none" stroke="white" stroke-width="6"/><polyline points="900,155 900,424" fill="none" stroke="#80500a" stroke-width="2.2"/>
+<polygon points="900,424 904,414 896,414" fill="#80500a"/>
+<polyline points="1185,155 1185,546" fill="none" stroke="white" stroke-width="6"/><polyline points="1185,155 1185,546" fill="none" stroke="#80500a" stroke-width="2.2"/>
+<polygon points="1185,546 1189,536 1181,536" fill="#80500a"/>
+<polyline points="1700,65 1700,205 580,205 580,302" fill="none" stroke="white" stroke-width="6"/><polyline points="1700,65 1700,205 580,205 580,302" fill="none" stroke="#80500a" stroke-width="2.2"/>
+<polygon points="580,302 584,292 576,292" fill="#80500a"/>
+<polyline points="5,223 135,223" fill="none" stroke="white" stroke-width="6"/><polyline points="5,223 135,223" fill="none" stroke="#244963" stroke-width="2.2"/>
+<polygon points="135,223 125,219 125,227" fill="#244963"/>
+<polyline points="5,320 420,320" fill="none" stroke="white" stroke-width="6"/><polyline points="5,320 420,320" fill="none" stroke="#244963" stroke-width="2.2"/>
+<polygon points="420,320 410,316 410,324" fill="#244963"/>
+<polyline points="35,320 35,247 135,247" fill="none" stroke="white" stroke-width="6"/><polyline points="35,320 35,247 135,247" fill="none" stroke="#244963" stroke-width="2.2"/>
+<polygon points="135,247 125,243 125,251" fill="#244963"/>
+<polyline points="35,320 35,406 680,406 680,446 705,446" fill="none" stroke="white" stroke-width="6"/><polyline points="35,320 35,406 680,406 680,446 705,446" fill="none" stroke="#244963" stroke-width="2.2"/>
+<polygon points="705,446 695,442 695,450" fill="#244963"/>
+<polyline points="35,406 35,540 970,540 970,570 990,570" fill="none" stroke="white" stroke-width="6"/><polyline points="35,406 35,540 970,540 970,570 990,570" fill="none" stroke="#244963" stroke-width="2.2"/>
+<polygon points="990,570 980,566 980,574" fill="#244963"/>
+<polyline points="355,223 380,223 380,345 420,345" fill="none" stroke="white" stroke-width="6"/><polyline points="355,223 380,223 380,345 420,345" fill="none" stroke="#244963" stroke-width="2.2"/>
+<polygon points="420,345 410,341 410,349" fill="#244963"/>
+<polyline points="640,345 665,345 665,467 705,467" fill="none" stroke="white" stroke-width="6"/><polyline points="640,345 665,345 665,467 705,467" fill="none" stroke="#244963" stroke-width="2.2"/>
+<polygon points="705,467 695,463 695,471" fill="#244963"/>
+<polyline points="925,467 950,467 950,589 990,589" fill="none" stroke="white" stroke-width="6"/><polyline points="925,467 950,467 950,589 990,589" fill="none" stroke="#244963" stroke-width="2.2"/>
+<polygon points="990,589 980,585 980,593" fill="#244963"/>
+<polyline points="1210,589 1235,589 1235,711 1275,711" fill="none" stroke="white" stroke-width="6"/><polyline points="1210,589 1235,589 1235,711 1275,711" fill="none" stroke="#244963" stroke-width="2.2"/>
+<polygon points="1275,711 1265,707 1265,715" fill="#244963"/>
+<polyline points="815,945 815,845 340,845 340,265" fill="none" stroke="white" stroke-width="6"/><polyline points="815,945 815,845 340,845 340,265" fill="none" stroke="#586777" stroke-width="2.2"/>
+<polygon points="340,265 336,275 344,275" fill="#586777"/>
+<polyline points="520,845 520,387" fill="none" stroke="white" stroke-width="6"/><polyline points="520,845 520,387" fill="none" stroke="#586777" stroke-width="2.2"/>
+<polygon points="520,387 516,397 524,397" fill="#586777"/>
+<polyline points="805,845 805,509" fill="none" stroke="white" stroke-width="6"/><polyline points="805,845 805,509" fill="none" stroke="#586777" stroke-width="2.2"/>
+<polygon points="805,509 801,519 809,519" fill="#586777"/>
+<polyline points="1090,845 1090,631" fill="none" stroke="white" stroke-width="6"/><polyline points="1090,845 1090,631" fill="none" stroke="#586777" stroke-width="2.2"/>
+<polygon points="1090,631 1086,641 1094,641" fill="#586777"/>
+<polyline points="815,845 1090,845" fill="none" stroke="white" stroke-width="6"/><polyline points="815,845 1090,845" fill="none" stroke="#586777" stroke-width="2.2"/>
+<polyline points="1375,845 1375,753" fill="none" stroke="white" stroke-width="6"/><polyline points="1375,845 1375,753" fill="none" stroke="#586777" stroke-width="2.2"/>
+<polygon points="1375,753 1371,763 1379,763" fill="#586777"/>
+<polyline points="815,845 1375,845" fill="none" stroke="white" stroke-width="6"/><polyline points="815,845 1375,845" fill="none" stroke="#586777" stroke-width="2.2"/>
+<polyline points="1495,710 1795,710" fill="none" stroke="white" stroke-width="6"/><polyline points="1495,710 1795,710" fill="none" stroke="#244963" stroke-width="2.2"/>
+<polygon points="1795,710 1785,706 1785,714" fill="#244963"/>
 <rect x="135" y="180" width="220" height="85" fill="#eff5fa" stroke="#244963" stroke-width="2.4"/>
-<text x="245.0" y="211.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">Выбрать корпус</text>
-<text x="245.0" y="234.1" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">и характеристики</text>
-<text x="347" y="260.0" font-family="Times New Roman" font-size="14" font-weight="bold" text-anchor="end">1</text>
-<polyline points="355,225 380,225 380,346 420,346" fill="none" stroke="#244963" stroke-width="2"/>
-<polygon points="410.9103425032512,350.16870802429213 420,346 410.9103425032512,341.83129197570787" fill="#244963"/>
-<text x="393" y="263.0" font-family="Times New Roman" font-size="20" font-weight="normal" text-anchor="start">Основа BOM</text>
-<polyline points="615,65 615,302" fill="none" stroke="#80500a" stroke-width="2"/>
-<polygon points="610.8312919757079,292.9103425032512 615,302 619.1687080242921,292.9103425032512" fill="#80500a"/>
-<rect x="490.746337890625" y="78" width="158.50732421875" height="50.459999999999994" fill="white" stroke="white" stroke-width="0"/>
-<text x="570" y="99.0" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Правила выбора</text>
-<text x="570" y="122.72999999999999" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">комплектующих</text>
-<polyline points="530,850 530,387" fill="none" stroke="#586777" stroke-width="2"/>
-<polygon points="534.1687080242921,396.0896574967488 530,387 525.8312919757079,396.0896574967488" fill="#586777"/>
-<rect x="466.496337890625" y="773" width="127.00732421875001" height="50.459999999999994" fill="white" stroke="white" stroke-width="0"/>
-<text x="530" y="794.0" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Технический</text>
-<text x="530" y="817.73" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">специалист</text>
+<text x="245" y="213.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">Выбрать корпус</text>
+<text x="245" y="235.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">и характеристики</text>
+<text x="335" y="258" font-family="Times New Roman" font-size="14" font-weight="bold" text-anchor="middle">1</text>
 <rect x="420" y="302" width="220" height="85" fill="#eff5fa" stroke="#244963" stroke-width="2.4"/>
-<text x="530.0" y="333.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">Заполнить</text>
-<text x="530.0" y="356.1" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">слоты BOM</text>
-<text x="632" y="382.0" font-family="Times New Roman" font-size="14" font-weight="bold" text-anchor="end">2</text>
-<polyline points="640,347 665,347 665,468 705,468" fill="none" stroke="#244963" stroke-width="2"/>
-<polygon points="695.9103425032512,472.16870802429213 705,468 695.9103425032512,463.83129197570787" fill="#244963"/>
-<text x="678" y="385.0" font-family="Times New Roman" font-size="20" font-weight="normal" text-anchor="start">Состав BOM</text>
-<polyline points="900,65 900,424" fill="none" stroke="#80500a" stroke-width="2"/>
-<polygon points="895.8312919757079,414.9103425032512 900,424 904.1687080242921,414.9103425032512" fill="#80500a"/>
-<rect x="784.38525390625" y="78" width="141.2294921875" height="50.459999999999994" fill="white" stroke="white" stroke-width="0"/>
-<text x="855" y="99.0" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Правила</text>
-<text x="855" y="122.72999999999999" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">сопоставления</text>
-<polyline points="815,850 815,509" fill="none" stroke="#586777" stroke-width="2"/>
-<polygon points="819.1687080242921,518.0896574967488 815,509 810.8312919757079,518.0896574967488" fill="#586777"/>
-<rect x="761.524658203125" y="773" width="106.95068359375" height="50.459999999999994" fill="white" stroke="white" stroke-width="0"/>
-<text x="815" y="794.0" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">PC4Games</text>
-<text x="815" y="817.73" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">и ITPartner</text>
+<text x="530" y="335.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">Заполнить</text>
+<text x="530" y="357.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">слоты BOM</text>
+<text x="620" y="380" font-family="Times New Roman" font-size="14" font-weight="bold" text-anchor="middle">2</text>
 <rect x="705" y="424" width="220" height="85" fill="#eff5fa" stroke="#244963" stroke-width="2.4"/>
-<text x="815.0" y="455.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">Сопоставить</text>
-<text x="815.0" y="478.1" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">компоненты и товары</text>
-<text x="917" y="504.0" font-family="Times New Roman" font-size="14" font-weight="bold" text-anchor="end">3</text>
-<polyline points="925,469 950,469 950,590 990,590" fill="none" stroke="#244963" stroke-width="2"/>
-<polygon points="980.9103425032512,594.1687080242921 990,590 980.9103425032512,585.8312919757079" fill="#244963"/>
-<text x="963" y="507.0" font-family="Times New Roman" font-size="20" font-weight="normal" text-anchor="start">Сопоставленные</text>
-<text x="963" y="529.6" font-family="Times New Roman" font-size="20" font-weight="normal" text-anchor="start">товары</text>
-<polyline points="1185,65 1185,546" fill="none" stroke="#80500a" stroke-width="2"/>
-<polygon points="1180.831291975708,536.9103425032512 1185,546 1189.168708024292,536.9103425032512" fill="#80500a"/>
-<rect x="1074.865966796875" y="78" width="130.26806640625" height="50.459999999999994" fill="white" stroke="white" stroke-width="0"/>
-<text x="1140" y="99.0" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Приоритет</text>
-<text x="1140" y="122.72999999999999" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">предложений</text>
-<polyline points="1100,850 1100,631" fill="none" stroke="#586777" stroke-width="2"/>
-<polygon points="1104.168708024292,640.0896574967488 1100,631 1095.831291975708,640.0896574967488" fill="#586777"/>
-<rect x="1025.65283203125" y="773" width="148.6943359375" height="50.459999999999994" fill="white" stroke="white" stroke-width="0"/>
-<text x="1100" y="794.0" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Проектируемая</text>
-<text x="1100" y="817.73" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">ИС</text>
+<text x="815" y="457.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">Сопоставить</text>
+<text x="815" y="479.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">компоненты и товары</text>
+<text x="905" y="502" font-family="Times New Roman" font-size="14" font-weight="bold" text-anchor="middle">3</text>
 <rect x="990" y="546" width="220" height="85" fill="#eff5fa" stroke="#244963" stroke-width="2.4"/>
-<text x="1100.0" y="577.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">Выбрать актуальные</text>
-<text x="1100.0" y="600.1" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">предложения</text>
-<text x="1202" y="626.0" font-family="Times New Roman" font-size="14" font-weight="bold" text-anchor="end">4</text>
-<polyline points="1210,591 1235,591 1235,712 1275,712" fill="none" stroke="#244963" stroke-width="2"/>
-<polygon points="1265.910342503251,716.1687080242921 1275,712 1265.910342503251,707.8312919757079" fill="#244963"/>
-<text x="1248" y="629.0" font-family="Times New Roman" font-size="20" font-weight="normal" text-anchor="start">Выбранные</text>
-<text x="1248" y="651.6" font-family="Times New Roman" font-size="20" font-weight="normal" text-anchor="start">предложения</text>
-<polyline points="1470,65 1470,668" fill="none" stroke="#80500a" stroke-width="2"/>
-<polygon points="1465.831291975708,658.9103425032512 1470,668 1474.168708024292,658.9103425032512" fill="#80500a"/>
-<rect x="1342.177978515625" y="78" width="165.64404296875" height="50.459999999999994" fill="white" stroke="white" stroke-width="0"/>
-<text x="1425" y="99.0" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Правила</text>
-<text x="1425" y="122.72999999999999" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">версионирования</text>
-<polyline points="1385,850 1385,753" fill="none" stroke="#586777" stroke-width="2"/>
-<polygon points="1389.168708024292,762.0896574967488 1385,753 1380.831291975708,762.0896574967488" fill="#586777"/>
-<rect x="1321.496337890625" y="773" width="127.00732421875001" height="50.459999999999994" fill="white" stroke="white" stroke-width="0"/>
-<text x="1385" y="794.0" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Технический</text>
-<text x="1385" y="817.73" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">специалист</text>
+<text x="1100" y="579.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">Выбрать актуальные</text>
+<text x="1100" y="601.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">предложения</text>
+<text x="1190" y="624" font-family="Times New Roman" font-size="14" font-weight="bold" text-anchor="middle">4</text>
 <rect x="1275" y="668" width="220" height="85" fill="#eff5fa" stroke="#244963" stroke-width="2.4"/>
-<text x="1385.0" y="699.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">Сохранить</text>
-<text x="1385.0" y="722.1" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">версию BOM</text>
-<text x="1487" y="748.0" font-family="Times New Roman" font-size="14" font-weight="bold" text-anchor="end">5</text>
-<polyline points="5,223 135,223" fill="none" stroke="#244963" stroke-width="2"/>
-<polygon points="125.91034250325114,227.1687080242921 135,223 125.91034250325114,218.8312919757079" fill="#244963"/>
-<text x="14" y="177.0" font-family="Times New Roman" font-size="20" font-weight="normal" text-anchor="start">Запрос на</text>
-<text x="14" y="199.6" font-family="Times New Roman" font-size="20" font-weight="normal" text-anchor="start">карточку</text>
-<polyline points="5,320 420,320" fill="none" stroke="#244963" stroke-width="2"/>
-<polygon points="410.9103425032512,324.16870802429213 420,320 410.9103425032512,315.83129197570787" fill="#244963"/>
-<text x="17" y="285.0" font-family="Times New Roman" font-size="20" font-weight="normal" text-anchor="start">Корпус, компоненты</text>
-<text x="17" y="307.6" font-family="Times New Roman" font-size="20" font-weight="normal" text-anchor="start">и характеристики</text>
-<polyline points="1495,712 1795,712" fill="none" stroke="#244963" stroke-width="2"/>
-<polygon points="1785.910342503251,716.1687080242921 1795,712 1785.910342503251,707.8312919757079" fill="#244963"/>
-<text x="1650" y="653.0" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Версия BOM</text>
-<text x="1650" y="676.73" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">на проверку</text>
-<text x="1650" y="700.46" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">совместимости</text>
+<text x="1385" y="701.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">Сохранить</text>
+<text x="1385" y="723.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">версию BOM</text>
+<text x="1475" y="746" font-family="Times New Roman" font-size="14" font-weight="bold" text-anchor="middle">5</text>
+<rect x="184.5" y="75" width="171" height="50" fill="white"/>
+<text x="270" y="96" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Порядок создания</text>
+<text x="270" y="121" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">и актуализации</text>
+<rect x="832.5" y="77" width="295" height="50" fill="white"/>
+<text x="980" y="98" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Правила BOM: выбор,</text>
+<text x="980" y="123" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">сопоставление, замена и версии</text>
+<rect x="1574" y="75" width="172" height="50" fill="white"/>
+<text x="1660" y="96" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Замечания</text>
+<text x="1660" y="121" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">по совместимости</text>
+<rect x="14.5" y="130" width="111" height="75" fill="white"/>
+<text x="70" y="151" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Запрос и</text>
+<text x="70" y="176" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">выбранный</text>
+<text x="70" y="201" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">корпус</text>
+<rect x="55" y="252" width="265" height="50" fill="white"/>
+<text x="60" y="273" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="start">Ассортимент и предложения</text>
+<text x="60" y="298" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="start">поставщиков</text>
+<rect x="393" y="239" width="127" height="25" fill="white"/>
+<text x="398" y="260" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="start">Основа BOM</text>
+<rect x="678" y="361" width="125" height="25" fill="white"/>
+<text x="683" y="382" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="start">Состав BOM</text>
+<rect x="963" y="483" width="160" height="50" fill="white"/>
+<text x="968" y="504" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="start">Сопоставленные</text>
+<text x="968" y="529" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="start">товары</text>
+<rect x="1248" y="605" width="126" height="50" fill="white"/>
+<text x="1253" y="626" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="start">Выбранные</text>
+<text x="1253" y="651" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="start">предложения</text>
+<rect x="605.5" y="889" width="489" height="25" fill="white"/>
+<text x="850" y="910" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Технический специалист · PC4Games / ITPartner · ИС</text>
+<rect x="1567.5" y="640" width="125" height="50" fill="white"/>
+<text x="1630" y="661" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Версия BOM</text>
+<text x="1630" y="686" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">на проверку</text>
+<circle cx="615" cy="155" r="3.4" fill="#80500a"/>
+<circle cx="900" cy="155" r="3.4" fill="#80500a"/>
+<circle cx="1185" cy="155" r="3.4" fill="#80500a"/>
+<circle cx="35" cy="320" r="3.4" fill="#244963"/>
+<circle cx="35" cy="406" r="3.4" fill="#244963"/>
+<circle cx="520" cy="845" r="3.4" fill="#586777"/>
+<circle cx="805" cy="845" r="3.4" fill="#586777"/>
+<circle cx="1090" cy="845" r="3.4" fill="#586777"/>
+<circle cx="1375" cy="845" r="3.4" fill="#586777"/>
+<circle cx="815" cy="845" r="3.4" fill="#586777"/>
+<text x="329" y="81" font-family="Times New Roman" font-size="13" font-weight="bold" text-anchor="middle">C1</text>
+<text x="629" y="81" font-family="Times New Roman" font-size="13" font-weight="bold" text-anchor="middle">C2</text>
+<text x="1714" y="81" font-family="Times New Roman" font-size="13" font-weight="bold" text-anchor="middle">C3</text>
+<text x="18" y="215" font-family="Times New Roman" font-size="13" font-weight="bold" text-anchor="middle">I1</text>
+<text x="18" y="312" font-family="Times New Roman" font-size="13" font-weight="bold" text-anchor="middle">I2</text>
+<text x="829" y="937" font-family="Times New Roman" font-size="13" font-weight="bold" text-anchor="middle">M1</text>
+<text x="1780" y="702" font-family="Times New Roman" font-size="13" font-weight="bold" text-anchor="middle">O1</text>
 </svg>

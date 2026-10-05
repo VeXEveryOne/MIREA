@@ -79,7 +79,7 @@ for material_text in [text,slide_texts[1],slide_texts[2]]:
     assert 'Губарев' not in material_text
     assert 'Сданная работа' not in material_text
 assert 'DRAFT' not in slide_texts[1] and 'DRAFT' not in slide_texts[2]
-pngs=sorted(EXPORT_DIR.glob('[0-9][0-9]_*.png'))
+pngs=sorted(p for p in EXPORT_DIR.glob('[0-9][0-9]_*.png') if '_часть' not in p.stem)
 assert len(pngs)==38
 export=json.loads((EXPORT_DIR/'Отчёт_экспорта.json').read_text('utf-8'))
 assert len(export['items'])==38 and all(item['status']=='completed' for item in export['items'])
@@ -89,6 +89,11 @@ assert registry['count']==38 and len(registry['figures'])==38
 for figure in registry['figures']:
     png=root/Path(figure['export']['png']['file'])
     assert png.is_file() and hashlib.sha256(png.read_bytes()).hexdigest()==figure['export']['png']['sha256']
+    for part in figure['export']['png'].get('parts', []):
+        path=root/part['file']
+        assert path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest()==part['sha256']
+assert len(export['files'])==57, 'Expected 38 main figures, 8 ER continuations and 11 sequence parts'
+assert len({item['path'] for item in export['files']})==57
 summary={'pdf_pages':len(pdf.pages),'figures':38,'tables_in_report':66,'FR':22,'NFR':12,'database_tables':29,'columns':185,'foreign_keys_checked':references,'drafts':28,'pptx_slides':slides,'technical_DRAFT_mentions_in_report':len(re.findall(r'\bDRAFT\b',text)),'sql_executed_on_PostgreSQL':False,'checks':['FK targets and types','index columns','draft files and edge endpoints','decimal example','FR/NFR identifiers preserved','DOCX/PDF captions and chapters','38 current PNG exports and hashes','PPTX ZIP structure and slide counts','obsolete terminology and service text scan','rendered all report pages and slides; inspected layouts']}
 (root/'ПРОВЕРКА.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2),'utf-8')
 print(json.dumps(summary,ensure_ascii=False))

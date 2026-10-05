@@ -1,7 +1,7 @@
 {
   "status": "pass",
-  "pdf_pages": 143,
-  "docx_embedded_media": 44,
+  "pdf_pages": 120,
+  "docx_embedded_media": 56,
   "canonical_process_models": 4,
   "all_native_models_checked": 12,
   "idef0_statuses": {
@@ -17,6 +17,6 @@
   "practice_1_slides": 15,
   "practice_2_slides": 10,
   "technical_DRAFT_mentions_in_report": 6,
-  "checksum_entries_verified": 196,
+  "checksum_entries_verified": 264,
   "forbidden_visible_terms": []
 }

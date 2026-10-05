@@ -83,17 +83,19 @@ for (const [id, from, to] of [
   ["p_production_uc03", "production", "uc03"],
   ["p_designer_uc05", "designer", "uc05"],
 ] as const) edgeView("use_data", relation("participation", id, from, to));
+edgeView("use_data", relation("include", "include_uc02_uc03", "uc02", "uc03"));
+edgeView("use_data", relation("include", "include_uc06_uc04", "uc06", "uc04"));
 
 add("diagram", "use_publish", "Прецеденты публикации, контроля и доступа", { type: "usecase" });
 add("system", "system_publish", "ИС подготовки карточек ООО «Юкомс»");
 const publishSystem = view("use_publish", "system_publish", [310, 30, 900, 650]);
 for (const [id, label, rect] of [
-  ["publisher", "Менеджер", [30, 150, 150, 125]],
+  ["manager", "Менеджер", [30, 150, 150, 125]],
   ["director", "Директор", [30, 430, 150, 125]],
   ["ozon", "Ozon", [1320, 150, 150, 125]],
   ["administrator", "Администратор", [1300, 430, 190, 125]],
 ] as const) {
-  add("actor", id, label);
+  if (!model.elements.some((item) => item.id === id)) add("actor", id, label);
   view("use_publish", id, rect);
 }
 for (const [id, label, rect] of [
@@ -110,9 +112,12 @@ for (const [id, label, rect] of [
   view("use_publish", id, rect, publishSystem);
 }
 for (const [id, from, to] of [
-  ["p_publisher_uc07", "publisher", "uc07"],
+  ["p_publisher_uc07", "manager", "uc07"],
+  ["p_publisher_uc08", "manager", "uc08"],
+  ["p_publisher_uc09", "manager", "uc09"],
   ["p_director_uc09", "director", "uc09"],
   ["p_ozon_uc08", "ozon", "uc08"],
+  ["p_ozon_uc07", "ozon", "uc07"],
   ["p_admin_uc10", "administrator", "uc10"],
 ] as const) edgeView("use_publish", relation("participation", id, from, to));
 
@@ -200,6 +205,17 @@ const source =
   generateUnified(textModel(model));
 const layout = layoutUml(model);
 Object.assign(layout.nodes, rects);
+const routes:Record<string,any[]>={
+  v_use_data_p_manager_uc04:[{x:220,y:110},{x:1140,y:110},{x:1140,y:375}],
+  v_use_data_p_manager_uc06:[{x:240,y:470},{x:740,y:470},{x:740,y:565}],
+  v_use_data_p_production_uc02:[{x:260,y:105},{x:760,y:105},{x:760,y:185}],
+  v_use_data_p_designer_uc05:[{x:1250,y:485},{x:750,y:485},{x:750,y:565}],
+  v_use_publish_p_publisher_uc08:[{x:240,y:130},{x:740,y:130},{x:740,y:205}],
+  v_use_publish_p_ozon_uc07:[{x:1250,y:105},{x:715,y:105},{x:715,y:205}],
+  v_components_c_services_access:[{x:400,y:340},{x:170,y:340}],
+  v_components_c_services_ozon:[{x:900,y:340},{x:1140,y:340}],
+};
+for(const [id,bends] of Object.entries(routes))layout.edges[id]={bends};
 const document = decodeUml({
   formatVersion: 2,
   notation: "UML",

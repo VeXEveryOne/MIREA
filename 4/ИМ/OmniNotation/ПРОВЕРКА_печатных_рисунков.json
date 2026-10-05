@@ -1,0 +1,365 @@
+[
+  {
+    "name": "ПР1_Оргструктура",
+    "nodes": 17,
+    "source": "PPOIS1 original organisation"
+  },
+  {
+    "name": "ПР8_Прецеденты_данные",
+    "sheet": "use_data",
+    "nodes": 10,
+    "edges": 8
+  },
+  {
+    "name": "ПР8_Прецеденты_публикация",
+    "sheet": "use_publish",
+    "nodes": 9,
+    "edges": 7
+  },
+  {
+    "name": "ПР10_Компоненты",
+    "sheet": "components",
+    "nodes": 6,
+    "edges": 6
+  },
+  {
+    "name": "ПР10_Развёртывание",
+    "sheet": "deployment",
+    "nodes": 10,
+    "edges": 4
+  },
+  {
+    "name": "ПР9_Деятельность",
+    "sheet": "activity",
+    "nodes": 19,
+    "edges": 16
+  },
+  {
+    "name": "ПР9_Последовательность",
+    "messages": [
+      {
+        "id": "m01",
+        "order": 1,
+        "sort": "synchCall"
+      },
+      {
+        "id": "m02",
+        "order": 2,
+        "sort": "synchCall"
+      },
+      {
+        "id": "m03",
+        "order": 3,
+        "sort": "synchCall"
+      },
+      {
+        "id": "m04",
+        "order": 4,
+        "sort": "reply"
+      },
+      {
+        "id": "m05",
+        "order": 5,
+        "sort": "synchCall"
+      },
+      {
+        "id": "m06",
+        "order": 6,
+        "sort": "reply"
+      },
+      {
+        "id": "m07",
+        "order": 7,
+        "sort": "synchCall"
+      },
+      {
+        "id": "m08",
+        "order": 8,
+        "sort": "reply"
+      },
+      {
+        "id": "m09",
+        "order": 9,
+        "sort": "synchCall"
+      },
+      {
+        "id": "m10",
+        "order": 10,
+        "sort": "reply"
+      },
+      {
+        "id": "m11",
+        "order": 11,
+        "sort": "synchCall"
+      },
+      {
+        "id": "m12",
+        "order": 12,
+        "sort": "reply"
+      }
+    ]
+  },
+  {
+    "name": "ПР6_FURPS_Функции",
+    "codes": [
+      "F-01",
+      "F-02",
+      "F-03",
+      "F-04",
+      "F-05",
+      "F-06",
+      "F-07",
+      "F-08",
+      "F-09",
+      "F-10",
+      "F-11",
+      "F-12"
+    ]
+  },
+  {
+    "name": "ПР6_FURPS_Качества",
+    "codes": [
+      "U-01",
+      "U-02",
+      "U-03",
+      "R-01",
+      "R-02",
+      "R-03",
+      "P-01",
+      "P-02",
+      "P-03",
+      "S-01",
+      "S-02",
+      "S-03",
+      "X-01",
+      "X-02",
+      "X-03"
+    ]
+  },
+  {
+    "name": "ПР11_Гант",
+    "horizon": 60,
+    "tasks": [
+      {
+        "id": "wp1_1",
+        "kind": "task",
+        "start": 0,
+        "finish": 5,
+        "duration": 5,
+        "startDate": "2026-09-28",
+        "finishDate": "2026-10-02",
+        "hours": 32,
+        "unknownHours": 0,
+        "progress": 0,
+        "progressMethod": "user",
+        "deadlineMissed": false,
+        "workHours": 32,
+        "workUnknown": 0,
+        "workDuration": 5,
+        "progressHours": 0,
+        "progressDuration": 0,
+        "lateStart": 0,
+        "float": 0,
+        "critical": true
+      },
+      {
+        "id": "wp1_2",
+        "kind": "task",
+        "start": 5,
+        "finish": 10,
+        "duration": 5,
+        "startDate": "2026-10-05",
+        "finishDate": "2026-10-09",
+        "hours": 40,
+        "unknownHours": 0,
+        "progress": 0,
+        "progressMethod": "user",
+        "deadlineMissed": false,
+        "workHours": 40,
+        "workUnknown": 0,
+        "workDuration": 5,
+        "progressHours": 0,
+        "progressDuration": 0,
+        "lateStart": 5,
+        "float": 0,
+        "critical": true
+      },
+      {
+        "id": "wp2_1",
+        "kind": "task",
+        "start": 10,
+        "finish": 15,
+        "duration": 5,
+        "startDate": "2026-10-12",
+        "finishDate": "2026-10-16",
+        "hours": 32,
+        "unknownHours": 0,
+        "progress": 0,
+        "progressMethod": "user",
+        "deadlineMissed": false,
+        "workHours": 32,
+        "workUnknown": 0,
+        "workDuration": 5,
+        "progressHours": 0,
+        "progressDuration": 0,
+        "lateStart": 10,
+        "float": 0,
+        "critical": true
+      },
+      {
+        "id": "wp2_2",
+        "kind": "task",
+        "start": 10,
+        "finish": 20,
+        "duration": 10,
+        "startDate": "2026-10-12",
+        "finishDate": "2026-10-23",
+        "hours": 40,
+        "unknownHours": 0,
+        "progress": 0,
+        "progressMethod": "user",
+        "deadlineMissed": false,
+        "workHours": 40,
+        "workUnknown": 0,
+        "workDuration": 10,
+        "progressHours": 0,
+        "progressDuration": 0,
+        "lateStart": 10,
+        "float": 0,
+        "critical": true
+      },
+      {
+        "id": "wp3_1",
+        "kind": "task",
+        "start": 15,
+        "finish": 30,
+        "duration": 15,
+        "startDate": "2026-10-19",
+        "finishDate": "2026-11-06",
+        "hours": 56,
+        "unknownHours": 0,
+        "progress": 0,
+        "progressMethod": "user",
+        "deadlineMissed": false,
+        "workHours": 56,
+        "workUnknown": 0,
+        "workDuration": 15,
+        "progressHours": 0,
+        "progressDuration": 0,
+        "lateStart": 15,
+        "float": 0,
+        "critical": true
+      },
+      {
+        "id": "wp3_2",
+        "kind": "task",
+        "start": 25,
+        "finish": 35,
+        "duration": 10,
+        "startDate": "2026-11-02",
+        "finishDate": "2026-11-13",
+        "hours": 48,
+        "unknownHours": 0,
+        "progress": 0,
+        "progressMethod": "user",
+        "deadlineMissed": false,
+        "workHours": 48,
+        "workUnknown": 0,
+        "workDuration": 10,
+        "progressHours": 0,
+        "progressDuration": 0,
+        "lateStart": 25,
+        "float": 0,
+        "critical": true
+      },
+      {
+        "id": "wp3_3",
+        "kind": "task",
+        "start": 30,
+        "finish": 40,
+        "duration": 10,
+        "startDate": "2026-11-09",
+        "finishDate": "2026-11-20",
+        "hours": 48,
+        "unknownHours": 0,
+        "progress": 0,
+        "progressMethod": "user",
+        "deadlineMissed": false,
+        "workHours": 48,
+        "workUnknown": 0,
+        "workDuration": 10,
+        "progressHours": 0,
+        "progressDuration": 0,
+        "lateStart": 30,
+        "float": 0,
+        "critical": true
+      },
+      {
+        "id": "wp4_1",
+        "kind": "task",
+        "start": 40,
+        "finish": 45,
+        "duration": 5,
+        "startDate": "2026-11-23",
+        "finishDate": "2026-11-27",
+        "hours": 56,
+        "unknownHours": 0,
+        "progress": 0,
+        "progressMethod": "user",
+        "deadlineMissed": false,
+        "workHours": 56,
+        "workUnknown": 0,
+        "workDuration": 5,
+        "progressHours": 0,
+        "progressDuration": 0,
+        "lateStart": 40,
+        "float": 0,
+        "critical": true
+      },
+      {
+        "id": "wp4_2",
+        "kind": "task",
+        "start": 45,
+        "finish": 55,
+        "duration": 10,
+        "startDate": "2026-11-30",
+        "finishDate": "2026-12-11",
+        "hours": 48,
+        "unknownHours": 0,
+        "progress": 0,
+        "progressMethod": "user",
+        "deadlineMissed": false,
+        "workHours": 48,
+        "workUnknown": 0,
+        "workDuration": 10,
+        "progressHours": 0,
+        "progressDuration": 0,
+        "lateStart": 45,
+        "float": 0,
+        "critical": true
+      },
+      {
+        "id": "wp4_3",
+        "kind": "task",
+        "start": 55,
+        "finish": 60,
+        "duration": 5,
+        "startDate": "2026-12-14",
+        "finishDate": "2026-12-18",
+        "hours": 32,
+        "unknownHours": 0,
+        "progress": 0,
+        "progressMethod": "user",
+        "deadlineMissed": false,
+        "workHours": 32,
+        "workUnknown": 0,
+        "workDuration": 5,
+        "progressHours": 0,
+        "progressDuration": 0,
+        "lateStart": 55,
+        "float": 0,
+        "critical": true
+      }
+    ]
+  }
+]

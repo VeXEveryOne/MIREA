@@ -1,0 +1,255 @@
+{
+  "reviewedAt": "2026-10-05",
+  "count": 14,
+  "figures": [
+    {
+      "name": "ПР1_Оргструктура",
+      "source": {
+        "file": "Исходники/build_print_figures.mts",
+        "sha256": "30516b9e23bea3a5e0e4002df197259551b9e87af10bd3290f1a24a2cd09469d"
+      },
+      "provenance": "Структура организации из исходной схемы ППОИС 1; не является проекцией FURPS.",
+      "png": {
+        "file": "OmniNotation/report_figures/ПР1_Оргструктура.png",
+        "sha256": "f8c9133cca7d34d420024204fc5e303b2cf19001224517c806bad97e864ff265",
+        "width": 4200,
+        "height": 1978
+      },
+      "svg": {
+        "file": "OmniNotation/report_figures/SVG/ПР1_Оргструктура.svg",
+        "sha256": "296b00e4f4e2aaed83a7719745d094399628611eb3c4042a91d9d3c52ea6328e"
+      }
+    },
+    {
+      "name": "ПР6_FURPS_Функции",
+      "model": {
+        "file": "OmniNotation/ИМ_ПР6_FURPS.omni",
+        "sha256": "acb9255c9775179ddf74c48f2efac3bbb2db980f73ccc5b05807fec61f5e6bef"
+      },
+      "png": {
+        "file": "OmniNotation/report_figures/ПР6_FURPS_Функции.png",
+        "sha256": "00189ed128ef26e8baec6ebd0a72940d4579c250153e24979fbe0010dabdbccf",
+        "width": 4200,
+        "height": 2403
+      },
+      "svg": {
+        "file": "OmniNotation/report_figures/SVG/ПР6_FURPS_Функции.svg",
+        "sha256": "4da410ef7d6b0f58261e3e8cddb4447148eeebcf263a14ee8359c4a466ed6476"
+      }
+    },
+    {
+      "name": "ПР6_FURPS_Качества",
+      "model": {
+        "file": "OmniNotation/ИМ_ПР6_FURPS.omni",
+        "sha256": "acb9255c9775179ddf74c48f2efac3bbb2db980f73ccc5b05807fec61f5e6bef"
+      },
+      "png": {
+        "file": "OmniNotation/report_figures/ПР6_FURPS_Качества.png",
+        "sha256": "8c9bce2ccb1c04051c52586baa14dfd5e30da73a134f658ab277f6fd3091e7ec",
+        "width": 4200,
+        "height": 2338
+      },
+      "svg": {
+        "file": "OmniNotation/report_figures/SVG/ПР6_FURPS_Качества.svg",
+        "sha256": "eade3784ce714f5dc9449c145b089f221255addf830eb248d15cbdf78560d875"
+      }
+    },
+    {
+      "name": "ПР4_AS_IS_context",
+      "model": {
+        "file": "OmniNotation/ИМ_ПР4_IDEF0_AS-IS.omni",
+        "sha256": "187ff5bd696c7746813df2fa1a4e8c447f10b4faa7e75146df1e4bd3ddaba3b0"
+      },
+      "png": {
+        "file": "OmniNotation/report_figures/ПР4_AS_IS_context.png",
+        "sha256": "665f517a90bb2d0c0b1f4778a030830bb39633400ab9a7b9fb624f0314701981",
+        "width": 4200,
+        "height": 2100
+      },
+      "svg": {
+        "file": "OmniNotation/report_figures/SVG/ПР4_AS_IS_context.svg",
+        "sha256": "0d2596f999708cd7877b09aa3d32082a1952568e53f6face435fbfd99dd3a34d"
+      }
+    },
+    {
+      "name": "ПР4_AS_IS_decomposition",
+      "model": {
+        "file": "OmniNotation/ИМ_ПР4_IDEF0_AS-IS.omni",
+        "sha256": "187ff5bd696c7746813df2fa1a4e8c447f10b4faa7e75146df1e4bd3ddaba3b0"
+      },
+      "png": {
+        "file": "OmniNotation/report_figures/ПР4_AS_IS_decomposition.png",
+        "sha256": "85416aea2228405f2b3abf1c04d4d4ff0ec710f6e2ffa3ae30902badb53442e5",
+        "width": 4200,
+        "height": 2500
+      },
+      "svg": {
+        "file": "OmniNotation/report_figures/SVG/ПР4_AS_IS_decomposition.svg",
+        "sha256": "8e09326fd306401545c3dff367eb60693a5c7b5c78cd558af4a825abb9a13506"
+      }
+    },
+    {
+      "name": "ПР5_TO_BE_context",
+      "model": {
+        "file": "OmniNotation/ИМ_ПР5_IDEF0_TO-BE.omni",
+        "sha256": "611cef61e19f660faadf589b63a48a01337d8f27a2798cd52e900a51fc1fd7b7"
+      },
+      "png": {
+        "file": "OmniNotation/report_figures/ПР5_TO_BE_context.png",
+        "sha256": "bfb296f53228ec9712114a057490338f99f0082eaf6c99ceb2c4b06fd3c88c4a",
+        "width": 4200,
+        "height": 2100
+      },
+      "svg": {
+        "file": "OmniNotation/report_figures/SVG/ПР5_TO_BE_context.svg",
+        "sha256": "85dcf44ef36d5075ccf826e0479317ba98f32797b474fa7445666bb8293d27fb"
+      }
+    },
+    {
+      "name": "ПР5_TO_BE_decomposition",
+      "model": {
+        "file": "OmniNotation/ИМ_ПР5_IDEF0_TO-BE.omni",
+        "sha256": "611cef61e19f660faadf589b63a48a01337d8f27a2798cd52e900a51fc1fd7b7"
+      },
+      "png": {
+        "file": "OmniNotation/report_figures/ПР5_TO_BE_decomposition.png",
+        "sha256": "85413711d7bcd01d179a56cc494f71b4163d09d9c9b04a8eee05adc81b41fda7",
+        "width": 4200,
+        "height": 2500
+      },
+      "svg": {
+        "file": "OmniNotation/report_figures/SVG/ПР5_TO_BE_decomposition.svg",
+        "sha256": "73b85401cd31a2ac1ef9baba48871f1feaf212afaf7c2ba160905ecfbee4572c"
+      }
+    },
+    {
+      "name": "ПР8_Прецеденты_данные",
+      "model": {
+        "file": "OmniNotation/ИМ_ПР8-10_UML.omni",
+        "sha256": "a5376dbdf4e22f2b2a1706cb41642a47a288d48269aeed44857acc207b24d621"
+      },
+      "png": {
+        "file": "OmniNotation/report_figures/ПР8_Прецеденты_данные.png",
+        "sha256": "18bf0cbd049df6238bc768b89e90ed52391be91577be856dfb7c148b9d627792",
+        "width": 4200,
+        "height": 2003
+      },
+      "svg": {
+        "file": "OmniNotation/report_figures/SVG/ПР8_Прецеденты_данные.svg",
+        "sha256": "a5d2d591b5a403c79067599b70923698b5e9a0b1952b1264868b323f5913d5b4"
+      }
+    },
+    {
+      "name": "ПР8_Прецеденты_публикация",
+      "model": {
+        "file": "OmniNotation/ИМ_ПР8-10_UML.omni",
+        "sha256": "a5376dbdf4e22f2b2a1706cb41642a47a288d48269aeed44857acc207b24d621"
+      },
+      "png": {
+        "file": "OmniNotation/report_figures/ПР8_Прецеденты_публикация.png",
+        "sha256": "6e4d39c04e7024bea75c3a1c85883696c4bd7cb34cb7c0495c37d72c008567d8",
+        "width": 4200,
+        "height": 1976
+      },
+      "svg": {
+        "file": "OmniNotation/report_figures/SVG/ПР8_Прецеденты_публикация.svg",
+        "sha256": "81eddd3fd9f797c23d9692e4b6a81458367cb2b0a5a8573cfb814d3b2257bb9f"
+      }
+    },
+    {
+      "name": "ПР9_Последовательность",
+      "model": {
+        "file": "OmniNotation/ИМ_ПР8-10_UML.omni",
+        "sha256": "a5376dbdf4e22f2b2a1706cb41642a47a288d48269aeed44857acc207b24d621"
+      },
+      "png": {
+        "file": "OmniNotation/report_figures/ПР9_Последовательность.png",
+        "sha256": "fd23d9e861bbb0ce16af35f61e7c00efd30d0ec62e2e22f186c3d28ef72afb24",
+        "width": 4200,
+        "height": 2139
+      },
+      "svg": {
+        "file": "OmniNotation/report_figures/SVG/ПР9_Последовательность.svg",
+        "sha256": "4b358b8898b112f8d1fb8c05d0f543b889ece2c63a4b3292b8b41ab352917bdd"
+      }
+    },
+    {
+      "name": "ПР9_Деятельность",
+      "model": {
+        "file": "OmniNotation/ИМ_ПР9-10_Архитектура.omni",
+        "sha256": "83cc35ebff37709d8de3a0f36de02eda8e749473457ce369dad2b2310c219f02"
+      },
+      "png": {
+        "file": "OmniNotation/report_figures/ПР9_Деятельность.png",
+        "sha256": "bfd4953caa576b1b4d1aa3f113902a5bbdef0066ce4a49e3829936eb52024b2d",
+        "width": 4200,
+        "height": 5861
+      },
+      "svg": {
+        "file": "OmniNotation/report_figures/SVG/ПР9_Деятельность.svg",
+        "sha256": "49af3747d29d9c48c72653a4f87be4b5e7c9a0fa1524cae83761a6f5b06f8770"
+      }
+    },
+    {
+      "name": "ПР10_Компоненты",
+      "model": {
+        "file": "OmniNotation/ИМ_ПР9-10_Архитектура.omni",
+        "sha256": "83cc35ebff37709d8de3a0f36de02eda8e749473457ce369dad2b2310c219f02"
+      },
+      "png": {
+        "file": "OmniNotation/report_figures/ПР10_Компоненты.png",
+        "sha256": "66433a01513be3f5b4fd588c11c666b62dcc4438ff6b6788797457fbd40ccbc5",
+        "width": 4200,
+        "height": 2225
+      },
+      "svg": {
+        "file": "OmniNotation/report_figures/SVG/ПР10_Компоненты.svg",
+        "sha256": "4c5e2dbc7883c50fb89925b97076f2dba26367cc7bde0c5ad3223b7ee80f1bfd"
+      }
+    },
+    {
+      "name": "ПР10_Развёртывание",
+      "model": {
+        "file": "OmniNotation/ИМ_ПР9-10_Архитектура.omni",
+        "sha256": "83cc35ebff37709d8de3a0f36de02eda8e749473457ce369dad2b2310c219f02"
+      },
+      "png": {
+        "file": "OmniNotation/report_figures/ПР10_Развёртывание.png",
+        "sha256": "72f3b962483462060ff857d572764771625d7a46d863a76997b460eb8fa7a397",
+        "width": 4200,
+        "height": 1922
+      },
+      "svg": {
+        "file": "OmniNotation/report_figures/SVG/ПР10_Развёртывание.svg",
+        "sha256": "c3a558f732d00a630f2d137375979eb67081084f791d0fa93815ed9aad304abf"
+      }
+    },
+    {
+      "name": "ПР11_Гант",
+      "model": {
+        "file": "OmniNotation/ИМ_ПР11_Гант.omni",
+        "sha256": "93a78f126e45a33119bef8e5ca1653298d1174075aca23f35231cb51082f1822"
+      },
+      "png": {
+        "file": "OmniNotation/report_figures/ПР11_Гант.png",
+        "sha256": "9404dc5cba4d053fda53e5c657d78e3d2e1eb713697302950ee3ac21bc69d3e9",
+        "width": 4200,
+        "height": 1813
+      },
+      "svg": {
+        "file": "OmniNotation/report_figures/SVG/ПР11_Гант.svg",
+        "sha256": "bad981cb71379d38d9df97f7028318ce12461385b7e8389e9c633204622e1d0d"
+      }
+    }
+  ],
+  "report": {
+    "docx": {
+      "file": "ИМ_АлбахтинИВ_Отчёт.docx",
+      "sha256": "7bea1130f738b9320a3e6606a39a951ac2a8cd3073ab6b4d4dcdecb8f52379ee"
+    },
+    "pdf": {
+      "file": "ИМ_АлбахтинИВ_Отчёт.pdf",
+      "sha256": "061c3f0d62e80adcdb7e1d1d946597d860af260bd2e9144f24a4e890ae6c6564"
+    }
+  }
+}

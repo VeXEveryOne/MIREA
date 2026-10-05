@@ -1,0 +1,367 @@
+[
+  {
+    "sheetId": "context",
+    "functions": 1,
+    "arrows": 13,
+    "fontSizeMin": 20,
+    "svg": "report_figures\\SVG\\ПР4_AS_IS_context.svg",
+    "png": "report_figures\\ПР4_AS_IS_context.png",
+    "labels": [
+      {
+        "id": "c_task",
+        "lines": 1,
+        "size": 26
+      },
+      {
+        "id": "c_bom",
+        "lines": 1,
+        "size": 26
+      },
+      {
+        "id": "c_market",
+        "lines": 1,
+        "size": 26
+      },
+      {
+        "id": "c_ozon",
+        "lines": 1,
+        "size": 26
+      },
+      {
+        "id": "c_category",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "c_manual",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "c_price",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "c_card",
+        "lines": 1,
+        "size": 26
+      },
+      {
+        "id": "c_result",
+        "lines": 1,
+        "size": 26
+      },
+      {
+        "id": "c_files",
+        "lines": 1,
+        "size": 26
+      },
+      {
+        "id": "c_people",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "c_spreadsheets",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "c_channels",
+        "lines": 2,
+        "size": 24
+      }
+    ]
+  },
+  {
+    "sheetId": "decomposition",
+    "functions": 5,
+    "arrows": 23,
+    "fontSizeMin": 20,
+    "svg": "report_figures\\SVG\\ПР4_AS_IS_decomposition.svg",
+    "png": "report_figures\\ПР4_AS_IS_decomposition.png",
+    "labels": [
+      {
+        "id": "d_task",
+        "lines": 3,
+        "size": 22
+      },
+      {
+        "id": "d_bom",
+        "lines": 1,
+        "size": 22
+      },
+      {
+        "id": "d_market",
+        "lines": 3,
+        "size": 22
+      },
+      {
+        "id": "d_ozon",
+        "lines": 1,
+        "size": 22
+      },
+      {
+        "id": "d_category",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_manual",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_price",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_card",
+        "lines": 1,
+        "size": 24
+      },
+      {
+        "id": "d_result",
+        "lines": 1,
+        "size": 24
+      },
+      {
+        "id": "d_files",
+        "lines": 1,
+        "size": 24
+      },
+      {
+        "id": "d_people",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_spreadsheets",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_channels",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "step12",
+        "lines": 1,
+        "size": 20
+      },
+      {
+        "id": "step23",
+        "lines": 1,
+        "size": 20
+      },
+      {
+        "id": "step34",
+        "lines": 2,
+        "size": 20
+      },
+      {
+        "id": "step45",
+        "lines": 2,
+        "size": 20
+      },
+      {
+        "id": "correction",
+        "lines": 1,
+        "size": 24
+      }
+    ]
+  },
+  {
+    "sheetId": "context",
+    "functions": 1,
+    "arrows": 14,
+    "fontSizeMin": 20,
+    "svg": "report_figures\\SVG\\ПР5_TO_BE_context.svg",
+    "png": "report_figures\\ПР5_TO_BE_context.png",
+    "labels": [
+      {
+        "id": "c_change",
+        "lines": 1,
+        "size": 26
+      },
+      {
+        "id": "c_sources",
+        "lines": 1,
+        "size": 26
+      },
+      {
+        "id": "c_media",
+        "lines": 1,
+        "size": 26
+      },
+      {
+        "id": "c_response",
+        "lines": 1,
+        "size": 26
+      },
+      {
+        "id": "c_rules",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "c_category",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "c_sla",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "c_version",
+        "lines": 1,
+        "size": 26
+      },
+      {
+        "id": "c_publish",
+        "lines": 2,
+        "size": 26
+      },
+      {
+        "id": "c_protocol",
+        "lines": 1,
+        "size": 26
+      },
+      {
+        "id": "c_metrics",
+        "lines": 1,
+        "size": 26
+      },
+      {
+        "id": "c_roles",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "c_system",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "c_adapter",
+        "lines": 2,
+        "size": 24
+      }
+    ]
+  },
+  {
+    "sheetId": "decomposition",
+    "functions": 6,
+    "arrows": 29,
+    "fontSizeMin": 20,
+    "svg": "report_figures\\SVG\\ПР5_TO_BE_decomposition.svg",
+    "png": "report_figures\\ПР5_TO_BE_decomposition.png",
+    "labels": [
+      {
+        "id": "d_change",
+        "lines": 1,
+        "size": 22
+      },
+      {
+        "id": "d_sources",
+        "lines": 2,
+        "size": 22
+      },
+      {
+        "id": "d_media",
+        "lines": 1,
+        "size": 22
+      },
+      {
+        "id": "d_response",
+        "lines": 1,
+        "size": 22
+      },
+      {
+        "id": "d_rules",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_category",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_sla",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_version",
+        "lines": 1,
+        "size": 24
+      },
+      {
+        "id": "d_publish",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_protocol",
+        "lines": 1,
+        "size": 24
+      },
+      {
+        "id": "d_metrics",
+        "lines": 1,
+        "size": 24
+      },
+      {
+        "id": "d_roles",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "d_system",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_adapter",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "step12",
+        "lines": 1,
+        "size": 20
+      },
+      {
+        "id": "step23",
+        "lines": 1,
+        "size": 20
+      },
+      {
+        "id": "step34",
+        "lines": 1,
+        "size": 20
+      },
+      {
+        "id": "step45",
+        "lines": 1,
+        "size": 20
+      },
+      {
+        "id": "step56",
+        "lines": 1,
+        "size": 20
+      },
+      {
+        "id": "correction",
+        "lines": 1,
+        "size": 24
+      }
+    ]
+  }
+]

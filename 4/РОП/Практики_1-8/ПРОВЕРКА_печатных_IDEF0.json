@@ -1,0 +1,462 @@
+[
+  {
+    "sheetId": "context",
+    "functions": 1,
+    "arrows": 17,
+    "fontSizeMin": 20,
+    "svg": "Экспорт\\SVG\\01_Рисунок 01 — IDEF0 AS IS_ контекст ручной подготовки карточки.svg",
+    "png": "Экспорт\\PNG\\01_Рисунок 01 — IDEF0 AS IS_ контекст ручной подготовки карточки.png",
+    "labels": [
+      {
+        "id": "c_request",
+        "lines": 1,
+        "size": 26
+      },
+      {
+        "id": "c_data",
+        "lines": 2,
+        "size": 26
+      },
+      {
+        "id": "c_assignment",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "c_templates",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "c_compatibility",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "c_supplierRoutine",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "c_calculation",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "c_ozon",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "c_table",
+        "lines": 2,
+        "size": 26
+      },
+      {
+        "id": "c_values",
+        "lines": 2,
+        "size": 26
+      },
+      {
+        "id": "c_card",
+        "lines": 1,
+        "size": 26
+      },
+      {
+        "id": "c_waste",
+        "lines": 1,
+        "size": 26
+      },
+      {
+        "id": "c_manager",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "c_staff",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "c_desktop",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "c_messages",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "c_seller",
+        "lines": 1,
+        "size": 24
+      }
+    ]
+  },
+  {
+    "sheetId": "decomposition",
+    "functions": 6,
+    "arrows": 27,
+    "fontSizeMin": 20,
+    "svg": "Экспорт\\SVG\\02_Рисунок 02 — IDEF0 AS IS_ ручная подготовка и повторный ввод.svg",
+    "png": "Экспорт\\PNG\\02_Рисунок 02 — IDEF0 AS IS_ ручная подготовка и повторный ввод.png",
+    "labels": [
+      {
+        "id": "d_request",
+        "lines": 3,
+        "size": 20
+      },
+      {
+        "id": "d_data",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "d_assignment",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "d_templates",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "d_compatibility",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "d_supplierRoutine",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "d_calculation",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "d_ozon",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "d_table",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_values",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_card",
+        "lines": 1,
+        "size": 24
+      },
+      {
+        "id": "d_waste",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_manager",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_staff",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "d_desktop",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_messages",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "d_seller",
+        "lines": 1,
+        "size": 24
+      },
+      {
+        "id": "step12",
+        "lines": 1,
+        "size": 20
+      },
+      {
+        "id": "step23",
+        "lines": 2,
+        "size": 20
+      },
+      {
+        "id": "step34",
+        "lines": 3,
+        "size": 20
+      },
+      {
+        "id": "step45",
+        "lines": 2,
+        "size": 20
+      },
+      {
+        "id": "step56",
+        "lines": 2,
+        "size": 20
+      },
+      {
+        "id": "feedback_compat",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "feedback_unavailable",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "feedback_missing",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "feedback_rejected",
+        "lines": 2,
+        "size": 24
+      }
+    ]
+  },
+  {
+    "sheetId": "context",
+    "functions": 1,
+    "arrows": 18,
+    "fontSizeMin": 20,
+    "svg": "Экспорт\\SVG\\06_Рисунок 06 — IDEF0 TO BE_ контекст управляемого процесса.svg",
+    "png": "Экспорт\\PNG\\06_Рисунок 06 — IDEF0 TO BE_ контекст управляемого процесса.png",
+    "labels": [
+      {
+        "id": "c_request",
+        "lines": 1,
+        "size": 26
+      },
+      {
+        "id": "c_catalog",
+        "lines": 1,
+        "size": 26
+      },
+      {
+        "id": "c_offers",
+        "lines": 2,
+        "size": 26
+      },
+      {
+        "id": "c_states",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "c_mapping",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "c_rules",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "c_ozon",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "c_approval",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "c_security",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "c_version",
+        "lines": 2,
+        "size": 26
+      },
+      {
+        "id": "c_content",
+        "lines": 1,
+        "size": 26
+      },
+      {
+        "id": "c_status",
+        "lines": 2,
+        "size": 26
+      },
+      {
+        "id": "c_audit",
+        "lines": 2,
+        "size": 26
+      },
+      {
+        "id": "c_roles",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "c_system",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "c_storage",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "c_adapters",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "c_worker",
+        "lines": 2,
+        "size": 24
+      }
+    ]
+  },
+  {
+    "sheetId": "decomposition",
+    "functions": 5,
+    "arrows": 24,
+    "fontSizeMin": 20,
+    "svg": "Экспорт\\SVG\\07_Рисунок 07 — IDEF0 TO BE_ версионированная подготовка и публикация.svg",
+    "png": "Экспорт\\PNG\\07_Рисунок 07 — IDEF0 TO BE_ версионированная подготовка и публикация.png",
+    "labels": [
+      {
+        "id": "d_request",
+        "lines": 2,
+        "size": 20
+      },
+      {
+        "id": "d_catalog",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_offers",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_states",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "d_mapping",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_rules",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "d_ozon",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_approval",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "d_security",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_version",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_content",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_status",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_audit",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_roles",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_system",
+        "lines": 3,
+        "size": 24
+      },
+      {
+        "id": "d_storage",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_adapters",
+        "lines": 2,
+        "size": 24
+      },
+      {
+        "id": "d_worker",
+        "lines": 1,
+        "size": 24
+      },
+      {
+        "id": "step12",
+        "lines": 1,
+        "size": 20
+      },
+      {
+        "id": "step23",
+        "lines": 1,
+        "size": 20
+      },
+      {
+        "id": "step34",
+        "lines": 1,
+        "size": 20
+      },
+      {
+        "id": "step45",
+        "lines": 1,
+        "size": 20
+      },
+      {
+        "id": "feedback_correction",
+        "lines": 2,
+        "size": 24
+      }
+    ]
+  }
+]

@@ -869,7 +869,7 @@
       {
         "id": "step12",
         "kind": "arrow",
-        "label": "D1 Нормализованный снимок исходных данных",
+        "label": "D1: Снимок",
         "source": "A1",
         "target": "A2",
         "properties": {
@@ -879,7 +879,7 @@
       {
         "id": "step23",
         "kind": "arrow",
-        "label": "D2 Версия модельного ряда и перечень затронутых карточек",
+        "label": "D2: Версия",
         "source": "A2",
         "target": "A3",
         "properties": {
@@ -889,7 +889,7 @@
       {
         "id": "step34",
         "kind": "arrow",
-        "label": "D3 Проверенный модельный ряд и расчётная ведомость",
+        "label": "D3: Расчёты",
         "source": "A3",
         "target": "A4",
         "properties": {
@@ -899,7 +899,7 @@
       {
         "id": "step45",
         "kind": "arrow",
-        "label": "D4 Утверждённый неизменяемый пакет",
+        "label": "D4: Пакет",
         "source": "A4",
         "target": "A5",
         "properties": {
@@ -909,7 +909,7 @@
       {
         "id": "step56",
         "kind": "arrow",
-        "label": "D5 Идентификатор попытки и отправленный пакет",
+        "label": "D5: Попытка",
         "source": "A5",
         "target": "A6",
         "properties": {
@@ -928,493 +928,1409 @@
       }
     ]
   },
-  "source": "idef0 im_pr5_idef0_to_be \"Управляемая подготовка и публикация карточки — TO-BE\"\ndiagram context \"Управляемая подготовка и публикация карточки — TO-BE\" node=A-0 purpose=\"Показать целевой процесс с версиями, автоматическими проверками и контролируемой публикацией\" viewpoint=\"Владелец процесса и менеджер маркетплейсов\" author=\"Албахтин И.В.\" date=\"04.10.2026\" project=\"ИМ, практическая работа 5 — ООО «Юкомс»\" status=publication context=TOP pageNumber=1\nfunction root \"Управлять подготовкой и публикацией версии карточки\" in=context number=0\nboundary ctx_change \"Заявка или событие изменения данных\" in=context side=left direction=in order=1\nboundary ctx_sources \"Данные поставщиков, склада и производства\" in=context side=left direction=in order=2\nboundary ctx_media \"Версионированные изображения\" in=context side=left direction=in order=3\nboundary ctx_response \"Ответ API Ozon\" in=context side=left direction=in order=4\nboundary ctx_rules \"Формализованные правила совместимости\" in=context side=top direction=in order=1\nboundary ctx_category \"Матрица обязательных полей Ozon\" in=context side=top direction=in order=2\nboundary ctx_sla \"Роли, SLA и правила утверждения\" in=context side=top direction=in order=3\nboundary ctx_version \"Утверждённая версия карточки\" in=context side=right direction=out order=1\nboundary ctx_publish \"Подтверждённая публикация или адресная задача\" in=context side=right direction=out order=2\nboundary ctx_protocol \"Протокол проверок и журнал версий\" in=context side=right direction=out order=3\nboundary ctx_metrics \"Показатели актуальности и сроков\" in=context side=right direction=out order=4\nboundary ctx_roles \"Менеджер, производство, дизайнер и ИТ\" in=context side=bottom direction=in order=1\nboundary ctx_system \"ИС, единая БД и механизм правил\" in=context side=bottom direction=in order=2\nboundary ctx_adapter \"Очередь публикаций и адаптер API Ozon\" in=context side=bottom direction=in order=3\ndiagram decomposition \"Управлять подготовкой и публикацией версии карточки\" in=root node=A0 purpose=\"Показать ранний контроль, управляемые версии и адресную обработку исключений\" viewpoint=\"Владелец процесса и менеджер маркетплейсов\" author=\"Албахтин И.В.\" date=\"04.10.2026\" project=\"ИМ, практическая работа 5 — ООО «Юкомс»\" status=publication context=A-0 pageNumber=2\nfunction A1 \"Зарегистрировать изменение и загрузить данные\" in=decomposition number=1\nfunction A2 \"Создать версию модельного ряда и определить зависимости\" in=decomposition number=2\nfunction A3 \"Проверить совместимость и выполнить расчёты\" in=decomposition number=3\nfunction A4 \"Сформировать и согласовать пакет карточки\" in=decomposition number=4\nfunction A5 \"Поставить версию в очередь и опубликовать\" in=decomposition number=5\nfunction A6 \"Обработать ответ и обновить показатели\" in=decomposition number=6\nboundary dec_change \"Заявка или событие изменения данных\" in=decomposition side=left direction=in order=1 parentArrow=c_change parentEnd=to\nboundary dec_sources \"Данные поставщиков, склада и производства\" in=decomposition side=left direction=in order=2 parentArrow=c_sources parentEnd=to\nboundary dec_media \"Версионированные изображения\" in=decomposition side=left direction=in order=3 parentArrow=c_media parentEnd=to\nboundary dec_response \"Ответ API Ozon\" in=decomposition side=left direction=in order=4 parentArrow=c_response parentEnd=to\nboundary dec_rules \"Формализованные правила совместимости\" in=decomposition side=top direction=in order=1 parentArrow=c_rules parentEnd=to\nboundary dec_category \"Матрица обязательных полей Ozon\" in=decomposition side=top direction=in order=2 parentArrow=c_category parentEnd=to\nboundary dec_sla \"Роли, SLA и правила утверждения\" in=decomposition side=top direction=in order=3 parentArrow=c_sla parentEnd=to\nboundary dec_version \"Утверждённая версия карточки\" in=decomposition side=right direction=out order=1 parentArrow=c_version parentEnd=from\nboundary dec_publish \"Подтверждённая публикация или адресная задача\" in=decomposition side=right direction=out order=2 parentArrow=c_publish parentEnd=from\nboundary dec_protocol \"Протокол проверок и журнал версий\" in=decomposition side=right direction=out order=3 parentArrow=c_protocol parentEnd=from\nboundary dec_metrics \"Показатели актуальности и сроков\" in=decomposition side=right direction=out order=4 parentArrow=c_metrics parentEnd=from\nboundary dec_roles \"Менеджер, производство, дизайнер и ИТ\" in=decomposition side=bottom direction=in order=1 parentArrow=c_roles parentEnd=to\nboundary dec_system \"ИС, единая БД и механизм правил\" in=decomposition side=bottom direction=in order=2 parentArrow=c_system parentEnd=to\nboundary dec_adapter \"Очередь публикаций и адаптер API Ozon\" in=decomposition side=bottom direction=in order=3 parentArrow=c_adapter parentEnd=to\narrow c_change \"Заявка или событие изменения данных\" from=ctx_change to=root role=input toOrder=1\narrow c_sources \"Данные поставщиков, склада и производства\" from=ctx_sources to=root role=input toOrder=2\narrow c_media \"Версионированные изображения\" from=ctx_media to=root role=input toOrder=3\narrow c_response \"Ответ API Ozon\" from=ctx_response to=root role=input toOrder=4\narrow c_rules \"Формализованные правила совместимости\" from=ctx_rules to=root role=control toOrder=1\narrow c_category \"Матрица обязательных полей Ozon\" from=ctx_category to=root role=control toOrder=2\narrow c_sla \"Роли, SLA и правила утверждения\" from=ctx_sla to=root role=control toOrder=3\narrow c_version \"Утверждённая версия карточки\" from=root to=ctx_version role=output fromOrder=1\narrow c_publish \"Подтверждённая публикация или адресная задача\" from=root to=ctx_publish role=output fromOrder=2\narrow c_protocol \"Протокол проверок и журнал версий\" from=root to=ctx_protocol role=output fromOrder=3\narrow c_metrics \"Показатели актуальности и сроков\" from=root to=ctx_metrics role=output fromOrder=4\narrow c_roles \"Менеджер, производство, дизайнер и ИТ\" from=ctx_roles to=root role=mechanism toOrder=1\narrow c_system \"ИС, единая БД и механизм правил\" from=ctx_system to=root role=mechanism toOrder=2\narrow c_adapter \"Очередь публикаций и адаптер API Ozon\" from=ctx_adapter to=root role=mechanism toOrder=3\narrow d_change \"Заявка или событие изменения данных\" from=dec_change to=A1 role=input toOrder=1\narrow d_sources \"Данные поставщиков, склада и производства\" from=dec_sources to=A1 role=input toOrder=2\narrow d_media \"Версионированные изображения\" from=dec_media to=A4 role=input toOrder=1\narrow d_response \"Ответ API Ozon\" from=dec_response to=A6 role=input toOrder=1\narrow d_rules \"Формализованные правила совместимости\" from=dec_rules to=A3 role=control toOrder=1\narrow d_category \"Матрица обязательных полей Ozon\" from=dec_category to=A4 role=control toOrder=1\narrow d_category_a5 -h \"Матрица обязательных полей Ozon\" from=dec_category to=A5 role=control toOrder=1 branchOf=d_category\narrow d_sla \"Роли, SLA и правила утверждения\" from=dec_sla to=A4 role=control toOrder=2\narrow d_sla_a1 -h \"Роли, SLA и правила утверждения\" from=dec_sla to=A1 role=control toOrder=1 branchOf=d_sla\narrow d_sla_a2 -h \"Роли, SLA и правила утверждения\" from=dec_sla to=A2 role=control toOrder=1 branchOf=d_sla\narrow d_sla_a6 -h \"Роли, SLA и правила утверждения\" from=dec_sla to=A6 role=control toOrder=1 branchOf=d_sla\narrow d_version \"Утверждённая версия карточки\" from=A5 to=dec_version role=output fromOrder=1\narrow d_publish \"Подтверждённая публикация или адресная задача\" from=A6 to=dec_publish role=output fromOrder=1\narrow d_protocol \"Протокол проверок и журнал версий\" from=A6 to=dec_protocol role=output fromOrder=2\narrow d_metrics \"Показатели актуальности и сроков\" from=A6 to=dec_metrics role=output fromOrder=3\narrow d_roles \"Менеджер, производство, дизайнер и ИТ\" from=dec_roles to=A4 role=mechanism toOrder=1\narrow d_roles_a6 -h \"Менеджер, производство, дизайнер и ИТ\" from=dec_roles to=A6 role=mechanism toOrder=1 branchOf=d_roles\narrow d_system \"ИС, единая БД и механизм правил\" from=dec_system to=A1 role=mechanism toOrder=1\narrow d_system_a2 -h \"ИС, единая БД и механизм правил\" from=dec_system to=A2 role=mechanism toOrder=1 branchOf=d_system\narrow d_system_a3 -h \"ИС, единая БД и механизм правил\" from=dec_system to=A3 role=mechanism toOrder=1 branchOf=d_system\narrow d_system_a4 -h \"ИС, единая БД и механизм правил\" from=dec_system to=A4 role=mechanism toOrder=2 branchOf=d_system\narrow d_adapter \"Очередь публикаций и адаптер API Ozon\" from=dec_adapter to=A5 role=mechanism toOrder=1\narrow d_adapter_a6 -h \"Очередь публикаций и адаптер API Ozon\" from=dec_adapter to=A6 role=mechanism toOrder=2 branchOf=d_adapter\narrow step12 \"D1 Нормализованный снимок исходных данных\" from=A1 to=A2 role=input\narrow step23 \"D2 Версия модельного ряда и перечень затронутых карточек\" from=A2 to=A3 role=input\narrow step34 \"D3 Проверенный модельный ряд и расчётная ведомость\" from=A3 to=A4 role=input\narrow step45 \"D4 Утверждённый неизменяемый пакет\" from=A4 to=A5 role=input\narrow step56 \"D5 Идентификатор попытки и отправленный пакет\" from=A5 to=A6 role=input\narrow correction \"D6 Адресная задача на исправление\" from=A6 to=A2 role=control\n",
-  "draft": "idef0 im_pr5_idef0_to_be \"Управляемая подготовка и публикация карточки — TO-BE\"\ndiagram context \"Управляемая подготовка и публикация карточки — TO-BE\" node=A-0 purpose=\"Показать целевой процесс с версиями, автоматическими проверками и контролируемой публикацией\" viewpoint=\"Владелец процесса и менеджер маркетплейсов\" author=\"Албахтин И.В.\" date=\"04.10.2026\" project=\"ИМ, практическая работа 5 — ООО «Юкомс»\" status=publication context=TOP pageNumber=1\nfunction root \"Управлять подготовкой и публикацией версии карточки\" in=context number=0\nboundary ctx_change \"Заявка или событие изменения данных\" in=context side=left direction=in order=1\nboundary ctx_sources \"Данные поставщиков, склада и производства\" in=context side=left direction=in order=2\nboundary ctx_media \"Версионированные изображения\" in=context side=left direction=in order=3\nboundary ctx_response \"Ответ API Ozon\" in=context side=left direction=in order=4\nboundary ctx_rules \"Формализованные правила совместимости\" in=context side=top direction=in order=1\nboundary ctx_category \"Матрица обязательных полей Ozon\" in=context side=top direction=in order=2\nboundary ctx_sla \"Роли, SLA и правила утверждения\" in=context side=top direction=in order=3\nboundary ctx_version \"Утверждённая версия карточки\" in=context side=right direction=out order=1\nboundary ctx_publish \"Подтверждённая публикация или адресная задача\" in=context side=right direction=out order=2\nboundary ctx_protocol \"Протокол проверок и журнал версий\" in=context side=right direction=out order=3\nboundary ctx_metrics \"Показатели актуальности и сроков\" in=context side=right direction=out order=4\nboundary ctx_roles \"Менеджер, производство, дизайнер и ИТ\" in=context side=bottom direction=in order=1\nboundary ctx_system \"ИС, единая БД и механизм правил\" in=context side=bottom direction=in order=2\nboundary ctx_adapter \"Очередь публикаций и адаптер API Ozon\" in=context side=bottom direction=in order=3\ndiagram decomposition \"Управлять подготовкой и публикацией версии карточки\" in=root node=A0 purpose=\"Показать ранний контроль, управляемые версии и адресную обработку исключений\" viewpoint=\"Владелец процесса и менеджер маркетплейсов\" author=\"Албахтин И.В.\" date=\"04.10.2026\" project=\"ИМ, практическая работа 5 — ООО «Юкомс»\" status=publication context=A-0 pageNumber=2\nfunction A1 \"Зарегистрировать изменение и загрузить данные\" in=decomposition number=1\nfunction A2 \"Создать версию модельного ряда и определить зависимости\" in=decomposition number=2\nfunction A3 \"Проверить совместимость и выполнить расчёты\" in=decomposition number=3\nfunction A4 \"Сформировать и согласовать пакет карточки\" in=decomposition number=4\nfunction A5 \"Поставить версию в очередь и опубликовать\" in=decomposition number=5\nfunction A6 \"Обработать ответ и обновить показатели\" in=decomposition number=6\nboundary dec_change \"Заявка или событие изменения данных\" in=decomposition side=left direction=in order=1 parentArrow=c_change parentEnd=to\nboundary dec_sources \"Данные поставщиков, склада и производства\" in=decomposition side=left direction=in order=2 parentArrow=c_sources parentEnd=to\nboundary dec_media \"Версионированные изображения\" in=decomposition side=left direction=in order=3 parentArrow=c_media parentEnd=to\nboundary dec_response \"Ответ API Ozon\" in=decomposition side=left direction=in order=4 parentArrow=c_response parentEnd=to\nboundary dec_rules \"Формализованные правила совместимости\" in=decomposition side=top direction=in order=1 parentArrow=c_rules parentEnd=to\nboundary dec_category \"Матрица обязательных полей Ozon\" in=decomposition side=top direction=in order=2 parentArrow=c_category parentEnd=to\nboundary dec_sla \"Роли, SLA и правила утверждения\" in=decomposition side=top direction=in order=3 parentArrow=c_sla parentEnd=to\nboundary dec_version \"Утверждённая версия карточки\" in=decomposition side=right direction=out order=1 parentArrow=c_version parentEnd=from\nboundary dec_publish \"Подтверждённая публикация или адресная задача\" in=decomposition side=right direction=out order=2 parentArrow=c_publish parentEnd=from\nboundary dec_protocol \"Протокол проверок и журнал версий\" in=decomposition side=right direction=out order=3 parentArrow=c_protocol parentEnd=from\nboundary dec_metrics \"Показатели актуальности и сроков\" in=decomposition side=right direction=out order=4 parentArrow=c_metrics parentEnd=from\nboundary dec_roles \"Менеджер, производство, дизайнер и ИТ\" in=decomposition side=bottom direction=in order=1 parentArrow=c_roles parentEnd=to\nboundary dec_system \"ИС, единая БД и механизм правил\" in=decomposition side=bottom direction=in order=2 parentArrow=c_system parentEnd=to\nboundary dec_adapter \"Очередь публикаций и адаптер API Ozon\" in=decomposition side=bottom direction=in order=3 parentArrow=c_adapter parentEnd=to\narrow c_change \"Заявка или событие изменения данных\" from=ctx_change to=root role=input toOrder=1\narrow c_sources \"Данные поставщиков, склада и производства\" from=ctx_sources to=root role=input toOrder=2\narrow c_media \"Версионированные изображения\" from=ctx_media to=root role=input toOrder=3\narrow c_response \"Ответ API Ozon\" from=ctx_response to=root role=input toOrder=4\narrow c_rules \"Формализованные правила совместимости\" from=ctx_rules to=root role=control toOrder=1\narrow c_category \"Матрица обязательных полей Ozon\" from=ctx_category to=root role=control toOrder=2\narrow c_sla \"Роли, SLA и правила утверждения\" from=ctx_sla to=root role=control toOrder=3\narrow c_version \"Утверждённая версия карточки\" from=root to=ctx_version role=output fromOrder=1\narrow c_publish \"Подтверждённая публикация или адресная задача\" from=root to=ctx_publish role=output fromOrder=2\narrow c_protocol \"Протокол проверок и журнал версий\" from=root to=ctx_protocol role=output fromOrder=3\narrow c_metrics \"Показатели актуальности и сроков\" from=root to=ctx_metrics role=output fromOrder=4\narrow c_roles \"Менеджер, производство, дизайнер и ИТ\" from=ctx_roles to=root role=mechanism toOrder=1\narrow c_system \"ИС, единая БД и механизм правил\" from=ctx_system to=root role=mechanism toOrder=2\narrow c_adapter \"Очередь публикаций и адаптер API Ozon\" from=ctx_adapter to=root role=mechanism toOrder=3\narrow d_change \"Заявка или событие изменения данных\" from=dec_change to=A1 role=input toOrder=1\narrow d_sources \"Данные поставщиков, склада и производства\" from=dec_sources to=A1 role=input toOrder=2\narrow d_media \"Версионированные изображения\" from=dec_media to=A4 role=input toOrder=1\narrow d_response \"Ответ API Ozon\" from=dec_response to=A6 role=input toOrder=1\narrow d_rules \"Формализованные правила совместимости\" from=dec_rules to=A3 role=control toOrder=1\narrow d_category \"Матрица обязательных полей Ozon\" from=dec_category to=A4 role=control toOrder=1\narrow d_category_a5 -h \"Матрица обязательных полей Ozon\" from=dec_category to=A5 role=control toOrder=1 branchOf=d_category\narrow d_sla \"Роли, SLA и правила утверждения\" from=dec_sla to=A4 role=control toOrder=2\narrow d_sla_a1 -h \"Роли, SLA и правила утверждения\" from=dec_sla to=A1 role=control toOrder=1 branchOf=d_sla\narrow d_sla_a2 -h \"Роли, SLA и правила утверждения\" from=dec_sla to=A2 role=control toOrder=1 branchOf=d_sla\narrow d_sla_a6 -h \"Роли, SLA и правила утверждения\" from=dec_sla to=A6 role=control toOrder=1 branchOf=d_sla\narrow d_version \"Утверждённая версия карточки\" from=A5 to=dec_version role=output fromOrder=1\narrow d_publish \"Подтверждённая публикация или адресная задача\" from=A6 to=dec_publish role=output fromOrder=1\narrow d_protocol \"Протокол проверок и журнал версий\" from=A6 to=dec_protocol role=output fromOrder=2\narrow d_metrics \"Показатели актуальности и сроков\" from=A6 to=dec_metrics role=output fromOrder=3\narrow d_roles \"Менеджер, производство, дизайнер и ИТ\" from=dec_roles to=A4 role=mechanism toOrder=1\narrow d_roles_a6 -h \"Менеджер, производство, дизайнер и ИТ\" from=dec_roles to=A6 role=mechanism toOrder=1 branchOf=d_roles\narrow d_system \"ИС, единая БД и механизм правил\" from=dec_system to=A1 role=mechanism toOrder=1\narrow d_system_a2 -h \"ИС, единая БД и механизм правил\" from=dec_system to=A2 role=mechanism toOrder=1 branchOf=d_system\narrow d_system_a3 -h \"ИС, единая БД и механизм правил\" from=dec_system to=A3 role=mechanism toOrder=1 branchOf=d_system\narrow d_system_a4 -h \"ИС, единая БД и механизм правил\" from=dec_system to=A4 role=mechanism toOrder=2 branchOf=d_system\narrow d_adapter \"Очередь публикаций и адаптер API Ozon\" from=dec_adapter to=A5 role=mechanism toOrder=1\narrow d_adapter_a6 -h \"Очередь публикаций и адаптер API Ozon\" from=dec_adapter to=A6 role=mechanism toOrder=2 branchOf=d_adapter\narrow step12 \"D1 Нормализованный снимок исходных данных\" from=A1 to=A2 role=input\narrow step23 \"D2 Версия модельного ряда и перечень затронутых карточек\" from=A2 to=A3 role=input\narrow step34 \"D3 Проверенный модельный ряд и расчётная ведомость\" from=A3 to=A4 role=input\narrow step45 \"D4 Утверждённый неизменяемый пакет\" from=A4 to=A5 role=input\narrow step56 \"D5 Идентификатор попытки и отправленный пакет\" from=A5 to=A6 role=input\narrow correction \"D6 Адресная задача на исправление\" from=A6 to=A2 role=control\n",
+  "source": "idef0 im_pr5_idef0_to_be \"Управляемая подготовка и публикация карточки — TO-BE\"\ndiagram context \"Управляемая подготовка и публикация карточки — TO-BE\" node=A-0 purpose=\"Показать целевой процесс с версиями, автоматическими проверками и контролируемой публикацией\" viewpoint=\"Владелец процесса и менеджер маркетплейсов\" author=\"Албахтин И.В.\" date=\"04.10.2026\" project=\"ИМ, практическая работа 5 — ООО «Юкомс»\" status=publication context=TOP pageNumber=1\nfunction root \"Управлять подготовкой и публикацией версии карточки\" in=context number=0\nboundary ctx_change \"Заявка или событие изменения данных\" in=context side=left direction=in order=1\nboundary ctx_sources \"Данные поставщиков, склада и производства\" in=context side=left direction=in order=2\nboundary ctx_media \"Версионированные изображения\" in=context side=left direction=in order=3\nboundary ctx_response \"Ответ API Ozon\" in=context side=left direction=in order=4\nboundary ctx_rules \"Формализованные правила совместимости\" in=context side=top direction=in order=1\nboundary ctx_category \"Матрица обязательных полей Ozon\" in=context side=top direction=in order=2\nboundary ctx_sla \"Роли, SLA и правила утверждения\" in=context side=top direction=in order=3\nboundary ctx_version \"Утверждённая версия карточки\" in=context side=right direction=out order=1\nboundary ctx_publish \"Подтверждённая публикация или адресная задача\" in=context side=right direction=out order=2\nboundary ctx_protocol \"Протокол проверок и журнал версий\" in=context side=right direction=out order=3\nboundary ctx_metrics \"Показатели актуальности и сроков\" in=context side=right direction=out order=4\nboundary ctx_roles \"Менеджер, производство, дизайнер и ИТ\" in=context side=bottom direction=in order=1\nboundary ctx_system \"ИС, единая БД и механизм правил\" in=context side=bottom direction=in order=2\nboundary ctx_adapter \"Очередь публикаций и адаптер API Ozon\" in=context side=bottom direction=in order=3\ndiagram decomposition \"Управлять подготовкой и публикацией версии карточки\" in=root node=A0 purpose=\"Показать ранний контроль, управляемые версии и адресную обработку исключений\" viewpoint=\"Владелец процесса и менеджер маркетплейсов\" author=\"Албахтин И.В.\" date=\"04.10.2026\" project=\"ИМ, практическая работа 5 — ООО «Юкомс»\" status=publication context=A-0 pageNumber=2\nfunction A1 \"Зарегистрировать изменение и загрузить данные\" in=decomposition number=1\nfunction A2 \"Создать версию модельного ряда и определить зависимости\" in=decomposition number=2\nfunction A3 \"Проверить совместимость и выполнить расчёты\" in=decomposition number=3\nfunction A4 \"Сформировать и согласовать пакет карточки\" in=decomposition number=4\nfunction A5 \"Поставить версию в очередь и опубликовать\" in=decomposition number=5\nfunction A6 \"Обработать ответ и обновить показатели\" in=decomposition number=6\nboundary dec_change \"Заявка или событие изменения данных\" in=decomposition side=left direction=in order=1 parentArrow=c_change parentEnd=to\nboundary dec_sources \"Данные поставщиков, склада и производства\" in=decomposition side=left direction=in order=2 parentArrow=c_sources parentEnd=to\nboundary dec_media \"Версионированные изображения\" in=decomposition side=left direction=in order=3 parentArrow=c_media parentEnd=to\nboundary dec_response \"Ответ API Ozon\" in=decomposition side=left direction=in order=4 parentArrow=c_response parentEnd=to\nboundary dec_rules \"Формализованные правила совместимости\" in=decomposition side=top direction=in order=1 parentArrow=c_rules parentEnd=to\nboundary dec_category \"Матрица обязательных полей Ozon\" in=decomposition side=top direction=in order=2 parentArrow=c_category parentEnd=to\nboundary dec_sla \"Роли, SLA и правила утверждения\" in=decomposition side=top direction=in order=3 parentArrow=c_sla parentEnd=to\nboundary dec_version \"Утверждённая версия карточки\" in=decomposition side=right direction=out order=1 parentArrow=c_version parentEnd=from\nboundary dec_publish \"Подтверждённая публикация или адресная задача\" in=decomposition side=right direction=out order=2 parentArrow=c_publish parentEnd=from\nboundary dec_protocol \"Протокол проверок и журнал версий\" in=decomposition side=right direction=out order=3 parentArrow=c_protocol parentEnd=from\nboundary dec_metrics \"Показатели актуальности и сроков\" in=decomposition side=right direction=out order=4 parentArrow=c_metrics parentEnd=from\nboundary dec_roles \"Менеджер, производство, дизайнер и ИТ\" in=decomposition side=bottom direction=in order=1 parentArrow=c_roles parentEnd=to\nboundary dec_system \"ИС, единая БД и механизм правил\" in=decomposition side=bottom direction=in order=2 parentArrow=c_system parentEnd=to\nboundary dec_adapter \"Очередь публикаций и адаптер API Ozon\" in=decomposition side=bottom direction=in order=3 parentArrow=c_adapter parentEnd=to\narrow c_change \"Заявка или событие изменения данных\" from=ctx_change to=root role=input toOrder=1\narrow c_sources \"Данные поставщиков, склада и производства\" from=ctx_sources to=root role=input toOrder=2\narrow c_media \"Версионированные изображения\" from=ctx_media to=root role=input toOrder=3\narrow c_response \"Ответ API Ozon\" from=ctx_response to=root role=input toOrder=4\narrow c_rules \"Формализованные правила совместимости\" from=ctx_rules to=root role=control toOrder=1\narrow c_category \"Матрица обязательных полей Ozon\" from=ctx_category to=root role=control toOrder=2\narrow c_sla \"Роли, SLA и правила утверждения\" from=ctx_sla to=root role=control toOrder=3\narrow c_version \"Утверждённая версия карточки\" from=root to=ctx_version role=output fromOrder=1\narrow c_publish \"Подтверждённая публикация или адресная задача\" from=root to=ctx_publish role=output fromOrder=2\narrow c_protocol \"Протокол проверок и журнал версий\" from=root to=ctx_protocol role=output fromOrder=3\narrow c_metrics \"Показатели актуальности и сроков\" from=root to=ctx_metrics role=output fromOrder=4\narrow c_roles \"Менеджер, производство, дизайнер и ИТ\" from=ctx_roles to=root role=mechanism toOrder=1\narrow c_system \"ИС, единая БД и механизм правил\" from=ctx_system to=root role=mechanism toOrder=2\narrow c_adapter \"Очередь публикаций и адаптер API Ozon\" from=ctx_adapter to=root role=mechanism toOrder=3\narrow d_change \"Заявка или событие изменения данных\" from=dec_change to=A1 role=input toOrder=1\narrow d_sources \"Данные поставщиков, склада и производства\" from=dec_sources to=A1 role=input toOrder=2\narrow d_media \"Версионированные изображения\" from=dec_media to=A4 role=input toOrder=1\narrow d_response \"Ответ API Ozon\" from=dec_response to=A6 role=input toOrder=1\narrow d_rules \"Формализованные правила совместимости\" from=dec_rules to=A3 role=control toOrder=1\narrow d_category \"Матрица обязательных полей Ozon\" from=dec_category to=A4 role=control toOrder=1\narrow d_category_a5 -h \"Матрица обязательных полей Ozon\" from=dec_category to=A5 role=control toOrder=1 branchOf=d_category\narrow d_sla \"Роли, SLA и правила утверждения\" from=dec_sla to=A4 role=control toOrder=2\narrow d_sla_a1 -h \"Роли, SLA и правила утверждения\" from=dec_sla to=A1 role=control toOrder=1 branchOf=d_sla\narrow d_sla_a2 -h \"Роли, SLA и правила утверждения\" from=dec_sla to=A2 role=control toOrder=1 branchOf=d_sla\narrow d_sla_a6 -h \"Роли, SLA и правила утверждения\" from=dec_sla to=A6 role=control toOrder=1 branchOf=d_sla\narrow d_version \"Утверждённая версия карточки\" from=A5 to=dec_version role=output fromOrder=1\narrow d_publish \"Подтверждённая публикация или адресная задача\" from=A6 to=dec_publish role=output fromOrder=1\narrow d_protocol \"Протокол проверок и журнал версий\" from=A6 to=dec_protocol role=output fromOrder=2\narrow d_metrics \"Показатели актуальности и сроков\" from=A6 to=dec_metrics role=output fromOrder=3\narrow d_roles \"Менеджер, производство, дизайнер и ИТ\" from=dec_roles to=A4 role=mechanism toOrder=1\narrow d_roles_a6 -h \"Менеджер, производство, дизайнер и ИТ\" from=dec_roles to=A6 role=mechanism toOrder=1 branchOf=d_roles\narrow d_system \"ИС, единая БД и механизм правил\" from=dec_system to=A1 role=mechanism toOrder=1\narrow d_system_a2 -h \"ИС, единая БД и механизм правил\" from=dec_system to=A2 role=mechanism toOrder=1 branchOf=d_system\narrow d_system_a3 -h \"ИС, единая БД и механизм правил\" from=dec_system to=A3 role=mechanism toOrder=1 branchOf=d_system\narrow d_system_a4 -h \"ИС, единая БД и механизм правил\" from=dec_system to=A4 role=mechanism toOrder=2 branchOf=d_system\narrow d_adapter \"Очередь публикаций и адаптер API Ozon\" from=dec_adapter to=A5 role=mechanism toOrder=1\narrow d_adapter_a6 -h \"Очередь публикаций и адаптер API Ozon\" from=dec_adapter to=A6 role=mechanism toOrder=2 branchOf=d_adapter\narrow step12 \"D1: Снимок\" from=A1 role=input to=A2\narrow step23 \"D2: Версия\" from=A2 role=input to=A3\narrow step34 \"D3: Расчёты\" from=A3 role=input to=A4\narrow step45 \"D4: Пакет\" from=A4 role=input to=A5\narrow step56 \"D5: Попытка\" from=A5 role=input to=A6\narrow correction \"D6 Адресная задача на исправление\" from=A6 to=A2 role=control\n",
+  "draft": "idef0 im_pr5_idef0_to_be \"Управляемая подготовка и публикация карточки — TO-BE\"\ndiagram context \"Управляемая подготовка и публикация карточки — TO-BE\" node=A-0 purpose=\"Показать целевой процесс с версиями, автоматическими проверками и контролируемой публикацией\" viewpoint=\"Владелец процесса и менеджер маркетплейсов\" author=\"Албахтин И.В.\" date=\"04.10.2026\" project=\"ИМ, практическая работа 5 — ООО «Юкомс»\" status=publication context=TOP pageNumber=1\nfunction root \"Управлять подготовкой и публикацией версии карточки\" in=context number=0\nboundary ctx_change \"Заявка или событие изменения данных\" in=context side=left direction=in order=1\nboundary ctx_sources \"Данные поставщиков, склада и производства\" in=context side=left direction=in order=2\nboundary ctx_media \"Версионированные изображения\" in=context side=left direction=in order=3\nboundary ctx_response \"Ответ API Ozon\" in=context side=left direction=in order=4\nboundary ctx_rules \"Формализованные правила совместимости\" in=context side=top direction=in order=1\nboundary ctx_category \"Матрица обязательных полей Ozon\" in=context side=top direction=in order=2\nboundary ctx_sla \"Роли, SLA и правила утверждения\" in=context side=top direction=in order=3\nboundary ctx_version \"Утверждённая версия карточки\" in=context side=right direction=out order=1\nboundary ctx_publish \"Подтверждённая публикация или адресная задача\" in=context side=right direction=out order=2\nboundary ctx_protocol \"Протокол проверок и журнал версий\" in=context side=right direction=out order=3\nboundary ctx_metrics \"Показатели актуальности и сроков\" in=context side=right direction=out order=4\nboundary ctx_roles \"Менеджер, производство, дизайнер и ИТ\" in=context side=bottom direction=in order=1\nboundary ctx_system \"ИС, единая БД и механизм правил\" in=context side=bottom direction=in order=2\nboundary ctx_adapter \"Очередь публикаций и адаптер API Ozon\" in=context side=bottom direction=in order=3\ndiagram decomposition \"Управлять подготовкой и публикацией версии карточки\" in=root node=A0 purpose=\"Показать ранний контроль, управляемые версии и адресную обработку исключений\" viewpoint=\"Владелец процесса и менеджер маркетплейсов\" author=\"Албахтин И.В.\" date=\"04.10.2026\" project=\"ИМ, практическая работа 5 — ООО «Юкомс»\" status=publication context=A-0 pageNumber=2\nfunction A1 \"Зарегистрировать изменение и загрузить данные\" in=decomposition number=1\nfunction A2 \"Создать версию модельного ряда и определить зависимости\" in=decomposition number=2\nfunction A3 \"Проверить совместимость и выполнить расчёты\" in=decomposition number=3\nfunction A4 \"Сформировать и согласовать пакет карточки\" in=decomposition number=4\nfunction A5 \"Поставить версию в очередь и опубликовать\" in=decomposition number=5\nfunction A6 \"Обработать ответ и обновить показатели\" in=decomposition number=6\nboundary dec_change \"Заявка или событие изменения данных\" in=decomposition side=left direction=in order=1 parentArrow=c_change parentEnd=to\nboundary dec_sources \"Данные поставщиков, склада и производства\" in=decomposition side=left direction=in order=2 parentArrow=c_sources parentEnd=to\nboundary dec_media \"Версионированные изображения\" in=decomposition side=left direction=in order=3 parentArrow=c_media parentEnd=to\nboundary dec_response \"Ответ API Ozon\" in=decomposition side=left direction=in order=4 parentArrow=c_response parentEnd=to\nboundary dec_rules \"Формализованные правила совместимости\" in=decomposition side=top direction=in order=1 parentArrow=c_rules parentEnd=to\nboundary dec_category \"Матрица обязательных полей Ozon\" in=decomposition side=top direction=in order=2 parentArrow=c_category parentEnd=to\nboundary dec_sla \"Роли, SLA и правила утверждения\" in=decomposition side=top direction=in order=3 parentArrow=c_sla parentEnd=to\nboundary dec_version \"Утверждённая версия карточки\" in=decomposition side=right direction=out order=1 parentArrow=c_version parentEnd=from\nboundary dec_publish \"Подтверждённая публикация или адресная задача\" in=decomposition side=right direction=out order=2 parentArrow=c_publish parentEnd=from\nboundary dec_protocol \"Протокол проверок и журнал версий\" in=decomposition side=right direction=out order=3 parentArrow=c_protocol parentEnd=from\nboundary dec_metrics \"Показатели актуальности и сроков\" in=decomposition side=right direction=out order=4 parentArrow=c_metrics parentEnd=from\nboundary dec_roles \"Менеджер, производство, дизайнер и ИТ\" in=decomposition side=bottom direction=in order=1 parentArrow=c_roles parentEnd=to\nboundary dec_system \"ИС, единая БД и механизм правил\" in=decomposition side=bottom direction=in order=2 parentArrow=c_system parentEnd=to\nboundary dec_adapter \"Очередь публикаций и адаптер API Ozon\" in=decomposition side=bottom direction=in order=3 parentArrow=c_adapter parentEnd=to\narrow c_change \"Заявка или событие изменения данных\" from=ctx_change to=root role=input toOrder=1\narrow c_sources \"Данные поставщиков, склада и производства\" from=ctx_sources to=root role=input toOrder=2\narrow c_media \"Версионированные изображения\" from=ctx_media to=root role=input toOrder=3\narrow c_response \"Ответ API Ozon\" from=ctx_response to=root role=input toOrder=4\narrow c_rules \"Формализованные правила совместимости\" from=ctx_rules to=root role=control toOrder=1\narrow c_category \"Матрица обязательных полей Ozon\" from=ctx_category to=root role=control toOrder=2\narrow c_sla \"Роли, SLA и правила утверждения\" from=ctx_sla to=root role=control toOrder=3\narrow c_version \"Утверждённая версия карточки\" from=root to=ctx_version role=output fromOrder=1\narrow c_publish \"Подтверждённая публикация или адресная задача\" from=root to=ctx_publish role=output fromOrder=2\narrow c_protocol \"Протокол проверок и журнал версий\" from=root to=ctx_protocol role=output fromOrder=3\narrow c_metrics \"Показатели актуальности и сроков\" from=root to=ctx_metrics role=output fromOrder=4\narrow c_roles \"Менеджер, производство, дизайнер и ИТ\" from=ctx_roles to=root role=mechanism toOrder=1\narrow c_system \"ИС, единая БД и механизм правил\" from=ctx_system to=root role=mechanism toOrder=2\narrow c_adapter \"Очередь публикаций и адаптер API Ozon\" from=ctx_adapter to=root role=mechanism toOrder=3\narrow d_change \"Заявка или событие изменения данных\" from=dec_change to=A1 role=input toOrder=1\narrow d_sources \"Данные поставщиков, склада и производства\" from=dec_sources to=A1 role=input toOrder=2\narrow d_media \"Версионированные изображения\" from=dec_media to=A4 role=input toOrder=1\narrow d_response \"Ответ API Ozon\" from=dec_response to=A6 role=input toOrder=1\narrow d_rules \"Формализованные правила совместимости\" from=dec_rules to=A3 role=control toOrder=1\narrow d_category \"Матрица обязательных полей Ozon\" from=dec_category to=A4 role=control toOrder=1\narrow d_category_a5 -h \"Матрица обязательных полей Ozon\" from=dec_category to=A5 role=control toOrder=1 branchOf=d_category\narrow d_sla \"Роли, SLA и правила утверждения\" from=dec_sla to=A4 role=control toOrder=2\narrow d_sla_a1 -h \"Роли, SLA и правила утверждения\" from=dec_sla to=A1 role=control toOrder=1 branchOf=d_sla\narrow d_sla_a2 -h \"Роли, SLA и правила утверждения\" from=dec_sla to=A2 role=control toOrder=1 branchOf=d_sla\narrow d_sla_a6 -h \"Роли, SLA и правила утверждения\" from=dec_sla to=A6 role=control toOrder=1 branchOf=d_sla\narrow d_version \"Утверждённая версия карточки\" from=A5 to=dec_version role=output fromOrder=1\narrow d_publish \"Подтверждённая публикация или адресная задача\" from=A6 to=dec_publish role=output fromOrder=1\narrow d_protocol \"Протокол проверок и журнал версий\" from=A6 to=dec_protocol role=output fromOrder=2\narrow d_metrics \"Показатели актуальности и сроков\" from=A6 to=dec_metrics role=output fromOrder=3\narrow d_roles \"Менеджер, производство, дизайнер и ИТ\" from=dec_roles to=A4 role=mechanism toOrder=1\narrow d_roles_a6 -h \"Менеджер, производство, дизайнер и ИТ\" from=dec_roles to=A6 role=mechanism toOrder=1 branchOf=d_roles\narrow d_system \"ИС, единая БД и механизм правил\" from=dec_system to=A1 role=mechanism toOrder=1\narrow d_system_a2 -h \"ИС, единая БД и механизм правил\" from=dec_system to=A2 role=mechanism toOrder=1 branchOf=d_system\narrow d_system_a3 -h \"ИС, единая БД и механизм правил\" from=dec_system to=A3 role=mechanism toOrder=1 branchOf=d_system\narrow d_system_a4 -h \"ИС, единая БД и механизм правил\" from=dec_system to=A4 role=mechanism toOrder=2 branchOf=d_system\narrow d_adapter \"Очередь публикаций и адаптер API Ozon\" from=dec_adapter to=A5 role=mechanism toOrder=1\narrow d_adapter_a6 -h \"Очередь публикаций и адаптер API Ozon\" from=dec_adapter to=A6 role=mechanism toOrder=2 branchOf=d_adapter\narrow step12 \"D1: Снимок\" from=A1 role=input to=A2\narrow step23 \"D2: Версия\" from=A2 role=input to=A3\narrow step34 \"D3: Расчёты\" from=A3 role=input to=A4\narrow step45 \"D4: Пакет\" from=A4 role=input to=A5\narrow step56 \"D5: Попытка\" from=A5 role=input to=A6\narrow correction \"D6 Адресная задача на исправление\" from=A6 to=A2 role=control\n",
   "layout": {
     "frames": {
       "context": {
         "x": 0,
         "y": 0,
-        "width": 2200,
-        "height": 1180
+        "width": 2100,
+        "height": 950
       },
       "decomposition": {
         "x": 0,
         "y": 0,
-        "width": 3150,
-        "height": 1580
+        "width": 2100,
+        "height": 1150
       }
     },
     "positions": {
       "root": {
-        "x": 720,
-        "y": 390
+        "x": 750,
+        "y": 360
       },
       "ctx_change": {
         "x": 0,
-        "y": 456
+        "y": 335
       },
       "ctx_sources": {
         "x": 0,
-        "y": 510
+        "y": 410
       },
       "ctx_media": {
         "x": 0,
-        "y": 564
+        "y": 485
       },
       "ctx_response": {
         "x": 0,
-        "y": 618
+        "y": 560
       },
       "ctx_rules": {
-        "x": 910,
+        "x": 190,
         "y": 0
       },
       "ctx_category": {
-        "x": 1100,
+        "x": 1050,
         "y": 0
       },
       "ctx_sla": {
-        "x": 1290,
+        "x": 1910,
         "y": 0
       },
       "ctx_version": {
-        "x": 2200,
-        "y": 450
+        "x": 2100,
+        "y": 290
       },
       "ctx_publish": {
-        "x": 2200,
-        "y": 510
+        "x": 2100,
+        "y": 385
       },
       "ctx_protocol": {
-        "x": 2200,
-        "y": 570
+        "x": 2100,
+        "y": 480
       },
       "ctx_metrics": {
-        "x": 2200,
-        "y": 630
+        "x": 2100,
+        "y": 575
       },
       "ctx_roles": {
-        "x": 910,
-        "y": 1180
+        "x": 190,
+        "y": 950
       },
       "ctx_system": {
-        "x": 1100,
-        "y": 1180
+        "x": 1050,
+        "y": 950
       },
       "ctx_adapter": {
-        "x": 1290,
-        "y": 1180
+        "x": 1910,
+        "y": 950
       },
       "A1": {
-        "x": 250,
-        "y": 210
+        "x": 95,
+        "y": 440
       },
       "A2": {
-        "x": 725,
-        "y": 365
+        "x": 421,
+        "y": 440
       },
       "A3": {
-        "x": 1200,
-        "y": 520
+        "x": 747,
+        "y": 440
       },
       "A4": {
-        "x": 1675,
-        "y": 675
+        "x": 1073,
+        "y": 440
       },
       "A5": {
-        "x": 2150,
-        "y": 830
+        "x": 1399,
+        "y": 440
       },
       "A6": {
-        "x": 2625,
-        "y": 985
+        "x": 1725,
+        "y": 440
       },
       "dec_change": {
         "x": 0,
-        "y": 265
+        "y": 350
       },
       "dec_sources": {
         "x": 0,
-        "y": 475
+        "y": 720
       },
       "dec_media": {
         "x": 0,
-        "y": 685
+        "y": 790
       },
       "dec_response": {
         "x": 0,
-        "y": 895
+        "y": 855
       },
       "dec_rules": {
-        "x": 500,
+        "x": 887,
         "y": 0
       },
       "dec_category": {
-        "x": 1240,
+        "x": 1166.3333333333333,
         "y": 0
       },
       "dec_sla": {
-        "x": 1980,
+        "x": 1259.6666666666667,
         "y": 0
       },
       "dec_version": {
-        "x": 3150,
-        "y": 300
+        "x": 2100,
+        "y": 280
       },
       "dec_publish": {
-        "x": 3150,
-        "y": 510
+        "x": 2100,
+        "y": 730
       },
       "dec_protocol": {
-        "x": 3150,
-        "y": 720
+        "x": 2100,
+        "y": 830
       },
       "dec_metrics": {
-        "x": 3150,
+        "x": 2100,
         "y": 930
       },
       "dec_roles": {
-        "x": 650,
-        "y": 1580
+        "x": 1166.3333333333333,
+        "y": 1150
       },
       "dec_system": {
-        "x": 1410,
-        "y": 1580
+        "x": 235,
+        "y": 1150
       },
       "dec_adapter": {
-        "x": 2170,
-        "y": 1580
+        "x": 1539,
+        "y": 1150
       }
     },
     "textStyles": {
       "root": {
-        "fontSize": 22,
+        "fontSize": 30,
         "wrap": true
       },
       "A1": {
-        "fontSize": 18,
+        "fontSize": 24,
         "wrap": true
       },
       "A2": {
-        "fontSize": 18,
+        "fontSize": 24,
         "wrap": true
       },
       "A3": {
-        "fontSize": 18,
+        "fontSize": 24,
         "wrap": true
       },
       "A4": {
-        "fontSize": 18,
+        "fontSize": 24,
         "wrap": true
       },
       "A5": {
-        "fontSize": 18,
+        "fontSize": 24,
         "wrap": true
       },
       "A6": {
-        "fontSize": 18,
+        "fontSize": 24,
         "wrap": true
       },
       "c_change": {
-        "fontSize": 13,
+        "fontSize": 26,
         "wrap": true,
-        "width": 250
+        "width": 640
       },
       "c_sources": {
-        "fontSize": 13,
+        "fontSize": 26,
         "wrap": true,
-        "width": 250
+        "width": 640
       },
       "c_media": {
-        "fontSize": 13,
+        "fontSize": 26,
         "wrap": true,
-        "width": 250
+        "width": 640
       },
       "c_response": {
-        "fontSize": 13,
+        "fontSize": 26,
         "wrap": true,
-        "width": 250
+        "width": 640
       },
       "c_rules": {
-        "fontSize": 13,
+        "fontSize": 24,
         "wrap": true,
-        "width": 250
+        "width": 340
       },
       "c_category": {
-        "fontSize": 13,
+        "fontSize": 24,
         "wrap": true,
-        "width": 250
+        "width": 340
       },
       "c_sla": {
-        "fontSize": 13,
+        "fontSize": 24,
         "wrap": true,
-        "width": 250
+        "width": 340
       },
       "c_version": {
-        "fontSize": 13,
+        "fontSize": 26,
         "wrap": true,
-        "width": 250
+        "width": 630
       },
       "c_publish": {
-        "fontSize": 13,
+        "fontSize": 26,
         "wrap": true,
-        "width": 250
+        "width": 630
       },
       "c_protocol": {
-        "fontSize": 13,
+        "fontSize": 26,
         "wrap": true,
-        "width": 250
+        "width": 630
       },
       "c_metrics": {
-        "fontSize": 13,
+        "fontSize": 26,
         "wrap": true,
-        "width": 250
+        "width": 630
       },
       "c_roles": {
-        "fontSize": 13,
+        "fontSize": 24,
         "wrap": true,
-        "width": 250
+        "width": 340
       },
       "c_system": {
-        "fontSize": 13,
+        "fontSize": 24,
         "wrap": true,
-        "width": 250
+        "width": 340
       },
       "c_adapter": {
-        "fontSize": 13,
+        "fontSize": 24,
         "wrap": true,
-        "width": 250
+        "width": 340
       },
       "d_change": {
-        "fontSize": 13,
+        "fontSize": 22,
         "wrap": true,
-        "width": 250
+        "width": 470
       },
       "d_sources": {
-        "fontSize": 13,
+        "fontSize": 22,
         "wrap": true,
-        "width": 250
+        "width": 470
       },
       "d_media": {
-        "fontSize": 13,
+        "fontSize": 22,
         "wrap": true,
-        "width": 250
+        "width": 470
       },
       "d_response": {
-        "fontSize": 13,
+        "fontSize": 22,
         "wrap": true,
-        "width": 250
+        "width": 470
       },
       "d_rules": {
-        "fontSize": 13,
+        "fontSize": 24,
         "wrap": true,
-        "width": 250
+        "width": 310
       },
       "d_category": {
-        "fontSize": 13,
+        "fontSize": 24,
         "wrap": true,
-        "width": 250
-      },
-      "d_category_a5": {
-        "fontSize": 13,
-        "wrap": true,
-        "width": 250
+        "width": 310
       },
       "d_sla": {
-        "fontSize": 13,
+        "fontSize": 24,
         "wrap": true,
-        "width": 250
-      },
-      "d_sla_a1": {
-        "fontSize": 13,
-        "wrap": true,
-        "width": 250
-      },
-      "d_sla_a2": {
-        "fontSize": 13,
-        "wrap": true,
-        "width": 250
-      },
-      "d_sla_a6": {
-        "fontSize": 13,
-        "wrap": true,
-        "width": 250
+        "width": 310
       },
       "d_version": {
-        "fontSize": 13,
+        "fontSize": 24,
         "wrap": true,
-        "width": 250
+        "width": 560
       },
       "d_publish": {
-        "fontSize": 13,
+        "fontSize": 24,
         "wrap": true,
-        "width": 250
+        "width": 560
       },
       "d_protocol": {
-        "fontSize": 13,
+        "fontSize": 24,
         "wrap": true,
-        "width": 250
+        "width": 560
       },
       "d_metrics": {
-        "fontSize": 13,
+        "fontSize": 24,
         "wrap": true,
-        "width": 250
+        "width": 560
       },
       "d_roles": {
-        "fontSize": 13,
+        "fontSize": 24,
         "wrap": true,
-        "width": 250
-      },
-      "d_roles_a6": {
-        "fontSize": 13,
-        "wrap": true,
-        "width": 250
+        "width": 310
       },
       "d_system": {
-        "fontSize": 13,
+        "fontSize": 24,
         "wrap": true,
-        "width": 250
-      },
-      "d_system_a2": {
-        "fontSize": 13,
-        "wrap": true,
-        "width": 250
-      },
-      "d_system_a3": {
-        "fontSize": 13,
-        "wrap": true,
-        "width": 250
-      },
-      "d_system_a4": {
-        "fontSize": 13,
-        "wrap": true,
-        "width": 250
+        "width": 310
       },
       "d_adapter": {
-        "fontSize": 13,
+        "fontSize": 24,
         "wrap": true,
-        "width": 250
+        "width": 310
+      },
+      "d_category_a5": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 320
+      },
+      "d_sla_a1": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 320
+      },
+      "d_sla_a2": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 320
+      },
+      "d_sla_a6": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 320
+      },
+      "d_roles_a6": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 320
+      },
+      "d_system_a2": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 320
+      },
+      "d_system_a3": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 320
+      },
+      "d_system_a4": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 320
       },
       "d_adapter_a6": {
-        "fontSize": 13,
+        "fontSize": 24,
         "wrap": true,
-        "width": 250
+        "width": 320
       },
       "step12": {
-        "fontSize": 13,
+        "fontSize": 20,
         "wrap": true,
-        "width": 250
+        "width": 130
       },
       "step23": {
-        "fontSize": 13,
+        "fontSize": 20,
         "wrap": true,
-        "width": 250
+        "width": 130
       },
       "step34": {
-        "fontSize": 13,
+        "fontSize": 20,
         "wrap": true,
-        "width": 250
+        "width": 130
       },
       "step45": {
-        "fontSize": 13,
+        "fontSize": 20,
         "wrap": true,
-        "width": 250
+        "width": 130
       },
       "step56": {
-        "fontSize": 13,
+        "fontSize": 20,
         "wrap": true,
-        "width": 250
+        "width": 130
       },
       "correction": {
-        "fontSize": 13,
+        "fontSize": 24,
         "wrap": true,
-        "width": 250
+        "width": 650
       }
     },
     "sizes": {
       "root": {
-        "width": 760,
-        "height": 280
+        "width": 600,
+        "height": 200
       },
       "A1": {
-        "width": 320,
-        "height": 150
+        "width": 280,
+        "height": 200
       },
       "A2": {
-        "width": 320,
-        "height": 150
+        "width": 280,
+        "height": 200
       },
       "A3": {
-        "width": 320,
-        "height": 150
+        "width": 280,
+        "height": 200
       },
       "A4": {
-        "width": 320,
-        "height": 150
+        "width": 280,
+        "height": 200
       },
       "A5": {
-        "width": 320,
-        "height": 150
+        "width": 280,
+        "height": 200
       },
       "A6": {
-        "width": 320,
-        "height": 150
+        "width": 280,
+        "height": 200
       }
     },
     "arrows": {
       "c_change": {
-        "toOffset": 0.22
+        "toOffset": 0.2,
+        "bends": [
+          {
+            "x": 24,
+            "y": 335
+          },
+          {
+            "x": 700,
+            "y": 335
+          },
+          {
+            "x": 700,
+            "y": 400
+          },
+          {
+            "x": 726,
+            "y": 400
+          }
+        ],
+        "label": {
+          "x": 345,
+          "y": 355
+        }
       },
       "c_sources": {
-        "toOffset": 0.4
+        "toOffset": 0.4,
+        "bends": [
+          {
+            "x": 24,
+            "y": 410
+          },
+          {
+            "x": 700,
+            "y": 410
+          },
+          {
+            "x": 700,
+            "y": 440
+          },
+          {
+            "x": 726,
+            "y": 440
+          }
+        ],
+        "label": {
+          "x": 345,
+          "y": 430
+        }
       },
       "c_media": {
-        "toOffset": 0.58
+        "toOffset": 0.6,
+        "bends": [
+          {
+            "x": 24,
+            "y": 485
+          },
+          {
+            "x": 700,
+            "y": 485
+          },
+          {
+            "x": 700,
+            "y": 480
+          },
+          {
+            "x": 726,
+            "y": 480
+          }
+        ],
+        "label": {
+          "x": 345,
+          "y": 505
+        }
       },
       "c_response": {
-        "toOffset": 0.76
+        "toOffset": 0.8,
+        "bends": [
+          {
+            "x": 24,
+            "y": 560
+          },
+          {
+            "x": 700,
+            "y": 560
+          },
+          {
+            "x": 700,
+            "y": 520
+          },
+          {
+            "x": 726,
+            "y": 520
+          }
+        ],
+        "label": {
+          "x": 345,
+          "y": 580
+        }
       },
       "c_rules": {
-        "toOffset": 0.25
+        "toOffset": 0.25,
+        "bends": [
+          {
+            "x": 190,
+            "y": 24
+          },
+          {
+            "x": 190,
+            "y": 230
+          },
+          {
+            "x": 900,
+            "y": 230
+          },
+          {
+            "x": 900,
+            "y": 336
+          }
+        ],
+        "label": {
+          "x": 190,
+          "y": 180
+        }
       },
       "c_category": {
-        "toOffset": 0.5
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 1050,
+            "y": 24
+          },
+          {
+            "x": 1050,
+            "y": 254
+          },
+          {
+            "x": 1050,
+            "y": 254
+          },
+          {
+            "x": 1050,
+            "y": 336
+          }
+        ],
+        "label": {
+          "x": 1050,
+          "y": 180
+        }
       },
       "c_sla": {
-        "toOffset": 0.75
+        "toOffset": 0.75,
+        "bends": [
+          {
+            "x": 1910,
+            "y": 24
+          },
+          {
+            "x": 1910,
+            "y": 278
+          },
+          {
+            "x": 1200,
+            "y": 278
+          },
+          {
+            "x": 1200,
+            "y": 336
+          }
+        ],
+        "label": {
+          "x": 1910,
+          "y": 180
+        }
       },
       "c_version": {
-        "fromOffset": 0.2
+        "fromOffset": 0.2,
+        "bends": [
+          {
+            "x": 1374,
+            "y": 400
+          },
+          {
+            "x": 1400,
+            "y": 400
+          },
+          {
+            "x": 1400,
+            "y": 290
+          },
+          {
+            "x": 2076,
+            "y": 290
+          }
+        ],
+        "label": {
+          "x": 1750,
+          "y": 310
+        }
       },
       "c_publish": {
-        "fromOffset": 0.4
+        "fromOffset": 0.4,
+        "bends": [
+          {
+            "x": 1374,
+            "y": 440
+          },
+          {
+            "x": 1430,
+            "y": 440
+          },
+          {
+            "x": 1430,
+            "y": 385
+          },
+          {
+            "x": 2076,
+            "y": 385
+          }
+        ],
+        "label": {
+          "x": 1750,
+          "y": 405
+        }
       },
       "c_protocol": {
-        "fromOffset": 0.6
+        "fromOffset": 0.6,
+        "bends": [
+          {
+            "x": 1374,
+            "y": 480
+          },
+          {
+            "x": 1460,
+            "y": 480
+          },
+          {
+            "x": 1460,
+            "y": 480
+          },
+          {
+            "x": 2076,
+            "y": 480
+          }
+        ],
+        "label": {
+          "x": 1750,
+          "y": 500
+        }
       },
       "c_metrics": {
-        "fromOffset": 0.8
+        "fromOffset": 0.8,
+        "bends": [
+          {
+            "x": 1374,
+            "y": 520
+          },
+          {
+            "x": 1490,
+            "y": 520
+          },
+          {
+            "x": 1490,
+            "y": 575
+          },
+          {
+            "x": 2076,
+            "y": 575
+          }
+        ],
+        "label": {
+          "x": 1750,
+          "y": 595
+        }
       },
       "c_roles": {
         "toOffset": 0.25,
+        "bends": [
+          {
+            "x": 190,
+            "y": 926
+          },
+          {
+            "x": 190,
+            "y": 735
+          },
+          {
+            "x": 900,
+            "y": 735
+          },
+          {
+            "x": 900,
+            "y": 584
+          }
+        ],
         "label": {
-          "x": 910,
+          "x": 190,
           "y": 900
         }
       },
       "c_system": {
         "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 1050,
+            "y": 926
+          },
+          {
+            "x": 1050,
+            "y": 713
+          },
+          {
+            "x": 1050,
+            "y": 713
+          },
+          {
+            "x": 1050,
+            "y": 584
+          }
+        ],
         "label": {
-          "x": 1100,
-          "y": 962
+          "x": 1050,
+          "y": 900
         }
       },
       "c_adapter": {
         "toOffset": 0.75,
+        "bends": [
+          {
+            "x": 1910,
+            "y": 926
+          },
+          {
+            "x": 1910,
+            "y": 691
+          },
+          {
+            "x": 1200,
+            "y": 691
+          },
+          {
+            "x": 1200,
+            "y": 584
+          }
+        ],
         "label": {
-          "x": 1290,
-          "y": 1024
+          "x": 1910,
+          "y": 900
+        }
+      },
+      "d_change": {
+        "toOffset": 0.3333333333333333,
+        "bends": [
+          {
+            "x": 24,
+            "y": 350
+          },
+          {
+            "x": 60,
+            "y": 350
+          },
+          {
+            "x": 60,
+            "y": 506.66666666666663
+          },
+          {
+            "x": 71,
+            "y": 506.66666666666663
+          }
+        ],
+        "label": {
+          "x": 230,
+          "y": 332
+        }
+      },
+      "d_sources": {
+        "toOffset": 0.6666666666666666,
+        "bends": [
+          {
+            "x": 24,
+            "y": 720
+          },
+          {
+            "x": 60,
+            "y": 720
+          },
+          {
+            "x": 60,
+            "y": 573.3333333333333
+          },
+          {
+            "x": 71,
+            "y": 573.3333333333333
+          }
+        ],
+        "label": {
+          "x": 190,
+          "y": 722
+        }
+      },
+      "d_media": {
+        "toOffset": 0.3333333333333333,
+        "bends": [
+          {
+            "x": 24,
+            "y": 790
+          },
+          {
+            "x": 1038,
+            "y": 790
+          },
+          {
+            "x": 1038,
+            "y": 506.66666666666663
+          },
+          {
+            "x": 1049,
+            "y": 506.66666666666663
+          }
+        ],
+        "label": {
+          "x": 250,
+          "y": 792
+        }
+      },
+      "d_response": {
+        "toOffset": 0.3333333333333333,
+        "bends": [
+          {
+            "x": 24,
+            "y": 855
+          },
+          {
+            "x": 1690,
+            "y": 855
+          },
+          {
+            "x": 1690,
+            "y": 506.66666666666663
+          },
+          {
+            "x": 1701,
+            "y": 506.66666666666663
+          }
+        ],
+        "label": {
+          "x": 250,
+          "y": 857
+        }
+      },
+      "d_rules": {
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 887,
+            "y": 24
+          },
+          {
+            "x": 887,
+            "y": 416
+          }
+        ],
+        "label": {
+          "x": 887,
+          "y": 150
+        }
+      },
+      "d_category": {
+        "toOffset": 0.3333333333333333,
+        "bends": [
+          {
+            "x": 1166.3333333333333,
+            "y": 24
+          },
+          {
+            "x": 1166.3333333333333,
+            "y": 416
+          }
+        ],
+        "label": {
+          "x": 1166.3333333333333,
+          "y": 230
+        }
+      },
+      "d_sla": {
+        "toOffset": 0.6666666666666666,
+        "bends": [
+          {
+            "x": 1259.6666666666667,
+            "y": 24
+          },
+          {
+            "x": 1259.6666666666667,
+            "y": 416
+          }
+        ],
+        "label": {
+          "x": 1259.6666666666667,
+          "y": 150
+        }
+      },
+      "d_version": {
+        "fromOffset": 0.5,
+        "bends": [
+          {
+            "x": 1703,
+            "y": 540
+          },
+          {
+            "x": 1709,
+            "y": 540
+          },
+          {
+            "x": 1709,
+            "y": 280
+          },
+          {
+            "x": 2076,
+            "y": 280
+          }
+        ],
+        "label": {
+          "x": 1780,
+          "y": 298
+        }
+      },
+      "d_publish": {
+        "fromOffset": 0.25,
+        "bends": [
+          {
+            "x": 2029,
+            "y": 490
+          },
+          {
+            "x": 2053,
+            "y": 490
+          },
+          {
+            "x": 2053,
+            "y": 730
+          },
+          {
+            "x": 2076,
+            "y": 730
+          }
+        ],
+        "label": {
+          "x": 1820,
+          "y": 728
+        }
+      },
+      "d_protocol": {
+        "fromOffset": 0.5,
+        "bends": [
+          {
+            "x": 2029,
+            "y": 540
+          },
+          {
+            "x": 2071,
+            "y": 540
+          },
+          {
+            "x": 2071,
+            "y": 830
+          },
+          {
+            "x": 2076,
+            "y": 830
+          }
+        ],
+        "label": {
+          "x": 1860,
+          "y": 808
+        }
+      },
+      "d_metrics": {
+        "fromOffset": 0.75,
+        "bends": [
+          {
+            "x": 2029,
+            "y": 590
+          },
+          {
+            "x": 2089,
+            "y": 590
+          },
+          {
+            "x": 2089,
+            "y": 930
+          },
+          {
+            "x": 2076,
+            "y": 930
+          }
+        ],
+        "label": {
+          "x": 1860,
+          "y": 928
+        }
+      },
+      "d_roles": {
+        "toOffset": 0.3333333333333333,
+        "bends": [
+          {
+            "x": 1166.3333333333333,
+            "y": 1126
+          },
+          {
+            "x": 1166.3333333333333,
+            "y": 664
+          }
+        ],
+        "label": {
+          "x": 1166.3333333333333,
+          "y": 1100
+        }
+      },
+      "d_system": {
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 235,
+            "y": 1126
+          },
+          {
+            "x": 235,
+            "y": 664
+          }
+        ],
+        "label": {
+          "x": 235,
+          "y": 1100
+        }
+      },
+      "d_adapter": {
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 1539,
+            "y": 1126
+          },
+          {
+            "x": 1539,
+            "y": 664
+          }
+        ],
+        "label": {
+          "x": 1539,
+          "y": 1100
+        }
+      },
+      "d_category_a5": {
+        "branchOffset": 0.4318181818181818,
+        "toOffset": 0.7,
+        "bends": [
+          {
+            "x": 1190.3333333333333,
+            "y": 190
+          },
+          {
+            "x": 1595,
+            "y": 190
+          },
+          {
+            "x": 1595,
+            "y": 416
+          }
+        ],
+        "label": {
+          "x": 1595,
+          "y": 180
+        }
+      },
+      "d_sla_a1": {
+        "branchOffset": 0.4318181818181818,
+        "toOffset": 0.7,
+        "bends": [
+          {
+            "x": 1235.6666666666667,
+            "y": 190
+          },
+          {
+            "x": 291,
+            "y": 190
+          },
+          {
+            "x": 291,
+            "y": 416
+          }
+        ],
+        "label": {
+          "x": 291,
+          "y": 180
+        }
+      },
+      "d_sla_a2": {
+        "branchOffset": 0.4318181818181818,
+        "toOffset": 0.7,
+        "bends": [
+          {
+            "x": 1235.6666666666667,
+            "y": 190
+          },
+          {
+            "x": 617,
+            "y": 190
+          },
+          {
+            "x": 617,
+            "y": 416
+          }
+        ],
+        "label": {
+          "x": 617,
+          "y": 180
+        }
+      },
+      "d_sla_a6": {
+        "branchOffset": 0.4318181818181818,
+        "toOffset": 0.7,
+        "bends": [
+          {
+            "x": 1283.6666666666667,
+            "y": 190
+          },
+          {
+            "x": 1921,
+            "y": 190
+          },
+          {
+            "x": 1921,
+            "y": 416
+          }
+        ],
+        "label": {
+          "x": 1921,
+          "y": 180
+        }
+      },
+      "d_roles_a6": {
+        "branchOffset": 0.19607843137254902,
+        "toOffset": 0.7,
+        "bends": [
+          {
+            "x": 1190.3333333333333,
+            "y": 1050
+          },
+          {
+            "x": 1921,
+            "y": 1050
+          },
+          {
+            "x": 1921,
+            "y": 664
+          }
+        ],
+        "label": {
+          "x": 1921,
+          "y": 1040
+        }
+      },
+      "d_system_a2": {
+        "branchOffset": 0.19607843137254902,
+        "toOffset": 0.7,
+        "bends": [
+          {
+            "x": 259,
+            "y": 1050
+          },
+          {
+            "x": 617,
+            "y": 1050
+          },
+          {
+            "x": 617,
+            "y": 664
+          }
+        ],
+        "label": {
+          "x": 617,
+          "y": 1040
+        }
+      },
+      "d_system_a3": {
+        "branchOffset": 0.19607843137254902,
+        "toOffset": 0.7,
+        "bends": [
+          {
+            "x": 259,
+            "y": 1050
+          },
+          {
+            "x": 943,
+            "y": 1050
+          },
+          {
+            "x": 943,
+            "y": 664
+          }
+        ],
+        "label": {
+          "x": 943,
+          "y": 1040
+        }
+      },
+      "d_system_a4": {
+        "branchOffset": 0.19607843137254902,
+        "toOffset": 0.7,
+        "bends": [
+          {
+            "x": 259,
+            "y": 1050
+          },
+          {
+            "x": 1269,
+            "y": 1050
+          },
+          {
+            "x": 1269,
+            "y": 664
+          }
+        ],
+        "label": {
+          "x": 1269,
+          "y": 1040
+        }
+      },
+      "d_adapter_a6": {
+        "branchOffset": 0.19607843137254902,
+        "toOffset": 0.7,
+        "bends": [
+          {
+            "x": 1563,
+            "y": 1050
+          },
+          {
+            "x": 1921,
+            "y": 1050
+          },
+          {
+            "x": 1921,
+            "y": 664
+          }
+        ],
+        "label": {
+          "x": 1921,
+          "y": 1040
+        }
+      },
+      "step12": {
+        "fromOffset": 0.5,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 399,
+            "y": 540
+          },
+          {
+            "x": 397,
+            "y": 540
+          }
+        ],
+        "label": {
+          "x": 398,
+          "y": 415
+        }
+      },
+      "step23": {
+        "fromOffset": 0.5,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 725,
+            "y": 540
+          },
+          {
+            "x": 723,
+            "y": 540
+          }
+        ],
+        "label": {
+          "x": 724,
+          "y": 415
+        }
+      },
+      "step34": {
+        "fromOffset": 0.5,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 1051,
+            "y": 540
+          },
+          {
+            "x": 1049,
+            "y": 540
+          }
+        ],
+        "label": {
+          "x": 1050,
+          "y": 415
+        }
+      },
+      "step45": {
+        "fromOffset": 0.5,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 1377,
+            "y": 540
+          },
+          {
+            "x": 1375,
+            "y": 540
+          }
+        ],
+        "label": {
+          "x": 1376,
+          "y": 415
+        }
+      },
+      "step56": {
+        "fromOffset": 0.5,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 1703,
+            "y": 540
+          },
+          {
+            "x": 1701,
+            "y": 540
+          }
+        ],
+        "label": {
+          "x": 1702,
+          "y": 415
+        }
+      },
+      "correction": {
+        "fromOffset": 0.15,
+        "toOffset": 0.85,
+        "bends": [
+          {
+            "x": 2029,
+            "y": 470
+          },
+          {
+            "x": 2040,
+            "y": 470
+          },
+          {
+            "x": 2040,
+            "y": 115
+          },
+          {
+            "x": 659,
+            "y": 115
+          },
+          {
+            "x": 659,
+            "y": 416
+          }
+        ],
+        "label": {
+          "x": 1120,
+          "y": 70
         }
       }
     }

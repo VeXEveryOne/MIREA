@@ -8,7 +8,7 @@ CREATE SCHEMA IF NOT EXISTS rop;
 
 SET search_path TO rop, public;
 
-CREATE SEQUENCE bom_code_seq MINVALUE 1 MAXVALUE 999999 NO CYCLE;
+CREATE SEQUENCE model_line_code_seq MINVALUE 1 MAXVALUE 999999 NO CYCLE;
 
 CREATE SEQUENCE component_code_seq MINVALUE 1 MAXVALUE 999999 NO CYCLE;
 
@@ -118,19 +118,19 @@ CREATE TABLE supplier_offer (
 
 COMMENT ON TABLE supplier_offer IS 'Предложение поставщика';
 
-CREATE TABLE bom (
+CREATE TABLE model_line (
   id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  code varchar(24) NOT NULL UNIQUE DEFAULT ('BOM-' || lpad(nextval('bom_code_seq')::text, 6, '0')),
+  code varchar(24) NOT NULL UNIQUE DEFAULT ('MR-' || lpad(nextval('model_line_code_seq')::text, 6, '0')),
   name varchar(150) NOT NULL,
   created_by bigint NOT NULL REFERENCES app_user(id),
   created_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-COMMENT ON TABLE bom IS 'BOM';
+COMMENT ON TABLE model_line IS 'модельный ряд';
 
 CREATE TABLE change_request (
   id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  bom_id bigint NOT NULL REFERENCES bom(id),
+  model_line_id bigint NOT NULL REFERENCES model_line(id),
   created_by bigint NOT NULL REFERENCES app_user(id),
   kind varchar(12) NOT NULL CHECK (kind IN ('CREATE','UPDATE','REPLACE')),
   reason text NOT NULL,
@@ -139,23 +139,23 @@ CREATE TABLE change_request (
 
 COMMENT ON TABLE change_request IS 'Запрос на изменение';
 
-CREATE TABLE bom_version (
+CREATE TABLE model_line_version (
   id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  bom_id bigint NOT NULL REFERENCES bom(id),
+  model_line_id bigint NOT NULL REFERENCES model_line(id),
   version_no integer NOT NULL CHECK (version_no > 0),
   request_id bigint NOT NULL REFERENCES change_request(id),
   case_component_id bigint NOT NULL REFERENCES component(id),
   state varchar(12) NOT NULL CHECK (state IN ('DRAFT','CHECKED','ARCHIVED')),
   created_by bigint NOT NULL REFERENCES app_user(id),
   created_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  UNIQUE (bom_id, version_no)
+  UNIQUE (model_line_id, version_no)
 );
 
-COMMENT ON TABLE bom_version IS 'Версия BOM';
+COMMENT ON TABLE model_line_version IS 'Версия модельного ряда';
 
-CREATE TABLE bom_slot (
+CREATE TABLE model_line_slot (
   id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  version_id bigint NOT NULL REFERENCES bom_version(id),
+  version_id bigint NOT NULL REFERENCES model_line_version(id),
   slot_code varchar(20) NOT NULL,
   quantity integer NOT NULL CHECK (quantity > 0),
   component_id bigint REFERENCES component(id),
@@ -166,10 +166,10 @@ CREATE TABLE bom_slot (
   CHECK (pinned_product_id IS NULL OR component_id IS NOT NULL)
 );
 
-COMMENT ON TABLE bom_slot IS 'Слот BOM';
+COMMENT ON TABLE model_line_slot IS 'Слот модельного ряда';
 
 CREATE TABLE slot_selection (
-  slot_id bigint PRIMARY KEY REFERENCES bom_slot(id),
+  slot_id bigint PRIMARY KEY REFERENCES model_line_slot(id),
   offer_id bigint NOT NULL REFERENCES supplier_offer(id),
   resolved_component_id bigint NOT NULL REFERENCES component(id),
   selected_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -191,7 +191,7 @@ COMMENT ON TABLE compatibility_rule IS 'Правило совместимост�
 
 CREATE TABLE validation_result (
   id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  version_id bigint NOT NULL REFERENCES bom_version(id),
+  version_id bigint NOT NULL REFERENCES model_line_version(id),
   valid boolean NOT NULL,
   rules_snapshot jsonb NOT NULL,
   issues jsonb NOT NULL DEFAULT '[]'::jsonb,
@@ -227,15 +227,15 @@ COMMENT ON TABLE replacement_batch IS 'Пакет массовой замены'
 
 CREATE TABLE replacement_item (
   batch_id bigint NOT NULL REFERENCES replacement_batch(id),
-  bom_id bigint NOT NULL REFERENCES bom(id),
-  old_version_id bigint NOT NULL REFERENCES bom_version(id),
-  new_version_id bigint REFERENCES bom_version(id),
+  model_line_id bigint NOT NULL REFERENCES model_line(id),
+  old_version_id bigint NOT NULL REFERENCES model_line_version(id),
+  new_version_id bigint REFERENCES model_line_version(id),
   result varchar(12) NOT NULL CHECK (result IN ('PENDING','APPLIED','CONFLICT','SKIPPED')),
   details jsonb NOT NULL DEFAULT '{}'::jsonb,
-  PRIMARY KEY (batch_id, bom_id)
+  PRIMARY KEY (batch_id, model_line_id)
 );
 
-COMMENT ON TABLE replacement_item IS 'Результат замены BOM';
+COMMENT ON TABLE replacement_item IS 'Результат замены модельного ряда';
 
 CREATE TABLE calculation_rule (
   id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -254,7 +254,7 @@ COMMENT ON TABLE calculation_rule IS 'Правило цены и веса';
 
 CREATE TABLE card (
   id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  bom_id bigint NOT NULL REFERENCES bom(id),
+  model_line_id bigint NOT NULL REFERENCES model_line(id),
   offer_id varchar(64) NOT NULL UNIQUE DEFAULT ('UCOMS-' || lpad(nextval('card_code_seq')::text, 6, '0')),
   status varchar(20) NOT NULL CHECK (status IN ('DRAFT','REVIEW','READY','PUBLISHED','STALE','PUBLISH_ERROR')),
   responsible_id bigint NOT NULL REFERENCES app_user(id),
@@ -267,7 +267,7 @@ CREATE TABLE card_version (
   id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   card_id bigint NOT NULL REFERENCES card(id),
   version_no integer NOT NULL CHECK (version_no > 0),
-  bom_version_id bigint NOT NULL REFERENCES bom_version(id),
+  model_line_version_id bigint NOT NULL REFERENCES model_line_version(id),
   validation_id bigint NOT NULL REFERENCES validation_result(id),
   calculation_rule_id bigint NOT NULL REFERENCES calculation_rule(id),
   title varchar(200) NOT NULL,
@@ -365,13 +365,13 @@ CREATE INDEX ix_offer_latest ON supplier_offer (product_id, observed_at DESC);
 
 CREATE INDEX ix_product_component ON supplier_product (component_id);
 
-CREATE INDEX ix_bom_case ON bom_version (case_component_id);
+CREATE INDEX ix_model_line_case ON model_line_version (case_component_id);
 
-CREATE INDEX ix_slot_component ON bom_slot (component_id);
+CREATE INDEX ix_slot_component ON model_line_slot (component_id);
 
-CREATE INDEX ix_slot_group ON bom_slot (group_id);
+CREATE INDEX ix_slot_group ON model_line_slot (group_id);
 
-CREATE INDEX ix_slot_product ON bom_slot (pinned_product_id);
+CREATE INDEX ix_slot_product ON model_line_slot (pinned_product_id);
 
 CREATE INDEX ix_card_status ON card (status, responsible_id);
 

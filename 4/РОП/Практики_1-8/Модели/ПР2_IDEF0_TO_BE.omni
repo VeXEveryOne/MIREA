@@ -35,7 +35,7 @@
       {
         "id": "ctx_request",
         "kind": "boundary",
-        "label": "Зарегистрированный запрос на создание или изменение",
+        "label": "Запрос на создание или изменение карточки",
         "parent": "context",
         "properties": {
           "side": "left",
@@ -277,7 +277,7 @@
       {
         "id": "dec_request",
         "kind": "boundary",
-        "label": "Зарегистрированный запрос на создание или изменение",
+        "label": "Запрос на создание или изменение карточки",
         "parent": "decomposition",
         "properties": {
           "side": "left",
@@ -495,7 +495,7 @@
       {
         "id": "c_request",
         "kind": "arrow",
-        "label": "Зарегистрированный запрос на создание или изменение",
+        "label": "Запрос на создание или изменение карточки",
         "source": "ctx_request",
         "target": "root",
         "properties": {
@@ -675,7 +675,7 @@
       {
         "id": "d_request",
         "kind": "arrow",
-        "label": "Зарегистрированный запрос на создание или изменение",
+        "label": "Запрос на создание или изменение карточки",
         "source": "dec_request",
         "target": "A1",
         "properties": {
@@ -855,7 +855,7 @@
       {
         "id": "step12",
         "kind": "arrow",
-        "label": "Черновая версия модельного ряда",
+        "label": "Черновик",
         "source": "A1",
         "target": "A2",
         "properties": {
@@ -865,7 +865,7 @@
       {
         "id": "step23",
         "kind": "arrow",
-        "label": "Версия с выбранными предложениями",
+        "label": "Состав",
         "source": "A2",
         "target": "A3",
         "properties": {
@@ -875,7 +875,7 @@
       {
         "id": "step34",
         "kind": "arrow",
-        "label": "Проверенный неизменяемый снимок",
+        "label": "Снимок",
         "source": "A3",
         "target": "A4",
         "properties": {
@@ -885,7 +885,7 @@
       {
         "id": "step45",
         "kind": "arrow",
-        "label": "Утверждённая версия карточки и ключ операции",
+        "label": "Карточка",
         "source": "A4",
         "target": "A5",
         "properties": {
@@ -901,330 +901,1434 @@
         "properties": {
           "role": "control"
         }
+      },
+      {
+        "id": "d_rules_A4",
+        "kind": "arrow",
+        "label": "Версионируемые правила совместимости, выбора, цены и массы",
+        "source": "dec_rules",
+        "target": "A4",
+        "properties": {
+          "role": "control",
+          "branchOf": "d_rules"
+        }
       }
     ]
   },
-  "source": "idef0 rop_cards \"Карточки компьютерных систем ООО Юкомс TO BE\"\ndiagram context \"Управлять подготовкой и публикацией карточек компьютерных систем\" node=A-0 purpose=\"Спроектировать единый версионированный процесс с автоматическими проверками и управляемой публикацией\" viewpoint=\"Менеджер маркетплейсов\" author=\"Албахтин И.В.\" date=\"28.09.2026\" project=\"РОП Практика 2 — ООО Юкомс\" status=publication context=TOP pageNumber=1\nfunction root \"Управлять подготовкой и публикацией карточек компьютерных систем\" in=context number=0\nboundary ctx_request \"Зарегистрированный запрос на создание или изменение\" in=context side=left direction=in\narrow c_request \"Зарегистрированный запрос на создание или изменение\" from=ctx_request to=root role=input\nboundary ctx_catalog \"Справочник компонентов и характеристики\" in=context side=left direction=in\narrow c_catalog \"Справочник компонентов и характеристики\" from=ctx_catalog to=root role=input\nboundary ctx_offers \"Потоки предложений поставщиков и шаблоны контента\" in=context side=left direction=in\narrow c_offers \"Потоки предложений поставщиков и шаблоны контента\" from=ctx_offers to=root role=input\nboundary ctx_states \"Модель состояний, версии и правила утверждения\" in=context side=top direction=in\narrow c_states \"Модель состояний, версии и правила утверждения\" from=ctx_states to=root role=control\nboundary ctx_mapping \"Правила сопоставления SKU и выбора предложений\" in=context side=top direction=in\narrow c_mapping \"Правила сопоставления SKU и выбора предложений\" from=ctx_mapping to=root role=control\nboundary ctx_rules \"Версионируемые правила совместимости, выбора, цены и массы\" in=context side=top direction=in\narrow c_rules \"Версионируемые правила совместимости, выбора, цены и массы\" from=ctx_rules to=root role=control\nboundary ctx_ozon \"Схема и требования Ozon к карточке\" in=context side=top direction=in\narrow c_ozon \"Схема и требования Ozon к карточке\" from=ctx_ozon to=root role=control\nboundary ctx_approval \"Маршрут проверки и критерии утверждения версии\" in=context side=top direction=in\narrow c_approval \"Маршрут проверки и критерии утверждения версии\" from=ctx_approval to=root role=control\nboundary ctx_security \"RBAC, идемпотентность и политика повторов\" in=context side=top direction=in\narrow c_security \"RBAC, идемпотентность и политика повторов\" from=ctx_security to=root role=control\nboundary ctx_version \"Проверенная неизменяемая версия модельного ряда\" in=context side=right direction=out\narrow c_version \"Проверенная неизменяемая версия модельного ряда\" from=root to=ctx_version role=output\nboundary ctx_content \"Воспроизводимый расчёт и версия контента\" in=context side=right direction=out\narrow c_content \"Воспроизводимый расчёт и версия контента\" from=root to=ctx_content role=output\nboundary ctx_status \"Подтверждённый статус публикации и внешний ID\" in=context side=right direction=out\narrow c_status \"Подтверждённый статус публикации и внешний ID\" from=root to=ctx_status role=output\nboundary ctx_audit \"Журнал аудита и уведомления ответственным\" in=context side=right direction=out\narrow c_audit \"Журнал аудита и уведомления ответственным\" from=root to=ctx_audit role=output\nboundary ctx_roles \"Сотрудники с назначенными ролями\" in=context side=bottom direction=in\narrow c_roles \"Сотрудники с назначенными ролями\" from=ctx_roles to=root role=mechanism\nboundary ctx_system \"Единая информационная система и API\" in=context side=bottom direction=in\narrow c_system \"Единая информационная система и API\" from=ctx_system to=root role=mechanism\nboundary ctx_storage \"PostgreSQL и файловое хранилище\" in=context side=bottom direction=in\narrow c_storage \"PostgreSQL и файловое хранилище\" from=ctx_storage to=root role=mechanism\nboundary ctx_adapters \"Адаптеры поставщиков и механизм правил\" in=context side=bottom direction=in\narrow c_adapters \"Адаптеры поставщиков и механизм правил\" from=ctx_adapters to=root role=mechanism\nboundary ctx_worker \"Worker и адаптер Ozon\" in=context side=bottom direction=in\narrow c_worker \"Worker и адаптер Ozon\" from=ctx_worker to=root role=mechanism\ndiagram decomposition \"Управлять подготовкой и публикацией карточек компьютерных систем\" in=root node=A0 purpose=\"Спроектировать единый версионированный процесс с автоматическими проверками и управляемой публикацией\" viewpoint=\"Менеджер маркетплейсов\" author=\"Албахтин И.В.\" date=\"28.09.2026\" project=\"РОП Практика 2 — ООО Юкомс\" status=publication context=A-0 pageNumber=2\nfunction A1 \"Зарегистрировать запрос и открыть управляемую версию\" in=decomposition number=1\nfunction A2 \"Импортировать предложения и сформировать конфигурацию\" in=decomposition number=2\nfunction A3 \"Проверить и зафиксировать неизменяемый снимок\" in=decomposition number=3\nfunction A4 \"Рассчитать показатели, сформировать и утвердить контент\" in=decomposition number=4\nfunction A5 \"Опубликовать, сверить результат и зафиксировать аудит\" in=decomposition number=5\nboundary dec_request \"Зарегистрированный запрос на создание или изменение\" in=decomposition side=left direction=in parentArrow=c_request parentEnd=to\narrow d_request \"Зарегистрированный запрос на создание или изменение\" from=dec_request to=A1 role=input\nboundary dec_catalog \"Справочник компонентов и характеристики\" in=decomposition side=left direction=in parentArrow=c_catalog parentEnd=to\narrow d_catalog \"Справочник компонентов и характеристики\" from=dec_catalog to=A2 role=input\nboundary dec_offers \"Потоки предложений поставщиков и шаблоны контента\" in=decomposition side=left direction=in parentArrow=c_offers parentEnd=to\narrow d_offers \"Потоки предложений поставщиков и шаблоны контента\" from=dec_offers to=A2 role=input\nboundary dec_states \"Модель состояний, версии и правила утверждения\" in=decomposition side=top direction=in parentArrow=c_states parentEnd=to\narrow d_states \"Модель состояний, версии и правила утверждения\" from=dec_states to=A1 role=control\nboundary dec_mapping \"Правила сопоставления SKU и выбора предложений\" in=decomposition side=top direction=in parentArrow=c_mapping parentEnd=to\narrow d_mapping \"Правила сопоставления SKU и выбора предложений\" from=dec_mapping to=A2 role=control\nboundary dec_rules \"Версионируемые правила совместимости, выбора, цены и массы\" in=decomposition side=top direction=in parentArrow=c_rules parentEnd=to\narrow d_rules \"Версионируемые правила совместимости, выбора, цены и массы\" from=dec_rules to=A3 role=control\nboundary dec_ozon \"Схема и требования Ozon к карточке\" in=decomposition side=top direction=in parentArrow=c_ozon parentEnd=to\narrow d_ozon \"Схема и требования Ozon к карточке\" from=dec_ozon to=A4 role=control\nboundary dec_approval \"Маршрут проверки и критерии утверждения версии\" in=decomposition side=top direction=in parentArrow=c_approval parentEnd=to\narrow d_approval \"Маршрут проверки и критерии утверждения версии\" from=dec_approval to=A4 role=control\nboundary dec_security \"RBAC, идемпотентность и политика повторов\" in=decomposition side=top direction=in parentArrow=c_security parentEnd=to\narrow d_security \"RBAC, идемпотентность и политика повторов\" from=dec_security to=A5 role=control\nboundary dec_version \"Проверенная неизменяемая версия модельного ряда\" in=decomposition side=right direction=out parentArrow=c_version parentEnd=from\narrow d_version \"Проверенная неизменяемая версия модельного ряда\" from=A3 to=dec_version role=output\nboundary dec_content \"Воспроизводимый расчёт и версия контента\" in=decomposition side=right direction=out parentArrow=c_content parentEnd=from\narrow d_content \"Воспроизводимый расчёт и версия контента\" from=A4 to=dec_content role=output\nboundary dec_status \"Подтверждённый статус публикации и внешний ID\" in=decomposition side=right direction=out parentArrow=c_status parentEnd=from\narrow d_status \"Подтверждённый статус публикации и внешний ID\" from=A5 to=dec_status role=output\nboundary dec_audit \"Журнал аудита и уведомления ответственным\" in=decomposition side=right direction=out parentArrow=c_audit parentEnd=from\narrow d_audit \"Журнал аудита и уведомления ответственным\" from=A5 to=dec_audit role=output\nboundary dec_roles \"Сотрудники с назначенными ролями\" in=decomposition side=bottom direction=in parentArrow=c_roles parentEnd=to\narrow d_roles \"Сотрудники с назначенными ролями\" from=dec_roles to=A1 role=mechanism\nboundary dec_system \"Единая информационная система и API\" in=decomposition side=bottom direction=in parentArrow=c_system parentEnd=to\narrow d_system \"Единая информационная система и API\" from=dec_system to=A3 role=mechanism\nboundary dec_storage \"PostgreSQL и файловое хранилище\" in=decomposition side=bottom direction=in parentArrow=c_storage parentEnd=to\narrow d_storage \"PostgreSQL и файловое хранилище\" from=dec_storage to=A4 role=mechanism\nboundary dec_adapters \"Адаптеры поставщиков и механизм правил\" in=decomposition side=bottom direction=in parentArrow=c_adapters parentEnd=to\narrow d_adapters \"Адаптеры поставщиков и механизм правил\" from=dec_adapters to=A2 role=mechanism\nboundary dec_worker \"Worker и адаптер Ozon\" in=decomposition side=bottom direction=in parentArrow=c_worker parentEnd=to\narrow d_worker \"Worker и адаптер Ozon\" from=dec_worker to=A5 role=mechanism\narrow step12 \"Черновая версия модельного ряда\" from=A1 to=A2 role=input\narrow step23 \"Версия с выбранными предложениями\" from=A2 to=A3 role=input\narrow step34 \"Проверенный неизменяемый снимок\" from=A3 to=A4 role=input\narrow step45 \"Утверждённая версия карточки и ключ операции\" from=A4 to=A5 role=input\narrow feedback_correction \"Протокол проверки с точными причинами\" from=A3 to=A2 role=control\n",
-  "draft": "idef0 rop_cards \"Карточки компьютерных систем ООО Юкомс TO BE\"\ndiagram context \"Управлять подготовкой и публикацией карточек компьютерных систем\" node=A-0 purpose=\"Спроектировать единый версионированный процесс с автоматическими проверками и управляемой публикацией\" viewpoint=\"Менеджер маркетплейсов\" author=\"Албахтин И.В.\" date=\"28.09.2026\" project=\"РОП Практика 2 — ООО Юкомс\" status=publication context=TOP pageNumber=1\nfunction root \"Управлять подготовкой и публикацией карточек компьютерных систем\" in=context number=0\nboundary ctx_request \"Зарегистрированный запрос на создание или изменение\" in=context side=left direction=in\narrow c_request \"Зарегистрированный запрос на создание или изменение\" from=ctx_request to=root role=input\nboundary ctx_catalog \"Справочник компонентов и характеристики\" in=context side=left direction=in\narrow c_catalog \"Справочник компонентов и характеристики\" from=ctx_catalog to=root role=input\nboundary ctx_offers \"Потоки предложений поставщиков и шаблоны контента\" in=context side=left direction=in\narrow c_offers \"Потоки предложений поставщиков и шаблоны контента\" from=ctx_offers to=root role=input\nboundary ctx_states \"Модель состояний, версии и правила утверждения\" in=context side=top direction=in\narrow c_states \"Модель состояний, версии и правила утверждения\" from=ctx_states to=root role=control\nboundary ctx_mapping \"Правила сопоставления SKU и выбора предложений\" in=context side=top direction=in\narrow c_mapping \"Правила сопоставления SKU и выбора предложений\" from=ctx_mapping to=root role=control\nboundary ctx_rules \"Версионируемые правила совместимости, выбора, цены и массы\" in=context side=top direction=in\narrow c_rules \"Версионируемые правила совместимости, выбора, цены и массы\" from=ctx_rules to=root role=control\nboundary ctx_ozon \"Схема и требования Ozon к карточке\" in=context side=top direction=in\narrow c_ozon \"Схема и требования Ozon к карточке\" from=ctx_ozon to=root role=control\nboundary ctx_approval \"Маршрут проверки и критерии утверждения версии\" in=context side=top direction=in\narrow c_approval \"Маршрут проверки и критерии утверждения версии\" from=ctx_approval to=root role=control\nboundary ctx_security \"RBAC, идемпотентность и политика повторов\" in=context side=top direction=in\narrow c_security \"RBAC, идемпотентность и политика повторов\" from=ctx_security to=root role=control\nboundary ctx_version \"Проверенная неизменяемая версия модельного ряда\" in=context side=right direction=out\narrow c_version \"Проверенная неизменяемая версия модельного ряда\" from=root to=ctx_version role=output\nboundary ctx_content \"Воспроизводимый расчёт и версия контента\" in=context side=right direction=out\narrow c_content \"Воспроизводимый расчёт и версия контента\" from=root to=ctx_content role=output\nboundary ctx_status \"Подтверждённый статус публикации и внешний ID\" in=context side=right direction=out\narrow c_status \"Подтверждённый статус публикации и внешний ID\" from=root to=ctx_status role=output\nboundary ctx_audit \"Журнал аудита и уведомления ответственным\" in=context side=right direction=out\narrow c_audit \"Журнал аудита и уведомления ответственным\" from=root to=ctx_audit role=output\nboundary ctx_roles \"Сотрудники с назначенными ролями\" in=context side=bottom direction=in\narrow c_roles \"Сотрудники с назначенными ролями\" from=ctx_roles to=root role=mechanism\nboundary ctx_system \"Единая информационная система и API\" in=context side=bottom direction=in\narrow c_system \"Единая информационная система и API\" from=ctx_system to=root role=mechanism\nboundary ctx_storage \"PostgreSQL и файловое хранилище\" in=context side=bottom direction=in\narrow c_storage \"PostgreSQL и файловое хранилище\" from=ctx_storage to=root role=mechanism\nboundary ctx_adapters \"Адаптеры поставщиков и механизм правил\" in=context side=bottom direction=in\narrow c_adapters \"Адаптеры поставщиков и механизм правил\" from=ctx_adapters to=root role=mechanism\nboundary ctx_worker \"Worker и адаптер Ozon\" in=context side=bottom direction=in\narrow c_worker \"Worker и адаптер Ozon\" from=ctx_worker to=root role=mechanism\ndiagram decomposition \"Управлять подготовкой и публикацией карточек компьютерных систем\" in=root node=A0 purpose=\"Спроектировать единый версионированный процесс с автоматическими проверками и управляемой публикацией\" viewpoint=\"Менеджер маркетплейсов\" author=\"Албахтин И.В.\" date=\"28.09.2026\" project=\"РОП Практика 2 — ООО Юкомс\" status=publication context=A-0 pageNumber=2\nfunction A1 \"Зарегистрировать запрос и открыть управляемую версию\" in=decomposition number=1\nfunction A2 \"Импортировать предложения и сформировать конфигурацию\" in=decomposition number=2\nfunction A3 \"Проверить и зафиксировать неизменяемый снимок\" in=decomposition number=3\nfunction A4 \"Рассчитать показатели, сформировать и утвердить контент\" in=decomposition number=4\nfunction A5 \"Опубликовать, сверить результат и зафиксировать аудит\" in=decomposition number=5\nboundary dec_request \"Зарегистрированный запрос на создание или изменение\" in=decomposition side=left direction=in parentArrow=c_request parentEnd=to\narrow d_request \"Зарегистрированный запрос на создание или изменение\" from=dec_request to=A1 role=input\nboundary dec_catalog \"Справочник компонентов и характеристики\" in=decomposition side=left direction=in parentArrow=c_catalog parentEnd=to\narrow d_catalog \"Справочник компонентов и характеристики\" from=dec_catalog to=A2 role=input\nboundary dec_offers \"Потоки предложений поставщиков и шаблоны контента\" in=decomposition side=left direction=in parentArrow=c_offers parentEnd=to\narrow d_offers \"Потоки предложений поставщиков и шаблоны контента\" from=dec_offers to=A2 role=input\nboundary dec_states \"Модель состояний, версии и правила утверждения\" in=decomposition side=top direction=in parentArrow=c_states parentEnd=to\narrow d_states \"Модель состояний, версии и правила утверждения\" from=dec_states to=A1 role=control\nboundary dec_mapping \"Правила сопоставления SKU и выбора предложений\" in=decomposition side=top direction=in parentArrow=c_mapping parentEnd=to\narrow d_mapping \"Правила сопоставления SKU и выбора предложений\" from=dec_mapping to=A2 role=control\nboundary dec_rules \"Версионируемые правила совместимости, выбора, цены и массы\" in=decomposition side=top direction=in parentArrow=c_rules parentEnd=to\narrow d_rules \"Версионируемые правила совместимости, выбора, цены и массы\" from=dec_rules to=A3 role=control\nboundary dec_ozon \"Схема и требования Ozon к карточке\" in=decomposition side=top direction=in parentArrow=c_ozon parentEnd=to\narrow d_ozon \"Схема и требования Ozon к карточке\" from=dec_ozon to=A4 role=control\nboundary dec_approval \"Маршрут проверки и критерии утверждения версии\" in=decomposition side=top direction=in parentArrow=c_approval parentEnd=to\narrow d_approval \"Маршрут проверки и критерии утверждения версии\" from=dec_approval to=A4 role=control\nboundary dec_security \"RBAC, идемпотентность и политика повторов\" in=decomposition side=top direction=in parentArrow=c_security parentEnd=to\narrow d_security \"RBAC, идемпотентность и политика повторов\" from=dec_security to=A5 role=control\nboundary dec_version \"Проверенная неизменяемая версия модельного ряда\" in=decomposition side=right direction=out parentArrow=c_version parentEnd=from\narrow d_version \"Проверенная неизменяемая версия модельного ряда\" from=A3 to=dec_version role=output\nboundary dec_content \"Воспроизводимый расчёт и версия контента\" in=decomposition side=right direction=out parentArrow=c_content parentEnd=from\narrow d_content \"Воспроизводимый расчёт и версия контента\" from=A4 to=dec_content role=output\nboundary dec_status \"Подтверждённый статус публикации и внешний ID\" in=decomposition side=right direction=out parentArrow=c_status parentEnd=from\narrow d_status \"Подтверждённый статус публикации и внешний ID\" from=A5 to=dec_status role=output\nboundary dec_audit \"Журнал аудита и уведомления ответственным\" in=decomposition side=right direction=out parentArrow=c_audit parentEnd=from\narrow d_audit \"Журнал аудита и уведомления ответственным\" from=A5 to=dec_audit role=output\nboundary dec_roles \"Сотрудники с назначенными ролями\" in=decomposition side=bottom direction=in parentArrow=c_roles parentEnd=to\narrow d_roles \"Сотрудники с назначенными ролями\" from=dec_roles to=A1 role=mechanism\nboundary dec_system \"Единая информационная система и API\" in=decomposition side=bottom direction=in parentArrow=c_system parentEnd=to\narrow d_system \"Единая информационная система и API\" from=dec_system to=A3 role=mechanism\nboundary dec_storage \"PostgreSQL и файловое хранилище\" in=decomposition side=bottom direction=in parentArrow=c_storage parentEnd=to\narrow d_storage \"PostgreSQL и файловое хранилище\" from=dec_storage to=A4 role=mechanism\nboundary dec_adapters \"Адаптеры поставщиков и механизм правил\" in=decomposition side=bottom direction=in parentArrow=c_adapters parentEnd=to\narrow d_adapters \"Адаптеры поставщиков и механизм правил\" from=dec_adapters to=A2 role=mechanism\nboundary dec_worker \"Worker и адаптер Ozon\" in=decomposition side=bottom direction=in parentArrow=c_worker parentEnd=to\narrow d_worker \"Worker и адаптер Ozon\" from=dec_worker to=A5 role=mechanism\narrow step12 \"Черновая версия модельного ряда\" from=A1 to=A2 role=input\narrow step23 \"Версия с выбранными предложениями\" from=A2 to=A3 role=input\narrow step34 \"Проверенный неизменяемый снимок\" from=A3 to=A4 role=input\narrow step45 \"Утверждённая версия карточки и ключ операции\" from=A4 to=A5 role=input\narrow feedback_correction \"Протокол проверки с точными причинами\" from=A3 to=A2 role=control\n",
+  "source": "idef0 rop_cards \"Карточки компьютерных систем ООО Юкомс TO BE\"\ndiagram context \"Управлять подготовкой и публикацией карточек компьютерных систем\" node=A-0 purpose=\"Спроектировать единый версионированный процесс с автоматическими проверками и управляемой публикацией\" viewpoint=\"Менеджер маркетплейсов\" author=\"Албахтин И.В.\" date=\"28.09.2026\" project=\"РОП Практика 2 — ООО Юкомс\" status=publication context=TOP pageNumber=1\nfunction root \"Управлять подготовкой и публикацией карточек компьютерных систем\" in=context number=0\nboundary ctx_request \"Запрос на создание или изменение карточки\" in=context side=left direction=in\narrow c_request \"Запрос на создание или изменение карточки\" from=ctx_request to=root role=input\nboundary ctx_catalog \"Справочник компонентов и характеристики\" in=context side=left direction=in\narrow c_catalog \"Справочник компонентов и характеристики\" from=ctx_catalog to=root role=input\nboundary ctx_offers \"Потоки предложений поставщиков и шаблоны контента\" in=context side=left direction=in\narrow c_offers \"Потоки предложений поставщиков и шаблоны контента\" from=ctx_offers to=root role=input\nboundary ctx_states \"Модель состояний, версии и правила утверждения\" in=context side=top direction=in\narrow c_states \"Модель состояний, версии и правила утверждения\" from=ctx_states to=root role=control\nboundary ctx_mapping \"Правила сопоставления SKU и выбора предложений\" in=context side=top direction=in\narrow c_mapping \"Правила сопоставления SKU и выбора предложений\" from=ctx_mapping to=root role=control\nboundary ctx_rules \"Версионируемые правила совместимости, выбора, цены и массы\" in=context side=top direction=in\narrow c_rules \"Версионируемые правила совместимости, выбора, цены и массы\" from=ctx_rules to=root role=control\nboundary ctx_ozon \"Схема и требования Ozon к карточке\" in=context side=top direction=in\narrow c_ozon \"Схема и требования Ozon к карточке\" from=ctx_ozon to=root role=control\nboundary ctx_approval \"Маршрут проверки и критерии утверждения версии\" in=context side=top direction=in\narrow c_approval \"Маршрут проверки и критерии утверждения версии\" from=ctx_approval to=root role=control\nboundary ctx_security \"RBAC, идемпотентность и политика повторов\" in=context side=top direction=in\narrow c_security \"RBAC, идемпотентность и политика повторов\" from=ctx_security to=root role=control\nboundary ctx_version \"Проверенная неизменяемая версия модельного ряда\" in=context side=right direction=out\narrow c_version \"Проверенная неизменяемая версия модельного ряда\" from=root to=ctx_version role=output\nboundary ctx_content \"Воспроизводимый расчёт и версия контента\" in=context side=right direction=out\narrow c_content \"Воспроизводимый расчёт и версия контента\" from=root to=ctx_content role=output\nboundary ctx_status \"Подтверждённый статус публикации и внешний ID\" in=context side=right direction=out\narrow c_status \"Подтверждённый статус публикации и внешний ID\" from=root to=ctx_status role=output\nboundary ctx_audit \"Журнал аудита и уведомления ответственным\" in=context side=right direction=out\narrow c_audit \"Журнал аудита и уведомления ответственным\" from=root to=ctx_audit role=output\nboundary ctx_roles \"Сотрудники с назначенными ролями\" in=context side=bottom direction=in\narrow c_roles \"Сотрудники с назначенными ролями\" from=ctx_roles to=root role=mechanism\nboundary ctx_system \"Единая информационная система и API\" in=context side=bottom direction=in\narrow c_system \"Единая информационная система и API\" from=ctx_system to=root role=mechanism\nboundary ctx_storage \"PostgreSQL и файловое хранилище\" in=context side=bottom direction=in\narrow c_storage \"PostgreSQL и файловое хранилище\" from=ctx_storage to=root role=mechanism\nboundary ctx_adapters \"Адаптеры поставщиков и механизм правил\" in=context side=bottom direction=in\narrow c_adapters \"Адаптеры поставщиков и механизм правил\" from=ctx_adapters to=root role=mechanism\nboundary ctx_worker \"Worker и адаптер Ozon\" in=context side=bottom direction=in\narrow c_worker \"Worker и адаптер Ozon\" from=ctx_worker to=root role=mechanism\ndiagram decomposition \"Управлять подготовкой и публикацией карточек компьютерных систем\" in=root node=A0 purpose=\"Спроектировать единый версионированный процесс с автоматическими проверками и управляемой публикацией\" viewpoint=\"Менеджер маркетплейсов\" author=\"Албахтин И.В.\" date=\"28.09.2026\" project=\"РОП Практика 2 — ООО Юкомс\" status=publication context=A-0 pageNumber=2\nfunction A1 \"Зарегистрировать запрос и открыть управляемую версию\" in=decomposition number=1\nfunction A2 \"Импортировать предложения и сформировать конфигурацию\" in=decomposition number=2\nfunction A3 \"Проверить и зафиксировать неизменяемый снимок\" in=decomposition number=3\nfunction A4 \"Рассчитать показатели, сформировать и утвердить контент\" in=decomposition number=4\nfunction A5 \"Опубликовать, сверить результат и зафиксировать аудит\" in=decomposition number=5\nboundary dec_request \"Запрос на создание или изменение карточки\" in=decomposition side=left direction=in parentArrow=c_request parentEnd=to\narrow d_request \"Запрос на создание или изменение карточки\" from=dec_request to=A1 role=input\nboundary dec_catalog \"Справочник компонентов и характеристики\" in=decomposition side=left direction=in parentArrow=c_catalog parentEnd=to\narrow d_catalog \"Справочник компонентов и характеристики\" from=dec_catalog to=A2 role=input\nboundary dec_offers \"Потоки предложений поставщиков и шаблоны контента\" in=decomposition side=left direction=in parentArrow=c_offers parentEnd=to\narrow d_offers \"Потоки предложений поставщиков и шаблоны контента\" from=dec_offers to=A2 role=input\nboundary dec_states \"Модель состояний, версии и правила утверждения\" in=decomposition side=top direction=in parentArrow=c_states parentEnd=to\narrow d_states \"Модель состояний, версии и правила утверждения\" from=dec_states to=A1 role=control\nboundary dec_mapping \"Правила сопоставления SKU и выбора предложений\" in=decomposition side=top direction=in parentArrow=c_mapping parentEnd=to\narrow d_mapping \"Правила сопоставления SKU и выбора предложений\" from=dec_mapping to=A2 role=control\nboundary dec_rules \"Версионируемые правила совместимости, выбора, цены и массы\" in=decomposition side=top direction=in parentArrow=c_rules parentEnd=to\narrow d_rules \"Версионируемые правила совместимости, выбора, цены и массы\" from=dec_rules to=A3 role=control\nboundary dec_ozon \"Схема и требования Ozon к карточке\" in=decomposition side=top direction=in parentArrow=c_ozon parentEnd=to\narrow d_ozon \"Схема и требования Ozon к карточке\" from=dec_ozon to=A4 role=control\nboundary dec_approval \"Маршрут проверки и критерии утверждения версии\" in=decomposition side=top direction=in parentArrow=c_approval parentEnd=to\narrow d_approval \"Маршрут проверки и критерии утверждения версии\" from=dec_approval to=A4 role=control\nboundary dec_security \"RBAC, идемпотентность и политика повторов\" in=decomposition side=top direction=in parentArrow=c_security parentEnd=to\narrow d_security \"RBAC, идемпотентность и политика повторов\" from=dec_security to=A5 role=control\nboundary dec_version \"Проверенная неизменяемая версия модельного ряда\" in=decomposition side=right direction=out parentArrow=c_version parentEnd=from\narrow d_version \"Проверенная неизменяемая версия модельного ряда\" from=A3 to=dec_version role=output\nboundary dec_content \"Воспроизводимый расчёт и версия контента\" in=decomposition side=right direction=out parentArrow=c_content parentEnd=from\narrow d_content \"Воспроизводимый расчёт и версия контента\" from=A4 to=dec_content role=output\nboundary dec_status \"Подтверждённый статус публикации и внешний ID\" in=decomposition side=right direction=out parentArrow=c_status parentEnd=from\narrow d_status \"Подтверждённый статус публикации и внешний ID\" from=A5 to=dec_status role=output\nboundary dec_audit \"Журнал аудита и уведомления ответственным\" in=decomposition side=right direction=out parentArrow=c_audit parentEnd=from\narrow d_audit \"Журнал аудита и уведомления ответственным\" from=A5 to=dec_audit role=output\nboundary dec_roles \"Сотрудники с назначенными ролями\" in=decomposition side=bottom direction=in parentArrow=c_roles parentEnd=to\narrow d_roles \"Сотрудники с назначенными ролями\" from=dec_roles to=A1 role=mechanism\nboundary dec_system \"Единая информационная система и API\" in=decomposition side=bottom direction=in parentArrow=c_system parentEnd=to\narrow d_system \"Единая информационная система и API\" from=dec_system to=A3 role=mechanism\nboundary dec_storage \"PostgreSQL и файловое хранилище\" in=decomposition side=bottom direction=in parentArrow=c_storage parentEnd=to\narrow d_storage \"PostgreSQL и файловое хранилище\" from=dec_storage to=A4 role=mechanism\nboundary dec_adapters \"Адаптеры поставщиков и механизм правил\" in=decomposition side=bottom direction=in parentArrow=c_adapters parentEnd=to\narrow d_adapters \"Адаптеры поставщиков и механизм правил\" from=dec_adapters to=A2 role=mechanism\nboundary dec_worker \"Worker и адаптер Ozon\" in=decomposition side=bottom direction=in parentArrow=c_worker parentEnd=to\narrow d_worker \"Worker и адаптер Ozon\" from=dec_worker to=A5 role=mechanism\narrow step12 Черновик from=A1 role=input to=A2\narrow step23 Состав from=A2 role=input to=A3\narrow step34 Снимок from=A3 role=input to=A4\narrow step45 Карточка from=A4 role=input to=A5\narrow feedback_correction \"Протокол проверки с точными причинами\" from=A3 to=A2 role=control\narrow d_rules_A4 \"Версионируемые правила совместимости, выбора, цены и массы\" branchOf=d_rules from=dec_rules role=control to=A4\n",
+  "draft": "idef0 rop_cards \"Карточки компьютерных систем ООО Юкомс TO BE\"\ndiagram context \"Управлять подготовкой и публикацией карточек компьютерных систем\" node=A-0 purpose=\"Спроектировать единый версионированный процесс с автоматическими проверками и управляемой публикацией\" viewpoint=\"Менеджер маркетплейсов\" author=\"Албахтин И.В.\" date=\"28.09.2026\" project=\"РОП Практика 2 — ООО Юкомс\" status=publication context=TOP pageNumber=1\nfunction root \"Управлять подготовкой и публикацией карточек компьютерных систем\" in=context number=0\nboundary ctx_request \"Запрос на создание или изменение карточки\" in=context side=left direction=in\narrow c_request \"Запрос на создание или изменение карточки\" from=ctx_request to=root role=input\nboundary ctx_catalog \"Справочник компонентов и характеристики\" in=context side=left direction=in\narrow c_catalog \"Справочник компонентов и характеристики\" from=ctx_catalog to=root role=input\nboundary ctx_offers \"Потоки предложений поставщиков и шаблоны контента\" in=context side=left direction=in\narrow c_offers \"Потоки предложений поставщиков и шаблоны контента\" from=ctx_offers to=root role=input\nboundary ctx_states \"Модель состояний, версии и правила утверждения\" in=context side=top direction=in\narrow c_states \"Модель состояний, версии и правила утверждения\" from=ctx_states to=root role=control\nboundary ctx_mapping \"Правила сопоставления SKU и выбора предложений\" in=context side=top direction=in\narrow c_mapping \"Правила сопоставления SKU и выбора предложений\" from=ctx_mapping to=root role=control\nboundary ctx_rules \"Версионируемые правила совместимости, выбора, цены и массы\" in=context side=top direction=in\narrow c_rules \"Версионируемые правила совместимости, выбора, цены и массы\" from=ctx_rules to=root role=control\nboundary ctx_ozon \"Схема и требования Ozon к карточке\" in=context side=top direction=in\narrow c_ozon \"Схема и требования Ozon к карточке\" from=ctx_ozon to=root role=control\nboundary ctx_approval \"Маршрут проверки и критерии утверждения версии\" in=context side=top direction=in\narrow c_approval \"Маршрут проверки и критерии утверждения версии\" from=ctx_approval to=root role=control\nboundary ctx_security \"RBAC, идемпотентность и политика повторов\" in=context side=top direction=in\narrow c_security \"RBAC, идемпотентность и политика повторов\" from=ctx_security to=root role=control\nboundary ctx_version \"Проверенная неизменяемая версия модельного ряда\" in=context side=right direction=out\narrow c_version \"Проверенная неизменяемая версия модельного ряда\" from=root to=ctx_version role=output\nboundary ctx_content \"Воспроизводимый расчёт и версия контента\" in=context side=right direction=out\narrow c_content \"Воспроизводимый расчёт и версия контента\" from=root to=ctx_content role=output\nboundary ctx_status \"Подтверждённый статус публикации и внешний ID\" in=context side=right direction=out\narrow c_status \"Подтверждённый статус публикации и внешний ID\" from=root to=ctx_status role=output\nboundary ctx_audit \"Журнал аудита и уведомления ответственным\" in=context side=right direction=out\narrow c_audit \"Журнал аудита и уведомления ответственным\" from=root to=ctx_audit role=output\nboundary ctx_roles \"Сотрудники с назначенными ролями\" in=context side=bottom direction=in\narrow c_roles \"Сотрудники с назначенными ролями\" from=ctx_roles to=root role=mechanism\nboundary ctx_system \"Единая информационная система и API\" in=context side=bottom direction=in\narrow c_system \"Единая информационная система и API\" from=ctx_system to=root role=mechanism\nboundary ctx_storage \"PostgreSQL и файловое хранилище\" in=context side=bottom direction=in\narrow c_storage \"PostgreSQL и файловое хранилище\" from=ctx_storage to=root role=mechanism\nboundary ctx_adapters \"Адаптеры поставщиков и механизм правил\" in=context side=bottom direction=in\narrow c_adapters \"Адаптеры поставщиков и механизм правил\" from=ctx_adapters to=root role=mechanism\nboundary ctx_worker \"Worker и адаптер Ozon\" in=context side=bottom direction=in\narrow c_worker \"Worker и адаптер Ozon\" from=ctx_worker to=root role=mechanism\ndiagram decomposition \"Управлять подготовкой и публикацией карточек компьютерных систем\" in=root node=A0 purpose=\"Спроектировать единый версионированный процесс с автоматическими проверками и управляемой публикацией\" viewpoint=\"Менеджер маркетплейсов\" author=\"Албахтин И.В.\" date=\"28.09.2026\" project=\"РОП Практика 2 — ООО Юкомс\" status=publication context=A-0 pageNumber=2\nfunction A1 \"Зарегистрировать запрос и открыть управляемую версию\" in=decomposition number=1\nfunction A2 \"Импортировать предложения и сформировать конфигурацию\" in=decomposition number=2\nfunction A3 \"Проверить и зафиксировать неизменяемый снимок\" in=decomposition number=3\nfunction A4 \"Рассчитать показатели, сформировать и утвердить контент\" in=decomposition number=4\nfunction A5 \"Опубликовать, сверить результат и зафиксировать аудит\" in=decomposition number=5\nboundary dec_request \"Запрос на создание или изменение карточки\" in=decomposition side=left direction=in parentArrow=c_request parentEnd=to\narrow d_request \"Запрос на создание или изменение карточки\" from=dec_request to=A1 role=input\nboundary dec_catalog \"Справочник компонентов и характеристики\" in=decomposition side=left direction=in parentArrow=c_catalog parentEnd=to\narrow d_catalog \"Справочник компонентов и характеристики\" from=dec_catalog to=A2 role=input\nboundary dec_offers \"Потоки предложений поставщиков и шаблоны контента\" in=decomposition side=left direction=in parentArrow=c_offers parentEnd=to\narrow d_offers \"Потоки предложений поставщиков и шаблоны контента\" from=dec_offers to=A2 role=input\nboundary dec_states \"Модель состояний, версии и правила утверждения\" in=decomposition side=top direction=in parentArrow=c_states parentEnd=to\narrow d_states \"Модель состояний, версии и правила утверждения\" from=dec_states to=A1 role=control\nboundary dec_mapping \"Правила сопоставления SKU и выбора предложений\" in=decomposition side=top direction=in parentArrow=c_mapping parentEnd=to\narrow d_mapping \"Правила сопоставления SKU и выбора предложений\" from=dec_mapping to=A2 role=control\nboundary dec_rules \"Версионируемые правила совместимости, выбора, цены и массы\" in=decomposition side=top direction=in parentArrow=c_rules parentEnd=to\narrow d_rules \"Версионируемые правила совместимости, выбора, цены и массы\" from=dec_rules to=A3 role=control\nboundary dec_ozon \"Схема и требования Ozon к карточке\" in=decomposition side=top direction=in parentArrow=c_ozon parentEnd=to\narrow d_ozon \"Схема и требования Ozon к карточке\" from=dec_ozon to=A4 role=control\nboundary dec_approval \"Маршрут проверки и критерии утверждения версии\" in=decomposition side=top direction=in parentArrow=c_approval parentEnd=to\narrow d_approval \"Маршрут проверки и критерии утверждения версии\" from=dec_approval to=A4 role=control\nboundary dec_security \"RBAC, идемпотентность и политика повторов\" in=decomposition side=top direction=in parentArrow=c_security parentEnd=to\narrow d_security \"RBAC, идемпотентность и политика повторов\" from=dec_security to=A5 role=control\nboundary dec_version \"Проверенная неизменяемая версия модельного ряда\" in=decomposition side=right direction=out parentArrow=c_version parentEnd=from\narrow d_version \"Проверенная неизменяемая версия модельного ряда\" from=A3 to=dec_version role=output\nboundary dec_content \"Воспроизводимый расчёт и версия контента\" in=decomposition side=right direction=out parentArrow=c_content parentEnd=from\narrow d_content \"Воспроизводимый расчёт и версия контента\" from=A4 to=dec_content role=output\nboundary dec_status \"Подтверждённый статус публикации и внешний ID\" in=decomposition side=right direction=out parentArrow=c_status parentEnd=from\narrow d_status \"Подтверждённый статус публикации и внешний ID\" from=A5 to=dec_status role=output\nboundary dec_audit \"Журнал аудита и уведомления ответственным\" in=decomposition side=right direction=out parentArrow=c_audit parentEnd=from\narrow d_audit \"Журнал аудита и уведомления ответственным\" from=A5 to=dec_audit role=output\nboundary dec_roles \"Сотрудники с назначенными ролями\" in=decomposition side=bottom direction=in parentArrow=c_roles parentEnd=to\narrow d_roles \"Сотрудники с назначенными ролями\" from=dec_roles to=A1 role=mechanism\nboundary dec_system \"Единая информационная система и API\" in=decomposition side=bottom direction=in parentArrow=c_system parentEnd=to\narrow d_system \"Единая информационная система и API\" from=dec_system to=A3 role=mechanism\nboundary dec_storage \"PostgreSQL и файловое хранилище\" in=decomposition side=bottom direction=in parentArrow=c_storage parentEnd=to\narrow d_storage \"PostgreSQL и файловое хранилище\" from=dec_storage to=A4 role=mechanism\nboundary dec_adapters \"Адаптеры поставщиков и механизм правил\" in=decomposition side=bottom direction=in parentArrow=c_adapters parentEnd=to\narrow d_adapters \"Адаптеры поставщиков и механизм правил\" from=dec_adapters to=A2 role=mechanism\nboundary dec_worker \"Worker и адаптер Ozon\" in=decomposition side=bottom direction=in parentArrow=c_worker parentEnd=to\narrow d_worker \"Worker и адаптер Ozon\" from=dec_worker to=A5 role=mechanism\narrow step12 Черновик from=A1 role=input to=A2\narrow step23 Состав from=A2 role=input to=A3\narrow step34 Снимок from=A3 role=input to=A4\narrow step45 Карточка from=A4 role=input to=A5\narrow feedback_correction \"Протокол проверки с точными причинами\" from=A3 to=A2 role=control\narrow d_rules_A4 \"Версионируемые правила совместимости, выбора, цены и массы\" branchOf=d_rules from=dec_rules role=control to=A4\n",
   "layout": {
     "frames": {
       "context": {
         "x": 0,
         "y": 0,
         "width": 2100,
-        "height": 980
+        "height": 1150
       },
       "decomposition": {
-        "x": -60,
-        "y": -20,
-        "width": 2910,
-        "height": 1520
+        "x": 0,
+        "y": 0,
+        "width": 2100,
+        "height": 1150
       }
     },
     "positions": {
       "root": {
-        "x": 860,
-        "y": 390
+        "x": 750,
+        "y": 420
       },
       "ctx_request": {
         "x": 0,
-        "y": 245
+        "y": 465
       },
       "ctx_catalog": {
         "x": 0,
-        "y": 490
+        "y": 560
       },
       "ctx_offers": {
         "x": 0,
-        "y": 735
+        "y": 655
       },
       "ctx_states": {
-        "x": 300,
+        "x": 185,
         "y": 0
       },
       "ctx_mapping": {
-        "x": 600,
+        "x": 531,
         "y": 0
       },
       "ctx_rules": {
-        "x": 900,
+        "x": 877,
         "y": 0
       },
       "ctx_ozon": {
-        "x": 1200,
+        "x": 1223,
         "y": 0
       },
       "ctx_approval": {
-        "x": 1500,
+        "x": 1569,
         "y": 0
       },
       "ctx_security": {
-        "x": 1800,
+        "x": 1915,
         "y": 0
       },
       "ctx_version": {
         "x": 2100,
-        "y": 196
+        "y": 365
       },
       "ctx_content": {
         "x": 2100,
-        "y": 392
+        "y": 510
       },
       "ctx_status": {
         "x": 2100,
-        "y": 588
+        "y": 655
       },
       "ctx_audit": {
         "x": 2100,
-        "y": 784
+        "y": 800
       },
       "ctx_roles": {
-        "x": 350,
-        "y": 980
+        "x": 185,
+        "y": 1150
       },
       "ctx_system": {
-        "x": 700,
-        "y": 980
+        "x": 617.5,
+        "y": 1150
       },
       "ctx_storage": {
         "x": 1050,
-        "y": 980
+        "y": 1150
       },
       "ctx_adapters": {
-        "x": 1400,
-        "y": 980
+        "x": 1482.5,
+        "y": 1150
       },
       "ctx_worker": {
-        "x": 1750,
-        "y": 980
+        "x": 1915,
+        "y": 1150
       },
       "A1": {
-        "x": 100,
-        "y": 260
+        "x": 95,
+        "y": 470
       },
       "A2": {
-        "x": 640,
-        "y": 500
+        "x": 490,
+        "y": 470
       },
       "A3": {
-        "x": 1180,
-        "y": 740
+        "x": 885,
+        "y": 470
       },
       "A4": {
-        "x": 1720,
-        "y": 500
+        "x": 1280,
+        "y": 470
       },
       "A5": {
-        "x": 2260,
-        "y": 260
+        "x": 1675,
+        "y": 470
       },
       "dec_request": {
-        "x": -60,
-        "y": 375
+        "x": 0,
+        "y": 580
       },
       "dec_catalog": {
-        "x": -60,
-        "y": 750
+        "x": 0,
+        "y": 355
       },
       "dec_offers": {
-        "x": -60,
-        "y": 1125
+        "x": 0,
+        "y": 725
       },
       "dec_states": {
-        "x": 400,
-        "y": -20
+        "x": 245,
+        "y": 0
       },
       "dec_mapping": {
-        "x": 800,
-        "y": -20
+        "x": 586,
+        "y": 0
       },
       "dec_rules": {
-        "x": 1200,
-        "y": -20
+        "x": 1035,
+        "y": 0
       },
       "dec_ozon": {
-        "x": 1600,
-        "y": -20
+        "x": 1355,
+        "y": 0
       },
       "dec_approval": {
-        "x": 2000,
-        "y": -20
+        "x": 1505,
+        "y": 0
       },
       "dec_security": {
-        "x": 2400,
-        "y": -20
+        "x": 1825,
+        "y": 0
       },
       "dec_version": {
-        "x": 2850,
-        "y": 300
+        "x": 2100,
+        "y": 285
       },
       "dec_content": {
-        "x": 2850,
-        "y": 600
+        "x": 2100,
+        "y": 385
       },
       "dec_status": {
-        "x": 2850,
-        "y": 900
+        "x": 2100,
+        "y": 730
       },
       "dec_audit": {
-        "x": 2850,
-        "y": 1200
+        "x": 2100,
+        "y": 850
       },
       "dec_roles": {
-        "x": 466.66666666666663,
-        "y": 1500
+        "x": 245,
+        "y": 1150
       },
       "dec_system": {
-        "x": 933.3333333333333,
-        "y": 1500
+        "x": 1035,
+        "y": 1150
       },
       "dec_storage": {
-        "x": 1400,
-        "y": 1500
+        "x": 1430,
+        "y": 1150
       },
       "dec_adapters": {
-        "x": 1866.6666666666665,
-        "y": 1500
+        "x": 640,
+        "y": 1150
       },
       "dec_worker": {
-        "x": 2333.3333333333335,
-        "y": 1500
+        "x": 1825,
+        "y": 1150
       }
     },
-    "textStyles": {},
-    "sizes": {
+    "textStyles": {
       "root": {
-        "width": 380,
-        "height": 180
+        "fontSize": 30,
+        "wrap": true
       },
       "A1": {
-        "width": 390,
-        "height": 175
+        "fontSize": 24,
+        "wrap": true
       },
       "A2": {
-        "width": 390,
-        "height": 175
+        "fontSize": 24,
+        "wrap": true
       },
       "A3": {
-        "width": 390,
-        "height": 175
+        "fontSize": 24,
+        "wrap": true
       },
       "A4": {
-        "width": 390,
-        "height": 175
+        "fontSize": 24,
+        "wrap": true
       },
       "A5": {
-        "width": 390,
-        "height": 175
+        "fontSize": 24,
+        "wrap": true
+      },
+      "c_request": {
+        "fontSize": 26,
+        "wrap": true,
+        "width": 610
+      },
+      "c_catalog": {
+        "fontSize": 26,
+        "wrap": true,
+        "width": 610
+      },
+      "c_offers": {
+        "fontSize": 26,
+        "wrap": true,
+        "width": 610
+      },
+      "c_states": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 305
+      },
+      "c_mapping": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 305
+      },
+      "c_rules": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 305
+      },
+      "c_ozon": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 305
+      },
+      "c_approval": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 305
+      },
+      "c_security": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 305
+      },
+      "c_version": {
+        "fontSize": 26,
+        "wrap": true,
+        "width": 610
+      },
+      "c_content": {
+        "fontSize": 26,
+        "wrap": true,
+        "width": 610
+      },
+      "c_status": {
+        "fontSize": 26,
+        "wrap": true,
+        "width": 610
+      },
+      "c_audit": {
+        "fontSize": 26,
+        "wrap": true,
+        "width": 610
+      },
+      "c_roles": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 305
+      },
+      "c_system": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 305
+      },
+      "c_storage": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 305
+      },
+      "c_adapters": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 305
+      },
+      "c_worker": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 305
+      },
+      "d_request": {
+        "fontSize": 20,
+        "wrap": true,
+        "width": 400
+      },
+      "d_catalog": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 400
+      },
+      "d_offers": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 400
+      },
+      "d_states": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 340
+      },
+      "d_mapping": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 340
+      },
+      "d_rules": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 340
+      },
+      "d_ozon": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 340
+      },
+      "d_approval": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 340
+      },
+      "d_security": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 340
+      },
+      "d_version": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 475
+      },
+      "d_content": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 475
+      },
+      "d_status": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 475
+      },
+      "d_audit": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 475
+      },
+      "d_roles": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 340
+      },
+      "d_system": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 340
+      },
+      "d_storage": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 340
+      },
+      "d_adapters": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 340
+      },
+      "d_worker": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 340
+      },
+      "step12": {
+        "fontSize": 20,
+        "wrap": true,
+        "width": 190
+      },
+      "step23": {
+        "fontSize": 20,
+        "wrap": true,
+        "width": 190
+      },
+      "step34": {
+        "fontSize": 20,
+        "wrap": true,
+        "width": 190
+      },
+      "step45": {
+        "fontSize": 20,
+        "wrap": true,
+        "width": 190
+      },
+      "feedback_correction": {
+        "fontSize": 24,
+        "wrap": true,
+        "width": 365
+      },
+      "d_rules_A4": {
+        "fontSize": 22,
+        "wrap": true,
+        "width": 280
+      }
+    },
+    "sizes": {
+      "root": {
+        "width": 600,
+        "height": 220
+      },
+      "A1": {
+        "width": 300,
+        "height": 220
+      },
+      "A2": {
+        "width": 300,
+        "height": 220
+      },
+      "A3": {
+        "width": 300,
+        "height": 220
+      },
+      "A4": {
+        "width": 300,
+        "height": 220
+      },
+      "A5": {
+        "width": 300,
+        "height": 220
       }
     },
     "arrows": {
       "c_request": {
-        "label": {
-          "x": 360,
-          "y": 209
-        }
-      },
-      "c_catalog": {
-        "label": {
-          "x": 360,
-          "y": 454
-        }
-      },
-      "c_offers": {
-        "label": {
-          "x": 360,
-          "y": 699
-        }
-      },
-      "c_version": {
-        "label": {
-          "x": 1490,
-          "y": 160
-        }
-      },
-      "c_content": {
-        "label": {
-          "x": 1490,
-          "y": 356
-        }
-      },
-      "c_status": {
-        "label": {
-          "x": 1490,
-          "y": 552
-        }
-      },
-      "c_audit": {
-        "label": {
-          "x": 1490,
-          "y": 748
-        }
-      },
-      "d_request": {
-        "label": {
-          "x": 360,
-          "y": 339
-        }
-      },
-      "d_catalog": {
-        "label": {
-          "x": 360,
-          "y": 714
-        }
-      },
-      "d_offers": {
-        "label": {
-          "x": 360,
-          "y": 1089
-        }
-      },
-      "d_version": {
-        "label": {
-          "x": 2190,
-          "y": 264
-        }
-      },
-      "d_content": {
-        "label": {
-          "x": 2190,
-          "y": 564
-        }
-      },
-      "d_status": {
-        "label": {
-          "x": 2190,
-          "y": 864
-        }
-      },
-      "d_audit": {
-        "label": {
-          "x": 2190,
-          "y": 1164
-        }
-      },
-      "feedback_correction": {
+        "toOffset": 0.25,
         "bends": [
           {
-            "x": 1600,
-            "y": 858.125
+            "x": 28,
+            "y": 465
           },
           {
-            "x": 1570,
-            "y": 160
+            "x": 710,
+            "y": 465
           },
           {
-            "x": 880.5,
-            "y": 160
+            "x": 710,
+            "y": 475
           },
           {
-            "x": 880.5,
-            "y": 470
+            "x": 722,
+            "y": 475
           }
         ],
         "label": {
-          "x": 1145.25,
-          "y": 135
+          "x": 355,
+          "y": 483
+        }
+      },
+      "c_catalog": {
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 28,
+            "y": 560
+          },
+          {
+            "x": 710,
+            "y": 560
+          },
+          {
+            "x": 710,
+            "y": 530
+          },
+          {
+            "x": 722,
+            "y": 530
+          }
+        ],
+        "label": {
+          "x": 355,
+          "y": 578
+        }
+      },
+      "c_offers": {
+        "toOffset": 0.75,
+        "bends": [
+          {
+            "x": 28,
+            "y": 655
+          },
+          {
+            "x": 710,
+            "y": 655
+          },
+          {
+            "x": 710,
+            "y": 585
+          },
+          {
+            "x": 722,
+            "y": 585
+          }
+        ],
+        "label": {
+          "x": 355,
+          "y": 693
+        }
+      },
+      "c_states": {
+        "toOffset": 0.14285714285714285,
+        "bends": [
+          {
+            "x": 185,
+            "y": 28
+          },
+          {
+            "x": 185,
+            "y": 275
+          },
+          {
+            "x": 835.7142857142857,
+            "y": 275
+          },
+          {
+            "x": 835.7142857142857,
+            "y": 392
+          }
+        ],
+        "label": {
+          "x": 185,
+          "y": 220
+        }
+      },
+      "c_mapping": {
+        "toOffset": 0.2857142857142857,
+        "bends": [
+          {
+            "x": 531,
+            "y": 28
+          },
+          {
+            "x": 531,
+            "y": 297
+          },
+          {
+            "x": 921.4285714285714,
+            "y": 297
+          },
+          {
+            "x": 921.4285714285714,
+            "y": 392
+          }
+        ],
+        "label": {
+          "x": 531,
+          "y": 220
+        }
+      },
+      "c_rules": {
+        "toOffset": 0.42857142857142855,
+        "bends": [
+          {
+            "x": 877,
+            "y": 28
+          },
+          {
+            "x": 877,
+            "y": 319
+          },
+          {
+            "x": 1007.1428571428571,
+            "y": 319
+          },
+          {
+            "x": 1007.1428571428571,
+            "y": 392
+          }
+        ],
+        "label": {
+          "x": 877,
+          "y": 220
+        }
+      },
+      "c_ozon": {
+        "toOffset": 0.5714285714285714,
+        "bends": [
+          {
+            "x": 1223,
+            "y": 28
+          },
+          {
+            "x": 1223,
+            "y": 341
+          },
+          {
+            "x": 1092.857142857143,
+            "y": 341
+          },
+          {
+            "x": 1092.857142857143,
+            "y": 392
+          }
+        ],
+        "label": {
+          "x": 1223,
+          "y": 220
+        }
+      },
+      "c_approval": {
+        "toOffset": 0.7142857142857143,
+        "bends": [
+          {
+            "x": 1569,
+            "y": 28
+          },
+          {
+            "x": 1569,
+            "y": 363
+          },
+          {
+            "x": 1178.5714285714284,
+            "y": 363
+          },
+          {
+            "x": 1178.5714285714284,
+            "y": 392
+          }
+        ],
+        "label": {
+          "x": 1569,
+          "y": 220
+        }
+      },
+      "c_security": {
+        "toOffset": 0.8571428571428571,
+        "bends": [
+          {
+            "x": 1915,
+            "y": 28
+          },
+          {
+            "x": 1915,
+            "y": 385
+          },
+          {
+            "x": 1264.2857142857142,
+            "y": 385
+          },
+          {
+            "x": 1264.2857142857142,
+            "y": 392
+          }
+        ],
+        "label": {
+          "x": 1915,
+          "y": 220
+        }
+      },
+      "c_version": {
+        "fromOffset": 0.2,
+        "bends": [
+          {
+            "x": 1378,
+            "y": 464
+          },
+          {
+            "x": 1400,
+            "y": 464
+          },
+          {
+            "x": 1400,
+            "y": 365
+          },
+          {
+            "x": 2072,
+            "y": 365
+          }
+        ],
+        "label": {
+          "x": 1740,
+          "y": 385
+        }
+      },
+      "c_content": {
+        "fromOffset": 0.4,
+        "bends": [
+          {
+            "x": 1378,
+            "y": 508
+          },
+          {
+            "x": 1432,
+            "y": 508
+          },
+          {
+            "x": 1432,
+            "y": 510
+          },
+          {
+            "x": 2072,
+            "y": 510
+          }
+        ],
+        "label": {
+          "x": 1740,
+          "y": 530
+        }
+      },
+      "c_status": {
+        "fromOffset": 0.6,
+        "bends": [
+          {
+            "x": 1378,
+            "y": 552
+          },
+          {
+            "x": 1464,
+            "y": 552
+          },
+          {
+            "x": 1464,
+            "y": 655
+          },
+          {
+            "x": 2072,
+            "y": 655
+          }
+        ],
+        "label": {
+          "x": 1740,
+          "y": 675
+        }
+      },
+      "c_audit": {
+        "fromOffset": 0.8,
+        "bends": [
+          {
+            "x": 1378,
+            "y": 596
+          },
+          {
+            "x": 1496,
+            "y": 596
+          },
+          {
+            "x": 1496,
+            "y": 800
+          },
+          {
+            "x": 2072,
+            "y": 800
+          }
+        ],
+        "label": {
+          "x": 1740,
+          "y": 820
+        }
+      },
+      "c_roles": {
+        "toOffset": 0.16666666666666666,
+        "bends": [
+          {
+            "x": 185,
+            "y": 1122
+          },
+          {
+            "x": 185,
+            "y": 865
+          },
+          {
+            "x": 850,
+            "y": 865
+          },
+          {
+            "x": 850,
+            "y": 668
+          }
+        ],
+        "label": {
+          "x": 185,
+          "y": 1080
+        }
+      },
+      "c_system": {
+        "toOffset": 0.3333333333333333,
+        "bends": [
+          {
+            "x": 617.5,
+            "y": 1122
+          },
+          {
+            "x": 617.5,
+            "y": 841
+          },
+          {
+            "x": 950,
+            "y": 841
+          },
+          {
+            "x": 950,
+            "y": 668
+          }
+        ],
+        "label": {
+          "x": 617.5,
+          "y": 1080
+        }
+      },
+      "c_storage": {
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 1050,
+            "y": 1122
+          },
+          {
+            "x": 1050,
+            "y": 817
+          },
+          {
+            "x": 1050,
+            "y": 817
+          },
+          {
+            "x": 1050,
+            "y": 668
+          }
+        ],
+        "label": {
+          "x": 1050,
+          "y": 1080
+        }
+      },
+      "c_adapters": {
+        "toOffset": 0.6666666666666666,
+        "bends": [
+          {
+            "x": 1482.5,
+            "y": 1122
+          },
+          {
+            "x": 1482.5,
+            "y": 793
+          },
+          {
+            "x": 1150,
+            "y": 793
+          },
+          {
+            "x": 1150,
+            "y": 668
+          }
+        ],
+        "label": {
+          "x": 1482.5,
+          "y": 1080
+        }
+      },
+      "c_worker": {
+        "toOffset": 0.8333333333333334,
+        "bends": [
+          {
+            "x": 1915,
+            "y": 1122
+          },
+          {
+            "x": 1915,
+            "y": 769
+          },
+          {
+            "x": 1250,
+            "y": 769
+          },
+          {
+            "x": 1250,
+            "y": 668
+          }
+        ],
+        "label": {
+          "x": 1915,
+          "y": 1080
+        }
+      },
+      "d_request": {
+        "fromOffset": 0.5,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 28,
+            "y": 580
+          },
+          {
+            "x": 67,
+            "y": 580
+          }
+        ],
+        "label": {
+          "x": 190,
+          "y": 456
+        }
+      },
+      "d_catalog": {
+        "fromOffset": 0.5,
+        "toOffset": 0.25,
+        "bends": [
+          {
+            "x": 28,
+            "y": 355
+          },
+          {
+            "x": 450,
+            "y": 355
+          },
+          {
+            "x": 450,
+            "y": 525
+          },
+          {
+            "x": 462,
+            "y": 525
+          }
+        ],
+        "label": {
+          "x": 230,
+          "y": 391
+        }
+      },
+      "d_offers": {
+        "fromOffset": 0.5,
+        "toOffset": 0.75,
+        "bends": [
+          {
+            "x": 28,
+            "y": 725
+          },
+          {
+            "x": 450,
+            "y": 725
+          },
+          {
+            "x": 450,
+            "y": 635
+          },
+          {
+            "x": 462,
+            "y": 635
+          }
+        ],
+        "label": {
+          "x": 230,
+          "y": 781
+        }
+      },
+      "d_states": {
+        "fromOffset": 0.5,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 245,
+            "y": 28
+          },
+          {
+            "x": 245,
+            "y": 442
+          }
+        ],
+        "label": {
+          "x": 245,
+          "y": 165
+        }
+      },
+      "d_mapping": {
+        "fromOffset": 0.5,
+        "toOffset": 0.32,
+        "bends": [
+          {
+            "x": 586,
+            "y": 28
+          },
+          {
+            "x": 586,
+            "y": 442
+          }
+        ],
+        "label": {
+          "x": 586,
+          "y": 165
+        }
+      },
+      "d_rules": {
+        "fromOffset": 0.5,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 1035,
+            "y": 28
+          },
+          {
+            "x": 1035,
+            "y": 442
+          }
+        ],
+        "label": {
+          "x": 1035,
+          "y": 165
+        }
+      },
+      "d_ozon": {
+        "fromOffset": 0.5,
+        "toOffset": 0.25,
+        "bends": [
+          {
+            "x": 1355,
+            "y": 28
+          },
+          {
+            "x": 1355,
+            "y": 442
+          }
+        ],
+        "label": {
+          "x": 1355,
+          "y": 400
+        }
+      },
+      "d_approval": {
+        "fromOffset": 0.5,
+        "toOffset": 0.75,
+        "bends": [
+          {
+            "x": 1505,
+            "y": 28
+          },
+          {
+            "x": 1505,
+            "y": 442
+          }
+        ],
+        "label": {
+          "x": 1490,
+          "y": 165
+        }
+      },
+      "d_security": {
+        "fromOffset": 0.5,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 1825,
+            "y": 28
+          },
+          {
+            "x": 1825,
+            "y": 442
+          }
+        ],
+        "label": {
+          "x": 1825,
+          "y": 165
+        }
+      },
+      "d_version": {
+        "fromOffset": 0.28,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 1213,
+            "y": 531.6
+          },
+          {
+            "x": 1221,
+            "y": 531.6
+          },
+          {
+            "x": 1221,
+            "y": 285
+          },
+          {
+            "x": 2072,
+            "y": 285
+          }
+        ],
+        "label": {
+          "x": 1810,
+          "y": 305
+        }
+      },
+      "d_content": {
+        "fromOffset": 0.28,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 1608,
+            "y": 531.6
+          },
+          {
+            "x": 1616,
+            "y": 531.6
+          },
+          {
+            "x": 1616,
+            "y": 385
+          },
+          {
+            "x": 2072,
+            "y": 385
+          }
+        ],
+        "label": {
+          "x": 1810,
+          "y": 405
+        }
+      },
+      "d_status": {
+        "fromOffset": 0.25,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 2003,
+            "y": 525
+          },
+          {
+            "x": 2011,
+            "y": 525
+          },
+          {
+            "x": 2011,
+            "y": 730
+          },
+          {
+            "x": 2072,
+            "y": 730
+          }
+        ],
+        "label": {
+          "x": 1850,
+          "y": 770
+        }
+      },
+      "d_audit": {
+        "fromOffset": 0.75,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 2003,
+            "y": 635
+          },
+          {
+            "x": 2011,
+            "y": 635
+          },
+          {
+            "x": 2011,
+            "y": 850
+          },
+          {
+            "x": 2072,
+            "y": 850
+          }
+        ],
+        "label": {
+          "x": 1890,
+          "y": 850
+        }
+      },
+      "d_roles": {
+        "fromOffset": 0.5,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 245,
+            "y": 1122
+          },
+          {
+            "x": 245,
+            "y": 718
+          }
+        ],
+        "label": {
+          "x": 245,
+          "y": 1095
+        }
+      },
+      "d_system": {
+        "fromOffset": 0.5,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 1035,
+            "y": 1122
+          },
+          {
+            "x": 1035,
+            "y": 718
+          }
+        ],
+        "label": {
+          "x": 1035,
+          "y": 1095
+        }
+      },
+      "d_storage": {
+        "fromOffset": 0.5,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 1430,
+            "y": 1122
+          },
+          {
+            "x": 1430,
+            "y": 718
+          }
+        ],
+        "label": {
+          "x": 1430,
+          "y": 1095
+        }
+      },
+      "d_adapters": {
+        "fromOffset": 0.5,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 640,
+            "y": 1122
+          },
+          {
+            "x": 640,
+            "y": 718
+          }
+        ],
+        "label": {
+          "x": 640,
+          "y": 1095
+        }
+      },
+      "d_worker": {
+        "fromOffset": 0.5,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 1825,
+            "y": 1122
+          },
+          {
+            "x": 1825,
+            "y": 718
+          }
+        ],
+        "label": {
+          "x": 1825,
+          "y": 1095
+        }
+      },
+      "step12": {
+        "fromOffset": 0.5,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 423,
+            "y": 580
+          },
+          {
+            "x": 462,
+            "y": 580
+          }
+        ],
+        "label": {
+          "x": 442.5,
+          "y": 445
+        }
+      },
+      "step23": {
+        "fromOffset": 0.5,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 818,
+            "y": 580
+          },
+          {
+            "x": 857,
+            "y": 580
+          }
+        ],
+        "label": {
+          "x": 837.5,
+          "y": 585
+        }
+      },
+      "step34": {
+        "fromOffset": 0.65,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 1213,
+            "y": 613
+          },
+          {
+            "x": 1232.5,
+            "y": 613
+          },
+          {
+            "x": 1232.5,
+            "y": 580
+          },
+          {
+            "x": 1252,
+            "y": 580
+          }
+        ],
+        "label": {
+          "x": 1232.5,
+          "y": 445
+        }
+      },
+      "step45": {
+        "fromOffset": 0.65,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 1608,
+            "y": 613
+          },
+          {
+            "x": 1627.5,
+            "y": 613
+          },
+          {
+            "x": 1627.5,
+            "y": 580
+          },
+          {
+            "x": 1647,
+            "y": 580
+          }
+        ],
+        "label": {
+          "x": 1627.5,
+          "y": 445
+        }
+      },
+      "feedback_correction": {
+        "fromOffset": 0.14,
+        "toOffset": 0.72,
+        "bends": [
+          {
+            "x": 1213,
+            "y": 500.8
+          },
+          {
+            "x": 1225,
+            "y": 500.8
+          },
+          {
+            "x": 1225,
+            "y": 260
+          },
+          {
+            "x": 706,
+            "y": 260
+          },
+          {
+            "x": 706,
+            "y": 442
+          }
+        ],
+        "label": {
+          "x": 920,
+          "y": 285
+        }
+      },
+      "d_rules_A4": {
+        "branchOffset": 0.39361702127659576,
+        "toOffset": 0.5,
+        "bends": [
+          {
+            "x": 1063,
+            "y": 185
+          },
+          {
+            "x": 1035,
+            "y": 185
+          },
+          {
+            "x": 1430,
+            "y": 185
+          },
+          {
+            "x": 1430,
+            "y": 442
+          }
+        ],
+        "label": {
+          "x": 1430,
+          "y": 173
         }
       }
     }

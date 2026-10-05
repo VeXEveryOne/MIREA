@@ -363,6 +363,46 @@
         }
       },
       {
+        "id": "include_uc02_uc03",
+        "kind": "include",
+        "label": "",
+        "properties": {
+          "from": "uc02",
+          "to": "uc03"
+        }
+      },
+      {
+        "id": "v_use_data_include_uc02_uc03",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use_data",
+          "element": "include_uc02_uc03",
+          "from": "v_use_data_uc02",
+          "to": "v_use_data_uc03"
+        }
+      },
+      {
+        "id": "include_uc06_uc04",
+        "kind": "include",
+        "label": "",
+        "properties": {
+          "from": "uc06",
+          "to": "uc04"
+        }
+      },
+      {
+        "id": "v_use_data_include_uc06_uc04",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use_data",
+          "element": "include_uc06_uc04",
+          "from": "v_use_data_uc06",
+          "to": "v_use_data_uc04"
+        }
+      },
+      {
         "id": "use_publish",
         "kind": "diagram",
         "label": "Прецеденты публикации, контроля и доступа",
@@ -386,18 +426,12 @@
         }
       },
       {
-        "id": "publisher",
-        "kind": "actor",
-        "label": "Менеджер",
-        "properties": {}
-      },
-      {
-        "id": "v_use_publish_publisher",
+        "id": "v_use_publish_manager",
         "kind": "view",
         "label": "",
         "properties": {
           "diagram": "use_publish",
-          "element": "publisher"
+          "element": "manager"
         }
       },
       {
@@ -562,7 +596,7 @@
         "kind": "participation",
         "label": "",
         "properties": {
-          "from": "publisher",
+          "from": "manager",
           "to": "uc07"
         }
       },
@@ -573,8 +607,48 @@
         "properties": {
           "diagram": "use_publish",
           "element": "p_publisher_uc07",
-          "from": "v_use_publish_publisher",
+          "from": "v_use_publish_manager",
           "to": "v_use_publish_uc07"
+        }
+      },
+      {
+        "id": "p_publisher_uc08",
+        "kind": "participation",
+        "label": "",
+        "properties": {
+          "from": "manager",
+          "to": "uc08"
+        }
+      },
+      {
+        "id": "v_use_publish_p_publisher_uc08",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use_publish",
+          "element": "p_publisher_uc08",
+          "from": "v_use_publish_manager",
+          "to": "v_use_publish_uc08"
+        }
+      },
+      {
+        "id": "p_publisher_uc09",
+        "kind": "participation",
+        "label": "",
+        "properties": {
+          "from": "manager",
+          "to": "uc09"
+        }
+      },
+      {
+        "id": "v_use_publish_p_publisher_uc09",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use_publish",
+          "element": "p_publisher_uc09",
+          "from": "v_use_publish_manager",
+          "to": "v_use_publish_uc09"
         }
       },
       {
@@ -615,6 +689,26 @@
           "element": "p_ozon_uc08",
           "from": "v_use_publish_ozon",
           "to": "v_use_publish_uc08"
+        }
+      },
+      {
+        "id": "p_ozon_uc07",
+        "kind": "participation",
+        "label": "",
+        "properties": {
+          "from": "ozon",
+          "to": "uc07"
+        }
+      },
+      {
+        "id": "v_use_publish_p_ozon_uc07",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "use_publish",
+          "element": "p_ozon_uc07",
+          "from": "v_use_publish_ozon",
+          "to": "v_use_publish_uc07"
         }
       },
       {
@@ -1520,8 +1614,8 @@
       }
     ]
   },
-  "source": "// Учебные UML-модели для единого отчёта по информационному менеджменту.\numl im_report_uml \"Информационная система подготовки карточек ООО «Юкомс»\"\ndiagram use_data \"Прецеденты подготовки данных и карточки\" type=usecase\nsystem system_data \"ИС подготовки карточек ООО «Юкомс»\"\nview v_use_data_system_data \"\" diagram=use_data element=system_data\nactor manager Менеджер\nview v_use_data_manager \"\" diagram=use_data element=manager\nactor production Производство\nview v_use_data_production \"\" diagram=use_data element=production\nactor designer Дизайнер\nview v_use_data_designer \"\" diagram=use_data element=designer\nusecase uc01 \"Загрузить исходные данные\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc01_subject \"\" owner=uc01 system=system_data\nview v_use_data_uc01 \"\" diagram=use_data element=uc01 parent=v_use_data_system_data\nusecase uc02 \"Подготовить модельный ряд\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc02_subject \"\" owner=uc02 system=system_data\nview v_use_data_uc02 \"\" diagram=use_data element=uc02 parent=v_use_data_system_data\nusecase uc03 \"Проверить совместимость\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc03_subject \"\" owner=uc03 system=system_data\nview v_use_data_uc03 \"\" diagram=use_data element=uc03 parent=v_use_data_system_data\nusecase uc04 \"Рассчитать цену и массу\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc04_subject \"\" owner=uc04 system=system_data\nview v_use_data_uc04 \"\" diagram=use_data element=uc04 parent=v_use_data_system_data\nusecase uc05 \"Подготовить изображения\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc05_subject \"\" owner=uc05 system=system_data\nview v_use_data_uc05 \"\" diagram=use_data element=uc05 parent=v_use_data_system_data\nusecase uc06 \"Сформировать карточку\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc06_subject \"\" owner=uc06 system=system_data\nview v_use_data_uc06 \"\" diagram=use_data element=uc06 parent=v_use_data_system_data\nparticipation p_manager_uc01 \"\" from=manager to=uc01\nview v_use_data_p_manager_uc01 \"\" diagram=use_data element=p_manager_uc01 from=v_use_data_manager to=v_use_data_uc01\nparticipation p_manager_uc04 \"\" from=manager to=uc04\nview v_use_data_p_manager_uc04 \"\" diagram=use_data element=p_manager_uc04 from=v_use_data_manager to=v_use_data_uc04\nparticipation p_manager_uc06 \"\" from=manager to=uc06\nview v_use_data_p_manager_uc06 \"\" diagram=use_data element=p_manager_uc06 from=v_use_data_manager to=v_use_data_uc06\nparticipation p_production_uc02 \"\" from=production to=uc02\nview v_use_data_p_production_uc02 \"\" diagram=use_data element=p_production_uc02 from=v_use_data_production to=v_use_data_uc02\nparticipation p_production_uc03 \"\" from=production to=uc03\nview v_use_data_p_production_uc03 \"\" diagram=use_data element=p_production_uc03 from=v_use_data_production to=v_use_data_uc03\nparticipation p_designer_uc05 \"\" from=designer to=uc05\nview v_use_data_p_designer_uc05 \"\" diagram=use_data element=p_designer_uc05 from=v_use_data_designer to=v_use_data_uc05\ndiagram use_publish \"Прецеденты публикации, контроля и доступа\" type=usecase\nsystem system_publish \"ИС подготовки карточек ООО «Юкомс»\"\nview v_use_publish_system_publish \"\" diagram=use_publish element=system_publish\nactor publisher Менеджер\nview v_use_publish_publisher \"\" diagram=use_publish element=publisher\nactor director Директор\nview v_use_publish_director \"\" diagram=use_publish element=director\nactor ozon Ozon\nview v_use_publish_ozon \"\" diagram=use_publish element=ozon\nactor administrator Администратор\nview v_use_publish_administrator \"\" diagram=use_publish element=administrator\nusecase uc07 \"Опубликовать карточку\" postcondition=\"Результат операции зафиксирован\" precondition=\"Пользователь аутентифицирован\"\nsubject uc07_subject \"\" owner=uc07 system=system_publish\nview v_use_publish_uc07 \"\" diagram=use_publish element=uc07 parent=v_use_publish_system_publish\nusecase uc08 \"Уточнить статус\" postcondition=\"Результат операции зафиксирован\" precondition=\"Пользователь аутентифицирован\"\nsubject uc08_subject \"\" owner=uc08 system=system_publish\nview v_use_publish_uc08 \"\" diagram=use_publish element=uc08 parent=v_use_publish_system_publish\nusecase uc09 \"Получить отчёт\" postcondition=\"Результат операции зафиксирован\" precondition=\"Пользователь аутентифицирован\"\nsubject uc09_subject \"\" owner=uc09 system=system_publish\nview v_use_publish_uc09 \"\" diagram=use_publish element=uc09 parent=v_use_publish_system_publish\nusecase uc10 \"Управлять доступом\" postcondition=\"Результат операции зафиксирован\" precondition=\"Пользователь аутентифицирован\"\nsubject uc10_subject \"\" owner=uc10 system=system_publish\nview v_use_publish_uc10 \"\" diagram=use_publish element=uc10 parent=v_use_publish_system_publish\nparticipation p_publisher_uc07 \"\" from=publisher to=uc07\nview v_use_publish_p_publisher_uc07 \"\" diagram=use_publish element=p_publisher_uc07 from=v_use_publish_publisher to=v_use_publish_uc07\nparticipation p_director_uc09 \"\" from=director to=uc09\nview v_use_publish_p_director_uc09 \"\" diagram=use_publish element=p_director_uc09 from=v_use_publish_director to=v_use_publish_uc09\nparticipation p_ozon_uc08 \"\" from=ozon to=uc08\nview v_use_publish_p_ozon_uc08 \"\" diagram=use_publish element=p_ozon_uc08 from=v_use_publish_ozon to=v_use_publish_uc08\nparticipation p_admin_uc10 \"\" from=administrator to=uc10\nview v_use_publish_p_admin_uc10 \"\" diagram=use_publish element=p_admin_uc10 from=v_use_publish_administrator to=v_use_publish_uc10\ninteraction publication \"Публикация карточки и получение результата\"\ndiagram sequence \"Взаимодействие при публикации карточки\" interaction=publication type=sequence\nactor seq_manager Менеджер\nclass seq_ui Интерфейс\nclass seq_service \"Сервис публикации\"\nclass seq_repository Репозиторий\nactor seq_ozon Ozon\nlifeline ll_manager менеджер classifier=seq_manager owner=publication\nview v_sequence_ll_manager \"\" diagram=sequence element=ll_manager\nlifeline ll_ui ui classifier=seq_ui owner=publication\nview v_sequence_ll_ui \"\" diagram=sequence element=ll_ui\nlifeline ll_service svc classifier=seq_service owner=publication\nview v_sequence_ll_service \"\" diagram=sequence element=ll_service\nlifeline ll_repository repo classifier=seq_repository owner=publication\nview v_sequence_ll_repository \"\" diagram=sequence element=ll_repository\nlifeline ll_ozon ozon classifier=seq_ozon owner=publication\nview v_sequence_ll_ozon \"\" diagram=sequence element=ll_ozon\noccurrence m01_send \"\" lifeline=ll_manager order=1 owner=publication\noccurrence m01_receive \"\" lifeline=ll_ui order=2 owner=publication\nmessage m01 \"Отправить карточку\" owner=publication receive=m01_receive send=m01_send sequence=1 sort=synchCall\nview v_sequence_m01 \"\" diagram=sequence element=m01 from=v_sequence_ll_manager to=v_sequence_ll_ui\noccurrence m02_send \"\" lifeline=ll_ui order=3 owner=publication\noccurrence m02_receive \"\" lifeline=ll_service order=4 owner=publication\nmessage m02 \"Запустить публикацию\" owner=publication receive=m02_receive send=m02_send sequence=2 sort=synchCall\nview v_sequence_m02 \"\" diagram=sequence element=m02 from=v_sequence_ll_ui to=v_sequence_ll_service\noccurrence m03_send \"\" lifeline=ll_service order=5 owner=publication\noccurrence m03_receive \"\" lifeline=ll_repository order=6 owner=publication\nmessage m03 \"Сохранить попытку\" owner=publication receive=m03_receive send=m03_send sequence=3 sort=synchCall\nview v_sequence_m03 \"\" diagram=sequence element=m03 from=v_sequence_ll_service to=v_sequence_ll_repository\noccurrence m04_send \"\" lifeline=ll_repository order=7 owner=publication\noccurrence m04_receive \"\" lifeline=ll_service order=8 owner=publication\nmessage m04 \"Идентификатор попытки\" owner=publication receive=m04_receive send=m04_send sequence=4 sort=reply\nview v_sequence_m04 \"\" diagram=sequence element=m04 from=v_sequence_ll_repository to=v_sequence_ll_service\noccurrence m05_send \"\" lifeline=ll_service order=9 owner=publication\noccurrence m05_receive \"\" lifeline=ll_ozon order=10 owner=publication\nmessage m05 \"Передать пакет\" owner=publication receive=m05_receive send=m05_send sequence=5 sort=synchCall\nview v_sequence_m05 \"\" diagram=sequence element=m05 from=v_sequence_ll_service to=v_sequence_ll_ozon\noccurrence m06_send \"\" lifeline=ll_ozon order=11 owner=publication\noccurrence m06_receive \"\" lifeline=ll_service order=12 owner=publication\nmessage m06 \"Идентификатор обработки\" owner=publication receive=m06_receive send=m06_send sequence=6 sort=reply\nview v_sequence_m06 \"\" diagram=sequence element=m06 from=v_sequence_ll_ozon to=v_sequence_ll_service\noccurrence m07_send \"\" lifeline=ll_service order=13 owner=publication\noccurrence m07_receive \"\" lifeline=ll_repository order=14 owner=publication\nmessage m07 \"Записать идентификатор\" owner=publication receive=m07_receive send=m07_send sequence=7 sort=synchCall\nview v_sequence_m07 \"\" diagram=sequence element=m07 from=v_sequence_ll_service to=v_sequence_ll_repository\noccurrence m08_send \"\" lifeline=ll_service order=15 owner=publication\noccurrence m08_receive \"\" lifeline=ll_ui order=16 owner=publication\nmessage m08 \"Показать номер попытки\" owner=publication receive=m08_receive send=m08_send sequence=8 sort=reply\nview v_sequence_m08 \"\" diagram=sequence element=m08 from=v_sequence_ll_service to=v_sequence_ll_ui\noccurrence m09_send \"\" lifeline=ll_service order=17 owner=publication\noccurrence m09_receive \"\" lifeline=ll_ozon order=18 owner=publication\nmessage m09 \"Запросить результат\" owner=publication receive=m09_receive send=m09_send sequence=9 sort=synchCall\nview v_sequence_m09 \"\" diagram=sequence element=m09 from=v_sequence_ll_service to=v_sequence_ll_ozon\noccurrence m10_send \"\" lifeline=ll_ozon order=19 owner=publication\noccurrence m10_receive \"\" lifeline=ll_service order=20 owner=publication\nmessage m10 \"Статус и замечания\" owner=publication receive=m10_receive send=m10_send sequence=10 sort=reply\nview v_sequence_m10 \"\" diagram=sequence element=m10 from=v_sequence_ll_ozon to=v_sequence_ll_service\noccurrence m11_send \"\" lifeline=ll_service order=21 owner=publication\noccurrence m11_receive \"\" lifeline=ll_repository order=22 owner=publication\nmessage m11 \"Сохранить результат\" owner=publication receive=m11_receive send=m11_send sequence=11 sort=synchCall\nview v_sequence_m11 \"\" diagram=sequence element=m11 from=v_sequence_ll_service to=v_sequence_ll_repository\noccurrence m12_send \"\" lifeline=ll_service order=23 owner=publication\noccurrence m12_receive \"\" lifeline=ll_ui order=24 owner=publication\nmessage m12 \"Обновить статус карточки\" owner=publication receive=m12_receive send=m12_send sequence=12 sort=reply\nview v_sequence_m12 \"\" diagram=sequence element=m12 from=v_sequence_ll_service to=v_sequence_ll_ui\ndiagram components \"Компоненты системы и основные потоки\" type=component\ncomponent web Веб-интерфейс description=\"Работа менеджера, производства, дизайнера и администратора\"\nview v_components_web \"\" diagram=components element=web\ncomponent services \"Прикладные сервисы\" description=\"Версии модельного ряда, расчёты, карточки и публикации\"\nview v_components_services \"\" diagram=components element=services\ncomponent importer \"Импорт исходных данных\" description=\"Предложения поставщиков и остатки\"\nview v_components_importer \"\" diagram=components element=importer\ncomponent access \"Контроль доступа и аудит\" description=\"Пользователи, роли и события аудита\"\nview v_components_access \"\" diagram=components element=access\ncomponent repository \"Репозиторий данных\" description=\"PostgreSQL и хранилище файлов\"\nview v_components_repository \"\" diagram=components element=repository\ncomponent ozon_adapter \"Адаптер Ozon\" description=\"Передача пакета и получение статуса\"\nview v_components_ozon_adapter \"\" diagram=components element=ozon_adapter\ndependency c_web_services \"Команды и запросы\" from=web to=services\nview v_components_c_web_services \"\" diagram=components element=c_web_services from=v_components_web to=v_components_services\ndependency c_import_services \"Нормализованные данные\" from=importer to=services\nview v_components_c_import_services \"\" diagram=components element=c_import_services from=v_components_importer to=v_components_services\ndependency c_services_access \"Проверка прав\" from=services to=access\nview v_components_c_services_access \"\" diagram=components element=c_services_access from=v_components_services to=v_components_access\ndependency c_services_repo \"Чтение и запись\" from=services to=repository\nview v_components_c_services_repo \"\" diagram=components element=c_services_repo from=v_components_services to=v_components_repository\ndependency c_services_ozon \"Пакеты публикации\" from=services to=ozon_adapter\nview v_components_c_services_ozon \"\" diagram=components element=c_services_ozon from=v_components_services to=v_components_ozon_adapter\ndependency c_access_repo \"Пользователи и аудит\" from=access to=repository\nview v_components_c_access_repo \"\" diagram=components element=c_access_repo from=v_components_access to=v_components_repository\n",
-  "draft": "// Учебные UML-модели для единого отчёта по информационному менеджменту.\numl im_report_uml \"Информационная система подготовки карточек ООО «Юкомс»\"\ndiagram use_data \"Прецеденты подготовки данных и карточки\" type=usecase\nsystem system_data \"ИС подготовки карточек ООО «Юкомс»\"\nview v_use_data_system_data \"\" diagram=use_data element=system_data\nactor manager Менеджер\nview v_use_data_manager \"\" diagram=use_data element=manager\nactor production Производство\nview v_use_data_production \"\" diagram=use_data element=production\nactor designer Дизайнер\nview v_use_data_designer \"\" diagram=use_data element=designer\nusecase uc01 \"Загрузить исходные данные\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc01_subject \"\" owner=uc01 system=system_data\nview v_use_data_uc01 \"\" diagram=use_data element=uc01 parent=v_use_data_system_data\nusecase uc02 \"Подготовить модельный ряд\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc02_subject \"\" owner=uc02 system=system_data\nview v_use_data_uc02 \"\" diagram=use_data element=uc02 parent=v_use_data_system_data\nusecase uc03 \"Проверить совместимость\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc03_subject \"\" owner=uc03 system=system_data\nview v_use_data_uc03 \"\" diagram=use_data element=uc03 parent=v_use_data_system_data\nusecase uc04 \"Рассчитать цену и массу\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc04_subject \"\" owner=uc04 system=system_data\nview v_use_data_uc04 \"\" diagram=use_data element=uc04 parent=v_use_data_system_data\nusecase uc05 \"Подготовить изображения\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc05_subject \"\" owner=uc05 system=system_data\nview v_use_data_uc05 \"\" diagram=use_data element=uc05 parent=v_use_data_system_data\nusecase uc06 \"Сформировать карточку\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc06_subject \"\" owner=uc06 system=system_data\nview v_use_data_uc06 \"\" diagram=use_data element=uc06 parent=v_use_data_system_data\nparticipation p_manager_uc01 \"\" from=manager to=uc01\nview v_use_data_p_manager_uc01 \"\" diagram=use_data element=p_manager_uc01 from=v_use_data_manager to=v_use_data_uc01\nparticipation p_manager_uc04 \"\" from=manager to=uc04\nview v_use_data_p_manager_uc04 \"\" diagram=use_data element=p_manager_uc04 from=v_use_data_manager to=v_use_data_uc04\nparticipation p_manager_uc06 \"\" from=manager to=uc06\nview v_use_data_p_manager_uc06 \"\" diagram=use_data element=p_manager_uc06 from=v_use_data_manager to=v_use_data_uc06\nparticipation p_production_uc02 \"\" from=production to=uc02\nview v_use_data_p_production_uc02 \"\" diagram=use_data element=p_production_uc02 from=v_use_data_production to=v_use_data_uc02\nparticipation p_production_uc03 \"\" from=production to=uc03\nview v_use_data_p_production_uc03 \"\" diagram=use_data element=p_production_uc03 from=v_use_data_production to=v_use_data_uc03\nparticipation p_designer_uc05 \"\" from=designer to=uc05\nview v_use_data_p_designer_uc05 \"\" diagram=use_data element=p_designer_uc05 from=v_use_data_designer to=v_use_data_uc05\ndiagram use_publish \"Прецеденты публикации, контроля и доступа\" type=usecase\nsystem system_publish \"ИС подготовки карточек ООО «Юкомс»\"\nview v_use_publish_system_publish \"\" diagram=use_publish element=system_publish\nactor publisher Менеджер\nview v_use_publish_publisher \"\" diagram=use_publish element=publisher\nactor director Директор\nview v_use_publish_director \"\" diagram=use_publish element=director\nactor ozon Ozon\nview v_use_publish_ozon \"\" diagram=use_publish element=ozon\nactor administrator Администратор\nview v_use_publish_administrator \"\" diagram=use_publish element=administrator\nusecase uc07 \"Опубликовать карточку\" postcondition=\"Результат операции зафиксирован\" precondition=\"Пользователь аутентифицирован\"\nsubject uc07_subject \"\" owner=uc07 system=system_publish\nview v_use_publish_uc07 \"\" diagram=use_publish element=uc07 parent=v_use_publish_system_publish\nusecase uc08 \"Уточнить статус\" postcondition=\"Результат операции зафиксирован\" precondition=\"Пользователь аутентифицирован\"\nsubject uc08_subject \"\" owner=uc08 system=system_publish\nview v_use_publish_uc08 \"\" diagram=use_publish element=uc08 parent=v_use_publish_system_publish\nusecase uc09 \"Получить отчёт\" postcondition=\"Результат операции зафиксирован\" precondition=\"Пользователь аутентифицирован\"\nsubject uc09_subject \"\" owner=uc09 system=system_publish\nview v_use_publish_uc09 \"\" diagram=use_publish element=uc09 parent=v_use_publish_system_publish\nusecase uc10 \"Управлять доступом\" postcondition=\"Результат операции зафиксирован\" precondition=\"Пользователь аутентифицирован\"\nsubject uc10_subject \"\" owner=uc10 system=system_publish\nview v_use_publish_uc10 \"\" diagram=use_publish element=uc10 parent=v_use_publish_system_publish\nparticipation p_publisher_uc07 \"\" from=publisher to=uc07\nview v_use_publish_p_publisher_uc07 \"\" diagram=use_publish element=p_publisher_uc07 from=v_use_publish_publisher to=v_use_publish_uc07\nparticipation p_director_uc09 \"\" from=director to=uc09\nview v_use_publish_p_director_uc09 \"\" diagram=use_publish element=p_director_uc09 from=v_use_publish_director to=v_use_publish_uc09\nparticipation p_ozon_uc08 \"\" from=ozon to=uc08\nview v_use_publish_p_ozon_uc08 \"\" diagram=use_publish element=p_ozon_uc08 from=v_use_publish_ozon to=v_use_publish_uc08\nparticipation p_admin_uc10 \"\" from=administrator to=uc10\nview v_use_publish_p_admin_uc10 \"\" diagram=use_publish element=p_admin_uc10 from=v_use_publish_administrator to=v_use_publish_uc10\ninteraction publication \"Публикация карточки и получение результата\"\ndiagram sequence \"Взаимодействие при публикации карточки\" interaction=publication type=sequence\nactor seq_manager Менеджер\nclass seq_ui Интерфейс\nclass seq_service \"Сервис публикации\"\nclass seq_repository Репозиторий\nactor seq_ozon Ozon\nlifeline ll_manager менеджер classifier=seq_manager owner=publication\nview v_sequence_ll_manager \"\" diagram=sequence element=ll_manager\nlifeline ll_ui ui classifier=seq_ui owner=publication\nview v_sequence_ll_ui \"\" diagram=sequence element=ll_ui\nlifeline ll_service svc classifier=seq_service owner=publication\nview v_sequence_ll_service \"\" diagram=sequence element=ll_service\nlifeline ll_repository repo classifier=seq_repository owner=publication\nview v_sequence_ll_repository \"\" diagram=sequence element=ll_repository\nlifeline ll_ozon ozon classifier=seq_ozon owner=publication\nview v_sequence_ll_ozon \"\" diagram=sequence element=ll_ozon\noccurrence m01_send \"\" lifeline=ll_manager order=1 owner=publication\noccurrence m01_receive \"\" lifeline=ll_ui order=2 owner=publication\nmessage m01 \"Отправить карточку\" owner=publication receive=m01_receive send=m01_send sequence=1 sort=synchCall\nview v_sequence_m01 \"\" diagram=sequence element=m01 from=v_sequence_ll_manager to=v_sequence_ll_ui\noccurrence m02_send \"\" lifeline=ll_ui order=3 owner=publication\noccurrence m02_receive \"\" lifeline=ll_service order=4 owner=publication\nmessage m02 \"Запустить публикацию\" owner=publication receive=m02_receive send=m02_send sequence=2 sort=synchCall\nview v_sequence_m02 \"\" diagram=sequence element=m02 from=v_sequence_ll_ui to=v_sequence_ll_service\noccurrence m03_send \"\" lifeline=ll_service order=5 owner=publication\noccurrence m03_receive \"\" lifeline=ll_repository order=6 owner=publication\nmessage m03 \"Сохранить попытку\" owner=publication receive=m03_receive send=m03_send sequence=3 sort=synchCall\nview v_sequence_m03 \"\" diagram=sequence element=m03 from=v_sequence_ll_service to=v_sequence_ll_repository\noccurrence m04_send \"\" lifeline=ll_repository order=7 owner=publication\noccurrence m04_receive \"\" lifeline=ll_service order=8 owner=publication\nmessage m04 \"Идентификатор попытки\" owner=publication receive=m04_receive send=m04_send sequence=4 sort=reply\nview v_sequence_m04 \"\" diagram=sequence element=m04 from=v_sequence_ll_repository to=v_sequence_ll_service\noccurrence m05_send \"\" lifeline=ll_service order=9 owner=publication\noccurrence m05_receive \"\" lifeline=ll_ozon order=10 owner=publication\nmessage m05 \"Передать пакет\" owner=publication receive=m05_receive send=m05_send sequence=5 sort=synchCall\nview v_sequence_m05 \"\" diagram=sequence element=m05 from=v_sequence_ll_service to=v_sequence_ll_ozon\noccurrence m06_send \"\" lifeline=ll_ozon order=11 owner=publication\noccurrence m06_receive \"\" lifeline=ll_service order=12 owner=publication\nmessage m06 \"Идентификатор обработки\" owner=publication receive=m06_receive send=m06_send sequence=6 sort=reply\nview v_sequence_m06 \"\" diagram=sequence element=m06 from=v_sequence_ll_ozon to=v_sequence_ll_service\noccurrence m07_send \"\" lifeline=ll_service order=13 owner=publication\noccurrence m07_receive \"\" lifeline=ll_repository order=14 owner=publication\nmessage m07 \"Записать идентификатор\" owner=publication receive=m07_receive send=m07_send sequence=7 sort=synchCall\nview v_sequence_m07 \"\" diagram=sequence element=m07 from=v_sequence_ll_service to=v_sequence_ll_repository\noccurrence m08_send \"\" lifeline=ll_service order=15 owner=publication\noccurrence m08_receive \"\" lifeline=ll_ui order=16 owner=publication\nmessage m08 \"Показать номер попытки\" owner=publication receive=m08_receive send=m08_send sequence=8 sort=reply\nview v_sequence_m08 \"\" diagram=sequence element=m08 from=v_sequence_ll_service to=v_sequence_ll_ui\noccurrence m09_send \"\" lifeline=ll_service order=17 owner=publication\noccurrence m09_receive \"\" lifeline=ll_ozon order=18 owner=publication\nmessage m09 \"Запросить результат\" owner=publication receive=m09_receive send=m09_send sequence=9 sort=synchCall\nview v_sequence_m09 \"\" diagram=sequence element=m09 from=v_sequence_ll_service to=v_sequence_ll_ozon\noccurrence m10_send \"\" lifeline=ll_ozon order=19 owner=publication\noccurrence m10_receive \"\" lifeline=ll_service order=20 owner=publication\nmessage m10 \"Статус и замечания\" owner=publication receive=m10_receive send=m10_send sequence=10 sort=reply\nview v_sequence_m10 \"\" diagram=sequence element=m10 from=v_sequence_ll_ozon to=v_sequence_ll_service\noccurrence m11_send \"\" lifeline=ll_service order=21 owner=publication\noccurrence m11_receive \"\" lifeline=ll_repository order=22 owner=publication\nmessage m11 \"Сохранить результат\" owner=publication receive=m11_receive send=m11_send sequence=11 sort=synchCall\nview v_sequence_m11 \"\" diagram=sequence element=m11 from=v_sequence_ll_service to=v_sequence_ll_repository\noccurrence m12_send \"\" lifeline=ll_service order=23 owner=publication\noccurrence m12_receive \"\" lifeline=ll_ui order=24 owner=publication\nmessage m12 \"Обновить статус карточки\" owner=publication receive=m12_receive send=m12_send sequence=12 sort=reply\nview v_sequence_m12 \"\" diagram=sequence element=m12 from=v_sequence_ll_service to=v_sequence_ll_ui\ndiagram components \"Компоненты системы и основные потоки\" type=component\ncomponent web Веб-интерфейс description=\"Работа менеджера, производства, дизайнера и администратора\"\nview v_components_web \"\" diagram=components element=web\ncomponent services \"Прикладные сервисы\" description=\"Версии модельного ряда, расчёты, карточки и публикации\"\nview v_components_services \"\" diagram=components element=services\ncomponent importer \"Импорт исходных данных\" description=\"Предложения поставщиков и остатки\"\nview v_components_importer \"\" diagram=components element=importer\ncomponent access \"Контроль доступа и аудит\" description=\"Пользователи, роли и события аудита\"\nview v_components_access \"\" diagram=components element=access\ncomponent repository \"Репозиторий данных\" description=\"PostgreSQL и хранилище файлов\"\nview v_components_repository \"\" diagram=components element=repository\ncomponent ozon_adapter \"Адаптер Ozon\" description=\"Передача пакета и получение статуса\"\nview v_components_ozon_adapter \"\" diagram=components element=ozon_adapter\ndependency c_web_services \"Команды и запросы\" from=web to=services\nview v_components_c_web_services \"\" diagram=components element=c_web_services from=v_components_web to=v_components_services\ndependency c_import_services \"Нормализованные данные\" from=importer to=services\nview v_components_c_import_services \"\" diagram=components element=c_import_services from=v_components_importer to=v_components_services\ndependency c_services_access \"Проверка прав\" from=services to=access\nview v_components_c_services_access \"\" diagram=components element=c_services_access from=v_components_services to=v_components_access\ndependency c_services_repo \"Чтение и запись\" from=services to=repository\nview v_components_c_services_repo \"\" diagram=components element=c_services_repo from=v_components_services to=v_components_repository\ndependency c_services_ozon \"Пакеты публикации\" from=services to=ozon_adapter\nview v_components_c_services_ozon \"\" diagram=components element=c_services_ozon from=v_components_services to=v_components_ozon_adapter\ndependency c_access_repo \"Пользователи и аудит\" from=access to=repository\nview v_components_c_access_repo \"\" diagram=components element=c_access_repo from=v_components_access to=v_components_repository\n",
+  "source": "// Учебные UML-модели для единого отчёта по информационному менеджменту.\numl im_report_uml \"Информационная система подготовки карточек ООО «Юкомс»\"\ndiagram use_data \"Прецеденты подготовки данных и карточки\" type=usecase\nsystem system_data \"ИС подготовки карточек ООО «Юкомс»\"\nview v_use_data_system_data \"\" diagram=use_data element=system_data\nactor manager Менеджер\nview v_use_data_manager \"\" diagram=use_data element=manager\nactor production Производство\nview v_use_data_production \"\" diagram=use_data element=production\nactor designer Дизайнер\nview v_use_data_designer \"\" diagram=use_data element=designer\nusecase uc01 \"Загрузить исходные данные\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc01_subject \"\" owner=uc01 system=system_data\nview v_use_data_uc01 \"\" diagram=use_data element=uc01 parent=v_use_data_system_data\nusecase uc02 \"Подготовить модельный ряд\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc02_subject \"\" owner=uc02 system=system_data\nview v_use_data_uc02 \"\" diagram=use_data element=uc02 parent=v_use_data_system_data\nusecase uc03 \"Проверить совместимость\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc03_subject \"\" owner=uc03 system=system_data\nview v_use_data_uc03 \"\" diagram=use_data element=uc03 parent=v_use_data_system_data\nusecase uc04 \"Рассчитать цену и массу\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc04_subject \"\" owner=uc04 system=system_data\nview v_use_data_uc04 \"\" diagram=use_data element=uc04 parent=v_use_data_system_data\nusecase uc05 \"Подготовить изображения\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc05_subject \"\" owner=uc05 system=system_data\nview v_use_data_uc05 \"\" diagram=use_data element=uc05 parent=v_use_data_system_data\nusecase uc06 \"Сформировать карточку\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc06_subject \"\" owner=uc06 system=system_data\nview v_use_data_uc06 \"\" diagram=use_data element=uc06 parent=v_use_data_system_data\nparticipation p_manager_uc01 \"\" from=manager to=uc01\nview v_use_data_p_manager_uc01 \"\" diagram=use_data element=p_manager_uc01 from=v_use_data_manager to=v_use_data_uc01\nparticipation p_manager_uc04 \"\" from=manager to=uc04\nview v_use_data_p_manager_uc04 \"\" diagram=use_data element=p_manager_uc04 from=v_use_data_manager to=v_use_data_uc04\nparticipation p_manager_uc06 \"\" from=manager to=uc06\nview v_use_data_p_manager_uc06 \"\" diagram=use_data element=p_manager_uc06 from=v_use_data_manager to=v_use_data_uc06\nparticipation p_production_uc02 \"\" from=production to=uc02\nview v_use_data_p_production_uc02 \"\" diagram=use_data element=p_production_uc02 from=v_use_data_production to=v_use_data_uc02\nparticipation p_production_uc03 \"\" from=production to=uc03\nview v_use_data_p_production_uc03 \"\" diagram=use_data element=p_production_uc03 from=v_use_data_production to=v_use_data_uc03\nparticipation p_designer_uc05 \"\" from=designer to=uc05\nview v_use_data_p_designer_uc05 \"\" diagram=use_data element=p_designer_uc05 from=v_use_data_designer to=v_use_data_uc05\ninclude include_uc02_uc03 \"\" from=uc02 to=uc03\nview v_use_data_include_uc02_uc03 \"\" diagram=use_data element=include_uc02_uc03 from=v_use_data_uc02 to=v_use_data_uc03\ninclude include_uc06_uc04 \"\" from=uc06 to=uc04\nview v_use_data_include_uc06_uc04 \"\" diagram=use_data element=include_uc06_uc04 from=v_use_data_uc06 to=v_use_data_uc04\ndiagram use_publish \"Прецеденты публикации, контроля и доступа\" type=usecase\nsystem system_publish \"ИС подготовки карточек ООО «Юкомс»\"\nview v_use_publish_system_publish \"\" diagram=use_publish element=system_publish\nview v_use_publish_manager \"\" diagram=use_publish element=manager\nactor director Директор\nview v_use_publish_director \"\" diagram=use_publish element=director\nactor ozon Ozon\nview v_use_publish_ozon \"\" diagram=use_publish element=ozon\nactor administrator Администратор\nview v_use_publish_administrator \"\" diagram=use_publish element=administrator\nusecase uc07 \"Опубликовать карточку\" postcondition=\"Результат операции зафиксирован\" precondition=\"Пользователь аутентифицирован\"\nsubject uc07_subject \"\" owner=uc07 system=system_publish\nview v_use_publish_uc07 \"\" diagram=use_publish element=uc07 parent=v_use_publish_system_publish\nusecase uc08 \"Уточнить статус\" postcondition=\"Результат операции зафиксирован\" precondition=\"Пользователь аутентифицирован\"\nsubject uc08_subject \"\" owner=uc08 system=system_publish\nview v_use_publish_uc08 \"\" diagram=use_publish element=uc08 parent=v_use_publish_system_publish\nusecase uc09 \"Получить отчёт\" postcondition=\"Результат операции зафиксирован\" precondition=\"Пользователь аутентифицирован\"\nsubject uc09_subject \"\" owner=uc09 system=system_publish\nview v_use_publish_uc09 \"\" diagram=use_publish element=uc09 parent=v_use_publish_system_publish\nusecase uc10 \"Управлять доступом\" postcondition=\"Результат операции зафиксирован\" precondition=\"Пользователь аутентифицирован\"\nsubject uc10_subject \"\" owner=uc10 system=system_publish\nview v_use_publish_uc10 \"\" diagram=use_publish element=uc10 parent=v_use_publish_system_publish\nparticipation p_publisher_uc07 \"\" from=manager to=uc07\nview v_use_publish_p_publisher_uc07 \"\" diagram=use_publish element=p_publisher_uc07 from=v_use_publish_manager to=v_use_publish_uc07\nparticipation p_publisher_uc08 \"\" from=manager to=uc08\nview v_use_publish_p_publisher_uc08 \"\" diagram=use_publish element=p_publisher_uc08 from=v_use_publish_manager to=v_use_publish_uc08\nparticipation p_publisher_uc09 \"\" from=manager to=uc09\nview v_use_publish_p_publisher_uc09 \"\" diagram=use_publish element=p_publisher_uc09 from=v_use_publish_manager to=v_use_publish_uc09\nparticipation p_director_uc09 \"\" from=director to=uc09\nview v_use_publish_p_director_uc09 \"\" diagram=use_publish element=p_director_uc09 from=v_use_publish_director to=v_use_publish_uc09\nparticipation p_ozon_uc08 \"\" from=ozon to=uc08\nview v_use_publish_p_ozon_uc08 \"\" diagram=use_publish element=p_ozon_uc08 from=v_use_publish_ozon to=v_use_publish_uc08\nparticipation p_ozon_uc07 \"\" from=ozon to=uc07\nview v_use_publish_p_ozon_uc07 \"\" diagram=use_publish element=p_ozon_uc07 from=v_use_publish_ozon to=v_use_publish_uc07\nparticipation p_admin_uc10 \"\" from=administrator to=uc10\nview v_use_publish_p_admin_uc10 \"\" diagram=use_publish element=p_admin_uc10 from=v_use_publish_administrator to=v_use_publish_uc10\ninteraction publication \"Публикация карточки и получение результата\"\ndiagram sequence \"Взаимодействие при публикации карточки\" interaction=publication type=sequence\nactor seq_manager Менеджер\nclass seq_ui Интерфейс\nclass seq_service \"Сервис публикации\"\nclass seq_repository Репозиторий\nactor seq_ozon Ozon\nlifeline ll_manager менеджер classifier=seq_manager owner=publication\nview v_sequence_ll_manager \"\" diagram=sequence element=ll_manager\nlifeline ll_ui ui classifier=seq_ui owner=publication\nview v_sequence_ll_ui \"\" diagram=sequence element=ll_ui\nlifeline ll_service svc classifier=seq_service owner=publication\nview v_sequence_ll_service \"\" diagram=sequence element=ll_service\nlifeline ll_repository repo classifier=seq_repository owner=publication\nview v_sequence_ll_repository \"\" diagram=sequence element=ll_repository\nlifeline ll_ozon ozon classifier=seq_ozon owner=publication\nview v_sequence_ll_ozon \"\" diagram=sequence element=ll_ozon\noccurrence m01_send \"\" lifeline=ll_manager order=1 owner=publication\noccurrence m01_receive \"\" lifeline=ll_ui order=2 owner=publication\nmessage m01 \"Отправить карточку\" owner=publication receive=m01_receive send=m01_send sequence=1 sort=synchCall\nview v_sequence_m01 \"\" diagram=sequence element=m01 from=v_sequence_ll_manager to=v_sequence_ll_ui\noccurrence m02_send \"\" lifeline=ll_ui order=3 owner=publication\noccurrence m02_receive \"\" lifeline=ll_service order=4 owner=publication\nmessage m02 \"Запустить публикацию\" owner=publication receive=m02_receive send=m02_send sequence=2 sort=synchCall\nview v_sequence_m02 \"\" diagram=sequence element=m02 from=v_sequence_ll_ui to=v_sequence_ll_service\noccurrence m03_send \"\" lifeline=ll_service order=5 owner=publication\noccurrence m03_receive \"\" lifeline=ll_repository order=6 owner=publication\nmessage m03 \"Сохранить попытку\" owner=publication receive=m03_receive send=m03_send sequence=3 sort=synchCall\nview v_sequence_m03 \"\" diagram=sequence element=m03 from=v_sequence_ll_service to=v_sequence_ll_repository\noccurrence m04_send \"\" lifeline=ll_repository order=7 owner=publication\noccurrence m04_receive \"\" lifeline=ll_service order=8 owner=publication\nmessage m04 \"Идентификатор попытки\" owner=publication receive=m04_receive send=m04_send sequence=4 sort=reply\nview v_sequence_m04 \"\" diagram=sequence element=m04 from=v_sequence_ll_repository to=v_sequence_ll_service\noccurrence m05_send \"\" lifeline=ll_service order=9 owner=publication\noccurrence m05_receive \"\" lifeline=ll_ozon order=10 owner=publication\nmessage m05 \"Передать пакет\" owner=publication receive=m05_receive send=m05_send sequence=5 sort=synchCall\nview v_sequence_m05 \"\" diagram=sequence element=m05 from=v_sequence_ll_service to=v_sequence_ll_ozon\noccurrence m06_send \"\" lifeline=ll_ozon order=11 owner=publication\noccurrence m06_receive \"\" lifeline=ll_service order=12 owner=publication\nmessage m06 \"Идентификатор обработки\" owner=publication receive=m06_receive send=m06_send sequence=6 sort=reply\nview v_sequence_m06 \"\" diagram=sequence element=m06 from=v_sequence_ll_ozon to=v_sequence_ll_service\noccurrence m07_send \"\" lifeline=ll_service order=13 owner=publication\noccurrence m07_receive \"\" lifeline=ll_repository order=14 owner=publication\nmessage m07 \"Записать идентификатор\" owner=publication receive=m07_receive send=m07_send sequence=7 sort=synchCall\nview v_sequence_m07 \"\" diagram=sequence element=m07 from=v_sequence_ll_service to=v_sequence_ll_repository\noccurrence m08_send \"\" lifeline=ll_service order=15 owner=publication\noccurrence m08_receive \"\" lifeline=ll_ui order=16 owner=publication\nmessage m08 \"Показать номер попытки\" owner=publication receive=m08_receive send=m08_send sequence=8 sort=reply\nview v_sequence_m08 \"\" diagram=sequence element=m08 from=v_sequence_ll_service to=v_sequence_ll_ui\noccurrence m09_send \"\" lifeline=ll_service order=17 owner=publication\noccurrence m09_receive \"\" lifeline=ll_ozon order=18 owner=publication\nmessage m09 \"Запросить результат\" owner=publication receive=m09_receive send=m09_send sequence=9 sort=synchCall\nview v_sequence_m09 \"\" diagram=sequence element=m09 from=v_sequence_ll_service to=v_sequence_ll_ozon\noccurrence m10_send \"\" lifeline=ll_ozon order=19 owner=publication\noccurrence m10_receive \"\" lifeline=ll_service order=20 owner=publication\nmessage m10 \"Статус и замечания\" owner=publication receive=m10_receive send=m10_send sequence=10 sort=reply\nview v_sequence_m10 \"\" diagram=sequence element=m10 from=v_sequence_ll_ozon to=v_sequence_ll_service\noccurrence m11_send \"\" lifeline=ll_service order=21 owner=publication\noccurrence m11_receive \"\" lifeline=ll_repository order=22 owner=publication\nmessage m11 \"Сохранить результат\" owner=publication receive=m11_receive send=m11_send sequence=11 sort=synchCall\nview v_sequence_m11 \"\" diagram=sequence element=m11 from=v_sequence_ll_service to=v_sequence_ll_repository\noccurrence m12_send \"\" lifeline=ll_service order=23 owner=publication\noccurrence m12_receive \"\" lifeline=ll_ui order=24 owner=publication\nmessage m12 \"Обновить статус карточки\" owner=publication receive=m12_receive send=m12_send sequence=12 sort=reply\nview v_sequence_m12 \"\" diagram=sequence element=m12 from=v_sequence_ll_service to=v_sequence_ll_ui\ndiagram components \"Компоненты системы и основные потоки\" type=component\ncomponent web Веб-интерфейс description=\"Работа менеджера, производства, дизайнера и администратора\"\nview v_components_web \"\" diagram=components element=web\ncomponent services \"Прикладные сервисы\" description=\"Версии модельного ряда, расчёты, карточки и публикации\"\nview v_components_services \"\" diagram=components element=services\ncomponent importer \"Импорт исходных данных\" description=\"Предложения поставщиков и остатки\"\nview v_components_importer \"\" diagram=components element=importer\ncomponent access \"Контроль доступа и аудит\" description=\"Пользователи, роли и события аудита\"\nview v_components_access \"\" diagram=components element=access\ncomponent repository \"Репозиторий данных\" description=\"PostgreSQL и хранилище файлов\"\nview v_components_repository \"\" diagram=components element=repository\ncomponent ozon_adapter \"Адаптер Ozon\" description=\"Передача пакета и получение статуса\"\nview v_components_ozon_adapter \"\" diagram=components element=ozon_adapter\ndependency c_web_services \"Команды и запросы\" from=web to=services\nview v_components_c_web_services \"\" diagram=components element=c_web_services from=v_components_web to=v_components_services\ndependency c_import_services \"Нормализованные данные\" from=importer to=services\nview v_components_c_import_services \"\" diagram=components element=c_import_services from=v_components_importer to=v_components_services\ndependency c_services_access \"Проверка прав\" from=services to=access\nview v_components_c_services_access \"\" diagram=components element=c_services_access from=v_components_services to=v_components_access\ndependency c_services_repo \"Чтение и запись\" from=services to=repository\nview v_components_c_services_repo \"\" diagram=components element=c_services_repo from=v_components_services to=v_components_repository\ndependency c_services_ozon \"Пакеты публикации\" from=services to=ozon_adapter\nview v_components_c_services_ozon \"\" diagram=components element=c_services_ozon from=v_components_services to=v_components_ozon_adapter\ndependency c_access_repo \"Пользователи и аудит\" from=access to=repository\nview v_components_c_access_repo \"\" diagram=components element=c_access_repo from=v_components_access to=v_components_repository\n",
+  "draft": "// Учебные UML-модели для единого отчёта по информационному менеджменту.\numl im_report_uml \"Информационная система подготовки карточек ООО «Юкомс»\"\ndiagram use_data \"Прецеденты подготовки данных и карточки\" type=usecase\nsystem system_data \"ИС подготовки карточек ООО «Юкомс»\"\nview v_use_data_system_data \"\" diagram=use_data element=system_data\nactor manager Менеджер\nview v_use_data_manager \"\" diagram=use_data element=manager\nactor production Производство\nview v_use_data_production \"\" diagram=use_data element=production\nactor designer Дизайнер\nview v_use_data_designer \"\" diagram=use_data element=designer\nusecase uc01 \"Загрузить исходные данные\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc01_subject \"\" owner=uc01 system=system_data\nview v_use_data_uc01 \"\" diagram=use_data element=uc01 parent=v_use_data_system_data\nusecase uc02 \"Подготовить модельный ряд\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc02_subject \"\" owner=uc02 system=system_data\nview v_use_data_uc02 \"\" diagram=use_data element=uc02 parent=v_use_data_system_data\nusecase uc03 \"Проверить совместимость\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc03_subject \"\" owner=uc03 system=system_data\nview v_use_data_uc03 \"\" diagram=use_data element=uc03 parent=v_use_data_system_data\nusecase uc04 \"Рассчитать цену и массу\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc04_subject \"\" owner=uc04 system=system_data\nview v_use_data_uc04 \"\" diagram=use_data element=uc04 parent=v_use_data_system_data\nusecase uc05 \"Подготовить изображения\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc05_subject \"\" owner=uc05 system=system_data\nview v_use_data_uc05 \"\" diagram=use_data element=uc05 parent=v_use_data_system_data\nusecase uc06 \"Сформировать карточку\" postcondition=\"Результат сохранён в версии карточки\" precondition=\"Пользователь имеет право выполнить действие\"\nsubject uc06_subject \"\" owner=uc06 system=system_data\nview v_use_data_uc06 \"\" diagram=use_data element=uc06 parent=v_use_data_system_data\nparticipation p_manager_uc01 \"\" from=manager to=uc01\nview v_use_data_p_manager_uc01 \"\" diagram=use_data element=p_manager_uc01 from=v_use_data_manager to=v_use_data_uc01\nparticipation p_manager_uc04 \"\" from=manager to=uc04\nview v_use_data_p_manager_uc04 \"\" diagram=use_data element=p_manager_uc04 from=v_use_data_manager to=v_use_data_uc04\nparticipation p_manager_uc06 \"\" from=manager to=uc06\nview v_use_data_p_manager_uc06 \"\" diagram=use_data element=p_manager_uc06 from=v_use_data_manager to=v_use_data_uc06\nparticipation p_production_uc02 \"\" from=production to=uc02\nview v_use_data_p_production_uc02 \"\" diagram=use_data element=p_production_uc02 from=v_use_data_production to=v_use_data_uc02\nparticipation p_production_uc03 \"\" from=production to=uc03\nview v_use_data_p_production_uc03 \"\" diagram=use_data element=p_production_uc03 from=v_use_data_production to=v_use_data_uc03\nparticipation p_designer_uc05 \"\" from=designer to=uc05\nview v_use_data_p_designer_uc05 \"\" diagram=use_data element=p_designer_uc05 from=v_use_data_designer to=v_use_data_uc05\ninclude include_uc02_uc03 \"\" from=uc02 to=uc03\nview v_use_data_include_uc02_uc03 \"\" diagram=use_data element=include_uc02_uc03 from=v_use_data_uc02 to=v_use_data_uc03\ninclude include_uc06_uc04 \"\" from=uc06 to=uc04\nview v_use_data_include_uc06_uc04 \"\" diagram=use_data element=include_uc06_uc04 from=v_use_data_uc06 to=v_use_data_uc04\ndiagram use_publish \"Прецеденты публикации, контроля и доступа\" type=usecase\nsystem system_publish \"ИС подготовки карточек ООО «Юкомс»\"\nview v_use_publish_system_publish \"\" diagram=use_publish element=system_publish\nview v_use_publish_manager \"\" diagram=use_publish element=manager\nactor director Директор\nview v_use_publish_director \"\" diagram=use_publish element=director\nactor ozon Ozon\nview v_use_publish_ozon \"\" diagram=use_publish element=ozon\nactor administrator Администратор\nview v_use_publish_administrator \"\" diagram=use_publish element=administrator\nusecase uc07 \"Опубликовать карточку\" postcondition=\"Результат операции зафиксирован\" precondition=\"Пользователь аутентифицирован\"\nsubject uc07_subject \"\" owner=uc07 system=system_publish\nview v_use_publish_uc07 \"\" diagram=use_publish element=uc07 parent=v_use_publish_system_publish\nusecase uc08 \"Уточнить статус\" postcondition=\"Результат операции зафиксирован\" precondition=\"Пользователь аутентифицирован\"\nsubject uc08_subject \"\" owner=uc08 system=system_publish\nview v_use_publish_uc08 \"\" diagram=use_publish element=uc08 parent=v_use_publish_system_publish\nusecase uc09 \"Получить отчёт\" postcondition=\"Результат операции зафиксирован\" precondition=\"Пользователь аутентифицирован\"\nsubject uc09_subject \"\" owner=uc09 system=system_publish\nview v_use_publish_uc09 \"\" diagram=use_publish element=uc09 parent=v_use_publish_system_publish\nusecase uc10 \"Управлять доступом\" postcondition=\"Результат операции зафиксирован\" precondition=\"Пользователь аутентифицирован\"\nsubject uc10_subject \"\" owner=uc10 system=system_publish\nview v_use_publish_uc10 \"\" diagram=use_publish element=uc10 parent=v_use_publish_system_publish\nparticipation p_publisher_uc07 \"\" from=manager to=uc07\nview v_use_publish_p_publisher_uc07 \"\" diagram=use_publish element=p_publisher_uc07 from=v_use_publish_manager to=v_use_publish_uc07\nparticipation p_publisher_uc08 \"\" from=manager to=uc08\nview v_use_publish_p_publisher_uc08 \"\" diagram=use_publish element=p_publisher_uc08 from=v_use_publish_manager to=v_use_publish_uc08\nparticipation p_publisher_uc09 \"\" from=manager to=uc09\nview v_use_publish_p_publisher_uc09 \"\" diagram=use_publish element=p_publisher_uc09 from=v_use_publish_manager to=v_use_publish_uc09\nparticipation p_director_uc09 \"\" from=director to=uc09\nview v_use_publish_p_director_uc09 \"\" diagram=use_publish element=p_director_uc09 from=v_use_publish_director to=v_use_publish_uc09\nparticipation p_ozon_uc08 \"\" from=ozon to=uc08\nview v_use_publish_p_ozon_uc08 \"\" diagram=use_publish element=p_ozon_uc08 from=v_use_publish_ozon to=v_use_publish_uc08\nparticipation p_ozon_uc07 \"\" from=ozon to=uc07\nview v_use_publish_p_ozon_uc07 \"\" diagram=use_publish element=p_ozon_uc07 from=v_use_publish_ozon to=v_use_publish_uc07\nparticipation p_admin_uc10 \"\" from=administrator to=uc10\nview v_use_publish_p_admin_uc10 \"\" diagram=use_publish element=p_admin_uc10 from=v_use_publish_administrator to=v_use_publish_uc10\ninteraction publication \"Публикация карточки и получение результата\"\ndiagram sequence \"Взаимодействие при публикации карточки\" interaction=publication type=sequence\nactor seq_manager Менеджер\nclass seq_ui Интерфейс\nclass seq_service \"Сервис публикации\"\nclass seq_repository Репозиторий\nactor seq_ozon Ozon\nlifeline ll_manager менеджер classifier=seq_manager owner=publication\nview v_sequence_ll_manager \"\" diagram=sequence element=ll_manager\nlifeline ll_ui ui classifier=seq_ui owner=publication\nview v_sequence_ll_ui \"\" diagram=sequence element=ll_ui\nlifeline ll_service svc classifier=seq_service owner=publication\nview v_sequence_ll_service \"\" diagram=sequence element=ll_service\nlifeline ll_repository repo classifier=seq_repository owner=publication\nview v_sequence_ll_repository \"\" diagram=sequence element=ll_repository\nlifeline ll_ozon ozon classifier=seq_ozon owner=publication\nview v_sequence_ll_ozon \"\" diagram=sequence element=ll_ozon\noccurrence m01_send \"\" lifeline=ll_manager order=1 owner=publication\noccurrence m01_receive \"\" lifeline=ll_ui order=2 owner=publication\nmessage m01 \"Отправить карточку\" owner=publication receive=m01_receive send=m01_send sequence=1 sort=synchCall\nview v_sequence_m01 \"\" diagram=sequence element=m01 from=v_sequence_ll_manager to=v_sequence_ll_ui\noccurrence m02_send \"\" lifeline=ll_ui order=3 owner=publication\noccurrence m02_receive \"\" lifeline=ll_service order=4 owner=publication\nmessage m02 \"Запустить публикацию\" owner=publication receive=m02_receive send=m02_send sequence=2 sort=synchCall\nview v_sequence_m02 \"\" diagram=sequence element=m02 from=v_sequence_ll_ui to=v_sequence_ll_service\noccurrence m03_send \"\" lifeline=ll_service order=5 owner=publication\noccurrence m03_receive \"\" lifeline=ll_repository order=6 owner=publication\nmessage m03 \"Сохранить попытку\" owner=publication receive=m03_receive send=m03_send sequence=3 sort=synchCall\nview v_sequence_m03 \"\" diagram=sequence element=m03 from=v_sequence_ll_service to=v_sequence_ll_repository\noccurrence m04_send \"\" lifeline=ll_repository order=7 owner=publication\noccurrence m04_receive \"\" lifeline=ll_service order=8 owner=publication\nmessage m04 \"Идентификатор попытки\" owner=publication receive=m04_receive send=m04_send sequence=4 sort=reply\nview v_sequence_m04 \"\" diagram=sequence element=m04 from=v_sequence_ll_repository to=v_sequence_ll_service\noccurrence m05_send \"\" lifeline=ll_service order=9 owner=publication\noccurrence m05_receive \"\" lifeline=ll_ozon order=10 owner=publication\nmessage m05 \"Передать пакет\" owner=publication receive=m05_receive send=m05_send sequence=5 sort=synchCall\nview v_sequence_m05 \"\" diagram=sequence element=m05 from=v_sequence_ll_service to=v_sequence_ll_ozon\noccurrence m06_send \"\" lifeline=ll_ozon order=11 owner=publication\noccurrence m06_receive \"\" lifeline=ll_service order=12 owner=publication\nmessage m06 \"Идентификатор обработки\" owner=publication receive=m06_receive send=m06_send sequence=6 sort=reply\nview v_sequence_m06 \"\" diagram=sequence element=m06 from=v_sequence_ll_ozon to=v_sequence_ll_service\noccurrence m07_send \"\" lifeline=ll_service order=13 owner=publication\noccurrence m07_receive \"\" lifeline=ll_repository order=14 owner=publication\nmessage m07 \"Записать идентификатор\" owner=publication receive=m07_receive send=m07_send sequence=7 sort=synchCall\nview v_sequence_m07 \"\" diagram=sequence element=m07 from=v_sequence_ll_service to=v_sequence_ll_repository\noccurrence m08_send \"\" lifeline=ll_service order=15 owner=publication\noccurrence m08_receive \"\" lifeline=ll_ui order=16 owner=publication\nmessage m08 \"Показать номер попытки\" owner=publication receive=m08_receive send=m08_send sequence=8 sort=reply\nview v_sequence_m08 \"\" diagram=sequence element=m08 from=v_sequence_ll_service to=v_sequence_ll_ui\noccurrence m09_send \"\" lifeline=ll_service order=17 owner=publication\noccurrence m09_receive \"\" lifeline=ll_ozon order=18 owner=publication\nmessage m09 \"Запросить результат\" owner=publication receive=m09_receive send=m09_send sequence=9 sort=synchCall\nview v_sequence_m09 \"\" diagram=sequence element=m09 from=v_sequence_ll_service to=v_sequence_ll_ozon\noccurrence m10_send \"\" lifeline=ll_ozon order=19 owner=publication\noccurrence m10_receive \"\" lifeline=ll_service order=20 owner=publication\nmessage m10 \"Статус и замечания\" owner=publication receive=m10_receive send=m10_send sequence=10 sort=reply\nview v_sequence_m10 \"\" diagram=sequence element=m10 from=v_sequence_ll_ozon to=v_sequence_ll_service\noccurrence m11_send \"\" lifeline=ll_service order=21 owner=publication\noccurrence m11_receive \"\" lifeline=ll_repository order=22 owner=publication\nmessage m11 \"Сохранить результат\" owner=publication receive=m11_receive send=m11_send sequence=11 sort=synchCall\nview v_sequence_m11 \"\" diagram=sequence element=m11 from=v_sequence_ll_service to=v_sequence_ll_repository\noccurrence m12_send \"\" lifeline=ll_service order=23 owner=publication\noccurrence m12_receive \"\" lifeline=ll_ui order=24 owner=publication\nmessage m12 \"Обновить статус карточки\" owner=publication receive=m12_receive send=m12_send sequence=12 sort=reply\nview v_sequence_m12 \"\" diagram=sequence element=m12 from=v_sequence_ll_service to=v_sequence_ll_ui\ndiagram components \"Компоненты системы и основные потоки\" type=component\ncomponent web Веб-интерфейс description=\"Работа менеджера, производства, дизайнера и администратора\"\nview v_components_web \"\" diagram=components element=web\ncomponent services \"Прикладные сервисы\" description=\"Версии модельного ряда, расчёты, карточки и публикации\"\nview v_components_services \"\" diagram=components element=services\ncomponent importer \"Импорт исходных данных\" description=\"Предложения поставщиков и остатки\"\nview v_components_importer \"\" diagram=components element=importer\ncomponent access \"Контроль доступа и аудит\" description=\"Пользователи, роли и события аудита\"\nview v_components_access \"\" diagram=components element=access\ncomponent repository \"Репозиторий данных\" description=\"PostgreSQL и хранилище файлов\"\nview v_components_repository \"\" diagram=components element=repository\ncomponent ozon_adapter \"Адаптер Ozon\" description=\"Передача пакета и получение статуса\"\nview v_components_ozon_adapter \"\" diagram=components element=ozon_adapter\ndependency c_web_services \"Команды и запросы\" from=web to=services\nview v_components_c_web_services \"\" diagram=components element=c_web_services from=v_components_web to=v_components_services\ndependency c_import_services \"Нормализованные данные\" from=importer to=services\nview v_components_c_import_services \"\" diagram=components element=c_import_services from=v_components_importer to=v_components_services\ndependency c_services_access \"Проверка прав\" from=services to=access\nview v_components_c_services_access \"\" diagram=components element=c_services_access from=v_components_services to=v_components_access\ndependency c_services_repo \"Чтение и запись\" from=services to=repository\nview v_components_c_services_repo \"\" diagram=components element=c_services_repo from=v_components_services to=v_components_repository\ndependency c_services_ozon \"Пакеты публикации\" from=services to=ozon_adapter\nview v_components_c_services_ozon \"\" diagram=components element=c_services_ozon from=v_components_services to=v_components_ozon_adapter\ndependency c_access_repo \"Пользователи и аудит\" from=access to=repository\nview v_components_c_access_repo \"\" diagram=components element=c_access_repo from=v_components_access to=v_components_repository\n",
   "layout": {
     "nodes": {
       "v_use_data_system_data": {
@@ -1620,13 +1714,25 @@
         "width": 210,
         "height": 140
       },
+      "v_use_data_include_uc02_uc03": {
+        "x": 80,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
+      "v_use_data_include_uc06_uc04": {
+        "x": 330,
+        "y": 800,
+        "width": 210,
+        "height": 140
+      },
       "v_use_publish_system_publish": {
         "x": 310,
         "y": 30,
         "width": 900,
         "height": 650
       },
-      "v_use_publish_publisher": {
+      "v_use_publish_manager": {
         "x": 30,
         "y": 150,
         "width": 150,
@@ -1680,20 +1786,38 @@
         "width": 210,
         "height": 140
       },
-      "v_use_publish_p_director_uc09": {
+      "v_use_publish_p_publisher_uc08": {
         "x": 580,
         "y": 440,
         "width": 210,
         "height": 140
       },
-      "v_use_publish_p_ozon_uc08": {
+      "v_use_publish_p_publisher_uc09": {
         "x": 830,
         "y": 440,
         "width": 210,
         "height": 140
       },
-      "v_use_publish_p_admin_uc10": {
+      "v_use_publish_p_director_uc09": {
         "x": 80,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_use_publish_p_ozon_uc08": {
+        "x": 330,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_use_publish_p_ozon_uc07": {
+        "x": 580,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_use_publish_p_admin_uc10": {
+        "x": 830,
         "y": 620,
         "width": 210,
         "height": 140
@@ -1873,6 +1997,127 @@
         "height": 140
       }
     },
-    "edges": {}
+    "edges": {
+      "v_use_data_p_manager_uc04": {
+        "bends": [
+          {
+            "x": 220,
+            "y": 110
+          },
+          {
+            "x": 1140,
+            "y": 110
+          },
+          {
+            "x": 1140,
+            "y": 375
+          }
+        ]
+      },
+      "v_use_data_p_manager_uc06": {
+        "bends": [
+          {
+            "x": 240,
+            "y": 470
+          },
+          {
+            "x": 740,
+            "y": 470
+          },
+          {
+            "x": 740,
+            "y": 565
+          }
+        ]
+      },
+      "v_use_data_p_production_uc02": {
+        "bends": [
+          {
+            "x": 260,
+            "y": 105
+          },
+          {
+            "x": 760,
+            "y": 105
+          },
+          {
+            "x": 760,
+            "y": 185
+          }
+        ]
+      },
+      "v_use_data_p_designer_uc05": {
+        "bends": [
+          {
+            "x": 1250,
+            "y": 485
+          },
+          {
+            "x": 750,
+            "y": 485
+          },
+          {
+            "x": 750,
+            "y": 565
+          }
+        ]
+      },
+      "v_use_publish_p_publisher_uc08": {
+        "bends": [
+          {
+            "x": 240,
+            "y": 130
+          },
+          {
+            "x": 740,
+            "y": 130
+          },
+          {
+            "x": 740,
+            "y": 205
+          }
+        ]
+      },
+      "v_use_publish_p_ozon_uc07": {
+        "bends": [
+          {
+            "x": 1250,
+            "y": 105
+          },
+          {
+            "x": 715,
+            "y": 105
+          },
+          {
+            "x": 715,
+            "y": 205
+          }
+        ]
+      },
+      "v_components_c_services_access": {
+        "bends": [
+          {
+            "x": 400,
+            "y": 340
+          },
+          {
+            "x": 170,
+            "y": 340
+          }
+        ]
+      },
+      "v_components_c_services_ozon": {
+        "bends": [
+          {
+            "x": 900,
+            "y": 340
+          },
+          {
+            "x": 1140,
+            "y": 340
+          }
+        ]
+      }
+    }
   }
 }

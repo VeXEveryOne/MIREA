@@ -1,0 +1,44 @@
+{
+  "output": ".",
+  "options": {
+    "format": "png",
+    "background": "white",
+    "monochrome": true,
+    "title": false,
+    "legend": false,
+    "targetWidth": 3000,
+    "font": "Arial"
+  },
+  "jobs": [
+    {
+      "file": "ПР4_Модель_проектирования.omni",
+      "diagramId": "analysis_bom",
+      "title": "ПР4_01_Классы"
+    },
+    {
+      "file": "ПР4_Модель_проектирования.omni",
+      "diagramId": "analysis_card",
+      "title": "ПР4_02_Классы"
+    },
+    {
+      "file": "ПР4_Модель_проектирования.omni",
+      "diagramId": "services_bom",
+      "title": "ПР4_03_Классы"
+    },
+    {
+      "file": "ПР4_Модель_проектирования.omni",
+      "diagramId": "services_publish",
+      "title": "ПР4_04_Классы"
+    },
+    {
+      "file": "ПР4_Модель_деятельности.omni",
+      "diagramId": "prepare",
+      "title": "ПР4_05_Деятельность_BOM"
+    },
+    {
+      "file": "ПР4_Модель_деятельности.omni",
+      "diagramId": "main",
+      "title": "ПР4_06_Деятельность_Карточка"
+    }
+  ]
+}

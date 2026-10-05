@@ -1,7 +1,9 @@
 """Refresh the figure registry and checksums without creating duplicate files."""
 from hashlib import sha256
+from datetime import date
 from pathlib import Path
 import json
+from PIL import Image
 
 from config import ROOT, EXPORT_DIR, MODEL_DIR
 
@@ -16,18 +18,29 @@ def update_registry() -> None:
     report_path = EXPORT_DIR / 'Отчёт_экспорта.json'
     report = json.loads(report_path.read_text('utf-8'))
     exported = {item['order']: item for item in report['items']}
-    png_paths = {}
+    all_files = []
+    sequence_audit = MODEL_DIR / 'ПРОВЕРКА_последовательностей_печать.json'
+    sequence_parts = {sheet['sheet']: [ROOT / part['file'] for part in sheet['parts']]
+                      for sheet in json.loads(sequence_audit.read_text('utf-8'))} if sequence_audit.exists() else {}
     for figure in registry['figures']:
         item = exported[figure['figure']]
-        matches = list(EXPORT_DIR.glob(f"{figure['figure']:02}_*.png"))
+        matches = [p for p in EXPORT_DIR.glob(f"{figure['figure']:02}_*.png") if '_часть' not in p.stem]
         if len(matches) != 1:
             raise RuntimeError(f"Expected one PNG for figure {figure['figure']}")
         png = matches[0]
         relative_png = png.relative_to(ROOT).as_posix()
-        png_paths[png.name] = relative_png
         item['files'] = [relative_png]
         figure['title'] = item['title']
         figure['export'] = {'png': {'file': relative_png, 'sha256': file_hash(png)}, 'warnings': []}
+        parts=sequence_parts.get(figure['diagramId'], sorted(EXPORT_DIR.glob(png.stem+'_часть*.png')))
+        if parts:
+            figure['export']['png']['parts']=[{'file':p.relative_to(ROOT).as_posix(),'sha256':file_hash(p)} for p in parts]
+            item['files'] += [p.relative_to(ROOT).as_posix() for p in parts]
+        for path in [png, *parts]:
+            with Image.open(path) as image:
+                width, height = image.size
+            all_files.append({'path': path.relative_to(ROOT).as_posix(), 'sha256': file_hash(path),
+                              'width': width, 'height': height})
         model = ROOT / figure['file']
         if not model.is_file():
             raise FileNotFoundError(model)
@@ -37,13 +50,12 @@ def update_registry() -> None:
         figure.pop('source', None)
         figure.pop('report', None)  # obsolete migration receipts are archived, not current inputs
     registry['count'] = len(registry['figures'])
-    for item in report['files']:
-        item['path'] = png_paths[Path(item['path']).name]
+    report['files'] = all_files
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', 'utf-8')
     registry['exportReports'] = {'png': {'file': report_path.relative_to(ROOT).as_posix(),
                                        'sha256': file_hash(report_path)}}
     registry.pop('pdfHashes', None)
-    registry['reviewedAt'] = '2026-10-04'
+    registry['reviewedAt'] = date.today().isoformat()
     registry_path.write_text(json.dumps(registry, ensure_ascii=False, indent=2) + '\n', 'utf-8')
 
 

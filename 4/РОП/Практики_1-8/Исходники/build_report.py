@@ -45,6 +45,15 @@ for name in ['TableCaptionROP','FigureCaptionROP','TableROP','ReferencesROP']:
  if name=='FigureCaptionROP':pf.keep_together=True
  if name=='ReferencesROP':
   st.font.size=Pt(14);pf.alignment=WD_ALIGN_PARAGRAPH.LEFT;pf.line_spacing=1.5;pf.first_line_indent=0;pf.left_indent=0;pf.space_after=Pt(0)
+# Word generates these paragraphs when it updates the TOC field. Set their
+# own styles: inheriting the body spacing produced a nearly empty third TOC page.
+for level in (1,2):
+ name='toc '+str(level)
+ st=doc.styles[name] if name in doc.styles else doc.styles.add_style(name,1,builtin=True)
+ # A custom style named like a built-in is discarded when Word creates the TOC.
+ st.element.attrib.pop(qn('w:customStyle'),None)
+ st.base_style=doc.styles['Normal'];st.font.name='Times New Roman';st.font.size=Pt(14);st.font.color.rgb=RGBColor(0,0,0);st.font.bold=False
+ pf=st.paragraph_format;pf.first_line_indent=0;pf.left_indent=Cm(0 if level==1 else .5);pf.right_indent=0;pf.line_spacing=1;pf.space_before=0;pf.space_after=Pt(3);pf.alignment=WD_ALIGN_PARAGRAPH.LEFT;pf.keep_with_next=False;pf.keep_together=True
 def field(p,code,cached):
  r=p.add_run();begin=OxmlElement('w:fldChar');begin.set(qn('w:fldCharType'),'begin');r._r.append(begin)
  instr=OxmlElement('w:instrText');instr.set(qn('xml:space'),'preserve');instr.text=' '+code+' ';r._r.append(instr)
@@ -90,16 +99,17 @@ for bi,b in enumerate(blocks):
   page(False);doc.add_paragraph(b['text'],'ReferencesROP');md+=[b['text']+'\n']
  elif b['type']=='table':
   table+=1;heads=b['heads'];rows=b['rows'];wide=len(heads)>=5 or b['title'] in ['Сущности логической модели','Матрица RBAC']
-  # Each table starts on a clean page. Long tables are split before insertion,
-  # because Word and LibreOffice paginate tall mixed-width rows differently.
-  page(wide,True)
+  # Short tables flow together; keep each prepared chunk as a unit so neither
+  # its caption nor its header can be stranded on the preceding page.
+  page(wide)
   for heading in pending:
    doc.add_paragraph(heading['text'],'Heading '+str(heading['level']))
   pending=[]
-  para(f'В таблице {table} представлены '+in_sentence(b['title'])+'.')
+  lead=para(f'Соответствующие сведения приведены в таблице {table}.')
+  lead.paragraph_format.keep_with_next=True
   caption=doc.add_paragraph(style='TableCaptionROP');caption.add_run('Таблица ');field(caption,'SEQ Table \\* ARABIC',table);caption.add_run(' – '+b['title'])
   width=25.2 if wide else 16.5;ww=b.get('widths') or [1]*len(heads);ww=[width*v/sum(ww) for v in ww]
-  capacity=21 if wide else 32
+  capacity=29 if wide else 50
   chunks=[];chunk=[];used=0
   for source_row in rows:
    lines=max(max(1,(len(str(tx))+max(8,int(ww[i]*4.2))-1)//max(8,int(ww[i]*4.2))) for i,tx in enumerate(source_row))+1
@@ -131,7 +141,7 @@ for bi,b in enumerate(blocks):
       z=OxmlElement('w:'+side);z.set(qn('w:w'),'65' if side in ['top','bottom'] else '80');z.set(qn('w:type'),'dxa');marg.append(z)
      pr.append(marg)
      for pp in cell.paragraphs:
-      pp.style='TableROP';pp.paragraph_format.keep_with_next=False
+      pp.style='TableROP';pp.paragraph_format.keep_with_next=ri<len(tb.rows)-1
       for r in pp.runs:r.font.name='Times New Roman';r.font.size=Pt(12);r.bold=ri==0
   md+=['\n*Таблица '+str(table)+' – '+b['title']+'*\n','| '+' | '.join(heads)+' |','| '+' | '.join('---' for x in heads)+' |']
   md+=['| '+' | '.join(str(x).replace('\n','<br>').replace('|','/') for x in row)+' |' for row in rows];md+=['']
@@ -143,13 +153,13 @@ for bi,b in enumerate(blocks):
    hp=doc.add_paragraph(heading['text'],'Heading '+str(heading['level']))
    if hi==0 and same_page_orientation:hp.paragraph_format.page_break_before=True
   pending=[]
-  pp=para(f'На рисунке {figure} показана модель «{b["title"]}».');pp.paragraph_format.keep_with_next=False;pp.paragraph_format.keep_together=True
+  pp=para(f'Модель представлена на рисунке {figure}.');pp.paragraph_format.keep_with_next=False;pp.paragraph_format.keep_together=True
   if same_page_orientation and not had_heading:pp.paragraph_format.page_break_before=True
   paths=b.get('parts') or [b['path']]
   for part_index,image_path in enumerate(paths):
    image=Image.open(image_path);wmax=25.2 if land else 16.5
-   if land and len(paths)>1:hmax=8.6 if had_heading and part_index==0 else 9.2
-   else:hmax=(11.0 if had_heading and part_index==0 else 11.6) if land else (18 if had_heading and part_index==0 else 19)
+   if land and len(paths)>1:hmax=12 if had_heading and part_index==0 else 14.2
+   else:hmax=(12.0 if had_heading and part_index==0 else 14.2) if land else (18 if had_heading and part_index==0 else 19)
    iw,ih=image.size;w=min(wmax,hmax*iw/ih)
    pp=doc.add_paragraph();pp.alignment=WD_ALIGN_PARAGRAPH.CENTER;pf=pp.paragraph_format;pf.first_line_indent=0;pf.space_after=0;pf.space_before=0;pf.line_spacing=1;pf.keep_with_next=True
    if part_index:pf.page_break_before=True

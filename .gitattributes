@@ -2,6 +2,10 @@
 # Do not apply automatic CRLF conversion to this verified submission package.
 4/РОП/Практики_1-8/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 
+# IM registry hashes native models, SVG projections and their generator verbatim.
+4/ИМ/OmniNotation/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+4/ИМ/Исходники/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
 # Office documents and exported media are binary artifacts.
 *.docx binary
 *.xlsx binary

@@ -1,0 +1,873 @@
+[
+  {
+    "sheet": "D22_sequence_suppliers",
+    "messages": [
+      {
+        "id": "D22_sequence_suppliers.m1",
+        "sequence": 1,
+        "from": "D22_sequence_suppliers.lane0",
+        "to": "D22_sequence_suppliers.lane1",
+        "sort": "synchCall",
+        "context": []
+      },
+      {
+        "id": "D22_sequence_suppliers.m2",
+        "sequence": 2,
+        "from": "D22_sequence_suppliers.lane1",
+        "to": "D22_sequence_suppliers.lane2",
+        "sort": "asynchCall",
+        "context": []
+      },
+      {
+        "id": "D22_sequence_suppliers.m3",
+        "sequence": 3,
+        "from": "D22_sequence_suppliers.lane1",
+        "to": "D22_sequence_suppliers.lane0",
+        "sort": "reply",
+        "context": []
+      },
+      {
+        "id": "D22_sequence_suppliers.m4",
+        "sequence": 4,
+        "from": "D22_sequence_suppliers.lane2",
+        "to": "D22_sequence_suppliers.lane3",
+        "sort": "synchCall",
+        "context": [
+          {
+            "fragment": "D22_sequence_suppliers.retry",
+            "operator": "loop",
+            "operand": "D22_sequence_suppliers.retryBody",
+            "guard": "не завершено и попытка ≤ 4; дождаться next_attempt_at / срока сервера"
+          }
+        ]
+      },
+      {
+        "id": "D22_sequence_suppliers.m5",
+        "sequence": 5,
+        "from": "D22_sequence_suppliers.lane3",
+        "to": "D22_sequence_suppliers.lane4",
+        "sort": "synchCall",
+        "context": [
+          {
+            "fragment": "D22_sequence_suppliers.retry",
+            "operator": "loop",
+            "operand": "D22_sequence_suppliers.retryBody",
+            "guard": "не завершено и попытка ≤ 4; дождаться next_attempt_at / срока сервера"
+          }
+        ]
+      },
+      {
+        "id": "D22_sequence_suppliers.m6",
+        "sequence": 6,
+        "from": "D22_sequence_suppliers.lane4",
+        "to": "D22_sequence_suppliers.lane3",
+        "sort": "reply",
+        "context": [
+          {
+            "fragment": "D22_sequence_suppliers.retry",
+            "operator": "loop",
+            "operand": "D22_sequence_suppliers.retryBody",
+            "guard": "не завершено и попытка ≤ 4; дождаться next_attempt_at / срока сервера"
+          },
+          {
+            "fragment": "D22_sequence_suppliers.outcome",
+            "operator": "alt",
+            "operand": "D22_sequence_suppliers.received",
+            "guard": "получены данные"
+          }
+        ]
+      },
+      {
+        "id": "D22_sequence_suppliers.m7",
+        "sequence": 7,
+        "from": "D22_sequence_suppliers.lane3",
+        "to": "D22_sequence_suppliers.lane2",
+        "sort": "reply",
+        "context": [
+          {
+            "fragment": "D22_sequence_suppliers.retry",
+            "operator": "loop",
+            "operand": "D22_sequence_suppliers.retryBody",
+            "guard": "не завершено и попытка ≤ 4; дождаться next_attempt_at / срока сервера"
+          },
+          {
+            "fragment": "D22_sequence_suppliers.outcome",
+            "operator": "alt",
+            "operand": "D22_sequence_suppliers.received",
+            "guard": "получены данные"
+          }
+        ]
+      },
+      {
+        "id": "D22_sequence_suppliers.m8",
+        "sequence": 8,
+        "from": "D22_sequence_suppliers.lane2",
+        "to": "D22_sequence_suppliers.lane5",
+        "sort": "synchCall",
+        "context": [
+          {
+            "fragment": "D22_sequence_suppliers.retry",
+            "operator": "loop",
+            "operand": "D22_sequence_suppliers.retryBody",
+            "guard": "не завершено и попытка ≤ 4; дождаться next_attempt_at / срока сервера"
+          },
+          {
+            "fragment": "D22_sequence_suppliers.outcome",
+            "operator": "alt",
+            "operand": "D22_sequence_suppliers.received",
+            "guard": "получены данные"
+          },
+          {
+            "fragment": "D22_sequence_suppliers.validation",
+            "operator": "alt",
+            "operand": "D22_sequence_suppliers.validRecords",
+            "guard": "есть корректные сопоставленные записи"
+          }
+        ]
+      },
+      {
+        "id": "D22_sequence_suppliers.m9",
+        "sequence": 9,
+        "from": "D22_sequence_suppliers.lane2",
+        "to": "D22_sequence_suppliers.lane5",
+        "sort": "synchCall",
+        "context": [
+          {
+            "fragment": "D22_sequence_suppliers.retry",
+            "operator": "loop",
+            "operand": "D22_sequence_suppliers.retryBody",
+            "guard": "не завершено и попытка ≤ 4; дождаться next_attempt_at / срока сервера"
+          },
+          {
+            "fragment": "D22_sequence_suppliers.outcome",
+            "operator": "alt",
+            "operand": "D22_sequence_suppliers.received",
+            "guard": "получены данные"
+          },
+          {
+            "fragment": "D22_sequence_suppliers.validation",
+            "operator": "alt",
+            "operand": "D22_sequence_suppliers.validRecords",
+            "guard": "есть корректные сопоставленные записи"
+          }
+        ]
+      },
+      {
+        "id": "D22_sequence_suppliers.m10",
+        "sequence": 10,
+        "from": "D22_sequence_suppliers.lane2",
+        "to": "D22_sequence_suppliers.lane5",
+        "sort": "synchCall",
+        "context": [
+          {
+            "fragment": "D22_sequence_suppliers.retry",
+            "operator": "loop",
+            "operand": "D22_sequence_suppliers.retryBody",
+            "guard": "не завершено и попытка ≤ 4; дождаться next_attempt_at / срока сервера"
+          },
+          {
+            "fragment": "D22_sequence_suppliers.outcome",
+            "operator": "alt",
+            "operand": "D22_sequence_suppliers.received",
+            "guard": "получены данные"
+          },
+          {
+            "fragment": "D22_sequence_suppliers.validation",
+            "operator": "alt",
+            "operand": "D22_sequence_suppliers.invalidRecords",
+            "guard": "else"
+          }
+        ]
+      },
+      {
+        "id": "D22_sequence_suppliers.m11",
+        "sequence": 11,
+        "from": "D22_sequence_suppliers.lane2",
+        "to": "D22_sequence_suppliers.lane1",
+        "sort": "asynchSignal",
+        "context": [
+          {
+            "fragment": "D22_sequence_suppliers.retry",
+            "operator": "loop",
+            "operand": "D22_sequence_suppliers.retryBody",
+            "guard": "не завершено и попытка ≤ 4; дождаться next_attempt_at / срока сервера"
+          },
+          {
+            "fragment": "D22_sequence_suppliers.outcome",
+            "operator": "alt",
+            "operand": "D22_sequence_suppliers.received",
+            "guard": "получены данные"
+          }
+        ]
+      },
+      {
+        "id": "D22_sequence_suppliers.m12",
+        "sequence": 12,
+        "from": "D22_sequence_suppliers.lane1",
+        "to": "D22_sequence_suppliers.lane0",
+        "sort": "asynchSignal",
+        "context": [
+          {
+            "fragment": "D22_sequence_suppliers.retry",
+            "operator": "loop",
+            "operand": "D22_sequence_suppliers.retryBody",
+            "guard": "не завершено и попытка ≤ 4; дождаться next_attempt_at / срока сервера"
+          },
+          {
+            "fragment": "D22_sequence_suppliers.outcome",
+            "operator": "alt",
+            "operand": "D22_sequence_suppliers.received",
+            "guard": "получены данные"
+          }
+        ]
+      },
+      {
+        "id": "D22_sequence_suppliers.m13",
+        "sequence": 13,
+        "from": "D22_sequence_suppliers.lane3",
+        "to": "D22_sequence_suppliers.lane2",
+        "sort": "reply",
+        "context": [
+          {
+            "fragment": "D22_sequence_suppliers.retry",
+            "operator": "loop",
+            "operand": "D22_sequence_suppliers.retryBody",
+            "guard": "не завершено и попытка ≤ 4; дождаться next_attempt_at / срока сервера"
+          },
+          {
+            "fragment": "D22_sequence_suppliers.outcome",
+            "operator": "alt",
+            "operand": "D22_sequence_suppliers.temporary",
+            "guard": "тайм-аут либо 429 либо 5xx"
+          }
+        ]
+      },
+      {
+        "id": "D22_sequence_suppliers.m14",
+        "sequence": 14,
+        "from": "D22_sequence_suppliers.lane2",
+        "to": "D22_sequence_suppliers.lane1",
+        "sort": "asynchSignal",
+        "context": [
+          {
+            "fragment": "D22_sequence_suppliers.retry",
+            "operator": "loop",
+            "operand": "D22_sequence_suppliers.retryBody",
+            "guard": "не завершено и попытка ≤ 4; дождаться next_attempt_at / срока сервера"
+          },
+          {
+            "fragment": "D22_sequence_suppliers.outcome",
+            "operator": "alt",
+            "operand": "D22_sequence_suppliers.temporary",
+            "guard": "тайм-аут либо 429 либо 5xx"
+          }
+        ]
+      },
+      {
+        "id": "D22_sequence_suppliers.m15",
+        "sequence": 15,
+        "from": "D22_sequence_suppliers.lane2",
+        "to": "D22_sequence_suppliers.lane5",
+        "sort": "synchCall",
+        "context": [
+          {
+            "fragment": "D22_sequence_suppliers.retry",
+            "operator": "loop",
+            "operand": "D22_sequence_suppliers.retryBody",
+            "guard": "не завершено и попытка ≤ 4; дождаться next_attempt_at / срока сервера"
+          },
+          {
+            "fragment": "D22_sequence_suppliers.outcome",
+            "operator": "alt",
+            "operand": "D22_sequence_suppliers.temporary",
+            "guard": "тайм-аут либо 429 либо 5xx"
+          }
+        ]
+      }
+    ],
+    "parts": [
+      {
+        "file": "Экспорт/PNG/sequence_parts/36_Рисунок 36 — Последовательность обновления предложений_часть_1.png",
+        "first": 1,
+        "last": 5
+      },
+      {
+        "file": "Экспорт/PNG/sequence_parts/36_Рисунок 36 — Последовательность обновления предложений_часть_2.png",
+        "first": 6,
+        "last": 9
+      },
+      {
+        "file": "Экспорт/PNG/sequence_parts/36_Рисунок 36 — Последовательность обновления предложений_часть_3.png",
+        "first": 10,
+        "last": 13
+      },
+      {
+        "file": "Экспорт/PNG/sequence_parts/36_Рисунок 36 — Последовательность обновления предложений_часть_4.png",
+        "first": 14,
+        "last": 15
+      }
+    ]
+  },
+  {
+    "sheet": "D23_sequence_ozon",
+    "messages": [
+      {
+        "id": "D23_sequence_ozon.m1",
+        "sequence": 1,
+        "from": "D23_sequence_ozon.lane0",
+        "to": "D23_sequence_ozon.lane1",
+        "sort": "synchCall",
+        "context": []
+      },
+      {
+        "id": "D23_sequence_ozon.m2",
+        "sequence": 2,
+        "from": "D23_sequence_ozon.lane1",
+        "to": "D23_sequence_ozon.lane2",
+        "sort": "synchCall",
+        "context": []
+      },
+      {
+        "id": "D23_sequence_ozon.m3",
+        "sequence": 3,
+        "from": "D23_sequence_ozon.lane1",
+        "to": "D23_sequence_ozon.lane0",
+        "sort": "reply",
+        "context": []
+      },
+      {
+        "id": "D23_sequence_ozon.m4",
+        "sequence": 4,
+        "from": "D23_sequence_ozon.lane1",
+        "to": "D23_sequence_ozon.lane3",
+        "sort": "asynchSignal",
+        "context": []
+      },
+      {
+        "id": "D23_sequence_ozon.m5",
+        "sequence": 5,
+        "from": "D23_sequence_ozon.lane3",
+        "to": "D23_sequence_ozon.lane2",
+        "sort": "synchCall",
+        "context": []
+      },
+      {
+        "id": "D23_sequence_ozon.m6",
+        "sequence": 6,
+        "from": "D23_sequence_ozon.lane3",
+        "to": "D23_sequence_ozon.lane2",
+        "sort": "synchCall",
+        "context": [
+          {
+            "fragment": "D23_sequence_ozon.version",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.stale",
+            "guard": "else"
+          }
+        ]
+      },
+      {
+        "id": "D23_sequence_ozon.m7",
+        "sequence": 7,
+        "from": "D23_sequence_ozon.lane3",
+        "to": "D23_sequence_ozon.lane4",
+        "sort": "synchCall",
+        "context": [
+          {
+            "fragment": "D23_sequence_ozon.version",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.current",
+            "guard": "версия актуальна и утверждена"
+          },
+          {
+            "fragment": "D23_sequence_ozon.attempts",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.attemptBody",
+            "guard": "операция не завершена; автоматический повтор разрешён; попытка ≤ 4"
+          }
+        ]
+      },
+      {
+        "id": "D23_sequence_ozon.m8",
+        "sequence": 8,
+        "from": "D23_sequence_ozon.lane4",
+        "to": "D23_sequence_ozon.lane3",
+        "sort": "reply",
+        "context": [
+          {
+            "fragment": "D23_sequence_ozon.version",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.current",
+            "guard": "версия актуальна и утверждена"
+          },
+          {
+            "fragment": "D23_sequence_ozon.attempts",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.attemptBody",
+            "guard": "операция не завершена; автоматический повтор разрешён; попытка ≤ 4"
+          },
+          {
+            "fragment": "D23_sequence_ozon.result",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.accepted",
+            "guard": "получен ответ с ID задачи"
+          }
+        ]
+      },
+      {
+        "id": "D23_sequence_ozon.m9",
+        "sequence": 9,
+        "from": "D23_sequence_ozon.lane3",
+        "to": "D23_sequence_ozon.lane2",
+        "sort": "synchCall",
+        "context": [
+          {
+            "fragment": "D23_sequence_ozon.version",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.current",
+            "guard": "версия актуальна и утверждена"
+          },
+          {
+            "fragment": "D23_sequence_ozon.attempts",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.attemptBody",
+            "guard": "операция не завершена; автоматический повтор разрешён; попытка ≤ 4"
+          },
+          {
+            "fragment": "D23_sequence_ozon.result",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.accepted",
+            "guard": "получен ответ с ID задачи"
+          }
+        ]
+      },
+      {
+        "id": "D23_sequence_ozon.m10",
+        "sequence": 10,
+        "from": "D23_sequence_ozon.lane3",
+        "to": "D23_sequence_ozon.lane4",
+        "sort": "synchCall",
+        "context": [
+          {
+            "fragment": "D23_sequence_ozon.version",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.current",
+            "guard": "версия актуальна и утверждена"
+          },
+          {
+            "fragment": "D23_sequence_ozon.attempts",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.attemptBody",
+            "guard": "операция не завершена; автоматический повтор разрешён; попытка ≤ 4"
+          },
+          {
+            "fragment": "D23_sequence_ozon.result",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.accepted",
+            "guard": "получен ответ с ID задачи"
+          },
+          {
+            "fragment": "D23_sequence_ozon.poll",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.polling",
+            "guard": "статус WAITING; наступил срок проверки"
+          }
+        ]
+      },
+      {
+        "id": "D23_sequence_ozon.m11",
+        "sequence": 11,
+        "from": "D23_sequence_ozon.lane4",
+        "to": "D23_sequence_ozon.lane3",
+        "sort": "reply",
+        "context": [
+          {
+            "fragment": "D23_sequence_ozon.version",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.current",
+            "guard": "версия актуальна и утверждена"
+          },
+          {
+            "fragment": "D23_sequence_ozon.attempts",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.attemptBody",
+            "guard": "операция не завершена; автоматический повтор разрешён; попытка ≤ 4"
+          },
+          {
+            "fragment": "D23_sequence_ozon.result",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.accepted",
+            "guard": "получен ответ с ID задачи"
+          },
+          {
+            "fragment": "D23_sequence_ozon.poll",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.polling",
+            "guard": "статус WAITING; наступил срок проверки"
+          },
+          {
+            "fragment": "D23_sequence_ozon.final",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.waiting",
+            "guard": "ещё обрабатывается"
+          }
+        ]
+      },
+      {
+        "id": "D23_sequence_ozon.m12",
+        "sequence": 12,
+        "from": "D23_sequence_ozon.lane4",
+        "to": "D23_sequence_ozon.lane3",
+        "sort": "reply",
+        "context": [
+          {
+            "fragment": "D23_sequence_ozon.version",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.current",
+            "guard": "версия актуальна и утверждена"
+          },
+          {
+            "fragment": "D23_sequence_ozon.attempts",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.attemptBody",
+            "guard": "операция не завершена; автоматический повтор разрешён; попытка ≤ 4"
+          },
+          {
+            "fragment": "D23_sequence_ozon.result",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.accepted",
+            "guard": "получен ответ с ID задачи"
+          },
+          {
+            "fragment": "D23_sequence_ozon.poll",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.polling",
+            "guard": "статус WAITING; наступил срок проверки"
+          },
+          {
+            "fragment": "D23_sequence_ozon.final",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.done",
+            "guard": "успешно"
+          }
+        ]
+      },
+      {
+        "id": "D23_sequence_ozon.m13",
+        "sequence": 13,
+        "from": "D23_sequence_ozon.lane3",
+        "to": "D23_sequence_ozon.lane2",
+        "sort": "synchCall",
+        "context": [
+          {
+            "fragment": "D23_sequence_ozon.version",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.current",
+            "guard": "версия актуальна и утверждена"
+          },
+          {
+            "fragment": "D23_sequence_ozon.attempts",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.attemptBody",
+            "guard": "операция не завершена; автоматический повтор разрешён; попытка ≤ 4"
+          },
+          {
+            "fragment": "D23_sequence_ozon.result",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.accepted",
+            "guard": "получен ответ с ID задачи"
+          },
+          {
+            "fragment": "D23_sequence_ozon.poll",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.polling",
+            "guard": "статус WAITING; наступил срок проверки"
+          },
+          {
+            "fragment": "D23_sequence_ozon.final",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.done",
+            "guard": "успешно"
+          }
+        ]
+      },
+      {
+        "id": "D23_sequence_ozon.m14",
+        "sequence": 14,
+        "from": "D23_sequence_ozon.lane4",
+        "to": "D23_sequence_ozon.lane3",
+        "sort": "reply",
+        "context": [
+          {
+            "fragment": "D23_sequence_ozon.version",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.current",
+            "guard": "версия актуальна и утверждена"
+          },
+          {
+            "fragment": "D23_sequence_ozon.attempts",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.attemptBody",
+            "guard": "операция не завершена; автоматический повтор разрешён; попытка ≤ 4"
+          },
+          {
+            "fragment": "D23_sequence_ozon.result",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.accepted",
+            "guard": "получен ответ с ID задачи"
+          },
+          {
+            "fragment": "D23_sequence_ozon.poll",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.polling",
+            "guard": "статус WAITING; наступил срок проверки"
+          },
+          {
+            "fragment": "D23_sequence_ozon.final",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.bad",
+            "guard": "ошибка обработки"
+          }
+        ]
+      },
+      {
+        "id": "D23_sequence_ozon.m15",
+        "sequence": 15,
+        "from": "D23_sequence_ozon.lane3",
+        "to": "D23_sequence_ozon.lane2",
+        "sort": "synchCall",
+        "context": [
+          {
+            "fragment": "D23_sequence_ozon.version",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.current",
+            "guard": "версия актуальна и утверждена"
+          },
+          {
+            "fragment": "D23_sequence_ozon.attempts",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.attemptBody",
+            "guard": "операция не завершена; автоматический повтор разрешён; попытка ≤ 4"
+          },
+          {
+            "fragment": "D23_sequence_ozon.result",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.accepted",
+            "guard": "получен ответ с ID задачи"
+          },
+          {
+            "fragment": "D23_sequence_ozon.poll",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.polling",
+            "guard": "статус WAITING; наступил срок проверки"
+          },
+          {
+            "fragment": "D23_sequence_ozon.final",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.bad",
+            "guard": "ошибка обработки"
+          }
+        ]
+      },
+      {
+        "id": "D23_sequence_ozon.m16",
+        "sequence": 16,
+        "from": "D23_sequence_ozon.lane3",
+        "to": "D23_sequence_ozon.lane2",
+        "sort": "synchCall",
+        "context": [
+          {
+            "fragment": "D23_sequence_ozon.version",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.current",
+            "guard": "версия актуальна и утверждена"
+          },
+          {
+            "fragment": "D23_sequence_ozon.attempts",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.attemptBody",
+            "guard": "операция не завершена; автоматический повтор разрешён; попытка ≤ 4"
+          },
+          {
+            "fragment": "D23_sequence_ozon.result",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.transient",
+            "guard": "временный отказ / 429 / 5xx без неизвестного исхода"
+          }
+        ]
+      },
+      {
+        "id": "D23_sequence_ozon.m17",
+        "sequence": 17,
+        "from": "D23_sequence_ozon.lane3",
+        "to": "D23_sequence_ozon.lane3",
+        "sort": "asynchSignal",
+        "context": [
+          {
+            "fragment": "D23_sequence_ozon.version",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.current",
+            "guard": "версия актуальна и утверждена"
+          },
+          {
+            "fragment": "D23_sequence_ozon.attempts",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.attemptBody",
+            "guard": "операция не завершена; автоматический повтор разрешён; попытка ≤ 4"
+          },
+          {
+            "fragment": "D23_sequence_ozon.result",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.transient",
+            "guard": "временный отказ / 429 / 5xx без неизвестного исхода"
+          }
+        ]
+      },
+      {
+        "id": "D23_sequence_ozon.m18",
+        "sequence": 18,
+        "from": "D23_sequence_ozon.lane3",
+        "to": "D23_sequence_ozon.lane2",
+        "sort": "synchCall",
+        "context": [
+          {
+            "fragment": "D23_sequence_ozon.version",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.current",
+            "guard": "версия актуальна и утверждена"
+          },
+          {
+            "fragment": "D23_sequence_ozon.attempts",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.attemptBody",
+            "guard": "операция не завершена; автоматический повтор разрешён; попытка ≤ 4"
+          },
+          {
+            "fragment": "D23_sequence_ozon.result",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.uncertain",
+            "guard": "ответ потерян и результат отправки неизвестен"
+          }
+        ]
+      },
+      {
+        "id": "D23_sequence_ozon.m19",
+        "sequence": 19,
+        "from": "D23_sequence_ozon.lane3",
+        "to": "D23_sequence_ozon.lane4",
+        "sort": "synchCall",
+        "context": [
+          {
+            "fragment": "D23_sequence_ozon.version",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.current",
+            "guard": "версия актуальна и утверждена"
+          },
+          {
+            "fragment": "D23_sequence_ozon.attempts",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.attemptBody",
+            "guard": "операция не завершена; автоматический повтор разрешён; попытка ≤ 4"
+          },
+          {
+            "fragment": "D23_sequence_ozon.result",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.uncertain",
+            "guard": "ответ потерян и результат отправки неизвестен"
+          }
+        ]
+      },
+      {
+        "id": "D23_sequence_ozon.m20",
+        "sequence": 20,
+        "from": "D23_sequence_ozon.lane3",
+        "to": "D23_sequence_ozon.lane2",
+        "sort": "synchCall",
+        "context": [
+          {
+            "fragment": "D23_sequence_ozon.version",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.current",
+            "guard": "версия актуальна и утверждена"
+          },
+          {
+            "fragment": "D23_sequence_ozon.attempts",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.attemptBody",
+            "guard": "операция не завершена; автоматический повтор разрешён; попытка ≤ 4"
+          },
+          {
+            "fragment": "D23_sequence_ozon.result",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.uncertain",
+            "guard": "ответ потерян и результат отправки неизвестен"
+          }
+        ]
+      },
+      {
+        "id": "D23_sequence_ozon.m21",
+        "sequence": 21,
+        "from": "D23_sequence_ozon.lane3",
+        "to": "D23_sequence_ozon.lane2",
+        "sort": "synchCall",
+        "context": [
+          {
+            "fragment": "D23_sequence_ozon.version",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.current",
+            "guard": "версия актуальна и утверждена"
+          },
+          {
+            "fragment": "D23_sequence_ozon.attempts",
+            "operator": "loop",
+            "operand": "D23_sequence_ozon.attemptBody",
+            "guard": "операция не завершена; автоматический повтор разрешён; попытка ≤ 4"
+          },
+          {
+            "fragment": "D23_sequence_ozon.result",
+            "operator": "alt",
+            "operand": "D23_sequence_ozon.permanent",
+            "guard": "постоянная ошибка обязательных атрибутов"
+          }
+        ]
+      }
+    ],
+    "parts": [
+      {
+        "file": "Экспорт/PNG/sequence_parts/37_Рисунок 37 — Последовательность публикации версии карточки_часть_1.png",
+        "first": 1,
+        "last": 6
+      },
+      {
+        "file": "Экспорт/PNG/sequence_parts/37_Рисунок 37 — Последовательность публикации версии карточки_часть_2.png",
+        "first": 7,
+        "last": 9
+      },
+      {
+        "file": "Экспорт/PNG/sequence_parts/37_Рисунок 37 — Последовательность публикации версии карточки_часть_3.png",
+        "first": 10,
+        "last": 11
+      },
+      {
+        "file": "Экспорт/PNG/sequence_parts/37_Рисунок 37 — Последовательность публикации версии карточки_часть_4.png",
+        "first": 12,
+        "last": 14
+      },
+      {
+        "file": "Экспорт/PNG/sequence_parts/37_Рисунок 37 — Последовательность публикации версии карточки_часть_5.png",
+        "first": 15,
+        "last": 16
+      },
+      {
+        "file": "Экспорт/PNG/sequence_parts/37_Рисунок 37 — Последовательность публикации версии карточки_часть_6.png",
+        "first": 17,
+        "last": 19
+      },
+      {
+        "file": "Экспорт/PNG/sequence_parts/37_Рисунок 37 — Последовательность публикации версии карточки_часть_7.png",
+        "first": 20,
+        "last": 21
+      }
+    ]
+  }
+]
