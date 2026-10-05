@@ -1,0 +1,5360 @@
+{
+  "notation": "SCHEME",
+  "formatVersion": 1,
+  "profile": "NS-SCHEME-1",
+  "model": {
+    "id": "ppois_client_02",
+    "label": "Клиент ИС Юкомс версия 0.2",
+    "elements": [
+      {
+        "id": "client",
+        "kind": "block",
+        "label": "Клиент ИС Юкомс\nВерсия 0.2",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "main",
+        "kind": "block",
+        "label": "Основные\nфункции",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "service",
+        "kind": "block",
+        "label": "Служебные\nфункции",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "B1",
+        "kind": "block",
+        "label": "B1 · Просмотр групп компонентов и предложений",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "B2",
+        "kind": "block",
+        "label": "B2 · Просмотр конфигураций и версий состава",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "B3",
+        "kind": "block",
+        "label": "B3 · Сохранение новой версии состава",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "B4",
+        "kind": "block",
+        "label": "B4 · Подбор и проверка, расчёт цены и массы",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "B5",
+        "kind": "block",
+        "label": "B5 · Просмотр карточек и расчётных ревизий",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "B6",
+        "kind": "block",
+        "label": "B6 · Создание новой расчётной ревизии DRAFT",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "B7",
+        "kind": "block",
+        "label": "B7 · Просмотр сохранённых результатов попыток",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "S1",
+        "kind": "block",
+        "label": "S1 · Демонстрационный вход",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "S2",
+        "kind": "block",
+        "label": "S2 · Выход и завершение сеанса",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "S3",
+        "kind": "block",
+        "label": "S3 · Проверка сеанса и доступных функций",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "S4",
+        "kind": "block",
+        "label": "S4 · Диагностика локального стенда",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "S5",
+        "kind": "block",
+        "label": "S5 · Инструкция и границы версии",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "function_group_0",
+        "kind": "block",
+        "label": "Каталог",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "function_group_1",
+        "kind": "block",
+        "label": "Состав",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "function_group_2",
+        "kind": "block",
+        "label": "Расчёты",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "function_group_3",
+        "kind": "block",
+        "label": "Карточки",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "function_group_4",
+        "kind": "block",
+        "label": "Публикации",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "function_group_5",
+        "kind": "block",
+        "label": "Сеанс",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "function_group_6",
+        "kind": "block",
+        "label": "Доступ",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "function_group_7",
+        "kind": "block",
+        "label": "Сопровождение",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "function_group_8",
+        "kind": "block",
+        "label": "Справка",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "overview",
+        "kind": "diagram",
+        "label": "Корень дерева функций",
+        "properties": {
+          "type": "general"
+        }
+      },
+      {
+        "id": "v_overview_client",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "overview",
+          "element": "client"
+        }
+      },
+      {
+        "id": "v_overview_main",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "overview",
+          "element": "main"
+        }
+      },
+      {
+        "id": "v_overview_service",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "overview",
+          "element": "service"
+        }
+      },
+      {
+        "id": "tree_client_main",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "client",
+          "to": "main",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_overview_tree_client_main",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "overview",
+          "element": "tree_client_main",
+          "from": "v_overview_client",
+          "to": "v_overview_main"
+        }
+      },
+      {
+        "id": "tree_client_service",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "client",
+          "to": "service",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_overview_tree_client_service",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "overview",
+          "element": "tree_client_service",
+          "from": "v_overview_client",
+          "to": "v_overview_service"
+        }
+      },
+      {
+        "id": "functions_main",
+        "kind": "diagram",
+        "label": "Основные функции клиента",
+        "properties": {
+          "type": "general"
+        }
+      },
+      {
+        "id": "v_functions_main_main",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "main"
+        }
+      },
+      {
+        "id": "v_functions_main_B1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "B1"
+        }
+      },
+      {
+        "id": "v_functions_main_B2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "B2"
+        }
+      },
+      {
+        "id": "v_functions_main_B3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "B3"
+        }
+      },
+      {
+        "id": "v_functions_main_B4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "B4"
+        }
+      },
+      {
+        "id": "v_functions_main_B5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "B5"
+        }
+      },
+      {
+        "id": "v_functions_main_B6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "B6"
+        }
+      },
+      {
+        "id": "v_functions_main_B7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "B7"
+        }
+      },
+      {
+        "id": "v_functions_main_function_group_0",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "function_group_0"
+        }
+      },
+      {
+        "id": "tree_main_function_group_0",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "main",
+          "to": "function_group_0",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_main_tree_main_function_group_0",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "tree_main_function_group_0",
+          "from": "v_functions_main_main",
+          "to": "v_functions_main_function_group_0"
+        }
+      },
+      {
+        "id": "tree_function_group_0_B1",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "function_group_0",
+          "to": "B1",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_main_tree_function_group_0_B1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "tree_function_group_0_B1",
+          "from": "v_functions_main_function_group_0",
+          "to": "v_functions_main_B1"
+        }
+      },
+      {
+        "id": "v_functions_main_function_group_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "function_group_1"
+        }
+      },
+      {
+        "id": "tree_main_function_group_1",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "main",
+          "to": "function_group_1",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_main_tree_main_function_group_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "tree_main_function_group_1",
+          "from": "v_functions_main_main",
+          "to": "v_functions_main_function_group_1"
+        }
+      },
+      {
+        "id": "tree_function_group_1_B2",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "function_group_1",
+          "to": "B2",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_main_tree_function_group_1_B2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "tree_function_group_1_B2",
+          "from": "v_functions_main_function_group_1",
+          "to": "v_functions_main_B2"
+        }
+      },
+      {
+        "id": "tree_function_group_1_B3",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "function_group_1",
+          "to": "B3",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_main_tree_function_group_1_B3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "tree_function_group_1_B3",
+          "from": "v_functions_main_function_group_1",
+          "to": "v_functions_main_B3"
+        }
+      },
+      {
+        "id": "v_functions_main_function_group_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "function_group_2"
+        }
+      },
+      {
+        "id": "tree_main_function_group_2",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "main",
+          "to": "function_group_2",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_main_tree_main_function_group_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "tree_main_function_group_2",
+          "from": "v_functions_main_main",
+          "to": "v_functions_main_function_group_2"
+        }
+      },
+      {
+        "id": "tree_function_group_2_B4",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "function_group_2",
+          "to": "B4",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_main_tree_function_group_2_B4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "tree_function_group_2_B4",
+          "from": "v_functions_main_function_group_2",
+          "to": "v_functions_main_B4"
+        }
+      },
+      {
+        "id": "v_functions_main_function_group_3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "function_group_3"
+        }
+      },
+      {
+        "id": "tree_main_function_group_3",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "main",
+          "to": "function_group_3",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_main_tree_main_function_group_3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "tree_main_function_group_3",
+          "from": "v_functions_main_main",
+          "to": "v_functions_main_function_group_3"
+        }
+      },
+      {
+        "id": "tree_function_group_3_B5",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "function_group_3",
+          "to": "B5",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_main_tree_function_group_3_B5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "tree_function_group_3_B5",
+          "from": "v_functions_main_function_group_3",
+          "to": "v_functions_main_B5"
+        }
+      },
+      {
+        "id": "tree_function_group_3_B6",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "function_group_3",
+          "to": "B6",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_main_tree_function_group_3_B6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "tree_function_group_3_B6",
+          "from": "v_functions_main_function_group_3",
+          "to": "v_functions_main_B6"
+        }
+      },
+      {
+        "id": "v_functions_main_function_group_4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "function_group_4"
+        }
+      },
+      {
+        "id": "tree_main_function_group_4",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "main",
+          "to": "function_group_4",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_main_tree_main_function_group_4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "tree_main_function_group_4",
+          "from": "v_functions_main_main",
+          "to": "v_functions_main_function_group_4"
+        }
+      },
+      {
+        "id": "tree_function_group_4_B7",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "function_group_4",
+          "to": "B7",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_main_tree_function_group_4_B7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_main",
+          "element": "tree_function_group_4_B7",
+          "from": "v_functions_main_function_group_4",
+          "to": "v_functions_main_B7"
+        }
+      },
+      {
+        "id": "functions_service",
+        "kind": "diagram",
+        "label": "Служебные функции клиента",
+        "properties": {
+          "type": "general"
+        }
+      },
+      {
+        "id": "v_functions_service_service",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_service",
+          "element": "service"
+        }
+      },
+      {
+        "id": "v_functions_service_S1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_service",
+          "element": "S1"
+        }
+      },
+      {
+        "id": "v_functions_service_S2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_service",
+          "element": "S2"
+        }
+      },
+      {
+        "id": "v_functions_service_S3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_service",
+          "element": "S3"
+        }
+      },
+      {
+        "id": "v_functions_service_S4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_service",
+          "element": "S4"
+        }
+      },
+      {
+        "id": "v_functions_service_S5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_service",
+          "element": "S5"
+        }
+      },
+      {
+        "id": "v_functions_service_function_group_5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_service",
+          "element": "function_group_5"
+        }
+      },
+      {
+        "id": "tree_service_function_group_5",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "service",
+          "to": "function_group_5",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_service_tree_service_function_group_5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_service",
+          "element": "tree_service_function_group_5",
+          "from": "v_functions_service_service",
+          "to": "v_functions_service_function_group_5"
+        }
+      },
+      {
+        "id": "tree_function_group_5_S1",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "function_group_5",
+          "to": "S1",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_service_tree_function_group_5_S1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_service",
+          "element": "tree_function_group_5_S1",
+          "from": "v_functions_service_function_group_5",
+          "to": "v_functions_service_S1"
+        }
+      },
+      {
+        "id": "tree_function_group_5_S2",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "function_group_5",
+          "to": "S2",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_service_tree_function_group_5_S2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_service",
+          "element": "tree_function_group_5_S2",
+          "from": "v_functions_service_function_group_5",
+          "to": "v_functions_service_S2"
+        }
+      },
+      {
+        "id": "v_functions_service_function_group_6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_service",
+          "element": "function_group_6"
+        }
+      },
+      {
+        "id": "tree_service_function_group_6",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "service",
+          "to": "function_group_6",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_service_tree_service_function_group_6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_service",
+          "element": "tree_service_function_group_6",
+          "from": "v_functions_service_service",
+          "to": "v_functions_service_function_group_6"
+        }
+      },
+      {
+        "id": "tree_function_group_6_S3",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "function_group_6",
+          "to": "S3",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_service_tree_function_group_6_S3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_service",
+          "element": "tree_function_group_6_S3",
+          "from": "v_functions_service_function_group_6",
+          "to": "v_functions_service_S3"
+        }
+      },
+      {
+        "id": "v_functions_service_function_group_7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_service",
+          "element": "function_group_7"
+        }
+      },
+      {
+        "id": "tree_service_function_group_7",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "service",
+          "to": "function_group_7",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_service_tree_service_function_group_7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_service",
+          "element": "tree_service_function_group_7",
+          "from": "v_functions_service_service",
+          "to": "v_functions_service_function_group_7"
+        }
+      },
+      {
+        "id": "tree_function_group_7_S4",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "function_group_7",
+          "to": "S4",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_service_tree_function_group_7_S4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_service",
+          "element": "tree_function_group_7_S4",
+          "from": "v_functions_service_function_group_7",
+          "to": "v_functions_service_S4"
+        }
+      },
+      {
+        "id": "v_functions_service_function_group_8",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_service",
+          "element": "function_group_8"
+        }
+      },
+      {
+        "id": "tree_service_function_group_8",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "service",
+          "to": "function_group_8",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_service_tree_service_function_group_8",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_service",
+          "element": "tree_service_function_group_8",
+          "from": "v_functions_service_service",
+          "to": "v_functions_service_function_group_8"
+        }
+      },
+      {
+        "id": "tree_function_group_8_S5",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "function_group_8",
+          "to": "S5",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_functions_service_tree_function_group_8_S5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions_service",
+          "element": "tree_function_group_8_S5",
+          "from": "v_functions_service_function_group_8",
+          "to": "v_functions_service_S5"
+        }
+      },
+      {
+        "id": "role_engineer",
+        "kind": "diagram",
+        "label": "Функции роли Инженер",
+        "properties": {
+          "type": "general"
+        }
+      },
+      {
+        "id": "principal_engineer",
+        "kind": "block",
+        "label": "Инженер\nengineer",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_role_engineer_principal_engineer",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "principal_engineer"
+        }
+      },
+      {
+        "id": "role_engineer_main",
+        "kind": "block",
+        "label": "Основные функции",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_role_engineer_role_engineer_main",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "role_engineer_main"
+        }
+      },
+      {
+        "id": "role_engineer_branch_main",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "principal_engineer",
+          "to": "role_engineer_main",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_engineer_role_engineer_branch_main",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "role_engineer_branch_main",
+          "from": "v_role_engineer_principal_engineer",
+          "to": "v_role_engineer_role_engineer_main"
+        }
+      },
+      {
+        "id": "v_role_engineer_B1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "B1"
+        }
+      },
+      {
+        "id": "role_engineer_B1",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_engineer_main",
+          "to": "B1",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_engineer_role_engineer_B1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "role_engineer_B1",
+          "from": "v_role_engineer_role_engineer_main",
+          "to": "v_role_engineer_B1"
+        }
+      },
+      {
+        "id": "v_role_engineer_B2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "B2"
+        }
+      },
+      {
+        "id": "role_engineer_B2",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_engineer_main",
+          "to": "B2",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_engineer_role_engineer_B2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "role_engineer_B2",
+          "from": "v_role_engineer_role_engineer_main",
+          "to": "v_role_engineer_B2"
+        }
+      },
+      {
+        "id": "v_role_engineer_B3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "B3"
+        }
+      },
+      {
+        "id": "role_engineer_B3",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_engineer_main",
+          "to": "B3",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_engineer_role_engineer_B3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "role_engineer_B3",
+          "from": "v_role_engineer_role_engineer_main",
+          "to": "v_role_engineer_B3"
+        }
+      },
+      {
+        "id": "v_role_engineer_B4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "B4"
+        }
+      },
+      {
+        "id": "role_engineer_B4",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_engineer_main",
+          "to": "B4",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_engineer_role_engineer_B4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "role_engineer_B4",
+          "from": "v_role_engineer_role_engineer_main",
+          "to": "v_role_engineer_B4"
+        }
+      },
+      {
+        "id": "v_role_engineer_B5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "B5"
+        }
+      },
+      {
+        "id": "role_engineer_B5",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_engineer_main",
+          "to": "B5",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_engineer_role_engineer_B5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "role_engineer_B5",
+          "from": "v_role_engineer_role_engineer_main",
+          "to": "v_role_engineer_B5"
+        }
+      },
+      {
+        "id": "v_role_engineer_B7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "B7"
+        }
+      },
+      {
+        "id": "role_engineer_B7",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_engineer_main",
+          "to": "B7",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_engineer_role_engineer_B7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "role_engineer_B7",
+          "from": "v_role_engineer_role_engineer_main",
+          "to": "v_role_engineer_B7"
+        }
+      },
+      {
+        "id": "role_engineer_service",
+        "kind": "block",
+        "label": "Служебные функции",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_role_engineer_role_engineer_service",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "role_engineer_service"
+        }
+      },
+      {
+        "id": "role_engineer_branch_service",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "principal_engineer",
+          "to": "role_engineer_service",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_engineer_role_engineer_branch_service",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "role_engineer_branch_service",
+          "from": "v_role_engineer_principal_engineer",
+          "to": "v_role_engineer_role_engineer_service"
+        }
+      },
+      {
+        "id": "v_role_engineer_S1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "S1"
+        }
+      },
+      {
+        "id": "role_engineer_S1",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_engineer_service",
+          "to": "S1",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_engineer_role_engineer_S1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "role_engineer_S1",
+          "from": "v_role_engineer_role_engineer_service",
+          "to": "v_role_engineer_S1"
+        }
+      },
+      {
+        "id": "v_role_engineer_S2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "S2"
+        }
+      },
+      {
+        "id": "role_engineer_S2",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_engineer_service",
+          "to": "S2",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_engineer_role_engineer_S2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "role_engineer_S2",
+          "from": "v_role_engineer_role_engineer_service",
+          "to": "v_role_engineer_S2"
+        }
+      },
+      {
+        "id": "v_role_engineer_S3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "S3"
+        }
+      },
+      {
+        "id": "role_engineer_S3",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_engineer_service",
+          "to": "S3",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_engineer_role_engineer_S3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "role_engineer_S3",
+          "from": "v_role_engineer_role_engineer_service",
+          "to": "v_role_engineer_S3"
+        }
+      },
+      {
+        "id": "v_role_engineer_S5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "S5"
+        }
+      },
+      {
+        "id": "role_engineer_S5",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_engineer_service",
+          "to": "S5",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_engineer_role_engineer_S5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_engineer",
+          "element": "role_engineer_S5",
+          "from": "v_role_engineer_role_engineer_service",
+          "to": "v_role_engineer_S5"
+        }
+      },
+      {
+        "id": "role_manager",
+        "kind": "diagram",
+        "label": "Функции роли Менеджер",
+        "properties": {
+          "type": "general"
+        }
+      },
+      {
+        "id": "principal_manager",
+        "kind": "block",
+        "label": "Менеджер\nmanager",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_role_manager_principal_manager",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "principal_manager"
+        }
+      },
+      {
+        "id": "role_manager_main",
+        "kind": "block",
+        "label": "Основные функции",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_role_manager_role_manager_main",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "role_manager_main"
+        }
+      },
+      {
+        "id": "role_manager_branch_main",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "principal_manager",
+          "to": "role_manager_main",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_manager_role_manager_branch_main",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "role_manager_branch_main",
+          "from": "v_role_manager_principal_manager",
+          "to": "v_role_manager_role_manager_main"
+        }
+      },
+      {
+        "id": "v_role_manager_B1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "B1"
+        }
+      },
+      {
+        "id": "role_manager_B1",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_manager_main",
+          "to": "B1",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_manager_role_manager_B1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "role_manager_B1",
+          "from": "v_role_manager_role_manager_main",
+          "to": "v_role_manager_B1"
+        }
+      },
+      {
+        "id": "v_role_manager_B2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "B2"
+        }
+      },
+      {
+        "id": "role_manager_B2",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_manager_main",
+          "to": "B2",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_manager_role_manager_B2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "role_manager_B2",
+          "from": "v_role_manager_role_manager_main",
+          "to": "v_role_manager_B2"
+        }
+      },
+      {
+        "id": "v_role_manager_B4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "B4"
+        }
+      },
+      {
+        "id": "role_manager_B4",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_manager_main",
+          "to": "B4",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_manager_role_manager_B4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "role_manager_B4",
+          "from": "v_role_manager_role_manager_main",
+          "to": "v_role_manager_B4"
+        }
+      },
+      {
+        "id": "v_role_manager_B5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "B5"
+        }
+      },
+      {
+        "id": "role_manager_B5",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_manager_main",
+          "to": "B5",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_manager_role_manager_B5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "role_manager_B5",
+          "from": "v_role_manager_role_manager_main",
+          "to": "v_role_manager_B5"
+        }
+      },
+      {
+        "id": "v_role_manager_B6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "B6"
+        }
+      },
+      {
+        "id": "role_manager_B6",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_manager_main",
+          "to": "B6",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_manager_role_manager_B6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "role_manager_B6",
+          "from": "v_role_manager_role_manager_main",
+          "to": "v_role_manager_B6"
+        }
+      },
+      {
+        "id": "v_role_manager_B7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "B7"
+        }
+      },
+      {
+        "id": "role_manager_B7",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_manager_main",
+          "to": "B7",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_manager_role_manager_B7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "role_manager_B7",
+          "from": "v_role_manager_role_manager_main",
+          "to": "v_role_manager_B7"
+        }
+      },
+      {
+        "id": "role_manager_service",
+        "kind": "block",
+        "label": "Служебные функции",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_role_manager_role_manager_service",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "role_manager_service"
+        }
+      },
+      {
+        "id": "role_manager_branch_service",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "principal_manager",
+          "to": "role_manager_service",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_manager_role_manager_branch_service",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "role_manager_branch_service",
+          "from": "v_role_manager_principal_manager",
+          "to": "v_role_manager_role_manager_service"
+        }
+      },
+      {
+        "id": "v_role_manager_S1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "S1"
+        }
+      },
+      {
+        "id": "role_manager_S1",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_manager_service",
+          "to": "S1",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_manager_role_manager_S1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "role_manager_S1",
+          "from": "v_role_manager_role_manager_service",
+          "to": "v_role_manager_S1"
+        }
+      },
+      {
+        "id": "v_role_manager_S2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "S2"
+        }
+      },
+      {
+        "id": "role_manager_S2",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_manager_service",
+          "to": "S2",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_manager_role_manager_S2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "role_manager_S2",
+          "from": "v_role_manager_role_manager_service",
+          "to": "v_role_manager_S2"
+        }
+      },
+      {
+        "id": "v_role_manager_S3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "S3"
+        }
+      },
+      {
+        "id": "role_manager_S3",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_manager_service",
+          "to": "S3",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_manager_role_manager_S3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "role_manager_S3",
+          "from": "v_role_manager_role_manager_service",
+          "to": "v_role_manager_S3"
+        }
+      },
+      {
+        "id": "v_role_manager_S5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "S5"
+        }
+      },
+      {
+        "id": "role_manager_S5",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_manager_service",
+          "to": "S5",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_manager_role_manager_S5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_manager",
+          "element": "role_manager_S5",
+          "from": "v_role_manager_role_manager_service",
+          "to": "v_role_manager_S5"
+        }
+      },
+      {
+        "id": "role_viewer",
+        "kind": "diagram",
+        "label": "Функции роли Наблюдатель",
+        "properties": {
+          "type": "general"
+        }
+      },
+      {
+        "id": "principal_viewer",
+        "kind": "block",
+        "label": "Наблюдатель\nviewer",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_role_viewer_principal_viewer",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "principal_viewer"
+        }
+      },
+      {
+        "id": "role_viewer_main",
+        "kind": "block",
+        "label": "Основные функции",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_role_viewer_role_viewer_main",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "role_viewer_main"
+        }
+      },
+      {
+        "id": "role_viewer_branch_main",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "principal_viewer",
+          "to": "role_viewer_main",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_viewer_role_viewer_branch_main",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "role_viewer_branch_main",
+          "from": "v_role_viewer_principal_viewer",
+          "to": "v_role_viewer_role_viewer_main"
+        }
+      },
+      {
+        "id": "v_role_viewer_B1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "B1"
+        }
+      },
+      {
+        "id": "role_viewer_B1",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_viewer_main",
+          "to": "B1",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_viewer_role_viewer_B1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "role_viewer_B1",
+          "from": "v_role_viewer_role_viewer_main",
+          "to": "v_role_viewer_B1"
+        }
+      },
+      {
+        "id": "v_role_viewer_B2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "B2"
+        }
+      },
+      {
+        "id": "role_viewer_B2",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_viewer_main",
+          "to": "B2",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_viewer_role_viewer_B2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "role_viewer_B2",
+          "from": "v_role_viewer_role_viewer_main",
+          "to": "v_role_viewer_B2"
+        }
+      },
+      {
+        "id": "v_role_viewer_B4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "B4"
+        }
+      },
+      {
+        "id": "role_viewer_B4",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_viewer_main",
+          "to": "B4",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_viewer_role_viewer_B4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "role_viewer_B4",
+          "from": "v_role_viewer_role_viewer_main",
+          "to": "v_role_viewer_B4"
+        }
+      },
+      {
+        "id": "v_role_viewer_B5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "B5"
+        }
+      },
+      {
+        "id": "role_viewer_B5",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_viewer_main",
+          "to": "B5",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_viewer_role_viewer_B5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "role_viewer_B5",
+          "from": "v_role_viewer_role_viewer_main",
+          "to": "v_role_viewer_B5"
+        }
+      },
+      {
+        "id": "v_role_viewer_B7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "B7"
+        }
+      },
+      {
+        "id": "role_viewer_B7",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_viewer_main",
+          "to": "B7",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_viewer_role_viewer_B7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "role_viewer_B7",
+          "from": "v_role_viewer_role_viewer_main",
+          "to": "v_role_viewer_B7"
+        }
+      },
+      {
+        "id": "role_viewer_service",
+        "kind": "block",
+        "label": "Служебные функции",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_role_viewer_role_viewer_service",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "role_viewer_service"
+        }
+      },
+      {
+        "id": "role_viewer_branch_service",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "principal_viewer",
+          "to": "role_viewer_service",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_viewer_role_viewer_branch_service",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "role_viewer_branch_service",
+          "from": "v_role_viewer_principal_viewer",
+          "to": "v_role_viewer_role_viewer_service"
+        }
+      },
+      {
+        "id": "v_role_viewer_S1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "S1"
+        }
+      },
+      {
+        "id": "role_viewer_S1",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_viewer_service",
+          "to": "S1",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_viewer_role_viewer_S1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "role_viewer_S1",
+          "from": "v_role_viewer_role_viewer_service",
+          "to": "v_role_viewer_S1"
+        }
+      },
+      {
+        "id": "v_role_viewer_S2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "S2"
+        }
+      },
+      {
+        "id": "role_viewer_S2",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_viewer_service",
+          "to": "S2",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_viewer_role_viewer_S2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "role_viewer_S2",
+          "from": "v_role_viewer_role_viewer_service",
+          "to": "v_role_viewer_S2"
+        }
+      },
+      {
+        "id": "v_role_viewer_S3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "S3"
+        }
+      },
+      {
+        "id": "role_viewer_S3",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_viewer_service",
+          "to": "S3",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_viewer_role_viewer_S3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "role_viewer_S3",
+          "from": "v_role_viewer_role_viewer_service",
+          "to": "v_role_viewer_S3"
+        }
+      },
+      {
+        "id": "v_role_viewer_S5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "S5"
+        }
+      },
+      {
+        "id": "role_viewer_S5",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_viewer_service",
+          "to": "S5",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_viewer_role_viewer_S5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_viewer",
+          "element": "role_viewer_S5",
+          "from": "v_role_viewer_role_viewer_service",
+          "to": "v_role_viewer_S5"
+        }
+      },
+      {
+        "id": "role_admin",
+        "kind": "diagram",
+        "label": "Функции роли Администратор",
+        "properties": {
+          "type": "general"
+        }
+      },
+      {
+        "id": "principal_admin",
+        "kind": "block",
+        "label": "Администратор\nadmin",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_role_admin_principal_admin",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_admin",
+          "element": "principal_admin"
+        }
+      },
+      {
+        "id": "role_admin_service",
+        "kind": "block",
+        "label": "Служебные функции",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_role_admin_role_admin_service",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_admin",
+          "element": "role_admin_service"
+        }
+      },
+      {
+        "id": "role_admin_branch_service",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "principal_admin",
+          "to": "role_admin_service",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_admin_role_admin_branch_service",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_admin",
+          "element": "role_admin_branch_service",
+          "from": "v_role_admin_principal_admin",
+          "to": "v_role_admin_role_admin_service"
+        }
+      },
+      {
+        "id": "v_role_admin_S1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_admin",
+          "element": "S1"
+        }
+      },
+      {
+        "id": "role_admin_S1",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_admin_service",
+          "to": "S1",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_admin_role_admin_S1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_admin",
+          "element": "role_admin_S1",
+          "from": "v_role_admin_role_admin_service",
+          "to": "v_role_admin_S1"
+        }
+      },
+      {
+        "id": "v_role_admin_S2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_admin",
+          "element": "S2"
+        }
+      },
+      {
+        "id": "role_admin_S2",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_admin_service",
+          "to": "S2",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_admin_role_admin_S2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_admin",
+          "element": "role_admin_S2",
+          "from": "v_role_admin_role_admin_service",
+          "to": "v_role_admin_S2"
+        }
+      },
+      {
+        "id": "v_role_admin_S3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_admin",
+          "element": "S3"
+        }
+      },
+      {
+        "id": "role_admin_S3",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_admin_service",
+          "to": "S3",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_admin_role_admin_S3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_admin",
+          "element": "role_admin_S3",
+          "from": "v_role_admin_role_admin_service",
+          "to": "v_role_admin_S3"
+        }
+      },
+      {
+        "id": "v_role_admin_S4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_admin",
+          "element": "S4"
+        }
+      },
+      {
+        "id": "role_admin_S4",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_admin_service",
+          "to": "S4",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_admin_role_admin_S4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_admin",
+          "element": "role_admin_S4",
+          "from": "v_role_admin_role_admin_service",
+          "to": "v_role_admin_S4"
+        }
+      },
+      {
+        "id": "v_role_admin_S5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_admin",
+          "element": "S5"
+        }
+      },
+      {
+        "id": "role_admin_S5",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_admin_service",
+          "to": "S5",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_role_admin_role_admin_S5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "role_admin",
+          "element": "role_admin_S5",
+          "from": "v_role_admin_role_admin_service",
+          "to": "v_role_admin_S5"
+        }
+      },
+      {
+        "id": "engineer_dialog",
+        "kind": "diagram",
+        "label": "Диалог инженера от входа до расчёта",
+        "properties": {
+          "type": "general"
+        }
+      },
+      {
+        "id": "e_login",
+        "kind": "block",
+        "label": "Учебный вход\nИнженер",
+        "properties": {
+          "shape": "rounded",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e_login",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e_login"
+        }
+      },
+      {
+        "id": "e_auth",
+        "kind": "block",
+        "label": "Сеанс\nоткрыт?",
+        "properties": {
+          "shape": "diamond",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e_auth",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e_auth"
+        }
+      },
+      {
+        "id": "e_bad",
+        "kind": "block",
+        "label": "Неверный пароль\nПоказать ошибку",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e_bad",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e_bad"
+        }
+      },
+      {
+        "id": "e_select",
+        "kind": "block",
+        "label": "Выбрать конфигурацию\nи исходную версию",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e_select",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e_select"
+        }
+      },
+      {
+        "id": "e_edit",
+        "kind": "block",
+        "label": "Изменить позиции\nи количество локально",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e_edit",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e_edit"
+        }
+      },
+      {
+        "id": "e_calc",
+        "kind": "block",
+        "label": "Проверить и рассчитать\nPOST /api/calculate",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e_calc",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e_calc"
+        }
+      },
+      {
+        "id": "e_ok",
+        "kind": "block",
+        "label": "Расчёт\nуспешен?",
+        "properties": {
+          "shape": "diamond",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e_ok",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e_ok"
+        }
+      },
+      {
+        "id": "e_error",
+        "kind": "block",
+        "label": "422 · Причина ошибки\nВернуться к составу",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e_error",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e_error"
+        }
+      },
+      {
+        "id": "e_result",
+        "kind": "block",
+        "label": "Показать позиции\nцену и массу",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e_result",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e_result"
+        }
+      },
+      {
+        "id": "e_next",
+        "kind": "block",
+        "label": "Перейти к сохранению\nновой версии",
+        "properties": {
+          "shape": "rounded",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e_next",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e_next"
+        }
+      },
+      {
+        "id": "e1",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "e_login",
+          "to": "e_auth",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e1",
+          "from": "v_engineer_dialog_e_login",
+          "to": "v_engineer_dialog_e_auth"
+        }
+      },
+      {
+        "id": "e2",
+        "kind": "link",
+        "label": "Да",
+        "properties": {
+          "from": "e_auth",
+          "to": "e_select",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e2",
+          "from": "v_engineer_dialog_e_auth",
+          "to": "v_engineer_dialog_e_select"
+        }
+      },
+      {
+        "id": "e3",
+        "kind": "link",
+        "label": "Нет",
+        "properties": {
+          "from": "e_auth",
+          "to": "e_bad",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e3",
+          "from": "v_engineer_dialog_e_auth",
+          "to": "v_engineer_dialog_e_bad"
+        }
+      },
+      {
+        "id": "e4",
+        "kind": "link",
+        "label": "Исправить",
+        "properties": {
+          "from": "e_bad",
+          "to": "e_login",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e4",
+          "from": "v_engineer_dialog_e_bad",
+          "to": "v_engineer_dialog_e_login"
+        }
+      },
+      {
+        "id": "e5",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "e_select",
+          "to": "e_edit",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e5",
+          "from": "v_engineer_dialog_e_select",
+          "to": "v_engineer_dialog_e_edit"
+        }
+      },
+      {
+        "id": "e6",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "e_edit",
+          "to": "e_calc",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e6",
+          "from": "v_engineer_dialog_e_edit",
+          "to": "v_engineer_dialog_e_calc"
+        }
+      },
+      {
+        "id": "e7",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "e_calc",
+          "to": "e_ok",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e7",
+          "from": "v_engineer_dialog_e_calc",
+          "to": "v_engineer_dialog_e_ok"
+        }
+      },
+      {
+        "id": "e8",
+        "kind": "link",
+        "label": "Нет",
+        "properties": {
+          "from": "e_ok",
+          "to": "e_error",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e8",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e8",
+          "from": "v_engineer_dialog_e_ok",
+          "to": "v_engineer_dialog_e_error"
+        }
+      },
+      {
+        "id": "e9",
+        "kind": "link",
+        "label": "Исправить",
+        "properties": {
+          "from": "e_error",
+          "to": "e_edit",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e9",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e9",
+          "from": "v_engineer_dialog_e_error",
+          "to": "v_engineer_dialog_e_edit"
+        }
+      },
+      {
+        "id": "e10",
+        "kind": "link",
+        "label": "Да",
+        "properties": {
+          "from": "e_ok",
+          "to": "e_result",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e10",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e10",
+          "from": "v_engineer_dialog_e_ok",
+          "to": "v_engineer_dialog_e_result"
+        }
+      },
+      {
+        "id": "e11",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "e_result",
+          "to": "e_next",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_engineer_dialog_e11",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "engineer_dialog",
+          "element": "e11",
+          "from": "v_engineer_dialog_e_result",
+          "to": "v_engineer_dialog_e_next"
+        }
+      },
+      {
+        "id": "save_dialog",
+        "kind": "diagram",
+        "label": "Сохранение новой версии инженером",
+        "properties": {
+          "type": "general"
+        }
+      },
+      {
+        "id": "s_start",
+        "kind": "block",
+        "label": "Сохранить новую версию\nPOST /api/versions",
+        "properties": {
+          "shape": "rounded",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_save_dialog_s_start",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "save_dialog",
+          "element": "s_start"
+        }
+      },
+      {
+        "id": "s_guard",
+        "kind": "block",
+        "label": "Данные и expected_latest\nпроверены сервером",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_save_dialog_s_guard",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "save_dialog",
+          "element": "s_guard"
+        }
+      },
+      {
+        "id": "s_ok",
+        "kind": "block",
+        "label": "Запись\nуспешна?",
+        "properties": {
+          "shape": "diamond",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_save_dialog_s_ok",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "save_dialog",
+          "element": "s_ok"
+        }
+      },
+      {
+        "id": "s_conflict",
+        "kind": "block",
+        "label": "409 · Версия изменена\nОбновить данные",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_save_dialog_s_conflict",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "save_dialog",
+          "element": "s_conflict"
+        }
+      },
+      {
+        "id": "s_invalid",
+        "kind": "block",
+        "label": "422 · Неверный ввод\nИсправить состав",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_save_dialog_s_invalid",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "save_dialog",
+          "element": "s_invalid"
+        }
+      },
+      {
+        "id": "s_state",
+        "kind": "block",
+        "label": "Новая версия\nCHECKED?",
+        "properties": {
+          "shape": "diamond",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_save_dialog_s_state",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "save_dialog",
+          "element": "s_state"
+        }
+      },
+      {
+        "id": "s_draft",
+        "kind": "block",
+        "label": "DRAFT · Причины ошибки\nИсправить новую версию",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_save_dialog_s_draft",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "save_dialog",
+          "element": "s_draft"
+        }
+      },
+      {
+        "id": "s_checked",
+        "kind": "block",
+        "label": "CHECKED\nПоказать новую версию",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_save_dialog_s_checked",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "save_dialog",
+          "element": "s_checked"
+        }
+      },
+      {
+        "id": "s_finish",
+        "kind": "block",
+        "label": "Передать номер версии\nменеджеру для ревизии",
+        "properties": {
+          "shape": "rounded",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_save_dialog_s_finish",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "save_dialog",
+          "element": "s_finish"
+        }
+      },
+      {
+        "id": "s1",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "s_start",
+          "to": "s_guard",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_save_dialog_s1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "save_dialog",
+          "element": "s1",
+          "from": "v_save_dialog_s_start",
+          "to": "v_save_dialog_s_guard"
+        }
+      },
+      {
+        "id": "s2",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "s_guard",
+          "to": "s_ok",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_save_dialog_s2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "save_dialog",
+          "element": "s2",
+          "from": "v_save_dialog_s_guard",
+          "to": "v_save_dialog_s_ok"
+        }
+      },
+      {
+        "id": "s3",
+        "kind": "link",
+        "label": "409",
+        "properties": {
+          "from": "s_ok",
+          "to": "s_conflict",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_save_dialog_s3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "save_dialog",
+          "element": "s3",
+          "from": "v_save_dialog_s_ok",
+          "to": "v_save_dialog_s_conflict"
+        }
+      },
+      {
+        "id": "s4",
+        "kind": "link",
+        "label": "422",
+        "properties": {
+          "from": "s_ok",
+          "to": "s_invalid",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_save_dialog_s4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "save_dialog",
+          "element": "s4",
+          "from": "v_save_dialog_s_ok",
+          "to": "v_save_dialog_s_invalid"
+        }
+      },
+      {
+        "id": "s5",
+        "kind": "link",
+        "label": "200",
+        "properties": {
+          "from": "s_ok",
+          "to": "s_state",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_save_dialog_s5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "save_dialog",
+          "element": "s5",
+          "from": "v_save_dialog_s_ok",
+          "to": "v_save_dialog_s_state"
+        }
+      },
+      {
+        "id": "s6",
+        "kind": "link",
+        "label": "Нет",
+        "properties": {
+          "from": "s_state",
+          "to": "s_draft",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_save_dialog_s6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "save_dialog",
+          "element": "s6",
+          "from": "v_save_dialog_s_state",
+          "to": "v_save_dialog_s_draft"
+        }
+      },
+      {
+        "id": "s7",
+        "kind": "link",
+        "label": "Да",
+        "properties": {
+          "from": "s_state",
+          "to": "s_checked",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_save_dialog_s7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "save_dialog",
+          "element": "s7",
+          "from": "v_save_dialog_s_state",
+          "to": "v_save_dialog_s_checked"
+        }
+      },
+      {
+        "id": "s8",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "s_checked",
+          "to": "s_finish",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_save_dialog_s8",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "save_dialog",
+          "element": "s8",
+          "from": "v_save_dialog_s_checked",
+          "to": "v_save_dialog_s_finish"
+        }
+      },
+      {
+        "id": "manager_dialog",
+        "kind": "diagram",
+        "label": "Диалог менеджера создания ревизии",
+        "properties": {
+          "type": "general"
+        }
+      },
+      {
+        "id": "m_select",
+        "kind": "block",
+        "label": "Вход менеджера\nВыбрать карточку и версию",
+        "properties": {
+          "shape": "rounded",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_manager_dialog_m_select",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "manager_dialog",
+          "element": "m_select"
+        }
+      },
+      {
+        "id": "m_checked",
+        "kind": "block",
+        "label": "Версия\nCHECKED или\nFROZEN?",
+        "properties": {
+          "shape": "diamond",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_manager_dialog_m_checked",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "manager_dialog",
+          "element": "m_checked"
+        }
+      },
+      {
+        "id": "m_disabled",
+        "kind": "block",
+        "label": "DRAFT\nСохранение недоступно",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_manager_dialog_m_disabled",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "manager_dialog",
+          "element": "m_disabled"
+        }
+      },
+      {
+        "id": "m_form",
+        "kind": "block",
+        "label": "Заполнить название и описание\nи экономические параметры",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_manager_dialog_m_form",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "manager_dialog",
+          "element": "m_form"
+        }
+      },
+      {
+        "id": "m_save",
+        "kind": "block",
+        "label": "Сохранить новую ревизию\nPOST /api/revisions",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_manager_dialog_m_save",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "manager_dialog",
+          "element": "m_save"
+        }
+      },
+      {
+        "id": "m_ok",
+        "kind": "block",
+        "label": "Сервер\nсохранил?",
+        "properties": {
+          "shape": "diamond",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_manager_dialog_m_ok",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "manager_dialog",
+          "element": "m_ok"
+        }
+      },
+      {
+        "id": "m_error",
+        "kind": "block",
+        "label": "409 / 422 · Ошибка\nОбновить или исправить",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_manager_dialog_m_error",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "manager_dialog",
+          "element": "m_error"
+        }
+      },
+      {
+        "id": "m_success",
+        "kind": "block",
+        "label": "Новая ревизия DRAFT\nБез отправки",
+        "properties": {
+          "shape": "rounded",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_manager_dialog_m_success",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "manager_dialog",
+          "element": "m_success"
+        }
+      },
+      {
+        "id": "m1",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "m_select",
+          "to": "m_checked",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_manager_dialog_m1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "manager_dialog",
+          "element": "m1",
+          "from": "v_manager_dialog_m_select",
+          "to": "v_manager_dialog_m_checked"
+        }
+      },
+      {
+        "id": "m2",
+        "kind": "link",
+        "label": "Нет",
+        "properties": {
+          "from": "m_checked",
+          "to": "m_disabled",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_manager_dialog_m2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "manager_dialog",
+          "element": "m2",
+          "from": "v_manager_dialog_m_checked",
+          "to": "v_manager_dialog_m_disabled"
+        }
+      },
+      {
+        "id": "m3",
+        "kind": "link",
+        "label": "Выбрать другую",
+        "properties": {
+          "from": "m_disabled",
+          "to": "m_select",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_manager_dialog_m3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "manager_dialog",
+          "element": "m3",
+          "from": "v_manager_dialog_m_disabled",
+          "to": "v_manager_dialog_m_select"
+        }
+      },
+      {
+        "id": "m4",
+        "kind": "link",
+        "label": "Да",
+        "properties": {
+          "from": "m_checked",
+          "to": "m_form",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_manager_dialog_m4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "manager_dialog",
+          "element": "m4",
+          "from": "v_manager_dialog_m_checked",
+          "to": "v_manager_dialog_m_form"
+        }
+      },
+      {
+        "id": "m5",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "m_form",
+          "to": "m_save",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_manager_dialog_m5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "manager_dialog",
+          "element": "m5",
+          "from": "v_manager_dialog_m_form",
+          "to": "v_manager_dialog_m_save"
+        }
+      },
+      {
+        "id": "m6",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "m_save",
+          "to": "m_ok",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_manager_dialog_m6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "manager_dialog",
+          "element": "m6",
+          "from": "v_manager_dialog_m_save",
+          "to": "v_manager_dialog_m_ok"
+        }
+      },
+      {
+        "id": "m7",
+        "kind": "link",
+        "label": "Нет",
+        "properties": {
+          "from": "m_ok",
+          "to": "m_error",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_manager_dialog_m7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "manager_dialog",
+          "element": "m7",
+          "from": "v_manager_dialog_m_ok",
+          "to": "v_manager_dialog_m_error"
+        }
+      },
+      {
+        "id": "m8",
+        "kind": "link",
+        "label": "Исправить",
+        "properties": {
+          "from": "m_error",
+          "to": "m_form",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_manager_dialog_m8",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "manager_dialog",
+          "element": "m8",
+          "from": "v_manager_dialog_m_error",
+          "to": "v_manager_dialog_m_form"
+        }
+      },
+      {
+        "id": "m9",
+        "kind": "link",
+        "label": "Да",
+        "properties": {
+          "from": "m_ok",
+          "to": "m_success",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_manager_dialog_m9",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "manager_dialog",
+          "element": "m9",
+          "from": "v_manager_dialog_m_ok",
+          "to": "v_manager_dialog_m_success"
+        }
+      },
+      {
+        "id": "structure",
+        "kind": "diagram",
+        "label": "Структура реализованных модулей",
+        "properties": {
+          "type": "general"
+        }
+      },
+      {
+        "id": "html",
+        "kind": "block",
+        "label": "Видимые формы\nclient.html и client.css",
+        "properties": {
+          "shape": "rectangle",
+          "role": "client"
+        }
+      },
+      {
+        "id": "v_structure_html",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "html"
+        }
+      },
+      {
+        "id": "dialog",
+        "kind": "block",
+        "label": "Состояние и диалог\nclient.js · state render",
+        "properties": {
+          "shape": "rectangle",
+          "role": "client"
+        }
+      },
+      {
+        "id": "v_structure_dialog",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "dialog"
+        }
+      },
+      {
+        "id": "http",
+        "kind": "block",
+        "label": "HTTP клиент\nclient.js · api run",
+        "properties": {
+          "shape": "rectangle",
+          "role": "client"
+        }
+      },
+      {
+        "id": "v_structure_http",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "http"
+        }
+      },
+      {
+        "id": "handler",
+        "kind": "block",
+        "label": "HTTP обработчик и сеанс\nserver.py · Handler",
+        "properties": {
+          "shape": "rectangle",
+          "role": "authentication"
+        }
+      },
+      {
+        "id": "v_structure_handler",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "handler"
+        }
+      },
+      {
+        "id": "application",
+        "kind": "block",
+        "label": "Прикладные операции\nserver.py · Application",
+        "properties": {
+          "shape": "rectangle",
+          "role": "application"
+        }
+      },
+      {
+        "id": "v_structure_application",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "application"
+        }
+      },
+      {
+        "id": "domain",
+        "kind": "block",
+        "label": "Подбор и Decimal расчёт\nПрототип/domain.py",
+        "properties": {
+          "shape": "rectangle",
+          "role": "application"
+        }
+      },
+      {
+        "id": "v_structure_domain",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "domain"
+        }
+      },
+      {
+        "id": "rules",
+        "kind": "block",
+        "label": "Роли, функции и маршруты\nclient_contract.json",
+        "properties": {
+          "shape": "document",
+          "role": "authorization"
+        }
+      },
+      {
+        "id": "v_structure_rules",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "rules"
+        }
+      },
+      {
+        "id": "storage",
+        "kind": "block",
+        "label": "Транзакции и загрузка БД\nApplication.database\nПрототип/repository.py",
+        "properties": {
+          "shape": "rectangle",
+          "role": "storage"
+        }
+      },
+      {
+        "id": "v_structure_storage",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "storage"
+        }
+      },
+      {
+        "id": "database",
+        "kind": "block",
+        "label": "PostgreSQL\n12 таблиц и card_status\nОтдельная БД ppois10_*",
+        "properties": {
+          "shape": "cylinder",
+          "role": "database"
+        }
+      },
+      {
+        "id": "v_structure_database",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "database"
+        }
+      },
+      {
+        "id": "module1",
+        "kind": "link",
+        "label": "DOM",
+        "properties": {
+          "from": "html",
+          "to": "dialog",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_structure_module1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "module1",
+          "from": "v_structure_html",
+          "to": "v_structure_dialog"
+        }
+      },
+      {
+        "id": "module2",
+        "kind": "link",
+        "label": "Действие",
+        "properties": {
+          "from": "dialog",
+          "to": "http",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_structure_module2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "module2",
+          "from": "v_structure_dialog",
+          "to": "v_structure_http"
+        }
+      },
+      {
+        "id": "module3",
+        "kind": "link",
+        "label": "HTTP / JSON",
+        "properties": {
+          "from": "http",
+          "to": "handler",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_structure_module3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "module3",
+          "from": "v_structure_http",
+          "to": "v_structure_handler"
+        }
+      },
+      {
+        "id": "module4",
+        "kind": "link",
+        "label": "Допуск",
+        "properties": {
+          "from": "handler",
+          "to": "application",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_structure_module4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "module4",
+          "from": "v_structure_handler",
+          "to": "v_structure_application"
+        }
+      },
+      {
+        "id": "module5",
+        "kind": "link",
+        "label": "Расчёт",
+        "properties": {
+          "from": "application",
+          "to": "domain",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_structure_module5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "module5",
+          "from": "v_structure_application",
+          "to": "v_structure_domain"
+        }
+      },
+      {
+        "id": "module6",
+        "kind": "link",
+        "label": "SQL транзакция",
+        "properties": {
+          "from": "application",
+          "to": "storage",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_structure_module6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "module6",
+          "from": "v_structure_application",
+          "to": "v_structure_storage"
+        }
+      },
+      {
+        "id": "module7",
+        "kind": "link",
+        "label": "SQL",
+        "properties": {
+          "from": "storage",
+          "to": "database",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_structure_module7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "module7",
+          "from": "v_structure_storage",
+          "to": "v_structure_database"
+        }
+      },
+      {
+        "id": "module8",
+        "kind": "link",
+        "label": "Проверка права",
+        "properties": {
+          "from": "rules",
+          "to": "handler",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_structure_module8",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "module8",
+          "from": "v_structure_rules",
+          "to": "v_structure_handler"
+        }
+      }
+    ]
+  },
+  "source": "scheme ppois_client_02 \"Клиент ИС Юкомс версия 0.2\"\nblock client \"Клиент ИС Юкомс\\nВерсия 0.2\" role=generic shape=rectangle\nblock main \"Основные\\nфункции\" role=generic shape=rectangle\nblock service \"Служебные\\nфункции\" role=generic shape=rectangle\nblock B1 \"B1 · Просмотр групп компонентов и предложений\" role=generic shape=rectangle\nblock B2 \"B2 · Просмотр конфигураций и версий состава\" role=generic shape=rectangle\nblock B3 \"B3 · Сохранение новой версии состава\" role=generic shape=rectangle\nblock B4 \"B4 · Подбор и проверка, расчёт цены и массы\" role=generic shape=rectangle\nblock B5 \"B5 · Просмотр карточек и расчётных ревизий\" role=generic shape=rectangle\nblock B6 \"B6 · Создание новой расчётной ревизии DRAFT\" role=generic shape=rectangle\nblock B7 \"B7 · Просмотр сохранённых результатов попыток\" role=generic shape=rectangle\nblock S1 \"S1 · Демонстрационный вход\" role=generic shape=rectangle\nblock S2 \"S2 · Выход и завершение сеанса\" role=generic shape=rectangle\nblock S3 \"S3 · Проверка сеанса и доступных функций\" role=generic shape=rectangle\nblock S4 \"S4 · Диагностика локального стенда\" role=generic shape=rectangle\nblock S5 \"S5 · Инструкция и границы версии\" role=generic shape=rectangle\nblock function_group_0 Каталог role=generic shape=rectangle\nblock function_group_1 Состав role=generic shape=rectangle\nblock function_group_2 Расчёты role=generic shape=rectangle\nblock function_group_3 Карточки role=generic shape=rectangle\nblock function_group_4 Публикации role=generic shape=rectangle\nblock function_group_5 Сеанс role=generic shape=rectangle\nblock function_group_6 Доступ role=generic shape=rectangle\nblock function_group_7 Сопровождение role=generic shape=rectangle\nblock function_group_8 Справка role=generic shape=rectangle\ndiagram overview \"Корень дерева функций\" type=general\nview v_overview_client \"\" diagram=overview element=client\nview v_overview_main \"\" diagram=overview element=main\nview v_overview_service \"\" diagram=overview element=service\nlink tree_client_main \"\" from=client kind=association to=main\nview v_overview_tree_client_main \"\" diagram=overview element=tree_client_main from=v_overview_client to=v_overview_main\nlink tree_client_service \"\" from=client kind=association to=service\nview v_overview_tree_client_service \"\" diagram=overview element=tree_client_service from=v_overview_client to=v_overview_service\ndiagram functions_main \"Основные функции клиента\" type=general\nview v_functions_main_main \"\" diagram=functions_main element=main\nview v_functions_main_B1 \"\" diagram=functions_main element=B1\nview v_functions_main_B2 \"\" diagram=functions_main element=B2\nview v_functions_main_B3 \"\" diagram=functions_main element=B3\nview v_functions_main_B4 \"\" diagram=functions_main element=B4\nview v_functions_main_B5 \"\" diagram=functions_main element=B5\nview v_functions_main_B6 \"\" diagram=functions_main element=B6\nview v_functions_main_B7 \"\" diagram=functions_main element=B7\nview v_functions_main_function_group_0 \"\" diagram=functions_main element=function_group_0\nlink tree_main_function_group_0 \"\" from=main kind=association to=function_group_0\nview v_functions_main_tree_main_function_group_0 \"\" diagram=functions_main element=tree_main_function_group_0 from=v_functions_main_main to=v_functions_main_function_group_0\nlink tree_function_group_0_B1 \"\" from=function_group_0 kind=association to=B1\nview v_functions_main_tree_function_group_0_B1 \"\" diagram=functions_main element=tree_function_group_0_B1 from=v_functions_main_function_group_0 to=v_functions_main_B1\nview v_functions_main_function_group_1 \"\" diagram=functions_main element=function_group_1\nlink tree_main_function_group_1 \"\" from=main kind=association to=function_group_1\nview v_functions_main_tree_main_function_group_1 \"\" diagram=functions_main element=tree_main_function_group_1 from=v_functions_main_main to=v_functions_main_function_group_1\nlink tree_function_group_1_B2 \"\" from=function_group_1 kind=association to=B2\nview v_functions_main_tree_function_group_1_B2 \"\" diagram=functions_main element=tree_function_group_1_B2 from=v_functions_main_function_group_1 to=v_functions_main_B2\nlink tree_function_group_1_B3 \"\" from=function_group_1 kind=association to=B3\nview v_functions_main_tree_function_group_1_B3 \"\" diagram=functions_main element=tree_function_group_1_B3 from=v_functions_main_function_group_1 to=v_functions_main_B3\nview v_functions_main_function_group_2 \"\" diagram=functions_main element=function_group_2\nlink tree_main_function_group_2 \"\" from=main kind=association to=function_group_2\nview v_functions_main_tree_main_function_group_2 \"\" diagram=functions_main element=tree_main_function_group_2 from=v_functions_main_main to=v_functions_main_function_group_2\nlink tree_function_group_2_B4 \"\" from=function_group_2 kind=association to=B4\nview v_functions_main_tree_function_group_2_B4 \"\" diagram=functions_main element=tree_function_group_2_B4 from=v_functions_main_function_group_2 to=v_functions_main_B4\nview v_functions_main_function_group_3 \"\" diagram=functions_main element=function_group_3\nlink tree_main_function_group_3 \"\" from=main kind=association to=function_group_3\nview v_functions_main_tree_main_function_group_3 \"\" diagram=functions_main element=tree_main_function_group_3 from=v_functions_main_main to=v_functions_main_function_group_3\nlink tree_function_group_3_B5 \"\" from=function_group_3 kind=association to=B5\nview v_functions_main_tree_function_group_3_B5 \"\" diagram=functions_main element=tree_function_group_3_B5 from=v_functions_main_function_group_3 to=v_functions_main_B5\nlink tree_function_group_3_B6 \"\" from=function_group_3 kind=association to=B6\nview v_functions_main_tree_function_group_3_B6 \"\" diagram=functions_main element=tree_function_group_3_B6 from=v_functions_main_function_group_3 to=v_functions_main_B6\nview v_functions_main_function_group_4 \"\" diagram=functions_main element=function_group_4\nlink tree_main_function_group_4 \"\" from=main kind=association to=function_group_4\nview v_functions_main_tree_main_function_group_4 \"\" diagram=functions_main element=tree_main_function_group_4 from=v_functions_main_main to=v_functions_main_function_group_4\nlink tree_function_group_4_B7 \"\" from=function_group_4 kind=association to=B7\nview v_functions_main_tree_function_group_4_B7 \"\" diagram=functions_main element=tree_function_group_4_B7 from=v_functions_main_function_group_4 to=v_functions_main_B7\ndiagram functions_service \"Служебные функции клиента\" type=general\nview v_functions_service_service \"\" diagram=functions_service element=service\nview v_functions_service_S1 \"\" diagram=functions_service element=S1\nview v_functions_service_S2 \"\" diagram=functions_service element=S2\nview v_functions_service_S3 \"\" diagram=functions_service element=S3\nview v_functions_service_S4 \"\" diagram=functions_service element=S4\nview v_functions_service_S5 \"\" diagram=functions_service element=S5\nview v_functions_service_function_group_5 \"\" diagram=functions_service element=function_group_5\nlink tree_service_function_group_5 \"\" from=service kind=association to=function_group_5\nview v_functions_service_tree_service_function_group_5 \"\" diagram=functions_service element=tree_service_function_group_5 from=v_functions_service_service to=v_functions_service_function_group_5\nlink tree_function_group_5_S1 \"\" from=function_group_5 kind=association to=S1\nview v_functions_service_tree_function_group_5_S1 \"\" diagram=functions_service element=tree_function_group_5_S1 from=v_functions_service_function_group_5 to=v_functions_service_S1\nlink tree_function_group_5_S2 \"\" from=function_group_5 kind=association to=S2\nview v_functions_service_tree_function_group_5_S2 \"\" diagram=functions_service element=tree_function_group_5_S2 from=v_functions_service_function_group_5 to=v_functions_service_S2\nview v_functions_service_function_group_6 \"\" diagram=functions_service element=function_group_6\nlink tree_service_function_group_6 \"\" from=service kind=association to=function_group_6\nview v_functions_service_tree_service_function_group_6 \"\" diagram=functions_service element=tree_service_function_group_6 from=v_functions_service_service to=v_functions_service_function_group_6\nlink tree_function_group_6_S3 \"\" from=function_group_6 kind=association to=S3\nview v_functions_service_tree_function_group_6_S3 \"\" diagram=functions_service element=tree_function_group_6_S3 from=v_functions_service_function_group_6 to=v_functions_service_S3\nview v_functions_service_function_group_7 \"\" diagram=functions_service element=function_group_7\nlink tree_service_function_group_7 \"\" from=service kind=association to=function_group_7\nview v_functions_service_tree_service_function_group_7 \"\" diagram=functions_service element=tree_service_function_group_7 from=v_functions_service_service to=v_functions_service_function_group_7\nlink tree_function_group_7_S4 \"\" from=function_group_7 kind=association to=S4\nview v_functions_service_tree_function_group_7_S4 \"\" diagram=functions_service element=tree_function_group_7_S4 from=v_functions_service_function_group_7 to=v_functions_service_S4\nview v_functions_service_function_group_8 \"\" diagram=functions_service element=function_group_8\nlink tree_service_function_group_8 \"\" from=service kind=association to=function_group_8\nview v_functions_service_tree_service_function_group_8 \"\" diagram=functions_service element=tree_service_function_group_8 from=v_functions_service_service to=v_functions_service_function_group_8\nlink tree_function_group_8_S5 \"\" from=function_group_8 kind=association to=S5\nview v_functions_service_tree_function_group_8_S5 \"\" diagram=functions_service element=tree_function_group_8_S5 from=v_functions_service_function_group_8 to=v_functions_service_S5\ndiagram role_engineer \"Функции роли Инженер\" type=general\nblock principal_engineer \"Инженер\\nengineer\" role=generic shape=rectangle\nview v_role_engineer_principal_engineer \"\" diagram=role_engineer element=principal_engineer\nblock role_engineer_main \"Основные функции\" role=generic shape=rectangle\nview v_role_engineer_role_engineer_main \"\" diagram=role_engineer element=role_engineer_main\nlink role_engineer_branch_main \"\" from=principal_engineer kind=association to=role_engineer_main\nview v_role_engineer_role_engineer_branch_main \"\" diagram=role_engineer element=role_engineer_branch_main from=v_role_engineer_principal_engineer to=v_role_engineer_role_engineer_main\nview v_role_engineer_B1 \"\" diagram=role_engineer element=B1\nlink role_engineer_B1 \"\" from=role_engineer_main kind=association to=B1\nview v_role_engineer_role_engineer_B1 \"\" diagram=role_engineer element=role_engineer_B1 from=v_role_engineer_role_engineer_main to=v_role_engineer_B1\nview v_role_engineer_B2 \"\" diagram=role_engineer element=B2\nlink role_engineer_B2 \"\" from=role_engineer_main kind=association to=B2\nview v_role_engineer_role_engineer_B2 \"\" diagram=role_engineer element=role_engineer_B2 from=v_role_engineer_role_engineer_main to=v_role_engineer_B2\nview v_role_engineer_B3 \"\" diagram=role_engineer element=B3\nlink role_engineer_B3 \"\" from=role_engineer_main kind=association to=B3\nview v_role_engineer_role_engineer_B3 \"\" diagram=role_engineer element=role_engineer_B3 from=v_role_engineer_role_engineer_main to=v_role_engineer_B3\nview v_role_engineer_B4 \"\" diagram=role_engineer element=B4\nlink role_engineer_B4 \"\" from=role_engineer_main kind=association to=B4\nview v_role_engineer_role_engineer_B4 \"\" diagram=role_engineer element=role_engineer_B4 from=v_role_engineer_role_engineer_main to=v_role_engineer_B4\nview v_role_engineer_B5 \"\" diagram=role_engineer element=B5\nlink role_engineer_B5 \"\" from=role_engineer_main kind=association to=B5\nview v_role_engineer_role_engineer_B5 \"\" diagram=role_engineer element=role_engineer_B5 from=v_role_engineer_role_engineer_main to=v_role_engineer_B5\nview v_role_engineer_B7 \"\" diagram=role_engineer element=B7\nlink role_engineer_B7 \"\" from=role_engineer_main kind=association to=B7\nview v_role_engineer_role_engineer_B7 \"\" diagram=role_engineer element=role_engineer_B7 from=v_role_engineer_role_engineer_main to=v_role_engineer_B7\nblock role_engineer_service \"Служебные функции\" role=generic shape=rectangle\nview v_role_engineer_role_engineer_service \"\" diagram=role_engineer element=role_engineer_service\nlink role_engineer_branch_service \"\" from=principal_engineer kind=association to=role_engineer_service\nview v_role_engineer_role_engineer_branch_service \"\" diagram=role_engineer element=role_engineer_branch_service from=v_role_engineer_principal_engineer to=v_role_engineer_role_engineer_service\nview v_role_engineer_S1 \"\" diagram=role_engineer element=S1\nlink role_engineer_S1 \"\" from=role_engineer_service kind=association to=S1\nview v_role_engineer_role_engineer_S1 \"\" diagram=role_engineer element=role_engineer_S1 from=v_role_engineer_role_engineer_service to=v_role_engineer_S1\nview v_role_engineer_S2 \"\" diagram=role_engineer element=S2\nlink role_engineer_S2 \"\" from=role_engineer_service kind=association to=S2\nview v_role_engineer_role_engineer_S2 \"\" diagram=role_engineer element=role_engineer_S2 from=v_role_engineer_role_engineer_service to=v_role_engineer_S2\nview v_role_engineer_S3 \"\" diagram=role_engineer element=S3\nlink role_engineer_S3 \"\" from=role_engineer_service kind=association to=S3\nview v_role_engineer_role_engineer_S3 \"\" diagram=role_engineer element=role_engineer_S3 from=v_role_engineer_role_engineer_service to=v_role_engineer_S3\nview v_role_engineer_S5 \"\" diagram=role_engineer element=S5\nlink role_engineer_S5 \"\" from=role_engineer_service kind=association to=S5\nview v_role_engineer_role_engineer_S5 \"\" diagram=role_engineer element=role_engineer_S5 from=v_role_engineer_role_engineer_service to=v_role_engineer_S5\ndiagram role_manager \"Функции роли Менеджер\" type=general\nblock principal_manager \"Менеджер\\nmanager\" role=generic shape=rectangle\nview v_role_manager_principal_manager \"\" diagram=role_manager element=principal_manager\nblock role_manager_main \"Основные функции\" role=generic shape=rectangle\nview v_role_manager_role_manager_main \"\" diagram=role_manager element=role_manager_main\nlink role_manager_branch_main \"\" from=principal_manager kind=association to=role_manager_main\nview v_role_manager_role_manager_branch_main \"\" diagram=role_manager element=role_manager_branch_main from=v_role_manager_principal_manager to=v_role_manager_role_manager_main\nview v_role_manager_B1 \"\" diagram=role_manager element=B1\nlink role_manager_B1 \"\" from=role_manager_main kind=association to=B1\nview v_role_manager_role_manager_B1 \"\" diagram=role_manager element=role_manager_B1 from=v_role_manager_role_manager_main to=v_role_manager_B1\nview v_role_manager_B2 \"\" diagram=role_manager element=B2\nlink role_manager_B2 \"\" from=role_manager_main kind=association to=B2\nview v_role_manager_role_manager_B2 \"\" diagram=role_manager element=role_manager_B2 from=v_role_manager_role_manager_main to=v_role_manager_B2\nview v_role_manager_B4 \"\" diagram=role_manager element=B4\nlink role_manager_B4 \"\" from=role_manager_main kind=association to=B4\nview v_role_manager_role_manager_B4 \"\" diagram=role_manager element=role_manager_B4 from=v_role_manager_role_manager_main to=v_role_manager_B4\nview v_role_manager_B5 \"\" diagram=role_manager element=B5\nlink role_manager_B5 \"\" from=role_manager_main kind=association to=B5\nview v_role_manager_role_manager_B5 \"\" diagram=role_manager element=role_manager_B5 from=v_role_manager_role_manager_main to=v_role_manager_B5\nview v_role_manager_B6 \"\" diagram=role_manager element=B6\nlink role_manager_B6 \"\" from=role_manager_main kind=association to=B6\nview v_role_manager_role_manager_B6 \"\" diagram=role_manager element=role_manager_B6 from=v_role_manager_role_manager_main to=v_role_manager_B6\nview v_role_manager_B7 \"\" diagram=role_manager element=B7\nlink role_manager_B7 \"\" from=role_manager_main kind=association to=B7\nview v_role_manager_role_manager_B7 \"\" diagram=role_manager element=role_manager_B7 from=v_role_manager_role_manager_main to=v_role_manager_B7\nblock role_manager_service \"Служебные функции\" role=generic shape=rectangle\nview v_role_manager_role_manager_service \"\" diagram=role_manager element=role_manager_service\nlink role_manager_branch_service \"\" from=principal_manager kind=association to=role_manager_service\nview v_role_manager_role_manager_branch_service \"\" diagram=role_manager element=role_manager_branch_service from=v_role_manager_principal_manager to=v_role_manager_role_manager_service\nview v_role_manager_S1 \"\" diagram=role_manager element=S1\nlink role_manager_S1 \"\" from=role_manager_service kind=association to=S1\nview v_role_manager_role_manager_S1 \"\" diagram=role_manager element=role_manager_S1 from=v_role_manager_role_manager_service to=v_role_manager_S1\nview v_role_manager_S2 \"\" diagram=role_manager element=S2\nlink role_manager_S2 \"\" from=role_manager_service kind=association to=S2\nview v_role_manager_role_manager_S2 \"\" diagram=role_manager element=role_manager_S2 from=v_role_manager_role_manager_service to=v_role_manager_S2\nview v_role_manager_S3 \"\" diagram=role_manager element=S3\nlink role_manager_S3 \"\" from=role_manager_service kind=association to=S3\nview v_role_manager_role_manager_S3 \"\" diagram=role_manager element=role_manager_S3 from=v_role_manager_role_manager_service to=v_role_manager_S3\nview v_role_manager_S5 \"\" diagram=role_manager element=S5\nlink role_manager_S5 \"\" from=role_manager_service kind=association to=S5\nview v_role_manager_role_manager_S5 \"\" diagram=role_manager element=role_manager_S5 from=v_role_manager_role_manager_service to=v_role_manager_S5\ndiagram role_viewer \"Функции роли Наблюдатель\" type=general\nblock principal_viewer \"Наблюдатель\\nviewer\" role=generic shape=rectangle\nview v_role_viewer_principal_viewer \"\" diagram=role_viewer element=principal_viewer\nblock role_viewer_main \"Основные функции\" role=generic shape=rectangle\nview v_role_viewer_role_viewer_main \"\" diagram=role_viewer element=role_viewer_main\nlink role_viewer_branch_main \"\" from=principal_viewer kind=association to=role_viewer_main\nview v_role_viewer_role_viewer_branch_main \"\" diagram=role_viewer element=role_viewer_branch_main from=v_role_viewer_principal_viewer to=v_role_viewer_role_viewer_main\nview v_role_viewer_B1 \"\" diagram=role_viewer element=B1\nlink role_viewer_B1 \"\" from=role_viewer_main kind=association to=B1\nview v_role_viewer_role_viewer_B1 \"\" diagram=role_viewer element=role_viewer_B1 from=v_role_viewer_role_viewer_main to=v_role_viewer_B1\nview v_role_viewer_B2 \"\" diagram=role_viewer element=B2\nlink role_viewer_B2 \"\" from=role_viewer_main kind=association to=B2\nview v_role_viewer_role_viewer_B2 \"\" diagram=role_viewer element=role_viewer_B2 from=v_role_viewer_role_viewer_main to=v_role_viewer_B2\nview v_role_viewer_B4 \"\" diagram=role_viewer element=B4\nlink role_viewer_B4 \"\" from=role_viewer_main kind=association to=B4\nview v_role_viewer_role_viewer_B4 \"\" diagram=role_viewer element=role_viewer_B4 from=v_role_viewer_role_viewer_main to=v_role_viewer_B4\nview v_role_viewer_B5 \"\" diagram=role_viewer element=B5\nlink role_viewer_B5 \"\" from=role_viewer_main kind=association to=B5\nview v_role_viewer_role_viewer_B5 \"\" diagram=role_viewer element=role_viewer_B5 from=v_role_viewer_role_viewer_main to=v_role_viewer_B5\nview v_role_viewer_B7 \"\" diagram=role_viewer element=B7\nlink role_viewer_B7 \"\" from=role_viewer_main kind=association to=B7\nview v_role_viewer_role_viewer_B7 \"\" diagram=role_viewer element=role_viewer_B7 from=v_role_viewer_role_viewer_main to=v_role_viewer_B7\nblock role_viewer_service \"Служебные функции\" role=generic shape=rectangle\nview v_role_viewer_role_viewer_service \"\" diagram=role_viewer element=role_viewer_service\nlink role_viewer_branch_service \"\" from=principal_viewer kind=association to=role_viewer_service\nview v_role_viewer_role_viewer_branch_service \"\" diagram=role_viewer element=role_viewer_branch_service from=v_role_viewer_principal_viewer to=v_role_viewer_role_viewer_service\nview v_role_viewer_S1 \"\" diagram=role_viewer element=S1\nlink role_viewer_S1 \"\" from=role_viewer_service kind=association to=S1\nview v_role_viewer_role_viewer_S1 \"\" diagram=role_viewer element=role_viewer_S1 from=v_role_viewer_role_viewer_service to=v_role_viewer_S1\nview v_role_viewer_S2 \"\" diagram=role_viewer element=S2\nlink role_viewer_S2 \"\" from=role_viewer_service kind=association to=S2\nview v_role_viewer_role_viewer_S2 \"\" diagram=role_viewer element=role_viewer_S2 from=v_role_viewer_role_viewer_service to=v_role_viewer_S2\nview v_role_viewer_S3 \"\" diagram=role_viewer element=S3\nlink role_viewer_S3 \"\" from=role_viewer_service kind=association to=S3\nview v_role_viewer_role_viewer_S3 \"\" diagram=role_viewer element=role_viewer_S3 from=v_role_viewer_role_viewer_service to=v_role_viewer_S3\nview v_role_viewer_S5 \"\" diagram=role_viewer element=S5\nlink role_viewer_S5 \"\" from=role_viewer_service kind=association to=S5\nview v_role_viewer_role_viewer_S5 \"\" diagram=role_viewer element=role_viewer_S5 from=v_role_viewer_role_viewer_service to=v_role_viewer_S5\ndiagram role_admin \"Функции роли Администратор\" type=general\nblock principal_admin \"Администратор\\nadmin\" role=generic shape=rectangle\nview v_role_admin_principal_admin \"\" diagram=role_admin element=principal_admin\nblock role_admin_service \"Служебные функции\" role=generic shape=rectangle\nview v_role_admin_role_admin_service \"\" diagram=role_admin element=role_admin_service\nlink role_admin_branch_service \"\" from=principal_admin kind=association to=role_admin_service\nview v_role_admin_role_admin_branch_service \"\" diagram=role_admin element=role_admin_branch_service from=v_role_admin_principal_admin to=v_role_admin_role_admin_service\nview v_role_admin_S1 \"\" diagram=role_admin element=S1\nlink role_admin_S1 \"\" from=role_admin_service kind=association to=S1\nview v_role_admin_role_admin_S1 \"\" diagram=role_admin element=role_admin_S1 from=v_role_admin_role_admin_service to=v_role_admin_S1\nview v_role_admin_S2 \"\" diagram=role_admin element=S2\nlink role_admin_S2 \"\" from=role_admin_service kind=association to=S2\nview v_role_admin_role_admin_S2 \"\" diagram=role_admin element=role_admin_S2 from=v_role_admin_role_admin_service to=v_role_admin_S2\nview v_role_admin_S3 \"\" diagram=role_admin element=S3\nlink role_admin_S3 \"\" from=role_admin_service kind=association to=S3\nview v_role_admin_role_admin_S3 \"\" diagram=role_admin element=role_admin_S3 from=v_role_admin_role_admin_service to=v_role_admin_S3\nview v_role_admin_S4 \"\" diagram=role_admin element=S4\nlink role_admin_S4 \"\" from=role_admin_service kind=association to=S4\nview v_role_admin_role_admin_S4 \"\" diagram=role_admin element=role_admin_S4 from=v_role_admin_role_admin_service to=v_role_admin_S4\nview v_role_admin_S5 \"\" diagram=role_admin element=S5\nlink role_admin_S5 \"\" from=role_admin_service kind=association to=S5\nview v_role_admin_role_admin_S5 \"\" diagram=role_admin element=role_admin_S5 from=v_role_admin_role_admin_service to=v_role_admin_S5\ndiagram engineer_dialog \"Диалог инженера от входа до расчёта\" type=general\nblock e_login \"Учебный вход\\nИнженер\" role=generic shape=rounded\nview v_engineer_dialog_e_login \"\" diagram=engineer_dialog element=e_login\nblock e_auth \"Сеанс\\nоткрыт?\" role=generic shape=diamond\nview v_engineer_dialog_e_auth \"\" diagram=engineer_dialog element=e_auth\nblock e_bad \"Неверный пароль\\nПоказать ошибку\" role=generic shape=rectangle\nview v_engineer_dialog_e_bad \"\" diagram=engineer_dialog element=e_bad\nblock e_select \"Выбрать конфигурацию\\nи исходную версию\" role=generic shape=rectangle\nview v_engineer_dialog_e_select \"\" diagram=engineer_dialog element=e_select\nblock e_edit \"Изменить позиции\\nи количество локально\" role=generic shape=rectangle\nview v_engineer_dialog_e_edit \"\" diagram=engineer_dialog element=e_edit\nblock e_calc \"Проверить и рассчитать\\nPOST /api/calculate\" role=generic shape=rectangle\nview v_engineer_dialog_e_calc \"\" diagram=engineer_dialog element=e_calc\nblock e_ok \"Расчёт\\nуспешен?\" role=generic shape=diamond\nview v_engineer_dialog_e_ok \"\" diagram=engineer_dialog element=e_ok\nblock e_error \"422 · Причина ошибки\\nВернуться к составу\" role=generic shape=rectangle\nview v_engineer_dialog_e_error \"\" diagram=engineer_dialog element=e_error\nblock e_result \"Показать позиции\\nцену и массу\" role=generic shape=rectangle\nview v_engineer_dialog_e_result \"\" diagram=engineer_dialog element=e_result\nblock e_next \"Перейти к сохранению\\nновой версии\" role=generic shape=rounded\nview v_engineer_dialog_e_next \"\" diagram=engineer_dialog element=e_next\nlink e1 \"\" from=e_login kind=directed to=e_auth\nview v_engineer_dialog_e1 \"\" diagram=engineer_dialog element=e1 from=v_engineer_dialog_e_login to=v_engineer_dialog_e_auth\nlink e2 Да from=e_auth kind=directed to=e_select\nview v_engineer_dialog_e2 \"\" diagram=engineer_dialog element=e2 from=v_engineer_dialog_e_auth to=v_engineer_dialog_e_select\nlink e3 Нет from=e_auth kind=directed to=e_bad\nview v_engineer_dialog_e3 \"\" diagram=engineer_dialog element=e3 from=v_engineer_dialog_e_auth to=v_engineer_dialog_e_bad\nlink e4 Исправить from=e_bad kind=directed to=e_login\nview v_engineer_dialog_e4 \"\" diagram=engineer_dialog element=e4 from=v_engineer_dialog_e_bad to=v_engineer_dialog_e_login\nlink e5 \"\" from=e_select kind=directed to=e_edit\nview v_engineer_dialog_e5 \"\" diagram=engineer_dialog element=e5 from=v_engineer_dialog_e_select to=v_engineer_dialog_e_edit\nlink e6 \"\" from=e_edit kind=directed to=e_calc\nview v_engineer_dialog_e6 \"\" diagram=engineer_dialog element=e6 from=v_engineer_dialog_e_edit to=v_engineer_dialog_e_calc\nlink e7 \"\" from=e_calc kind=directed to=e_ok\nview v_engineer_dialog_e7 \"\" diagram=engineer_dialog element=e7 from=v_engineer_dialog_e_calc to=v_engineer_dialog_e_ok\nlink e8 Нет from=e_ok kind=directed to=e_error\nview v_engineer_dialog_e8 \"\" diagram=engineer_dialog element=e8 from=v_engineer_dialog_e_ok to=v_engineer_dialog_e_error\nlink e9 Исправить from=e_error kind=directed to=e_edit\nview v_engineer_dialog_e9 \"\" diagram=engineer_dialog element=e9 from=v_engineer_dialog_e_error to=v_engineer_dialog_e_edit\nlink e10 Да from=e_ok kind=directed to=e_result\nview v_engineer_dialog_e10 \"\" diagram=engineer_dialog element=e10 from=v_engineer_dialog_e_ok to=v_engineer_dialog_e_result\nlink e11 \"\" from=e_result kind=directed to=e_next\nview v_engineer_dialog_e11 \"\" diagram=engineer_dialog element=e11 from=v_engineer_dialog_e_result to=v_engineer_dialog_e_next\ndiagram save_dialog \"Сохранение новой версии инженером\" type=general\nblock s_start \"Сохранить новую версию\\nPOST /api/versions\" role=generic shape=rounded\nview v_save_dialog_s_start \"\" diagram=save_dialog element=s_start\nblock s_guard \"Данные и expected_latest\\nпроверены сервером\" role=generic shape=rectangle\nview v_save_dialog_s_guard \"\" diagram=save_dialog element=s_guard\nblock s_ok \"Запись\\nуспешна?\" role=generic shape=diamond\nview v_save_dialog_s_ok \"\" diagram=save_dialog element=s_ok\nblock s_conflict \"409 · Версия изменена\\nОбновить данные\" role=generic shape=rectangle\nview v_save_dialog_s_conflict \"\" diagram=save_dialog element=s_conflict\nblock s_invalid \"422 · Неверный ввод\\nИсправить состав\" role=generic shape=rectangle\nview v_save_dialog_s_invalid \"\" diagram=save_dialog element=s_invalid\nblock s_state \"Новая версия\\nCHECKED?\" role=generic shape=diamond\nview v_save_dialog_s_state \"\" diagram=save_dialog element=s_state\nblock s_draft \"DRAFT · Причины ошибки\\nИсправить новую версию\" role=generic shape=rectangle\nview v_save_dialog_s_draft \"\" diagram=save_dialog element=s_draft\nblock s_checked \"CHECKED\\nПоказать новую версию\" role=generic shape=rectangle\nview v_save_dialog_s_checked \"\" diagram=save_dialog element=s_checked\nblock s_finish \"Передать номер версии\\nменеджеру для ревизии\" role=generic shape=rounded\nview v_save_dialog_s_finish \"\" diagram=save_dialog element=s_finish\nlink s1 \"\" from=s_start kind=directed to=s_guard\nview v_save_dialog_s1 \"\" diagram=save_dialog element=s1 from=v_save_dialog_s_start to=v_save_dialog_s_guard\nlink s2 \"\" from=s_guard kind=directed to=s_ok\nview v_save_dialog_s2 \"\" diagram=save_dialog element=s2 from=v_save_dialog_s_guard to=v_save_dialog_s_ok\nlink s3 409 from=s_ok kind=directed to=s_conflict\nview v_save_dialog_s3 \"\" diagram=save_dialog element=s3 from=v_save_dialog_s_ok to=v_save_dialog_s_conflict\nlink s4 422 from=s_ok kind=directed to=s_invalid\nview v_save_dialog_s4 \"\" diagram=save_dialog element=s4 from=v_save_dialog_s_ok to=v_save_dialog_s_invalid\nlink s5 200 from=s_ok kind=directed to=s_state\nview v_save_dialog_s5 \"\" diagram=save_dialog element=s5 from=v_save_dialog_s_ok to=v_save_dialog_s_state\nlink s6 Нет from=s_state kind=directed to=s_draft\nview v_save_dialog_s6 \"\" diagram=save_dialog element=s6 from=v_save_dialog_s_state to=v_save_dialog_s_draft\nlink s7 Да from=s_state kind=directed to=s_checked\nview v_save_dialog_s7 \"\" diagram=save_dialog element=s7 from=v_save_dialog_s_state to=v_save_dialog_s_checked\nlink s8 \"\" from=s_checked kind=directed to=s_finish\nview v_save_dialog_s8 \"\" diagram=save_dialog element=s8 from=v_save_dialog_s_checked to=v_save_dialog_s_finish\ndiagram manager_dialog \"Диалог менеджера создания ревизии\" type=general\nblock m_select \"Вход менеджера\\nВыбрать карточку и версию\" role=generic shape=rounded\nview v_manager_dialog_m_select \"\" diagram=manager_dialog element=m_select\nblock m_checked \"Версия\\nCHECKED или\\nFROZEN?\" role=generic shape=diamond\nview v_manager_dialog_m_checked \"\" diagram=manager_dialog element=m_checked\nblock m_disabled \"DRAFT\\nСохранение недоступно\" role=generic shape=rectangle\nview v_manager_dialog_m_disabled \"\" diagram=manager_dialog element=m_disabled\nblock m_form \"Заполнить название и описание\\nи экономические параметры\" role=generic shape=rectangle\nview v_manager_dialog_m_form \"\" diagram=manager_dialog element=m_form\nblock m_save \"Сохранить новую ревизию\\nPOST /api/revisions\" role=generic shape=rectangle\nview v_manager_dialog_m_save \"\" diagram=manager_dialog element=m_save\nblock m_ok \"Сервер\\nсохранил?\" role=generic shape=diamond\nview v_manager_dialog_m_ok \"\" diagram=manager_dialog element=m_ok\nblock m_error \"409 / 422 · Ошибка\\nОбновить или исправить\" role=generic shape=rectangle\nview v_manager_dialog_m_error \"\" diagram=manager_dialog element=m_error\nblock m_success \"Новая ревизия DRAFT\\nБез отправки\" role=generic shape=rounded\nview v_manager_dialog_m_success \"\" diagram=manager_dialog element=m_success\nlink m1 \"\" from=m_select kind=directed to=m_checked\nview v_manager_dialog_m1 \"\" diagram=manager_dialog element=m1 from=v_manager_dialog_m_select to=v_manager_dialog_m_checked\nlink m2 Нет from=m_checked kind=directed to=m_disabled\nview v_manager_dialog_m2 \"\" diagram=manager_dialog element=m2 from=v_manager_dialog_m_checked to=v_manager_dialog_m_disabled\nlink m3 \"Выбрать другую\" from=m_disabled kind=directed to=m_select\nview v_manager_dialog_m3 \"\" diagram=manager_dialog element=m3 from=v_manager_dialog_m_disabled to=v_manager_dialog_m_select\nlink m4 Да from=m_checked kind=directed to=m_form\nview v_manager_dialog_m4 \"\" diagram=manager_dialog element=m4 from=v_manager_dialog_m_checked to=v_manager_dialog_m_form\nlink m5 \"\" from=m_form kind=directed to=m_save\nview v_manager_dialog_m5 \"\" diagram=manager_dialog element=m5 from=v_manager_dialog_m_form to=v_manager_dialog_m_save\nlink m6 \"\" from=m_save kind=directed to=m_ok\nview v_manager_dialog_m6 \"\" diagram=manager_dialog element=m6 from=v_manager_dialog_m_save to=v_manager_dialog_m_ok\nlink m7 Нет from=m_ok kind=directed to=m_error\nview v_manager_dialog_m7 \"\" diagram=manager_dialog element=m7 from=v_manager_dialog_m_ok to=v_manager_dialog_m_error\nlink m8 Исправить from=m_error kind=directed to=m_form\nview v_manager_dialog_m8 \"\" diagram=manager_dialog element=m8 from=v_manager_dialog_m_error to=v_manager_dialog_m_form\nlink m9 Да from=m_ok kind=directed to=m_success\nview v_manager_dialog_m9 \"\" diagram=manager_dialog element=m9 from=v_manager_dialog_m_ok to=v_manager_dialog_m_success\ndiagram structure \"Структура реализованных модулей\" type=general\nblock html \"Видимые формы\\nclient.html и client.css\" role=client shape=rectangle\nview v_structure_html \"\" diagram=structure element=html\nblock dialog \"Состояние и диалог\\nclient.js · state render\" role=client shape=rectangle\nview v_structure_dialog \"\" diagram=structure element=dialog\nblock http \"HTTP клиент\\nclient.js · api run\" role=client shape=rectangle\nview v_structure_http \"\" diagram=structure element=http\nblock handler \"HTTP обработчик и сеанс\\nserver.py · Handler\" role=authentication shape=rectangle\nview v_structure_handler \"\" diagram=structure element=handler\nblock application \"Прикладные операции\\nserver.py · Application\" role=application shape=rectangle\nview v_structure_application \"\" diagram=structure element=application\nblock domain \"Подбор и Decimal расчёт\\nПрототип/domain.py\" role=application shape=rectangle\nview v_structure_domain \"\" diagram=structure element=domain\nblock rules \"Роли, функции и маршруты\\nclient_contract.json\" role=authorization shape=document\nview v_structure_rules \"\" diagram=structure element=rules\nblock storage \"Транзакции и загрузка БД\\nApplication.database\\nПрототип/repository.py\" role=storage shape=rectangle\nview v_structure_storage \"\" diagram=structure element=storage\nblock database \"PostgreSQL\\n12 таблиц и card_status\\nОтдельная БД ppois10_*\" role=database shape=cylinder\nview v_structure_database \"\" diagram=structure element=database\nlink module1 DOM from=html kind=directed to=dialog\nview v_structure_module1 \"\" diagram=structure element=module1 from=v_structure_html to=v_structure_dialog\nlink module2 Действие from=dialog kind=directed to=http\nview v_structure_module2 \"\" diagram=structure element=module2 from=v_structure_dialog to=v_structure_http\nlink module3 \"HTTP / JSON\" from=http kind=directed to=handler\nview v_structure_module3 \"\" diagram=structure element=module3 from=v_structure_http to=v_structure_handler\nlink module4 Допуск from=handler kind=directed to=application\nview v_structure_module4 \"\" diagram=structure element=module4 from=v_structure_handler to=v_structure_application\nlink module5 Расчёт from=application kind=directed to=domain\nview v_structure_module5 \"\" diagram=structure element=module5 from=v_structure_application to=v_structure_domain\nlink module6 \"SQL транзакция\" from=application kind=directed to=storage\nview v_structure_module6 \"\" diagram=structure element=module6 from=v_structure_application to=v_structure_storage\nlink module7 SQL from=storage kind=directed to=database\nview v_structure_module7 \"\" diagram=structure element=module7 from=v_structure_storage to=v_structure_database\nlink module8 \"Проверка права\" from=rules kind=directed to=handler\nview v_structure_module8 \"\" diagram=structure element=module8 from=v_structure_rules to=v_structure_handler\n",
+  "draft": "scheme ppois_client_02 \"Клиент ИС Юкомс версия 0.2\"\nblock client \"Клиент ИС Юкомс\\nВерсия 0.2\" role=generic shape=rectangle\nblock main \"Основные\\nфункции\" role=generic shape=rectangle\nblock service \"Служебные\\nфункции\" role=generic shape=rectangle\nblock B1 \"B1 · Просмотр групп компонентов и предложений\" role=generic shape=rectangle\nblock B2 \"B2 · Просмотр конфигураций и версий состава\" role=generic shape=rectangle\nblock B3 \"B3 · Сохранение новой версии состава\" role=generic shape=rectangle\nblock B4 \"B4 · Подбор и проверка, расчёт цены и массы\" role=generic shape=rectangle\nblock B5 \"B5 · Просмотр карточек и расчётных ревизий\" role=generic shape=rectangle\nblock B6 \"B6 · Создание новой расчётной ревизии DRAFT\" role=generic shape=rectangle\nblock B7 \"B7 · Просмотр сохранённых результатов попыток\" role=generic shape=rectangle\nblock S1 \"S1 · Демонстрационный вход\" role=generic shape=rectangle\nblock S2 \"S2 · Выход и завершение сеанса\" role=generic shape=rectangle\nblock S3 \"S3 · Проверка сеанса и доступных функций\" role=generic shape=rectangle\nblock S4 \"S4 · Диагностика локального стенда\" role=generic shape=rectangle\nblock S5 \"S5 · Инструкция и границы версии\" role=generic shape=rectangle\nblock function_group_0 Каталог role=generic shape=rectangle\nblock function_group_1 Состав role=generic shape=rectangle\nblock function_group_2 Расчёты role=generic shape=rectangle\nblock function_group_3 Карточки role=generic shape=rectangle\nblock function_group_4 Публикации role=generic shape=rectangle\nblock function_group_5 Сеанс role=generic shape=rectangle\nblock function_group_6 Доступ role=generic shape=rectangle\nblock function_group_7 Сопровождение role=generic shape=rectangle\nblock function_group_8 Справка role=generic shape=rectangle\ndiagram overview \"Корень дерева функций\" type=general\nview v_overview_client \"\" diagram=overview element=client\nview v_overview_main \"\" diagram=overview element=main\nview v_overview_service \"\" diagram=overview element=service\nlink tree_client_main \"\" from=client kind=association to=main\nview v_overview_tree_client_main \"\" diagram=overview element=tree_client_main from=v_overview_client to=v_overview_main\nlink tree_client_service \"\" from=client kind=association to=service\nview v_overview_tree_client_service \"\" diagram=overview element=tree_client_service from=v_overview_client to=v_overview_service\ndiagram functions_main \"Основные функции клиента\" type=general\nview v_functions_main_main \"\" diagram=functions_main element=main\nview v_functions_main_B1 \"\" diagram=functions_main element=B1\nview v_functions_main_B2 \"\" diagram=functions_main element=B2\nview v_functions_main_B3 \"\" diagram=functions_main element=B3\nview v_functions_main_B4 \"\" diagram=functions_main element=B4\nview v_functions_main_B5 \"\" diagram=functions_main element=B5\nview v_functions_main_B6 \"\" diagram=functions_main element=B6\nview v_functions_main_B7 \"\" diagram=functions_main element=B7\nview v_functions_main_function_group_0 \"\" diagram=functions_main element=function_group_0\nlink tree_main_function_group_0 \"\" from=main kind=association to=function_group_0\nview v_functions_main_tree_main_function_group_0 \"\" diagram=functions_main element=tree_main_function_group_0 from=v_functions_main_main to=v_functions_main_function_group_0\nlink tree_function_group_0_B1 \"\" from=function_group_0 kind=association to=B1\nview v_functions_main_tree_function_group_0_B1 \"\" diagram=functions_main element=tree_function_group_0_B1 from=v_functions_main_function_group_0 to=v_functions_main_B1\nview v_functions_main_function_group_1 \"\" diagram=functions_main element=function_group_1\nlink tree_main_function_group_1 \"\" from=main kind=association to=function_group_1\nview v_functions_main_tree_main_function_group_1 \"\" diagram=functions_main element=tree_main_function_group_1 from=v_functions_main_main to=v_functions_main_function_group_1\nlink tree_function_group_1_B2 \"\" from=function_group_1 kind=association to=B2\nview v_functions_main_tree_function_group_1_B2 \"\" diagram=functions_main element=tree_function_group_1_B2 from=v_functions_main_function_group_1 to=v_functions_main_B2\nlink tree_function_group_1_B3 \"\" from=function_group_1 kind=association to=B3\nview v_functions_main_tree_function_group_1_B3 \"\" diagram=functions_main element=tree_function_group_1_B3 from=v_functions_main_function_group_1 to=v_functions_main_B3\nview v_functions_main_function_group_2 \"\" diagram=functions_main element=function_group_2\nlink tree_main_function_group_2 \"\" from=main kind=association to=function_group_2\nview v_functions_main_tree_main_function_group_2 \"\" diagram=functions_main element=tree_main_function_group_2 from=v_functions_main_main to=v_functions_main_function_group_2\nlink tree_function_group_2_B4 \"\" from=function_group_2 kind=association to=B4\nview v_functions_main_tree_function_group_2_B4 \"\" diagram=functions_main element=tree_function_group_2_B4 from=v_functions_main_function_group_2 to=v_functions_main_B4\nview v_functions_main_function_group_3 \"\" diagram=functions_main element=function_group_3\nlink tree_main_function_group_3 \"\" from=main kind=association to=function_group_3\nview v_functions_main_tree_main_function_group_3 \"\" diagram=functions_main element=tree_main_function_group_3 from=v_functions_main_main to=v_functions_main_function_group_3\nlink tree_function_group_3_B5 \"\" from=function_group_3 kind=association to=B5\nview v_functions_main_tree_function_group_3_B5 \"\" diagram=functions_main element=tree_function_group_3_B5 from=v_functions_main_function_group_3 to=v_functions_main_B5\nlink tree_function_group_3_B6 \"\" from=function_group_3 kind=association to=B6\nview v_functions_main_tree_function_group_3_B6 \"\" diagram=functions_main element=tree_function_group_3_B6 from=v_functions_main_function_group_3 to=v_functions_main_B6\nview v_functions_main_function_group_4 \"\" diagram=functions_main element=function_group_4\nlink tree_main_function_group_4 \"\" from=main kind=association to=function_group_4\nview v_functions_main_tree_main_function_group_4 \"\" diagram=functions_main element=tree_main_function_group_4 from=v_functions_main_main to=v_functions_main_function_group_4\nlink tree_function_group_4_B7 \"\" from=function_group_4 kind=association to=B7\nview v_functions_main_tree_function_group_4_B7 \"\" diagram=functions_main element=tree_function_group_4_B7 from=v_functions_main_function_group_4 to=v_functions_main_B7\ndiagram functions_service \"Служебные функции клиента\" type=general\nview v_functions_service_service \"\" diagram=functions_service element=service\nview v_functions_service_S1 \"\" diagram=functions_service element=S1\nview v_functions_service_S2 \"\" diagram=functions_service element=S2\nview v_functions_service_S3 \"\" diagram=functions_service element=S3\nview v_functions_service_S4 \"\" diagram=functions_service element=S4\nview v_functions_service_S5 \"\" diagram=functions_service element=S5\nview v_functions_service_function_group_5 \"\" diagram=functions_service element=function_group_5\nlink tree_service_function_group_5 \"\" from=service kind=association to=function_group_5\nview v_functions_service_tree_service_function_group_5 \"\" diagram=functions_service element=tree_service_function_group_5 from=v_functions_service_service to=v_functions_service_function_group_5\nlink tree_function_group_5_S1 \"\" from=function_group_5 kind=association to=S1\nview v_functions_service_tree_function_group_5_S1 \"\" diagram=functions_service element=tree_function_group_5_S1 from=v_functions_service_function_group_5 to=v_functions_service_S1\nlink tree_function_group_5_S2 \"\" from=function_group_5 kind=association to=S2\nview v_functions_service_tree_function_group_5_S2 \"\" diagram=functions_service element=tree_function_group_5_S2 from=v_functions_service_function_group_5 to=v_functions_service_S2\nview v_functions_service_function_group_6 \"\" diagram=functions_service element=function_group_6\nlink tree_service_function_group_6 \"\" from=service kind=association to=function_group_6\nview v_functions_service_tree_service_function_group_6 \"\" diagram=functions_service element=tree_service_function_group_6 from=v_functions_service_service to=v_functions_service_function_group_6\nlink tree_function_group_6_S3 \"\" from=function_group_6 kind=association to=S3\nview v_functions_service_tree_function_group_6_S3 \"\" diagram=functions_service element=tree_function_group_6_S3 from=v_functions_service_function_group_6 to=v_functions_service_S3\nview v_functions_service_function_group_7 \"\" diagram=functions_service element=function_group_7\nlink tree_service_function_group_7 \"\" from=service kind=association to=function_group_7\nview v_functions_service_tree_service_function_group_7 \"\" diagram=functions_service element=tree_service_function_group_7 from=v_functions_service_service to=v_functions_service_function_group_7\nlink tree_function_group_7_S4 \"\" from=function_group_7 kind=association to=S4\nview v_functions_service_tree_function_group_7_S4 \"\" diagram=functions_service element=tree_function_group_7_S4 from=v_functions_service_function_group_7 to=v_functions_service_S4\nview v_functions_service_function_group_8 \"\" diagram=functions_service element=function_group_8\nlink tree_service_function_group_8 \"\" from=service kind=association to=function_group_8\nview v_functions_service_tree_service_function_group_8 \"\" diagram=functions_service element=tree_service_function_group_8 from=v_functions_service_service to=v_functions_service_function_group_8\nlink tree_function_group_8_S5 \"\" from=function_group_8 kind=association to=S5\nview v_functions_service_tree_function_group_8_S5 \"\" diagram=functions_service element=tree_function_group_8_S5 from=v_functions_service_function_group_8 to=v_functions_service_S5\ndiagram role_engineer \"Функции роли Инженер\" type=general\nblock principal_engineer \"Инженер\\nengineer\" role=generic shape=rectangle\nview v_role_engineer_principal_engineer \"\" diagram=role_engineer element=principal_engineer\nblock role_engineer_main \"Основные функции\" role=generic shape=rectangle\nview v_role_engineer_role_engineer_main \"\" diagram=role_engineer element=role_engineer_main\nlink role_engineer_branch_main \"\" from=principal_engineer kind=association to=role_engineer_main\nview v_role_engineer_role_engineer_branch_main \"\" diagram=role_engineer element=role_engineer_branch_main from=v_role_engineer_principal_engineer to=v_role_engineer_role_engineer_main\nview v_role_engineer_B1 \"\" diagram=role_engineer element=B1\nlink role_engineer_B1 \"\" from=role_engineer_main kind=association to=B1\nview v_role_engineer_role_engineer_B1 \"\" diagram=role_engineer element=role_engineer_B1 from=v_role_engineer_role_engineer_main to=v_role_engineer_B1\nview v_role_engineer_B2 \"\" diagram=role_engineer element=B2\nlink role_engineer_B2 \"\" from=role_engineer_main kind=association to=B2\nview v_role_engineer_role_engineer_B2 \"\" diagram=role_engineer element=role_engineer_B2 from=v_role_engineer_role_engineer_main to=v_role_engineer_B2\nview v_role_engineer_B3 \"\" diagram=role_engineer element=B3\nlink role_engineer_B3 \"\" from=role_engineer_main kind=association to=B3\nview v_role_engineer_role_engineer_B3 \"\" diagram=role_engineer element=role_engineer_B3 from=v_role_engineer_role_engineer_main to=v_role_engineer_B3\nview v_role_engineer_B4 \"\" diagram=role_engineer element=B4\nlink role_engineer_B4 \"\" from=role_engineer_main kind=association to=B4\nview v_role_engineer_role_engineer_B4 \"\" diagram=role_engineer element=role_engineer_B4 from=v_role_engineer_role_engineer_main to=v_role_engineer_B4\nview v_role_engineer_B5 \"\" diagram=role_engineer element=B5\nlink role_engineer_B5 \"\" from=role_engineer_main kind=association to=B5\nview v_role_engineer_role_engineer_B5 \"\" diagram=role_engineer element=role_engineer_B5 from=v_role_engineer_role_engineer_main to=v_role_engineer_B5\nview v_role_engineer_B7 \"\" diagram=role_engineer element=B7\nlink role_engineer_B7 \"\" from=role_engineer_main kind=association to=B7\nview v_role_engineer_role_engineer_B7 \"\" diagram=role_engineer element=role_engineer_B7 from=v_role_engineer_role_engineer_main to=v_role_engineer_B7\nblock role_engineer_service \"Служебные функции\" role=generic shape=rectangle\nview v_role_engineer_role_engineer_service \"\" diagram=role_engineer element=role_engineer_service\nlink role_engineer_branch_service \"\" from=principal_engineer kind=association to=role_engineer_service\nview v_role_engineer_role_engineer_branch_service \"\" diagram=role_engineer element=role_engineer_branch_service from=v_role_engineer_principal_engineer to=v_role_engineer_role_engineer_service\nview v_role_engineer_S1 \"\" diagram=role_engineer element=S1\nlink role_engineer_S1 \"\" from=role_engineer_service kind=association to=S1\nview v_role_engineer_role_engineer_S1 \"\" diagram=role_engineer element=role_engineer_S1 from=v_role_engineer_role_engineer_service to=v_role_engineer_S1\nview v_role_engineer_S2 \"\" diagram=role_engineer element=S2\nlink role_engineer_S2 \"\" from=role_engineer_service kind=association to=S2\nview v_role_engineer_role_engineer_S2 \"\" diagram=role_engineer element=role_engineer_S2 from=v_role_engineer_role_engineer_service to=v_role_engineer_S2\nview v_role_engineer_S3 \"\" diagram=role_engineer element=S3\nlink role_engineer_S3 \"\" from=role_engineer_service kind=association to=S3\nview v_role_engineer_role_engineer_S3 \"\" diagram=role_engineer element=role_engineer_S3 from=v_role_engineer_role_engineer_service to=v_role_engineer_S3\nview v_role_engineer_S5 \"\" diagram=role_engineer element=S5\nlink role_engineer_S5 \"\" from=role_engineer_service kind=association to=S5\nview v_role_engineer_role_engineer_S5 \"\" diagram=role_engineer element=role_engineer_S5 from=v_role_engineer_role_engineer_service to=v_role_engineer_S5\ndiagram role_manager \"Функции роли Менеджер\" type=general\nblock principal_manager \"Менеджер\\nmanager\" role=generic shape=rectangle\nview v_role_manager_principal_manager \"\" diagram=role_manager element=principal_manager\nblock role_manager_main \"Основные функции\" role=generic shape=rectangle\nview v_role_manager_role_manager_main \"\" diagram=role_manager element=role_manager_main\nlink role_manager_branch_main \"\" from=principal_manager kind=association to=role_manager_main\nview v_role_manager_role_manager_branch_main \"\" diagram=role_manager element=role_manager_branch_main from=v_role_manager_principal_manager to=v_role_manager_role_manager_main\nview v_role_manager_B1 \"\" diagram=role_manager element=B1\nlink role_manager_B1 \"\" from=role_manager_main kind=association to=B1\nview v_role_manager_role_manager_B1 \"\" diagram=role_manager element=role_manager_B1 from=v_role_manager_role_manager_main to=v_role_manager_B1\nview v_role_manager_B2 \"\" diagram=role_manager element=B2\nlink role_manager_B2 \"\" from=role_manager_main kind=association to=B2\nview v_role_manager_role_manager_B2 \"\" diagram=role_manager element=role_manager_B2 from=v_role_manager_role_manager_main to=v_role_manager_B2\nview v_role_manager_B4 \"\" diagram=role_manager element=B4\nlink role_manager_B4 \"\" from=role_manager_main kind=association to=B4\nview v_role_manager_role_manager_B4 \"\" diagram=role_manager element=role_manager_B4 from=v_role_manager_role_manager_main to=v_role_manager_B4\nview v_role_manager_B5 \"\" diagram=role_manager element=B5\nlink role_manager_B5 \"\" from=role_manager_main kind=association to=B5\nview v_role_manager_role_manager_B5 \"\" diagram=role_manager element=role_manager_B5 from=v_role_manager_role_manager_main to=v_role_manager_B5\nview v_role_manager_B6 \"\" diagram=role_manager element=B6\nlink role_manager_B6 \"\" from=role_manager_main kind=association to=B6\nview v_role_manager_role_manager_B6 \"\" diagram=role_manager element=role_manager_B6 from=v_role_manager_role_manager_main to=v_role_manager_B6\nview v_role_manager_B7 \"\" diagram=role_manager element=B7\nlink role_manager_B7 \"\" from=role_manager_main kind=association to=B7\nview v_role_manager_role_manager_B7 \"\" diagram=role_manager element=role_manager_B7 from=v_role_manager_role_manager_main to=v_role_manager_B7\nblock role_manager_service \"Служебные функции\" role=generic shape=rectangle\nview v_role_manager_role_manager_service \"\" diagram=role_manager element=role_manager_service\nlink role_manager_branch_service \"\" from=principal_manager kind=association to=role_manager_service\nview v_role_manager_role_manager_branch_service \"\" diagram=role_manager element=role_manager_branch_service from=v_role_manager_principal_manager to=v_role_manager_role_manager_service\nview v_role_manager_S1 \"\" diagram=role_manager element=S1\nlink role_manager_S1 \"\" from=role_manager_service kind=association to=S1\nview v_role_manager_role_manager_S1 \"\" diagram=role_manager element=role_manager_S1 from=v_role_manager_role_manager_service to=v_role_manager_S1\nview v_role_manager_S2 \"\" diagram=role_manager element=S2\nlink role_manager_S2 \"\" from=role_manager_service kind=association to=S2\nview v_role_manager_role_manager_S2 \"\" diagram=role_manager element=role_manager_S2 from=v_role_manager_role_manager_service to=v_role_manager_S2\nview v_role_manager_S3 \"\" diagram=role_manager element=S3\nlink role_manager_S3 \"\" from=role_manager_service kind=association to=S3\nview v_role_manager_role_manager_S3 \"\" diagram=role_manager element=role_manager_S3 from=v_role_manager_role_manager_service to=v_role_manager_S3\nview v_role_manager_S5 \"\" diagram=role_manager element=S5\nlink role_manager_S5 \"\" from=role_manager_service kind=association to=S5\nview v_role_manager_role_manager_S5 \"\" diagram=role_manager element=role_manager_S5 from=v_role_manager_role_manager_service to=v_role_manager_S5\ndiagram role_viewer \"Функции роли Наблюдатель\" type=general\nblock principal_viewer \"Наблюдатель\\nviewer\" role=generic shape=rectangle\nview v_role_viewer_principal_viewer \"\" diagram=role_viewer element=principal_viewer\nblock role_viewer_main \"Основные функции\" role=generic shape=rectangle\nview v_role_viewer_role_viewer_main \"\" diagram=role_viewer element=role_viewer_main\nlink role_viewer_branch_main \"\" from=principal_viewer kind=association to=role_viewer_main\nview v_role_viewer_role_viewer_branch_main \"\" diagram=role_viewer element=role_viewer_branch_main from=v_role_viewer_principal_viewer to=v_role_viewer_role_viewer_main\nview v_role_viewer_B1 \"\" diagram=role_viewer element=B1\nlink role_viewer_B1 \"\" from=role_viewer_main kind=association to=B1\nview v_role_viewer_role_viewer_B1 \"\" diagram=role_viewer element=role_viewer_B1 from=v_role_viewer_role_viewer_main to=v_role_viewer_B1\nview v_role_viewer_B2 \"\" diagram=role_viewer element=B2\nlink role_viewer_B2 \"\" from=role_viewer_main kind=association to=B2\nview v_role_viewer_role_viewer_B2 \"\" diagram=role_viewer element=role_viewer_B2 from=v_role_viewer_role_viewer_main to=v_role_viewer_B2\nview v_role_viewer_B4 \"\" diagram=role_viewer element=B4\nlink role_viewer_B4 \"\" from=role_viewer_main kind=association to=B4\nview v_role_viewer_role_viewer_B4 \"\" diagram=role_viewer element=role_viewer_B4 from=v_role_viewer_role_viewer_main to=v_role_viewer_B4\nview v_role_viewer_B5 \"\" diagram=role_viewer element=B5\nlink role_viewer_B5 \"\" from=role_viewer_main kind=association to=B5\nview v_role_viewer_role_viewer_B5 \"\" diagram=role_viewer element=role_viewer_B5 from=v_role_viewer_role_viewer_main to=v_role_viewer_B5\nview v_role_viewer_B7 \"\" diagram=role_viewer element=B7\nlink role_viewer_B7 \"\" from=role_viewer_main kind=association to=B7\nview v_role_viewer_role_viewer_B7 \"\" diagram=role_viewer element=role_viewer_B7 from=v_role_viewer_role_viewer_main to=v_role_viewer_B7\nblock role_viewer_service \"Служебные функции\" role=generic shape=rectangle\nview v_role_viewer_role_viewer_service \"\" diagram=role_viewer element=role_viewer_service\nlink role_viewer_branch_service \"\" from=principal_viewer kind=association to=role_viewer_service\nview v_role_viewer_role_viewer_branch_service \"\" diagram=role_viewer element=role_viewer_branch_service from=v_role_viewer_principal_viewer to=v_role_viewer_role_viewer_service\nview v_role_viewer_S1 \"\" diagram=role_viewer element=S1\nlink role_viewer_S1 \"\" from=role_viewer_service kind=association to=S1\nview v_role_viewer_role_viewer_S1 \"\" diagram=role_viewer element=role_viewer_S1 from=v_role_viewer_role_viewer_service to=v_role_viewer_S1\nview v_role_viewer_S2 \"\" diagram=role_viewer element=S2\nlink role_viewer_S2 \"\" from=role_viewer_service kind=association to=S2\nview v_role_viewer_role_viewer_S2 \"\" diagram=role_viewer element=role_viewer_S2 from=v_role_viewer_role_viewer_service to=v_role_viewer_S2\nview v_role_viewer_S3 \"\" diagram=role_viewer element=S3\nlink role_viewer_S3 \"\" from=role_viewer_service kind=association to=S3\nview v_role_viewer_role_viewer_S3 \"\" diagram=role_viewer element=role_viewer_S3 from=v_role_viewer_role_viewer_service to=v_role_viewer_S3\nview v_role_viewer_S5 \"\" diagram=role_viewer element=S5\nlink role_viewer_S5 \"\" from=role_viewer_service kind=association to=S5\nview v_role_viewer_role_viewer_S5 \"\" diagram=role_viewer element=role_viewer_S5 from=v_role_viewer_role_viewer_service to=v_role_viewer_S5\ndiagram role_admin \"Функции роли Администратор\" type=general\nblock principal_admin \"Администратор\\nadmin\" role=generic shape=rectangle\nview v_role_admin_principal_admin \"\" diagram=role_admin element=principal_admin\nblock role_admin_service \"Служебные функции\" role=generic shape=rectangle\nview v_role_admin_role_admin_service \"\" diagram=role_admin element=role_admin_service\nlink role_admin_branch_service \"\" from=principal_admin kind=association to=role_admin_service\nview v_role_admin_role_admin_branch_service \"\" diagram=role_admin element=role_admin_branch_service from=v_role_admin_principal_admin to=v_role_admin_role_admin_service\nview v_role_admin_S1 \"\" diagram=role_admin element=S1\nlink role_admin_S1 \"\" from=role_admin_service kind=association to=S1\nview v_role_admin_role_admin_S1 \"\" diagram=role_admin element=role_admin_S1 from=v_role_admin_role_admin_service to=v_role_admin_S1\nview v_role_admin_S2 \"\" diagram=role_admin element=S2\nlink role_admin_S2 \"\" from=role_admin_service kind=association to=S2\nview v_role_admin_role_admin_S2 \"\" diagram=role_admin element=role_admin_S2 from=v_role_admin_role_admin_service to=v_role_admin_S2\nview v_role_admin_S3 \"\" diagram=role_admin element=S3\nlink role_admin_S3 \"\" from=role_admin_service kind=association to=S3\nview v_role_admin_role_admin_S3 \"\" diagram=role_admin element=role_admin_S3 from=v_role_admin_role_admin_service to=v_role_admin_S3\nview v_role_admin_S4 \"\" diagram=role_admin element=S4\nlink role_admin_S4 \"\" from=role_admin_service kind=association to=S4\nview v_role_admin_role_admin_S4 \"\" diagram=role_admin element=role_admin_S4 from=v_role_admin_role_admin_service to=v_role_admin_S4\nview v_role_admin_S5 \"\" diagram=role_admin element=S5\nlink role_admin_S5 \"\" from=role_admin_service kind=association to=S5\nview v_role_admin_role_admin_S5 \"\" diagram=role_admin element=role_admin_S5 from=v_role_admin_role_admin_service to=v_role_admin_S5\ndiagram engineer_dialog \"Диалог инженера от входа до расчёта\" type=general\nblock e_login \"Учебный вход\\nИнженер\" role=generic shape=rounded\nview v_engineer_dialog_e_login \"\" diagram=engineer_dialog element=e_login\nblock e_auth \"Сеанс\\nоткрыт?\" role=generic shape=diamond\nview v_engineer_dialog_e_auth \"\" diagram=engineer_dialog element=e_auth\nblock e_bad \"Неверный пароль\\nПоказать ошибку\" role=generic shape=rectangle\nview v_engineer_dialog_e_bad \"\" diagram=engineer_dialog element=e_bad\nblock e_select \"Выбрать конфигурацию\\nи исходную версию\" role=generic shape=rectangle\nview v_engineer_dialog_e_select \"\" diagram=engineer_dialog element=e_select\nblock e_edit \"Изменить позиции\\nи количество локально\" role=generic shape=rectangle\nview v_engineer_dialog_e_edit \"\" diagram=engineer_dialog element=e_edit\nblock e_calc \"Проверить и рассчитать\\nPOST /api/calculate\" role=generic shape=rectangle\nview v_engineer_dialog_e_calc \"\" diagram=engineer_dialog element=e_calc\nblock e_ok \"Расчёт\\nуспешен?\" role=generic shape=diamond\nview v_engineer_dialog_e_ok \"\" diagram=engineer_dialog element=e_ok\nblock e_error \"422 · Причина ошибки\\nВернуться к составу\" role=generic shape=rectangle\nview v_engineer_dialog_e_error \"\" diagram=engineer_dialog element=e_error\nblock e_result \"Показать позиции\\nцену и массу\" role=generic shape=rectangle\nview v_engineer_dialog_e_result \"\" diagram=engineer_dialog element=e_result\nblock e_next \"Перейти к сохранению\\nновой версии\" role=generic shape=rounded\nview v_engineer_dialog_e_next \"\" diagram=engineer_dialog element=e_next\nlink e1 \"\" from=e_login kind=directed to=e_auth\nview v_engineer_dialog_e1 \"\" diagram=engineer_dialog element=e1 from=v_engineer_dialog_e_login to=v_engineer_dialog_e_auth\nlink e2 Да from=e_auth kind=directed to=e_select\nview v_engineer_dialog_e2 \"\" diagram=engineer_dialog element=e2 from=v_engineer_dialog_e_auth to=v_engineer_dialog_e_select\nlink e3 Нет from=e_auth kind=directed to=e_bad\nview v_engineer_dialog_e3 \"\" diagram=engineer_dialog element=e3 from=v_engineer_dialog_e_auth to=v_engineer_dialog_e_bad\nlink e4 Исправить from=e_bad kind=directed to=e_login\nview v_engineer_dialog_e4 \"\" diagram=engineer_dialog element=e4 from=v_engineer_dialog_e_bad to=v_engineer_dialog_e_login\nlink e5 \"\" from=e_select kind=directed to=e_edit\nview v_engineer_dialog_e5 \"\" diagram=engineer_dialog element=e5 from=v_engineer_dialog_e_select to=v_engineer_dialog_e_edit\nlink e6 \"\" from=e_edit kind=directed to=e_calc\nview v_engineer_dialog_e6 \"\" diagram=engineer_dialog element=e6 from=v_engineer_dialog_e_edit to=v_engineer_dialog_e_calc\nlink e7 \"\" from=e_calc kind=directed to=e_ok\nview v_engineer_dialog_e7 \"\" diagram=engineer_dialog element=e7 from=v_engineer_dialog_e_calc to=v_engineer_dialog_e_ok\nlink e8 Нет from=e_ok kind=directed to=e_error\nview v_engineer_dialog_e8 \"\" diagram=engineer_dialog element=e8 from=v_engineer_dialog_e_ok to=v_engineer_dialog_e_error\nlink e9 Исправить from=e_error kind=directed to=e_edit\nview v_engineer_dialog_e9 \"\" diagram=engineer_dialog element=e9 from=v_engineer_dialog_e_error to=v_engineer_dialog_e_edit\nlink e10 Да from=e_ok kind=directed to=e_result\nview v_engineer_dialog_e10 \"\" diagram=engineer_dialog element=e10 from=v_engineer_dialog_e_ok to=v_engineer_dialog_e_result\nlink e11 \"\" from=e_result kind=directed to=e_next\nview v_engineer_dialog_e11 \"\" diagram=engineer_dialog element=e11 from=v_engineer_dialog_e_result to=v_engineer_dialog_e_next\ndiagram save_dialog \"Сохранение новой версии инженером\" type=general\nblock s_start \"Сохранить новую версию\\nPOST /api/versions\" role=generic shape=rounded\nview v_save_dialog_s_start \"\" diagram=save_dialog element=s_start\nblock s_guard \"Данные и expected_latest\\nпроверены сервером\" role=generic shape=rectangle\nview v_save_dialog_s_guard \"\" diagram=save_dialog element=s_guard\nblock s_ok \"Запись\\nуспешна?\" role=generic shape=diamond\nview v_save_dialog_s_ok \"\" diagram=save_dialog element=s_ok\nblock s_conflict \"409 · Версия изменена\\nОбновить данные\" role=generic shape=rectangle\nview v_save_dialog_s_conflict \"\" diagram=save_dialog element=s_conflict\nblock s_invalid \"422 · Неверный ввод\\nИсправить состав\" role=generic shape=rectangle\nview v_save_dialog_s_invalid \"\" diagram=save_dialog element=s_invalid\nblock s_state \"Новая версия\\nCHECKED?\" role=generic shape=diamond\nview v_save_dialog_s_state \"\" diagram=save_dialog element=s_state\nblock s_draft \"DRAFT · Причины ошибки\\nИсправить новую версию\" role=generic shape=rectangle\nview v_save_dialog_s_draft \"\" diagram=save_dialog element=s_draft\nblock s_checked \"CHECKED\\nПоказать новую версию\" role=generic shape=rectangle\nview v_save_dialog_s_checked \"\" diagram=save_dialog element=s_checked\nblock s_finish \"Передать номер версии\\nменеджеру для ревизии\" role=generic shape=rounded\nview v_save_dialog_s_finish \"\" diagram=save_dialog element=s_finish\nlink s1 \"\" from=s_start kind=directed to=s_guard\nview v_save_dialog_s1 \"\" diagram=save_dialog element=s1 from=v_save_dialog_s_start to=v_save_dialog_s_guard\nlink s2 \"\" from=s_guard kind=directed to=s_ok\nview v_save_dialog_s2 \"\" diagram=save_dialog element=s2 from=v_save_dialog_s_guard to=v_save_dialog_s_ok\nlink s3 409 from=s_ok kind=directed to=s_conflict\nview v_save_dialog_s3 \"\" diagram=save_dialog element=s3 from=v_save_dialog_s_ok to=v_save_dialog_s_conflict\nlink s4 422 from=s_ok kind=directed to=s_invalid\nview v_save_dialog_s4 \"\" diagram=save_dialog element=s4 from=v_save_dialog_s_ok to=v_save_dialog_s_invalid\nlink s5 200 from=s_ok kind=directed to=s_state\nview v_save_dialog_s5 \"\" diagram=save_dialog element=s5 from=v_save_dialog_s_ok to=v_save_dialog_s_state\nlink s6 Нет from=s_state kind=directed to=s_draft\nview v_save_dialog_s6 \"\" diagram=save_dialog element=s6 from=v_save_dialog_s_state to=v_save_dialog_s_draft\nlink s7 Да from=s_state kind=directed to=s_checked\nview v_save_dialog_s7 \"\" diagram=save_dialog element=s7 from=v_save_dialog_s_state to=v_save_dialog_s_checked\nlink s8 \"\" from=s_checked kind=directed to=s_finish\nview v_save_dialog_s8 \"\" diagram=save_dialog element=s8 from=v_save_dialog_s_checked to=v_save_dialog_s_finish\ndiagram manager_dialog \"Диалог менеджера создания ревизии\" type=general\nblock m_select \"Вход менеджера\\nВыбрать карточку и версию\" role=generic shape=rounded\nview v_manager_dialog_m_select \"\" diagram=manager_dialog element=m_select\nblock m_checked \"Версия\\nCHECKED или\\nFROZEN?\" role=generic shape=diamond\nview v_manager_dialog_m_checked \"\" diagram=manager_dialog element=m_checked\nblock m_disabled \"DRAFT\\nСохранение недоступно\" role=generic shape=rectangle\nview v_manager_dialog_m_disabled \"\" diagram=manager_dialog element=m_disabled\nblock m_form \"Заполнить название и описание\\nи экономические параметры\" role=generic shape=rectangle\nview v_manager_dialog_m_form \"\" diagram=manager_dialog element=m_form\nblock m_save \"Сохранить новую ревизию\\nPOST /api/revisions\" role=generic shape=rectangle\nview v_manager_dialog_m_save \"\" diagram=manager_dialog element=m_save\nblock m_ok \"Сервер\\nсохранил?\" role=generic shape=diamond\nview v_manager_dialog_m_ok \"\" diagram=manager_dialog element=m_ok\nblock m_error \"409 / 422 · Ошибка\\nОбновить или исправить\" role=generic shape=rectangle\nview v_manager_dialog_m_error \"\" diagram=manager_dialog element=m_error\nblock m_success \"Новая ревизия DRAFT\\nБез отправки\" role=generic shape=rounded\nview v_manager_dialog_m_success \"\" diagram=manager_dialog element=m_success\nlink m1 \"\" from=m_select kind=directed to=m_checked\nview v_manager_dialog_m1 \"\" diagram=manager_dialog element=m1 from=v_manager_dialog_m_select to=v_manager_dialog_m_checked\nlink m2 Нет from=m_checked kind=directed to=m_disabled\nview v_manager_dialog_m2 \"\" diagram=manager_dialog element=m2 from=v_manager_dialog_m_checked to=v_manager_dialog_m_disabled\nlink m3 \"Выбрать другую\" from=m_disabled kind=directed to=m_select\nview v_manager_dialog_m3 \"\" diagram=manager_dialog element=m3 from=v_manager_dialog_m_disabled to=v_manager_dialog_m_select\nlink m4 Да from=m_checked kind=directed to=m_form\nview v_manager_dialog_m4 \"\" diagram=manager_dialog element=m4 from=v_manager_dialog_m_checked to=v_manager_dialog_m_form\nlink m5 \"\" from=m_form kind=directed to=m_save\nview v_manager_dialog_m5 \"\" diagram=manager_dialog element=m5 from=v_manager_dialog_m_form to=v_manager_dialog_m_save\nlink m6 \"\" from=m_save kind=directed to=m_ok\nview v_manager_dialog_m6 \"\" diagram=manager_dialog element=m6 from=v_manager_dialog_m_save to=v_manager_dialog_m_ok\nlink m7 Нет from=m_ok kind=directed to=m_error\nview v_manager_dialog_m7 \"\" diagram=manager_dialog element=m7 from=v_manager_dialog_m_ok to=v_manager_dialog_m_error\nlink m8 Исправить from=m_error kind=directed to=m_form\nview v_manager_dialog_m8 \"\" diagram=manager_dialog element=m8 from=v_manager_dialog_m_error to=v_manager_dialog_m_form\nlink m9 Да from=m_ok kind=directed to=m_success\nview v_manager_dialog_m9 \"\" diagram=manager_dialog element=m9 from=v_manager_dialog_m_ok to=v_manager_dialog_m_success\ndiagram structure \"Структура реализованных модулей\" type=general\nblock html \"Видимые формы\\nclient.html и client.css\" role=client shape=rectangle\nview v_structure_html \"\" diagram=structure element=html\nblock dialog \"Состояние и диалог\\nclient.js · state render\" role=client shape=rectangle\nview v_structure_dialog \"\" diagram=structure element=dialog\nblock http \"HTTP клиент\\nclient.js · api run\" role=client shape=rectangle\nview v_structure_http \"\" diagram=structure element=http\nblock handler \"HTTP обработчик и сеанс\\nserver.py · Handler\" role=authentication shape=rectangle\nview v_structure_handler \"\" diagram=structure element=handler\nblock application \"Прикладные операции\\nserver.py · Application\" role=application shape=rectangle\nview v_structure_application \"\" diagram=structure element=application\nblock domain \"Подбор и Decimal расчёт\\nПрототип/domain.py\" role=application shape=rectangle\nview v_structure_domain \"\" diagram=structure element=domain\nblock rules \"Роли, функции и маршруты\\nclient_contract.json\" role=authorization shape=document\nview v_structure_rules \"\" diagram=structure element=rules\nblock storage \"Транзакции и загрузка БД\\nApplication.database\\nПрототип/repository.py\" role=storage shape=rectangle\nview v_structure_storage \"\" diagram=structure element=storage\nblock database \"PostgreSQL\\n12 таблиц и card_status\\nОтдельная БД ppois10_*\" role=database shape=cylinder\nview v_structure_database \"\" diagram=structure element=database\nlink module1 DOM from=html kind=directed to=dialog\nview v_structure_module1 \"\" diagram=structure element=module1 from=v_structure_html to=v_structure_dialog\nlink module2 Действие from=dialog kind=directed to=http\nview v_structure_module2 \"\" diagram=structure element=module2 from=v_structure_dialog to=v_structure_http\nlink module3 \"HTTP / JSON\" from=http kind=directed to=handler\nview v_structure_module3 \"\" diagram=structure element=module3 from=v_structure_http to=v_structure_handler\nlink module4 Допуск from=handler kind=directed to=application\nview v_structure_module4 \"\" diagram=structure element=module4 from=v_structure_handler to=v_structure_application\nlink module5 Расчёт from=application kind=directed to=domain\nview v_structure_module5 \"\" diagram=structure element=module5 from=v_structure_application to=v_structure_domain\nlink module6 \"SQL транзакция\" from=application kind=directed to=storage\nview v_structure_module6 \"\" diagram=structure element=module6 from=v_structure_application to=v_structure_storage\nlink module7 SQL from=storage kind=directed to=database\nview v_structure_module7 \"\" diagram=structure element=module7 from=v_structure_storage to=v_structure_database\nlink module8 \"Проверка права\" from=rules kind=directed to=handler\nview v_structure_module8 \"\" diagram=structure element=module8 from=v_structure_rules to=v_structure_handler\n",
+  "layout": {
+    "nodes": {
+      "v_overview_client": {
+        "x": 40,
+        "y": 195,
+        "width": 360,
+        "height": 120
+      },
+      "v_overview_main": {
+        "x": 650,
+        "y": 65,
+        "width": 760,
+        "height": 110
+      },
+      "v_overview_service": {
+        "x": 650,
+        "y": 345,
+        "width": 760,
+        "height": 110
+      },
+      "v_functions_main_main": {
+        "x": 20,
+        "y": 340,
+        "width": 280,
+        "height": 100
+      },
+      "v_functions_main_B1": {
+        "x": 800,
+        "y": 40,
+        "width": 680,
+        "height": 90
+      },
+      "v_functions_main_B2": {
+        "x": 800,
+        "y": 140,
+        "width": 680,
+        "height": 90
+      },
+      "v_functions_main_B3": {
+        "x": 800,
+        "y": 240,
+        "width": 680,
+        "height": 90
+      },
+      "v_functions_main_B4": {
+        "x": 800,
+        "y": 340,
+        "width": 680,
+        "height": 90
+      },
+      "v_functions_main_B5": {
+        "x": 800,
+        "y": 440,
+        "width": 680,
+        "height": 90
+      },
+      "v_functions_main_B6": {
+        "x": 800,
+        "y": 540,
+        "width": 680,
+        "height": 90
+      },
+      "v_functions_main_B7": {
+        "x": 800,
+        "y": 640,
+        "width": 680,
+        "height": 90
+      },
+      "v_functions_main_function_group_0": {
+        "x": 370,
+        "y": 40,
+        "width": 330,
+        "height": 90
+      },
+      "v_functions_main_function_group_1": {
+        "x": 370,
+        "y": 190,
+        "width": 330,
+        "height": 90
+      },
+      "v_functions_main_function_group_2": {
+        "x": 370,
+        "y": 340,
+        "width": 330,
+        "height": 90
+      },
+      "v_functions_main_function_group_3": {
+        "x": 370,
+        "y": 490,
+        "width": 330,
+        "height": 90
+      },
+      "v_functions_main_function_group_4": {
+        "x": 370,
+        "y": 640,
+        "width": 330,
+        "height": 90
+      },
+      "v_functions_service_service": {
+        "x": 20,
+        "y": 240,
+        "width": 280,
+        "height": 100
+      },
+      "v_functions_service_S1": {
+        "x": 800,
+        "y": 40,
+        "width": 680,
+        "height": 90
+      },
+      "v_functions_service_S2": {
+        "x": 800,
+        "y": 140,
+        "width": 680,
+        "height": 90
+      },
+      "v_functions_service_S3": {
+        "x": 800,
+        "y": 240,
+        "width": 680,
+        "height": 90
+      },
+      "v_functions_service_S4": {
+        "x": 800,
+        "y": 340,
+        "width": 680,
+        "height": 90
+      },
+      "v_functions_service_S5": {
+        "x": 800,
+        "y": 440,
+        "width": 680,
+        "height": 90
+      },
+      "v_functions_service_function_group_5": {
+        "x": 370,
+        "y": 90,
+        "width": 330,
+        "height": 90
+      },
+      "v_functions_service_function_group_6": {
+        "x": 370,
+        "y": 240,
+        "width": 330,
+        "height": 90
+      },
+      "v_functions_service_function_group_7": {
+        "x": 370,
+        "y": 340,
+        "width": 330,
+        "height": 90
+      },
+      "v_functions_service_function_group_8": {
+        "x": 370,
+        "y": 440,
+        "width": 330,
+        "height": 90
+      },
+      "v_role_engineer_principal_engineer": {
+        "x": 20,
+        "y": 350,
+        "width": 300,
+        "height": 100
+      },
+      "v_role_engineer_role_engineer_main": {
+        "x": 400,
+        "y": 40,
+        "width": 430,
+        "height": 90
+      },
+      "v_role_engineer_B1": {
+        "x": 1000,
+        "y": 25,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_engineer_B2": {
+        "x": 1000,
+        "y": 87,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_engineer_B3": {
+        "x": 1000,
+        "y": 149,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_engineer_B4": {
+        "x": 1000,
+        "y": 211,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_engineer_B5": {
+        "x": 1000,
+        "y": 273,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_engineer_B7": {
+        "x": 1000,
+        "y": 335,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_engineer_role_engineer_service": {
+        "x": 400,
+        "y": 490,
+        "width": 430,
+        "height": 90
+      },
+      "v_role_engineer_S1": {
+        "x": 1000,
+        "y": 500,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_engineer_S2": {
+        "x": 1000,
+        "y": 562,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_engineer_S3": {
+        "x": 1000,
+        "y": 624,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_engineer_S5": {
+        "x": 1000,
+        "y": 686,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_manager_principal_manager": {
+        "x": 20,
+        "y": 350,
+        "width": 300,
+        "height": 100
+      },
+      "v_role_manager_role_manager_main": {
+        "x": 400,
+        "y": 40,
+        "width": 430,
+        "height": 90
+      },
+      "v_role_manager_B1": {
+        "x": 1000,
+        "y": 25,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_manager_B2": {
+        "x": 1000,
+        "y": 87,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_manager_B4": {
+        "x": 1000,
+        "y": 149,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_manager_B5": {
+        "x": 1000,
+        "y": 211,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_manager_B6": {
+        "x": 1000,
+        "y": 273,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_manager_B7": {
+        "x": 1000,
+        "y": 335,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_manager_role_manager_service": {
+        "x": 400,
+        "y": 490,
+        "width": 430,
+        "height": 90
+      },
+      "v_role_manager_S1": {
+        "x": 1000,
+        "y": 500,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_manager_S2": {
+        "x": 1000,
+        "y": 562,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_manager_S3": {
+        "x": 1000,
+        "y": 624,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_manager_S5": {
+        "x": 1000,
+        "y": 686,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_viewer_principal_viewer": {
+        "x": 20,
+        "y": 350,
+        "width": 300,
+        "height": 100
+      },
+      "v_role_viewer_role_viewer_main": {
+        "x": 400,
+        "y": 40,
+        "width": 430,
+        "height": 90
+      },
+      "v_role_viewer_B1": {
+        "x": 1000,
+        "y": 25,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_viewer_B2": {
+        "x": 1000,
+        "y": 87,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_viewer_B4": {
+        "x": 1000,
+        "y": 149,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_viewer_B5": {
+        "x": 1000,
+        "y": 211,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_viewer_B7": {
+        "x": 1000,
+        "y": 273,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_viewer_role_viewer_service": {
+        "x": 400,
+        "y": 490,
+        "width": 430,
+        "height": 90
+      },
+      "v_role_viewer_S1": {
+        "x": 1000,
+        "y": 500,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_viewer_S2": {
+        "x": 1000,
+        "y": 562,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_viewer_S3": {
+        "x": 1000,
+        "y": 624,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_viewer_S5": {
+        "x": 1000,
+        "y": 686,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_admin_principal_admin": {
+        "x": 20,
+        "y": 350,
+        "width": 300,
+        "height": 100
+      },
+      "v_role_admin_role_admin_service": {
+        "x": 400,
+        "y": 490,
+        "width": 430,
+        "height": 90
+      },
+      "v_role_admin_S1": {
+        "x": 1000,
+        "y": 500,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_admin_S2": {
+        "x": 1000,
+        "y": 562,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_admin_S3": {
+        "x": 1000,
+        "y": 624,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_admin_S4": {
+        "x": 1000,
+        "y": 686,
+        "width": 1120,
+        "height": 56
+      },
+      "v_role_admin_S5": {
+        "x": 1000,
+        "y": 748,
+        "width": 1120,
+        "height": 56
+      },
+      "v_engineer_dialog_e_login": {
+        "x": 480,
+        "y": 30,
+        "width": 510,
+        "height": 90
+      },
+      "v_engineer_dialog_e_auth": {
+        "x": 555,
+        "y": 160,
+        "width": 360,
+        "height": 150
+      },
+      "v_engineer_dialog_e_bad": {
+        "x": 30,
+        "y": 190,
+        "width": 360,
+        "height": 90
+      },
+      "v_engineer_dialog_e_select": {
+        "x": 480,
+        "y": 355,
+        "width": 510,
+        "height": 90
+      },
+      "v_engineer_dialog_e_edit": {
+        "x": 480,
+        "y": 490,
+        "width": 510,
+        "height": 90
+      },
+      "v_engineer_dialog_e_calc": {
+        "x": 480,
+        "y": 625,
+        "width": 510,
+        "height": 90
+      },
+      "v_engineer_dialog_e_ok": {
+        "x": 555,
+        "y": 765,
+        "width": 360,
+        "height": 150
+      },
+      "v_engineer_dialog_e_error": {
+        "x": 30,
+        "y": 795,
+        "width": 360,
+        "height": 90
+      },
+      "v_engineer_dialog_e_result": {
+        "x": 1090,
+        "y": 795,
+        "width": 380,
+        "height": 90
+      },
+      "v_engineer_dialog_e_next": {
+        "x": 1090,
+        "y": 980,
+        "width": 380,
+        "height": 90
+      },
+      "v_save_dialog_s_start": {
+        "x": 470,
+        "y": 25,
+        "width": 550,
+        "height": 90
+      },
+      "v_save_dialog_s_guard": {
+        "x": 470,
+        "y": 155,
+        "width": 550,
+        "height": 90
+      },
+      "v_save_dialog_s_ok": {
+        "x": 565,
+        "y": 290,
+        "width": 360,
+        "height": 150
+      },
+      "v_save_dialog_s_conflict": {
+        "x": 25,
+        "y": 320,
+        "width": 430,
+        "height": 90
+      },
+      "v_save_dialog_s_invalid": {
+        "x": 1080,
+        "y": 320,
+        "width": 410,
+        "height": 90
+      },
+      "v_save_dialog_s_state": {
+        "x": 565,
+        "y": 505,
+        "width": 360,
+        "height": 150
+      },
+      "v_save_dialog_s_draft": {
+        "x": 25,
+        "y": 540,
+        "width": 430,
+        "height": 100
+      },
+      "v_save_dialog_s_checked": {
+        "x": 1080,
+        "y": 540,
+        "width": 410,
+        "height": 100
+      },
+      "v_save_dialog_s_finish": {
+        "x": 1080,
+        "y": 790,
+        "width": 410,
+        "height": 100
+      },
+      "v_manager_dialog_m_select": {
+        "x": 465,
+        "y": 25,
+        "width": 570,
+        "height": 90
+      },
+      "v_manager_dialog_m_checked": {
+        "x": 560,
+        "y": 165,
+        "width": 380,
+        "height": 160
+      },
+      "v_manager_dialog_m_disabled": {
+        "x": 20,
+        "y": 190,
+        "width": 430,
+        "height": 105
+      },
+      "v_manager_dialog_m_form": {
+        "x": 465,
+        "y": 370,
+        "width": 570,
+        "height": 110
+      },
+      "v_manager_dialog_m_save": {
+        "x": 465,
+        "y": 530,
+        "width": 570,
+        "height": 90
+      },
+      "v_manager_dialog_m_ok": {
+        "x": 560,
+        "y": 670,
+        "width": 380,
+        "height": 160
+      },
+      "v_manager_dialog_m_error": {
+        "x": 20,
+        "y": 705,
+        "width": 430,
+        "height": 100
+      },
+      "v_manager_dialog_m_success": {
+        "x": 1080,
+        "y": 705,
+        "width": 410,
+        "height": 100
+      },
+      "v_structure_html": {
+        "x": 30,
+        "y": 50,
+        "width": 440,
+        "height": 140
+      },
+      "v_structure_dialog": {
+        "x": 570,
+        "y": 50,
+        "width": 440,
+        "height": 140
+      },
+      "v_structure_http": {
+        "x": 1110,
+        "y": 50,
+        "width": 440,
+        "height": 140
+      },
+      "v_structure_handler": {
+        "x": 1110,
+        "y": 350,
+        "width": 440,
+        "height": 150
+      },
+      "v_structure_application": {
+        "x": 570,
+        "y": 350,
+        "width": 440,
+        "height": 150
+      },
+      "v_structure_domain": {
+        "x": 30,
+        "y": 350,
+        "width": 440,
+        "height": 150
+      },
+      "v_structure_rules": {
+        "x": 1110,
+        "y": 695,
+        "width": 440,
+        "height": 140
+      },
+      "v_structure_storage": {
+        "x": 570,
+        "y": 675,
+        "width": 440,
+        "height": 180
+      },
+      "v_structure_database": {
+        "x": 30,
+        "y": 675,
+        "width": 440,
+        "height": 180
+      }
+    },
+    "edges": {
+      "v_overview_tree_client_main": {
+        "bends": [
+          {
+            "x": 525,
+            "y": 255
+          },
+          {
+            "x": 525,
+            "y": 120
+          }
+        ]
+      },
+      "v_overview_tree_client_service": {
+        "bends": [
+          {
+            "x": 525,
+            "y": 255
+          },
+          {
+            "x": 525,
+            "y": 400
+          }
+        ]
+      },
+      "v_functions_main_tree_main_function_group_0": {
+        "bends": [
+          {
+            "x": 335,
+            "y": 390
+          },
+          {
+            "x": 335,
+            "y": 85
+          }
+        ]
+      },
+      "v_functions_main_tree_function_group_0_B1": {
+        "bends": [
+          {
+            "x": 750,
+            "y": 85
+          },
+          {
+            "x": 750,
+            "y": 85
+          }
+        ]
+      },
+      "v_functions_main_tree_main_function_group_1": {
+        "bends": [
+          {
+            "x": 335,
+            "y": 390
+          },
+          {
+            "x": 335,
+            "y": 235
+          }
+        ]
+      },
+      "v_functions_main_tree_function_group_1_B2": {
+        "bends": [
+          {
+            "x": 750,
+            "y": 235
+          },
+          {
+            "x": 750,
+            "y": 185
+          }
+        ]
+      },
+      "v_functions_main_tree_function_group_1_B3": {
+        "bends": [
+          {
+            "x": 750,
+            "y": 235
+          },
+          {
+            "x": 750,
+            "y": 285
+          }
+        ]
+      },
+      "v_functions_main_tree_main_function_group_2": {
+        "bends": [
+          {
+            "x": 335,
+            "y": 390
+          },
+          {
+            "x": 335,
+            "y": 385
+          }
+        ]
+      },
+      "v_functions_main_tree_function_group_2_B4": {
+        "bends": [
+          {
+            "x": 750,
+            "y": 385
+          },
+          {
+            "x": 750,
+            "y": 385
+          }
+        ]
+      },
+      "v_functions_main_tree_main_function_group_3": {
+        "bends": [
+          {
+            "x": 335,
+            "y": 390
+          },
+          {
+            "x": 335,
+            "y": 535
+          }
+        ]
+      },
+      "v_functions_main_tree_function_group_3_B5": {
+        "bends": [
+          {
+            "x": 750,
+            "y": 535
+          },
+          {
+            "x": 750,
+            "y": 485
+          }
+        ]
+      },
+      "v_functions_main_tree_function_group_3_B6": {
+        "bends": [
+          {
+            "x": 750,
+            "y": 535
+          },
+          {
+            "x": 750,
+            "y": 585
+          }
+        ]
+      },
+      "v_functions_main_tree_main_function_group_4": {
+        "bends": [
+          {
+            "x": 335,
+            "y": 390
+          },
+          {
+            "x": 335,
+            "y": 685
+          }
+        ]
+      },
+      "v_functions_main_tree_function_group_4_B7": {
+        "bends": [
+          {
+            "x": 750,
+            "y": 685
+          },
+          {
+            "x": 750,
+            "y": 685
+          }
+        ]
+      },
+      "v_functions_service_tree_service_function_group_5": {
+        "bends": [
+          {
+            "x": 335,
+            "y": 290
+          },
+          {
+            "x": 335,
+            "y": 135
+          }
+        ]
+      },
+      "v_functions_service_tree_function_group_5_S1": {
+        "bends": [
+          {
+            "x": 750,
+            "y": 135
+          },
+          {
+            "x": 750,
+            "y": 85
+          }
+        ]
+      },
+      "v_functions_service_tree_function_group_5_S2": {
+        "bends": [
+          {
+            "x": 750,
+            "y": 135
+          },
+          {
+            "x": 750,
+            "y": 185
+          }
+        ]
+      },
+      "v_functions_service_tree_service_function_group_6": {
+        "bends": [
+          {
+            "x": 335,
+            "y": 290
+          },
+          {
+            "x": 335,
+            "y": 285
+          }
+        ]
+      },
+      "v_functions_service_tree_function_group_6_S3": {
+        "bends": [
+          {
+            "x": 750,
+            "y": 285
+          },
+          {
+            "x": 750,
+            "y": 285
+          }
+        ]
+      },
+      "v_functions_service_tree_service_function_group_7": {
+        "bends": [
+          {
+            "x": 335,
+            "y": 290
+          },
+          {
+            "x": 335,
+            "y": 385
+          }
+        ]
+      },
+      "v_functions_service_tree_function_group_7_S4": {
+        "bends": [
+          {
+            "x": 750,
+            "y": 385
+          },
+          {
+            "x": 750,
+            "y": 385
+          }
+        ]
+      },
+      "v_functions_service_tree_service_function_group_8": {
+        "bends": [
+          {
+            "x": 335,
+            "y": 290
+          },
+          {
+            "x": 335,
+            "y": 485
+          }
+        ]
+      },
+      "v_functions_service_tree_function_group_8_S5": {
+        "bends": [
+          {
+            "x": 750,
+            "y": 485
+          },
+          {
+            "x": 750,
+            "y": 485
+          }
+        ]
+      },
+      "v_role_engineer_role_engineer_branch_main": {
+        "bends": [
+          {
+            "x": 360,
+            "y": 400
+          },
+          {
+            "x": 360,
+            "y": 85
+          }
+        ]
+      },
+      "v_role_engineer_role_engineer_B1": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 85
+          },
+          {
+            "x": 915,
+            "y": 53
+          }
+        ]
+      },
+      "v_role_engineer_role_engineer_B2": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 85
+          },
+          {
+            "x": 915,
+            "y": 115
+          }
+        ]
+      },
+      "v_role_engineer_role_engineer_B3": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 85
+          },
+          {
+            "x": 915,
+            "y": 177
+          }
+        ]
+      },
+      "v_role_engineer_role_engineer_B4": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 85
+          },
+          {
+            "x": 915,
+            "y": 239
+          }
+        ]
+      },
+      "v_role_engineer_role_engineer_B5": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 85
+          },
+          {
+            "x": 915,
+            "y": 301
+          }
+        ]
+      },
+      "v_role_engineer_role_engineer_B7": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 85
+          },
+          {
+            "x": 915,
+            "y": 363
+          }
+        ]
+      },
+      "v_role_engineer_role_engineer_branch_service": {
+        "bends": [
+          {
+            "x": 360,
+            "y": 400
+          },
+          {
+            "x": 360,
+            "y": 535
+          }
+        ]
+      },
+      "v_role_engineer_role_engineer_S1": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 535
+          },
+          {
+            "x": 915,
+            "y": 528
+          }
+        ]
+      },
+      "v_role_engineer_role_engineer_S2": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 535
+          },
+          {
+            "x": 915,
+            "y": 590
+          }
+        ]
+      },
+      "v_role_engineer_role_engineer_S3": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 535
+          },
+          {
+            "x": 915,
+            "y": 652
+          }
+        ]
+      },
+      "v_role_engineer_role_engineer_S5": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 535
+          },
+          {
+            "x": 915,
+            "y": 714
+          }
+        ]
+      },
+      "v_role_manager_role_manager_branch_main": {
+        "bends": [
+          {
+            "x": 360,
+            "y": 400
+          },
+          {
+            "x": 360,
+            "y": 85
+          }
+        ]
+      },
+      "v_role_manager_role_manager_B1": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 85
+          },
+          {
+            "x": 915,
+            "y": 53
+          }
+        ]
+      },
+      "v_role_manager_role_manager_B2": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 85
+          },
+          {
+            "x": 915,
+            "y": 115
+          }
+        ]
+      },
+      "v_role_manager_role_manager_B4": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 85
+          },
+          {
+            "x": 915,
+            "y": 177
+          }
+        ]
+      },
+      "v_role_manager_role_manager_B5": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 85
+          },
+          {
+            "x": 915,
+            "y": 239
+          }
+        ]
+      },
+      "v_role_manager_role_manager_B6": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 85
+          },
+          {
+            "x": 915,
+            "y": 301
+          }
+        ]
+      },
+      "v_role_manager_role_manager_B7": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 85
+          },
+          {
+            "x": 915,
+            "y": 363
+          }
+        ]
+      },
+      "v_role_manager_role_manager_branch_service": {
+        "bends": [
+          {
+            "x": 360,
+            "y": 400
+          },
+          {
+            "x": 360,
+            "y": 535
+          }
+        ]
+      },
+      "v_role_manager_role_manager_S1": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 535
+          },
+          {
+            "x": 915,
+            "y": 528
+          }
+        ]
+      },
+      "v_role_manager_role_manager_S2": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 535
+          },
+          {
+            "x": 915,
+            "y": 590
+          }
+        ]
+      },
+      "v_role_manager_role_manager_S3": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 535
+          },
+          {
+            "x": 915,
+            "y": 652
+          }
+        ]
+      },
+      "v_role_manager_role_manager_S5": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 535
+          },
+          {
+            "x": 915,
+            "y": 714
+          }
+        ]
+      },
+      "v_role_viewer_role_viewer_branch_main": {
+        "bends": [
+          {
+            "x": 360,
+            "y": 400
+          },
+          {
+            "x": 360,
+            "y": 85
+          }
+        ]
+      },
+      "v_role_viewer_role_viewer_B1": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 85
+          },
+          {
+            "x": 915,
+            "y": 53
+          }
+        ]
+      },
+      "v_role_viewer_role_viewer_B2": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 85
+          },
+          {
+            "x": 915,
+            "y": 115
+          }
+        ]
+      },
+      "v_role_viewer_role_viewer_B4": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 85
+          },
+          {
+            "x": 915,
+            "y": 177
+          }
+        ]
+      },
+      "v_role_viewer_role_viewer_B5": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 85
+          },
+          {
+            "x": 915,
+            "y": 239
+          }
+        ]
+      },
+      "v_role_viewer_role_viewer_B7": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 85
+          },
+          {
+            "x": 915,
+            "y": 301
+          }
+        ]
+      },
+      "v_role_viewer_role_viewer_branch_service": {
+        "bends": [
+          {
+            "x": 360,
+            "y": 400
+          },
+          {
+            "x": 360,
+            "y": 535
+          }
+        ]
+      },
+      "v_role_viewer_role_viewer_S1": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 535
+          },
+          {
+            "x": 915,
+            "y": 528
+          }
+        ]
+      },
+      "v_role_viewer_role_viewer_S2": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 535
+          },
+          {
+            "x": 915,
+            "y": 590
+          }
+        ]
+      },
+      "v_role_viewer_role_viewer_S3": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 535
+          },
+          {
+            "x": 915,
+            "y": 652
+          }
+        ]
+      },
+      "v_role_viewer_role_viewer_S5": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 535
+          },
+          {
+            "x": 915,
+            "y": 714
+          }
+        ]
+      },
+      "v_role_admin_role_admin_branch_service": {
+        "bends": [
+          {
+            "x": 360,
+            "y": 400
+          },
+          {
+            "x": 360,
+            "y": 535
+          }
+        ]
+      },
+      "v_role_admin_role_admin_S1": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 535
+          },
+          {
+            "x": 915,
+            "y": 528
+          }
+        ]
+      },
+      "v_role_admin_role_admin_S2": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 535
+          },
+          {
+            "x": 915,
+            "y": 590
+          }
+        ]
+      },
+      "v_role_admin_role_admin_S3": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 535
+          },
+          {
+            "x": 915,
+            "y": 652
+          }
+        ]
+      },
+      "v_role_admin_role_admin_S4": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 535
+          },
+          {
+            "x": 915,
+            "y": 714
+          }
+        ]
+      },
+      "v_role_admin_role_admin_S5": {
+        "bends": [
+          {
+            "x": 915,
+            "y": 535
+          },
+          {
+            "x": 915,
+            "y": 776
+          }
+        ]
+      },
+      "v_engineer_dialog_e1": {
+        "bends": []
+      },
+      "v_engineer_dialog_e2": {
+        "bends": []
+      },
+      "v_engineer_dialog_e3": {
+        "bends": []
+      },
+      "v_engineer_dialog_e4": {
+        "bends": [
+          {
+            "x": 210,
+            "y": 75
+          }
+        ]
+      },
+      "v_engineer_dialog_e5": {
+        "bends": []
+      },
+      "v_engineer_dialog_e6": {
+        "bends": []
+      },
+      "v_engineer_dialog_e7": {
+        "bends": []
+      },
+      "v_engineer_dialog_e8": {
+        "bends": []
+      },
+      "v_engineer_dialog_e9": {
+        "bends": [
+          {
+            "x": 210,
+            "y": 535
+          }
+        ]
+      },
+      "v_engineer_dialog_e10": {
+        "bends": []
+      },
+      "v_engineer_dialog_e11": {
+        "bends": []
+      },
+      "v_save_dialog_s1": {
+        "bends": []
+      },
+      "v_save_dialog_s2": {
+        "bends": []
+      },
+      "v_save_dialog_s3": {
+        "bends": []
+      },
+      "v_save_dialog_s4": {
+        "bends": []
+      },
+      "v_save_dialog_s5": {
+        "bends": []
+      },
+      "v_save_dialog_s6": {
+        "bends": []
+      },
+      "v_save_dialog_s7": {
+        "bends": []
+      },
+      "v_save_dialog_s8": {
+        "bends": []
+      },
+      "v_manager_dialog_m1": {
+        "bends": []
+      },
+      "v_manager_dialog_m2": {
+        "bends": []
+      },
+      "v_manager_dialog_m3": {
+        "bends": [
+          {
+            "x": 235,
+            "y": 70
+          }
+        ]
+      },
+      "v_manager_dialog_m4": {
+        "bends": []
+      },
+      "v_manager_dialog_m5": {
+        "bends": []
+      },
+      "v_manager_dialog_m6": {
+        "bends": []
+      },
+      "v_manager_dialog_m7": {
+        "bends": []
+      },
+      "v_manager_dialog_m8": {
+        "bends": [
+          {
+            "x": 235,
+            "y": 425
+          }
+        ]
+      },
+      "v_manager_dialog_m9": {
+        "bends": []
+      },
+      "v_structure_module1": {
+        "bends": []
+      },
+      "v_structure_module2": {
+        "bends": []
+      },
+      "v_structure_module3": {
+        "bends": []
+      },
+      "v_structure_module4": {
+        "bends": []
+      },
+      "v_structure_module5": {
+        "bends": []
+      },
+      "v_structure_module6": {
+        "bends": []
+      },
+      "v_structure_module7": {
+        "bends": []
+      },
+      "v_structure_module8": {
+        "bends": []
+      }
+    },
+    "diagrams": {
+      "overview": {},
+      "functions_main": {},
+      "functions_service": {},
+      "role_engineer": {},
+      "role_manager": {},
+      "role_viewer": {},
+      "role_admin": {},
+      "engineer_dialog": {},
+      "save_dialog": {},
+      "manager_dialog": {},
+      "structure": {}
+    }
+  }
+}

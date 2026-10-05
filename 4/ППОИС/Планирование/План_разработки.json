@@ -1,0 +1,188 @@
+{
+  "kind": "project estimates, not actual completed durations",
+  "start": "2026-10-05",
+  "calendar": "Monday-Friday, excluding 2026-11-04; no overtime",
+  "duration_workdays": 37,
+  "effort_person_days": 70,
+  "finish": "2026-11-25",
+  "critical_path": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8
+  ],
+  "max_role_utilization": 1.0,
+  "tasks": [
+    {
+      "id": 1,
+      "name": "Уточнение требований",
+      "duration": 5,
+      "after": [],
+      "effort": {
+        "Аналитик": 5,
+        "Руководитель проекта": 2
+      },
+      "start_day": 0,
+      "end_day": 4,
+      "start_date": "2026-10-05",
+      "end_date": "2026-10-09",
+      "latest_end_day": 4,
+      "latest_start_day": 0,
+      "slack_workdays": 0
+    },
+    {
+      "id": 2,
+      "name": "Модели и архитектура",
+      "duration": 5,
+      "after": [
+        1
+      ],
+      "effort": {
+        "Аналитик": 5,
+        "Архитектор": 3
+      },
+      "start_day": 5,
+      "end_day": 9,
+      "start_date": "2026-10-12",
+      "end_date": "2026-10-16",
+      "latest_end_day": 9,
+      "latest_start_day": 5,
+      "slack_workdays": 0
+    },
+    {
+      "id": 3,
+      "name": "БД и миграции",
+      "duration": 6,
+      "after": [
+        2
+      ],
+      "effort": {
+        "Backend-разработчик": 6,
+        "Администратор БД": 4
+      },
+      "start_day": 10,
+      "end_day": 15,
+      "start_date": "2026-10-19",
+      "end_date": "2026-10-26",
+      "latest_end_day": 15,
+      "latest_start_day": 10,
+      "slack_workdays": 0
+    },
+    {
+      "id": 4,
+      "name": "Доменная логика",
+      "duration": 8,
+      "after": [
+        3
+      ],
+      "effort": {
+        "Backend-разработчик": 8,
+        "Тестировщик": 3
+      },
+      "start_day": 16,
+      "end_day": 23,
+      "start_date": "2026-10-27",
+      "end_date": "2026-11-06",
+      "latest_end_day": 23,
+      "latest_start_day": 16,
+      "slack_workdays": 0
+    },
+    {
+      "id": 5,
+      "name": "Клиентские формы",
+      "duration": 7,
+      "after": [
+        2
+      ],
+      "effort": {
+        "Frontend-разработчик": 7,
+        "Аналитик": 2
+      },
+      "start_day": 10,
+      "end_day": 16,
+      "start_date": "2026-10-19",
+      "end_date": "2026-10-27",
+      "latest_end_day": 23,
+      "latest_start_day": 17,
+      "slack_workdays": 7
+    },
+    {
+      "id": 6,
+      "name": "Интеграция модулей",
+      "duration": 4,
+      "after": [
+        4,
+        5
+      ],
+      "effort": {
+        "Backend-разработчик": 4,
+        "Frontend-разработчик": 2,
+        "Тестировщик": 4
+      },
+      "start_day": 24,
+      "end_day": 27,
+      "start_date": "2026-11-09",
+      "end_date": "2026-11-12",
+      "latest_end_day": 27,
+      "latest_start_day": 24,
+      "slack_workdays": 0
+    },
+    {
+      "id": 7,
+      "name": "Системное тестирование",
+      "duration": 6,
+      "after": [
+        6
+      ],
+      "effort": {
+        "Тестировщик": 6,
+        "Backend-разработчик": 3
+      },
+      "start_day": 28,
+      "end_day": 33,
+      "start_date": "2026-11-13",
+      "end_date": "2026-11-20",
+      "latest_end_day": 33,
+      "latest_start_day": 28,
+      "slack_workdays": 0
+    },
+    {
+      "id": 8,
+      "name": "Пилот и передача",
+      "duration": 3,
+      "after": [
+        7
+      ],
+      "effort": {
+        "Руководитель проекта": 3,
+        "Инженер эксплуатации": 3
+      },
+      "start_day": 34,
+      "end_day": 36,
+      "start_date": "2026-11-23",
+      "end_date": "2026-11-25",
+      "latest_end_day": 36,
+      "latest_start_day": 34,
+      "slack_workdays": 0
+    }
+  ],
+  "role_effort": {
+    "Backend-разработчик": 21,
+    "Frontend-разработчик": 9,
+    "Администратор БД": 4,
+    "Аналитик": 12,
+    "Архитектор": 3,
+    "Инженер эксплуатации": 3,
+    "Руководитель проекта": 5,
+    "Тестировщик": 13
+  },
+  "checks": {
+    "dependencies": true,
+    "role_capacity": true,
+    "duration_effort_distinction": true,
+    "forward_backward_pass": true
+  }
+}

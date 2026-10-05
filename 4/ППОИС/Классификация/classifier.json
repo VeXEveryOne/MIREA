@@ -1,0 +1,15 @@
+{
+  "version": "C1",
+  "object": "Класс компьютерной конфигурации учебного каталога",
+  "method": "hierarchical sequential code with complete Cartesian branches in the bounded catalog",
+  "features": [
+    {"position": 1, "key": "purpose", "name": "Назначение", "values": {"1": "Офисная", "2": "Игровая", "3": "Рабочая станция"}},
+    {"position": 2, "key": "case", "name": "Исполнение корпуса", "values": {"1": "Башенный", "2": "Компактный"}},
+    {"position": 3, "key": "platform", "name": "Платформа процессора", "values": {"1": "AM5", "2": "LGA1700"}},
+    {"position": 4, "key": "ram", "name": "Объём ОЗУ", "values": {"1": "16 ГБ", "2": "32 ГБ"}},
+    {"position": 5, "key": "ssd", "name": "Объём SSD", "values": {"1": "512 ГБ", "2": "1 ТБ"}}
+  ],
+  "classification_format": "C1-A-B-C-D-E",
+  "identity_rule": "classification code groups configurations; configuration.id UUID and configuration.code identify an individual record",
+  "bounded_scope": "48 classes; not a complete classifier of all computers; unsupported values require a new registered classifier version"
+}

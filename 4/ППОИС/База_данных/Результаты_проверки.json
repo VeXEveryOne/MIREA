@@ -1,0 +1,2666 @@
+{
+  "executed_at": "2026-10-05T12:06:56.521051+00:00",
+  "server_version": "PostgreSQL 18.6 on x86_64-windows, compiled by msvc-19.44.35228, 64-bit",
+  "database": "ppois_4b69601445b0",
+  "data_kind": "deterministic synthetic fixtures, not supplier quotations",
+  "counts": {
+    "bom_slot": 12,
+    "bom_version": 2,
+    "card": 2,
+    "card_revision": 2,
+    "component": 7,
+    "component_group": 7,
+    "configuration": 1,
+    "image": 1,
+    "offer": 10,
+    "publication_attempt": 1,
+    "revision_image": 1,
+    "supplier": 2
+  },
+  "columns": [
+    {
+      "table_name": "bom_slot",
+      "column_name": "configuration_id",
+      "data_type": "uuid",
+      "udt_name": "uuid",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "bom_slot",
+      "column_name": "version_no",
+      "data_type": "integer",
+      "udt_name": "int4",
+      "character_maximum_length": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 2
+    },
+    {
+      "table_name": "bom_slot",
+      "column_name": "line_no",
+      "data_type": "integer",
+      "udt_name": "int4",
+      "character_maximum_length": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 3
+    },
+    {
+      "table_name": "bom_slot",
+      "column_name": "group_id",
+      "data_type": "uuid",
+      "udt_name": "uuid",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "YES",
+      "column_default": null,
+      "ordinal_position": 4
+    },
+    {
+      "table_name": "bom_slot",
+      "column_name": "requested_component_id",
+      "data_type": "uuid",
+      "udt_name": "uuid",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "YES",
+      "column_default": null,
+      "ordinal_position": 5
+    },
+    {
+      "table_name": "bom_slot",
+      "column_name": "offer_id",
+      "data_type": "uuid",
+      "udt_name": "uuid",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "YES",
+      "column_default": null,
+      "ordinal_position": 6
+    },
+    {
+      "table_name": "bom_slot",
+      "column_name": "quantity",
+      "data_type": "integer",
+      "udt_name": "int4",
+      "character_maximum_length": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 7
+    },
+    {
+      "table_name": "bom_version",
+      "column_name": "configuration_id",
+      "data_type": "uuid",
+      "udt_name": "uuid",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "bom_version",
+      "column_name": "version_no",
+      "data_type": "integer",
+      "udt_name": "int4",
+      "character_maximum_length": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 2
+    },
+    {
+      "table_name": "bom_version",
+      "column_name": "state",
+      "data_type": "character varying",
+      "udt_name": "varchar",
+      "character_maximum_length": 12,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 3
+    },
+    {
+      "table_name": "bom_version",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "udt_name": "timestamptz",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 4
+    },
+    {
+      "table_name": "card",
+      "column_name": "id",
+      "data_type": "uuid",
+      "udt_name": "uuid",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "card",
+      "column_name": "seller_code",
+      "data_type": "character varying",
+      "udt_name": "varchar",
+      "character_maximum_length": 60,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 2
+    },
+    {
+      "table_name": "card",
+      "column_name": "name",
+      "data_type": "character varying",
+      "udt_name": "varchar",
+      "character_maximum_length": 160,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 3
+    },
+    {
+      "table_name": "card_revision",
+      "column_name": "card_id",
+      "data_type": "uuid",
+      "udt_name": "uuid",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "card_revision",
+      "column_name": "revision_no",
+      "data_type": "integer",
+      "udt_name": "int4",
+      "character_maximum_length": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 2
+    },
+    {
+      "table_name": "card_revision",
+      "column_name": "configuration_id",
+      "data_type": "uuid",
+      "udt_name": "uuid",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 3
+    },
+    {
+      "table_name": "card_revision",
+      "column_name": "version_no",
+      "data_type": "integer",
+      "udt_name": "int4",
+      "character_maximum_length": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 4
+    },
+    {
+      "table_name": "card_revision",
+      "column_name": "state",
+      "data_type": "character varying",
+      "udt_name": "varchar",
+      "character_maximum_length": 12,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 5
+    },
+    {
+      "table_name": "card_revision",
+      "column_name": "title",
+      "data_type": "character varying",
+      "udt_name": "varchar",
+      "character_maximum_length": 200,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 6
+    },
+    {
+      "table_name": "card_revision",
+      "column_name": "description",
+      "data_type": "text",
+      "udt_name": "text",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 7
+    },
+    {
+      "table_name": "card_revision",
+      "column_name": "assembly_rub",
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "character_maximum_length": null,
+      "numeric_precision": 10,
+      "numeric_scale": 2,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 8
+    },
+    {
+      "table_name": "card_revision",
+      "column_name": "packaging_rub",
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "character_maximum_length": null,
+      "numeric_precision": 10,
+      "numeric_scale": 2,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 9
+    },
+    {
+      "table_name": "card_revision",
+      "column_name": "logistics_rub",
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "character_maximum_length": null,
+      "numeric_precision": 10,
+      "numeric_scale": 2,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 10
+    },
+    {
+      "table_name": "card_revision",
+      "column_name": "markup_rate",
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "character_maximum_length": null,
+      "numeric_precision": 6,
+      "numeric_scale": 4,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 11
+    },
+    {
+      "table_name": "card_revision",
+      "column_name": "commission_rate",
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "character_maximum_length": null,
+      "numeric_precision": 6,
+      "numeric_scale": 4,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 12
+    },
+    {
+      "table_name": "card_revision",
+      "column_name": "round_step_rub",
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "character_maximum_length": null,
+      "numeric_precision": 8,
+      "numeric_scale": 2,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 13
+    },
+    {
+      "table_name": "card_revision",
+      "column_name": "packaging_mass_kg",
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "character_maximum_length": null,
+      "numeric_precision": 9,
+      "numeric_scale": 3,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 14
+    },
+    {
+      "table_name": "card_revision",
+      "column_name": "calculated_at",
+      "data_type": "timestamp with time zone",
+      "udt_name": "timestamptz",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 15
+    },
+    {
+      "table_name": "component",
+      "column_name": "id",
+      "data_type": "uuid",
+      "udt_name": "uuid",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "component",
+      "column_name": "group_id",
+      "data_type": "uuid",
+      "udt_name": "uuid",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 2
+    },
+    {
+      "table_name": "component",
+      "column_name": "sku",
+      "data_type": "character varying",
+      "udt_name": "varchar",
+      "character_maximum_length": 60,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 3
+    },
+    {
+      "table_name": "component",
+      "column_name": "name",
+      "data_type": "character varying",
+      "udt_name": "varchar",
+      "character_maximum_length": 160,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 4
+    },
+    {
+      "table_name": "component",
+      "column_name": "mass_kg",
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "character_maximum_length": null,
+      "numeric_precision": 9,
+      "numeric_scale": 3,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 5
+    },
+    {
+      "table_name": "component",
+      "column_name": "socket",
+      "data_type": "character varying",
+      "udt_name": "varchar",
+      "character_maximum_length": 30,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "YES",
+      "column_default": null,
+      "ordinal_position": 6
+    },
+    {
+      "table_name": "component",
+      "column_name": "memory_type",
+      "data_type": "character varying",
+      "udt_name": "varchar",
+      "character_maximum_length": 20,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "YES",
+      "column_default": null,
+      "ordinal_position": 7
+    },
+    {
+      "table_name": "component",
+      "column_name": "power_w",
+      "data_type": "integer",
+      "udt_name": "int4",
+      "character_maximum_length": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0,
+      "is_nullable": "YES",
+      "column_default": null,
+      "ordinal_position": 8
+    },
+    {
+      "table_name": "component_group",
+      "column_name": "id",
+      "data_type": "uuid",
+      "udt_name": "uuid",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "component_group",
+      "column_name": "code",
+      "data_type": "character varying",
+      "udt_name": "varchar",
+      "character_maximum_length": 20,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 2
+    },
+    {
+      "table_name": "component_group",
+      "column_name": "name",
+      "data_type": "character varying",
+      "udt_name": "varchar",
+      "character_maximum_length": 120,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 3
+    },
+    {
+      "table_name": "component_group",
+      "column_name": "role_code",
+      "data_type": "character varying",
+      "udt_name": "varchar",
+      "character_maximum_length": 12,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 4
+    },
+    {
+      "table_name": "configuration",
+      "column_name": "id",
+      "data_type": "uuid",
+      "udt_name": "uuid",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "configuration",
+      "column_name": "code",
+      "data_type": "character varying",
+      "udt_name": "varchar",
+      "character_maximum_length": 30,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 2
+    },
+    {
+      "table_name": "configuration",
+      "column_name": "name",
+      "data_type": "character varying",
+      "udt_name": "varchar",
+      "character_maximum_length": 160,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 3
+    },
+    {
+      "table_name": "image",
+      "column_name": "id",
+      "data_type": "uuid",
+      "udt_name": "uuid",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "image",
+      "column_name": "uri",
+      "data_type": "character varying",
+      "udt_name": "varchar",
+      "character_maximum_length": 250,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 2
+    },
+    {
+      "table_name": "image",
+      "column_name": "sha256",
+      "data_type": "character",
+      "udt_name": "bpchar",
+      "character_maximum_length": 64,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 3
+    },
+    {
+      "table_name": "image",
+      "column_name": "width_px",
+      "data_type": "integer",
+      "udt_name": "int4",
+      "character_maximum_length": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 4
+    },
+    {
+      "table_name": "image",
+      "column_name": "height_px",
+      "data_type": "integer",
+      "udt_name": "int4",
+      "character_maximum_length": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 5
+    },
+    {
+      "table_name": "offer",
+      "column_name": "id",
+      "data_type": "uuid",
+      "udt_name": "uuid",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "offer",
+      "column_name": "component_id",
+      "data_type": "uuid",
+      "udt_name": "uuid",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 2
+    },
+    {
+      "table_name": "offer",
+      "column_name": "supplier_id",
+      "data_type": "uuid",
+      "udt_name": "uuid",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 3
+    },
+    {
+      "table_name": "offer",
+      "column_name": "unit_price_rub",
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "character_maximum_length": null,
+      "numeric_precision": 12,
+      "numeric_scale": 2,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 4
+    },
+    {
+      "table_name": "offer",
+      "column_name": "stock",
+      "data_type": "integer",
+      "udt_name": "int4",
+      "character_maximum_length": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 5
+    },
+    {
+      "table_name": "offer",
+      "column_name": "observed_at",
+      "data_type": "timestamp with time zone",
+      "udt_name": "timestamptz",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 6
+    },
+    {
+      "table_name": "publication_attempt",
+      "column_name": "card_id",
+      "data_type": "uuid",
+      "udt_name": "uuid",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "publication_attempt",
+      "column_name": "revision_no",
+      "data_type": "integer",
+      "udt_name": "int4",
+      "character_maximum_length": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 2
+    },
+    {
+      "table_name": "publication_attempt",
+      "column_name": "attempt_no",
+      "data_type": "integer",
+      "udt_name": "int4",
+      "character_maximum_length": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 3
+    },
+    {
+      "table_name": "publication_attempt",
+      "column_name": "state",
+      "data_type": "character varying",
+      "udt_name": "varchar",
+      "character_maximum_length": 12,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 4
+    },
+    {
+      "table_name": "publication_attempt",
+      "column_name": "external_task_id",
+      "data_type": "character varying",
+      "udt_name": "varchar",
+      "character_maximum_length": 80,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "YES",
+      "column_default": null,
+      "ordinal_position": 5
+    },
+    {
+      "table_name": "publication_attempt",
+      "column_name": "error_code",
+      "data_type": "character varying",
+      "udt_name": "varchar",
+      "character_maximum_length": 60,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "YES",
+      "column_default": null,
+      "ordinal_position": 6
+    },
+    {
+      "table_name": "publication_attempt",
+      "column_name": "confirmed_not_accepted",
+      "data_type": "boolean",
+      "udt_name": "bool",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": "false",
+      "ordinal_position": 7
+    },
+    {
+      "table_name": "publication_attempt",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "udt_name": "timestamptz",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 8
+    },
+    {
+      "table_name": "publication_attempt",
+      "column_name": "next_check_at",
+      "data_type": "timestamp with time zone",
+      "udt_name": "timestamptz",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "YES",
+      "column_default": null,
+      "ordinal_position": 9
+    },
+    {
+      "table_name": "revision_image",
+      "column_name": "card_id",
+      "data_type": "uuid",
+      "udt_name": "uuid",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "revision_image",
+      "column_name": "revision_no",
+      "data_type": "integer",
+      "udt_name": "int4",
+      "character_maximum_length": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 2
+    },
+    {
+      "table_name": "revision_image",
+      "column_name": "image_id",
+      "data_type": "uuid",
+      "udt_name": "uuid",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 3
+    },
+    {
+      "table_name": "revision_image",
+      "column_name": "ordinal",
+      "data_type": "integer",
+      "udt_name": "int4",
+      "character_maximum_length": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 4
+    },
+    {
+      "table_name": "supplier",
+      "column_name": "id",
+      "data_type": "uuid",
+      "udt_name": "uuid",
+      "character_maximum_length": null,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "supplier",
+      "column_name": "code",
+      "data_type": "character varying",
+      "udt_name": "varchar",
+      "character_maximum_length": 20,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 2
+    },
+    {
+      "table_name": "supplier",
+      "column_name": "name",
+      "data_type": "character varying",
+      "udt_name": "varchar",
+      "character_maximum_length": 120,
+      "numeric_precision": null,
+      "numeric_scale": null,
+      "is_nullable": "NO",
+      "column_default": null,
+      "ordinal_position": 3
+    }
+  ],
+  "constraints": [
+    {
+      "table_name": "bom_slot",
+      "conname": "bom_slot_check",
+      "contype": "c",
+      "definition": "CHECK ((((group_id IS NOT NULL) AND (requested_component_id IS NULL)) OR ((requested_component_id IS NOT NULL) AND (group_id IS NULL))))"
+    },
+    {
+      "table_name": "bom_slot",
+      "conname": "bom_slot_configuration_id_not_null",
+      "contype": "n",
+      "definition": "NOT NULL configuration_id"
+    },
+    {
+      "table_name": "bom_slot",
+      "conname": "bom_slot_configuration_id_version_no_fkey",
+      "contype": "f",
+      "definition": "FOREIGN KEY (configuration_id, version_no) REFERENCES ppois.bom_version(configuration_id, version_no)"
+    },
+    {
+      "table_name": "bom_slot",
+      "conname": "bom_slot_group_id_fkey",
+      "contype": "f",
+      "definition": "FOREIGN KEY (group_id) REFERENCES ppois.component_group(id)"
+    },
+    {
+      "table_name": "bom_slot",
+      "conname": "bom_slot_line_no_check",
+      "contype": "c",
+      "definition": "CHECK ((line_no > 0))"
+    },
+    {
+      "table_name": "bom_slot",
+      "conname": "bom_slot_line_no_not_null",
+      "contype": "n",
+      "definition": "NOT NULL line_no"
+    },
+    {
+      "table_name": "bom_slot",
+      "conname": "bom_slot_offer_id_fkey",
+      "contype": "f",
+      "definition": "FOREIGN KEY (offer_id) REFERENCES ppois.offer(id)"
+    },
+    {
+      "table_name": "bom_slot",
+      "conname": "bom_slot_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (configuration_id, version_no, line_no)"
+    },
+    {
+      "table_name": "bom_slot",
+      "conname": "bom_slot_quantity_check",
+      "contype": "c",
+      "definition": "CHECK ((quantity > 0))"
+    },
+    {
+      "table_name": "bom_slot",
+      "conname": "bom_slot_quantity_not_null",
+      "contype": "n",
+      "definition": "NOT NULL quantity"
+    },
+    {
+      "table_name": "bom_slot",
+      "conname": "bom_slot_requested_component_id_fkey",
+      "contype": "f",
+      "definition": "FOREIGN KEY (requested_component_id) REFERENCES ppois.component(id)"
+    },
+    {
+      "table_name": "bom_slot",
+      "conname": "bom_slot_version_no_not_null",
+      "contype": "n",
+      "definition": "NOT NULL version_no"
+    },
+    {
+      "table_name": "bom_version",
+      "conname": "bom_version_configuration_id_fkey",
+      "contype": "f",
+      "definition": "FOREIGN KEY (configuration_id) REFERENCES ppois.configuration(id)"
+    },
+    {
+      "table_name": "bom_version",
+      "conname": "bom_version_configuration_id_not_null",
+      "contype": "n",
+      "definition": "NOT NULL configuration_id"
+    },
+    {
+      "table_name": "bom_version",
+      "conname": "bom_version_created_at_not_null",
+      "contype": "n",
+      "definition": "NOT NULL created_at"
+    },
+    {
+      "table_name": "bom_version",
+      "conname": "bom_version_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (configuration_id, version_no)"
+    },
+    {
+      "table_name": "bom_version",
+      "conname": "bom_version_state_check",
+      "contype": "c",
+      "definition": "CHECK (((state)::text = ANY ((ARRAY['DRAFT'::character varying, 'CHECKED'::character varying, 'FROZEN'::character varying])::text[])))"
+    },
+    {
+      "table_name": "bom_version",
+      "conname": "bom_version_state_not_null",
+      "contype": "n",
+      "definition": "NOT NULL state"
+    },
+    {
+      "table_name": "bom_version",
+      "conname": "bom_version_version_no_check",
+      "contype": "c",
+      "definition": "CHECK ((version_no > 0))"
+    },
+    {
+      "table_name": "bom_version",
+      "conname": "bom_version_version_no_not_null",
+      "contype": "n",
+      "definition": "NOT NULL version_no"
+    },
+    {
+      "table_name": "card",
+      "conname": "card_id_not_null",
+      "contype": "n",
+      "definition": "NOT NULL id"
+    },
+    {
+      "table_name": "card",
+      "conname": "card_name_not_null",
+      "contype": "n",
+      "definition": "NOT NULL name"
+    },
+    {
+      "table_name": "card",
+      "conname": "card_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "card",
+      "conname": "card_seller_code_key",
+      "contype": "u",
+      "definition": "UNIQUE (seller_code)"
+    },
+    {
+      "table_name": "card",
+      "conname": "card_seller_code_not_null",
+      "contype": "n",
+      "definition": "NOT NULL seller_code"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_assembly_rub_check",
+      "contype": "c",
+      "definition": "CHECK ((assembly_rub >= (0)::numeric))"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_assembly_rub_not_null",
+      "contype": "n",
+      "definition": "NOT NULL assembly_rub"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_calculated_at_not_null",
+      "contype": "n",
+      "definition": "NOT NULL calculated_at"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_card_id_fkey",
+      "contype": "f",
+      "definition": "FOREIGN KEY (card_id) REFERENCES ppois.card(id)"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_card_id_not_null",
+      "contype": "n",
+      "definition": "NOT NULL card_id"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_commission_rate_check",
+      "contype": "c",
+      "definition": "CHECK (((commission_rate >= (0)::numeric) AND (commission_rate < (1)::numeric)))"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_commission_rate_not_null",
+      "contype": "n",
+      "definition": "NOT NULL commission_rate"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_configuration_id_not_null",
+      "contype": "n",
+      "definition": "NOT NULL configuration_id"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_configuration_id_version_no_fkey",
+      "contype": "f",
+      "definition": "FOREIGN KEY (configuration_id, version_no) REFERENCES ppois.bom_version(configuration_id, version_no)"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_description_not_null",
+      "contype": "n",
+      "definition": "NOT NULL description"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_logistics_rub_check",
+      "contype": "c",
+      "definition": "CHECK ((logistics_rub >= (0)::numeric))"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_logistics_rub_not_null",
+      "contype": "n",
+      "definition": "NOT NULL logistics_rub"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_markup_rate_check",
+      "contype": "c",
+      "definition": "CHECK (((markup_rate >= (0)::numeric) AND (markup_rate <= (1)::numeric)))"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_markup_rate_not_null",
+      "contype": "n",
+      "definition": "NOT NULL markup_rate"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_packaging_mass_kg_check",
+      "contype": "c",
+      "definition": "CHECK ((packaging_mass_kg >= (0)::numeric))"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_packaging_mass_kg_not_null",
+      "contype": "n",
+      "definition": "NOT NULL packaging_mass_kg"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_packaging_rub_check",
+      "contype": "c",
+      "definition": "CHECK ((packaging_rub >= (0)::numeric))"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_packaging_rub_not_null",
+      "contype": "n",
+      "definition": "NOT NULL packaging_rub"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (card_id, revision_no)"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_revision_no_check",
+      "contype": "c",
+      "definition": "CHECK ((revision_no > 0))"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_revision_no_not_null",
+      "contype": "n",
+      "definition": "NOT NULL revision_no"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_round_step_rub_check",
+      "contype": "c",
+      "definition": "CHECK ((round_step_rub > (0)::numeric))"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_round_step_rub_not_null",
+      "contype": "n",
+      "definition": "NOT NULL round_step_rub"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_state_check",
+      "contype": "c",
+      "definition": "CHECK (((state)::text = ANY ((ARRAY['DRAFT'::character varying, 'READY'::character varying, 'STALE'::character varying])::text[])))"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_state_not_null",
+      "contype": "n",
+      "definition": "NOT NULL state"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_title_not_null",
+      "contype": "n",
+      "definition": "NOT NULL title"
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_version_no_not_null",
+      "contype": "n",
+      "definition": "NOT NULL version_no"
+    },
+    {
+      "table_name": "component",
+      "conname": "component_group_id_fkey",
+      "contype": "f",
+      "definition": "FOREIGN KEY (group_id) REFERENCES ppois.component_group(id)"
+    },
+    {
+      "table_name": "component",
+      "conname": "component_group_id_not_null1",
+      "contype": "n",
+      "definition": "NOT NULL group_id"
+    },
+    {
+      "table_name": "component",
+      "conname": "component_id_not_null",
+      "contype": "n",
+      "definition": "NOT NULL id"
+    },
+    {
+      "table_name": "component",
+      "conname": "component_mass_kg_check",
+      "contype": "c",
+      "definition": "CHECK ((mass_kg > (0)::numeric))"
+    },
+    {
+      "table_name": "component",
+      "conname": "component_mass_kg_not_null",
+      "contype": "n",
+      "definition": "NOT NULL mass_kg"
+    },
+    {
+      "table_name": "component",
+      "conname": "component_name_not_null",
+      "contype": "n",
+      "definition": "NOT NULL name"
+    },
+    {
+      "table_name": "component",
+      "conname": "component_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "component",
+      "conname": "component_power_w_check",
+      "contype": "c",
+      "definition": "CHECK ((power_w > 0))"
+    },
+    {
+      "table_name": "component",
+      "conname": "component_sku_key",
+      "contype": "u",
+      "definition": "UNIQUE (sku)"
+    },
+    {
+      "table_name": "component",
+      "conname": "component_sku_not_null",
+      "contype": "n",
+      "definition": "NOT NULL sku"
+    },
+    {
+      "table_name": "component_group",
+      "conname": "component_group_code_key",
+      "contype": "u",
+      "definition": "UNIQUE (code)"
+    },
+    {
+      "table_name": "component_group",
+      "conname": "component_group_code_not_null",
+      "contype": "n",
+      "definition": "NOT NULL code"
+    },
+    {
+      "table_name": "component_group",
+      "conname": "component_group_id_not_null",
+      "contype": "n",
+      "definition": "NOT NULL id"
+    },
+    {
+      "table_name": "component_group",
+      "conname": "component_group_name_not_null",
+      "contype": "n",
+      "definition": "NOT NULL name"
+    },
+    {
+      "table_name": "component_group",
+      "conname": "component_group_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "component_group",
+      "conname": "component_group_role_code_check",
+      "contype": "c",
+      "definition": "CHECK (((role_code)::text = ANY ((ARRAY['CPU'::character varying, 'BOARD'::character varying, 'RAM'::character varying, 'SSD'::character varying, 'CASE'::character varying, 'PSU'::character varying, 'COOLER'::character varying])::text[])))"
+    },
+    {
+      "table_name": "component_group",
+      "conname": "component_group_role_code_not_null",
+      "contype": "n",
+      "definition": "NOT NULL role_code"
+    },
+    {
+      "table_name": "configuration",
+      "conname": "configuration_code_key",
+      "contype": "u",
+      "definition": "UNIQUE (code)"
+    },
+    {
+      "table_name": "configuration",
+      "conname": "configuration_code_not_null",
+      "contype": "n",
+      "definition": "NOT NULL code"
+    },
+    {
+      "table_name": "configuration",
+      "conname": "configuration_id_not_null",
+      "contype": "n",
+      "definition": "NOT NULL id"
+    },
+    {
+      "table_name": "configuration",
+      "conname": "configuration_name_not_null",
+      "contype": "n",
+      "definition": "NOT NULL name"
+    },
+    {
+      "table_name": "configuration",
+      "conname": "configuration_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "image",
+      "conname": "image_height_px_check",
+      "contype": "c",
+      "definition": "CHECK ((height_px > 0))"
+    },
+    {
+      "table_name": "image",
+      "conname": "image_height_px_not_null",
+      "contype": "n",
+      "definition": "NOT NULL height_px"
+    },
+    {
+      "table_name": "image",
+      "conname": "image_id_not_null",
+      "contype": "n",
+      "definition": "NOT NULL id"
+    },
+    {
+      "table_name": "image",
+      "conname": "image_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "image",
+      "conname": "image_sha256_check",
+      "contype": "c",
+      "definition": "CHECK ((sha256 ~ '^[0-9a-f]{64}$'::text))"
+    },
+    {
+      "table_name": "image",
+      "conname": "image_sha256_key",
+      "contype": "u",
+      "definition": "UNIQUE (sha256)"
+    },
+    {
+      "table_name": "image",
+      "conname": "image_sha256_not_null",
+      "contype": "n",
+      "definition": "NOT NULL sha256"
+    },
+    {
+      "table_name": "image",
+      "conname": "image_uri_not_null",
+      "contype": "n",
+      "definition": "NOT NULL uri"
+    },
+    {
+      "table_name": "image",
+      "conname": "image_width_px_check",
+      "contype": "c",
+      "definition": "CHECK ((width_px > 0))"
+    },
+    {
+      "table_name": "image",
+      "conname": "image_width_px_not_null",
+      "contype": "n",
+      "definition": "NOT NULL width_px"
+    },
+    {
+      "table_name": "offer",
+      "conname": "offer_component_id_fkey",
+      "contype": "f",
+      "definition": "FOREIGN KEY (component_id) REFERENCES ppois.component(id)"
+    },
+    {
+      "table_name": "offer",
+      "conname": "offer_component_id_not_null",
+      "contype": "n",
+      "definition": "NOT NULL component_id"
+    },
+    {
+      "table_name": "offer",
+      "conname": "offer_id_not_null",
+      "contype": "n",
+      "definition": "NOT NULL id"
+    },
+    {
+      "table_name": "offer",
+      "conname": "offer_observed_at_not_null",
+      "contype": "n",
+      "definition": "NOT NULL observed_at"
+    },
+    {
+      "table_name": "offer",
+      "conname": "offer_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "offer",
+      "conname": "offer_stock_check",
+      "contype": "c",
+      "definition": "CHECK ((stock >= 0))"
+    },
+    {
+      "table_name": "offer",
+      "conname": "offer_stock_not_null",
+      "contype": "n",
+      "definition": "NOT NULL stock"
+    },
+    {
+      "table_name": "offer",
+      "conname": "offer_supplier_id_fkey",
+      "contype": "f",
+      "definition": "FOREIGN KEY (supplier_id) REFERENCES ppois.supplier(id)"
+    },
+    {
+      "table_name": "offer",
+      "conname": "offer_supplier_id_not_null",
+      "contype": "n",
+      "definition": "NOT NULL supplier_id"
+    },
+    {
+      "table_name": "offer",
+      "conname": "offer_unit_price_rub_check",
+      "contype": "c",
+      "definition": "CHECK ((unit_price_rub > (0)::numeric))"
+    },
+    {
+      "table_name": "offer",
+      "conname": "offer_unit_price_rub_not_null",
+      "contype": "n",
+      "definition": "NOT NULL unit_price_rub"
+    },
+    {
+      "table_name": "publication_attempt",
+      "conname": "publication_attempt_attempt_no_check",
+      "contype": "c",
+      "definition": "CHECK ((attempt_no > 0))"
+    },
+    {
+      "table_name": "publication_attempt",
+      "conname": "publication_attempt_attempt_no_not_null",
+      "contype": "n",
+      "definition": "NOT NULL attempt_no"
+    },
+    {
+      "table_name": "publication_attempt",
+      "conname": "publication_attempt_card_id_not_null",
+      "contype": "n",
+      "definition": "NOT NULL card_id"
+    },
+    {
+      "table_name": "publication_attempt",
+      "conname": "publication_attempt_card_id_revision_no_fkey",
+      "contype": "f",
+      "definition": "FOREIGN KEY (card_id, revision_no) REFERENCES ppois.card_revision(card_id, revision_no)"
+    },
+    {
+      "table_name": "publication_attempt",
+      "conname": "publication_attempt_check",
+      "contype": "c",
+      "definition": "CHECK ((((state)::text <> ALL ((ARRAY['ACCEPTED'::character varying, 'PUBLISHED'::character varying])::text[])) OR (external_task_id IS NOT NULL)))"
+    },
+    {
+      "table_name": "publication_attempt",
+      "conname": "publication_attempt_check1",
+      "contype": "c",
+      "definition": "CHECK ((((state)::text <> ALL ((ARRAY['REJECTED'::character varying, 'TEMP_ERROR'::character varying])::text[])) OR (error_code IS NOT NULL)))"
+    },
+    {
+      "table_name": "publication_attempt",
+      "conname": "publication_attempt_check2",
+      "contype": "c",
+      "definition": "CHECK (((NOT confirmed_not_accepted) OR ((state)::text = 'TEMP_ERROR'::text)))"
+    },
+    {
+      "table_name": "publication_attempt",
+      "conname": "publication_attempt_confirmed_not_accepted_not_null",
+      "contype": "n",
+      "definition": "NOT NULL confirmed_not_accepted"
+    },
+    {
+      "table_name": "publication_attempt",
+      "conname": "publication_attempt_created_at_not_null",
+      "contype": "n",
+      "definition": "NOT NULL created_at"
+    },
+    {
+      "table_name": "publication_attempt",
+      "conname": "publication_attempt_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (card_id, revision_no, attempt_no)"
+    },
+    {
+      "table_name": "publication_attempt",
+      "conname": "publication_attempt_revision_no_not_null",
+      "contype": "n",
+      "definition": "NOT NULL revision_no"
+    },
+    {
+      "table_name": "publication_attempt",
+      "conname": "publication_attempt_state_check",
+      "contype": "c",
+      "definition": "CHECK (((state)::text = ANY ((ARRAY['NEW'::character varying, 'ACCEPTED'::character varying, 'PUBLISHED'::character varying, 'REJECTED'::character varying, 'TEMP_ERROR'::character varying, 'UNKNOWN'::character varying])::text[])))"
+    },
+    {
+      "table_name": "publication_attempt",
+      "conname": "publication_attempt_state_not_null",
+      "contype": "n",
+      "definition": "NOT NULL state"
+    },
+    {
+      "table_name": "revision_image",
+      "conname": "revision_image_card_id_not_null",
+      "contype": "n",
+      "definition": "NOT NULL card_id"
+    },
+    {
+      "table_name": "revision_image",
+      "conname": "revision_image_card_id_revision_no_fkey",
+      "contype": "f",
+      "definition": "FOREIGN KEY (card_id, revision_no) REFERENCES ppois.card_revision(card_id, revision_no)"
+    },
+    {
+      "table_name": "revision_image",
+      "conname": "revision_image_card_id_revision_no_ordinal_key",
+      "contype": "u",
+      "definition": "UNIQUE (card_id, revision_no, ordinal)"
+    },
+    {
+      "table_name": "revision_image",
+      "conname": "revision_image_image_id_fkey",
+      "contype": "f",
+      "definition": "FOREIGN KEY (image_id) REFERENCES ppois.image(id)"
+    },
+    {
+      "table_name": "revision_image",
+      "conname": "revision_image_image_id_not_null",
+      "contype": "n",
+      "definition": "NOT NULL image_id"
+    },
+    {
+      "table_name": "revision_image",
+      "conname": "revision_image_ordinal_check",
+      "contype": "c",
+      "definition": "CHECK ((ordinal > 0))"
+    },
+    {
+      "table_name": "revision_image",
+      "conname": "revision_image_ordinal_not_null",
+      "contype": "n",
+      "definition": "NOT NULL ordinal"
+    },
+    {
+      "table_name": "revision_image",
+      "conname": "revision_image_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (card_id, revision_no, image_id)"
+    },
+    {
+      "table_name": "revision_image",
+      "conname": "revision_image_revision_no_not_null",
+      "contype": "n",
+      "definition": "NOT NULL revision_no"
+    },
+    {
+      "table_name": "supplier",
+      "conname": "supplier_code_key",
+      "contype": "u",
+      "definition": "UNIQUE (code)"
+    },
+    {
+      "table_name": "supplier",
+      "conname": "supplier_code_not_null",
+      "contype": "n",
+      "definition": "NOT NULL code"
+    },
+    {
+      "table_name": "supplier",
+      "conname": "supplier_id_not_null",
+      "contype": "n",
+      "definition": "NOT NULL id"
+    },
+    {
+      "table_name": "supplier",
+      "conname": "supplier_name_not_null",
+      "contype": "n",
+      "definition": "NOT NULL name"
+    },
+    {
+      "table_name": "supplier",
+      "conname": "supplier_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (id)"
+    }
+  ],
+  "key_catalog": [
+    {
+      "table_name": "bom_slot",
+      "conname": "bom_slot_configuration_id_version_no_fkey",
+      "contype": "f",
+      "columns": [
+        "configuration_id",
+        "version_no"
+      ],
+      "parent_table": "bom_version",
+      "parent_columns": [
+        "configuration_id",
+        "version_no"
+      ]
+    },
+    {
+      "table_name": "bom_slot",
+      "conname": "bom_slot_group_id_fkey",
+      "contype": "f",
+      "columns": [
+        "group_id"
+      ],
+      "parent_table": "component_group",
+      "parent_columns": [
+        "id"
+      ]
+    },
+    {
+      "table_name": "bom_slot",
+      "conname": "bom_slot_offer_id_fkey",
+      "contype": "f",
+      "columns": [
+        "offer_id"
+      ],
+      "parent_table": "offer",
+      "parent_columns": [
+        "id"
+      ]
+    },
+    {
+      "table_name": "bom_slot",
+      "conname": "bom_slot_pkey",
+      "contype": "p",
+      "columns": [
+        "configuration_id",
+        "version_no",
+        "line_no"
+      ],
+      "parent_table": null,
+      "parent_columns": []
+    },
+    {
+      "table_name": "bom_slot",
+      "conname": "bom_slot_requested_component_id_fkey",
+      "contype": "f",
+      "columns": [
+        "requested_component_id"
+      ],
+      "parent_table": "component",
+      "parent_columns": [
+        "id"
+      ]
+    },
+    {
+      "table_name": "bom_version",
+      "conname": "bom_version_configuration_id_fkey",
+      "contype": "f",
+      "columns": [
+        "configuration_id"
+      ],
+      "parent_table": "configuration",
+      "parent_columns": [
+        "id"
+      ]
+    },
+    {
+      "table_name": "bom_version",
+      "conname": "bom_version_pkey",
+      "contype": "p",
+      "columns": [
+        "configuration_id",
+        "version_no"
+      ],
+      "parent_table": null,
+      "parent_columns": []
+    },
+    {
+      "table_name": "card",
+      "conname": "card_pkey",
+      "contype": "p",
+      "columns": [
+        "id"
+      ],
+      "parent_table": null,
+      "parent_columns": []
+    },
+    {
+      "table_name": "card",
+      "conname": "card_seller_code_key",
+      "contype": "u",
+      "columns": [
+        "seller_code"
+      ],
+      "parent_table": null,
+      "parent_columns": []
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_card_id_fkey",
+      "contype": "f",
+      "columns": [
+        "card_id"
+      ],
+      "parent_table": "card",
+      "parent_columns": [
+        "id"
+      ]
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_configuration_id_version_no_fkey",
+      "contype": "f",
+      "columns": [
+        "configuration_id",
+        "version_no"
+      ],
+      "parent_table": "bom_version",
+      "parent_columns": [
+        "configuration_id",
+        "version_no"
+      ]
+    },
+    {
+      "table_name": "card_revision",
+      "conname": "card_revision_pkey",
+      "contype": "p",
+      "columns": [
+        "card_id",
+        "revision_no"
+      ],
+      "parent_table": null,
+      "parent_columns": []
+    },
+    {
+      "table_name": "component",
+      "conname": "component_group_id_fkey",
+      "contype": "f",
+      "columns": [
+        "group_id"
+      ],
+      "parent_table": "component_group",
+      "parent_columns": [
+        "id"
+      ]
+    },
+    {
+      "table_name": "component",
+      "conname": "component_pkey",
+      "contype": "p",
+      "columns": [
+        "id"
+      ],
+      "parent_table": null,
+      "parent_columns": []
+    },
+    {
+      "table_name": "component",
+      "conname": "component_sku_key",
+      "contype": "u",
+      "columns": [
+        "sku"
+      ],
+      "parent_table": null,
+      "parent_columns": []
+    },
+    {
+      "table_name": "component_group",
+      "conname": "component_group_code_key",
+      "contype": "u",
+      "columns": [
+        "code"
+      ],
+      "parent_table": null,
+      "parent_columns": []
+    },
+    {
+      "table_name": "component_group",
+      "conname": "component_group_pkey",
+      "contype": "p",
+      "columns": [
+        "id"
+      ],
+      "parent_table": null,
+      "parent_columns": []
+    },
+    {
+      "table_name": "configuration",
+      "conname": "configuration_code_key",
+      "contype": "u",
+      "columns": [
+        "code"
+      ],
+      "parent_table": null,
+      "parent_columns": []
+    },
+    {
+      "table_name": "configuration",
+      "conname": "configuration_pkey",
+      "contype": "p",
+      "columns": [
+        "id"
+      ],
+      "parent_table": null,
+      "parent_columns": []
+    },
+    {
+      "table_name": "image",
+      "conname": "image_pkey",
+      "contype": "p",
+      "columns": [
+        "id"
+      ],
+      "parent_table": null,
+      "parent_columns": []
+    },
+    {
+      "table_name": "image",
+      "conname": "image_sha256_key",
+      "contype": "u",
+      "columns": [
+        "sha256"
+      ],
+      "parent_table": null,
+      "parent_columns": []
+    },
+    {
+      "table_name": "offer",
+      "conname": "offer_component_id_fkey",
+      "contype": "f",
+      "columns": [
+        "component_id"
+      ],
+      "parent_table": "component",
+      "parent_columns": [
+        "id"
+      ]
+    },
+    {
+      "table_name": "offer",
+      "conname": "offer_pkey",
+      "contype": "p",
+      "columns": [
+        "id"
+      ],
+      "parent_table": null,
+      "parent_columns": []
+    },
+    {
+      "table_name": "offer",
+      "conname": "offer_supplier_id_fkey",
+      "contype": "f",
+      "columns": [
+        "supplier_id"
+      ],
+      "parent_table": "supplier",
+      "parent_columns": [
+        "id"
+      ]
+    },
+    {
+      "table_name": "publication_attempt",
+      "conname": "publication_attempt_card_id_revision_no_fkey",
+      "contype": "f",
+      "columns": [
+        "card_id",
+        "revision_no"
+      ],
+      "parent_table": "card_revision",
+      "parent_columns": [
+        "card_id",
+        "revision_no"
+      ]
+    },
+    {
+      "table_name": "publication_attempt",
+      "conname": "publication_attempt_pkey",
+      "contype": "p",
+      "columns": [
+        "card_id",
+        "revision_no",
+        "attempt_no"
+      ],
+      "parent_table": null,
+      "parent_columns": []
+    },
+    {
+      "table_name": "revision_image",
+      "conname": "revision_image_card_id_revision_no_fkey",
+      "contype": "f",
+      "columns": [
+        "card_id",
+        "revision_no"
+      ],
+      "parent_table": "card_revision",
+      "parent_columns": [
+        "card_id",
+        "revision_no"
+      ]
+    },
+    {
+      "table_name": "revision_image",
+      "conname": "revision_image_card_id_revision_no_ordinal_key",
+      "contype": "u",
+      "columns": [
+        "card_id",
+        "revision_no",
+        "ordinal"
+      ],
+      "parent_table": null,
+      "parent_columns": []
+    },
+    {
+      "table_name": "revision_image",
+      "conname": "revision_image_image_id_fkey",
+      "contype": "f",
+      "columns": [
+        "image_id"
+      ],
+      "parent_table": "image",
+      "parent_columns": [
+        "id"
+      ]
+    },
+    {
+      "table_name": "revision_image",
+      "conname": "revision_image_pkey",
+      "contype": "p",
+      "columns": [
+        "card_id",
+        "revision_no",
+        "image_id"
+      ],
+      "parent_table": null,
+      "parent_columns": []
+    },
+    {
+      "table_name": "supplier",
+      "conname": "supplier_code_key",
+      "contype": "u",
+      "columns": [
+        "code"
+      ],
+      "parent_table": null,
+      "parent_columns": []
+    },
+    {
+      "table_name": "supplier",
+      "conname": "supplier_pkey",
+      "contype": "p",
+      "columns": [
+        "id"
+      ],
+      "parent_table": null,
+      "parent_columns": []
+    }
+  ],
+  "fixtures": {
+    "bom_slot": [
+      {
+        "configuration_id": "00000000-0000-0000-0000-000000000100",
+        "version_no": 1,
+        "line_no": 1,
+        "group_id": "00000000-0000-0000-0000-000000000001",
+        "requested_component_id": null,
+        "offer_id": "00000000-0000-0000-0000-000000000031",
+        "quantity": 1
+      },
+      {
+        "configuration_id": "00000000-0000-0000-0000-000000000100",
+        "version_no": 1,
+        "line_no": 2,
+        "group_id": "00000000-0000-0000-0000-000000000002",
+        "requested_component_id": null,
+        "offer_id": "00000000-0000-0000-0000-000000000032",
+        "quantity": 1
+      },
+      {
+        "configuration_id": "00000000-0000-0000-0000-000000000100",
+        "version_no": 1,
+        "line_no": 3,
+        "group_id": "00000000-0000-0000-0000-000000000003",
+        "requested_component_id": null,
+        "offer_id": "00000000-0000-0000-0000-000000000033",
+        "quantity": 2
+      },
+      {
+        "configuration_id": "00000000-0000-0000-0000-000000000100",
+        "version_no": 1,
+        "line_no": 4,
+        "group_id": "00000000-0000-0000-0000-000000000004",
+        "requested_component_id": null,
+        "offer_id": "00000000-0000-0000-0000-000000000034",
+        "quantity": 1
+      },
+      {
+        "configuration_id": "00000000-0000-0000-0000-000000000100",
+        "version_no": 1,
+        "line_no": 5,
+        "group_id": "00000000-0000-0000-0000-000000000005",
+        "requested_component_id": null,
+        "offer_id": "00000000-0000-0000-0000-000000000035",
+        "quantity": 1
+      },
+      {
+        "configuration_id": "00000000-0000-0000-0000-000000000100",
+        "version_no": 1,
+        "line_no": 6,
+        "group_id": "00000000-0000-0000-0000-000000000006",
+        "requested_component_id": null,
+        "offer_id": "00000000-0000-0000-0000-000000000036",
+        "quantity": 1
+      },
+      {
+        "configuration_id": "00000000-0000-0000-0000-000000000100",
+        "version_no": 2,
+        "line_no": 1,
+        "group_id": "00000000-0000-0000-0000-000000000001",
+        "requested_component_id": null,
+        "offer_id": "00000000-0000-0000-0000-000000000031",
+        "quantity": 1
+      },
+      {
+        "configuration_id": "00000000-0000-0000-0000-000000000100",
+        "version_no": 2,
+        "line_no": 2,
+        "group_id": "00000000-0000-0000-0000-000000000002",
+        "requested_component_id": null,
+        "offer_id": "00000000-0000-0000-0000-000000000032",
+        "quantity": 1
+      },
+      {
+        "configuration_id": "00000000-0000-0000-0000-000000000100",
+        "version_no": 2,
+        "line_no": 3,
+        "group_id": "00000000-0000-0000-0000-000000000003",
+        "requested_component_id": null,
+        "offer_id": "00000000-0000-0000-0000-000000000033",
+        "quantity": 2
+      },
+      {
+        "configuration_id": "00000000-0000-0000-0000-000000000100",
+        "version_no": 2,
+        "line_no": 4,
+        "group_id": "00000000-0000-0000-0000-000000000004",
+        "requested_component_id": null,
+        "offer_id": "00000000-0000-0000-0000-000000000034",
+        "quantity": 1
+      },
+      {
+        "configuration_id": "00000000-0000-0000-0000-000000000100",
+        "version_no": 2,
+        "line_no": 5,
+        "group_id": "00000000-0000-0000-0000-000000000005",
+        "requested_component_id": null,
+        "offer_id": "00000000-0000-0000-0000-000000000035",
+        "quantity": 1
+      },
+      {
+        "configuration_id": "00000000-0000-0000-0000-000000000100",
+        "version_no": 2,
+        "line_no": 6,
+        "group_id": "00000000-0000-0000-0000-000000000006",
+        "requested_component_id": null,
+        "offer_id": "00000000-0000-0000-0000-000000000036",
+        "quantity": 1
+      }
+    ],
+    "bom_version": [
+      {
+        "configuration_id": "00000000-0000-0000-0000-000000000100",
+        "version_no": 1,
+        "state": "FROZEN",
+        "created_at": "2026-10-05 07:00:00+00:00"
+      },
+      {
+        "configuration_id": "00000000-0000-0000-0000-000000000100",
+        "version_no": 2,
+        "state": "DRAFT",
+        "created_at": "2026-10-05 07:00:00+00:00"
+      }
+    ],
+    "card": [
+      {
+        "id": "00000000-0000-0000-0000-000000000200",
+        "seller_code": "YK-PC-101",
+        "name": "ПК AM5 32 ГБ / 1 ТБ"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000201",
+        "seller_code": "YK-PC-102",
+        "name": "Карточка без изображения"
+      }
+    ],
+    "card_revision": [
+      {
+        "card_id": "00000000-0000-0000-0000-000000000200",
+        "revision_no": 1,
+        "configuration_id": "00000000-0000-0000-0000-000000000100",
+        "version_no": 1,
+        "state": "READY",
+        "title": "Компьютер AM5 32 ГБ / SSD 1 ТБ",
+        "description": "Учебная карточка без внешней публикации",
+        "assembly_rub": "2000.00",
+        "packaging_rub": "500.00",
+        "logistics_rub": "700.00",
+        "markup_rate": "0.2000",
+        "commission_rate": "0.1500",
+        "round_step_rub": "100.00",
+        "packaging_mass_kg": "0.800",
+        "calculated_at": "2026-10-05 07:00:00+00:00"
+      },
+      {
+        "card_id": "00000000-0000-0000-0000-000000000201",
+        "revision_no": 1,
+        "configuration_id": "00000000-0000-0000-0000-000000000100",
+        "version_no": 1,
+        "state": "STALE",
+        "title": "Компьютер AM5 32 ГБ / SSD 1 ТБ",
+        "description": "Учебная карточка без внешней публикации",
+        "assembly_rub": "2000.00",
+        "packaging_rub": "500.00",
+        "logistics_rub": "700.00",
+        "markup_rate": "0.2000",
+        "commission_rate": "0.1500",
+        "round_step_rub": "100.00",
+        "packaging_mass_kg": "0.800",
+        "calculated_at": "2026-10-05 07:00:00+00:00"
+      }
+    ],
+    "component": [
+      {
+        "id": "00000000-0000-0000-0000-000000000011",
+        "group_id": "00000000-0000-0000-0000-000000000001",
+        "sku": "CPU-7600",
+        "name": "Процессор 6 ядер AM5",
+        "mass_kg": "0.100",
+        "socket": "AM5",
+        "memory_type": null,
+        "power_w": 65
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000012",
+        "group_id": "00000000-0000-0000-0000-000000000002",
+        "sku": "MB-B650",
+        "name": "Плата B650 DDR5",
+        "mass_kg": "0.800",
+        "socket": "AM5",
+        "memory_type": "DDR5",
+        "power_w": 40
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000013",
+        "group_id": "00000000-0000-0000-0000-000000000003",
+        "sku": "RAM-16",
+        "name": "Модуль памяти 16 ГБ DDR5",
+        "mass_kg": "0.050",
+        "socket": null,
+        "memory_type": "DDR5",
+        "power_w": 5
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000014",
+        "group_id": "00000000-0000-0000-0000-000000000004",
+        "sku": "SSD-1TB",
+        "name": "SSD M.2 1 ТБ",
+        "mass_kg": "0.020",
+        "socket": null,
+        "memory_type": null,
+        "power_w": 8
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000015",
+        "group_id": "00000000-0000-0000-0000-000000000005",
+        "sku": "CASE-ATX",
+        "name": "Корпус ATX",
+        "mass_kg": "4.500",
+        "socket": null,
+        "memory_type": null,
+        "power_w": null
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000016",
+        "group_id": "00000000-0000-0000-0000-000000000006",
+        "sku": "PSU-650",
+        "name": "Блок питания 650 Вт",
+        "mass_kg": "1.500",
+        "socket": null,
+        "memory_type": null,
+        "power_w": 650
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000017",
+        "group_id": "00000000-0000-0000-0000-000000000007",
+        "sku": "CPU-LGA",
+        "name": "Несовместимый процессор LGA1700",
+        "mass_kg": "0.100",
+        "socket": "LGA1700",
+        "memory_type": null,
+        "power_w": 125
+      }
+    ],
+    "component_group": [
+      {
+        "id": "00000000-0000-0000-0000-000000000001",
+        "code": "CPU-AM5",
+        "name": "Процессоры AM5",
+        "role_code": "CPU"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000002",
+        "code": "BOARD-AM5",
+        "name": "Платы AM5 DDR5",
+        "role_code": "BOARD"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000003",
+        "code": "RAM-DDR5",
+        "name": "Оперативная память DDR5",
+        "role_code": "RAM"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000004",
+        "code": "SSD-M2",
+        "name": "Накопители M.2",
+        "role_code": "SSD"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000005",
+        "code": "CASE-ATX",
+        "name": "Корпуса ATX",
+        "role_code": "CASE"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000006",
+        "code": "PSU-650",
+        "name": "Блоки питания 650 Вт",
+        "role_code": "PSU"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000007",
+        "code": "CPU-LGA",
+        "name": "Процессоры LGA1700",
+        "role_code": "CPU"
+      }
+    ],
+    "configuration": [
+      {
+        "id": "00000000-0000-0000-0000-000000000100",
+        "code": "PC-101",
+        "name": "Учебная конфигурация AM5"
+      }
+    ],
+    "image": [
+      {
+        "id": "00000000-0000-0000-0000-000000000300",
+        "uri": "images/pc-101.svg",
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "width_px": 1200,
+        "height_px": 1200
+      }
+    ],
+    "offer": [
+      {
+        "id": "00000000-0000-0000-0000-000000000031",
+        "component_id": "00000000-0000-0000-0000-000000000011",
+        "supplier_id": "00000000-0000-0000-0000-000000000021",
+        "unit_price_rub": "16000.00",
+        "stock": 10,
+        "observed_at": "2026-10-05 07:00:00+00:00"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000032",
+        "component_id": "00000000-0000-0000-0000-000000000012",
+        "supplier_id": "00000000-0000-0000-0000-000000000021",
+        "unit_price_rub": "12000.00",
+        "stock": 10,
+        "observed_at": "2026-10-05 07:00:00+00:00"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000033",
+        "component_id": "00000000-0000-0000-0000-000000000013",
+        "supplier_id": "00000000-0000-0000-0000-000000000021",
+        "unit_price_rub": "4000.00",
+        "stock": 10,
+        "observed_at": "2026-10-05 07:00:00+00:00"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000034",
+        "component_id": "00000000-0000-0000-0000-000000000014",
+        "supplier_id": "00000000-0000-0000-0000-000000000021",
+        "unit_price_rub": "5000.00",
+        "stock": 10,
+        "observed_at": "2026-10-05 07:00:00+00:00"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000035",
+        "component_id": "00000000-0000-0000-0000-000000000015",
+        "supplier_id": "00000000-0000-0000-0000-000000000021",
+        "unit_price_rub": "4500.00",
+        "stock": 10,
+        "observed_at": "2026-10-05 07:00:00+00:00"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000036",
+        "component_id": "00000000-0000-0000-0000-000000000016",
+        "supplier_id": "00000000-0000-0000-0000-000000000021",
+        "unit_price_rub": "5500.00",
+        "stock": 10,
+        "observed_at": "2026-10-05 07:00:00+00:00"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000041",
+        "component_id": "00000000-0000-0000-0000-000000000011",
+        "supplier_id": "00000000-0000-0000-0000-000000000022",
+        "unit_price_rub": "15000.00",
+        "stock": 0,
+        "observed_at": "2026-10-05 07:00:00+00:00"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000042",
+        "component_id": "00000000-0000-0000-0000-000000000011",
+        "supplier_id": "00000000-0000-0000-0000-000000000022",
+        "unit_price_rub": "14000.00",
+        "stock": 10,
+        "observed_at": "2026-10-04 06:00:00+00:00"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000043",
+        "component_id": "00000000-0000-0000-0000-000000000011",
+        "supplier_id": "00000000-0000-0000-0000-000000000022",
+        "unit_price_rub": "16500.00",
+        "stock": 10,
+        "observed_at": "2026-10-05 07:00:00+00:00"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000044",
+        "component_id": "00000000-0000-0000-0000-000000000017",
+        "supplier_id": "00000000-0000-0000-0000-000000000022",
+        "unit_price_rub": "14500.00",
+        "stock": 10,
+        "observed_at": "2026-10-05 07:00:00+00:00"
+      }
+    ],
+    "publication_attempt": [
+      {
+        "card_id": "00000000-0000-0000-0000-000000000200",
+        "revision_no": 1,
+        "attempt_no": 1,
+        "state": "ACCEPTED",
+        "external_task_id": "demo-task-001",
+        "error_code": null,
+        "confirmed_not_accepted": false,
+        "created_at": "2026-10-05 07:00:00+00:00",
+        "next_check_at": "2026-10-05 07:01:00+00:00"
+      }
+    ],
+    "revision_image": [
+      {
+        "card_id": "00000000-0000-0000-0000-000000000200",
+        "revision_no": 1,
+        "image_id": "00000000-0000-0000-0000-000000000300",
+        "ordinal": 1
+      }
+    ],
+    "supplier": [
+      {
+        "id": "00000000-0000-0000-0000-000000000021",
+        "code": "SUP-A",
+        "name": "Учебный поставщик A"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000022",
+        "code": "SUP-B",
+        "name": "Учебный поставщик B"
+      }
+    ]
+  },
+  "queries": [
+    {
+      "query": "Q01: eligible offers for each group position, including quantity and freshness.",
+      "sql": "-- Q01: eligible offers for each group position, including quantity and freshness.\nSELECT s.line_no, c.sku, o.id AS offer_id, p.code AS supplier,\n       o.unit_price_rub, o.stock, o.observed_at\nFROM ppois.bom_slot s\nJOIN ppois.component c ON (s.group_id IS NOT NULL AND c.group_id = s.group_id)\n    OR (s.requested_component_id IS NOT NULL AND c.id = s.requested_component_id)\nJOIN ppois.offer o ON o.component_id = c.id\nJOIN ppois.supplier p ON p.id = o.supplier_id\nWHERE s.configuration_id = '00000000-0000-0000-0000-000000000100'\n  AND s.version_no = 1 AND o.stock >= s.quantity\n  AND o.observed_at >= TIMESTAMPTZ '2026-10-05 10:00:00+03' - INTERVAL '24 hours'\n  AND o.observed_at <= TIMESTAMPTZ '2026-10-05 10:00:00+03'\nORDER BY s.line_no, o.unit_price_rub, o.id;",
+      "rows": [
+        {
+          "line_no": 1,
+          "sku": "CPU-7600",
+          "offer_id": "00000000-0000-0000-0000-000000000031",
+          "supplier": "SUP-A",
+          "unit_price_rub": "16000.00",
+          "stock": 10,
+          "observed_at": "2026-10-05 07:00:00+00:00"
+        },
+        {
+          "line_no": 1,
+          "sku": "CPU-7600",
+          "offer_id": "00000000-0000-0000-0000-000000000043",
+          "supplier": "SUP-B",
+          "unit_price_rub": "16500.00",
+          "stock": 10,
+          "observed_at": "2026-10-05 07:00:00+00:00"
+        },
+        {
+          "line_no": 2,
+          "sku": "MB-B650",
+          "offer_id": "00000000-0000-0000-0000-000000000032",
+          "supplier": "SUP-A",
+          "unit_price_rub": "12000.00",
+          "stock": 10,
+          "observed_at": "2026-10-05 07:00:00+00:00"
+        },
+        {
+          "line_no": 3,
+          "sku": "RAM-16",
+          "offer_id": "00000000-0000-0000-0000-000000000033",
+          "supplier": "SUP-A",
+          "unit_price_rub": "4000.00",
+          "stock": 10,
+          "observed_at": "2026-10-05 07:00:00+00:00"
+        },
+        {
+          "line_no": 4,
+          "sku": "SSD-1TB",
+          "offer_id": "00000000-0000-0000-0000-000000000034",
+          "supplier": "SUP-A",
+          "unit_price_rub": "5000.00",
+          "stock": 10,
+          "observed_at": "2026-10-05 07:00:00+00:00"
+        },
+        {
+          "line_no": 5,
+          "sku": "CASE-ATX",
+          "offer_id": "00000000-0000-0000-0000-000000000035",
+          "supplier": "SUP-A",
+          "unit_price_rub": "4500.00",
+          "stock": 10,
+          "observed_at": "2026-10-05 07:00:00+00:00"
+        },
+        {
+          "line_no": 6,
+          "sku": "PSU-650",
+          "offer_id": "00000000-0000-0000-0000-000000000036",
+          "supplier": "SUP-A",
+          "unit_price_rub": "5500.00",
+          "stock": 10,
+          "observed_at": "2026-10-05 07:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "query": "Q02: component cost and physical mass from the selected concrete BOM.",
+      "sql": "-- Q02: component cost and physical mass from the selected concrete BOM.\nSELECT s.configuration_id, s.version_no,\n       SUM(s.quantity * o.unit_price_rub) AS component_cost_rub,\n       SUM(s.quantity * c.mass_kg) AS component_mass_kg,\n       COUNT(*) AS positions\nFROM ppois.bom_slot s JOIN ppois.offer o ON o.id = s.offer_id\nJOIN ppois.component c ON c.id = o.component_id\nGROUP BY s.configuration_id, s.version_no;",
+      "rows": [
+        {
+          "configuration_id": "00000000-0000-0000-0000-000000000100",
+          "version_no": 2,
+          "component_cost_rub": "51000.00",
+          "component_mass_kg": "7.020",
+          "positions": 6
+        },
+        {
+          "configuration_id": "00000000-0000-0000-0000-000000000100",
+          "version_no": 1,
+          "component_cost_rub": "51000.00",
+          "component_mass_kg": "7.020",
+          "positions": 6
+        }
+      ]
+    },
+    {
+      "query": "Q03: card readiness and last publication outcome are independent states.",
+      "sql": "-- Q03: card readiness and last publication outcome are independent states.\nSELECT seller_code, revision_no, revision_state, price_rub, mass_kg,\n       publication_state, external_task_id FROM ppois.card_status\nORDER BY seller_code, revision_no;",
+      "rows": [
+        {
+          "seller_code": "YK-PC-101",
+          "revision_no": 1,
+          "revision_state": "READY",
+          "price_rub": "76400.00",
+          "mass_kg": "7.820",
+          "publication_state": "ACCEPTED",
+          "external_task_id": "demo-task-001"
+        },
+        {
+          "seller_code": "YK-PC-102",
+          "revision_no": 1,
+          "revision_state": "STALE",
+          "price_rub": "76400.00",
+          "mass_kg": "7.820",
+          "publication_state": null,
+          "external_task_id": null
+        }
+      ]
+    },
+    {
+      "query": "Q04: inverse impact of a changed component; no arbitrary card lookup by name.",
+      "sql": "-- Q04: inverse impact of a changed component; no arbitrary card lookup by name.\nSELECT DISTINCT c.seller_code, r.revision_no, r.state\nFROM ppois.card_revision r JOIN ppois.card c ON c.id = r.card_id\nJOIN ppois.bom_slot s ON (s.configuration_id, s.version_no) = (r.configuration_id, r.version_no)\nJOIN ppois.offer o ON o.id=s.offer_id\nWHERE o.component_id = '00000000-0000-0000-0000-000000000011'\nORDER BY c.seller_code, r.revision_no;",
+      "rows": [
+        {
+          "seller_code": "YK-PC-101",
+          "revision_no": 1,
+          "state": "READY"
+        },
+        {
+          "seller_code": "YK-PC-102",
+          "revision_no": 1,
+          "state": "STALE"
+        }
+      ]
+    },
+    {
+      "query": "Q05: reconciliation queue; UNKNOWN is never treated as safe to resubmit.",
+      "sql": "-- Q05: reconciliation queue; UNKNOWN is never treated as safe to resubmit.\nSELECT c.seller_code, a.revision_no, a.attempt_no, a.state,\n       a.external_task_id, a.confirmed_not_accepted, a.next_check_at\nFROM ppois.publication_attempt a JOIN ppois.card c ON c.id = a.card_id\nWHERE a.state IN ('ACCEPTED','UNKNOWN')\n   OR (a.state = 'TEMP_ERROR' AND a.confirmed_not_accepted)\nORDER BY a.next_check_at NULLS FIRST, c.seller_code;",
+      "rows": [
+        {
+          "seller_code": "YK-PC-101",
+          "revision_no": 1,
+          "attempt_no": 1,
+          "state": "ACCEPTED",
+          "external_task_id": "demo-task-001",
+          "confirmed_not_accepted": false,
+          "next_check_at": "2026-10-05 07:01:00+00:00"
+        }
+      ]
+    },
+    {
+      "query": "Q06: identify missing mandatory images on a revision.",
+      "sql": "-- Q06: identify missing mandatory images on a revision.\nSELECT c.seller_code, r.revision_no\nFROM ppois.card_revision r JOIN ppois.card c ON c.id = r.card_id\nLEFT JOIN ppois.revision_image ri ON (ri.card_id, ri.revision_no) = (r.card_id, r.revision_no)\nGROUP BY c.seller_code, r.revision_no HAVING COUNT(ri.image_id) = 0;",
+      "rows": [
+        {
+          "seller_code": "YK-PC-102",
+          "revision_no": 1
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "name": "duplicate configuration code",
+      "passed": true,
+      "sqlstate": "23505"
+    },
+    {
+      "name": "negative offer price",
+      "passed": true,
+      "sqlstate": "23514"
+    },
+    {
+      "name": "missing supplier FK",
+      "passed": true,
+      "sqlstate": "23503"
+    },
+    {
+      "name": "zero quantity",
+      "passed": true,
+      "sqlstate": "23514"
+    },
+    {
+      "name": "group mismatch",
+      "passed": true,
+      "sqlstate": "23514"
+    },
+    {
+      "name": "missing selected offer FK",
+      "passed": true,
+      "sqlstate": "23503"
+    },
+    {
+      "name": "selected offer belongs to another group",
+      "passed": true,
+      "sqlstate": "23514"
+    },
+    {
+      "name": "frozen BOM cannot be edited",
+      "passed": true,
+      "sqlstate": "23514"
+    },
+    {
+      "name": "frozen BOM slot cannot move to another version",
+      "passed": true,
+      "sqlstate": "23514"
+    },
+    {
+      "name": "economic snapshot cannot be overwritten",
+      "passed": true,
+      "sqlstate": "23514"
+    },
+    {
+      "name": "used offer price is immutable",
+      "passed": true,
+      "sqlstate": "23514"
+    },
+    {
+      "name": "used component mass is immutable",
+      "passed": true,
+      "sqlstate": "23514"
+    },
+    {
+      "name": "accepted task requires external ID",
+      "passed": true,
+      "sqlstate": "23514"
+    },
+    {
+      "name": "viewer cannot update catalog",
+      "passed": true,
+      "sqlstate": "42501"
+    },
+    {
+      "name": "engineer cannot publish",
+      "passed": true,
+      "sqlstate": "42501"
+    },
+    {
+      "name": "manager cannot rewrite price policy",
+      "passed": true,
+      "sqlstate": "42501"
+    },
+    {
+      "name": "worker cannot delete attempts",
+      "passed": true,
+      "sqlstate": "42501"
+    },
+    {
+      "name": "viewer cannot create tables",
+      "passed": true,
+      "sqlstate": "42501"
+    },
+    {
+      "name": "ppois_viewer allowed operation",
+      "passed": true
+    },
+    {
+      "name": "ppois_manager allowed operation",
+      "passed": true
+    },
+    {
+      "name": "ppois_worker allowed operation",
+      "passed": true
+    },
+    {
+      "name": "Q01 excludes future offer observations",
+      "passed": true,
+      "fixture": "00000000-0000-0000-0000-000000000998",
+      "transaction": "rolled back"
+    }
+  ],
+  "source_sha256": {
+    "privileges.sql": "f6c54a1a9d07feca850ff755809d51a6f887c88796094f67fc191c509b856b8a",
+    "queries.sql": "6235f61ab8ee5d5c4788de2b0227497ac703fd6c08633d2a9baa49f85edfc337",
+    "schema.sql": "0f375d5c26734b3dae4c6e662835a2f76b8dc69d56f73e422c95e40632ca6ed9"
+  }
+}

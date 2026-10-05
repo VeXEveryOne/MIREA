@@ -1,0 +1,735 @@
+{
+  "database": "ppois_4b69601445b0",
+  "entities": 12,
+  "attributes": 71,
+  "foreignKeys": 13,
+  "diagnostics": [],
+  "source_sha256": {
+    "privileges.sql": "f6c54a1a9d07feca850ff755809d51a6f887c88796094f67fc191c509b856b8a",
+    "queries.sql": "6235f61ab8ee5d5c4788de2b0227497ac703fd6c08633d2a9baa49f85edfc337",
+    "schema.sql": "0f375d5c26734b3dae4c6e662835a2f76b8dc69d56f73e422c95e40632ca6ed9"
+  },
+  "logicalAttributeCoverage": [
+    "bom_slot__configuration_id",
+    "bom_slot__group_id",
+    "bom_slot__line_no",
+    "bom_slot__offer_id",
+    "bom_slot__quantity",
+    "bom_slot__requested_component_id",
+    "bom_slot__version_no",
+    "bom_version__configuration_id",
+    "bom_version__created_at",
+    "bom_version__state",
+    "bom_version__version_no",
+    "card__id",
+    "card__name",
+    "card__seller_code",
+    "card_revision__assembly_rub",
+    "card_revision__calculated_at",
+    "card_revision__card_id",
+    "card_revision__commission_rate",
+    "card_revision__configuration_id",
+    "card_revision__description",
+    "card_revision__logistics_rub",
+    "card_revision__markup_rate",
+    "card_revision__packaging_mass_kg",
+    "card_revision__packaging_rub",
+    "card_revision__revision_no",
+    "card_revision__round_step_rub",
+    "card_revision__state",
+    "card_revision__title",
+    "card_revision__version_no",
+    "component__group_id",
+    "component__id",
+    "component__mass_kg",
+    "component__memory_type",
+    "component__name",
+    "component__power_w",
+    "component__sku",
+    "component__socket",
+    "component_group__code",
+    "component_group__id",
+    "component_group__name",
+    "component_group__role_code",
+    "configuration__code",
+    "configuration__id",
+    "configuration__name",
+    "image__height_px",
+    "image__id",
+    "image__sha256",
+    "image__uri",
+    "image__width_px",
+    "offer__component_id",
+    "offer__id",
+    "offer__observed_at",
+    "offer__stock",
+    "offer__supplier_id",
+    "offer__unit_price_rub",
+    "publication_attempt__attempt_no",
+    "publication_attempt__card_id",
+    "publication_attempt__confirmed_not_accepted",
+    "publication_attempt__created_at",
+    "publication_attempt__error_code",
+    "publication_attempt__external_task_id",
+    "publication_attempt__next_check_at",
+    "publication_attempt__revision_no",
+    "publication_attempt__state",
+    "revision_image__card_id",
+    "revision_image__image_id",
+    "revision_image__ordinal",
+    "revision_image__revision_no",
+    "supplier__code",
+    "supplier__id",
+    "supplier__name"
+  ],
+  "conceptualAttributeCoverage": [
+    "bom_slot__line_no",
+    "bom_slot__quantity",
+    "bom_version__created_at",
+    "bom_version__state",
+    "bom_version__version_no",
+    "card__id",
+    "card__name",
+    "card__seller_code",
+    "card_revision__assembly_rub",
+    "card_revision__calculated_at",
+    "card_revision__commission_rate",
+    "card_revision__description",
+    "card_revision__logistics_rub",
+    "card_revision__markup_rate",
+    "card_revision__packaging_mass_kg",
+    "card_revision__packaging_rub",
+    "card_revision__revision_no",
+    "card_revision__round_step_rub",
+    "card_revision__state",
+    "card_revision__title",
+    "component__id",
+    "component__mass_kg",
+    "component__memory_type",
+    "component__name",
+    "component__power_w",
+    "component__sku",
+    "component__socket",
+    "component_group__code",
+    "component_group__id",
+    "component_group__name",
+    "component_group__role_code",
+    "configuration__code",
+    "configuration__id",
+    "configuration__name",
+    "image__height_px",
+    "image__id",
+    "image__sha256",
+    "image__uri",
+    "image__width_px",
+    "offer__id",
+    "offer__observed_at",
+    "offer__stock",
+    "offer__unit_price_rub",
+    "publication_attempt__attempt_no",
+    "publication_attempt__confirmed_not_accepted",
+    "publication_attempt__created_at",
+    "publication_attempt__error_code",
+    "publication_attempt__external_task_id",
+    "publication_attempt__next_check_at",
+    "publication_attempt__state",
+    "revision_image__ordinal",
+    "supplier__code",
+    "supplier__id",
+    "supplier__name"
+  ],
+  "weakEntities": [
+    "bom_slot",
+    "bom_version",
+    "card_revision",
+    "publication_attempt",
+    "revision_image"
+  ],
+  "conceptualSheets": [
+    {
+      "sheet": "conceptual_bom_slot_1",
+      "file": "ПР7_Чен_bom_slot_1.png",
+      "entity": "bom_slot",
+      "part": 1,
+      "total": 1,
+      "attributes": [
+        "bom_slot__line_no",
+        "bom_slot__quantity"
+      ],
+      "relationships": [
+        "bom_slot_configuration_id_version_no_fkey",
+        "bom_slot_group_id_fkey",
+        "bom_slot_offer_id_fkey",
+        "bom_slot_requested_component_id_fkey"
+      ],
+      "entityViews": [
+        "v_conceptual_bom_slot_1_bom_slot",
+        "v_conceptual_bom_slot_1_bom_version",
+        "v_conceptual_bom_slot_1_component_group",
+        "v_conceptual_bom_slot_1_offer",
+        "v_conceptual_bom_slot_1_component"
+      ],
+      "attributeViews": [
+        "v_conceptual_bom_slot_1_bom_slot__line_no",
+        "v_conceptual_bom_slot_1_bom_slot__quantity"
+      ],
+      "edgeViews": [
+        "v_conceptual_bom_slot_1_relation__bom_slot_configuration_id_version_no_fkey",
+        "v_conceptual_bom_slot_1_relation__bom_slot_group_id_fkey",
+        "v_conceptual_bom_slot_1_relation__bom_slot_offer_id_fkey",
+        "v_conceptual_bom_slot_1_relation__bom_slot_requested_component_id_fkey"
+      ]
+    },
+    {
+      "sheet": "conceptual_bom_version_1",
+      "file": "ПР7_Чен_bom_version_1.png",
+      "entity": "bom_version",
+      "part": 1,
+      "total": 1,
+      "attributes": [
+        "bom_version__version_no",
+        "bom_version__state",
+        "bom_version__created_at"
+      ],
+      "relationships": [
+        "bom_version_configuration_id_fkey"
+      ],
+      "entityViews": [
+        "v_conceptual_bom_version_1_bom_version",
+        "v_conceptual_bom_version_1_configuration"
+      ],
+      "attributeViews": [
+        "v_conceptual_bom_version_1_bom_version__version_no",
+        "v_conceptual_bom_version_1_bom_version__state",
+        "v_conceptual_bom_version_1_bom_version__created_at"
+      ],
+      "edgeViews": [
+        "v_conceptual_bom_version_1_relation__bom_version_configuration_id_fkey"
+      ]
+    },
+    {
+      "sheet": "conceptual_card_1",
+      "file": "ПР7_Чен_card_1.png",
+      "entity": "card",
+      "part": 1,
+      "total": 1,
+      "attributes": [
+        "card__id",
+        "card__seller_code",
+        "card__name"
+      ],
+      "relationships": [],
+      "entityViews": [
+        "v_conceptual_card_1_card"
+      ],
+      "attributeViews": [
+        "v_conceptual_card_1_card__id",
+        "v_conceptual_card_1_card__seller_code",
+        "v_conceptual_card_1_card__name"
+      ],
+      "edgeViews": []
+    },
+    {
+      "sheet": "conceptual_card_revision_1",
+      "file": "ПР7_Чен_card_revision_1.png",
+      "entity": "card_revision",
+      "part": 1,
+      "total": 2,
+      "attributes": [
+        "card_revision__revision_no",
+        "card_revision__state",
+        "card_revision__title",
+        "card_revision__description",
+        "card_revision__assembly_rub",
+        "card_revision__packaging_rub",
+        "card_revision__logistics_rub",
+        "card_revision__markup_rate"
+      ],
+      "relationships": [
+        "card_revision_card_id_fkey",
+        "card_revision_configuration_id_version_no_fkey"
+      ],
+      "entityViews": [
+        "v_conceptual_card_revision_1_card_revision",
+        "v_conceptual_card_revision_1_card",
+        "v_conceptual_card_revision_1_bom_version"
+      ],
+      "attributeViews": [
+        "v_conceptual_card_revision_1_card_revision__revision_no",
+        "v_conceptual_card_revision_1_card_revision__state",
+        "v_conceptual_card_revision_1_card_revision__title",
+        "v_conceptual_card_revision_1_card_revision__description",
+        "v_conceptual_card_revision_1_card_revision__assembly_rub",
+        "v_conceptual_card_revision_1_card_revision__packaging_rub",
+        "v_conceptual_card_revision_1_card_revision__logistics_rub",
+        "v_conceptual_card_revision_1_card_revision__markup_rate"
+      ],
+      "edgeViews": [
+        "v_conceptual_card_revision_1_relation__card_revision_card_id_fkey",
+        "v_conceptual_card_revision_1_relation__card_revision_configuration_id_version_no_fkey"
+      ]
+    },
+    {
+      "sheet": "conceptual_card_revision_2",
+      "file": "ПР7_Чен_card_revision_2.png",
+      "entity": "card_revision",
+      "part": 2,
+      "total": 2,
+      "attributes": [
+        "card_revision__commission_rate",
+        "card_revision__round_step_rub",
+        "card_revision__packaging_mass_kg",
+        "card_revision__calculated_at"
+      ],
+      "relationships": [
+        "card_revision_card_id_fkey",
+        "card_revision_configuration_id_version_no_fkey"
+      ],
+      "entityViews": [
+        "v_conceptual_card_revision_2_card_revision",
+        "v_conceptual_card_revision_2_card",
+        "v_conceptual_card_revision_2_bom_version"
+      ],
+      "attributeViews": [
+        "v_conceptual_card_revision_2_card_revision__commission_rate",
+        "v_conceptual_card_revision_2_card_revision__round_step_rub",
+        "v_conceptual_card_revision_2_card_revision__packaging_mass_kg",
+        "v_conceptual_card_revision_2_card_revision__calculated_at"
+      ],
+      "edgeViews": [
+        "v_conceptual_card_revision_2_relation__card_revision_card_id_fkey",
+        "v_conceptual_card_revision_2_relation__card_revision_configuration_id_version_no_fkey"
+      ]
+    },
+    {
+      "sheet": "conceptual_component_1",
+      "file": "ПР7_Чен_component_1.png",
+      "entity": "component",
+      "part": 1,
+      "total": 1,
+      "attributes": [
+        "component__id",
+        "component__sku",
+        "component__name",
+        "component__mass_kg",
+        "component__socket",
+        "component__memory_type",
+        "component__power_w"
+      ],
+      "relationships": [
+        "component_group_id_fkey"
+      ],
+      "entityViews": [
+        "v_conceptual_component_1_component",
+        "v_conceptual_component_1_component_group"
+      ],
+      "attributeViews": [
+        "v_conceptual_component_1_component__id",
+        "v_conceptual_component_1_component__sku",
+        "v_conceptual_component_1_component__name",
+        "v_conceptual_component_1_component__mass_kg",
+        "v_conceptual_component_1_component__socket",
+        "v_conceptual_component_1_component__memory_type",
+        "v_conceptual_component_1_component__power_w"
+      ],
+      "edgeViews": [
+        "v_conceptual_component_1_relation__component_group_id_fkey"
+      ]
+    },
+    {
+      "sheet": "conceptual_component_group_1",
+      "file": "ПР7_Чен_component_group_1.png",
+      "entity": "component_group",
+      "part": 1,
+      "total": 1,
+      "attributes": [
+        "component_group__id",
+        "component_group__code",
+        "component_group__name",
+        "component_group__role_code"
+      ],
+      "relationships": [],
+      "entityViews": [
+        "v_conceptual_component_group_1_component_group"
+      ],
+      "attributeViews": [
+        "v_conceptual_component_group_1_component_group__id",
+        "v_conceptual_component_group_1_component_group__code",
+        "v_conceptual_component_group_1_component_group__name",
+        "v_conceptual_component_group_1_component_group__role_code"
+      ],
+      "edgeViews": []
+    },
+    {
+      "sheet": "conceptual_configuration_1",
+      "file": "ПР7_Чен_configuration_1.png",
+      "entity": "configuration",
+      "part": 1,
+      "total": 1,
+      "attributes": [
+        "configuration__id",
+        "configuration__code",
+        "configuration__name"
+      ],
+      "relationships": [],
+      "entityViews": [
+        "v_conceptual_configuration_1_configuration"
+      ],
+      "attributeViews": [
+        "v_conceptual_configuration_1_configuration__id",
+        "v_conceptual_configuration_1_configuration__code",
+        "v_conceptual_configuration_1_configuration__name"
+      ],
+      "edgeViews": []
+    },
+    {
+      "sheet": "conceptual_image_1",
+      "file": "ПР7_Чен_image_1.png",
+      "entity": "image",
+      "part": 1,
+      "total": 1,
+      "attributes": [
+        "image__id",
+        "image__uri",
+        "image__sha256",
+        "image__width_px",
+        "image__height_px"
+      ],
+      "relationships": [],
+      "entityViews": [
+        "v_conceptual_image_1_image"
+      ],
+      "attributeViews": [
+        "v_conceptual_image_1_image__id",
+        "v_conceptual_image_1_image__uri",
+        "v_conceptual_image_1_image__sha256",
+        "v_conceptual_image_1_image__width_px",
+        "v_conceptual_image_1_image__height_px"
+      ],
+      "edgeViews": []
+    },
+    {
+      "sheet": "conceptual_offer_1",
+      "file": "ПР7_Чен_offer_1.png",
+      "entity": "offer",
+      "part": 1,
+      "total": 1,
+      "attributes": [
+        "offer__id",
+        "offer__unit_price_rub",
+        "offer__stock",
+        "offer__observed_at"
+      ],
+      "relationships": [
+        "offer_component_id_fkey",
+        "offer_supplier_id_fkey"
+      ],
+      "entityViews": [
+        "v_conceptual_offer_1_offer",
+        "v_conceptual_offer_1_component",
+        "v_conceptual_offer_1_supplier"
+      ],
+      "attributeViews": [
+        "v_conceptual_offer_1_offer__id",
+        "v_conceptual_offer_1_offer__unit_price_rub",
+        "v_conceptual_offer_1_offer__stock",
+        "v_conceptual_offer_1_offer__observed_at"
+      ],
+      "edgeViews": [
+        "v_conceptual_offer_1_relation__offer_component_id_fkey",
+        "v_conceptual_offer_1_relation__offer_supplier_id_fkey"
+      ]
+    },
+    {
+      "sheet": "conceptual_publication_attempt_1",
+      "file": "ПР7_Чен_publication_attempt_1.png",
+      "entity": "publication_attempt",
+      "part": 1,
+      "total": 1,
+      "attributes": [
+        "publication_attempt__attempt_no",
+        "publication_attempt__state",
+        "publication_attempt__external_task_id",
+        "publication_attempt__error_code",
+        "publication_attempt__confirmed_not_accepted",
+        "publication_attempt__created_at",
+        "publication_attempt__next_check_at"
+      ],
+      "relationships": [
+        "publication_attempt_card_id_revision_no_fkey"
+      ],
+      "entityViews": [
+        "v_conceptual_publication_attempt_1_publication_attempt",
+        "v_conceptual_publication_attempt_1_card_revision"
+      ],
+      "attributeViews": [
+        "v_conceptual_publication_attempt_1_publication_attempt__attempt_no",
+        "v_conceptual_publication_attempt_1_publication_attempt__state",
+        "v_conceptual_publication_attempt_1_publication_attempt__external_task_id",
+        "v_conceptual_publication_attempt_1_publication_attempt__error_code",
+        "v_conceptual_publication_attempt_1_publication_attempt__confirmed_not_accepted",
+        "v_conceptual_publication_attempt_1_publication_attempt__created_at",
+        "v_conceptual_publication_attempt_1_publication_attempt__next_check_at"
+      ],
+      "edgeViews": [
+        "v_conceptual_publication_attempt_1_relation__publication_attempt_card_id_revision_no_fkey"
+      ]
+    },
+    {
+      "sheet": "conceptual_revision_image_1",
+      "file": "ПР7_Чен_revision_image_1.png",
+      "entity": "revision_image",
+      "part": 1,
+      "total": 1,
+      "attributes": [
+        "revision_image__ordinal"
+      ],
+      "relationships": [
+        "revision_image_card_id_revision_no_fkey",
+        "revision_image_image_id_fkey"
+      ],
+      "entityViews": [
+        "v_conceptual_revision_image_1_revision_image",
+        "v_conceptual_revision_image_1_card_revision",
+        "v_conceptual_revision_image_1_image"
+      ],
+      "attributeViews": [
+        "v_conceptual_revision_image_1_revision_image__ordinal"
+      ],
+      "edgeViews": [
+        "v_conceptual_revision_image_1_relation__revision_image_card_id_revision_no_fkey",
+        "v_conceptual_revision_image_1_relation__revision_image_image_id_fkey"
+      ]
+    },
+    {
+      "sheet": "conceptual_supplier_1",
+      "file": "ПР7_Чен_supplier_1.png",
+      "entity": "supplier",
+      "part": 1,
+      "total": 1,
+      "attributes": [
+        "supplier__id",
+        "supplier__code",
+        "supplier__name"
+      ],
+      "relationships": [],
+      "entityViews": [
+        "v_conceptual_supplier_1_supplier"
+      ],
+      "attributeViews": [
+        "v_conceptual_supplier_1_supplier__id",
+        "v_conceptual_supplier_1_supplier__code",
+        "v_conceptual_supplier_1_supplier__name"
+      ],
+      "edgeViews": []
+    }
+  ],
+  "sheets": [
+    {
+      "sheet": "logical_catalog",
+      "file": "ПР7_Логическая_catalog.png",
+      "entities": [
+        "component_group",
+        "component",
+        "supplier",
+        "offer"
+      ],
+      "repeatedKeysOnly": [],
+      "internalRelations": [
+        "component_group_id_fkey",
+        "offer_component_id_fkey",
+        "offer_supplier_id_fkey"
+      ],
+      "crossReferences": [
+        "bom_slot_group_id_fkey",
+        "bom_slot_offer_id_fkey",
+        "bom_slot_requested_component_id_fkey"
+      ],
+      "parallelOverlaps": 0,
+      "entityIntersections": 0
+    },
+    {
+      "sheet": "logical_bom",
+      "file": "ПР7_Логическая_bom.png",
+      "entities": [
+        "configuration",
+        "bom_version",
+        "bom_slot",
+        "component_group",
+        "component",
+        "offer"
+      ],
+      "repeatedKeysOnly": [
+        "component_group",
+        "component",
+        "offer"
+      ],
+      "internalRelations": [
+        "bom_slot_configuration_id_version_no_fkey",
+        "bom_slot_group_id_fkey",
+        "bom_slot_offer_id_fkey",
+        "bom_slot_requested_component_id_fkey",
+        "bom_version_configuration_id_fkey",
+        "component_group_id_fkey",
+        "offer_component_id_fkey"
+      ],
+      "crossReferences": [
+        "card_revision_configuration_id_version_no_fkey",
+        "offer_supplier_id_fkey"
+      ],
+      "parallelOverlaps": 0,
+      "entityIntersections": 0
+    },
+    {
+      "sheet": "logical_cards",
+      "file": "ПР7_Логическая_cards.png",
+      "entities": [
+        "card",
+        "card_revision",
+        "bom_version"
+      ],
+      "repeatedKeysOnly": [
+        "bom_version"
+      ],
+      "internalRelations": [
+        "card_revision_card_id_fkey",
+        "card_revision_configuration_id_version_no_fkey"
+      ],
+      "crossReferences": [
+        "bom_slot_configuration_id_version_no_fkey",
+        "bom_version_configuration_id_fkey",
+        "publication_attempt_card_id_revision_no_fkey",
+        "revision_image_card_id_revision_no_fkey"
+      ],
+      "parallelOverlaps": 0,
+      "entityIntersections": 0
+    },
+    {
+      "sheet": "logical_publication",
+      "file": "ПР7_Логическая_publication.png",
+      "entities": [
+        "card_revision",
+        "image",
+        "revision_image",
+        "publication_attempt"
+      ],
+      "repeatedKeysOnly": [
+        "card_revision"
+      ],
+      "internalRelations": [
+        "publication_attempt_card_id_revision_no_fkey",
+        "revision_image_card_id_revision_no_fkey",
+        "revision_image_image_id_fkey"
+      ],
+      "crossReferences": [
+        "card_revision_card_id_fkey",
+        "card_revision_configuration_id_version_no_fkey"
+      ],
+      "parallelOverlaps": 0,
+      "entityIntersections": 0
+    },
+    {
+      "sheet": "physical_catalog",
+      "file": "ПР7_Физическая_catalog.png",
+      "entities": [
+        "component_group",
+        "component",
+        "supplier",
+        "offer"
+      ],
+      "repeatedKeysOnly": [],
+      "internalRelations": [
+        "component_group_id_fkey",
+        "offer_component_id_fkey",
+        "offer_supplier_id_fkey"
+      ],
+      "crossReferences": [
+        "bom_slot_group_id_fkey",
+        "bom_slot_offer_id_fkey",
+        "bom_slot_requested_component_id_fkey"
+      ],
+      "parallelOverlaps": 0,
+      "entityIntersections": 0
+    },
+    {
+      "sheet": "physical_bom",
+      "file": "ПР7_Физическая_bom.png",
+      "entities": [
+        "configuration",
+        "bom_version",
+        "bom_slot",
+        "component_group",
+        "component",
+        "offer"
+      ],
+      "repeatedKeysOnly": [
+        "component_group",
+        "component",
+        "offer"
+      ],
+      "internalRelations": [
+        "bom_slot_configuration_id_version_no_fkey",
+        "bom_slot_group_id_fkey",
+        "bom_slot_offer_id_fkey",
+        "bom_slot_requested_component_id_fkey",
+        "bom_version_configuration_id_fkey",
+        "component_group_id_fkey",
+        "offer_component_id_fkey"
+      ],
+      "crossReferences": [
+        "card_revision_configuration_id_version_no_fkey",
+        "offer_supplier_id_fkey"
+      ],
+      "parallelOverlaps": 0,
+      "entityIntersections": 0
+    },
+    {
+      "sheet": "physical_cards",
+      "file": "ПР7_Физическая_cards.png",
+      "entities": [
+        "card",
+        "card_revision",
+        "bom_version"
+      ],
+      "repeatedKeysOnly": [
+        "bom_version"
+      ],
+      "internalRelations": [
+        "card_revision_card_id_fkey",
+        "card_revision_configuration_id_version_no_fkey"
+      ],
+      "crossReferences": [
+        "bom_slot_configuration_id_version_no_fkey",
+        "bom_version_configuration_id_fkey",
+        "publication_attempt_card_id_revision_no_fkey",
+        "revision_image_card_id_revision_no_fkey"
+      ],
+      "parallelOverlaps": 0,
+      "entityIntersections": 0
+    },
+    {
+      "sheet": "physical_publication",
+      "file": "ПР7_Физическая_publication.png",
+      "entities": [
+        "card_revision",
+        "image",
+        "revision_image",
+        "publication_attempt"
+      ],
+      "repeatedKeysOnly": [
+        "card_revision"
+      ],
+      "internalRelations": [
+        "publication_attempt_card_id_revision_no_fkey",
+        "revision_image_card_id_revision_no_fkey",
+        "revision_image_image_id_fkey"
+      ],
+      "crossReferences": [
+        "card_revision_card_id_fkey",
+        "card_revision_configuration_id_version_no_fkey"
+      ],
+      "parallelOverlaps": 0,
+      "entityIntersections": 0
+    }
+  ]
+}

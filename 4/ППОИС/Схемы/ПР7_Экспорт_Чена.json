@@ -1,0 +1,80 @@
+{
+  "output": "D:\\GitHub\\MIREA\\.cache\\ppois5-10\\chen-export-6759196e7a0948c8ac0d9e615e48e54d",
+  "options": {
+    "format": "png",
+    "background": "white",
+    "targetWidth": 4200,
+    "title": false,
+    "legend": false,
+    "monochrome": true,
+    "font": "Arial",
+    "margin": 20
+  },
+  "jobs": [
+    {
+      "file": "D:\\GitHub\\MIREA\\4\\ППОИС\\Схемы\\ПР7_Модель_данных.omni",
+      "diagramId": "conceptual_bom_slot_1",
+      "title": "ПР7_Чен_bom_slot_1"
+    },
+    {
+      "file": "D:\\GitHub\\MIREA\\4\\ППОИС\\Схемы\\ПР7_Модель_данных.omni",
+      "diagramId": "conceptual_bom_version_1",
+      "title": "ПР7_Чен_bom_version_1"
+    },
+    {
+      "file": "D:\\GitHub\\MIREA\\4\\ППОИС\\Схемы\\ПР7_Модель_данных.omni",
+      "diagramId": "conceptual_card_1",
+      "title": "ПР7_Чен_card_1"
+    },
+    {
+      "file": "D:\\GitHub\\MIREA\\4\\ППОИС\\Схемы\\ПР7_Модель_данных.omni",
+      "diagramId": "conceptual_card_revision_1",
+      "title": "ПР7_Чен_card_revision_1"
+    },
+    {
+      "file": "D:\\GitHub\\MIREA\\4\\ППОИС\\Схемы\\ПР7_Модель_данных.omni",
+      "diagramId": "conceptual_card_revision_2",
+      "title": "ПР7_Чен_card_revision_2"
+    },
+    {
+      "file": "D:\\GitHub\\MIREA\\4\\ППОИС\\Схемы\\ПР7_Модель_данных.omni",
+      "diagramId": "conceptual_component_1",
+      "title": "ПР7_Чен_component_1"
+    },
+    {
+      "file": "D:\\GitHub\\MIREA\\4\\ППОИС\\Схемы\\ПР7_Модель_данных.omni",
+      "diagramId": "conceptual_component_group_1",
+      "title": "ПР7_Чен_component_group_1"
+    },
+    {
+      "file": "D:\\GitHub\\MIREA\\4\\ППОИС\\Схемы\\ПР7_Модель_данных.omni",
+      "diagramId": "conceptual_configuration_1",
+      "title": "ПР7_Чен_configuration_1"
+    },
+    {
+      "file": "D:\\GitHub\\MIREA\\4\\ППОИС\\Схемы\\ПР7_Модель_данных.omni",
+      "diagramId": "conceptual_image_1",
+      "title": "ПР7_Чен_image_1"
+    },
+    {
+      "file": "D:\\GitHub\\MIREA\\4\\ППОИС\\Схемы\\ПР7_Модель_данных.omni",
+      "diagramId": "conceptual_offer_1",
+      "title": "ПР7_Чен_offer_1"
+    },
+    {
+      "file": "D:\\GitHub\\MIREA\\4\\ППОИС\\Схемы\\ПР7_Модель_данных.omni",
+      "diagramId": "conceptual_publication_attempt_1",
+      "title": "ПР7_Чен_publication_attempt_1"
+    },
+    {
+      "file": "D:\\GitHub\\MIREA\\4\\ППОИС\\Схемы\\ПР7_Модель_данных.omni",
+      "diagramId": "conceptual_revision_image_1",
+      "title": "ПР7_Чен_revision_image_1"
+    },
+    {
+      "file": "D:\\GitHub\\MIREA\\4\\ППОИС\\Схемы\\ПР7_Модель_данных.omni",
+      "diagramId": "conceptual_supplier_1",
+      "title": "ПР7_Чен_supplier_1"
+    }
+  ]
+}

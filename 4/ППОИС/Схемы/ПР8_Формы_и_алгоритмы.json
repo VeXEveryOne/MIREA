@@ -1,0 +1,1823 @@
+{
+  "database": "ppois_4b69601445b0",
+  "database_evidence_sha256": "9160798a92bed2f2353c25c24fd5db89f0851e92ff98533bbe885059d8fff6b8",
+  "mathematics_sha256": "ba90638f5e1944ce0b8cb9c223fd8e3a61cbf2cfa6f6c40e6d065c7f829edf74",
+  "source_sha256": "ed97d9faa717ca1e4067927d9b38db67ee9bd4c244d32cab61a84a08b7d4bcd7",
+  "kind": "Explicitly labelled project mockups, not implemented client screenshots",
+  "forms": [
+    {
+      "id": "F1",
+      "title": "Группы и комплектующие",
+      "role": "Администратор справочников — проектная роль",
+      "note": "Инженер читает каталог. Добавление администратором требует отдельной настройки прав.",
+      "fields": [
+        {
+          "table": "component_group",
+          "column": "id",
+          "label": "Идентификатор",
+          "value": "U001"
+        },
+        {
+          "table": "component_group",
+          "column": "code",
+          "label": "Код",
+          "value": "CPU-AM5"
+        },
+        {
+          "table": "component_group",
+          "column": "name",
+          "label": "Наименование",
+          "value": "Процессоры AM5"
+        },
+        {
+          "table": "component_group",
+          "column": "role_code",
+          "label": "Роль компонента",
+          "value": "CPU"
+        },
+        {
+          "table": "component",
+          "column": "id",
+          "label": "Идентификатор",
+          "value": "U011"
+        },
+        {
+          "table": "component",
+          "column": "group_id",
+          "label": "Группа",
+          "value": "U001"
+        },
+        {
+          "table": "component",
+          "column": "sku",
+          "label": "SKU",
+          "value": "CPU-7600"
+        },
+        {
+          "table": "component",
+          "column": "name",
+          "label": "Наименование",
+          "value": "Процессор 6 ядер AM5"
+        },
+        {
+          "table": "component",
+          "column": "mass_kg",
+          "label": "Масса, кг",
+          "value": "0.100"
+        },
+        {
+          "table": "component",
+          "column": "socket",
+          "label": "Сокет",
+          "value": "AM5"
+        },
+        {
+          "table": "component",
+          "column": "memory_type",
+          "label": "Тип памяти",
+          "value": "NULL"
+        },
+        {
+          "table": "component",
+          "column": "power_w",
+          "label": "Мощность, Вт",
+          "value": "65"
+        }
+      ],
+      "buttons": [
+        "Новый компонент",
+        "Закрыть"
+      ]
+    },
+    {
+      "id": "F2",
+      "title": "Поставщики и наблюдения предложений",
+      "role": "Администратор справочников — проектная роль",
+      "note": "Новое наблюдение не перезаписывает цену, связанную с прежней ревизией.",
+      "fields": [
+        {
+          "table": "supplier",
+          "column": "id",
+          "label": "Идентификатор",
+          "value": "U021"
+        },
+        {
+          "table": "supplier",
+          "column": "code",
+          "label": "Код",
+          "value": "SUP-A"
+        },
+        {
+          "table": "supplier",
+          "column": "name",
+          "label": "Наименование",
+          "value": "Учебный поставщик A"
+        },
+        {
+          "table": "offer",
+          "column": "id",
+          "label": "Идентификатор",
+          "value": "U031"
+        },
+        {
+          "table": "offer",
+          "column": "component_id",
+          "label": "Компонент",
+          "value": "U011"
+        },
+        {
+          "table": "offer",
+          "column": "supplier_id",
+          "label": "Поставщик",
+          "value": "U021"
+        },
+        {
+          "table": "offer",
+          "column": "unit_price_rub",
+          "label": "Цена единицы, ₽",
+          "value": "16000.00"
+        },
+        {
+          "table": "offer",
+          "column": "stock",
+          "label": "Остаток, шт.",
+          "value": "10"
+        },
+        {
+          "table": "offer",
+          "column": "observed_at",
+          "label": "Момент наблюдения",
+          "value": "2026-10-05 07:00:00 UTC"
+        }
+      ],
+      "buttons": [
+        "Новое наблюдение",
+        "Показать историю"
+      ]
+    },
+    {
+      "id": "F3",
+      "title": "Редактор черновой версии состава",
+      "role": "Инженер",
+      "note": "Версия 2 — DRAFT; версия 1, использованная ревизиями, не редактируется.",
+      "fields": [
+        {
+          "table": "configuration",
+          "column": "id",
+          "label": "Идентификатор",
+          "value": "U100"
+        },
+        {
+          "table": "configuration",
+          "column": "code",
+          "label": "Код",
+          "value": "PC-101"
+        },
+        {
+          "table": "configuration",
+          "column": "name",
+          "label": "Наименование",
+          "value": "Учебная конфигурация AM5"
+        },
+        {
+          "table": "bom_version",
+          "column": "configuration_id",
+          "label": "Конфигурация",
+          "value": "U100",
+          "visible": false
+        },
+        {
+          "table": "bom_version",
+          "column": "version_no",
+          "label": "Версия состава",
+          "value": "2"
+        },
+        {
+          "table": "bom_version",
+          "column": "state",
+          "label": "Состояние",
+          "value": "DRAFT"
+        },
+        {
+          "table": "bom_version",
+          "column": "created_at",
+          "label": "Создано",
+          "value": "2026-10-05 07:00:00 UTC"
+        }
+      ],
+      "table": {
+        "headers": [
+          "Строка",
+          "Группа",
+          "Точный компонент",
+          "Предложение",
+          "Кол-во"
+        ],
+        "widths": [
+          90,
+          250,
+          260,
+          230,
+          130
+        ],
+        "rows": [
+          [
+            1,
+            "U001",
+            "NULL",
+            "U031",
+            1
+          ],
+          [
+            2,
+            "U002",
+            "NULL",
+            "U032",
+            1
+          ],
+          [
+            3,
+            "U003",
+            "NULL",
+            "U033",
+            2
+          ],
+          [
+            4,
+            "U004",
+            "NULL",
+            "U034",
+            1
+          ],
+          [
+            5,
+            "U005",
+            "NULL",
+            "U035",
+            1
+          ],
+          [
+            6,
+            "U006",
+            "NULL",
+            "U036",
+            1
+          ]
+        ]
+      },
+      "buttons": [
+        "Проверить и рассчитать",
+        "Сохранить черновик"
+      ]
+    },
+    {
+      "id": "F4",
+      "title": "Содержание ревизии карточки",
+      "role": "Менеджер",
+      "note": "Ревизия 1 — READY: содержание только для чтения. Исправление создаёт новую ревизию.",
+      "fields": [
+        {
+          "table": "card",
+          "column": "id",
+          "label": "Идентификатор",
+          "value": "U200"
+        },
+        {
+          "table": "card",
+          "column": "seller_code",
+          "label": "Код продавца",
+          "value": "YK-PC-101"
+        },
+        {
+          "table": "card",
+          "column": "name",
+          "label": "Наименование",
+          "value": "ПК AM5 32 ГБ / 1 ТБ"
+        },
+        {
+          "table": "card_revision",
+          "column": "card_id",
+          "label": "Карточка",
+          "value": "U200"
+        },
+        {
+          "table": "card_revision",
+          "column": "revision_no",
+          "label": "Ревизия",
+          "value": "1"
+        },
+        {
+          "table": "card_revision",
+          "column": "configuration_id",
+          "label": "Конфигурация",
+          "value": "U100"
+        },
+        {
+          "table": "card_revision",
+          "column": "version_no",
+          "label": "Версия состава",
+          "value": "1"
+        },
+        {
+          "table": "card_revision",
+          "column": "state",
+          "label": "Состояние",
+          "value": "READY"
+        },
+        {
+          "table": "card_revision",
+          "column": "title",
+          "label": "Заголовок карточки",
+          "value": "Компьютер AM5 32 ГБ / SSD 1 ТБ"
+        },
+        {
+          "table": "card_revision",
+          "column": "description",
+          "label": "Описание",
+          "value": "Учебная карточка без внешней публикации"
+        }
+      ],
+      "buttons": [
+        "Новая ревизия",
+        "Параметры расчёта"
+      ]
+    },
+    {
+      "id": "F5",
+      "title": "Экономические параметры ревизии",
+      "role": "Менеджер",
+      "note": "Параметры сохранённой ревизии неизменяемы. Доли 0,20 и 0,15 не проценты 20 и 15.",
+      "fields": [
+        {
+          "table": "card_revision",
+          "column": "assembly_rub",
+          "label": "Сборка, ₽",
+          "value": "2000.00"
+        },
+        {
+          "table": "card_revision",
+          "column": "packaging_rub",
+          "label": "Упаковка, ₽",
+          "value": "500.00"
+        },
+        {
+          "table": "card_revision",
+          "column": "logistics_rub",
+          "label": "Логистика, ₽",
+          "value": "700.00"
+        },
+        {
+          "table": "card_revision",
+          "column": "markup_rate",
+          "label": "Наценка, доля",
+          "value": "0.2000"
+        },
+        {
+          "table": "card_revision",
+          "column": "commission_rate",
+          "label": "Комиссия, доля",
+          "value": "0.1500"
+        },
+        {
+          "table": "card_revision",
+          "column": "round_step_rub",
+          "label": "Шаг округления, ₽",
+          "value": "100.00"
+        },
+        {
+          "table": "card_revision",
+          "column": "packaging_mass_kg",
+          "label": "Упаковка, кг",
+          "value": "0.800"
+        },
+        {
+          "table": "card_revision",
+          "column": "calculated_at",
+          "label": "Рассчитано",
+          "value": "2026-10-05 07:00:00 UTC"
+        }
+      ],
+      "buttons": [
+        "Новая ревизия",
+        "Открыть расчёт"
+      ]
+    },
+    {
+      "id": "F6",
+      "title": "Изображения и порядок в ревизии",
+      "role": "Менеджер",
+      "note": "Показаны метаданные тестовой БД. URI и условный хеш не доказывают наличие файла.",
+      "fields": [
+        {
+          "table": "image",
+          "column": "id",
+          "label": "Идентификатор",
+          "value": "U300"
+        },
+        {
+          "table": "image",
+          "column": "uri",
+          "label": "URI изображения",
+          "value": "images/pc-101.svg"
+        },
+        {
+          "table": "image",
+          "column": "sha256",
+          "label": "SHA-256",
+          "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "table": "image",
+          "column": "width_px",
+          "label": "Ширина, px",
+          "value": "1200"
+        },
+        {
+          "table": "image",
+          "column": "height_px",
+          "label": "Высота, px",
+          "value": "1200"
+        },
+        {
+          "table": "revision_image",
+          "column": "card_id",
+          "label": "Карточка",
+          "value": "U200"
+        },
+        {
+          "table": "revision_image",
+          "column": "revision_no",
+          "label": "Ревизия",
+          "value": "1"
+        },
+        {
+          "table": "revision_image",
+          "column": "image_id",
+          "label": "Изображение",
+          "value": "U300"
+        },
+        {
+          "table": "revision_image",
+          "column": "ordinal",
+          "label": "Порядок",
+          "value": "1"
+        }
+      ],
+      "buttons": [
+        "Добавить изображение",
+        "Изменить порядок"
+      ]
+    },
+    {
+      "id": "F7",
+      "title": "Результат подбора и расчёта",
+      "role": "Менеджер / инженер",
+      "note": "Проверка на 05.10.2026 10:00 +03:00. Расчёт сам по себе не утверждает карточку.",
+      "fields": [],
+      "table": {
+        "headers": [
+          "Строка",
+          "SKU",
+          "Кол-во",
+          "Цена, ₽",
+          "Сумма, ₽",
+          "Масса, кг"
+        ],
+        "widths": [
+          90,
+          260,
+          110,
+          200,
+          220,
+          180
+        ],
+        "rows": [
+          [
+            1,
+            "CPU-7600",
+            1,
+            "16000.00",
+            "16000.00",
+            "0.100"
+          ],
+          [
+            2,
+            "MB-B650",
+            1,
+            "12000.00",
+            "12000.00",
+            "0.800"
+          ],
+          [
+            3,
+            "RAM-16",
+            2,
+            "4000.00",
+            "8000.00",
+            "0.100"
+          ],
+          [
+            4,
+            "SSD-1TB",
+            1,
+            "5000.00",
+            "5000.00",
+            "0.020"
+          ],
+          [
+            5,
+            "CASE-ATX",
+            1,
+            "4500.00",
+            "4500.00",
+            "4.500"
+          ],
+          [
+            6,
+            "PSU-650",
+            1,
+            "5500.00",
+            "5500.00",
+            "1.500"
+          ]
+        ]
+      },
+      "totals": [
+        [
+          "Комплектующие, ₽",
+          "51000.00"
+        ],
+        [
+          "Себестоимость, ₽",
+          "53500.00"
+        ],
+        [
+          "Цена, ₽",
+          "76400"
+        ],
+        [
+          "Масса с упаковкой, кг",
+          "7.820"
+        ],
+        [
+          "Совместимость",
+          "Ошибок нет"
+        ],
+        [
+          "Минимум БП, Вт",
+          "159.9"
+        ]
+      ],
+      "buttons": [
+        "Открыть состав",
+        "Создать ревизию"
+      ]
+    },
+    {
+      "id": "F8",
+      "title": "Результат попытки публикации",
+      "role": "Менеджер — чтение; worker — результат",
+      "note": "ACCEPTED означает принятую задачу, не опубликованную карточку. Требуется сверка.",
+      "fields": [
+        {
+          "table": "publication_attempt",
+          "column": "card_id",
+          "label": "Карточка",
+          "value": "U200"
+        },
+        {
+          "table": "publication_attempt",
+          "column": "revision_no",
+          "label": "Ревизия",
+          "value": "1"
+        },
+        {
+          "table": "publication_attempt",
+          "column": "attempt_no",
+          "label": "Номер попытки",
+          "value": "1"
+        },
+        {
+          "table": "publication_attempt",
+          "column": "state",
+          "label": "Состояние",
+          "value": "ACCEPTED"
+        },
+        {
+          "table": "publication_attempt",
+          "column": "external_task_id",
+          "label": "Внешний ID задачи",
+          "value": "demo-task-001"
+        },
+        {
+          "table": "publication_attempt",
+          "column": "error_code",
+          "label": "Код ошибки",
+          "value": "NULL"
+        },
+        {
+          "table": "publication_attempt",
+          "column": "confirmed_not_accepted",
+          "label": "Непринятие подтверждено",
+          "value": "false"
+        },
+        {
+          "table": "publication_attempt",
+          "column": "created_at",
+          "label": "Создано",
+          "value": "2026-10-05 07:00:00 UTC"
+        },
+        {
+          "table": "publication_attempt",
+          "column": "next_check_at",
+          "label": "Следующая сверка",
+          "value": "2026-10-05 07:01:00 UTC"
+        }
+      ],
+      "buttons": [
+        "Проверить результат",
+        "Повторить отправку — запрещено"
+      ]
+    }
+  ],
+  "mapping": [
+    {
+      "table": "bom_slot",
+      "column": "configuration_id",
+      "form": "F3",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "uuid"
+    },
+    {
+      "table": "bom_slot",
+      "column": "version_no",
+      "form": "F3",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "int4"
+    },
+    {
+      "table": "bom_slot",
+      "column": "line_no",
+      "form": "F3",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": true,
+      "type": "int4"
+    },
+    {
+      "table": "bom_slot",
+      "column": "group_id",
+      "form": "F3",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": false,
+      "type": "uuid"
+    },
+    {
+      "table": "bom_slot",
+      "column": "requested_component_id",
+      "form": "F3",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": false,
+      "type": "uuid"
+    },
+    {
+      "table": "bom_slot",
+      "column": "offer_id",
+      "form": "F3",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": false,
+      "type": "uuid"
+    },
+    {
+      "table": "bom_slot",
+      "column": "quantity",
+      "form": "F3",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": true,
+      "type": "int4"
+    },
+    {
+      "table": "bom_version",
+      "column": "configuration_id",
+      "form": "F3",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "uuid"
+    },
+    {
+      "table": "bom_version",
+      "column": "version_no",
+      "form": "F3",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "int4"
+    },
+    {
+      "table": "bom_version",
+      "column": "state",
+      "form": "F3",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "varchar"
+    },
+    {
+      "table": "bom_version",
+      "column": "created_at",
+      "form": "F3",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "timestamptz"
+    },
+    {
+      "table": "card",
+      "column": "id",
+      "form": "F4",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "uuid"
+    },
+    {
+      "table": "card",
+      "column": "seller_code",
+      "form": "F4",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": true,
+      "type": "varchar"
+    },
+    {
+      "table": "card",
+      "column": "name",
+      "form": "F4",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": true,
+      "type": "varchar"
+    },
+    {
+      "table": "card_revision",
+      "column": "card_id",
+      "form": "F4",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "uuid"
+    },
+    {
+      "table": "card_revision",
+      "column": "revision_no",
+      "form": "F4",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "int4"
+    },
+    {
+      "table": "card_revision",
+      "column": "configuration_id",
+      "form": "F4",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "uuid"
+    },
+    {
+      "table": "card_revision",
+      "column": "version_no",
+      "form": "F4",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "int4"
+    },
+    {
+      "table": "card_revision",
+      "column": "state",
+      "form": "F4",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "varchar"
+    },
+    {
+      "table": "card_revision",
+      "column": "title",
+      "form": "F4",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": true,
+      "type": "varchar"
+    },
+    {
+      "table": "card_revision",
+      "column": "description",
+      "form": "F4",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": true,
+      "type": "text"
+    },
+    {
+      "table": "card_revision",
+      "column": "assembly_rub",
+      "form": "F5",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": true,
+      "type": "numeric"
+    },
+    {
+      "table": "card_revision",
+      "column": "packaging_rub",
+      "form": "F5",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": true,
+      "type": "numeric"
+    },
+    {
+      "table": "card_revision",
+      "column": "logistics_rub",
+      "form": "F5",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": true,
+      "type": "numeric"
+    },
+    {
+      "table": "card_revision",
+      "column": "markup_rate",
+      "form": "F5",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": true,
+      "type": "numeric"
+    },
+    {
+      "table": "card_revision",
+      "column": "commission_rate",
+      "form": "F5",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": true,
+      "type": "numeric"
+    },
+    {
+      "table": "card_revision",
+      "column": "round_step_rub",
+      "form": "F5",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": true,
+      "type": "numeric"
+    },
+    {
+      "table": "card_revision",
+      "column": "packaging_mass_kg",
+      "form": "F5",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": true,
+      "type": "numeric"
+    },
+    {
+      "table": "card_revision",
+      "column": "calculated_at",
+      "form": "F5",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "timestamptz"
+    },
+    {
+      "table": "component",
+      "column": "id",
+      "form": "F1",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "uuid"
+    },
+    {
+      "table": "component",
+      "column": "group_id",
+      "form": "F1",
+      "mode": "Ввод администратором после настройки прав",
+      "mandatory": true,
+      "type": "uuid"
+    },
+    {
+      "table": "component",
+      "column": "sku",
+      "form": "F1",
+      "mode": "Ввод администратором после настройки прав",
+      "mandatory": true,
+      "type": "varchar"
+    },
+    {
+      "table": "component",
+      "column": "name",
+      "form": "F1",
+      "mode": "Ввод администратором после настройки прав",
+      "mandatory": true,
+      "type": "varchar"
+    },
+    {
+      "table": "component",
+      "column": "mass_kg",
+      "form": "F1",
+      "mode": "Ввод администратором после настройки прав",
+      "mandatory": true,
+      "type": "numeric"
+    },
+    {
+      "table": "component",
+      "column": "socket",
+      "form": "F1",
+      "mode": "Ввод администратором после настройки прав",
+      "mandatory": false,
+      "type": "varchar"
+    },
+    {
+      "table": "component",
+      "column": "memory_type",
+      "form": "F1",
+      "mode": "Ввод администратором после настройки прав",
+      "mandatory": false,
+      "type": "varchar"
+    },
+    {
+      "table": "component",
+      "column": "power_w",
+      "form": "F1",
+      "mode": "Ввод администратором после настройки прав",
+      "mandatory": false,
+      "type": "int4"
+    },
+    {
+      "table": "component_group",
+      "column": "id",
+      "form": "F1",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "uuid"
+    },
+    {
+      "table": "component_group",
+      "column": "code",
+      "form": "F1",
+      "mode": "Ввод администратором после настройки прав",
+      "mandatory": true,
+      "type": "varchar"
+    },
+    {
+      "table": "component_group",
+      "column": "name",
+      "form": "F1",
+      "mode": "Ввод администратором после настройки прав",
+      "mandatory": true,
+      "type": "varchar"
+    },
+    {
+      "table": "component_group",
+      "column": "role_code",
+      "form": "F1",
+      "mode": "Ввод администратором после настройки прав",
+      "mandatory": true,
+      "type": "varchar"
+    },
+    {
+      "table": "configuration",
+      "column": "id",
+      "form": "F3",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "uuid"
+    },
+    {
+      "table": "configuration",
+      "column": "code",
+      "form": "F3",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": true,
+      "type": "varchar"
+    },
+    {
+      "table": "configuration",
+      "column": "name",
+      "form": "F3",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": true,
+      "type": "varchar"
+    },
+    {
+      "table": "image",
+      "column": "id",
+      "form": "F6",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "uuid"
+    },
+    {
+      "table": "image",
+      "column": "uri",
+      "form": "F6",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "varchar"
+    },
+    {
+      "table": "image",
+      "column": "sha256",
+      "form": "F6",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "bpchar"
+    },
+    {
+      "table": "image",
+      "column": "width_px",
+      "form": "F6",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "int4"
+    },
+    {
+      "table": "image",
+      "column": "height_px",
+      "form": "F6",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "int4"
+    },
+    {
+      "table": "offer",
+      "column": "id",
+      "form": "F2",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "uuid"
+    },
+    {
+      "table": "offer",
+      "column": "component_id",
+      "form": "F2",
+      "mode": "Ввод администратором после настройки прав",
+      "mandatory": true,
+      "type": "uuid"
+    },
+    {
+      "table": "offer",
+      "column": "supplier_id",
+      "form": "F2",
+      "mode": "Ввод администратором после настройки прав",
+      "mandatory": true,
+      "type": "uuid"
+    },
+    {
+      "table": "offer",
+      "column": "unit_price_rub",
+      "form": "F2",
+      "mode": "Ввод администратором после настройки прав",
+      "mandatory": true,
+      "type": "numeric"
+    },
+    {
+      "table": "offer",
+      "column": "stock",
+      "form": "F2",
+      "mode": "Ввод администратором после настройки прав",
+      "mandatory": true,
+      "type": "int4"
+    },
+    {
+      "table": "offer",
+      "column": "observed_at",
+      "form": "F2",
+      "mode": "Ввод администратором после настройки прав",
+      "mandatory": true,
+      "type": "timestamptz"
+    },
+    {
+      "table": "publication_attempt",
+      "column": "card_id",
+      "form": "F8",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "uuid"
+    },
+    {
+      "table": "publication_attempt",
+      "column": "revision_no",
+      "form": "F8",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "int4"
+    },
+    {
+      "table": "publication_attempt",
+      "column": "attempt_no",
+      "form": "F8",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "int4"
+    },
+    {
+      "table": "publication_attempt",
+      "column": "state",
+      "form": "F8",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "varchar"
+    },
+    {
+      "table": "publication_attempt",
+      "column": "external_task_id",
+      "form": "F8",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": false,
+      "type": "varchar"
+    },
+    {
+      "table": "publication_attempt",
+      "column": "error_code",
+      "form": "F8",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": false,
+      "type": "varchar"
+    },
+    {
+      "table": "publication_attempt",
+      "column": "confirmed_not_accepted",
+      "form": "F8",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "bool"
+    },
+    {
+      "table": "publication_attempt",
+      "column": "created_at",
+      "form": "F8",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "timestamptz"
+    },
+    {
+      "table": "publication_attempt",
+      "column": "next_check_at",
+      "form": "F8",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": false,
+      "type": "timestamptz"
+    },
+    {
+      "table": "revision_image",
+      "column": "card_id",
+      "form": "F6",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "uuid"
+    },
+    {
+      "table": "revision_image",
+      "column": "revision_no",
+      "form": "F6",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "int4"
+    },
+    {
+      "table": "revision_image",
+      "column": "image_id",
+      "form": "F6",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": true,
+      "type": "uuid"
+    },
+    {
+      "table": "revision_image",
+      "column": "ordinal",
+      "form": "F6",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": true,
+      "type": "int4"
+    },
+    {
+      "table": "supplier",
+      "column": "id",
+      "form": "F2",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "uuid"
+    },
+    {
+      "table": "supplier",
+      "column": "code",
+      "form": "F2",
+      "mode": "Ввод администратором после настройки прав",
+      "mandatory": true,
+      "type": "varchar"
+    },
+    {
+      "table": "supplier",
+      "column": "name",
+      "form": "F2",
+      "mode": "Ввод администратором после настройки прав",
+      "mandatory": true,
+      "type": "varchar"
+    }
+  ],
+  "algorithms": [
+    {
+      "id": "A1",
+      "title": "Подбор предложений по позициям",
+      "nodes": [
+        {
+          "type": "terminal",
+          "x": 135,
+          "y": 20,
+          "w": 270,
+          "h": 60,
+          "lines": [
+            "Начало"
+          ]
+        },
+        {
+          "type": "data",
+          "x": 65,
+          "y": 115,
+          "w": 410,
+          "h": 90,
+          "lines": [
+            "Позиции, компоненты,",
+            "предложения, t, TTL"
+          ]
+        },
+        {
+          "type": "decision",
+          "x": 35,
+          "y": 245,
+          "w": 470,
+          "h": 120,
+          "lines": [
+            "Входные данные",
+            "допустимы?"
+          ]
+        },
+        {
+          "type": "process",
+          "x": 65,
+          "y": 410,
+          "w": 410,
+          "h": 90,
+          "lines": [
+            "i = 1; результат пуст"
+          ]
+        },
+        {
+          "type": "decision",
+          "x": 35,
+          "y": 550,
+          "w": 470,
+          "h": 110,
+          "lines": [
+            "i ≤ n?"
+          ]
+        },
+        {
+          "type": "process",
+          "x": 65,
+          "y": 705,
+          "w": 410,
+          "h": 90,
+          "lines": [
+            "Получить допустимые",
+            "предложения Eᵢ"
+          ]
+        },
+        {
+          "type": "decision",
+          "x": 35,
+          "y": 850,
+          "w": 470,
+          "h": 110,
+          "lines": [
+            "Eᵢ не пусто?"
+          ]
+        },
+        {
+          "type": "process",
+          "x": 65,
+          "y": 1005,
+          "w": 410,
+          "h": 90,
+          "lines": [
+            "Выбрать минимум по",
+            "цене, коду, ID"
+          ]
+        },
+        {
+          "type": "process",
+          "x": 65,
+          "y": 1160,
+          "w": 410,
+          "h": 90,
+          "lines": [
+            "Добавить позицию; i = i + 1"
+          ]
+        },
+        {
+          "type": "data",
+          "x": 620,
+          "y": 800,
+          "w": 310,
+          "h": 90,
+          "lines": [
+            "Ошибка входа /",
+            "нет предложения"
+          ]
+        },
+        {
+          "type": "terminal",
+          "x": 650,
+          "y": 945,
+          "w": 250,
+          "h": 60,
+          "lines": [
+            "Конец"
+          ]
+        },
+        {
+          "type": "connector",
+          "x": 537,
+          "y": 582,
+          "w": 46,
+          "h": 46,
+          "lines": [
+            "S"
+          ]
+        },
+        {
+          "type": "connector",
+          "x": 752,
+          "y": 1040,
+          "w": 46,
+          "h": 46,
+          "lines": [
+            "S"
+          ]
+        },
+        {
+          "type": "data",
+          "x": 620,
+          "y": 1140,
+          "w": 310,
+          "h": 90,
+          "lines": [
+            "Выбранные позиции",
+            "К проверке состава"
+          ]
+        },
+        {
+          "type": "terminal",
+          "x": 650,
+          "y": 1290,
+          "w": 250,
+          "h": 60,
+          "lines": [
+            "Конец"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "path": "M270 80 V115"
+        },
+        {
+          "path": "M270 205 V245"
+        },
+        {
+          "path": "M270 365 V410",
+          "label": "Да",
+          "x": 286,
+          "y": 396
+        },
+        {
+          "path": "M270 500 V550"
+        },
+        {
+          "path": "M270 660 V705",
+          "label": "Да",
+          "x": 286,
+          "y": 694
+        },
+        {
+          "path": "M270 795 V850"
+        },
+        {
+          "path": "M270 960 V1005",
+          "label": "Да",
+          "x": 286,
+          "y": 992
+        },
+        {
+          "path": "M270 1095 V1160"
+        },
+        {
+          "path": "M270 1250 V1350 H15 V605 H35"
+        },
+        {
+          "path": "M505 305 H600 V845 H620",
+          "label": "Нет",
+          "x": 519,
+          "y": 288
+        },
+        {
+          "path": "M505 905 H600 V845 H620",
+          "label": "Нет",
+          "x": 519,
+          "y": 931
+        },
+        {
+          "path": "M505 605 H537",
+          "label": "Нет",
+          "x": 510,
+          "y": 585
+        },
+        {
+          "path": "M775 1086 V1140"
+        },
+        {
+          "path": "M775 890 V945"
+        },
+        {
+          "path": "M775 1230 V1290"
+        }
+      ],
+      "file": "ПР8_A1.png"
+    },
+    {
+      "id": "A2",
+      "title": "Расчёт цены и массы",
+      "nodes": [
+        {
+          "type": "terminal",
+          "x": 135,
+          "y": 20,
+          "w": 270,
+          "h": 60,
+          "lines": [
+            "Начало"
+          ]
+        },
+        {
+          "type": "data",
+          "x": 65,
+          "y": 120,
+          "w": 410,
+          "h": 90,
+          "lines": [
+            "Подобранный состав,",
+            "параметры расчёта"
+          ]
+        },
+        {
+          "type": "decision",
+          "x": 35,
+          "y": 270,
+          "w": 470,
+          "h": 130,
+          "lines": [
+            "Параметры допустимы,",
+            "состав совместим?"
+          ]
+        },
+        {
+          "type": "process",
+          "x": 65,
+          "y": 465,
+          "w": 410,
+          "h": 90,
+          "lines": [
+            "Cкомп = Σ qᵢpᵢ",
+            "C = Cкомп + A + B"
+          ]
+        },
+        {
+          "type": "process",
+          "x": 65,
+          "y": 610,
+          "w": 410,
+          "h": 90,
+          "lines": [
+            "P₀ = (C(1 + m) + L)",
+            "/ (1 − c)"
+          ]
+        },
+        {
+          "type": "process",
+          "x": 65,
+          "y": 755,
+          "w": 410,
+          "h": 90,
+          "lines": [
+            "P = ceil(P₀ / d) · d"
+          ]
+        },
+        {
+          "type": "process",
+          "x": 65,
+          "y": 900,
+          "w": 410,
+          "h": 90,
+          "lines": [
+            "W = Σ qᵢwᵢ + b"
+          ]
+        },
+        {
+          "type": "data",
+          "x": 65,
+          "y": 1045,
+          "w": 410,
+          "h": 90,
+          "lines": [
+            "Цена, масса,",
+            "себестоимость"
+          ]
+        },
+        {
+          "type": "terminal",
+          "x": 135,
+          "y": 1180,
+          "w": 270,
+          "h": 60,
+          "lines": [
+            "Конец"
+          ]
+        },
+        {
+          "type": "data",
+          "x": 620,
+          "y": 290,
+          "w": 310,
+          "h": 90,
+          "lines": [
+            "Ошибка параметров",
+            "или совместимости"
+          ]
+        },
+        {
+          "type": "terminal",
+          "x": 650,
+          "y": 450,
+          "w": 250,
+          "h": 60,
+          "lines": [
+            "Конец"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "path": "M270 80 V120"
+        },
+        {
+          "path": "M270 210 V270"
+        },
+        {
+          "path": "M270 400 V465",
+          "label": "Да",
+          "x": 286,
+          "y": 445
+        },
+        {
+          "path": "M270 555 V610"
+        },
+        {
+          "path": "M270 700 V755"
+        },
+        {
+          "path": "M270 845 V900"
+        },
+        {
+          "path": "M270 990 V1045"
+        },
+        {
+          "path": "M270 1135 V1180"
+        },
+        {
+          "path": "M505 335 H620",
+          "label": "Нет",
+          "x": 525,
+          "y": 318
+        },
+        {
+          "path": "M775 380 V450"
+        }
+      ],
+      "file": "ПР8_A2.png"
+    },
+    {
+      "id": "A3",
+      "title": "Решение о допустимости повтора",
+      "nodes": [
+        {
+          "type": "terminal",
+          "x": 135,
+          "y": 20,
+          "w": 270,
+          "h": 60,
+          "lines": [
+            "Начало"
+          ]
+        },
+        {
+          "type": "data",
+          "x": 65,
+          "y": 115,
+          "w": 410,
+          "h": 90,
+          "lines": [
+            "Состояние, флаг, a,",
+            "t_next, t_now, лимит 3"
+          ]
+        },
+        {
+          "type": "decision",
+          "x": 35,
+          "y": 270,
+          "w": 470,
+          "h": 120,
+          "lines": [
+            "state = TEMP_ERROR?"
+          ]
+        },
+        {
+          "type": "decision",
+          "x": 35,
+          "y": 460,
+          "w": 470,
+          "h": 120,
+          "lines": [
+            "Непринятие",
+            "подтверждено?"
+          ]
+        },
+        {
+          "type": "decision",
+          "x": 35,
+          "y": 650,
+          "w": 470,
+          "h": 120,
+          "lines": [
+            "1 ≤ a < 3?"
+          ]
+        },
+        {
+          "type": "decision",
+          "x": 35,
+          "y": 840,
+          "w": 470,
+          "h": 130,
+          "lines": [
+            "Время задано с зоной,",
+            "t_next ≤ t_now?"
+          ]
+        },
+        {
+          "type": "data",
+          "x": 65,
+          "y": 1050,
+          "w": 410,
+          "h": 90,
+          "lines": [
+            "Повтор допустим: true"
+          ]
+        },
+        {
+          "type": "terminal",
+          "x": 135,
+          "y": 1190,
+          "w": 270,
+          "h": 60,
+          "lines": [
+            "Конец"
+          ]
+        },
+        {
+          "type": "data",
+          "x": 620,
+          "y": 850,
+          "w": 310,
+          "h": 90,
+          "lines": [
+            "Повтор недопустим:",
+            "false"
+          ]
+        },
+        {
+          "type": "terminal",
+          "x": 650,
+          "y": 1080,
+          "w": 250,
+          "h": 60,
+          "lines": [
+            "Конец"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "path": "M270 80 V115"
+        },
+        {
+          "path": "M270 205 V270"
+        },
+        {
+          "path": "M270 390 V460",
+          "label": "Да",
+          "x": 285,
+          "y": 435
+        },
+        {
+          "path": "M270 580 V650",
+          "label": "Да",
+          "x": 285,
+          "y": 627
+        },
+        {
+          "path": "M270 770 V840",
+          "label": "Да",
+          "x": 285,
+          "y": 817
+        },
+        {
+          "path": "M270 970 V1050",
+          "label": "Да",
+          "x": 285,
+          "y": 1016
+        },
+        {
+          "path": "M270 1140 V1190"
+        },
+        {
+          "path": "M505 330 H560 V895 H620",
+          "label": "Нет",
+          "x": 520,
+          "y": 311
+        },
+        {
+          "path": "M505 520 H560 V895 H620",
+          "label": "Нет",
+          "x": 520,
+          "y": 501
+        },
+        {
+          "path": "M505 710 H560 V895 H620",
+          "label": "Нет",
+          "x": 520,
+          "y": 691
+        },
+        {
+          "path": "M505 905 H560 V895 H620",
+          "label": "Нет",
+          "x": 520,
+          "y": 930
+        },
+        {
+          "path": "M775 940 V1080"
+        }
+      ],
+      "file": "ПР8_A3.png"
+    }
+  ],
+  "emitted": [
+    {
+      "file": "ПР8_F1.png",
+      "sha256": "cbc81c02e6b411b7d37b4248c06b35ac0464dccdea044a3116647b704be13c6a"
+    },
+    {
+      "file": "ПР8_F2.png",
+      "sha256": "5fe58078271f94649c11ec169941ab50979c664048dab8e71e6092dc761eb8bc"
+    },
+    {
+      "file": "ПР8_F3.png",
+      "sha256": "a13578140fbe7ddcb0fb29b8167bcde9c27357741086c2bdcf5db8bc7435a619"
+    },
+    {
+      "file": "ПР8_F4.png",
+      "sha256": "f8d4840c4e53ad48fd52828ff00a873d27d08d9c8495be6b46031697c945624f"
+    },
+    {
+      "file": "ПР8_F5.png",
+      "sha256": "80149244bcf07e6e31f961be6df33b30d1c43afe8cb5d80e06ed4919a11c966a"
+    },
+    {
+      "file": "ПР8_F6.png",
+      "sha256": "2f93c869db68ba250d18d75a22967958cfc945dbd32d216255dbd1142ba457b9"
+    },
+    {
+      "file": "ПР8_F7.png",
+      "sha256": "24f16efb8e00bc71eb103d1d727726ed731af54a6e2b7e596cf2bb05daa4c058"
+    },
+    {
+      "file": "ПР8_F8.png",
+      "sha256": "16581d85afdabc0437b9697c0629a0efe3d29851701ec719e465655e03a94ffc"
+    },
+    {
+      "file": "ПР8_A1.png",
+      "sha256": "ce2229b88da0abf66761695fdafc0136490f173f5c83beb141e2ee072ff4d99a"
+    },
+    {
+      "file": "ПР8_A2.png",
+      "sha256": "421b12d05ecf4f0aca88f2e480452b5e2e4bbf657219d6ec7dbd6ebb97a9e46f"
+    },
+    {
+      "file": "ПР8_A3.png",
+      "sha256": "d730d1e0d5c228351ef05a4d3b255bce9a972edec12a689ae4de3cc8770d196b"
+    }
+  ]
+}

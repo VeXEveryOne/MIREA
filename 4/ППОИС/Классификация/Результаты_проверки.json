@@ -1,0 +1,773 @@
+{
+  "classes": 48,
+  "round_trip_checks": 48,
+  "invalid_checks": 6,
+  "tree": {
+    "feature": "purpose",
+    "children": [
+      {
+        "value": "1",
+        "label": "Офисная",
+        "subtree": {
+          "feature": "case",
+          "children": [
+            {
+              "value": "1",
+              "label": "Башенный",
+              "subtree": {
+                "feature": "platform",
+                "children": [
+                  {
+                    "value": "1",
+                    "label": "AM5",
+                    "subtree": {
+                      "feature": "ram",
+                      "children": [
+                        {
+                          "value": "1",
+                          "label": "16 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-1-1-1-1-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-1-1-1-1-2"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "2",
+                          "label": "32 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-1-1-1-2-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-1-1-1-2-2"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "value": "2",
+                    "label": "LGA1700",
+                    "subtree": {
+                      "feature": "ram",
+                      "children": [
+                        {
+                          "value": "1",
+                          "label": "16 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-1-1-2-1-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-1-1-2-1-2"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "2",
+                          "label": "32 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-1-1-2-2-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-1-1-2-2-2"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "value": "2",
+              "label": "Компактный",
+              "subtree": {
+                "feature": "platform",
+                "children": [
+                  {
+                    "value": "1",
+                    "label": "AM5",
+                    "subtree": {
+                      "feature": "ram",
+                      "children": [
+                        {
+                          "value": "1",
+                          "label": "16 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-1-2-1-1-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-1-2-1-1-2"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "2",
+                          "label": "32 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-1-2-1-2-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-1-2-1-2-2"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "value": "2",
+                    "label": "LGA1700",
+                    "subtree": {
+                      "feature": "ram",
+                      "children": [
+                        {
+                          "value": "1",
+                          "label": "16 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-1-2-2-1-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-1-2-2-1-2"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "2",
+                          "label": "32 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-1-2-2-2-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-1-2-2-2-2"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "value": "2",
+        "label": "Игровая",
+        "subtree": {
+          "feature": "case",
+          "children": [
+            {
+              "value": "1",
+              "label": "Башенный",
+              "subtree": {
+                "feature": "platform",
+                "children": [
+                  {
+                    "value": "1",
+                    "label": "AM5",
+                    "subtree": {
+                      "feature": "ram",
+                      "children": [
+                        {
+                          "value": "1",
+                          "label": "16 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-2-1-1-1-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-2-1-1-1-2"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "2",
+                          "label": "32 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-2-1-1-2-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-2-1-1-2-2"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "value": "2",
+                    "label": "LGA1700",
+                    "subtree": {
+                      "feature": "ram",
+                      "children": [
+                        {
+                          "value": "1",
+                          "label": "16 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-2-1-2-1-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-2-1-2-1-2"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "2",
+                          "label": "32 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-2-1-2-2-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-2-1-2-2-2"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "value": "2",
+              "label": "Компактный",
+              "subtree": {
+                "feature": "platform",
+                "children": [
+                  {
+                    "value": "1",
+                    "label": "AM5",
+                    "subtree": {
+                      "feature": "ram",
+                      "children": [
+                        {
+                          "value": "1",
+                          "label": "16 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-2-2-1-1-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-2-2-1-1-2"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "2",
+                          "label": "32 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-2-2-1-2-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-2-2-1-2-2"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "value": "2",
+                    "label": "LGA1700",
+                    "subtree": {
+                      "feature": "ram",
+                      "children": [
+                        {
+                          "value": "1",
+                          "label": "16 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-2-2-2-1-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-2-2-2-1-2"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "2",
+                          "label": "32 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-2-2-2-2-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-2-2-2-2-2"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "value": "3",
+        "label": "Рабочая станция",
+        "subtree": {
+          "feature": "case",
+          "children": [
+            {
+              "value": "1",
+              "label": "Башенный",
+              "subtree": {
+                "feature": "platform",
+                "children": [
+                  {
+                    "value": "1",
+                    "label": "AM5",
+                    "subtree": {
+                      "feature": "ram",
+                      "children": [
+                        {
+                          "value": "1",
+                          "label": "16 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-3-1-1-1-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-3-1-1-1-2"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "2",
+                          "label": "32 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-3-1-1-2-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-3-1-1-2-2"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "value": "2",
+                    "label": "LGA1700",
+                    "subtree": {
+                      "feature": "ram",
+                      "children": [
+                        {
+                          "value": "1",
+                          "label": "16 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-3-1-2-1-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-3-1-2-1-2"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "2",
+                          "label": "32 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-3-1-2-2-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-3-1-2-2-2"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "value": "2",
+              "label": "Компактный",
+              "subtree": {
+                "feature": "platform",
+                "children": [
+                  {
+                    "value": "1",
+                    "label": "AM5",
+                    "subtree": {
+                      "feature": "ram",
+                      "children": [
+                        {
+                          "value": "1",
+                          "label": "16 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-3-2-1-1-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-3-2-1-1-2"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "2",
+                          "label": "32 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-3-2-1-2-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-3-2-1-2-2"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "value": "2",
+                    "label": "LGA1700",
+                    "subtree": {
+                      "feature": "ram",
+                      "children": [
+                        {
+                          "value": "1",
+                          "label": "16 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-3-2-2-1-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-3-2-2-1-2"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "value": "2",
+                          "label": "32 ГБ",
+                          "subtree": {
+                            "feature": "ssd",
+                            "children": [
+                              {
+                                "value": "1",
+                                "label": "512 ГБ",
+                                "subtree": {
+                                  "code": "C1-3-2-2-2-1"
+                                }
+                              },
+                              {
+                                "value": "2",
+                                "label": "1 ТБ",
+                                "subtree": {
+                                  "code": "C1-3-2-2-2-2"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "example": {
+    "purpose": {
+      "code": "1",
+      "label": "Офисная"
+    },
+    "case": {
+      "code": "1",
+      "label": "Башенный"
+    },
+    "platform": {
+      "code": "1",
+      "label": "AM5"
+    },
+    "ram": {
+      "code": "2",
+      "label": "32 ГБ"
+    },
+    "ssd": {
+      "code": "2",
+      "label": "1 ТБ"
+    }
+  }
+}

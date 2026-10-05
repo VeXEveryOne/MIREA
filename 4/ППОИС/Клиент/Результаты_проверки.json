@@ -1,0 +1,413 @@
+{
+  "passed": true,
+  "executed_at": "2026-10-05T15:56:51.205867+00:00",
+  "database": "ppois10_b14eb3ab4424",
+  "api_database": "ppois10_1bf9559401df",
+  "http_tests": 28,
+  "browser_checkpoints": 18,
+  "reconciliation_checks": 111,
+  "checks": [
+    "28 HTTP tests passed",
+    "Current executed source server.py",
+    "Current executed source setup_client.py",
+    "Current executed source client_contract.json",
+    "Current executed source test_server.py",
+    "Current executed source client.html",
+    "Current executed source client.js",
+    "Current executed source client.css",
+    "Current executed source server.py",
+    "Current executed source client.js",
+    "Current executed source client.css",
+    "Current executed source client.html",
+    "Current executed source client_contract.json",
+    "Current HTTP dependency Прототип/domain.py",
+    "Current HTTP dependency Прототип/repository.py",
+    "Current HTTP dependency База_данных/schema.sql",
+    "Current HTTP dependency База_данных/privileges.sql",
+    "Current HTTP dependency Исходники/seed_database.py",
+    "Browser DB is isolated from HTTP test DB",
+    "No recorded browser console errors",
+    "All 18 recorded browser checkpoints present",
+    "Settled browser checkpoint UI01",
+    "UI01 visible paragraph: engineer",
+    "UI01 visible версия 2 · DRAFT",
+    "Settled browser checkpoint UI02",
+    "UI02 visible Есть несохранённые изменения",
+    "UI02 visible Количество строки 3\": \"0\"",
+    "Settled browser checkpoint UI03",
+    "UI03 visible alert: \"Количество:",
+    "UI03 visible Проверяется несохранённый состав",
+    "Settled browser checkpoint UI04",
+    "UI04 visible 53500.00",
+    "UI04 visible 76400",
+    "UI04 visible 7.820",
+    "Settled browser checkpoint UI05",
+    "UI05 visible Наценка, доля\" [active]: \"0.21\"",
+    "Stale calculation output removed",
+    "Settled browser checkpoint UI06",
+    "UI06 visible Создана версия 3: CHECKED.",
+    "UI06 visible версия 1 · FROZEN",
+    "UI06 visible версия 2 · DRAFT",
+    "Settled browser checkpoint UI07",
+    "UI07 visible Состав не сохранён",
+    "UI07 visible Выйти без сохранения",
+    "Settled browser checkpoint UI08",
+    "UI08 visible версия 1 · FROZEN · используется ревизией\" [selected]",
+    "UI08 visible Количество строки 3\": \"2\"",
+    "Settled browser checkpoint UI09",
+    "UI09 visible paragraph: manager",
+    "UI09 visible версия 2 · DRAFT\" [selected]",
+    "UI09 visible Сохранить новую ревизию DRAFT\" [disabled]",
+    "Settled browser checkpoint UI10",
+    "UI10 visible Ревизия 2 сохранена как DRAFT.",
+    "UI10 visible 2 3 DRAFT",
+    "UI10 visible 1 1 READY",
+    "Settled browser checkpoint UI11",
+    "UI11 visible ACCEPTED",
+    "UI11 visible demo-task-001",
+    "UI11 visible Отправить в Ozon — не реализовано\" [disabled]",
+    "Settled browser checkpoint UI12",
+    "UI12 visible paragraph: viewer",
+    "UI12 visible Количество строки 3\" [disabled]",
+    "UI12 visible Для текущей роли редактирование состава запрещено.",
+    "Settled browser checkpoint UI13",
+    "UI13 visible paragraph: viewer",
+    "UI13 visible Наценка, доля\" [disabled]",
+    "UI13 visible 76400",
+    "UI13 visible 7.820",
+    "Settled browser checkpoint UI14",
+    "UI14 visible heading \"Справка\"",
+    "UI14 visible paragraph: viewer",
+    "Forbidden direct client navigation not shown UI14",
+    "Settled browser checkpoint UI15",
+    "UI15 visible ppois_viewer",
+    "UI15 visible read_only",
+    "UI15 visible on",
+    "UI15 visible ppois10_b14eb3ab4424",
+    "Settled browser checkpoint UI16",
+    "UI16 visible heading \"Справка\"",
+    "UI16 visible paragraph: admin",
+    "Forbidden direct client navigation not shown UI16",
+    "Settled browser checkpoint UI17",
+    "UI17 visible Неверные демонстрационные реквизиты",
+    "UI17 visible heading \"Демонстрационный вход\"",
+    "Settled browser checkpoint UI18",
+    "UI18 visible paragraph: manager",
+    "UI18 visible 76400",
+    "UI18 visible 7.820",
+    "Unique screenshot paths",
+    "Observed screenshot ПР10_Экран_инженера.jpg",
+    "Observed screenshot ПР10_Экран_расчёта.jpg",
+    "Observed screenshot ПР10_Результат_расчёта.jpg",
+    "Observed screenshot ПР10_Экран_менеджера.jpg",
+    "Observed screenshot ПР10_Экран_публикаций.jpg",
+    "Observed screenshot ПР10_Экран_наблюдателя.jpg",
+    "Observed screenshot ПР10_Результат_наблюдателя.jpg",
+    "Observed screenshot ПР10_Экран_администратора.jpg",
+    "Observed screenshot ПР10_Экран_входа.jpg",
+    "Observed screenshot ПР10_История_ревизий.jpg",
+    "Observed screenshot ПР10_Фрагмент_входа.jpg",
+    "Observed screenshot ПР10_Фрагмент_расчёта.jpg",
+    "Observed screenshot ПР10_Фрагмент_ревизий.jpg",
+    "Observed screenshot ПР10_Фрагмент_диагностики.jpg",
+    "Observed screenshot ПР10_Фрагмент_инженера.jpg",
+    "Browser created only one BOM version with six slots and one revision",
+    "Original and new BOM version states retained",
+    "Original and new slot quantities correct",
+    "Browser revision is DRAFT on version 3",
+    "Previous READY revision retained",
+    "No publication attempt created by the browser",
+    "Saved browser calculation matches SQL 53500 / 76400 / 7.820"
+  ],
+  "initial_counts": {
+    "component_group": 7,
+    "component": 7,
+    "supplier": 2,
+    "offer": 10,
+    "configuration": 1,
+    "bom_version": 2,
+    "bom_slot": 12,
+    "card": 2,
+    "card_revision": 2,
+    "image": 1,
+    "revision_image": 1,
+    "publication_attempt": 1
+  },
+  "final_counts": {
+    "component_group": 7,
+    "component": 7,
+    "supplier": 2,
+    "offer": 10,
+    "configuration": 1,
+    "bom_version": 3,
+    "bom_slot": 18,
+    "card": 2,
+    "card_revision": 3,
+    "image": 1,
+    "revision_image": 1,
+    "publication_attempt": 1
+  },
+  "versions": [
+    {
+      "version_no": 1,
+      "state": "FROZEN"
+    },
+    {
+      "version_no": 2,
+      "state": "DRAFT"
+    },
+    {
+      "version_no": 3,
+      "state": "CHECKED"
+    }
+  ],
+  "revisions": [
+    {
+      "card_id": "00000000-0000-0000-0000-000000000200",
+      "revision_no": 1,
+      "version_no": 1,
+      "state": "READY",
+      "title": "Компьютер AM5 32 ГБ / SSD 1 ТБ"
+    },
+    {
+      "card_id": "00000000-0000-0000-0000-000000000200",
+      "revision_no": 2,
+      "version_no": 3,
+      "state": "DRAFT",
+      "title": "Учебный ПК AM5 — браузерная проверка"
+    },
+    {
+      "card_id": "00000000-0000-0000-0000-000000000201",
+      "revision_no": 1,
+      "version_no": 1,
+      "state": "DRAFT",
+      "title": "Компьютер AM5 32 ГБ / SSD 1 ТБ"
+    }
+  ],
+  "calculation": {
+    "cost_rub": "53500.00",
+    "price_rub": "76400.00",
+    "mass_kg": "7.820"
+  },
+  "browser_checks": [
+    {
+      "id": "UI01",
+      "description": "Корректный демонстрационный вход инженера открыл экран версии 2 DRAFT",
+      "observed_at": "2026-10-05T15:22:58.488Z"
+    },
+    {
+      "id": "UI02",
+      "description": "Смена версии при изменённом количестве требует решения; исходный выбор и 0 сохранены",
+      "observed_at": "2026-10-05T15:23:25.219Z"
+    },
+    {
+      "id": "UI03",
+      "description": "Несохранённый состав с нулевым количеством отклонён сервером",
+      "observed_at": "2026-10-05T15:23:25.791Z"
+    },
+    {
+      "id": "UI04",
+      "description": "Исправление RAM до 2 восстановило расчёт: 53500.00 ₽, 76400 ₽, 7.820 кг",
+      "observed_at": "2026-10-05T15:23:53.467Z"
+    },
+    {
+      "id": "UI05",
+      "description": "При изменении экономического параметра старый результат исчезает",
+      "observed_at": "2026-10-05T15:24:51.395Z"
+    },
+    {
+      "id": "UI06",
+      "description": "Сохранение инженером создало версию 3 CHECKED без перезаписи 1 и 2",
+      "observed_at": "2026-10-05T15:24:52.251Z"
+    },
+    {
+      "id": "UI07",
+      "description": "Выход при изменённом составе требует решения",
+      "observed_at": "2026-10-05T15:25:27.071Z"
+    },
+    {
+      "id": "UI08",
+      "description": "Отмена локальных изменений загрузила исходную версию 1 с RAM=2",
+      "observed_at": "2026-10-05T15:25:27.624Z"
+    },
+    {
+      "id": "UI09",
+      "description": "Менеджер не редактирует состав; ревизия для DRAFT-версии 2 недоступна",
+      "observed_at": "2026-10-05T15:26:07.738Z"
+    },
+    {
+      "id": "UI10",
+      "description": "Менеджер создал ревизию 2 DRAFT на версии состава 3, ревизия 1 READY сохранена",
+      "observed_at": "2026-10-05T15:26:08.239Z"
+    },
+    {
+      "id": "UI11",
+      "description": "История содержит только исходную попытку ACCEPTED; внешняя отправка недоступна",
+      "observed_at": "2026-10-05T15:26:38.065Z"
+    },
+    {
+      "id": "UI12",
+      "description": "Наблюдатель видит сохранённые версии, поля заблокированы, кнопок записи нет",
+      "observed_at": "2026-10-05T15:26:38.642Z"
+    },
+    {
+      "id": "UI13",
+      "description": "Наблюдатель рассчитывает сохранённую версию 3 без изменения экономических параметров",
+      "observed_at": "2026-10-05T15:27:09.547Z"
+    },
+    {
+      "id": "UI14",
+      "description": "Прямая навигация наблюдателя к недоступной диагностике открывает справку, не администраторский экран",
+      "observed_at": "2026-10-05T15:27:31.163Z"
+    },
+    {
+      "id": "UI15",
+      "description": "Администратор видит только диагностику и справку; соединение ограничено ppois_viewer, read_only=on",
+      "observed_at": "2026-10-05T15:27:31.977Z"
+    },
+    {
+      "id": "UI16",
+      "description": "Администратор не получает бизнес-раздел через прямой hash-маршрут",
+      "observed_at": "2026-10-05T15:29:19.936Z"
+    },
+    {
+      "id": "UI17",
+      "description": "Неверный пароль отклонён, сеанс не открыт",
+      "observed_at": "2026-10-05T15:29:20.482Z"
+    },
+    {
+      "id": "UI18",
+      "description": "Менеджер также рассчитывает сохранённую версию 3: 76400 ₽ и 7.820 кг",
+      "observed_at": "2026-10-05T15:44:45.463Z"
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "ПР10_Экран_инженера.jpg",
+      "label": "Инженер просматривает исходный черновик версии 2",
+      "sha256": "dc75c9f7d1b8d8ddb2dc420d2c57a1a3a21d6a1d3a1d83732a0950c5fd64d9ae"
+    },
+    {
+      "file": "ПР10_Экран_расчёта.jpg",
+      "label": "Фактический серверный расчёт несохранённого состава инженера",
+      "sha256": "8d0d2a0208cc5d111745f9424bc03de7b34d9777572675edbf461e8599565d18"
+    },
+    {
+      "file": "ПР10_Результат_расчёта.jpg",
+      "label": "Результат расчёта в окне браузера",
+      "sha256": "a64f7099edff3ac5d057f07387c5c4b43bfcc239758e3e5547fd15e566305f57"
+    },
+    {
+      "file": "ПР10_Экран_менеджера.jpg",
+      "label": "Сохранение новой расчётной ревизии менеджером",
+      "sha256": "fd11e7dede9601bb30291db5550aa7d6e5baed7d0386cf2d1bb26e2e9e14b0fe"
+    },
+    {
+      "file": "ПР10_Экран_публикаций.jpg",
+      "label": "Просмотр исходной учебной попытки без новой внешней отправки",
+      "sha256": "1fcdc1be4082ec1f28c13a7beec0374f5330ba46592608cfc07ce20bc9affb76"
+    },
+    {
+      "file": "ПР10_Экран_наблюдателя.jpg",
+      "label": "Наблюдатель просматривает состав без права редактирования",
+      "sha256": "ff4ba8db72e2703f49f0947aee41283358e8da5fb8417256eed99c2df4b72cf1"
+    },
+    {
+      "file": "ПР10_Результат_наблюдателя.jpg",
+      "label": "Выходная форма расчёта с итогами и проверенными позициями",
+      "sha256": "9a0125dbde1c681765df9f03b01e21cfb5337a58c86f4fc9907230cdc45db7f6"
+    },
+    {
+      "file": "ПР10_Экран_администратора.jpg",
+      "label": "Служебный доступ без автоматических бизнес-прав",
+      "sha256": "d1196f3920f1a1f0d2140c34bf5efbd0a3419e4efe23773b596f9d722b9c3709"
+    },
+    {
+      "file": "ПР10_Экран_входа.jpg",
+      "label": "Отказ при неверном демонстрационном пароле",
+      "sha256": "b00e58f937f1192db80bc263104fc5629ea0474e0d4b8b4948eaa8015a39cf7f"
+    },
+    {
+      "file": "ПР10_История_ревизий.jpg",
+      "label": "Новая ревизия 2 DRAFT и сохранённая ревизия 1 READY",
+      "sha256": "707edbcebced0fa5c72c1514b7464a3bd307d3f8549d6cb63da3e9d4b8867a59"
+    },
+    {
+      "file": "ПР10_Фрагмент_входа.jpg",
+      "label": "Форма демонстрационного входа без ошибки",
+      "clip": {
+        "x": 395,
+        "y": 50,
+        "width": 490,
+        "height": 610
+      },
+      "sha256": "07ccf92d2ed8a0a125d44b901280dc608a29a79dfa3d6e38ad9d79a485569f43"
+    },
+    {
+      "file": "ПР10_Фрагмент_расчёта.jpg",
+      "label": "Выходная форма инженера с шестью позициями итогами и ограничениями",
+      "clip": {
+        "height": 536.1625366210938,
+        "width": 975.7999877929688,
+        "x": 257,
+        "y": 798.8125228881836
+      },
+      "sha256": "ef2263f508b8c092d8ba6648867f69af3485165fd5b3ff1afb3949225a9fb36c"
+    },
+    {
+      "file": "ПР10_Фрагмент_ревизий.jpg",
+      "label": "История ревизий и роль менеджера",
+      "clip": {
+        "height": 466.9125213623047,
+        "width": 1010,
+        "x": 250,
+        "y": 0
+      },
+      "sha256": "f817ecf82871ac7252678171277ece4d7f190f6e5a7b95ff72d459d75da8ec43"
+    },
+    {
+      "file": "ПР10_Фрагмент_диагностики.jpg",
+      "label": "Роль администратора и фактические ограничения соединения",
+      "clip": {
+        "x": 250,
+        "y": 0,
+        "width": 1010,
+        "height": 550
+      },
+      "sha256": "4cd7f0588d5503fc60a080c3bf077c1bf8a3191d4bd96c7fd8e3e5d8107ec72c"
+    },
+    {
+      "file": "ПР10_Фрагмент_инженера.jpg",
+      "label": "Первые три позиции редактора новой версии инженера",
+      "clip": {
+        "height": 324.60002517700195,
+        "width": 975.7999877929688,
+        "x": 257,
+        "y": 338.75
+      },
+      "sha256": "05aa80f3dd2919357f28e3f0b46f735ff2b6ecdf9e98c5a8e78c6017ed0efee9"
+    }
+  ],
+  "source_sha256": {
+    "server.py": "c7bd6466af22739aa518947fdf8b0bc935f9bd713edeaad8c7a1a4e9faf57834",
+    "setup_client.py": "68d89b04b809c8c7fd866d218d2a6617fa9f6c0b8a4d0def48f2ca026a4ca223",
+    "client_contract.json": "fe5c2d9c0e02a499c49c813e0112e301eada81781238e316e400d724b509f48b",
+    "test_server.py": "768d2bf63ab1fab413eb01271abe3c0410b08308b052e319739cf1477013e394",
+    "client.html": "4e1d18557f5161655d5e2b440d420e89508d52619f8bed01b0a30ff4e1955d3d",
+    "client.js": "19588b75d6f0eaf2b10135e3125fb973dada716faab08595fc7abd23db90233d",
+    "client.css": "46b02c57dcf90da3e93f7072d18df4b6a249d1511a4c0bf34dc8618c41600a2f"
+  },
+  "dependency_sha256": {
+    "Прототип/domain.py": "28a2b93998613d65dcea6830390501d3af77860ed9d8115758cbcc6441ce135d",
+    "Прототип/repository.py": "de4643e4e29b15f662dfabd6d403aed2950fe9b5027517df4ace627b8c8b295d",
+    "База_данных/schema.sql": "0f375d5c26734b3dae4c6e662835a2f76b8dc69d56f73e422c95e40632ca6ed9",
+    "База_данных/privileges.sql": "f6c54a1a9d07feca850ff755809d51a6f887c88796094f67fc191c509b856b8a",
+    "Исходники/seed_database.py": "d39d9253bc5fc707f3f1ece31123f0a1b1a0885bb05d9f6f476b033582053fc1"
+  },
+  "evidence_sha256": {
+    "client-api-verification.json": "6265178c34dd9fcc89de498f8fe52dca4ffbdee8c18caa60c02e525d3c4235cf",
+    "client-ui-verification.json": "2331226cd7bacbf948c4ed87b7c2cd33f332fc5534fdd5f480fc8e855ae2591c"
+  },
+  "scope": "localhost client 0.2; real HTTP, browser checkpoints and SQL; no external API or production deployment proof",
+  "verifier_sha256": "39e736609a295f7ff29abe1aba308dea7cd4ec11b2c39d7ac2ab81db7b908d65"
+}

@@ -1,0 +1,1399 @@
+{
+  "formatVersion": 2,
+  "notation": "UML",
+  "profile": "NS-UML-2.5.1-2",
+  "model": {
+    "id": "ppois_implementation",
+    "label": "Модель реализации ИС подготовки карточек ООО Юкомс",
+    "elements": [
+      {
+        "id": "Configuration",
+        "kind": "class",
+        "label": "Конфигурация",
+        "properties": {
+          "role": "entity"
+        }
+      },
+      {
+        "id": "BomVersion",
+        "kind": "class",
+        "label": "Версия BOM",
+        "properties": {
+          "role": "entity"
+        }
+      },
+      {
+        "id": "BomSlot",
+        "kind": "class",
+        "label": "Позиция BOM",
+        "properties": {
+          "role": "entity"
+        }
+      },
+      {
+        "id": "ComponentGroup",
+        "kind": "class",
+        "label": "Группа комплектующих",
+        "properties": {
+          "role": "entity"
+        }
+      },
+      {
+        "id": "Component",
+        "kind": "class",
+        "label": "Комплектующая",
+        "properties": {
+          "role": "entity"
+        }
+      },
+      {
+        "id": "Offer",
+        "kind": "class",
+        "label": "Предложение поставщика",
+        "properties": {
+          "role": "entity"
+        }
+      },
+      {
+        "id": "Card",
+        "kind": "class",
+        "label": "Карточка товара",
+        "properties": {
+          "role": "entity"
+        }
+      },
+      {
+        "id": "CardRevision",
+        "kind": "class",
+        "label": "Ревизия карточки",
+        "properties": {
+          "role": "entity"
+        }
+      },
+      {
+        "id": "Image",
+        "kind": "class",
+        "label": "Изображение",
+        "properties": {
+          "role": "entity"
+        }
+      },
+      {
+        "id": "PublicationAttempt",
+        "kind": "class",
+        "label": "Попытка публикации",
+        "properties": {
+          "role": "entity"
+        }
+      },
+      {
+        "id": "BomForm",
+        "kind": "class",
+        "label": "Форма BOM",
+        "properties": {
+          "role": "boundary"
+        }
+      },
+      {
+        "id": "CardForm",
+        "kind": "class",
+        "label": "Форма карточки",
+        "properties": {
+          "role": "boundary"
+        }
+      },
+      {
+        "id": "MarketplaceGateway",
+        "kind": "class",
+        "label": "Шлюз маркетплейса",
+        "properties": {
+          "role": "boundary"
+        }
+      },
+      {
+        "id": "BomControl",
+        "kind": "class",
+        "label": "Управление BOM",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "Compatibility",
+        "kind": "class",
+        "label": "Проверка совместимости",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "Calculation",
+        "kind": "class",
+        "label": "Расчёт показателей",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "Readiness",
+        "kind": "class",
+        "label": "Проверка готовности",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "PublicationControl",
+        "kind": "class",
+        "label": "Управление публикацией",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "web",
+        "kind": "component",
+        "label": "Веб клиент",
+        "properties": {
+          "description": "Формы BOM и карточки"
+        }
+      },
+      {
+        "id": "impl_BomForm",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "web",
+          "classifier": "BomForm"
+        }
+      },
+      {
+        "id": "impl_CardForm",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "web",
+          "classifier": "CardForm"
+        }
+      },
+      {
+        "id": "api",
+        "kind": "component",
+        "label": "Прикладной сервис",
+        "properties": {
+          "description": "Сценарии и права доступа"
+        }
+      },
+      {
+        "id": "impl_BomControl",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "api",
+          "classifier": "BomControl"
+        }
+      },
+      {
+        "id": "impl_Readiness",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "api",
+          "classifier": "Readiness"
+        }
+      },
+      {
+        "id": "impl_PublicationControl",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "api",
+          "classifier": "PublicationControl"
+        }
+      },
+      {
+        "id": "domain",
+        "kind": "component",
+        "label": "Состав и расчёты",
+        "properties": {
+          "description": "Проверка и вычисления"
+        }
+      },
+      {
+        "id": "impl_Configuration",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "domain",
+          "classifier": "Configuration"
+        }
+      },
+      {
+        "id": "impl_BomVersion",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "domain",
+          "classifier": "BomVersion"
+        }
+      },
+      {
+        "id": "impl_BomSlot",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "domain",
+          "classifier": "BomSlot"
+        }
+      },
+      {
+        "id": "impl_Compatibility",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "domain",
+          "classifier": "Compatibility"
+        }
+      },
+      {
+        "id": "impl_Calculation",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "domain",
+          "classifier": "Calculation"
+        }
+      },
+      {
+        "id": "catalog",
+        "kind": "component",
+        "label": "Каталог и предложения",
+        "properties": {
+          "description": "Комплектующие и цены"
+        }
+      },
+      {
+        "id": "impl_ComponentGroup",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "catalog",
+          "classifier": "ComponentGroup"
+        }
+      },
+      {
+        "id": "impl_Component",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "catalog",
+          "classifier": "Component"
+        }
+      },
+      {
+        "id": "impl_Offer",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "catalog",
+          "classifier": "Offer"
+        }
+      },
+      {
+        "id": "content",
+        "kind": "component",
+        "label": "Карточки и контент",
+        "properties": {
+          "description": "Версии и изображения"
+        }
+      },
+      {
+        "id": "impl_Card",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "content",
+          "classifier": "Card"
+        }
+      },
+      {
+        "id": "impl_CardRevision",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "content",
+          "classifier": "CardRevision"
+        }
+      },
+      {
+        "id": "impl_Image",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "content",
+          "classifier": "Image"
+        }
+      },
+      {
+        "id": "impl_PublicationAttempt",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "content",
+          "classifier": "PublicationAttempt"
+        }
+      },
+      {
+        "id": "gateway",
+        "kind": "component",
+        "label": "Шлюз публикации",
+        "properties": {
+          "description": "Запрос и внешний результат"
+        }
+      },
+      {
+        "id": "impl_MarketplaceGateway",
+        "kind": "componentRealization",
+        "label": "",
+        "properties": {
+          "owner": "gateway",
+          "classifier": "MarketplaceGateway"
+        }
+      },
+      {
+        "id": "storage",
+        "kind": "component",
+        "label": "Доступ к данным",
+        "properties": {
+          "description": "PostgreSQL и транзакции"
+        }
+      },
+      {
+        "id": "components",
+        "kind": "diagram",
+        "label": "Компоненты целевой системы",
+        "properties": {
+          "type": "component"
+        }
+      },
+      {
+        "id": "v_components_web",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "web"
+        }
+      },
+      {
+        "id": "v_components_api",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "api"
+        }
+      },
+      {
+        "id": "v_components_domain",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "domain"
+        }
+      },
+      {
+        "id": "v_components_catalog",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "catalog"
+        }
+      },
+      {
+        "id": "v_components_content",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "content"
+        }
+      },
+      {
+        "id": "v_components_gateway",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "gateway"
+        }
+      },
+      {
+        "id": "v_components_storage",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "storage"
+        }
+      },
+      {
+        "id": "ICards",
+        "kind": "interface",
+        "label": "API карточек",
+        "properties": {
+          "description": "Создание версии, проверка и подготовка карточки"
+        }
+      },
+      {
+        "id": "v_components_ICards",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "ICards"
+        }
+      },
+      {
+        "id": "web_uses_api",
+        "kind": "usage",
+        "label": "«use»",
+        "properties": {
+          "from": "web",
+          "to": "ICards"
+        }
+      },
+      {
+        "id": "v_components_web_uses_api",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "web_uses_api",
+          "from": "v_components_web",
+          "to": "v_components_ICards"
+        }
+      },
+      {
+        "id": "api_provides",
+        "kind": "realization",
+        "label": "Реализация",
+        "properties": {
+          "from": "api",
+          "to": "ICards"
+        }
+      },
+      {
+        "id": "v_components_api_provides",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "api_provides",
+          "from": "v_components_api",
+          "to": "v_components_ICards"
+        }
+      },
+      {
+        "id": "api_domain",
+        "kind": "dependency",
+        "label": "Расчёт",
+        "properties": {
+          "from": "api",
+          "to": "domain"
+        }
+      },
+      {
+        "id": "v_components_api_domain",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "api_domain",
+          "from": "v_components_api",
+          "to": "v_components_domain"
+        }
+      },
+      {
+        "id": "domain_catalog",
+        "kind": "dependency",
+        "label": "Подбор",
+        "properties": {
+          "from": "domain",
+          "to": "catalog"
+        }
+      },
+      {
+        "id": "v_components_domain_catalog",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "domain_catalog",
+          "from": "v_components_domain",
+          "to": "v_components_catalog"
+        }
+      },
+      {
+        "id": "api_content",
+        "kind": "dependency",
+        "label": "Ревизия",
+        "properties": {
+          "from": "api",
+          "to": "content"
+        }
+      },
+      {
+        "id": "v_components_api_content",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "api_content",
+          "from": "v_components_api",
+          "to": "v_components_content"
+        }
+      },
+      {
+        "id": "api_gateway",
+        "kind": "dependency",
+        "label": "Публикация",
+        "properties": {
+          "from": "api",
+          "to": "gateway"
+        }
+      },
+      {
+        "id": "v_components_api_gateway",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "api_gateway",
+          "from": "v_components_api",
+          "to": "v_components_gateway"
+        }
+      },
+      {
+        "id": "catalog_store",
+        "kind": "dependency",
+        "label": "Данные",
+        "properties": {
+          "from": "catalog",
+          "to": "storage"
+        }
+      },
+      {
+        "id": "v_components_catalog_store",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "catalog_store",
+          "from": "v_components_catalog",
+          "to": "v_components_storage"
+        }
+      },
+      {
+        "id": "content_store",
+        "kind": "dependency",
+        "label": "Снимки",
+        "properties": {
+          "from": "content",
+          "to": "storage"
+        }
+      },
+      {
+        "id": "v_components_content_store",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "content_store",
+          "from": "v_components_content",
+          "to": "v_components_storage"
+        }
+      },
+      {
+        "id": "deployment",
+        "kind": "diagram",
+        "label": "Целевое развёртывание",
+        "properties": {
+          "type": "deployment"
+        }
+      },
+      {
+        "id": "workstation",
+        "kind": "device",
+        "label": "Рабочие места",
+        "properties": {
+          "hardware": "4 учётные записи; до 4 сеансов"
+        }
+      },
+      {
+        "id": "v_deployment_workstation",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "workstation"
+        }
+      },
+      {
+        "id": "app_server",
+        "kind": "device",
+        "label": "Сервер приложения",
+        "properties": {
+          "hardware": "4 vCPU; 8 ГБ; SSD 80 ГБ"
+        }
+      },
+      {
+        "id": "v_deployment_app_server",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "app_server"
+        }
+      },
+      {
+        "id": "db_server",
+        "kind": "device",
+        "label": "Сервер базы данных",
+        "properties": {
+          "hardware": "4 vCPU; 8 ГБ; SSD 100 ГБ"
+        }
+      },
+      {
+        "id": "v_deployment_db_server",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "db_server"
+        }
+      },
+      {
+        "id": "marketplace",
+        "kind": "device",
+        "label": "Внешняя площадка",
+        "properties": {
+          "hardware": "Ozon; интеграция планируется"
+        }
+      },
+      {
+        "id": "v_deployment_marketplace",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "marketplace"
+        }
+      },
+      {
+        "id": "backup",
+        "kind": "device",
+        "label": "Резервное хранилище",
+        "properties": {
+          "hardware": "Отдельный узел; 200 ГБ"
+        }
+      },
+      {
+        "id": "v_deployment_backup",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "backup"
+        }
+      },
+      {
+        "id": "browser",
+        "kind": "executionEnvironment",
+        "label": "Браузер",
+        "properties": {
+          "owner": "workstation"
+        }
+      },
+      {
+        "id": "v_deployment_browser",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "browser",
+          "parent": "v_deployment_workstation"
+        }
+      },
+      {
+        "id": "python_env",
+        "kind": "executionEnvironment",
+        "label": "Python и сервер HTTP",
+        "properties": {
+          "owner": "app_server"
+        }
+      },
+      {
+        "id": "v_deployment_python_env",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "python_env",
+          "parent": "v_deployment_app_server"
+        }
+      },
+      {
+        "id": "pg_env",
+        "kind": "executionEnvironment",
+        "label": "PostgreSQL 18",
+        "properties": {
+          "owner": "db_server"
+        }
+      },
+      {
+        "id": "v_deployment_pg_env",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "pg_env",
+          "parent": "v_deployment_db_server"
+        }
+      },
+      {
+        "id": "client_files",
+        "kind": "artifact",
+        "label": "client.html и JS",
+        "properties": {
+          "fileName": "client.html и JS"
+        }
+      },
+      {
+        "id": "v_deployment_client_files",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "client_files",
+          "parent": "v_deployment_browser"
+        }
+      },
+      {
+        "id": "deploy_client_files",
+        "kind": "deployment",
+        "label": "",
+        "properties": {
+          "location": "browser",
+          "artifact": "client_files"
+        }
+      },
+      {
+        "id": "server_files",
+        "kind": "artifact",
+        "label": "app.py и domain.py",
+        "properties": {
+          "fileName": "app.py и domain.py"
+        }
+      },
+      {
+        "id": "v_deployment_server_files",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "server_files",
+          "parent": "v_deployment_python_env"
+        }
+      },
+      {
+        "id": "deploy_server_files",
+        "kind": "deployment",
+        "label": "",
+        "properties": {
+          "location": "python_env",
+          "artifact": "server_files"
+        }
+      },
+      {
+        "id": "sql_schema",
+        "kind": "artifact",
+        "label": "schema.sql",
+        "properties": {
+          "fileName": "schema.sql"
+        }
+      },
+      {
+        "id": "v_deployment_sql_schema",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "sql_schema",
+          "parent": "v_deployment_pg_env"
+        }
+      },
+      {
+        "id": "deploy_sql_schema",
+        "kind": "deployment",
+        "label": "",
+        "properties": {
+          "location": "pg_env",
+          "artifact": "sql_schema"
+        }
+      },
+      {
+        "id": "backup_file",
+        "kind": "artifact",
+        "label": "Дамп БД и изображения",
+        "properties": {
+          "fileName": "Дамп БД и изображения"
+        }
+      },
+      {
+        "id": "v_deployment_backup_file",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "backup_file",
+          "parent": "v_deployment_backup"
+        }
+      },
+      {
+        "id": "deploy_backup_file",
+        "kind": "deployment",
+        "label": "",
+        "properties": {
+          "location": "backup",
+          "artifact": "backup_file"
+        }
+      },
+      {
+        "id": "work_app",
+        "kind": "communicationPath",
+        "label": "HTTPS / 443",
+        "properties": {
+          "from": "workstation",
+          "to": "app_server",
+          "protocol": "HTTPS",
+          "port": "443"
+        }
+      },
+      {
+        "id": "v_deployment_work_app",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "work_app",
+          "from": "v_deployment_workstation",
+          "to": "v_deployment_app_server"
+        }
+      },
+      {
+        "id": "app_db",
+        "kind": "communicationPath",
+        "label": "PostgreSQL / 5432",
+        "properties": {
+          "from": "app_server",
+          "to": "db_server",
+          "protocol": "PostgreSQL TLS",
+          "port": "5432"
+        }
+      },
+      {
+        "id": "v_deployment_app_db",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "app_db",
+          "from": "v_deployment_app_server",
+          "to": "v_deployment_db_server"
+        }
+      },
+      {
+        "id": "app_market",
+        "kind": "communicationPath",
+        "label": "HTTPS / 443",
+        "properties": {
+          "from": "app_server",
+          "to": "marketplace",
+          "protocol": "HTTPS",
+          "port": "443"
+        }
+      },
+      {
+        "id": "v_deployment_app_market",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "app_market",
+          "from": "v_deployment_app_server",
+          "to": "v_deployment_marketplace"
+        }
+      },
+      {
+        "id": "db_backup",
+        "kind": "communicationPath",
+        "label": "SSH / 22",
+        "properties": {
+          "from": "db_server",
+          "to": "backup",
+          "protocol": "SSH",
+          "port": "22"
+        }
+      },
+      {
+        "id": "v_deployment_db_backup",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "deployment",
+          "element": "db_backup",
+          "from": "v_deployment_db_server",
+          "to": "v_deployment_backup"
+        }
+      },
+      {
+        "id": "local_demo",
+        "kind": "diagram",
+        "label": "Фактически запускаемый учебный срез",
+        "properties": {
+          "type": "deployment"
+        }
+      },
+      {
+        "id": "local",
+        "kind": "device",
+        "label": "Локальный учебный компьютер",
+        "properties": {
+          "hardware": "Windows; PostgreSQL слушает только 127.0.0.1"
+        }
+      },
+      {
+        "id": "v_local_demo_local",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "local_demo",
+          "element": "local"
+        }
+      },
+      {
+        "id": "demo_env",
+        "kind": "executionEnvironment",
+        "label": "Python",
+        "properties": {
+          "owner": "local"
+        }
+      },
+      {
+        "id": "v_local_demo_demo_env",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "local_demo",
+          "element": "demo_env",
+          "parent": "v_local_demo_local"
+        }
+      },
+      {
+        "id": "local_pg",
+        "kind": "executionEnvironment",
+        "label": "PostgreSQL 18.6",
+        "properties": {
+          "owner": "local"
+        }
+      },
+      {
+        "id": "v_local_demo_local_pg",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "local_demo",
+          "element": "local_pg",
+          "parent": "v_local_demo_local"
+        }
+      },
+      {
+        "id": "console_demo",
+        "kind": "artifact",
+        "label": "demo.py domain.py repository.py",
+        "properties": {
+          "fileName": "demo.py"
+        }
+      },
+      {
+        "id": "v_local_demo_console_demo",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "local_demo",
+          "element": "console_demo",
+          "parent": "v_local_demo_demo_env"
+        }
+      },
+      {
+        "id": "course_db",
+        "kind": "artifact",
+        "label": "Учебная БД ppois",
+        "properties": {
+          "fileName": "schema.sql"
+        }
+      },
+      {
+        "id": "v_local_demo_course_db",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "local_demo",
+          "element": "course_db",
+          "parent": "v_local_demo_local_pg"
+        }
+      },
+      {
+        "id": "deploy_demo",
+        "kind": "deployment",
+        "label": "",
+        "properties": {
+          "location": "demo_env",
+          "artifact": "console_demo"
+        }
+      },
+      {
+        "id": "deploy_course_db",
+        "kind": "deployment",
+        "label": "",
+        "properties": {
+          "location": "local_pg",
+          "artifact": "course_db"
+        }
+      },
+      {
+        "id": "local_sql",
+        "kind": "communicationPath",
+        "label": "127.0.0.1 / 55432",
+        "properties": {
+          "from": "demo_env",
+          "to": "local_pg",
+          "protocol": "PostgreSQL loopback",
+          "port": "55432"
+        }
+      },
+      {
+        "id": "v_local_demo_local_sql",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "local_demo",
+          "element": "local_sql",
+          "from": "v_local_demo_demo_env",
+          "to": "v_local_demo_local_pg"
+        }
+      }
+    ]
+  },
+  "source": "uml ppois_implementation \"Модель реализации ИС подготовки карточек ООО Юкомс\"\nclass Configuration Конфигурация role=entity\nclass BomVersion \"Версия BOM\" role=entity\nclass BomSlot \"Позиция BOM\" role=entity\nclass ComponentGroup \"Группа комплектующих\" role=entity\nclass Component Комплектующая role=entity\nclass Offer \"Предложение поставщика\" role=entity\nclass Card \"Карточка товара\" role=entity\nclass CardRevision \"Ревизия карточки\" role=entity\nclass Image Изображение role=entity\nclass PublicationAttempt \"Попытка публикации\" role=entity\nclass BomForm \"Форма BOM\" role=boundary\nclass CardForm \"Форма карточки\" role=boundary\nclass MarketplaceGateway \"Шлюз маркетплейса\" role=boundary\nclass BomControl \"Управление BOM\" role=control\nclass Compatibility \"Проверка совместимости\" role=control\nclass Calculation \"Расчёт показателей\" role=control\nclass Readiness \"Проверка готовности\" role=control\nclass PublicationControl \"Управление публикацией\" role=control\ncomponent web \"Веб клиент\" description=\"Формы BOM и карточки\"\ncomponentRealization impl_BomForm \"\" classifier=BomForm owner=web\ncomponentRealization impl_CardForm \"\" classifier=CardForm owner=web\ncomponent api \"Прикладной сервис\" description=\"Сценарии и права доступа\"\ncomponentRealization impl_BomControl \"\" classifier=BomControl owner=api\ncomponentRealization impl_Readiness \"\" classifier=Readiness owner=api\ncomponentRealization impl_PublicationControl \"\" classifier=PublicationControl owner=api\ncomponent domain \"Состав и расчёты\" description=\"Проверка и вычисления\"\ncomponentRealization impl_Configuration \"\" classifier=Configuration owner=domain\ncomponentRealization impl_BomVersion \"\" classifier=BomVersion owner=domain\ncomponentRealization impl_BomSlot \"\" classifier=BomSlot owner=domain\ncomponentRealization impl_Compatibility \"\" classifier=Compatibility owner=domain\ncomponentRealization impl_Calculation \"\" classifier=Calculation owner=domain\ncomponent catalog \"Каталог и предложения\" description=\"Комплектующие и цены\"\ncomponentRealization impl_ComponentGroup \"\" classifier=ComponentGroup owner=catalog\ncomponentRealization impl_Component \"\" classifier=Component owner=catalog\ncomponentRealization impl_Offer \"\" classifier=Offer owner=catalog\ncomponent content \"Карточки и контент\" description=\"Версии и изображения\"\ncomponentRealization impl_Card \"\" classifier=Card owner=content\ncomponentRealization impl_CardRevision \"\" classifier=CardRevision owner=content\ncomponentRealization impl_Image \"\" classifier=Image owner=content\ncomponentRealization impl_PublicationAttempt \"\" classifier=PublicationAttempt owner=content\ncomponent gateway \"Шлюз публикации\" description=\"Запрос и внешний результат\"\ncomponentRealization impl_MarketplaceGateway \"\" classifier=MarketplaceGateway owner=gateway\ncomponent storage \"Доступ к данным\" description=\"PostgreSQL и транзакции\"\ndiagram components \"Компоненты целевой системы\" type=component\nview v_components_web \"\" diagram=components element=web\nview v_components_api \"\" diagram=components element=api\nview v_components_domain \"\" diagram=components element=domain\nview v_components_catalog \"\" diagram=components element=catalog\nview v_components_content \"\" diagram=components element=content\nview v_components_gateway \"\" diagram=components element=gateway\nview v_components_storage \"\" diagram=components element=storage\ninterface ICards \"API карточек\" description=\"Создание версии, проверка и подготовка карточки\"\nview v_components_ICards \"\" diagram=components element=ICards\nusage web_uses_api \"«use»\" from=web to=ICards\nview v_components_web_uses_api \"\" diagram=components element=web_uses_api from=v_components_web to=v_components_ICards\nrealization api_provides Реализация from=api to=ICards\nview v_components_api_provides \"\" diagram=components element=api_provides from=v_components_api to=v_components_ICards\ndependency api_domain Расчёт from=api to=domain\nview v_components_api_domain \"\" diagram=components element=api_domain from=v_components_api to=v_components_domain\ndependency domain_catalog Подбор from=domain to=catalog\nview v_components_domain_catalog \"\" diagram=components element=domain_catalog from=v_components_domain to=v_components_catalog\ndependency api_content Ревизия from=api to=content\nview v_components_api_content \"\" diagram=components element=api_content from=v_components_api to=v_components_content\ndependency api_gateway Публикация from=api to=gateway\nview v_components_api_gateway \"\" diagram=components element=api_gateway from=v_components_api to=v_components_gateway\ndependency catalog_store Данные from=catalog to=storage\nview v_components_catalog_store \"\" diagram=components element=catalog_store from=v_components_catalog to=v_components_storage\ndependency content_store Снимки from=content to=storage\nview v_components_content_store \"\" diagram=components element=content_store from=v_components_content to=v_components_storage\ndiagram deployment \"Целевое развёртывание\" type=deployment\ndevice workstation \"Рабочие места\" hardware=\"4 учётные записи; до 4 сеансов\"\nview v_deployment_workstation \"\" diagram=deployment element=workstation\ndevice app_server \"Сервер приложения\" hardware=\"4 vCPU; 8 ГБ; SSD 80 ГБ\"\nview v_deployment_app_server \"\" diagram=deployment element=app_server\ndevice db_server \"Сервер базы данных\" hardware=\"4 vCPU; 8 ГБ; SSD 100 ГБ\"\nview v_deployment_db_server \"\" diagram=deployment element=db_server\ndevice marketplace \"Внешняя площадка\" hardware=\"Ozon; интеграция планируется\"\nview v_deployment_marketplace \"\" diagram=deployment element=marketplace\ndevice backup \"Резервное хранилище\" hardware=\"Отдельный узел; 200 ГБ\"\nview v_deployment_backup \"\" diagram=deployment element=backup\nexecutionEnvironment browser Браузер owner=workstation\nview v_deployment_browser \"\" diagram=deployment element=browser parent=v_deployment_workstation\nexecutionEnvironment python_env \"Python и сервер HTTP\" owner=app_server\nview v_deployment_python_env \"\" diagram=deployment element=python_env parent=v_deployment_app_server\nexecutionEnvironment pg_env \"PostgreSQL 18\" owner=db_server\nview v_deployment_pg_env \"\" diagram=deployment element=pg_env parent=v_deployment_db_server\nartifact client_files \"client.html и JS\" fileName=\"client.html и JS\"\nview v_deployment_client_files \"\" diagram=deployment element=client_files parent=v_deployment_browser\ndeployment deploy_client_files \"\" artifact=client_files location=browser\nartifact server_files \"app.py и domain.py\" fileName=\"app.py и domain.py\"\nview v_deployment_server_files \"\" diagram=deployment element=server_files parent=v_deployment_python_env\ndeployment deploy_server_files \"\" artifact=server_files location=python_env\nartifact sql_schema schema.sql fileName=schema.sql\nview v_deployment_sql_schema \"\" diagram=deployment element=sql_schema parent=v_deployment_pg_env\ndeployment deploy_sql_schema \"\" artifact=sql_schema location=pg_env\nartifact backup_file \"Дамп БД и изображения\" fileName=\"Дамп БД и изображения\"\nview v_deployment_backup_file \"\" diagram=deployment element=backup_file parent=v_deployment_backup\ndeployment deploy_backup_file \"\" artifact=backup_file location=backup\ncommunicationPath work_app \"HTTPS / 443\" from=workstation port=443 protocol=HTTPS to=app_server\nview v_deployment_work_app \"\" diagram=deployment element=work_app from=v_deployment_workstation to=v_deployment_app_server\ncommunicationPath app_db \"PostgreSQL / 5432\" from=app_server port=5432 protocol=\"PostgreSQL TLS\" to=db_server\nview v_deployment_app_db \"\" diagram=deployment element=app_db from=v_deployment_app_server to=v_deployment_db_server\ncommunicationPath app_market \"HTTPS / 443\" from=app_server port=443 protocol=HTTPS to=marketplace\nview v_deployment_app_market \"\" diagram=deployment element=app_market from=v_deployment_app_server to=v_deployment_marketplace\ncommunicationPath db_backup \"SSH / 22\" from=db_server port=22 protocol=SSH to=backup\nview v_deployment_db_backup \"\" diagram=deployment element=db_backup from=v_deployment_db_server to=v_deployment_backup\ndiagram local_demo \"Фактически запускаемый учебный срез\" type=deployment\ndevice local \"Локальный учебный компьютер\" hardware=\"Windows; PostgreSQL слушает только 127.0.0.1\"\nview v_local_demo_local \"\" diagram=local_demo element=local\nexecutionEnvironment demo_env Python owner=local\nview v_local_demo_demo_env \"\" diagram=local_demo element=demo_env parent=v_local_demo_local\nexecutionEnvironment local_pg \"PostgreSQL 18.6\" owner=local\nview v_local_demo_local_pg \"\" diagram=local_demo element=local_pg parent=v_local_demo_local\nartifact console_demo \"demo.py domain.py repository.py\" fileName=demo.py\nview v_local_demo_console_demo \"\" diagram=local_demo element=console_demo parent=v_local_demo_demo_env\nartifact course_db \"Учебная БД ppois\" fileName=schema.sql\nview v_local_demo_course_db \"\" diagram=local_demo element=course_db parent=v_local_demo_local_pg\ndeployment deploy_demo \"\" artifact=console_demo location=demo_env\ndeployment deploy_course_db \"\" artifact=course_db location=local_pg\ncommunicationPath local_sql \"127.0.0.1 / 55432\" from=demo_env port=55432 protocol=\"PostgreSQL loopback\" to=local_pg\nview v_local_demo_local_sql \"\" diagram=local_demo element=local_sql from=v_local_demo_demo_env to=v_local_demo_local_pg\n",
+  "draft": "uml ppois_implementation \"Модель реализации ИС подготовки карточек ООО Юкомс\"\nclass Configuration Конфигурация role=entity\nclass BomVersion \"Версия BOM\" role=entity\nclass BomSlot \"Позиция BOM\" role=entity\nclass ComponentGroup \"Группа комплектующих\" role=entity\nclass Component Комплектующая role=entity\nclass Offer \"Предложение поставщика\" role=entity\nclass Card \"Карточка товара\" role=entity\nclass CardRevision \"Ревизия карточки\" role=entity\nclass Image Изображение role=entity\nclass PublicationAttempt \"Попытка публикации\" role=entity\nclass BomForm \"Форма BOM\" role=boundary\nclass CardForm \"Форма карточки\" role=boundary\nclass MarketplaceGateway \"Шлюз маркетплейса\" role=boundary\nclass BomControl \"Управление BOM\" role=control\nclass Compatibility \"Проверка совместимости\" role=control\nclass Calculation \"Расчёт показателей\" role=control\nclass Readiness \"Проверка готовности\" role=control\nclass PublicationControl \"Управление публикацией\" role=control\ncomponent web \"Веб клиент\" description=\"Формы BOM и карточки\"\ncomponentRealization impl_BomForm \"\" classifier=BomForm owner=web\ncomponentRealization impl_CardForm \"\" classifier=CardForm owner=web\ncomponent api \"Прикладной сервис\" description=\"Сценарии и права доступа\"\ncomponentRealization impl_BomControl \"\" classifier=BomControl owner=api\ncomponentRealization impl_Readiness \"\" classifier=Readiness owner=api\ncomponentRealization impl_PublicationControl \"\" classifier=PublicationControl owner=api\ncomponent domain \"Состав и расчёты\" description=\"Проверка и вычисления\"\ncomponentRealization impl_Configuration \"\" classifier=Configuration owner=domain\ncomponentRealization impl_BomVersion \"\" classifier=BomVersion owner=domain\ncomponentRealization impl_BomSlot \"\" classifier=BomSlot owner=domain\ncomponentRealization impl_Compatibility \"\" classifier=Compatibility owner=domain\ncomponentRealization impl_Calculation \"\" classifier=Calculation owner=domain\ncomponent catalog \"Каталог и предложения\" description=\"Комплектующие и цены\"\ncomponentRealization impl_ComponentGroup \"\" classifier=ComponentGroup owner=catalog\ncomponentRealization impl_Component \"\" classifier=Component owner=catalog\ncomponentRealization impl_Offer \"\" classifier=Offer owner=catalog\ncomponent content \"Карточки и контент\" description=\"Версии и изображения\"\ncomponentRealization impl_Card \"\" classifier=Card owner=content\ncomponentRealization impl_CardRevision \"\" classifier=CardRevision owner=content\ncomponentRealization impl_Image \"\" classifier=Image owner=content\ncomponentRealization impl_PublicationAttempt \"\" classifier=PublicationAttempt owner=content\ncomponent gateway \"Шлюз публикации\" description=\"Запрос и внешний результат\"\ncomponentRealization impl_MarketplaceGateway \"\" classifier=MarketplaceGateway owner=gateway\ncomponent storage \"Доступ к данным\" description=\"PostgreSQL и транзакции\"\ndiagram components \"Компоненты целевой системы\" type=component\nview v_components_web \"\" diagram=components element=web\nview v_components_api \"\" diagram=components element=api\nview v_components_domain \"\" diagram=components element=domain\nview v_components_catalog \"\" diagram=components element=catalog\nview v_components_content \"\" diagram=components element=content\nview v_components_gateway \"\" diagram=components element=gateway\nview v_components_storage \"\" diagram=components element=storage\ninterface ICards \"API карточек\" description=\"Создание версии, проверка и подготовка карточки\"\nview v_components_ICards \"\" diagram=components element=ICards\nusage web_uses_api \"«use»\" from=web to=ICards\nview v_components_web_uses_api \"\" diagram=components element=web_uses_api from=v_components_web to=v_components_ICards\nrealization api_provides Реализация from=api to=ICards\nview v_components_api_provides \"\" diagram=components element=api_provides from=v_components_api to=v_components_ICards\ndependency api_domain Расчёт from=api to=domain\nview v_components_api_domain \"\" diagram=components element=api_domain from=v_components_api to=v_components_domain\ndependency domain_catalog Подбор from=domain to=catalog\nview v_components_domain_catalog \"\" diagram=components element=domain_catalog from=v_components_domain to=v_components_catalog\ndependency api_content Ревизия from=api to=content\nview v_components_api_content \"\" diagram=components element=api_content from=v_components_api to=v_components_content\ndependency api_gateway Публикация from=api to=gateway\nview v_components_api_gateway \"\" diagram=components element=api_gateway from=v_components_api to=v_components_gateway\ndependency catalog_store Данные from=catalog to=storage\nview v_components_catalog_store \"\" diagram=components element=catalog_store from=v_components_catalog to=v_components_storage\ndependency content_store Снимки from=content to=storage\nview v_components_content_store \"\" diagram=components element=content_store from=v_components_content to=v_components_storage\ndiagram deployment \"Целевое развёртывание\" type=deployment\ndevice workstation \"Рабочие места\" hardware=\"4 учётные записи; до 4 сеансов\"\nview v_deployment_workstation \"\" diagram=deployment element=workstation\ndevice app_server \"Сервер приложения\" hardware=\"4 vCPU; 8 ГБ; SSD 80 ГБ\"\nview v_deployment_app_server \"\" diagram=deployment element=app_server\ndevice db_server \"Сервер базы данных\" hardware=\"4 vCPU; 8 ГБ; SSD 100 ГБ\"\nview v_deployment_db_server \"\" diagram=deployment element=db_server\ndevice marketplace \"Внешняя площадка\" hardware=\"Ozon; интеграция планируется\"\nview v_deployment_marketplace \"\" diagram=deployment element=marketplace\ndevice backup \"Резервное хранилище\" hardware=\"Отдельный узел; 200 ГБ\"\nview v_deployment_backup \"\" diagram=deployment element=backup\nexecutionEnvironment browser Браузер owner=workstation\nview v_deployment_browser \"\" diagram=deployment element=browser parent=v_deployment_workstation\nexecutionEnvironment python_env \"Python и сервер HTTP\" owner=app_server\nview v_deployment_python_env \"\" diagram=deployment element=python_env parent=v_deployment_app_server\nexecutionEnvironment pg_env \"PostgreSQL 18\" owner=db_server\nview v_deployment_pg_env \"\" diagram=deployment element=pg_env parent=v_deployment_db_server\nartifact client_files \"client.html и JS\" fileName=\"client.html и JS\"\nview v_deployment_client_files \"\" diagram=deployment element=client_files parent=v_deployment_browser\ndeployment deploy_client_files \"\" artifact=client_files location=browser\nartifact server_files \"app.py и domain.py\" fileName=\"app.py и domain.py\"\nview v_deployment_server_files \"\" diagram=deployment element=server_files parent=v_deployment_python_env\ndeployment deploy_server_files \"\" artifact=server_files location=python_env\nartifact sql_schema schema.sql fileName=schema.sql\nview v_deployment_sql_schema \"\" diagram=deployment element=sql_schema parent=v_deployment_pg_env\ndeployment deploy_sql_schema \"\" artifact=sql_schema location=pg_env\nartifact backup_file \"Дамп БД и изображения\" fileName=\"Дамп БД и изображения\"\nview v_deployment_backup_file \"\" diagram=deployment element=backup_file parent=v_deployment_backup\ndeployment deploy_backup_file \"\" artifact=backup_file location=backup\ncommunicationPath work_app \"HTTPS / 443\" from=workstation port=443 protocol=HTTPS to=app_server\nview v_deployment_work_app \"\" diagram=deployment element=work_app from=v_deployment_workstation to=v_deployment_app_server\ncommunicationPath app_db \"PostgreSQL / 5432\" from=app_server port=5432 protocol=\"PostgreSQL TLS\" to=db_server\nview v_deployment_app_db \"\" diagram=deployment element=app_db from=v_deployment_app_server to=v_deployment_db_server\ncommunicationPath app_market \"HTTPS / 443\" from=app_server port=443 protocol=HTTPS to=marketplace\nview v_deployment_app_market \"\" diagram=deployment element=app_market from=v_deployment_app_server to=v_deployment_marketplace\ncommunicationPath db_backup \"SSH / 22\" from=db_server port=22 protocol=SSH to=backup\nview v_deployment_db_backup \"\" diagram=deployment element=db_backup from=v_deployment_db_server to=v_deployment_backup\ndiagram local_demo \"Фактически запускаемый учебный срез\" type=deployment\ndevice local \"Локальный учебный компьютер\" hardware=\"Windows; PostgreSQL слушает только 127.0.0.1\"\nview v_local_demo_local \"\" diagram=local_demo element=local\nexecutionEnvironment demo_env Python owner=local\nview v_local_demo_demo_env \"\" diagram=local_demo element=demo_env parent=v_local_demo_local\nexecutionEnvironment local_pg \"PostgreSQL 18.6\" owner=local\nview v_local_demo_local_pg \"\" diagram=local_demo element=local_pg parent=v_local_demo_local\nartifact console_demo \"demo.py domain.py repository.py\" fileName=demo.py\nview v_local_demo_console_demo \"\" diagram=local_demo element=console_demo parent=v_local_demo_demo_env\nartifact course_db \"Учебная БД ppois\" fileName=schema.sql\nview v_local_demo_course_db \"\" diagram=local_demo element=course_db parent=v_local_demo_local_pg\ndeployment deploy_demo \"\" artifact=console_demo location=demo_env\ndeployment deploy_course_db \"\" artifact=course_db location=local_pg\ncommunicationPath local_sql \"127.0.0.1 / 55432\" from=demo_env port=55432 protocol=\"PostgreSQL loopback\" to=local_pg\nview v_local_demo_local_sql \"\" diagram=local_demo element=local_sql from=v_local_demo_demo_env to=v_local_demo_local_pg\n",
+  "layout": {
+    "nodes": {
+      "v_components_web": {
+        "x": 40,
+        "y": 240,
+        "width": 420,
+        "height": 270
+      },
+      "v_components_api": {
+        "x": 610,
+        "y": 240,
+        "width": 420,
+        "height": 270
+      },
+      "v_components_domain": {
+        "x": 1180,
+        "y": 240,
+        "width": 420,
+        "height": 270
+      },
+      "v_components_catalog": {
+        "x": 1750,
+        "y": 240,
+        "width": 420,
+        "height": 270
+      },
+      "v_components_content": {
+        "x": 610,
+        "y": 650,
+        "width": 420,
+        "height": 270
+      },
+      "v_components_gateway": {
+        "x": 1180,
+        "y": 650,
+        "width": 420,
+        "height": 270
+      },
+      "v_components_storage": {
+        "x": 1750,
+        "y": 650,
+        "width": 420,
+        "height": 270
+      },
+      "v_components_ICards": {
+        "x": 485,
+        "y": 20,
+        "width": 600,
+        "height": 130
+      },
+      "v_components_web_uses_api": {
+        "x": 80,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_components_api_provides": {
+        "x": 330,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_components_api_domain": {
+        "x": 580,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_components_domain_catalog": {
+        "x": 830,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_components_api_content": {
+        "x": 80,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_components_api_gateway": {
+        "x": 330,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_components_catalog_store": {
+        "x": 580,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_components_content_store": {
+        "x": 830,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_deployment_workstation": {
+        "x": 30,
+        "y": 100,
+        "width": 500,
+        "height": 530
+      },
+      "v_deployment_app_server": {
+        "x": 720,
+        "y": 100,
+        "width": 660,
+        "height": 530
+      },
+      "v_deployment_db_server": {
+        "x": 1570,
+        "y": 100,
+        "width": 610,
+        "height": 530
+      },
+      "v_deployment_marketplace": {
+        "x": 720,
+        "y": 810,
+        "width": 660,
+        "height": 310
+      },
+      "v_deployment_backup": {
+        "x": 1570,
+        "y": 810,
+        "width": 610,
+        "height": 340
+      },
+      "v_deployment_browser": {
+        "x": 75,
+        "y": 280,
+        "width": 410,
+        "height": 300
+      },
+      "v_deployment_python_env": {
+        "x": 775,
+        "y": 280,
+        "width": 550,
+        "height": 300
+      },
+      "v_deployment_pg_env": {
+        "x": 1625,
+        "y": 280,
+        "width": 500,
+        "height": 300
+      },
+      "v_deployment_client_files": {
+        "x": 110,
+        "y": 420,
+        "width": 340,
+        "height": 120
+      },
+      "v_deployment_server_files": {
+        "x": 840,
+        "y": 420,
+        "width": 420,
+        "height": 120
+      },
+      "v_deployment_sql_schema": {
+        "x": 1680,
+        "y": 420,
+        "width": 390,
+        "height": 120
+      },
+      "v_deployment_backup_file": {
+        "x": 1625,
+        "y": 985,
+        "width": 500,
+        "height": 140
+      },
+      "v_deployment_work_app": {
+        "x": 80,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_deployment_app_db": {
+        "x": 330,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_deployment_app_market": {
+        "x": 580,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_deployment_db_backup": {
+        "x": 830,
+        "y": 620,
+        "width": 210,
+        "height": 140
+      },
+      "v_local_demo_local": {
+        "x": 40,
+        "y": 80,
+        "width": 1870,
+        "height": 600
+      },
+      "v_local_demo_demo_env": {
+        "x": 110,
+        "y": 250,
+        "width": 690,
+        "height": 360
+      },
+      "v_local_demo_local_pg": {
+        "x": 1130,
+        "y": 250,
+        "width": 690,
+        "height": 360
+      },
+      "v_local_demo_console_demo": {
+        "x": 150,
+        "y": 415,
+        "width": 610,
+        "height": 135
+      },
+      "v_local_demo_course_db": {
+        "x": 1170,
+        "y": 415,
+        "width": 610,
+        "height": 135
+      },
+      "v_local_demo_local_sql": {
+        "x": 330,
+        "y": 260,
+        "width": 210,
+        "height": 140
+      }
+    },
+    "edges": {
+      "v_components_web_uses_api": {
+        "bends": [
+          {
+            "x": 250,
+            "y": 85
+          }
+        ]
+      },
+      "v_components_api_provides": {
+        "bends": []
+      },
+      "v_components_api_domain": {
+        "bends": []
+      },
+      "v_components_domain_catalog": {
+        "bends": []
+      },
+      "v_components_api_content": {
+        "bends": []
+      },
+      "v_components_api_gateway": {
+        "bends": [
+          {
+            "x": 1100,
+            "y": 450
+          },
+          {
+            "x": 1100,
+            "y": 785
+          }
+        ]
+      },
+      "v_components_catalog_store": {
+        "bends": []
+      },
+      "v_components_content_store": {
+        "bends": [
+          {
+            "x": 820,
+            "y": 1000
+          },
+          {
+            "x": 1960,
+            "y": 1000
+          }
+        ]
+      },
+      "v_deployment_work_app": {
+        "bends": []
+      },
+      "v_deployment_app_db": {
+        "bends": []
+      },
+      "v_deployment_app_market": {
+        "bends": []
+      },
+      "v_deployment_db_backup": {
+        "bends": []
+      },
+      "v_local_demo_local_sql": {
+        "bends": []
+      }
+    }
+  }
+}

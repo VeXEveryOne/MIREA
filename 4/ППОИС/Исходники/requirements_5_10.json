@@ -1,0 +1,39 @@
+{
+  "project": "ИС формирования и актуализации карточек компьютерных систем ООО «Юкомс»",
+  "practice_5": {
+    "source_pages": [1, 2, 3, 4, 5],
+    "required": ["UML component diagram", "UML deployment diagram", "component interaction table: Начало/Тип начала/Конец/Тип конца", "components and key class allocation", "user counts and required components", "hardware and bandwidth assumptions", "iteration and version implementation plan"],
+    "evidence": ["native editable model and readable exports", "working bounded prototype and automated tests", "report descriptions and tables"]
+  },
+  "practice_6": {
+    "source_pages": [1],
+    "required": ["lifecycle table: №/Название этапа/Исполнитель/Трудоемкость чел-дни/Продолжительность дни", "calendar schedule", "at least three systems: functionality/cost rubles/equipment/characteristics"],
+    "evidence": ["schedule dependencies and arithmetic checks", "official dated product and price sources", "report"]
+  },
+  "practice_7": {
+    "source_pages": [1, 2],
+    "required": ["conceptual ER in Peter Chen notation with entities, attributes and relationships", "weak entities and identifying relationships", "logical 3NF Crow's Foot model", "entity description table", "logical attributes and constraints table", "physical fields/types/mandatory/constraints table", "actual test data", "functional SQL queries", "at least five DDL queries", "at least five DCL queries"],
+    "evidence": ["native Chen and Crow's Foot models", "PostgreSQL execution log and query results", "constraint and privilege tests", "schema/source/test data", "report"]
+  },
+  "practice_8": {
+    "source_pages": [1],
+    "required": ["input and result forms correspond to practice 7 database", "form descriptions", "mathematical support", "every formula variable and index defined at first occurrence", "algorithm charts using GOST 19.701-90 symbols"],
+    "evidence": ["actual prototype screenshots or explicitly named mockups", "form-to-schema matrix", "executed calculation tests", "readable flowcharts and equations", "report"]
+  },
+  "practice_9": {
+    "source_pages": [1, 2, 3, 4],
+    "required": ["number/names/subordination of classification features", "all values per feature and maximum", "classification tree", "code structure and decoding examples"],
+    "evidence": ["machine-readable complete classifier", "round-trip and invalid-code tests", "editable classification diagram", "report"]
+  },
+  "practice_10": {
+    "source_pages": [1, 2, 3],
+    "required": ["function tree with main and service branches", "role-specific functionality", "dialog scenario model", "structural component/module diagram"],
+    "evidence": ["editable readable models", "implemented client routes and role matrix", "interaction tests", "report"]
+  },
+  "ensemble_7": {
+    "source_pages": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "required": ["classification or regression dataset not repeated in group", "bagging", "boosting on exactly the same data", "compare time and quality", "conclusions", "report", "Colab Notebook"],
+    "evidence": ["dataset source/license/hash", "identical holdout and leakage-safe training", "executed notebook and raw measurements", "Colab run evidence", "group uniqueness confirmation", "report"],
+    "pending_user_checks": ["dataset uniqueness in group", "available signed-in Colab session"]
+  }
+}

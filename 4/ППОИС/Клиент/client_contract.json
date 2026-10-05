@@ -1,0 +1,46 @@
+{
+  "version": "0.2",
+  "title": "Клиент ИС подготовки карточек ООО Юкомс",
+  "roles": {
+    "engineer": {"label": "Инженер", "database_role": "ppois_engineer", "functions": ["B1", "B2", "B3", "B4", "B5", "B7", "S1", "S2", "S3", "S5"]},
+    "manager": {"label": "Менеджер", "database_role": "ppois_manager", "functions": ["B1", "B2", "B4", "B5", "B6", "B7", "S1", "S2", "S3", "S5"]},
+    "viewer": {"label": "Наблюдатель", "database_role": "ppois_viewer", "functions": ["B1", "B2", "B4", "B5", "B7", "S1", "S2", "S3", "S5"]},
+    "admin": {"label": "Администратор", "database_role": "ppois_viewer", "functions": ["S1", "S2", "S3", "S4", "S5"]}
+  },
+  "functions": [
+    {"id": "B1", "branch": "main", "group": "Каталог", "label": "Просмотр групп компонентов и предложений", "page": "catalog"},
+    {"id": "B2", "branch": "main", "group": "Состав", "label": "Просмотр конфигураций и версий состава", "page": "configurations"},
+    {"id": "B3", "branch": "main", "group": "Состав", "label": "Сохранение новой версии состава", "page": "configurations"},
+    {"id": "B4", "branch": "main", "group": "Расчёты", "label": "Подбор проверка цены и массы", "page": "calculation"},
+    {"id": "B5", "branch": "main", "group": "Карточки", "label": "Просмотр карточек и расчётных ревизий", "page": "cards"},
+    {"id": "B6", "branch": "main", "group": "Карточки", "label": "Создание новой расчётной ревизии DRAFT", "page": "cards"},
+    {"id": "B7", "branch": "main", "group": "Публикации", "label": "Просмотр сохранённых результатов попыток", "page": "publications"},
+    {"id": "S1", "branch": "service", "group": "Сеанс", "label": "Демонстрационный вход", "page": "login"},
+    {"id": "S2", "branch": "service", "group": "Сеанс", "label": "Выход и завершение сеанса", "page": "logout"},
+    {"id": "S3", "branch": "service", "group": "Доступ", "label": "Проверка сеанса и доступных функций", "page": "session"},
+    {"id": "S4", "branch": "service", "group": "Сопровождение", "label": "Диагностика локального стенда", "page": "diagnostics"},
+    {"id": "S5", "branch": "service", "group": "Справка", "label": "Инструкция и границы версии", "page": "help"}
+  ],
+  "routes": [
+    {"method": "POST", "path": "/api/login", "function": "S1", "public": true},
+    {"method": "POST", "path": "/api/logout", "function": "S2"},
+    {"method": "GET", "path": "/api/session", "function": "S3"},
+    {"method": "GET", "path": "/api/catalog", "function": "B1"},
+    {"method": "GET", "path": "/api/configurations", "function": "B2"},
+    {"method": "GET", "path": "/api/bom", "function": "B2"},
+    {"method": "POST", "path": "/api/versions", "function": "B3"},
+    {"method": "POST", "path": "/api/calculate", "function": "B4"},
+    {"method": "GET", "path": "/api/cards", "function": "B5"},
+    {"method": "POST", "path": "/api/revisions", "function": "B6"},
+    {"method": "GET", "path": "/api/publications", "function": "B7"},
+    {"method": "GET", "path": "/api/diagnostics", "function": "S4"}
+  ],
+  "limits": {
+    "session_minutes": 30,
+    "max_slots": 50,
+    "max_request_bytes": 65536,
+    "external_publication": false,
+    "image_upload": false,
+    "production_authentication": false
+  }
+}

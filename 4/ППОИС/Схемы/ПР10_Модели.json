@@ -1,0 +1,190 @@
+{
+  "notation": "SCHEME",
+  "scope": "function tree role views dialog states and implemented module connections",
+  "native_file": "ПР10_Клиент_функции_диалоги.omni",
+  "native_sha256": "5854ad632b3223d51ac46e28ec92ffdfd302279cee8c7e2208a8a83f3227379b",
+  "contract_sha256": "fe5c2d9c0e02a499c49c813e0112e301eada81781238e316e400d724b509f48b",
+  "source_sha256": "63f0ff96dba3d9659511f324659735e21e5a02cd356d11f65a0c65a658676748",
+  "canonical_tree": {
+    "nodes": 24,
+    "links": 23,
+    "unique_parent": true,
+    "reachable": 24,
+    "functions": [
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6",
+      "B7",
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5"
+    ]
+  },
+  "roles": {
+    "engineer": [
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B7",
+      "S1",
+      "S2",
+      "S3",
+      "S5"
+    ],
+    "manager": [
+      "B1",
+      "B2",
+      "B4",
+      "B5",
+      "B6",
+      "B7",
+      "S1",
+      "S2",
+      "S3",
+      "S5"
+    ],
+    "viewer": [
+      "B1",
+      "B2",
+      "B4",
+      "B5",
+      "B7",
+      "S1",
+      "S2",
+      "S3",
+      "S5"
+    ],
+    "admin": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5"
+    ]
+  },
+  "sheets": [
+    {
+      "id": "overview",
+      "label": "Корень дерева функций",
+      "width": 1500,
+      "height": 520,
+      "print": true
+    },
+    {
+      "id": "functions_main",
+      "label": "Основные функции клиента",
+      "width": 1520,
+      "height": 780,
+      "print": true
+    },
+    {
+      "id": "functions_service",
+      "label": "Служебные функции клиента",
+      "width": 1520,
+      "height": 580,
+      "print": true
+    },
+    {
+      "id": "role_engineer",
+      "label": "Функции роли Инженер",
+      "width": 2180,
+      "height": 900,
+      "print": false
+    },
+    {
+      "id": "role_manager",
+      "label": "Функции роли Менеджер",
+      "width": 2180,
+      "height": 900,
+      "print": false
+    },
+    {
+      "id": "role_viewer",
+      "label": "Функции роли Наблюдатель",
+      "width": 2180,
+      "height": 900,
+      "print": false
+    },
+    {
+      "id": "role_admin",
+      "label": "Функции роли Администратор",
+      "width": 2180,
+      "height": 900,
+      "print": false
+    },
+    {
+      "id": "engineer_dialog",
+      "label": "Диалог инженера от входа до расчёта",
+      "width": 1520,
+      "height": 1130,
+      "print": true
+    },
+    {
+      "id": "save_dialog",
+      "label": "Сохранение новой версии инженером",
+      "width": 1520,
+      "height": 1030,
+      "print": true
+    },
+    {
+      "id": "manager_dialog",
+      "label": "Диалог менеджера создания ревизии",
+      "width": 1520,
+      "height": 1000,
+      "print": true
+    },
+    {
+      "id": "structure",
+      "label": "Структура реализованных модулей",
+      "width": 1580,
+      "height": 900,
+      "print": true
+    }
+  ],
+  "emitted": [
+    {
+      "sheet": "overview",
+      "file": "ПР10_overview.png",
+      "sha256": "b8b48893d387b6383173e25aedb9bc0b74fa4d988d1a372d394ae73f83e07630"
+    },
+    {
+      "sheet": "functions_main",
+      "file": "ПР10_functions_main.png",
+      "sha256": "1dbc6b7922ebc3eb8c9854aa95e88d20d00d1aee6e2670b2c737b1c4a870b94f"
+    },
+    {
+      "sheet": "functions_service",
+      "file": "ПР10_functions_service.png",
+      "sha256": "a1cd6372931bd6a30346cd33e18a69f83b67967d02674e3615661620da586806"
+    },
+    {
+      "sheet": "engineer_dialog",
+      "file": "ПР10_engineer_dialog.png",
+      "sha256": "937a72a0287e6c436b3af56f4f148fd5b83516873873e4bd027ac1d6e220a639"
+    },
+    {
+      "sheet": "save_dialog",
+      "file": "ПР10_save_dialog.png",
+      "sha256": "e8052aedfeb3ea7635b6fccea34ab58af104e702c9474af565014573591e6f0f"
+    },
+    {
+      "sheet": "manager_dialog",
+      "file": "ПР10_manager_dialog.png",
+      "sha256": "f5fec5f8b69cd3138fb793b7935e5fa1a36bd9e26e0c252040fc79a139494843"
+    },
+    {
+      "sheet": "structure",
+      "file": "ПР10_structure.png",
+      "sha256": "d07ba8c2532940ef8e0640c545e35676dcb0bcfb3abfc2db56df8074765378f9"
+    }
+  ],
+  "diagnostics": [],
+  "semantic_round_trip": true
+}
