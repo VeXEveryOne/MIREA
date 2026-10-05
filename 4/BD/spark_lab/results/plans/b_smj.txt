@@ -1,0 +1,74 @@
+== Physical Plan ==
+* Project (13)
++- * SortMergeJoin Inner (12)
+   :- * Sort (6)
+   :  +- Exchange (5)
+   :     +- * Project (4)
+   :        +- * Filter (3)
+   :           +- * ColumnarToRow (2)
+   :              +- Scan parquet  (1)
+   +- * Sort (11)
+      +- Exchange (10)
+         +- * Filter (9)
+            +- * ColumnarToRow (8)
+               +- Scan parquet  (7)
+
+
+(1) Scan parquet 
+Output [3]: [seller_id#206, price#208, freight_value#209]
+Batched: true
+Location: InMemoryFileIndex [file:/home/student/spark-lab/data/spark_input_parquet/order_items]
+PushedFilters: [IsNotNull(price), GreaterThan(price,0.0), IsNotNull(seller_id)]
+ReadSchema: struct<seller_id:string,price:double,freight_value:double>
+
+(2) ColumnarToRow [codegen id : 1]
+Input [3]: [seller_id#206, price#208, freight_value#209]
+
+(3) Filter [codegen id : 1]
+Input [3]: [seller_id#206, price#208, freight_value#209]
+Condition : ((isnotnull(price#208) AND (price#208 > 0.0)) AND isnotnull(seller_id#206))
+
+(4) Project [codegen id : 1]
+Output [4]: [seller_id#206, price#208, freight_value#209, (price#208 + freight_value#209) AS gross#2312]
+Input [3]: [seller_id#206, price#208, freight_value#209]
+
+(5) Exchange
+Input [4]: [seller_id#206, price#208, freight_value#209, gross#2312]
+Arguments: hashpartitioning(seller_id#206, 8), ENSURE_REQUIREMENTS, [plan_id=4182]
+
+(6) Sort [codegen id : 2]
+Input [4]: [seller_id#206, price#208, freight_value#209, gross#2312]
+Arguments: [seller_id#206 ASC NULLS FIRST], false, 0
+
+(7) Scan parquet 
+Output [4]: [seller_id#235, seller_zip_code_prefix#236, seller_city#237, seller_state#238]
+Batched: true
+Location: InMemoryFileIndex [file:/home/student/spark-lab/data/spark_input_parquet/sellers]
+PushedFilters: [IsNotNull(seller_id)]
+ReadSchema: struct<seller_id:string,seller_zip_code_prefix:int,seller_city:string,seller_state:string>
+
+(8) ColumnarToRow [codegen id : 3]
+Input [4]: [seller_id#235, seller_zip_code_prefix#236, seller_city#237, seller_state#238]
+
+(9) Filter [codegen id : 3]
+Input [4]: [seller_id#235, seller_zip_code_prefix#236, seller_city#237, seller_state#238]
+Condition : isnotnull(seller_id#235)
+
+(10) Exchange
+Input [4]: [seller_id#235, seller_zip_code_prefix#236, seller_city#237, seller_state#238]
+Arguments: hashpartitioning(seller_id#235, 8), ENSURE_REQUIREMENTS, [plan_id=4191]
+
+(11) Sort [codegen id : 4]
+Input [4]: [seller_id#235, seller_zip_code_prefix#236, seller_city#237, seller_state#238]
+Arguments: [seller_id#235 ASC NULLS FIRST], false, 0
+
+(12) SortMergeJoin [codegen id : 5]
+Left keys [1]: [seller_id#206]
+Right keys [1]: [seller_id#235]
+Join type: Inner
+Join condition: None
+
+(13) Project [codegen id : 5]
+Output [7]: [seller_id#206, price#208, freight_value#209, gross#2312, seller_zip_code_prefix#236, seller_city#237, seller_state#238]
+Input [8]: [seller_id#206, price#208, freight_value#209, gross#2312, seller_id#235, seller_zip_code_prefix#236, seller_city#237, seller_state#238]
+

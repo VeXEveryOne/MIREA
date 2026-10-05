@@ -1,0 +1,64 @@
+== Physical Plan ==
+Exchange (11)
++- * Project (10)
+   +- * BroadcastHashJoin Inner BuildRight (9)
+      :- * Project (4)
+      :  +- * Filter (3)
+      :     +- * ColumnarToRow (2)
+      :        +- Scan parquet  (1)
+      +- BroadcastExchange (8)
+         +- * Filter (7)
+            +- * ColumnarToRow (6)
+               +- Scan parquet  (5)
+
+
+(1) Scan parquet 
+Output [3]: [seller_id#206, price#208, freight_value#209]
+Batched: true
+Location: InMemoryFileIndex [file:/home/student/spark-lab/data/spark_input_parquet/order_items]
+PushedFilters: [IsNotNull(price), GreaterThan(price,0.0), IsNotNull(seller_id)]
+ReadSchema: struct<seller_id:string,price:double,freight_value:double>
+
+(2) ColumnarToRow [codegen id : 2]
+Input [3]: [seller_id#206, price#208, freight_value#209]
+
+(3) Filter [codegen id : 2]
+Input [3]: [seller_id#206, price#208, freight_value#209]
+Condition : ((isnotnull(price#208) AND (price#208 > 0.0)) AND isnotnull(seller_id#206))
+
+(4) Project [codegen id : 2]
+Output [4]: [seller_id#206, price#208, freight_value#209, (price#208 + freight_value#209) AS gross#2312]
+Input [3]: [seller_id#206, price#208, freight_value#209]
+
+(5) Scan parquet 
+Output [4]: [seller_id#235, seller_zip_code_prefix#236, seller_city#237, seller_state#238]
+Batched: true
+Location: InMemoryFileIndex [file:/home/student/spark-lab/data/spark_input_parquet/sellers]
+PushedFilters: [IsNotNull(seller_id)]
+ReadSchema: struct<seller_id:string,seller_zip_code_prefix:int,seller_city:string,seller_state:string>
+
+(6) ColumnarToRow [codegen id : 1]
+Input [4]: [seller_id#235, seller_zip_code_prefix#236, seller_city#237, seller_state#238]
+
+(7) Filter [codegen id : 1]
+Input [4]: [seller_id#235, seller_zip_code_prefix#236, seller_city#237, seller_state#238]
+Condition : isnotnull(seller_id#235)
+
+(8) BroadcastExchange
+Input [4]: [seller_id#235, seller_zip_code_prefix#236, seller_city#237, seller_state#238]
+Arguments: HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=4745]
+
+(9) BroadcastHashJoin [codegen id : 2]
+Left keys [1]: [seller_id#206]
+Right keys [1]: [seller_id#235]
+Join type: Inner
+Join condition: None
+
+(10) Project [codegen id : 2]
+Output [7]: [seller_id#206, price#208, freight_value#209, gross#2312, seller_zip_code_prefix#236, seller_city#237, seller_state#238]
+Input [8]: [seller_id#206, price#208, freight_value#209, gross#2312, seller_id#235, seller_zip_code_prefix#236, seller_city#237, seller_state#238]
+
+(11) Exchange
+Input [7]: [seller_id#206, price#208, freight_value#209, gross#2312, seller_zip_code_prefix#236, seller_city#237, seller_state#238]
+Arguments: RoundRobinPartitioning(4), REPARTITION_BY_NUM, [plan_id=4750]
+

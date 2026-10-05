@@ -1,0 +1,1771 @@
+{
+  "environment": {
+    "python": "3.10.12",
+    "java": "openjdk version \"17.0.20.1\" 2026-08-18",
+    "spark": "3.5.7",
+    "os": "Linux-5.15.0-198-generic-x86_64-with-glibc2.35",
+    "cpu": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           46 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  2\nOn-line CPU(s) list:                     0,1\nVendor ID:                               AuthenticAMD\nModel name:                              AMD Ryzen 7 9700X 8-Core Processor\nCPU family:                              26\nModel:                                   68\nThread(s) per core:                      1\nCore(s) per socket:                      2\nSocket(s):                               1\nStepping:                                0\nBogoMIPS:                                7599.98\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch ibpb vmmcall fsgsbase bmi1 avx2 bmi2 invpcid rdseed adx clflushopt sha_ni arat flush_l1d sme\nHypervisor vendor:                       KVM\nVirtualization type:                     full\nL1d cache:                               96 KiB (2 instances)\nL1i cache:                               64 KiB (2 instances)\nL2 cache:                                2 MiB (2 instances)\nL3 cache:                                64 MiB (2 instances)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0,1\nVulnerability Gather data sampling:      Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Not affected\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Retpolines; IBPB conditional; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected\n",
+    "memory": "               total        used        free      shared  buff/cache   available\nMem:           3.8Gi       1.3Gi       1.2Gi       164Mi       1.3Gi       2.1Gi\nSwap:             0B          0B          0B\n",
+    "master": "local[*]",
+    "parallelism": 2,
+    "shuffle_partitions": "8",
+    "aqe": "false",
+    "ui": "http://10.0.2.15:4040"
+  },
+  "source": {
+    "source_mode": "reconstructed_from_practice2_olist_csv",
+    "tables": {
+      "customers": 99441,
+      "geolocation": 1000163,
+      "leads_closed": 842,
+      "leads_qualified": 8000,
+      "order_items": 112650,
+      "order_payments": 103886,
+      "order_reviews": 100000,
+      "orders": 99441,
+      "product_category_name_translation": 71,
+      "products": 32951,
+      "sellers": 3095
+    },
+    "komus": {
+      "sales": 865222,
+      "products": 21163,
+      "retained_sale_fields": [
+        "cost",
+        "purchase_date",
+        "receipt_id",
+        "product_key",
+        "branch",
+        "quantity",
+        "amount",
+        "discount"
+      ],
+      "excluded": [
+        "Client_ID",
+        "Машина доставки",
+        "Адрес",
+        "Клиенты.csv",
+        "Суммы чеков.csv"
+      ],
+      "source": "komus.zip",
+      "archive_sha256": "3de294dd37d6fc0f46b0f6ff4bc5e6f1b15d13da9dc455da74e0d791bd3e2a81"
+    },
+    "database_sha256": "c1367782de17196a933e0d7f3a41c841f1cb3919b75e770b652629c51acf777b"
+  },
+  "metrics": {
+    "baseline": {
+      "seconds": 0.03411803400013014,
+      "jobs": [
+        25
+      ],
+      "stages": [
+        30,
+        31
+      ],
+      "tasks": 3,
+      "shuffle_read": 118,
+      "shuffle_write": 118,
+      "stage_metrics": [
+        {
+          "stageId": 31,
+          "numTasks": 1,
+          "numCompleteTasks": 1,
+          "inputBytes": 0,
+          "outputBytes": 0,
+          "shuffleReadBytes": 118,
+          "shuffleWriteBytes": 0
+        },
+        {
+          "stageId": 30,
+          "numTasks": 2,
+          "numCompleteTasks": 2,
+          "inputBytes": 21482,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 118
+        }
+      ]
+    },
+    "repartition4": {
+      "seconds": 0.3085582809999323,
+      "jobs": [
+        37
+      ],
+      "stages": [
+        66,
+        67,
+        68,
+        69
+      ],
+      "tasks": 23,
+      "shuffle_read": 176717,
+      "shuffle_write": 176717,
+      "stage_metrics": [
+        {
+          "stageId": 69,
+          "numTasks": 1,
+          "numCompleteTasks": 1,
+          "inputBytes": 0,
+          "outputBytes": 0,
+          "shuffleReadBytes": 236,
+          "shuffleWriteBytes": 0
+        },
+        {
+          "stageId": 68,
+          "numTasks": 4,
+          "numCompleteTasks": 4,
+          "inputBytes": 0,
+          "outputBytes": 0,
+          "shuffleReadBytes": 21232,
+          "shuffleWriteBytes": 236
+        },
+        {
+          "stageId": 67,
+          "numTasks": 16,
+          "numCompleteTasks": 16,
+          "inputBytes": 0,
+          "outputBytes": 0,
+          "shuffleReadBytes": 155249,
+          "shuffleWriteBytes": 21232
+        },
+        {
+          "stageId": 66,
+          "numTasks": 2,
+          "numCompleteTasks": 2,
+          "inputBytes": 34342,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 155249
+        }
+      ]
+    },
+    "coalesce4": {
+      "seconds": 0.20562959899962152,
+      "jobs": [
+        38
+      ],
+      "stages": [
+        70,
+        71,
+        72
+      ],
+      "tasks": 7,
+      "shuffle_read": 155485,
+      "shuffle_write": 155485,
+      "stage_metrics": [
+        {
+          "stageId": 72,
+          "numTasks": 1,
+          "numCompleteTasks": 1,
+          "inputBytes": 0,
+          "outputBytes": 0,
+          "shuffleReadBytes": 236,
+          "shuffleWriteBytes": 0
+        },
+        {
+          "stageId": 71,
+          "numTasks": 4,
+          "numCompleteTasks": 4,
+          "inputBytes": 0,
+          "outputBytes": 0,
+          "shuffleReadBytes": 155249,
+          "shuffleWriteBytes": 236
+        },
+        {
+          "stageId": 70,
+          "numTasks": 2,
+          "numCompleteTasks": 2,
+          "inputBytes": 34342,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 155249
+        }
+      ]
+    },
+    "groupby": {
+      "seconds": 0.2157591750001302,
+      "jobs": [
+        39
+      ],
+      "stages": [
+        73,
+        74
+      ],
+      "tasks": 10,
+      "shuffle_read": 269271,
+      "shuffle_write": 269271,
+      "stage_metrics": [
+        {
+          "stageId": 74,
+          "numTasks": 8,
+          "numCompleteTasks": 8,
+          "inputBytes": 0,
+          "outputBytes": 0,
+          "shuffleReadBytes": 269271,
+          "shuffleWriteBytes": 0
+        },
+        {
+          "stageId": 73,
+          "numTasks": 2,
+          "numCompleteTasks": 2,
+          "inputBytes": 819626,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 269271
+        }
+      ]
+    },
+    "smj": {
+      "seconds": 0.3434947589994408,
+      "jobs": [
+        41
+      ],
+      "stages": [
+        77,
+        78,
+        79,
+        80
+      ],
+      "tasks": 12,
+      "shuffle_read": 3917308,
+      "shuffle_write": 3917308,
+      "stage_metrics": [
+        {
+          "stageId": 80,
+          "numTasks": 1,
+          "numCompleteTasks": 1,
+          "inputBytes": 0,
+          "outputBytes": 0,
+          "shuffleReadBytes": 472,
+          "shuffleWriteBytes": 0
+        },
+        {
+          "stageId": 79,
+          "numTasks": 8,
+          "numCompleteTasks": 8,
+          "inputBytes": 0,
+          "outputBytes": 0,
+          "shuffleReadBytes": 3916836,
+          "shuffleWriteBytes": 472
+        },
+        {
+          "stageId": 78,
+          "numTasks": 1,
+          "numCompleteTasks": 1,
+          "inputBytes": 1141848,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 1114450
+        },
+        {
+          "stageId": 77,
+          "numTasks": 2,
+          "numCompleteTasks": 2,
+          "inputBytes": 1687040,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 2802386
+        }
+      ]
+    },
+    "bhj": {
+      "seconds": 0.2174000109998815,
+      "jobs": [
+        42,
+        43
+      ],
+      "stages": [
+        81,
+        82,
+        83
+      ],
+      "tasks": 4,
+      "shuffle_read": 118,
+      "shuffle_write": 118,
+      "stage_metrics": [
+        {
+          "stageId": 83,
+          "numTasks": 1,
+          "numCompleteTasks": 1,
+          "inputBytes": 0,
+          "outputBytes": 0,
+          "shuffleReadBytes": 118,
+          "shuffleWriteBytes": 0
+        },
+        {
+          "stageId": 82,
+          "numTasks": 2,
+          "numCompleteTasks": 2,
+          "inputBytes": 1687040,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 118
+        },
+        {
+          "stageId": 81,
+          "numTasks": 1,
+          "numCompleteTasks": 1,
+          "inputBytes": 1141848,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 0
+        }
+      ]
+    },
+    "persist_materialization": {
+      "seconds": 0.5308999340004448,
+      "jobs": [
+        60,
+        61,
+        62
+      ],
+      "stages": [
+        117,
+        118,
+        119,
+        120
+      ],
+      "tasks": 5,
+      "shuffle_read": 118,
+      "shuffle_write": 118,
+      "stage_metrics": [
+        {
+          "stageId": 120,
+          "numTasks": 1,
+          "numCompleteTasks": 1,
+          "inputBytes": 0,
+          "outputBytes": 0,
+          "shuffleReadBytes": 118,
+          "shuffleWriteBytes": 0
+        },
+        {
+          "stageId": 119,
+          "numTasks": 2,
+          "numCompleteTasks": 2,
+          "inputBytes": 6677415,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 118
+        },
+        {
+          "stageId": 118,
+          "numTasks": 1,
+          "numCompleteTasks": 1,
+          "inputBytes": 131816,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 0
+        },
+        {
+          "stageId": 117,
+          "numTasks": 1,
+          "numCompleteTasks": 1,
+          "inputBytes": 1141848,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 0
+        }
+      ]
+    },
+    "persist_repeat": {
+      "seconds": 0.1363248569996358,
+      "jobs": [
+        63
+      ],
+      "stages": [
+        121,
+        122,
+        123
+      ],
+      "tasks": 11,
+      "shuffle_read": 6445,
+      "shuffle_write": 6445,
+      "stage_metrics": [
+        {
+          "stageId": 123,
+          "numTasks": 1,
+          "numCompleteTasks": 1,
+          "inputBytes": 0,
+          "outputBytes": 0,
+          "shuffleReadBytes": 472,
+          "shuffleWriteBytes": 0
+        },
+        {
+          "stageId": 122,
+          "numTasks": 8,
+          "numCompleteTasks": 8,
+          "inputBytes": 0,
+          "outputBytes": 0,
+          "shuffleReadBytes": 5973,
+          "shuffleWriteBytes": 472
+        },
+        {
+          "stageId": 121,
+          "numTasks": 2,
+          "numCompleteTasks": 2,
+          "inputBytes": 8727795,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 5973
+        }
+      ]
+    }
+  },
+  "inputs": {
+    "geolocation": {
+      "rows": 1000163,
+      "partitions": 2
+    },
+    "order_items": {
+      "rows": 112650,
+      "partitions": 2
+    },
+    "products": {
+      "rows": 32951,
+      "partitions": 1
+    },
+    "sellers": {
+      "rows": 3095,
+      "partitions": 1
+    },
+    "product_category_name_translation": {
+      "rows": 71,
+      "partitions": 1
+    }
+  },
+  "lazy": {
+    "before": [],
+    "after_transform": [],
+    "after_action": [
+      26
+    ],
+    "rows": 1000163,
+    "seconds": 0.16576342700045643
+  },
+  "state_top": [
+    {
+      "geolocation_state": "SP",
+      "count": 404268
+    },
+    {
+      "geolocation_state": "MG",
+      "count": 126336
+    },
+    {
+      "geolocation_state": "RJ",
+      "count": 121169
+    },
+    {
+      "geolocation_state": "RS",
+      "count": 61851
+    },
+    {
+      "geolocation_state": "PR",
+      "count": 57859
+    }
+  ],
+  "input_profile": {
+    "partitions": 2,
+    "sizes": [
+      {
+        "pid": 0,
+        "count": 534580
+      },
+      {
+        "pid": 1,
+        "count": 465583
+      }
+    ],
+    "min": 465583,
+    "max": 534580,
+    "mean": 500081.5
+  },
+  "profiles": {
+    "skewed16": {
+      "partitions": 16,
+      "sizes": [
+        {
+          "pid": 0,
+          "count": 40594
+        },
+        {
+          "pid": 3,
+          "count": 154470
+        },
+        {
+          "pid": 4,
+          "count": 466119
+        },
+        {
+          "pid": 5,
+          "count": 121815
+        },
+        {
+          "pid": 6,
+          "count": 12863
+        },
+        {
+          "pid": 7,
+          "count": 25688
+        },
+        {
+          "pid": 8,
+          "count": 1301
+        },
+        {
+          "pid": 10,
+          "count": 57859
+        },
+        {
+          "pid": 11,
+          "count": 30992
+        },
+        {
+          "pid": 12,
+          "count": 38328
+        },
+        {
+          "pid": 14,
+          "count": 22286
+        },
+        {
+          "pid": 15,
+          "count": 27848
+        }
+      ],
+      "min": 1301,
+      "max": 466119,
+      "mean": 83346.91666666667
+    },
+    "repartition4": {
+      "partitions": 4,
+      "sizes": [
+        {
+          "pid": 0,
+          "count": 250040
+        },
+        {
+          "pid": 1,
+          "count": 250041
+        },
+        {
+          "pid": 2,
+          "count": 250041
+        },
+        {
+          "pid": 3,
+          "count": 250041
+        }
+      ],
+      "min": 250040,
+      "max": 250041,
+      "mean": 250040.75
+    },
+    "coalesce4": {
+      "partitions": 4,
+      "sizes": [
+        {
+          "pid": 0,
+          "count": 195064
+        },
+        {
+          "pid": 1,
+          "count": 626485
+        },
+        {
+          "pid": 2,
+          "count": 90152
+        },
+        {
+          "pid": 3,
+          "count": 88462
+        }
+      ],
+      "min": 88462,
+      "max": 626485,
+      "mean": 250040.75
+    }
+  },
+  "seller_top": [
+    {
+      "seller_id": "4869f7a5dfa277a7dca6462dcf3b52b2",
+      "items": 1156,
+      "revenue": 229472.63,
+      "avg_price": 198.51
+    },
+    {
+      "seller_id": "53243585a1d6dc2643021fd1853d8905",
+      "items": 410,
+      "revenue": 222776.05,
+      "avg_price": 543.36
+    },
+    {
+      "seller_id": "4a3ca9315b744ce9f8e9374361493884",
+      "items": 1987,
+      "revenue": 200472.92,
+      "avg_price": 100.89
+    },
+    {
+      "seller_id": "fa1c13f2614d7b5c4749cbc52fecda94",
+      "items": 586,
+      "revenue": 194042.03,
+      "avg_price": 331.13
+    },
+    {
+      "seller_id": "7c67e1448b00f6e969d365cea6b010ab",
+      "items": 1364,
+      "revenue": 187923.89,
+      "avg_price": 137.77
+    }
+  ],
+  "joins": {
+    "rows": 112650,
+    "runs": {
+      "smj": [
+        0.1980238569994981,
+        0.18180000000029395,
+        0.16607143999954133
+      ],
+      "bhj": [
+        0.1112833450006292,
+        0.11284653799975786,
+        0.09708249400046043
+      ]
+    },
+    "medians": {
+      "smj": 0.18180000000029395,
+      "bhj": 0.1112833450006292
+    }
+  },
+  "cache": {
+    "rows": 112650,
+    "no_cache": [
+      {
+        "seconds": 0.27944703999946796,
+        "jobs": [
+          54,
+          55,
+          56
+        ],
+        "stages": [
+          107,
+          108,
+          109,
+          110,
+          111
+        ],
+        "tasks": 13,
+        "shuffle_read": 6445,
+        "shuffle_write": 6445,
+        "stage_metrics": [
+          {
+            "stageId": 111,
+            "numTasks": 1,
+            "numCompleteTasks": 1,
+            "inputBytes": 0,
+            "outputBytes": 0,
+            "shuffleReadBytes": 472,
+            "shuffleWriteBytes": 0
+          },
+          {
+            "stageId": 110,
+            "numTasks": 8,
+            "numCompleteTasks": 8,
+            "inputBytes": 0,
+            "outputBytes": 0,
+            "shuffleReadBytes": 5973,
+            "shuffleWriteBytes": 472
+          },
+          {
+            "stageId": 109,
+            "numTasks": 2,
+            "numCompleteTasks": 2,
+            "inputBytes": 2461575,
+            "outputBytes": 0,
+            "shuffleReadBytes": 0,
+            "shuffleWriteBytes": 5973
+          },
+          {
+            "stageId": 108,
+            "numTasks": 1,
+            "numCompleteTasks": 1,
+            "inputBytes": 131816,
+            "outputBytes": 0,
+            "shuffleReadBytes": 0,
+            "shuffleWriteBytes": 0
+          },
+          {
+            "stageId": 107,
+            "numTasks": 1,
+            "numCompleteTasks": 1,
+            "inputBytes": 1141848,
+            "outputBytes": 0,
+            "shuffleReadBytes": 0,
+            "shuffleWriteBytes": 0
+          }
+        ]
+      },
+      {
+        "seconds": 0.22224927499974,
+        "jobs": [
+          57,
+          58,
+          59
+        ],
+        "stages": [
+          112,
+          113,
+          114,
+          115,
+          116
+        ],
+        "tasks": 13,
+        "shuffle_read": 2088,
+        "shuffle_write": 2088,
+        "stage_metrics": [
+          {
+            "stageId": 116,
+            "numTasks": 1,
+            "numCompleteTasks": 1,
+            "inputBytes": 0,
+            "outputBytes": 0,
+            "shuffleReadBytes": 470,
+            "shuffleWriteBytes": 0
+          },
+          {
+            "stageId": 115,
+            "numTasks": 8,
+            "numCompleteTasks": 8,
+            "inputBytes": 0,
+            "outputBytes": 0,
+            "shuffleReadBytes": 1618,
+            "shuffleWriteBytes": 470
+          },
+          {
+            "stageId": 114,
+            "numTasks": 2,
+            "numCompleteTasks": 2,
+            "inputBytes": 2461575,
+            "outputBytes": 0,
+            "shuffleReadBytes": 0,
+            "shuffleWriteBytes": 1618
+          },
+          {
+            "stageId": 113,
+            "numTasks": 1,
+            "numCompleteTasks": 1,
+            "inputBytes": 1141848,
+            "outputBytes": 0,
+            "shuffleReadBytes": 0,
+            "shuffleWriteBytes": 0
+          },
+          {
+            "stageId": 112,
+            "numTasks": 1,
+            "numCompleteTasks": 1,
+            "inputBytes": 131816,
+            "outputBytes": 0,
+            "shuffleReadBytes": 0,
+            "shuffleWriteBytes": 0
+          }
+        ]
+      }
+    ],
+    "materialization": {
+      "seconds": 0.5308999340004448,
+      "jobs": [
+        60,
+        61,
+        62
+      ],
+      "stages": [
+        117,
+        118,
+        119,
+        120
+      ],
+      "tasks": 5,
+      "shuffle_read": 118,
+      "shuffle_write": 118,
+      "stage_metrics": [
+        {
+          "stageId": 120,
+          "numTasks": 1,
+          "numCompleteTasks": 1,
+          "inputBytes": 0,
+          "outputBytes": 0,
+          "shuffleReadBytes": 118,
+          "shuffleWriteBytes": 0
+        },
+        {
+          "stageId": 119,
+          "numTasks": 2,
+          "numCompleteTasks": 2,
+          "inputBytes": 6677415,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 118
+        },
+        {
+          "stageId": 118,
+          "numTasks": 1,
+          "numCompleteTasks": 1,
+          "inputBytes": 131816,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 0
+        },
+        {
+          "stageId": 117,
+          "numTasks": 1,
+          "numCompleteTasks": 1,
+          "inputBytes": 1141848,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 0
+        }
+      ]
+    },
+    "cached": [
+      {
+        "seconds": 0.1363248569996358,
+        "jobs": [
+          63
+        ],
+        "stages": [
+          121,
+          122,
+          123
+        ],
+        "tasks": 11,
+        "shuffle_read": 6445,
+        "shuffle_write": 6445,
+        "stage_metrics": [
+          {
+            "stageId": 123,
+            "numTasks": 1,
+            "numCompleteTasks": 1,
+            "inputBytes": 0,
+            "outputBytes": 0,
+            "shuffleReadBytes": 472,
+            "shuffleWriteBytes": 0
+          },
+          {
+            "stageId": 122,
+            "numTasks": 8,
+            "numCompleteTasks": 8,
+            "inputBytes": 0,
+            "outputBytes": 0,
+            "shuffleReadBytes": 5973,
+            "shuffleWriteBytes": 472
+          },
+          {
+            "stageId": 121,
+            "numTasks": 2,
+            "numCompleteTasks": 2,
+            "inputBytes": 8727795,
+            "outputBytes": 0,
+            "shuffleReadBytes": 0,
+            "shuffleWriteBytes": 5973
+          }
+        ]
+      },
+      {
+        "seconds": 0.058370256999296544,
+        "jobs": [
+          64
+        ],
+        "stages": [
+          124,
+          125,
+          126
+        ],
+        "tasks": 11,
+        "shuffle_read": 2088,
+        "shuffle_write": 2088,
+        "stage_metrics": [
+          {
+            "stageId": 126,
+            "numTasks": 1,
+            "numCompleteTasks": 1,
+            "inputBytes": 0,
+            "outputBytes": 0,
+            "shuffleReadBytes": 470,
+            "shuffleWriteBytes": 0
+          },
+          {
+            "stageId": 125,
+            "numTasks": 8,
+            "numCompleteTasks": 8,
+            "inputBytes": 0,
+            "outputBytes": 0,
+            "shuffleReadBytes": 1618,
+            "shuffleWriteBytes": 470
+          },
+          {
+            "stageId": 124,
+            "numTasks": 2,
+            "numCompleteTasks": 2,
+            "inputBytes": 8727795,
+            "outputBytes": 0,
+            "shuffleReadBytes": 0,
+            "shuffleWriteBytes": 1618
+          }
+        ]
+      }
+    ],
+    "checksums": [
+      15843553.240000011,
+      15843553.239999592,
+      15843553.240000011,
+      15843553.239999592
+    ],
+    "storage": [
+      {
+        "id": 476,
+        "name": "*(3) Project [seller_id#206, product_id#205, order_id#203, order_item_id#204, shipping_limit_date#207, price#208, freight_value#209, product_category_name#218, seller_state#238, (price#208 + freight_value#209) AS gross_value#710]\n+- *(3) BroadcastHashJoin [seller_id#206], [seller_id#235], LeftOuter, BuildRight, false\n   :- *(3) Project [product_id#205, order_id#203, order_item_id#204, seller_id#206, shipping_limit_date#207, price#208, freight_value#209, product_category_name#218]\n   :  +- *(3) BroadcastHashJoin [product_id#205], [product_id#217], LeftOuter, BuildRight, false\n   :     :- *(3) ColumnarToRow\n   :     :  +- FileScan parquet [order_id#203,order_item_id#204,product_id#205,seller_id#206,shipping_limit_date#207,price#208,freight_value#209] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/home/student/spark-lab/data/spark_input_parquet/order_items], PartitionFilters: [], PushedFilters: [], ReadSchema: struct<order_id:string,order_item_id:int,product_id:str...",
+        "numPartitions": 2,
+        "numCachedPartitions": 2,
+        "storageLevel": "Disk Memory Serialized 1x Replicated",
+        "memoryUsed": 8727795,
+        "diskUsed": 0,
+        "dataDistribution": [
+          {
+            "address": "10.0.2.15:39131",
+            "memoryUsed": 8727795,
+            "memoryRemaining": 743226647,
+            "diskUsed": 0,
+            "onHeapMemoryUsed": 8727795,
+            "offHeapMemoryUsed": 0,
+            "onHeapMemoryRemaining": 743226647,
+            "offHeapMemoryRemaining": 0
+          }
+        ],
+        "partitions": [
+          {
+            "blockName": "rdd_476_1",
+            "storageLevel": "Memory Serialized 1x Replicated",
+            "memoryUsed": 3151074,
+            "diskUsed": 0,
+            "executors": [
+              "driver"
+            ]
+          },
+          {
+            "blockName": "rdd_476_0",
+            "storageLevel": "Memory Serialized 1x Replicated",
+            "memoryUsed": 5576721,
+            "diskUsed": 0,
+            "executors": [
+              "driver"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "benchmark": [
+    {
+      "p": 1,
+      "times": [
+        0.09960632500042266,
+        0.07374908600013441,
+        0.05013102000066283
+      ],
+      "median": 0.07374908600013441,
+      "checksum": [
+        1885618790.063052,
+        1885618790.063052,
+        1885618790.063052
+      ],
+      "speedup": 1.0
+    },
+    {
+      "p": 2,
+      "times": [
+        0.11858398499953182,
+        0.061523323000074015,
+        0.08634196999992128
+      ],
+      "median": 0.08634196999992128,
+      "checksum": [
+        1885618790.0630507,
+        1885618790.0630507,
+        1885618790.0630507
+      ],
+      "speedup": 0.8541510692911183
+    },
+    {
+      "p": 4,
+      "times": [
+        0.1135825899991687,
+        0.07952874100010376,
+        0.06734372699975211
+      ],
+      "median": 0.07952874100010376,
+      "checksum": [
+        1885618790.0630512,
+        1885618790.0630512,
+        1885618790.0630512
+      ],
+      "speedup": 0.9273262102821191
+    },
+    {
+      "p": 8,
+      "times": [
+        0.13927807500022027,
+        0.0877851080003893,
+        0.06342832900008943
+      ],
+      "median": 0.0877851080003893,
+      "checksum": [
+        1885618790.0630512,
+        1885618790.0630512,
+        1885618790.0630512
+      ],
+      "speedup": 0.840109304186393
+    },
+    {
+      "p": 16,
+      "times": [
+        0.1508622759993159,
+        0.10965570400003344,
+        0.10879838799974095
+      ],
+      "median": 0.10965570400003344,
+      "checksum": [
+        1885618790.0630512,
+        1885618790.0630512,
+        1885618790.0630512
+      ],
+      "speedup": 0.672551297469322
+    },
+    {
+      "p": 32,
+      "times": [
+        0.200650515000234,
+        0.1450398810002298,
+        0.15336656599993148
+      ],
+      "median": 0.15336656599993148,
+      "checksum": [
+        1885618790.0630512,
+        1885618790.0630512,
+        1885618790.0630512
+      ],
+      "speedup": 0.48086807916249075
+    }
+  ],
+  "shuffle_q": [
+    {
+      "q": 2,
+      "groups": 27,
+      "seconds": 0.2949713829993925
+    },
+    {
+      "q": 4,
+      "groups": 27,
+      "seconds": 0.18807751899930736
+    },
+    {
+      "q": 8,
+      "groups": 27,
+      "seconds": 0.21142761499959306
+    },
+    {
+      "q": 16,
+      "groups": 27,
+      "seconds": 0.2271267109999826
+    },
+    {
+      "q": 32,
+      "groups": 27,
+      "seconds": 0.3316821840007833
+    }
+  ],
+  "small_files": [
+    {
+      "p": 1,
+      "files": 1,
+      "total_mib": 6.456469535827637,
+      "mean_kib": 6611.4248046875,
+      "metrics": {
+        "seconds": 0.2661010339998029,
+        "jobs": [
+          89
+        ],
+        "stages": [
+          198,
+          199
+        ],
+        "tasks": 3,
+        "shuffle_read": 10751186,
+        "shuffle_write": 10751186,
+        "stage_metrics": [
+          {
+            "stageId": 199,
+            "numTasks": 1,
+            "numCompleteTasks": 1,
+            "inputBytes": 0,
+            "outputBytes": 6770099,
+            "shuffleReadBytes": 10751186,
+            "shuffleWriteBytes": 0
+          },
+          {
+            "stageId": 198,
+            "numTasks": 2,
+            "numCompleteTasks": 2,
+            "inputBytes": 6677415,
+            "outputBytes": 0,
+            "shuffleReadBytes": 0,
+            "shuffleWriteBytes": 10751186
+          }
+        ]
+      }
+    },
+    {
+      "p": 4,
+      "files": 4,
+      "total_mib": 7.464443206787109,
+      "mean_kib": 1910.8974609375,
+      "metrics": {
+        "seconds": 0.3172708709998915,
+        "jobs": [
+          90
+        ],
+        "stages": [
+          200,
+          201
+        ],
+        "tasks": 6,
+        "shuffle_read": 12012709,
+        "shuffle_write": 12012709,
+        "stage_metrics": [
+          {
+            "stageId": 201,
+            "numTasks": 4,
+            "numCompleteTasks": 4,
+            "inputBytes": 0,
+            "outputBytes": 7827036,
+            "shuffleReadBytes": 12012709,
+            "shuffleWriteBytes": 0
+          },
+          {
+            "stageId": 200,
+            "numTasks": 2,
+            "numCompleteTasks": 2,
+            "inputBytes": 6677415,
+            "outputBytes": 0,
+            "shuffleReadBytes": 0,
+            "shuffleWriteBytes": 12012709
+          }
+        ]
+      }
+    },
+    {
+      "p": 16,
+      "files": 16,
+      "total_mib": 8.756361961364746,
+      "mean_kib": 560.4071655273438,
+      "metrics": {
+        "seconds": 0.3739655409999614,
+        "jobs": [
+          91
+        ],
+        "stages": [
+          202,
+          203
+        ],
+        "tasks": 18,
+        "shuffle_read": 12022984,
+        "shuffle_write": 12022984,
+        "stage_metrics": [
+          {
+            "stageId": 203,
+            "numTasks": 16,
+            "numCompleteTasks": 16,
+            "inputBytes": 0,
+            "outputBytes": 9181711,
+            "shuffleReadBytes": 12022984,
+            "shuffleWriteBytes": 0
+          },
+          {
+            "stageId": 202,
+            "numTasks": 2,
+            "numCompleteTasks": 2,
+            "inputBytes": 6677415,
+            "outputBytes": 0,
+            "shuffleReadBytes": 0,
+            "shuffleWriteBytes": 12022984
+          }
+        ]
+      }
+    },
+    {
+      "p": 64,
+      "files": 64,
+      "total_mib": 10.30147933959961,
+      "mean_kib": 164.82366943359375,
+      "metrics": {
+        "seconds": 0.8104587469997568,
+        "jobs": [
+          92
+        ],
+        "stages": [
+          204,
+          205
+        ],
+        "tasks": 66,
+        "shuffle_read": 12065531,
+        "shuffle_write": 12065531,
+        "stage_metrics": [
+          {
+            "stageId": 205,
+            "numTasks": 64,
+            "numCompleteTasks": 64,
+            "inputBytes": 0,
+            "outputBytes": 10801884,
+            "shuffleReadBytes": 12065531,
+            "shuffleWriteBytes": 0
+          },
+          {
+            "stageId": 204,
+            "numTasks": 2,
+            "numCompleteTasks": 2,
+            "inputBytes": 6677415,
+            "outputBytes": 0,
+            "shuffleReadBytes": 0,
+            "shuffleWriteBytes": 12065531
+          }
+        ]
+      }
+    }
+  ],
+  "aqe": {
+    "groups": 27,
+    "output_partitions": 1
+  },
+  "variant": {
+    "name": "B",
+    "inputs": {
+      "items": {
+        "rows": 112650,
+        "partitions": 2
+      },
+      "sellers": {
+        "rows": 3095,
+        "partitions": 1
+      }
+    },
+    "lazy": {
+      "before": [],
+      "after_transform": [],
+      "after_action": [
+        97
+      ],
+      "rows": 112650
+    },
+    "join_rows": 112650,
+    "smj": {
+      "seconds": 0.1992360890008058,
+      "jobs": [
+        98
+      ],
+      "stages": [
+        214,
+        215,
+        216,
+        217
+      ],
+      "tasks": 12,
+      "shuffle_read": 1369691,
+      "shuffle_write": 1369691,
+      "stage_metrics": [
+        {
+          "stageId": 217,
+          "numTasks": 1,
+          "numCompleteTasks": 1,
+          "inputBytes": 0,
+          "outputBytes": 0,
+          "shuffleReadBytes": 472,
+          "shuffleWriteBytes": 0
+        },
+        {
+          "stageId": 216,
+          "numTasks": 8,
+          "numCompleteTasks": 8,
+          "inputBytes": 0,
+          "outputBytes": 0,
+          "shuffleReadBytes": 1369219,
+          "shuffleWriteBytes": 472
+        },
+        {
+          "stageId": 215,
+          "numTasks": 2,
+          "numCompleteTasks": 2,
+          "inputBytes": 964388,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 1262840
+        },
+        {
+          "stageId": 214,
+          "numTasks": 1,
+          "numCompleteTasks": 1,
+          "inputBytes": 131816,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 106379
+        }
+      ]
+    },
+    "bhj": {
+      "seconds": 0.08448222199967859,
+      "jobs": [
+        99,
+        100
+      ],
+      "stages": [
+        218,
+        219,
+        220
+      ],
+      "tasks": 4,
+      "shuffle_read": 118,
+      "shuffle_write": 118,
+      "stage_metrics": [
+        {
+          "stageId": 220,
+          "numTasks": 1,
+          "numCompleteTasks": 1,
+          "inputBytes": 0,
+          "outputBytes": 0,
+          "shuffleReadBytes": 118,
+          "shuffleWriteBytes": 0
+        },
+        {
+          "stageId": 219,
+          "numTasks": 2,
+          "numCompleteTasks": 2,
+          "inputBytes": 964388,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 118
+        },
+        {
+          "stageId": 218,
+          "numTasks": 1,
+          "numCompleteTasks": 1,
+          "inputBytes": 131816,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 0
+        }
+      ]
+    },
+    "groupby": {
+      "seconds": 0.16803021099985926,
+      "jobs": [
+        101,
+        102,
+        103
+      ],
+      "stages": [
+        221,
+        222,
+        223,
+        224,
+        225,
+        226
+      ],
+      "tasks": 27,
+      "shuffle_read": 5322,
+      "shuffle_write": 3472,
+      "stage_metrics": [
+        {
+          "stageId": 226,
+          "numTasks": 8,
+          "numCompleteTasks": 8,
+          "inputBytes": 0,
+          "outputBytes": 0,
+          "shuffleReadBytes": 1622,
+          "shuffleWriteBytes": 0
+        },
+        {
+          "stageId": 225,
+          "numTasks": 8,
+          "numCompleteTasks": 8,
+          "inputBytes": 0,
+          "outputBytes": 0,
+          "shuffleReadBytes": 1850,
+          "shuffleWriteBytes": 1622
+        },
+        {
+          "stageId": 223,
+          "numTasks": 8,
+          "numCompleteTasks": 8,
+          "inputBytes": 0,
+          "outputBytes": 0,
+          "shuffleReadBytes": 1850,
+          "shuffleWriteBytes": 0
+        },
+        {
+          "stageId": 222,
+          "numTasks": 2,
+          "numCompleteTasks": 2,
+          "inputBytes": 1086721,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 1850
+        },
+        {
+          "stageId": 221,
+          "numTasks": 1,
+          "numCompleteTasks": 1,
+          "inputBytes": 131816,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 0
+        }
+      ]
+    },
+    "groups": [
+      {
+        "seller_state": "SP",
+        "lines": 80342,
+        "gross": 10235883.88
+      },
+      {
+        "seller_state": "PR",
+        "lines": 8671,
+        "gross": 1458900.73
+      },
+      {
+        "seller_state": "MG",
+        "lines": 8827,
+        "gross": 1224159.8
+      },
+      {
+        "seller_state": "RJ",
+        "lines": 4818,
+        "gross": 937814.12
+      },
+      {
+        "seller_state": "SC",
+        "lines": 4075,
+        "gross": 738973.13
+      },
+      {
+        "seller_state": "RS",
+        "lines": 2199,
+        "gross": 435802.63
+      },
+      {
+        "seller_state": "BA",
+        "lines": 643,
+        "gross": 305262.24
+      },
+      {
+        "seller_state": "DF",
+        "lines": 899,
+        "gross": 116243.54
+      },
+      {
+        "seller_state": "PE",
+        "lines": 448,
+        "gross": 103886.31
+      },
+      {
+        "seller_state": "GO",
+        "lines": 520,
+        "gross": 78964.71
+      },
+      {
+        "seller_state": "ES",
+        "lines": 372,
+        "gross": 59860.74
+      },
+      {
+        "seller_state": "MA",
+        "lines": 405,
+        "gross": 48550.24
+      },
+      {
+        "seller_state": "CE",
+        "lines": 94,
+        "gross": 24600.47
+      },
+      {
+        "seller_state": "MT",
+        "lines": 145,
+        "gross": 21702.45
+      },
+      {
+        "seller_state": "PB",
+        "lines": 38,
+        "gross": 18584.15
+      },
+      {
+        "seller_state": "RN",
+        "lines": 56,
+        "gross": 11296.71
+      },
+      {
+        "seller_state": "MS",
+        "lines": 50,
+        "gross": 9750.65
+      },
+      {
+        "seller_state": "RO",
+        "lines": 14,
+        "gross": 5474.98
+      },
+      {
+        "seller_state": "PI",
+        "lines": 12,
+        "gross": 2965.32
+      },
+      {
+        "seller_state": "SE",
+        "lines": 10,
+        "gross": 1924.69
+      },
+      {
+        "seller_state": "PA",
+        "lines": 8,
+        "gross": 1393.11
+      },
+      {
+        "seller_state": "AM",
+        "lines": 3,
+        "gross": 1258.8
+      },
+      {
+        "seller_state": "AC",
+        "lines": 1,
+        "gross": 299.84
+      }
+    ],
+    "profiles": {
+      "repartition": {
+        "partitions": 4,
+        "sizes": [
+          {
+            "pid": 0,
+            "count": 28162
+          },
+          {
+            "pid": 1,
+            "count": 28162
+          },
+          {
+            "pid": 2,
+            "count": 28161
+          },
+          {
+            "pid": 3,
+            "count": 28165
+          }
+        ],
+        "min": 28161,
+        "max": 28165,
+        "mean": 28162.5
+      },
+      "coalesce": {
+        "partitions": 4,
+        "sizes": [
+          {
+            "pid": 0,
+            "count": 9721
+          },
+          {
+            "pid": 1,
+            "count": 88381
+          },
+          {
+            "pid": 2,
+            "count": 9200
+          },
+          {
+            "pid": 3,
+            "count": 5348
+          }
+        ],
+        "min": 5348,
+        "max": 88381,
+        "mean": 28162.5
+      }
+    },
+    "cache": {
+      "without": [
+        0.1627562889998444,
+        0.13045372600026894
+      ],
+      "materialization": 0.15451032500004658,
+      "cached": [
+        0.09782266199999867,
+        0.06188443500013818
+      ]
+    },
+    "benchmark": [
+      {
+        "p": 1,
+        "times": [
+          0.10223365599995304,
+          0.11176718299975619,
+          0.1178887019996182
+        ],
+        "median": 0.11176718299975619
+      },
+      {
+        "p": 2,
+        "times": [
+          0.1337079149998317,
+          0.12374931900012598,
+          0.13939784200010763
+        ],
+        "median": 0.1337079149998317
+      },
+      {
+        "p": 4,
+        "times": [
+          0.13181504499971197,
+          0.11700413199923787,
+          0.12135114000011527
+        ],
+        "median": 0.12135114000011527
+      },
+      {
+        "p": 8,
+        "times": [
+          0.1572834069993405,
+          0.15357706200029497,
+          0.16739165099988895
+        ],
+        "median": 0.1572834069993405
+      }
+    ],
+    "files": [
+      {
+        "p": 1,
+        "files": 1,
+        "total_mib": 0.0013036727905273438,
+        "mean_kib": 1.3349609375,
+        "metrics": {
+          "seconds": 0.11872373100050027,
+          "jobs": [
+            152,
+            153
+          ],
+          "stages": [
+            324,
+            325,
+            326,
+            327
+          ],
+          "tasks": 12,
+          "shuffle_read": 2800,
+          "shuffle_write": 2800,
+          "stage_metrics": [
+            {
+              "stageId": 327,
+              "numTasks": 1,
+              "numCompleteTasks": 1,
+              "inputBytes": 0,
+              "outputBytes": 1367,
+              "shuffleReadBytes": 950,
+              "shuffleWriteBytes": 0
+            },
+            {
+              "stageId": 326,
+              "numTasks": 8,
+              "numCompleteTasks": 8,
+              "inputBytes": 0,
+              "outputBytes": 0,
+              "shuffleReadBytes": 1850,
+              "shuffleWriteBytes": 950
+            },
+            {
+              "stageId": 325,
+              "numTasks": 2,
+              "numCompleteTasks": 2,
+              "inputBytes": 1086721,
+              "outputBytes": 0,
+              "shuffleReadBytes": 0,
+              "shuffleWriteBytes": 1850
+            },
+            {
+              "stageId": 324,
+              "numTasks": 1,
+              "numCompleteTasks": 1,
+              "inputBytes": 131816,
+              "outputBytes": 0,
+              "shuffleReadBytes": 0,
+              "shuffleWriteBytes": 0
+            }
+          ]
+        }
+      },
+      {
+        "p": 4,
+        "files": 4,
+        "total_mib": 0.004070281982421875,
+        "mean_kib": 1.0419921875,
+        "metrics": {
+          "seconds": 0.2106418820003455,
+          "jobs": [
+            154,
+            155
+          ],
+          "stages": [
+            328,
+            329,
+            330,
+            331
+          ],
+          "tasks": 15,
+          "shuffle_read": 3534,
+          "shuffle_write": 3534,
+          "stage_metrics": [
+            {
+              "stageId": 331,
+              "numTasks": 4,
+              "numCompleteTasks": 4,
+              "inputBytes": 0,
+              "outputBytes": 4268,
+              "shuffleReadBytes": 1684,
+              "shuffleWriteBytes": 0
+            },
+            {
+              "stageId": 330,
+              "numTasks": 8,
+              "numCompleteTasks": 8,
+              "inputBytes": 0,
+              "outputBytes": 0,
+              "shuffleReadBytes": 1850,
+              "shuffleWriteBytes": 1684
+            },
+            {
+              "stageId": 329,
+              "numTasks": 2,
+              "numCompleteTasks": 2,
+              "inputBytes": 1086721,
+              "outputBytes": 0,
+              "shuffleReadBytes": 0,
+              "shuffleWriteBytes": 1850
+            },
+            {
+              "stageId": 328,
+              "numTasks": 1,
+              "numCompleteTasks": 1,
+              "inputBytes": 131816,
+              "outputBytes": 0,
+              "shuffleReadBytes": 0,
+              "shuffleWriteBytes": 0
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

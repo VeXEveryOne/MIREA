@@ -1,0 +1,40 @@
+{
+  "source_mode": "reconstructed_from_practice2_olist_csv",
+  "tables": {
+    "customers": 99441,
+    "geolocation": 1000163,
+    "leads_closed": 842,
+    "leads_qualified": 8000,
+    "order_items": 112650,
+    "order_payments": 103886,
+    "order_reviews": 100000,
+    "orders": 99441,
+    "product_category_name_translation": 71,
+    "products": 32951,
+    "sellers": 3095
+  },
+  "komus": {
+    "sales": 865222,
+    "products": 21163,
+    "retained_sale_fields": [
+      "cost",
+      "purchase_date",
+      "receipt_id",
+      "product_key",
+      "branch",
+      "quantity",
+      "amount",
+      "discount"
+    ],
+    "excluded": [
+      "Client_ID",
+      "Машина доставки",
+      "Адрес",
+      "Клиенты.csv",
+      "Суммы чеков.csv"
+    ],
+    "source": "komus.zip",
+    "archive_sha256": "3de294dd37d6fc0f46b0f6ff4bc5e6f1b15d13da9dc455da74e0d791bd3e2a81"
+  },
+  "database_sha256": "c1367782de17196a933e0d7f3a41c841f1cb3919b75e770b652629c51acf777b"
+}

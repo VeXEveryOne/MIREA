@@ -1,0 +1,10 @@
+/data/
+/.venv/
+/spark-events/
+/small_files_experiment/
+/spark-warehouse/
+/metastore_db/
+/derby.log
+/run*.log
+/capture_requests/
+**/*.crc

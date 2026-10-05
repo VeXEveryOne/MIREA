@@ -1,0 +1,54 @@
+== Physical Plan ==
+* Project (9)
++- * BroadcastHashJoin Inner BuildRight (8)
+   :- * Filter (3)
+   :  +- * ColumnarToRow (2)
+   :     +- Scan parquet  (1)
+   +- BroadcastExchange (7)
+      +- * Filter (6)
+         +- * ColumnarToRow (5)
+            +- Scan parquet  (4)
+
+
+(1) Scan parquet 
+Output [7]: [order_id#203, order_item_id#204, product_id#205, seller_id#206, shipping_limit_date#207, price#208, freight_value#209]
+Batched: true
+Location: InMemoryFileIndex [file:/home/student/spark-lab/data/spark_input_parquet/order_items]
+PushedFilters: [IsNotNull(product_id)]
+ReadSchema: struct<order_id:string,order_item_id:int,product_id:string,seller_id:string,shipping_limit_date:timestamp,price:double,freight_value:double>
+
+(2) ColumnarToRow [codegen id : 2]
+Input [7]: [order_id#203, order_item_id#204, product_id#205, seller_id#206, shipping_limit_date#207, price#208, freight_value#209]
+
+(3) Filter [codegen id : 2]
+Input [7]: [order_id#203, order_item_id#204, product_id#205, seller_id#206, shipping_limit_date#207, price#208, freight_value#209]
+Condition : isnotnull(product_id#205)
+
+(4) Scan parquet 
+Output [9]: [product_id#217, product_category_name#218, product_name_lenght#219, product_description_lenght#220, product_photos_qty#221, product_weight_g#222, product_length_cm#223, product_height_cm#224, product_width_cm#225]
+Batched: true
+Location: InMemoryFileIndex [file:/home/student/spark-lab/data/spark_input_parquet/products]
+PushedFilters: [IsNotNull(product_id)]
+ReadSchema: struct<product_id:string,product_category_name:string,product_name_lenght:int,product_description_lenght:int,product_photos_qty:int,product_weight_g:int,product_length_cm:int,product_height_cm:int,product_width_cm:int>
+
+(5) ColumnarToRow [codegen id : 1]
+Input [9]: [product_id#217, product_category_name#218, product_name_lenght#219, product_description_lenght#220, product_photos_qty#221, product_weight_g#222, product_length_cm#223, product_height_cm#224, product_width_cm#225]
+
+(6) Filter [codegen id : 1]
+Input [9]: [product_id#217, product_category_name#218, product_name_lenght#219, product_description_lenght#220, product_photos_qty#221, product_weight_g#222, product_length_cm#223, product_height_cm#224, product_width_cm#225]
+Condition : isnotnull(product_id#217)
+
+(7) BroadcastExchange
+Input [9]: [product_id#217, product_category_name#218, product_name_lenght#219, product_description_lenght#220, product_photos_qty#221, product_weight_g#222, product_length_cm#223, product_height_cm#224, product_width_cm#225]
+Arguments: HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1269]
+
+(8) BroadcastHashJoin [codegen id : 2]
+Left keys [1]: [product_id#205]
+Right keys [1]: [product_id#217]
+Join type: Inner
+Join condition: None
+
+(9) Project [codegen id : 2]
+Output [15]: [product_id#205, order_id#203, order_item_id#204, seller_id#206, shipping_limit_date#207, price#208, freight_value#209, product_category_name#218, product_name_lenght#219, product_description_lenght#220, product_photos_qty#221, product_weight_g#222, product_length_cm#223, product_height_cm#224, product_width_cm#225]
+Input [16]: [order_id#203, order_item_id#204, product_id#205, seller_id#206, shipping_limit_date#207, price#208, freight_value#209, product_id#217, product_category_name#218, product_name_lenght#219, product_description_lenght#220, product_photos_qty#221, product_weight_g#222, product_length_cm#223, product_height_cm#224, product_width_cm#225]
+

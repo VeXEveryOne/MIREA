@@ -1,0 +1,7 @@
+# Ubuntu scripts must remain runnable after a Windows checkout.
+*.sh text eol=lf
+*.py text eol=lf
+# Preserve exports byte-for-byte, including original CSV line endings.
+exports/** -text
+# Spark explain emits trailing spaces and an empty final line; retain raw plans.
+results/plans/*.txt text eol=lf whitespace=-blank-at-eol,-blank-at-eof
