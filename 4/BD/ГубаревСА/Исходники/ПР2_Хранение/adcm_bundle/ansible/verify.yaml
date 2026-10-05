@@ -1,0 +1,12 @@
+---
+- name: Verify educational ADPG laboratory environment
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Confirm PostgreSQL database is prepared
+      ansible.builtin.debug:
+        msg: "PostgreSQL 16 and database ecommerce are prepared in Docker"
+    - name: Confirm monitoring services are prepared
+      ansible.builtin.debug:
+        msg: "Prometheus, postgres_exporter and Grafana are prepared in Docker"

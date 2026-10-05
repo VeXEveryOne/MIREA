@@ -1,0 +1,114 @@
+services:
+  adcm-db:
+    image: postgres:16
+    container_name: adcm-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: adcm_user
+      POSTGRES_PASSWORD: ${TIABD_ADCM_DB_PASSWORD:?Set TIABD_ADCM_DB_PASSWORD in .env}
+      POSTGRES_DB: adcm_db
+    volumes:
+      - adcm-db-data:/var/lib/postgresql/data
+    networks: [tiabd]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U adcm_user -d adcm_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  adcm:
+    image: hub.arenadata.io/adcm/adcm:2.12.0
+    container_name: adcm
+    restart: unless-stopped
+    depends_on:
+      adcm-db:
+        condition: service_healthy
+    environment:
+      DB_HOST: adcm-db
+      DB_PORT: 5432
+      DB_NAME: adcm_db
+      DB_USER: adcm_user
+      DB_PASS: ${TIABD_ADCM_DB_PASSWORD:?Set TIABD_ADCM_DB_PASSWORD in .env}
+    ports:
+      - "8000:8000"
+    volumes:
+      - adcm-data:/adcm/data
+    networks: [tiabd]
+
+  adpg:
+    image: postgres:16
+    container_name: adpg
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${TIABD_PG_PASSWORD:?Set TIABD_PG_PASSWORD in .env}
+      POSTGRES_DB: ecommerce
+    ports:
+      - "5432:5432"
+    volumes:
+      - adpg-data:/var/lib/postgresql/data
+      - ./data:/import:ro
+      - ./:/sql:ro
+    networks: [tiabd]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ecommerce"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  postgres-exporter:
+    image: quay.io/prometheuscommunity/postgres-exporter:latest
+    container_name: postgres-exporter
+    restart: unless-stopped
+    depends_on:
+      adpg:
+        condition: service_healthy
+    environment:
+      DATA_SOURCE_NAME: postgresql://postgres:${TIABD_PG_PASSWORD:?Set TIABD_PG_PASSWORD in .env}@adpg:5432/ecommerce?sslmode=disable
+    networks: [tiabd]
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    restart: unless-stopped
+    command: ["--config.file=/etc/prometheus/prometheus.yml", "--storage.tsdb.path=/prometheus"]
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    networks: [tiabd]
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: unless-stopped
+    depends_on:
+      adpg:
+        condition: service_healthy
+      prometheus:
+        condition: service_started
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: ${TIABD_GRAFANA_PASSWORD:?Set TIABD_GRAFANA_PASSWORD in .env}
+      TIABD_PG_PASSWORD: ${TIABD_PG_PASSWORD:?Set TIABD_PG_PASSWORD in .env}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_AUTH_ANONYMOUS_ENABLED: "false"
+    ports:
+      - "11210:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+    networks: [tiabd]
+
+networks:
+  tiabd:
+    name: adcm-net
+
+volumes:
+  adcm-db-data:
+  adcm-data:
+  adpg-data:
+  prometheus-data:
+  grafana-data:

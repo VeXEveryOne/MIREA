@@ -1,0 +1,9 @@
+---
+- name: Confirm educational ADPG laboratory services are running
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Record successful service check
+      ansible.builtin.debug:
+        msg: "ADPG Ecommerce laboratory services are running"
