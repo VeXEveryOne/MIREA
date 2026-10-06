@@ -1,0 +1,16 @@
+[Unit]
+Description=TIABD Albakhtin IV JupyterLab
+After=network.target
+
+[Service]
+Type=simple
+User=albakhtin
+WorkingDirectory=/home/albakhtin/tiabd
+EnvironmentFile=/home/albakhtin/tiabd/jupyter.env
+ExecStart=/home/albakhtin/tiabd/.venv/bin/jupyter lab --config=/home/albakhtin/tiabd/jupyter_config.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+

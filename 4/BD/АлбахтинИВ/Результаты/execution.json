@@ -1,0 +1,36 @@
+{
+  "student": "Албахтин И.В.",
+  "group": "ИНБО-12-23",
+  "vm_name": "TIABD-Albakhtin-IV",
+  "vm_uuid": "40603a5d-2404-4561-a4d6-02d13a8b388d",
+  "hostname": "tiabd-albakhtin-iv",
+  "python": "3.10.12",
+  "started_utc": "2026-10-05T16:40:20.873113+00:00",
+  "notebooks": [
+    {
+      "file": "Ноутбуки/ТИАБД_ПР1_АлбахтинИВ.ipynb",
+      "code_cells": 31,
+      "errors": 0,
+      "completed_utc": "2026-10-05T16:40:24.885208+00:00"
+    },
+    {
+      "file": "Ноутбуки/ТИАБД_ПР2_Визуализация_АлбахтинИВ.ipynb",
+      "code_cells": 11,
+      "errors": 0,
+      "completed_utc": "2026-10-05T16:41:10.159191+00:00"
+    },
+    {
+      "file": "Spark/Practice_3.ipynb",
+      "code_cells": 9,
+      "errors": 0,
+      "completed_utc": "2026-10-05T16:44:21.820757+00:00"
+    },
+    {
+      "file": "Spark/Practice_4.ipynb",
+      "code_cells": 12,
+      "errors": 0,
+      "completed_utc": "2026-10-05T17:01:34.637245+00:00"
+    }
+  ],
+  "completed_utc": "2026-10-05T17:01:34.637694+00:00"
+}

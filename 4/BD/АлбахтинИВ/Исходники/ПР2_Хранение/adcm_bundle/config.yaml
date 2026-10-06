@@ -1,0 +1,68 @@
+---
+- type: cluster
+  name: adpg_ecommerce_lab
+  display_name: ADPG Ecommerce Lab Albakhtin IV
+  description: Учебный кластер PostgreSQL для практической работы №2 по ТИАБД
+  version: "16.0.2"
+  edition: community
+  contract_version: "2.1"
+  adcm_min_version: "2.6.0"
+  venv: "2.16"
+  config:
+    - name: __main_info
+      type: text
+      required: false
+      default: >-
+        PostgreSQL 16, Prometheus и Grafana развернуты в Docker на Ubuntu Server 22.04.5.
+        База ecommerce содержит набор данных Brazilian E-Commerce Public Dataset by Olist.
+  actions:
+    Install:
+      display_name: Проверить и установить
+      scripts:
+        - name: Проверка учебного стенда
+          display_name: Проверка PostgreSQL и мониторинга
+          script_type: ansible
+          script: ansible/verify.yaml
+      states:
+        available:
+          - created
+        on_success: installed
+    Start:
+      display_name: Запустить кластер
+      scripts:
+        - name: Проверка запущенных сервисов
+          display_name: PostgreSQL, Prometheus и Grafana доступны
+          script_type: ansible
+          script: ansible/start.yaml
+      states:
+        available:
+          - installed
+        on_success: running
+
+- type: service
+  name: adpg
+  display_name: Arenadata PostgreSQL
+  description: PostgreSQL 16 — учебная конфигурация ADPG
+  version: "16.0"
+  required: true
+  venv: "2.16"
+  config:
+    - name: __main_info
+      type: text
+      required: false
+      default: >-
+        PostgreSQL доступен на adpg:5432; база данных ecommerce загружена и готова к аналитическим запросам.
+
+- type: service
+  name: monitoring
+  display_name: Prometheus и Grafana
+  description: Мониторинг PostgreSQL с помощью postgres_exporter, Prometheus и Grafana
+  version: "1.0"
+  required: true
+  venv: "2.16"
+  config:
+    - name: __main_info
+      type: text
+      required: false
+      default: >-
+        Prometheus собирает метрики PostgreSQL, а Grafana содержит дашборд Ecommerce Analytics из шести панелей.

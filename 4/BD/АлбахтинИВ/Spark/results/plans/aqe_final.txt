@@ -1,0 +1,74 @@
+== Physical Plan ==
+AdaptiveSparkPlan (11)
++- == Final Plan ==
+   * HashAggregate (7)
+   +- AQEShuffleRead (6)
+      +- ShuffleQueryStage (5), Statistics(sizeInBytes=960.0 B, rowCount=30)
+         +- Exchange (4)
+            +- * HashAggregate (3)
+               +- * ColumnarToRow (2)
+                  +- Scan parquet  (1)
++- == Initial Plan ==
+   HashAggregate (10)
+   +- Exchange (9)
+      +- HashAggregate (8)
+         +- Scan parquet  (1)
+
+
+(1) Scan parquet 
+Output [1]: [geolocation_state#197]
+Batched: true
+Location: InMemoryFileIndex [file:/home/albakhtin/tiabd/АлбахтинИВ/Spark/data/spark_input_parquet/geolocation]
+ReadSchema: struct<geolocation_state:string>
+
+(2) ColumnarToRow [codegen id : 1]
+Input [1]: [geolocation_state#197]
+
+(3) HashAggregate [codegen id : 1]
+Input [1]: [geolocation_state#197]
+Keys [1]: [geolocation_state#197]
+Functions [1]: [partial_count(1)]
+Aggregate Attributes [1]: [count#2307L]
+Results [2]: [geolocation_state#197, count#2308L]
+
+(4) Exchange
+Input [2]: [geolocation_state#197, count#2308L]
+Arguments: hashpartitioning(geolocation_state#197, 32), ENSURE_REQUIREMENTS, [plan_id=4076]
+
+(5) ShuffleQueryStage
+Output [2]: [geolocation_state#197, count#2308L]
+Arguments: 0
+
+(6) AQEShuffleRead
+Input [2]: [geolocation_state#197, count#2308L]
+Arguments: coalesced
+
+(7) HashAggregate [codegen id : 2]
+Input [2]: [geolocation_state#197, count#2308L]
+Keys [1]: [geolocation_state#197]
+Functions [1]: [count(1)]
+Aggregate Attributes [1]: [count(1)#2303L]
+Results [2]: [geolocation_state#197, count(1)#2303L AS count#2304L]
+
+(8) HashAggregate
+Input [1]: [geolocation_state#197]
+Keys [1]: [geolocation_state#197]
+Functions [1]: [partial_count(1)]
+Aggregate Attributes [1]: [count#2307L]
+Results [2]: [geolocation_state#197, count#2308L]
+
+(9) Exchange
+Input [2]: [geolocation_state#197, count#2308L]
+Arguments: hashpartitioning(geolocation_state#197, 32), ENSURE_REQUIREMENTS, [plan_id=4062]
+
+(10) HashAggregate
+Input [2]: [geolocation_state#197, count#2308L]
+Keys [1]: [geolocation_state#197]
+Functions [1]: [count(1)]
+Aggregate Attributes [1]: [count(1)#2303L]
+Results [2]: [geolocation_state#197, count(1)#2303L AS count#2304L]
+
+(11) AdaptiveSparkPlan
+Output [2]: [geolocation_state#197, count#2304L]
+Arguments: isFinalPlan=true
+

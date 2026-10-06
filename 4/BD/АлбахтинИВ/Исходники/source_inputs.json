@@ -1,0 +1,46 @@
+{
+  "customers": {
+    "sha256": "8a80cdbd27b49a1331f70547f46b376c15cfd172cbb4bc1b74071c86acea4ec8",
+    "source": "olist_customers_dataset.csv"
+  },
+  "geolocation": {
+    "sha256": "3b7cf4f504ce3fbb3e63693f48d20ac4a4925619720e2ed46aba2f9801260876",
+    "source": "olist_geolocation_dataset.csv"
+  },
+  "order_items": {
+    "sha256": "14e321c489a729b088f26f73262b506577e2b7fcb19cf04cd70fa6276d16ff65",
+    "source": "olist_order_items_dataset.csv"
+  },
+  "order_payments": {
+    "sha256": "6ca92718f7e0ac4a77b386515ef8de1ca54cf18eb5787f07d25d0baa4e2cd870",
+    "source": "olist_order_payments_dataset.csv"
+  },
+  "order_reviews": {
+    "sha256": "0dff69f6fed33a13648020198ea94d7ae12afbdd4904186c6cd904e27a3e1ccd",
+    "source": "olist_order_reviews_dataset.csv"
+  },
+  "orders": {
+    "sha256": "1dca8c9a7a8d34f0a8d0f7c272616d582e7f29d67a8c21ddd903152bf4ee6441",
+    "source": "olist_orders_dataset.csv"
+  },
+  "products": {
+    "sha256": "66f99d0261196b7f272c4ac58cf088688994a6200aa2841484defdaa42d3ade2",
+    "source": "olist_products_dataset.csv"
+  },
+  "sellers": {
+    "sha256": "c877ee451aadbec30ddc58542c12b87685703f9c8a2ba410fb3087336ac65d4a",
+    "source": "olist_sellers_dataset.csv"
+  },
+  "product_category_name_translation": {
+    "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278",
+    "source": "product_category_name_translation.csv"
+  },
+  "leads_closed": {
+    "sha256": "6b0c372b2c2363c345583a78d03e04d18132a52fb98ce9f947557cdb6495c08b",
+    "source": "olist_closed_deals_dataset.csv"
+  },
+  "leads_qualified": {
+    "sha256": "c862c17a89630a239cb729868a165373285242d4a6c3671d21703a89f77f2c60",
+    "source": "olist_marketing_qualified_leads_dataset.csv"
+  }
+}

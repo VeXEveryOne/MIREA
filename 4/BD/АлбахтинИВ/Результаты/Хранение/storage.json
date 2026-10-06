@@ -1,0 +1,480 @@
+{
+  "student": "Албахтин И.В.",
+  "vm": "TIABD-Albakhtin-IV",
+  "vm_uuid": "40603a5d-2404-4561-a4d6-02d13a8b388d",
+  "hostname": "tiabd-albakhtin-iv",
+  "captured_utc": "2026-10-05T17:10:41.280489+00:00",
+  "queries": [
+    {
+      "sql": "-- 1. Top 10 categories by revenue with English translation.\nSELECT\n  p.product_category_name,\n  COALESCE(t.product_category_name_english, 'not translated') AS category_en,\n  ROUND(SUM(oi.price), 2) AS revenue,\n  COUNT(DISTINCT oi.order_id) AS orders_count,\n  COUNT(*) AS items_count\nFROM order_items oi\nJOIN products p ON p.product_id = oi.product_id\nLEFT JOIN product_category_name_translation t\n  ON t.product_category_name = p.product_category_name\nGROUP BY p.product_category_name, t.product_category_name_english\nORDER BY revenue DESC\nLIMIT 10;",
+      "rows": [
+        {
+          "product_category_name": "beleza_saude",
+          "category_en": "health_beauty",
+          "revenue": 1258681.34,
+          "orders_count": 8836,
+          "items_count": 9670
+        },
+        {
+          "product_category_name": "relogios_presentes",
+          "category_en": "watches_gifts",
+          "revenue": 1205005.68,
+          "orders_count": 5624,
+          "items_count": 5991
+        },
+        {
+          "product_category_name": "cama_mesa_banho",
+          "category_en": "bed_bath_table",
+          "revenue": 1036988.68,
+          "orders_count": 9417,
+          "items_count": 11115
+        },
+        {
+          "product_category_name": "esporte_lazer",
+          "category_en": "sports_leisure",
+          "revenue": 988048.97,
+          "orders_count": 7720,
+          "items_count": 8641
+        },
+        {
+          "product_category_name": "informatica_acessorios",
+          "category_en": "computers_accessories",
+          "revenue": 911954.32,
+          "orders_count": 6689,
+          "items_count": 7827
+        },
+        {
+          "product_category_name": "moveis_decoracao",
+          "category_en": "furniture_decor",
+          "revenue": 729762.49,
+          "orders_count": 6449,
+          "items_count": 8334
+        },
+        {
+          "product_category_name": "cool_stuff",
+          "category_en": "cool_stuff",
+          "revenue": 635290.85,
+          "orders_count": 3632,
+          "items_count": 3796
+        },
+        {
+          "product_category_name": "utilidades_domesticas",
+          "category_en": "housewares",
+          "revenue": 632248.66,
+          "orders_count": 5884,
+          "items_count": 6964
+        },
+        {
+          "product_category_name": "automotivo",
+          "category_en": "auto",
+          "revenue": 592720.11,
+          "orders_count": 3897,
+          "items_count": 4235
+        },
+        {
+          "product_category_name": "ferramentas_jardim",
+          "category_en": "garden_tools",
+          "revenue": 485256.46,
+          "orders_count": 3518,
+          "items_count": 4347
+        }
+      ]
+    },
+    {
+      "sql": "-- 2. Payment behaviour.\nSELECT\n  payment_type,\n  COUNT(*) AS payments_count,\n  ROUND(AVG(payment_installments), 2) AS avg_installments,\n  ROUND(AVG(payment_value), 2) AS avg_payment,\n  ROUND(100.0 * COUNT(DISTINCT order_id)\n    / (SELECT COUNT(DISTINCT order_id) FROM order_payments), 2) AS order_share_pct\nFROM order_payments\nGROUP BY payment_type\nORDER BY payments_count DESC;",
+      "rows": [
+        {
+          "payment_type": "credit_card",
+          "payments_count": 76795,
+          "avg_installments": 3.51,
+          "avg_payment": 163.32,
+          "order_share_pct": 76.94
+        },
+        {
+          "payment_type": "boleto",
+          "payments_count": 19784,
+          "avg_installments": 1.0,
+          "avg_payment": 145.03,
+          "order_share_pct": 19.9
+        },
+        {
+          "payment_type": "voucher",
+          "payments_count": 5775,
+          "avg_installments": 1.0,
+          "avg_payment": 65.7,
+          "order_share_pct": 3.89
+        },
+        {
+          "payment_type": "debit_card",
+          "payments_count": 1529,
+          "avg_installments": 1.0,
+          "avg_payment": 142.57,
+          "order_share_pct": 1.54
+        },
+        {
+          "payment_type": "not_defined",
+          "payments_count": 3,
+          "avg_installments": 1.0,
+          "avg_payment": 0.0,
+          "order_share_pct": 0.0
+        }
+      ]
+    },
+    {
+      "sql": "-- 3. Review score depending on delivery speed.\nWITH reviews AS (\n  SELECT order_id, AVG(review_score) AS review_score\n  FROM order_reviews\n  GROUP BY order_id\n), delivery AS (\n  SELECT\n    o.order_id,\n    CASE\n      WHEN o.order_delivered_customer_date::date - o.order_purchase_timestamp::date <= 5 THEN 'up to 5 days'\n      WHEN o.order_delivered_customer_date::date - o.order_purchase_timestamp::date <= 10 THEN '6-10 days'\n      ELSE 'more than 10 days'\n    END AS delivery_group,\n    CASE\n      WHEN o.order_delivered_customer_date::date - o.order_purchase_timestamp::date <= 5 THEN 1\n      WHEN o.order_delivered_customer_date::date - o.order_purchase_timestamp::date <= 10 THEN 2\n      ELSE 3\n    END AS sort_order,\n    r.review_score\n  FROM orders o\n  JOIN reviews r ON r.order_id = o.order_id\n  WHERE o.order_delivered_customer_date IS NOT NULL\n)\nSELECT delivery_group,\n       COUNT(DISTINCT order_id) AS orders_count,\n       ROUND(AVG(review_score), 2) AS avg_review_score\nFROM delivery\nGROUP BY delivery_group, sort_order\nORDER BY sort_order;",
+      "rows": [
+        {
+          "delivery_group": "up to 5 days",
+          "orders_count": 16707,
+          "avg_review_score": 4.43
+        },
+        {
+          "delivery_group": "6-10 days",
+          "orders_count": 33161,
+          "avg_review_score": 4.34
+        },
+        {
+          "delivery_group": "more than 10 days",
+          "orders_count": 46608,
+          "avg_review_score": 3.9
+        }
+      ]
+    },
+    {
+      "sql": "-- 4. Top 10 sellers by number of orders.\nSELECT\n  oi.seller_id,\n  COUNT(DISTINCT oi.order_id) AS orders_count,\n  COUNT(DISTINCT c.customer_unique_id) AS customers_count,\n  COUNT(*) AS items_count,\n  ROUND(SUM(oi.price), 2) AS revenue,\n  ROUND(AVG(oi.freight_value), 2) AS avg_freight\nFROM order_items oi\nJOIN orders o ON o.order_id = oi.order_id\nJOIN customers c ON c.customer_id = o.customer_id\nGROUP BY oi.seller_id\nORDER BY orders_count DESC, revenue DESC\nLIMIT 10;",
+      "rows": [
+        {
+          "seller_id": "6560211a19b47992c3666cc44a7e94c0",
+          "orders_count": 1854,
+          "customers_count": 1824,
+          "items_count": 2033,
+          "revenue": 123304.83,
+          "avg_freight": 13.75
+        },
+        {
+          "seller_id": "4a3ca9315b744ce9f8e9374361493884",
+          "orders_count": 1806,
+          "customers_count": 1792,
+          "items_count": 1987,
+          "revenue": 200472.92,
+          "avg_freight": 17.65
+        },
+        {
+          "seller_id": "cc419e0650a3c5ba77189a1882b7556a",
+          "orders_count": 1706,
+          "customers_count": 1657,
+          "items_count": 1775,
+          "revenue": 104288.42,
+          "avg_freight": 14.46
+        },
+        {
+          "seller_id": "1f50f920176fa81dab994f9023523100",
+          "orders_count": 1404,
+          "customers_count": 1388,
+          "items_count": 1931,
+          "revenue": 106939.21,
+          "avg_freight": 18.21
+        },
+        {
+          "seller_id": "da8622b14eb17ae2831f4ac5b9dab84a",
+          "orders_count": 1314,
+          "customers_count": 1275,
+          "items_count": 1551,
+          "revenue": 160236.57,
+          "avg_freight": 16.09
+        },
+        {
+          "seller_id": "955fee9216a65b617aa5c0531780ce60",
+          "orders_count": 1287,
+          "customers_count": 1282,
+          "items_count": 1499,
+          "revenue": 135171.7,
+          "avg_freight": 16.97
+        },
+        {
+          "seller_id": "7a67c85e85bb2ce8582c35f2203ad736",
+          "orders_count": 1160,
+          "customers_count": 1155,
+          "items_count": 1171,
+          "revenue": 141745.53,
+          "avg_freight": 17.85
+        },
+        {
+          "seller_id": "ea8482cd71df3c1969d7b9473ff13abc",
+          "orders_count": 1146,
+          "customers_count": 1133,
+          "items_count": 1203,
+          "revenue": 37177.52,
+          "avg_freight": 14.58
+        },
+        {
+          "seller_id": "4869f7a5dfa277a7dca6462dcf3b52b2",
+          "orders_count": 1132,
+          "customers_count": 1124,
+          "items_count": 1156,
+          "revenue": 229472.63,
+          "avg_freight": 17.45
+        },
+        {
+          "seller_id": "3d871de0142ce09b7081e2b9d1733cb1",
+          "orders_count": 1080,
+          "customers_count": 1074,
+          "items_count": 1147,
+          "revenue": 94914.2,
+          "avg_freight": 19.56
+        }
+      ]
+    }
+  ],
+  "postgres": "PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+  "counts": {
+    "customers": 99441,
+    "geolocation": 1000163,
+    "leads_closed": 842,
+    "leads_qualified": 8000,
+    "order_items": 112650,
+    "order_payments": 103886,
+    "order_reviews": 100000,
+    "orders": 99441,
+    "product_category_name_translation": 73,
+    "products": 32951,
+    "sellers": 3095
+  },
+  "validated_foreign_keys": 9,
+  "revenue": 13591643.7,
+  "buyers": 96096,
+  "services": [
+    {
+      "Command": "\"/etc/startup.sh\"",
+      "CreatedAt": "2026-10-05 19:40:54 +0300 MSK",
+      "Engine": "",
+      "ExitCode": 0,
+      "Health": "",
+      "ID": "365b2aa087ef",
+      "Image": "hub.arenadata.io/adcm/adcm:2.12.0",
+      "Labels": "com.docker.compose.project.config_files=/home/albakhtin/tiabd/storage/docker-compose.yml,com.docker.compose.service=adcm,com.docker.compose.depends_on=adcm-db:service_healthy:false,com.docker.compose.oneoff=False,com.docker.compose.project.working_dir=/home/albakhtin/tiabd/storage,com.docker.compose.version=5.6.0,com.docker.compose.config-hash=06848c7773afd454d391f0bb4f137cf53d10fd811f1ed633275f58eb1ca55bf2,com.docker.compose.container-number=1,com.docker.compose.image=sha256:e89527f329e9609be80ad643357ce8b22457938504ee7fa65cc7cc47304dd3c3,com.docker.compose.project=storage",
+      "LocalVolumes": "1",
+      "Mounts": "storage_adcm-d…",
+      "Name": "adcm",
+      "Names": "adcm",
+      "Networks": "adcm-net",
+      "Ports": "0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp",
+      "Project": "storage",
+      "Publishers": [
+        {
+          "URL": "0.0.0.0",
+          "TargetPort": 8000,
+          "PublishedPort": 8000,
+          "Protocol": "tcp"
+        },
+        {
+          "URL": "::",
+          "TargetPort": 8000,
+          "PublishedPort": 8000,
+          "Protocol": "tcp"
+        }
+      ],
+      "RunningFor": "29 minutes ago",
+      "Service": "adcm",
+      "Size": "0B",
+      "State": "running",
+      "Status": "Up 4 minutes"
+    },
+    {
+      "Command": "\"docker-entrypoint.s…\"",
+      "CreatedAt": "2026-10-05 19:40:54 +0300 MSK",
+      "Engine": "",
+      "ExitCode": 0,
+      "Health": "healthy",
+      "ID": "51c40c645ac9",
+      "Image": "postgres:16",
+      "Labels": "com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:a85daf0dbd5e79586e850e3fe4b21b796799828ad015ce2166aeb98cc24da61c,com.docker.compose.project=storage,com.docker.compose.project.working_dir=/home/albakhtin/tiabd/storage,com.docker.compose.service=adcm-db,com.docker.compose.config-hash=e7ba290aa058a907fe888e723374c61ddc60489304c73edd49a394a7266284f7,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/home/albakhtin/tiabd/storage/docker-compose.yml,com.docker.compose.version=5.6.0",
+      "LocalVolumes": "1",
+      "Mounts": "storage_adcm-d…",
+      "Name": "adcm-db",
+      "Names": "adcm-db",
+      "Networks": "adcm-net",
+      "Ports": "5432/tcp",
+      "Project": "storage",
+      "Publishers": [
+        {
+          "URL": "",
+          "TargetPort": 5432,
+          "PublishedPort": 0,
+          "Protocol": "tcp"
+        }
+      ],
+      "RunningFor": "29 minutes ago",
+      "Service": "adcm-db",
+      "Size": "0B",
+      "State": "running",
+      "Status": "Up 4 minutes (healthy)"
+    },
+    {
+      "Command": "\"docker-entrypoint.s…\"",
+      "CreatedAt": "2026-10-05 19:40:54 +0300 MSK",
+      "Engine": "",
+      "ExitCode": 0,
+      "Health": "healthy",
+      "ID": "7340b8baa013",
+      "Image": "postgres:16",
+      "Labels": "com.docker.compose.service=adpg,com.docker.compose.version=5.6.0,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:a85daf0dbd5e79586e850e3fe4b21b796799828ad015ce2166aeb98cc24da61c,com.docker.compose.project.working_dir=/home/albakhtin/tiabd/storage,com.docker.compose.config-hash=0f05e474f718d7bb7f8208e29f4047825e247fcf8276dfe3b44e489925d7484c,com.docker.compose.oneoff=False,com.docker.compose.project=storage,com.docker.compose.project.config_files=/home/albakhtin/tiabd/storage/docker-compose.yml",
+      "LocalVolumes": "1",
+      "Mounts": "/home/albakhti…,/home/albakhti…,storage_adpg-d…",
+      "Name": "adpg",
+      "Names": "adpg",
+      "Networks": "adcm-net",
+      "Ports": "0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp",
+      "Project": "storage",
+      "Publishers": [
+        {
+          "URL": "0.0.0.0",
+          "TargetPort": 5432,
+          "PublishedPort": 5432,
+          "Protocol": "tcp"
+        },
+        {
+          "URL": "::",
+          "TargetPort": 5432,
+          "PublishedPort": 5432,
+          "Protocol": "tcp"
+        }
+      ],
+      "RunningFor": "29 minutes ago",
+      "Service": "adpg",
+      "Size": "0B",
+      "State": "running",
+      "Status": "Up 4 minutes (healthy)"
+    },
+    {
+      "Command": "\"/run.sh\"",
+      "CreatedAt": "2026-10-05 19:40:54 +0300 MSK",
+      "Engine": "",
+      "ExitCode": 0,
+      "Health": "",
+      "ID": "d55f90b86889",
+      "Image": "grafana/grafana:latest",
+      "Labels": "com.docker.compose.depends_on=prometheus:service_started:false,adpg:service_healthy:false,com.docker.compose.image=sha256:d84563330dc9d2fd2bc096d0fb96021b5319c75bf6ed555566709998e823dec4,com.docker.compose.project.config_files=/home/albakhtin/tiabd/storage/docker-compose.yml,com.docker.compose.project.working_dir=/home/albakhtin/tiabd/storage,com.docker.compose.version=5.6.0,maintainer=Grafana Labs <hello@grafana.com>,org.opencontainers.image.source=https://github.com/grafana/grafana,com.docker.compose.container-number=1,com.docker.compose.oneoff=False,com.docker.compose.project=storage,com.docker.compose.service=grafana,com.docker.compose.config-hash=12342e646002e80875f17253a8bff1d52dc3c68236407fc6916ce2ef05f9e68e",
+      "LocalVolumes": "1",
+      "Mounts": "/home/albakhti…,storage_grafan…,/home/albakhti…",
+      "Name": "grafana",
+      "Names": "grafana",
+      "Networks": "adcm-net",
+      "Ports": "0.0.0.0:11210->3000/tcp, [::]:11210->3000/tcp",
+      "Project": "storage",
+      "Publishers": [
+        {
+          "URL": "0.0.0.0",
+          "TargetPort": 3000,
+          "PublishedPort": 11210,
+          "Protocol": "tcp"
+        },
+        {
+          "URL": "::",
+          "TargetPort": 3000,
+          "PublishedPort": 11210,
+          "Protocol": "tcp"
+        }
+      ],
+      "RunningFor": "29 minutes ago",
+      "Service": "grafana",
+      "Size": "0B",
+      "State": "running",
+      "Status": "Up 4 minutes"
+    },
+    {
+      "Command": "\"/bin/postgres_expor…\"",
+      "CreatedAt": "2026-10-05 19:40:54 +0300 MSK",
+      "Engine": "",
+      "ExitCode": 0,
+      "Health": "",
+      "ID": "e188d2d37582",
+      "Image": "quay.io/prometheuscommunity/postgres-exporter:latest",
+      "Labels": "com.docker.compose.image=sha256:4f3d82803c1f99ea5e767890de3557d2479ebbc711f63f2e04c663daa840057a,com.docker.compose.project.config_files=/home/albakhtin/tiabd/storage/docker-compose.yml,com.docker.compose.project.working_dir=/home/albakhtin/tiabd/storage,com.docker.compose.version=5.6.0,com.docker.compose.depends_on=adpg:service_healthy:false,com.docker.compose.oneoff=False,com.docker.compose.project=storage,com.docker.compose.service=postgres-exporter,maintainer=The Prometheus Authors <prometheus-developers@googlegroups.com>,com.docker.compose.config-hash=b3cbb69ceb2855e7ef1f99f2255882ba19860e8f8a4a951c761d26a5afee98c2,com.docker.compose.container-number=1",
+      "LocalVolumes": "0",
+      "Mounts": "",
+      "Name": "postgres-exporter",
+      "Names": "postgres-exporter",
+      "Networks": "adcm-net",
+      "Ports": "9187/tcp",
+      "Project": "storage",
+      "Publishers": [
+        {
+          "URL": "",
+          "TargetPort": 9187,
+          "PublishedPort": 0,
+          "Protocol": "tcp"
+        }
+      ],
+      "RunningFor": "29 minutes ago",
+      "Service": "postgres-exporter",
+      "Size": "0B",
+      "State": "running",
+      "Status": "Up 4 minutes"
+    },
+    {
+      "Command": "\"/bin/prometheus --c…\"",
+      "CreatedAt": "2026-10-05 19:40:54 +0300 MSK",
+      "Engine": "",
+      "ExitCode": 0,
+      "Health": "",
+      "ID": "bc94b814e23d",
+      "Image": "prom/prometheus:latest",
+      "Labels": "com.docker.compose.depends_on=,com.docker.compose.service=prometheus,io.prometheus.image.variant=busybox,org.opencontainers.image.source=https://github.com/prometheus/prometheus,org.opencontainers.image.title=Prometheus,maintainer=The Prometheus Authors <prometheus-developers@googlegroups.com>,org.opencontainers.image.authors=The Prometheus Authors,com.docker.compose.config-hash=1a554809a5987af300a1baa1aef1fdb7e0046fcdd992dde32e0e5ac9ba8fd486,com.docker.compose.container-number=1,com.docker.compose.image=sha256:86b17a25c2db1d16a61b16b3c8f336679eb19e26333d03e808da387206e40faa,com.docker.compose.project.config_files=/home/albakhtin/tiabd/storage/docker-compose.yml,com.docker.compose.project.working_dir=/home/albakhtin/tiabd/storage,org.opencontainers.image.description=The Prometheus monitoring system and time series database,org.opencontainers.image.url=https://github.com/prometheus/prometheus,org.opencontainers.image.vendor=Prometheus,com.docker.compose.oneoff=False,com.docker.compose.project=storage,com.docker.compose.version=5.6.0,org.opencontainers.image.documentation=https://prometheus.io/docs,org.opencontainers.image.licenses=Apache License 2.0",
+      "LocalVolumes": "1",
+      "Mounts": "storage_promet…,/home/albakhti…",
+      "Name": "prometheus",
+      "Names": "prometheus",
+      "Networks": "adcm-net",
+      "Ports": "0.0.0.0:9090->9090/tcp, [::]:9090->9090/tcp",
+      "Project": "storage",
+      "Publishers": [
+        {
+          "URL": "0.0.0.0",
+          "TargetPort": 9090,
+          "PublishedPort": 9090,
+          "Protocol": "tcp"
+        },
+        {
+          "URL": "::",
+          "TargetPort": 9090,
+          "PublishedPort": 9090,
+          "Protocol": "tcp"
+        }
+      ],
+      "RunningFor": "29 minutes ago",
+      "Service": "prometheus",
+      "Size": "0B",
+      "State": "running",
+      "Status": "Up 4 minutes"
+    }
+  ],
+  "prometheus": {
+    "status": "success",
+    "data": {
+      "resultType": "vector",
+      "result": [
+        {
+          "metric": {
+            "__name__": "pg_up",
+            "instance": "postgres-exporter:9187",
+            "job": "adpg"
+          },
+          "value": [
+            1791220242.305,
+            "1"
+          ]
+        }
+      ]
+    }
+  },
+  "grafana_health": {
+    "database": "ok",
+    "version": "13.2.3",
+    "commit": "90ffed056f0884267356c12a0eeb72a022af53f1"
+  },
+  "datasource_health": {
+    "message": "Database Connection OK",
+    "status": "OK"
+  }
+}

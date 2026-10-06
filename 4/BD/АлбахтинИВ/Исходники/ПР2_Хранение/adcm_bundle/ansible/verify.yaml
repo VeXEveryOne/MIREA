@@ -1,0 +1,24 @@
+---
+- name: Verify educational ADPG laboratory environment
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Check PostgreSQL TCP endpoint
+      ansible.builtin.wait_for:
+        host: adpg
+        port: 5432
+        timeout: 20
+    - name: Check Prometheus readiness
+      ansible.builtin.uri:
+        url: http://prometheus:9090/-/ready
+        status_code: 200
+    - name: Check Grafana database health
+      ansible.builtin.uri:
+        url: http://grafana:3000/api/health
+        return_content: true
+        status_code: 200
+      register: grafana_health
+    - name: Require healthy Grafana database
+      ansible.builtin.assert:
+        that: grafana_health.json.database == 'ok'

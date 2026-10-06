@@ -1,0 +1,139 @@
+{
+  "cluster": {
+    "id": 1,
+    "name": "TIABD Albakhtin IV Ecommerce",
+    "description": "Personal Ubuntu VM TIABD-Albakhtin-IV, student Albakhtin I.V.",
+    "state": "running",
+    "multiState": [],
+    "status": "down",
+    "prototype": {
+      "id": 2,
+      "name": "adpg_ecommerce_lab",
+      "displayName": "ADPG Ecommerce Lab Albakhtin IV",
+      "version": "16.0.2"
+    },
+    "concerns": [],
+    "isUpgradable": false,
+    "mainInfo": "PostgreSQL 16, Prometheus и Grafana развернуты в Docker на Ubuntu Server 22.04.5. База ecommerce содержит набор данных Brazilian E-Commerce Public Dataset by Olist."
+  },
+  "services": [
+    {
+      "id": 1,
+      "name": "adpg",
+      "description": "PostgreSQL 16 — учебная конфигурация ADPG",
+      "displayName": "Arenadata PostgreSQL",
+      "prototype": {
+        "id": 3,
+        "name": "adpg",
+        "displayName": "Arenadata PostgreSQL",
+        "version": "16.0"
+      },
+      "cluster": {
+        "id": 1,
+        "name": "TIABD Albakhtin IV Ecommerce"
+      },
+      "status": "up",
+      "state": "created",
+      "multiState": [],
+      "concerns": [],
+      "isMaintenanceModeAvailable": false,
+      "maintenanceMode": "off",
+      "mainInfo": "PostgreSQL доступен на adpg:5432; база данных ecommerce загружена и готова к аналитическим запросам."
+    },
+    {
+      "id": 2,
+      "name": "monitoring",
+      "description": "Мониторинг PostgreSQL с помощью postgres_exporter, Prometheus и Grafana",
+      "displayName": "Prometheus и Grafana",
+      "prototype": {
+        "id": 4,
+        "name": "monitoring",
+        "displayName": "Prometheus и Grafana",
+        "version": "1.0"
+      },
+      "cluster": {
+        "id": 1,
+        "name": "TIABD Albakhtin IV Ecommerce"
+      },
+      "status": "up",
+      "state": "created",
+      "multiState": [],
+      "concerns": [],
+      "isMaintenanceModeAvailable": false,
+      "maintenanceMode": "off",
+      "mainInfo": "Prometheus собирает метрики PostgreSQL, а Grafana содержит дашборд Ecommerce Analytics из шести панелей."
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "name": "Install",
+      "displayName": "Проверить и установить",
+      "action": {
+        "id": 3,
+        "name": "Install",
+        "displayName": "Проверить и установить"
+      },
+      "status": "success",
+      "startTime": "2026-10-05T16:47:52.856497Z",
+      "endTime": "2026-10-05T16:47:54.769431Z",
+      "duration": 1.912934,
+      "isTerminatable": false,
+      "childJobs": [
+        {
+          "id": 1,
+          "name": "Проверка учебного стенда",
+          "displayName": "Проверка PostgreSQL и мониторинга",
+          "status": "success",
+          "startTime": "2026-10-05T16:47:52.895421Z",
+          "endTime": "2026-10-05T16:47:54.733256Z",
+          "duration": 1.837835,
+          "isTerminatable": false
+        }
+      ],
+      "objects": [
+        {
+          "type": "cluster",
+          "id": 1,
+          "name": "TIABD Albakhtin IV Ecommerce"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "id": 2,
+      "name": "Start",
+      "displayName": "Запустить кластер",
+      "action": {
+        "id": 4,
+        "name": "Start",
+        "displayName": "Запустить кластер"
+      },
+      "status": "success",
+      "startTime": "2026-10-05T16:47:56.815181Z",
+      "endTime": "2026-10-05T16:47:58.502450Z",
+      "duration": 1.687269,
+      "isTerminatable": false,
+      "childJobs": [
+        {
+          "id": 2,
+          "name": "Проверка запущенных сервисов",
+          "displayName": "PostgreSQL, Prometheus и Grafana доступны",
+          "status": "success",
+          "startTime": "2026-10-05T16:47:56.850033Z",
+          "endTime": "2026-10-05T16:47:58.471010Z",
+          "duration": 1.620977,
+          "isTerminatable": false
+        }
+      ],
+      "objects": [
+        {
+          "type": "cluster",
+          "id": 1,
+          "name": "TIABD Albakhtin IV Ecommerce"
+        }
+      ],
+      "description": ""
+    }
+  ]
+}

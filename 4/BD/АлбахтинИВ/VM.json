@@ -1,0 +1,173 @@
+{
+  "student": "Албахтин И.В.",
+  "group": "ИНБО-12-23",
+  "vm_name": "TIABD-Albakhtin-IV",
+  "vm_uuid": "40603a5d-2404-4561-a4d6-02d13a8b388d",
+  "disk_uuid": "c5271e9f-62a3-420e-abb4-2e8cdc5a0337",
+  "disk_parent": "base",
+  "disk_capacity_gib": 40,
+  "independent_installation": true,
+  "config_path": "D:\\VirtualBox VMs\\TIABD-Albakhtin-IV\\TIABD-Albakhtin-IV.vbox",
+  "resources": {
+    "vcpus": 2,
+    "ram_mib": 4096
+  },
+  "network": "NAT, Windows forwarding bound to 127.0.0.1",
+  "ports": {
+    "ssh": 2223,
+    "adcm": 8001,
+    "postgres": 5433,
+    "prometheus": 9091,
+    "grafana": 11211,
+    "spark": 4041,
+    "jupyter": 8889
+  },
+  "reboot_verified_utc": "2026-10-05T17:14:28.417796+00:00",
+  "guest": {
+    "hostname": "tiabd-albakhtin-iv",
+    "ubuntu": "Ubuntu 22.04.5 LTS",
+    "python": "3.10.12",
+    "java": "openjdk version \"17.0.20.1\" 2026-08-18",
+    "docker": "29.8.2",
+    "compose": "5.6.0",
+    "autostart": {
+      "docker": true,
+      "jupyter": true
+    },
+    "jupyter": {
+      "http_status": 200,
+      "status": {
+        "connections": 0,
+        "kernels": 0,
+        "last_activity": "2026-10-05T17:06:40.505102Z",
+        "started": "2026-10-05T17:06:40.505102Z"
+      }
+    },
+    "adcm_cluster": {
+      "id": 1,
+      "name": "TIABD Albakhtin IV Ecommerce",
+      "state": "running"
+    },
+    "containers": [
+      {
+        "Service": "adcm",
+        "ID": "365b2aa087ef",
+        "Image": "hub.arenadata.io/adcm/adcm:2.12.0",
+        "State": "running",
+        "Health": ""
+      },
+      {
+        "Service": "adcm-db",
+        "ID": "51c40c645ac9",
+        "Image": "postgres:16",
+        "State": "running",
+        "Health": "healthy"
+      },
+      {
+        "Service": "adpg",
+        "ID": "7340b8baa013",
+        "Image": "postgres:16",
+        "State": "running",
+        "Health": "healthy"
+      },
+      {
+        "Service": "grafana",
+        "ID": "d55f90b86889",
+        "Image": "grafana/grafana:latest",
+        "State": "running",
+        "Health": ""
+      },
+      {
+        "Service": "postgres-exporter",
+        "ID": "e188d2d37582",
+        "Image": "quay.io/prometheuscommunity/postgres-exporter:latest",
+        "State": "running",
+        "Health": ""
+      },
+      {
+        "Service": "prometheus",
+        "ID": "bc94b814e23d",
+        "Image": "prom/prometheus:latest",
+        "State": "running",
+        "Health": ""
+      }
+    ],
+    "docker_images": [
+      {
+        "image": "grafana/grafana:latest",
+        "id": "sha256:b28bae15e219c998fb0e0424ed724930cc61b1f61fb404d47c862f9a23f9e572",
+        "repo_digests": [
+          "grafana/grafana@sha256:b28bae15e219c998fb0e0424ed724930cc61b1f61fb404d47c862f9a23f9e572"
+        ]
+      },
+      {
+        "image": "hub.arenadata.io/adcm/adcm:2.12.0",
+        "id": "sha256:e89527f329e9609be80ad643357ce8b22457938504ee7fa65cc7cc47304dd3c3",
+        "repo_digests": [
+          "hub.arenadata.io/adcm/adcm@sha256:e89527f329e9609be80ad643357ce8b22457938504ee7fa65cc7cc47304dd3c3"
+        ]
+      },
+      {
+        "image": "postgres:16",
+        "id": "sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54",
+        "repo_digests": [
+          "postgres@sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54"
+        ]
+      },
+      {
+        "image": "prom/prometheus:latest",
+        "id": "sha256:efd719c99d83b060d9daefdcf00360461adf279f45ef5391f8d111892118753e",
+        "repo_digests": [
+          "prom/prometheus@sha256:efd719c99d83b060d9daefdcf00360461adf279f45ef5391f8d111892118753e"
+        ]
+      },
+      {
+        "image": "quay.io/prometheuscommunity/postgres-exporter:latest",
+        "id": "sha256:ac5ec343104fae0e2d84a27bb8d69b38430a11910c5382cad85d478d2bab713e",
+        "repo_digests": [
+          "quay.io/prometheuscommunity/postgres-exporter@sha256:ac5ec343104fae0e2d84a27bb8d69b38430a11910c5382cad85d478d2bab713e"
+        ]
+      }
+    ]
+  },
+  "execution": {
+    "student": "Албахтин И.В.",
+    "group": "ИНБО-12-23",
+    "vm_name": "TIABD-Albakhtin-IV",
+    "vm_uuid": "40603a5d-2404-4561-a4d6-02d13a8b388d",
+    "hostname": "tiabd-albakhtin-iv",
+    "python": "3.10.12",
+    "started_utc": "2026-10-05T16:40:20.873113+00:00",
+    "notebooks": [
+      {
+        "file": "Ноутбуки/ТИАБД_ПР1_АлбахтинИВ.ipynb",
+        "code_cells": 31,
+        "errors": 0,
+        "completed_utc": "2026-10-05T16:40:24.885208+00:00"
+      },
+      {
+        "file": "Ноутбуки/ТИАБД_ПР2_Визуализация_АлбахтинИВ.ipynb",
+        "code_cells": 11,
+        "errors": 0,
+        "completed_utc": "2026-10-05T16:41:10.159191+00:00"
+      },
+      {
+        "file": "Spark/Practice_3.ipynb",
+        "code_cells": 9,
+        "errors": 0,
+        "completed_utc": "2026-10-05T16:44:21.820757+00:00"
+      },
+      {
+        "file": "Spark/Practice_4.ipynb",
+        "code_cells": 12,
+        "errors": 0,
+        "completed_utc": "2026-10-05T17:01:34.637245+00:00"
+      }
+    ],
+    "completed_utc": "2026-10-05T17:01:34.637694+00:00"
+  },
+  "limitations": [
+    "PostgreSQL official image and ADCM educational community bundle; industrial ADPG is not installed.",
+    "Spark local[*] uses two virtual CPU cores of one Linux node."
+  ]
+}

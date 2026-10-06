@@ -1,0 +1,70 @@
+{
+  "student": "Албахтин И.В.",
+  "checked_utc": "2026-10-05T17:26:48.436732+00:00",
+  "reports": [
+    {
+      "file": "4/BD/practice_1/Практическая работа №1.docx",
+      "pages": 21,
+      "control_questions": 12,
+      "render_version": "v2",
+      "docx_sha256": "e836769950f9a33398d1492964478207bdc9276b2be955e271916f747d2af8e2",
+      "pdf_sha256": "d8ee2abdc856c270cc044a1beeadea511296935b635dbf61859076abbaf7493b"
+    },
+    {
+      "file": "4/BD/practice_2/Практическая работа №2.docx",
+      "pages": 19,
+      "control_questions": 16,
+      "render_version": "v1",
+      "docx_sha256": "a2c6cc11637017a02e7bfc8c247389dc57c2c8ac7f6a27cde413614c93916592",
+      "pdf_sha256": "cc8777d497c3560a8e0b0ea0fde358fdf9fab3916065d9e729e07a28f50f574d"
+    },
+    {
+      "file": "4/BD/Практическая работа №2.docx",
+      "pages": 13,
+      "control_questions": 12,
+      "render_version": "v2",
+      "docx_sha256": "3300c2c420b69da5ead19d503d0054c6b168726be77dcc3ed544e16b3281ee06",
+      "pdf_sha256": "7515b246f328dcd8319b396bae37d2ef5519630ba51e54d3dc85eed415f26ada"
+    },
+    {
+      "file": "4/BD/Практическая работа №3.docx",
+      "pages": 15,
+      "control_questions": 16,
+      "render_version": "v1",
+      "docx_sha256": "3408d85e45091ad7114f3c61da491c399754f2b644fa01f6ea38c7ef09281f51",
+      "pdf_sha256": "a0d32fba60e6ac1d018f0313e3ecfe83ae9cc203678c770b64bb5178f0d612b9"
+    },
+    {
+      "file": "4/BD/Практическая работа №4.docx",
+      "pages": 18,
+      "control_questions": 30,
+      "render_version": "v2",
+      "docx_sha256": "8333affffdc67712b564b2fc8d7c3175cee379903927c26c7435c520bcdc4e85",
+      "pdf_sha256": "98f505f503ba34dd5db3edf350cf984d3577092e76bd05c5c4e8476c309d7677"
+    },
+    {
+      "file": "4/BD/ТИАБД_Лекции_1–2_АлбахтинИВ.docx",
+      "pages": 15,
+      "control_questions": 16,
+      "render_version": "v1",
+      "docx_sha256": "c7fe1257206d074eb2486ba19f0839bf27229064074bc3602f70b4593f66c0f0",
+      "pdf_sha256": "189481c7f16f8f7bc8f56bc48d07b31e861924072ac60dcbc3359dff95779aa9"
+    }
+  ],
+  "visual_review": "All 101 final pages reviewed visually",
+  "limitations": [
+    "Official PostgreSQL 16 and an educational ADCM community bundle; industrial Arenadata PostgreSQL binaries are not installed.",
+    "Spark local[*] uses two vCPUs of one VM; Python 3.10.12 is used instead of the recommended 3.11."
+  ],
+  "reference_unchanged": true,
+  "total_pages": 101,
+  "total_questions": 102,
+  "executed_notebooks": 4,
+  "executed_code_cells": 63,
+  "notebook_errors": 0,
+  "fresh_vm_results": true,
+  "autostart_verified": true,
+  "gubarev_reports_unchanged": true,
+  "public_files_without_private_credentials": true,
+  "status": "passed"
+}

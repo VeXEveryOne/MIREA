@@ -1,0 +1,17 @@
+apiVersion: 1
+datasources:
+  - name: Ecommerce PostgreSQL
+    uid: ecommerce-postgres
+    type: grafana-postgresql-datasource
+    access: proxy
+    url: adpg:5432
+    user: postgres
+    isDefault: true
+    editable: true
+    jsonData:
+      database: ecommerce
+      sslmode: disable
+      postgresVersion: 1600
+      timescaledb: false
+    secureJsonData:
+      password: $TIABD_PG_PASSWORD
