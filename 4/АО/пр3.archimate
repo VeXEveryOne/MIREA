@@ -45,8 +45,8 @@
     <element xsi:type="archimate:AssignmentRelationship" id="id-08f76d487c9a478cabbe5f0ce963c889" source="id-bb1ca696f11e4e76b553f85154f19fe4" target="id-7db06439814f4c8e96fad786b4e8f745"/>
     <element xsi:type="archimate:ServingRelationship" id="id-ae49f13f682e4e0aaaaa70b66dcf1c0d" source="id-bb1ca696f11e4e76b553f85154f19fe4" target="id-b745f3a84bdb460eac6ce01ee62cea97"/>
     <element xsi:type="archimate:ServingRelationship" id="id-790fabb58ec4469c80cb4e06c0f5d00f" source="id-7db06439814f4c8e96fad786b4e8f745" target="id-5fab3d1fa1154bcd928448980d2e1534"/>
-    <element xsi:type="archimate:TriggeringRelationship" id="id-db7d6ae5fe5345229b1c8d0948b49213" source="id-1966c38785a04bf8800f0b7062e0986d" target="id-3b82baa0e31342488596217516144766"/>
-    <element xsi:type="archimate:TriggeringRelationship" id="id-99433afc0e8647fe819ef50b969be072" source="id-3b82baa0e31342488596217516144766" target="id-302d61735eb1425e8dd1eb6d371bdb05"/>
+    <element xsi:type="archimate:TriggeringRelationship" name="Запускает" id="id-db7d6ae5fe5345229b1c8d0948b49213" source="id-1966c38785a04bf8800f0b7062e0986d" target="id-3b82baa0e31342488596217516144766"/>
+    <element xsi:type="archimate:TriggeringRelationship" name="Запускает" id="id-99433afc0e8647fe819ef50b969be072" source="id-3b82baa0e31342488596217516144766" target="id-302d61735eb1425e8dd1eb6d371bdb05"/>
     <element xsi:type="archimate:AccessRelationship" id="id-6f018d58abc54337af85db7839707dad" source="id-3b82baa0e31342488596217516144766" target="id-e5ccd2a0f7a04455af9ce488c347b8f0"/>
     <element xsi:type="archimate:AccessRelationship" id="id-10535cd6db3243c88187c1257179d947" source="id-302d61735eb1425e8dd1eb6d371bdb05" target="id-e5ccd2a0f7a04455af9ce488c347b8f0" accessType="1"/>
     <element xsi:type="archimate:AccessRelationship" id="id-beebdfdd50cb48e1a7cbb31b5f0be161" source="id-056b5ff9ffce45428e85fc3ea57cae08" target="id-7da9c359d1024fd58b68c65fd475f496"/>

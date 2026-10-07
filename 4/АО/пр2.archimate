@@ -104,21 +104,25 @@
     </element>
     <element xsi:type="archimate:ArchimateDiagramModel" name="Агрегация" id="id-b49d3bf813ea40e5a6dc6f351540becb">
       <child xsi:type="archimate:DiagramObject" id="id-ec622df2694a47a3b111b894978d6976" archimateElement="id-6a346a1a114048afa958e2545a960ad4">
-        <bounds x="283" y="52" width="120" height="55"/>
+        <bounds x="360" y="36" width="120" height="55"/>
         <sourceConnection xsi:type="archimate:Connection" id="id-84d69c583fb24e9aaf28b446cf194f81" source="id-ec622df2694a47a3b111b894978d6976" target="id-d18066d447ec42b6bce247da036ade49" archimateRelationship="id-d7390849a0d24f1f9f0dab7920b076e0"/>
         <sourceConnection xsi:type="archimate:Connection" id="id-fd171f9333014c7d9506d5e8fd231c49" source="id-ec622df2694a47a3b111b894978d6976" target="id-2d4b6f2398244e8091c3dd54993b4ada" archimateRelationship="id-deb1c7adb03f41a6830a9211c4b0c765"/>
         <sourceConnection xsi:type="archimate:Connection" id="id-75d99de6abc342e796168e64d0838526" source="id-ec622df2694a47a3b111b894978d6976" target="id-63c9d356a86e4435875ef066653f23d2" archimateRelationship="id-197d09bd6d274d1586e4ca806737856f"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-d18066d447ec42b6bce247da036ade49" targetConnections="id-84d69c583fb24e9aaf28b446cf194f81" archimateElement="id-98c09eb428494c1eb322f8bbb1c4cf62">
-        <bounds x="488" y="148" width="120" height="85"/>
-        <sourceConnection xsi:type="archimate:Connection" id="id-a2524c00fda04af9bb0dfa94344352b1" source="id-d18066d447ec42b6bce247da036ade49" target="id-2d4b6f2398244e8091c3dd54993b4ada" archimateRelationship="id-f8c6e6fcbb08485fbeac5f8c8714c26e"/>
+        <bounds x="756" y="148" width="120" height="85"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-a2524c00fda04af9bb0dfa94344352b1" source="id-d18066d447ec42b6bce247da036ade49" target="id-2d4b6f2398244e8091c3dd54993b4ada" archimateRelationship="id-f8c6e6fcbb08485fbeac5f8c8714c26e">
+          <feature name="labelExpression" value="Бизнес сервис имеет доступ на запись/&#xD;&#xA;Полис доступен для записи"/>
+        </sourceConnection>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-2d4b6f2398244e8091c3dd54993b4ada" targetConnections="id-9b80dd4c2a514e24a657e97d8e4ec79b id-a2524c00fda04af9bb0dfa94344352b1 id-fd171f9333014c7d9506d5e8fd231c49" archimateElement="id-c62afbfd53f3485da57ae08a049ee8db">
-        <bounds x="284" y="148" width="120" height="55"/>
+        <bounds x="360" y="148" width="120" height="55"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-63c9d356a86e4435875ef066653f23d2" targetConnections="id-75d99de6abc342e796168e64d0838526" archimateElement="id-7fadfacbbcb0464c9cf4680bf1601205">
-        <bounds x="80" y="148" width="120" height="85"/>
-        <sourceConnection xsi:type="archimate:Connection" id="id-9b80dd4c2a514e24a657e97d8e4ec79b" source="id-63c9d356a86e4435875ef066653f23d2" target="id-2d4b6f2398244e8091c3dd54993b4ada" archimateRelationship="id-e1c5227b01e948ee8df6fd7b9454fff6"/>
+        <bounds x="12" y="148" width="120" height="85"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-9b80dd4c2a514e24a657e97d8e4ec79b" source="id-63c9d356a86e4435875ef066653f23d2" target="id-2d4b6f2398244e8091c3dd54993b4ada" archimateRelationship="id-e1c5227b01e948ee8df6fd7b9454fff6">
+          <feature name="labelExpression" value="Бизнес сервис имеет доступ на запись/&#xD;&#xA;Полис доступен для записи"/>
+        </sourceConnection>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-c7ae20cee3aa410fbda9c17f6f599c03" archimateElement="id-10b728ad835e49cd9799ffa7a8eaaee5">
         <bounds x="60" y="288" width="636" height="373"/>
@@ -160,14 +164,16 @@
     </element>
     <element xsi:type="archimate:ArchimateDiagramModel" name="Реализация" id="id-526ce1953bed4cdd830c57fc37c10b14">
       <child xsi:type="archimate:DiagramObject" id="id-cce81cd06e5f4345937fe0727f61bf0d" targetConnections="id-e830897530024711862024182ca22f8e" archimateElement="id-5b917f4c8535463db42d2aa7f1c0f0aa">
-        <bounds x="192" y="84" width="120" height="55"/>
-        <sourceConnection xsi:type="archimate:Connection" id="id-1b75b1a3d76547a6b206db489d15c7ed" source="id-cce81cd06e5f4345937fe0727f61bf0d" target="id-c96ee4bde18140b7a1dd641c709a3ca0" archimateRelationship="id-bb2363ccdb4b4ead83643e0138b447b5"/>
+        <bounds x="192" y="84" width="120" height="73"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-1b75b1a3d76547a6b206db489d15c7ed" source="id-cce81cd06e5f4345937fe0727f61bf0d" target="id-c96ee4bde18140b7a1dd641c709a3ca0" archimateRelationship="id-bb2363ccdb4b4ead83643e0138b447b5">
+          <feature name="labelExpression" value="Бизнес-процесс имеедт доступ на запись/&#xD;&#xA;Накладная доступна для записи"/>
+        </sourceConnection>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-c96ee4bde18140b7a1dd641c709a3ca0" targetConnections="id-1b75b1a3d76547a6b206db489d15c7ed id-c412d5870ce544b385980edf0bd19325" archimateElement="id-54889252e32d4e6689aec22068db022c">
-        <bounds x="428" y="84" width="120" height="55"/>
+        <bounds x="624" y="84" width="120" height="55"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-ca34a03a110f4871b9d5d7e3acb84ca3" targetConnections="id-cb1b59d754a2433394daee6d340f0075" archimateElement="id-7e5750905b374a4e8c4b2c4fe3e6a114">
-        <bounds x="428" y="216" width="120" height="55"/>
+        <bounds x="624" y="216" width="120" height="55"/>
         <sourceConnection xsi:type="archimate:Connection" id="id-c412d5870ce544b385980edf0bd19325" source="id-ca34a03a110f4871b9d5d7e3acb84ca3" target="id-c96ee4bde18140b7a1dd641c709a3ca0" archimateRelationship="id-6faa21838f8446b68fa90d0e90bb07ff">
           <feature name="labelExpression" value="Объекст данных создаёт/&#xD;&#xA;накладная создаётся на основании&#xD;&#xA;"/>
         </sourceConnection>
@@ -179,9 +185,13 @@
         </sourceConnection>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-51d885586b404f419b300123935e21d7" targetConnections="id-02786c9451554e6aa322f670ac3ff567" archimateElement="id-ebf07756132542038cf489e13cc954af">
-        <bounds x="192" y="216" width="120" height="55"/>
-        <sourceConnection xsi:type="archimate:Connection" id="id-cb1b59d754a2433394daee6d340f0075" source="id-51d885586b404f419b300123935e21d7" target="id-ca34a03a110f4871b9d5d7e3acb84ca3" archimateRelationship="id-bb881185715f4a619b4f75e52700c809"/>
-        <sourceConnection xsi:type="archimate:Connection" id="id-e830897530024711862024182ca22f8e" source="id-51d885586b404f419b300123935e21d7" target="id-cce81cd06e5f4345937fe0727f61bf0d" archimateRelationship="id-56f8e667ba46417eabf76160b2244ba7"/>
+        <bounds x="192" y="216" width="120" height="73"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-cb1b59d754a2433394daee6d340f0075" source="id-51d885586b404f419b300123935e21d7" target="id-ca34a03a110f4871b9d5d7e3acb84ca3" archimateRelationship="id-bb881185715f4a619b4f75e52700c809">
+          <feature name="labelExpression" value="Сервис приложений имеет доступ на запись/&#xD;&#xA;Данные биллинга доступны для записи"/>
+        </sourceConnection>
+        <sourceConnection xsi:type="archimate:Connection" id="id-e830897530024711862024182ca22f8e" source="id-51d885586b404f419b300123935e21d7" target="id-cce81cd06e5f4345937fe0727f61bf0d" archimateRelationship="id-56f8e667ba46417eabf76160b2244ba7">
+          <feature name="labelExpression" value="Бизнес-процесс обслуживается/&#xD;&#xA;Сервис приложений обслуживает"/>
+        </sourceConnection>
       </child>
     </element>
   </folder>
