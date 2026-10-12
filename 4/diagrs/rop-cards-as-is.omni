@@ -1,0 +1,2160 @@
+{
+  "formatVersion": 3,
+  "notation": "BPMN",
+  "model": {
+    "root": "id:Definitions_Cards",
+    "objects": {
+      "id:Definitions_Cards": {
+        "type": "bpmn:Definitions",
+        "properties": {
+          "id": "Definitions_Cards",
+          "targetNamespace": "urn:omninotation:rop:cards",
+          "rootElements": [
+            {
+              "ref": "id:Process_Cards_ASIS"
+            },
+            {
+              "ref": "id:Collaboration_Cards"
+            }
+          ],
+          "diagrams": [
+            {
+              "ref": "id:Diagram_Cards"
+            }
+          ]
+        }
+      },
+      "id:Process_Cards_ASIS": {
+        "type": "bpmn:Process",
+        "properties": {
+          "id": "Process_Cards_ASIS",
+          "name": "Формирование и актуализация карточек товаров AS IS",
+          "laneSets": [
+            {
+              "ref": "id:LaneSet_1"
+            }
+          ],
+          "flowElements": [
+            {
+              "ref": "id:Start_Request"
+            },
+            {
+              "ref": "id:Task_Init"
+            },
+            {
+              "ref": "id:Task_BOM"
+            },
+            {
+              "ref": "id:Task_Compatibility"
+            },
+            {
+              "ref": "id:Gateway_Compatible"
+            },
+            {
+              "ref": "id:Task_FixCompatibility"
+            },
+            {
+              "ref": "id:Task_Supplier"
+            },
+            {
+              "ref": "id:Gateway_Available"
+            },
+            {
+              "ref": "id:Task_LocalReplace"
+            },
+            {
+              "ref": "id:Task_Calculate"
+            },
+            {
+              "ref": "id:Task_Images"
+            },
+            {
+              "ref": "id:Task_Publish"
+            },
+            {
+              "ref": "id:Task_OzonReview"
+            },
+            {
+              "ref": "id:Gateway_Accepted"
+            },
+            {
+              "ref": "id:Task_Correct"
+            },
+            {
+              "ref": "id:End_Published"
+            },
+            {
+              "ref": "id:Flow_01"
+            },
+            {
+              "ref": "id:Flow_02"
+            },
+            {
+              "ref": "id:Flow_03"
+            },
+            {
+              "ref": "id:Flow_04"
+            },
+            {
+              "ref": "id:Flow_05"
+            },
+            {
+              "ref": "id:Flow_06"
+            },
+            {
+              "ref": "id:Flow_07"
+            },
+            {
+              "ref": "id:Flow_08"
+            },
+            {
+              "ref": "id:Flow_09"
+            },
+            {
+              "ref": "id:Flow_10"
+            },
+            {
+              "ref": "id:Flow_11"
+            },
+            {
+              "ref": "id:Flow_12"
+            },
+            {
+              "ref": "id:Flow_13"
+            },
+            {
+              "ref": "id:Flow_14"
+            },
+            {
+              "ref": "id:Flow_15"
+            },
+            {
+              "ref": "id:Flow_16"
+            },
+            {
+              "ref": "id:Flow_17"
+            },
+            {
+              "ref": "id:Flow_18"
+            }
+          ],
+          "isExecutable": false
+        }
+      },
+      "id:Collaboration_Cards": {
+        "type": "bpmn:Collaboration",
+        "properties": {
+          "id": "Collaboration_Cards",
+          "participants": [
+            {
+              "ref": "id:Participant_Ucoms"
+            }
+          ]
+        }
+      },
+      "id:LaneSet_1": {
+        "type": "bpmn:LaneSet",
+        "properties": {
+          "id": "LaneSet_1",
+          "lanes": [
+            {
+              "ref": "id:Lane_Manager"
+            },
+            {
+              "ref": "id:Lane_Technical"
+            },
+            {
+              "ref": "id:Lane_Supplier"
+            },
+            {
+              "ref": "id:Lane_Designer"
+            },
+            {
+              "ref": "id:Lane_Ozon"
+            }
+          ]
+        }
+      },
+      "id:Start_Request": {
+        "type": "bpmn:StartEvent",
+        "properties": {
+          "id": "Start_Request",
+          "name": "Потребность в карточке",
+          "outgoing": [
+            {
+              "ref": "id:Flow_01"
+            }
+          ]
+        }
+      },
+      "id:Task_Init": {
+        "type": "bpmn:ManualTask",
+        "properties": {
+          "id": "Task_Init",
+          "name": "Инициировать создание или изменение карточки",
+          "incoming": [
+            {
+              "ref": "id:Flow_01"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:Flow_02"
+            }
+          ]
+        }
+      },
+      "id:Task_BOM": {
+        "type": "bpmn:ManualTask",
+        "properties": {
+          "id": "Task_BOM",
+          "name": "Сформировать BOM и сопоставить позиции поставщиков",
+          "incoming": [
+            {
+              "ref": "id:Flow_02"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:Flow_03"
+            }
+          ]
+        }
+      },
+      "id:Task_Compatibility": {
+        "type": "bpmn:ManualTask",
+        "properties": {
+          "id": "Task_Compatibility",
+          "name": "Проверить совместимость комплектующих",
+          "incoming": [
+            {
+              "ref": "id:Flow_03"
+            },
+            {
+              "ref": "id:Flow_07"
+            },
+            {
+              "ref": "id:Flow_11"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:Flow_04"
+            }
+          ]
+        }
+      },
+      "id:Gateway_Compatible": {
+        "type": "bpmn:ExclusiveGateway",
+        "properties": {
+          "id": "Gateway_Compatible",
+          "name": "Совместимо?",
+          "incoming": [
+            {
+              "ref": "id:Flow_04"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:Flow_05"
+            },
+            {
+              "ref": "id:Flow_06"
+            }
+          ]
+        }
+      },
+      "id:Task_FixCompatibility": {
+        "type": "bpmn:ManualTask",
+        "properties": {
+          "id": "Task_FixCompatibility",
+          "name": "Исправить несовместимую конфигурацию",
+          "incoming": [
+            {
+              "ref": "id:Flow_06"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:Flow_07"
+            }
+          ]
+        }
+      },
+      "id:Task_Supplier": {
+        "type": "bpmn:ManualTask",
+        "properties": {
+          "id": "Task_Supplier",
+          "name": "Получить цены и наличие поставщиков",
+          "incoming": [
+            {
+              "ref": "id:Flow_05"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:Flow_08"
+            }
+          ]
+        }
+      },
+      "id:Gateway_Available": {
+        "type": "bpmn:ExclusiveGateway",
+        "properties": {
+          "id": "Gateway_Available",
+          "name": "Комплектующие доступны?",
+          "incoming": [
+            {
+              "ref": "id:Flow_08"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:Flow_09"
+            },
+            {
+              "ref": "id:Flow_10"
+            }
+          ]
+        }
+      },
+      "id:Task_LocalReplace": {
+        "type": "bpmn:ManualTask",
+        "properties": {
+          "id": "Task_LocalReplace",
+          "name": "Локально заменить компонент в отдельных BOM",
+          "incoming": [
+            {
+              "ref": "id:Flow_10"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:Flow_11"
+            }
+          ]
+        }
+      },
+      "id:Task_Calculate": {
+        "type": "bpmn:ManualTask",
+        "properties": {
+          "id": "Task_Calculate",
+          "name": "Рассчитать цену и вес",
+          "incoming": [
+            {
+              "ref": "id:Flow_09"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:Flow_12"
+            }
+          ]
+        }
+      },
+      "id:Task_Images": {
+        "type": "bpmn:ManualTask",
+        "properties": {
+          "id": "Task_Images",
+          "name": "Подготовить изображения",
+          "incoming": [
+            {
+              "ref": "id:Flow_12"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:Flow_13"
+            }
+          ]
+        }
+      },
+      "id:Task_Publish": {
+        "type": "bpmn:ManualTask",
+        "properties": {
+          "id": "Task_Publish",
+          "name": "Повторно ввести данные и отправить карточку",
+          "incoming": [
+            {
+              "ref": "id:Flow_13"
+            },
+            {
+              "ref": "id:Flow_18"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:Flow_14"
+            }
+          ]
+        }
+      },
+      "id:Task_OzonReview": {
+        "type": "bpmn:ManualTask",
+        "properties": {
+          "id": "Task_OzonReview",
+          "name": "Проверить карточку",
+          "incoming": [
+            {
+              "ref": "id:Flow_14"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:Flow_15"
+            }
+          ]
+        }
+      },
+      "id:Gateway_Accepted": {
+        "type": "bpmn:ExclusiveGateway",
+        "properties": {
+          "id": "Gateway_Accepted",
+          "name": "Карточка принята?",
+          "incoming": [
+            {
+              "ref": "id:Flow_15"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:Flow_16"
+            },
+            {
+              "ref": "id:Flow_17"
+            }
+          ]
+        }
+      },
+      "id:Task_Correct": {
+        "type": "bpmn:ManualTask",
+        "properties": {
+          "id": "Task_Correct",
+          "name": "Исправить отклонённую карточку",
+          "incoming": [
+            {
+              "ref": "id:Flow_17"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:Flow_18"
+            }
+          ]
+        }
+      },
+      "id:End_Published": {
+        "type": "bpmn:EndEvent",
+        "properties": {
+          "id": "End_Published",
+          "name": "Карточка опубликована",
+          "incoming": [
+            {
+              "ref": "id:Flow_16"
+            }
+          ]
+        }
+      },
+      "id:Flow_01": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Flow_01",
+          "sourceRef": {
+            "ref": "id:Start_Request"
+          },
+          "targetRef": {
+            "ref": "id:Task_Init"
+          }
+        }
+      },
+      "id:Flow_02": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Flow_02",
+          "sourceRef": {
+            "ref": "id:Task_Init"
+          },
+          "targetRef": {
+            "ref": "id:Task_BOM"
+          }
+        }
+      },
+      "id:Flow_03": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Flow_03",
+          "sourceRef": {
+            "ref": "id:Task_BOM"
+          },
+          "targetRef": {
+            "ref": "id:Task_Compatibility"
+          }
+        }
+      },
+      "id:Flow_04": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Flow_04",
+          "sourceRef": {
+            "ref": "id:Task_Compatibility"
+          },
+          "targetRef": {
+            "ref": "id:Gateway_Compatible"
+          }
+        }
+      },
+      "id:Flow_05": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Flow_05",
+          "name": "Да",
+          "sourceRef": {
+            "ref": "id:Gateway_Compatible"
+          },
+          "targetRef": {
+            "ref": "id:Task_Supplier"
+          }
+        }
+      },
+      "id:Flow_06": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Flow_06",
+          "name": "Нет",
+          "sourceRef": {
+            "ref": "id:Gateway_Compatible"
+          },
+          "targetRef": {
+            "ref": "id:Task_FixCompatibility"
+          }
+        }
+      },
+      "id:Flow_07": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Flow_07",
+          "name": "Повторная проверка",
+          "sourceRef": {
+            "ref": "id:Task_FixCompatibility"
+          },
+          "targetRef": {
+            "ref": "id:Task_Compatibility"
+          }
+        }
+      },
+      "id:Flow_08": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Flow_08",
+          "sourceRef": {
+            "ref": "id:Task_Supplier"
+          },
+          "targetRef": {
+            "ref": "id:Gateway_Available"
+          }
+        }
+      },
+      "id:Flow_09": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Flow_09",
+          "name": "Да",
+          "sourceRef": {
+            "ref": "id:Gateway_Available"
+          },
+          "targetRef": {
+            "ref": "id:Task_Calculate"
+          }
+        }
+      },
+      "id:Flow_10": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Flow_10",
+          "name": "Нет",
+          "sourceRef": {
+            "ref": "id:Gateway_Available"
+          },
+          "targetRef": {
+            "ref": "id:Task_LocalReplace"
+          }
+        }
+      },
+      "id:Flow_11": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Flow_11",
+          "name": "Уточнить BOM",
+          "sourceRef": {
+            "ref": "id:Task_LocalReplace"
+          },
+          "targetRef": {
+            "ref": "id:Task_Compatibility"
+          }
+        }
+      },
+      "id:Flow_12": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Flow_12",
+          "sourceRef": {
+            "ref": "id:Task_Calculate"
+          },
+          "targetRef": {
+            "ref": "id:Task_Images"
+          }
+        }
+      },
+      "id:Flow_13": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Flow_13",
+          "sourceRef": {
+            "ref": "id:Task_Images"
+          },
+          "targetRef": {
+            "ref": "id:Task_Publish"
+          }
+        }
+      },
+      "id:Flow_14": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Flow_14",
+          "sourceRef": {
+            "ref": "id:Task_Publish"
+          },
+          "targetRef": {
+            "ref": "id:Task_OzonReview"
+          }
+        }
+      },
+      "id:Flow_15": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Flow_15",
+          "sourceRef": {
+            "ref": "id:Task_OzonReview"
+          },
+          "targetRef": {
+            "ref": "id:Gateway_Accepted"
+          }
+        }
+      },
+      "id:Flow_16": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Flow_16",
+          "name": "Да",
+          "sourceRef": {
+            "ref": "id:Gateway_Accepted"
+          },
+          "targetRef": {
+            "ref": "id:End_Published"
+          }
+        }
+      },
+      "id:Flow_17": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Flow_17",
+          "name": "Нет",
+          "sourceRef": {
+            "ref": "id:Gateway_Accepted"
+          },
+          "targetRef": {
+            "ref": "id:Task_Correct"
+          }
+        }
+      },
+      "id:Flow_18": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Flow_18",
+          "name": "Повторная отправка",
+          "sourceRef": {
+            "ref": "id:Task_Correct"
+          },
+          "targetRef": {
+            "ref": "id:Task_Publish"
+          }
+        }
+      },
+      "id:Participant_Ucoms": {
+        "type": "bpmn:Participant",
+        "properties": {
+          "id": "Participant_Ucoms",
+          "name": "ООО «Юкомс» · Формирование карточек товаров",
+          "processRef": {
+            "ref": "id:Process_Cards_ASIS"
+          }
+        }
+      },
+      "id:Lane_Manager": {
+        "type": "bpmn:Lane",
+        "properties": {
+          "id": "Lane_Manager",
+          "name": "Менеджер маркетплейсов",
+          "flowNodeRef": [
+            {
+              "ref": "id:Start_Request"
+            },
+            {
+              "ref": "id:Task_Init"
+            },
+            {
+              "ref": "id:Task_Publish"
+            },
+            {
+              "ref": "id:Task_Correct"
+            },
+            {
+              "ref": "id:End_Published"
+            }
+          ]
+        }
+      },
+      "id:Lane_Technical": {
+        "type": "bpmn:Lane",
+        "properties": {
+          "id": "Lane_Technical",
+          "name": "Технический специалист",
+          "flowNodeRef": [
+            {
+              "ref": "id:Task_BOM"
+            },
+            {
+              "ref": "id:Task_Compatibility"
+            },
+            {
+              "ref": "id:Gateway_Compatible"
+            },
+            {
+              "ref": "id:Task_FixCompatibility"
+            },
+            {
+              "ref": "id:Task_LocalReplace"
+            },
+            {
+              "ref": "id:Task_Calculate"
+            }
+          ]
+        }
+      },
+      "id:Lane_Supplier": {
+        "type": "bpmn:Lane",
+        "properties": {
+          "id": "Lane_Supplier",
+          "name": "Склад и поставщики",
+          "flowNodeRef": [
+            {
+              "ref": "id:Task_Supplier"
+            },
+            {
+              "ref": "id:Gateway_Available"
+            }
+          ]
+        }
+      },
+      "id:Lane_Designer": {
+        "type": "bpmn:Lane",
+        "properties": {
+          "id": "Lane_Designer",
+          "name": "Дизайнер",
+          "flowNodeRef": [
+            {
+              "ref": "id:Task_Images"
+            }
+          ]
+        }
+      },
+      "id:Lane_Ozon": {
+        "type": "bpmn:Lane",
+        "properties": {
+          "id": "Lane_Ozon",
+          "name": "Ozon",
+          "flowNodeRef": [
+            {
+              "ref": "id:Task_OzonReview"
+            },
+            {
+              "ref": "id:Gateway_Accepted"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "layout": {
+    "objects": {
+      "id:Diagram_Cards": {
+        "type": "bpmndi:BPMNDiagram",
+        "properties": {
+          "id": "Diagram_Cards",
+          "plane": {
+            "ref": "id:Plane_Cards"
+          }
+        }
+      },
+      "id:Plane_Cards": {
+        "type": "bpmndi:BPMNPlane",
+        "properties": {
+          "id": "Plane_Cards",
+          "bpmnElement": {
+            "ref": "id:Collaboration_Cards"
+          },
+          "planeElement": [
+            {
+              "ref": "id:Participant_Ucoms_di"
+            },
+            {
+              "ref": "id:Lane_Manager_di"
+            },
+            {
+              "ref": "id:Lane_Technical_di"
+            },
+            {
+              "ref": "id:Lane_Supplier_di"
+            },
+            {
+              "ref": "id:Lane_Designer_di"
+            },
+            {
+              "ref": "id:Lane_Ozon_di"
+            },
+            {
+              "ref": "id:Start_Request_di"
+            },
+            {
+              "ref": "id:Task_Init_di"
+            },
+            {
+              "ref": "id:Task_BOM_di"
+            },
+            {
+              "ref": "id:Task_Compatibility_di"
+            },
+            {
+              "ref": "id:Gateway_Compatible_di"
+            },
+            {
+              "ref": "id:Task_FixCompatibility_di"
+            },
+            {
+              "ref": "id:Task_Supplier_di"
+            },
+            {
+              "ref": "id:Gateway_Available_di"
+            },
+            {
+              "ref": "id:Task_LocalReplace_di"
+            },
+            {
+              "ref": "id:Task_Calculate_di"
+            },
+            {
+              "ref": "id:Task_Images_di"
+            },
+            {
+              "ref": "id:Task_Publish_di"
+            },
+            {
+              "ref": "id:Task_OzonReview_di"
+            },
+            {
+              "ref": "id:Gateway_Accepted_di"
+            },
+            {
+              "ref": "id:Task_Correct_di"
+            },
+            {
+              "ref": "id:End_Published_di"
+            },
+            {
+              "ref": "id:Flow_01_di"
+            },
+            {
+              "ref": "id:Flow_02_di"
+            },
+            {
+              "ref": "id:Flow_03_di"
+            },
+            {
+              "ref": "id:Flow_04_di"
+            },
+            {
+              "ref": "id:Flow_05_di"
+            },
+            {
+              "ref": "id:Flow_06_di"
+            },
+            {
+              "ref": "id:Flow_07_di"
+            },
+            {
+              "ref": "id:Flow_08_di"
+            },
+            {
+              "ref": "id:Flow_09_di"
+            },
+            {
+              "ref": "id:Flow_10_di"
+            },
+            {
+              "ref": "id:Flow_11_di"
+            },
+            {
+              "ref": "id:Flow_12_di"
+            },
+            {
+              "ref": "id:Flow_13_di"
+            },
+            {
+              "ref": "id:Flow_14_di"
+            },
+            {
+              "ref": "id:Flow_15_di"
+            },
+            {
+              "ref": "id:Flow_16_di"
+            },
+            {
+              "ref": "id:Flow_17_di"
+            },
+            {
+              "ref": "id:Flow_18_di"
+            }
+          ]
+        }
+      },
+      "id:Participant_Ucoms_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Participant_Ucoms_di",
+          "bpmnElement": {
+            "ref": "id:Participant_Ucoms"
+          },
+          "bounds": {
+            "ref": "object:1"
+          },
+          "isHorizontal": true
+        }
+      },
+      "id:Lane_Manager_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Lane_Manager_di",
+          "bpmnElement": {
+            "ref": "id:Lane_Manager"
+          },
+          "bounds": {
+            "ref": "object:2"
+          },
+          "isHorizontal": true
+        }
+      },
+      "id:Lane_Technical_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Lane_Technical_di",
+          "bpmnElement": {
+            "ref": "id:Lane_Technical"
+          },
+          "bounds": {
+            "ref": "object:3"
+          },
+          "isHorizontal": true
+        }
+      },
+      "id:Lane_Supplier_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Lane_Supplier_di",
+          "bpmnElement": {
+            "ref": "id:Lane_Supplier"
+          },
+          "bounds": {
+            "ref": "object:4"
+          },
+          "isHorizontal": true
+        }
+      },
+      "id:Lane_Designer_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Lane_Designer_di",
+          "bpmnElement": {
+            "ref": "id:Lane_Designer"
+          },
+          "bounds": {
+            "ref": "object:5"
+          },
+          "isHorizontal": true
+        }
+      },
+      "id:Lane_Ozon_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Lane_Ozon_di",
+          "bpmnElement": {
+            "ref": "id:Lane_Ozon"
+          },
+          "bounds": {
+            "ref": "object:6"
+          },
+          "isHorizontal": true
+        }
+      },
+      "id:Start_Request_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Start_Request_di",
+          "bpmnElement": {
+            "ref": "id:Start_Request"
+          },
+          "bounds": {
+            "ref": "object:7"
+          }
+        }
+      },
+      "id:Task_Init_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Task_Init_di",
+          "bpmnElement": {
+            "ref": "id:Task_Init"
+          },
+          "bounds": {
+            "ref": "object:8"
+          }
+        }
+      },
+      "id:Task_BOM_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Task_BOM_di",
+          "bpmnElement": {
+            "ref": "id:Task_BOM"
+          },
+          "bounds": {
+            "ref": "object:9"
+          }
+        }
+      },
+      "id:Task_Compatibility_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Task_Compatibility_di",
+          "bpmnElement": {
+            "ref": "id:Task_Compatibility"
+          },
+          "bounds": {
+            "ref": "object:10"
+          }
+        }
+      },
+      "id:Gateway_Compatible_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Gateway_Compatible_di",
+          "bpmnElement": {
+            "ref": "id:Gateway_Compatible"
+          },
+          "bounds": {
+            "ref": "object:11"
+          }
+        }
+      },
+      "id:Task_FixCompatibility_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Task_FixCompatibility_di",
+          "bpmnElement": {
+            "ref": "id:Task_FixCompatibility"
+          },
+          "bounds": {
+            "ref": "object:12"
+          }
+        }
+      },
+      "id:Task_Supplier_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Task_Supplier_di",
+          "bpmnElement": {
+            "ref": "id:Task_Supplier"
+          },
+          "bounds": {
+            "ref": "object:13"
+          }
+        }
+      },
+      "id:Gateway_Available_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Gateway_Available_di",
+          "bpmnElement": {
+            "ref": "id:Gateway_Available"
+          },
+          "bounds": {
+            "ref": "object:14"
+          }
+        }
+      },
+      "id:Task_LocalReplace_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Task_LocalReplace_di",
+          "bpmnElement": {
+            "ref": "id:Task_LocalReplace"
+          },
+          "bounds": {
+            "ref": "object:15"
+          }
+        }
+      },
+      "id:Task_Calculate_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Task_Calculate_di",
+          "bpmnElement": {
+            "ref": "id:Task_Calculate"
+          },
+          "bounds": {
+            "ref": "object:16"
+          }
+        }
+      },
+      "id:Task_Images_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Task_Images_di",
+          "bpmnElement": {
+            "ref": "id:Task_Images"
+          },
+          "bounds": {
+            "ref": "object:17"
+          }
+        }
+      },
+      "id:Task_Publish_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Task_Publish_di",
+          "bpmnElement": {
+            "ref": "id:Task_Publish"
+          },
+          "bounds": {
+            "ref": "object:18"
+          }
+        }
+      },
+      "id:Task_OzonReview_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Task_OzonReview_di",
+          "bpmnElement": {
+            "ref": "id:Task_OzonReview"
+          },
+          "bounds": {
+            "ref": "object:19"
+          }
+        }
+      },
+      "id:Gateway_Accepted_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Gateway_Accepted_di",
+          "bpmnElement": {
+            "ref": "id:Gateway_Accepted"
+          },
+          "bounds": {
+            "ref": "object:20"
+          }
+        }
+      },
+      "id:Task_Correct_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Task_Correct_di",
+          "bpmnElement": {
+            "ref": "id:Task_Correct"
+          },
+          "bounds": {
+            "ref": "object:21"
+          }
+        }
+      },
+      "id:End_Published_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "End_Published_di",
+          "bpmnElement": {
+            "ref": "id:End_Published"
+          },
+          "bounds": {
+            "ref": "object:22"
+          }
+        }
+      },
+      "id:Flow_01_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Flow_01_di",
+          "bpmnElement": {
+            "ref": "id:Flow_01"
+          },
+          "waypoint": [
+            {
+              "ref": "object:23"
+            },
+            {
+              "ref": "object:24"
+            }
+          ]
+        }
+      },
+      "id:Flow_02_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Flow_02_di",
+          "bpmnElement": {
+            "ref": "id:Flow_02"
+          },
+          "waypoint": [
+            {
+              "ref": "object:25"
+            },
+            {
+              "ref": "object:26"
+            },
+            {
+              "ref": "object:27"
+            },
+            {
+              "ref": "object:28"
+            }
+          ]
+        }
+      },
+      "id:Flow_03_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Flow_03_di",
+          "bpmnElement": {
+            "ref": "id:Flow_03"
+          },
+          "waypoint": [
+            {
+              "ref": "object:29"
+            },
+            {
+              "ref": "object:30"
+            }
+          ]
+        }
+      },
+      "id:Flow_04_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Flow_04_di",
+          "bpmnElement": {
+            "ref": "id:Flow_04"
+          },
+          "waypoint": [
+            {
+              "ref": "object:31"
+            },
+            {
+              "ref": "object:32"
+            }
+          ]
+        }
+      },
+      "id:Flow_05_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Flow_05_di",
+          "bpmnElement": {
+            "ref": "id:Flow_05"
+          },
+          "waypoint": [
+            {
+              "ref": "object:33"
+            },
+            {
+              "ref": "object:34"
+            },
+            {
+              "ref": "object:35"
+            },
+            {
+              "ref": "object:36"
+            }
+          ]
+        }
+      },
+      "id:Flow_06_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Flow_06_di",
+          "bpmnElement": {
+            "ref": "id:Flow_06"
+          },
+          "waypoint": [
+            {
+              "ref": "object:37"
+            },
+            {
+              "ref": "object:38"
+            }
+          ]
+        }
+      },
+      "id:Flow_07_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Flow_07_di",
+          "bpmnElement": {
+            "ref": "id:Flow_07"
+          },
+          "waypoint": [
+            {
+              "ref": "object:39"
+            },
+            {
+              "ref": "object:40"
+            },
+            {
+              "ref": "object:41"
+            }
+          ]
+        }
+      },
+      "id:Flow_08_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Flow_08_di",
+          "bpmnElement": {
+            "ref": "id:Flow_08"
+          },
+          "waypoint": [
+            {
+              "ref": "object:42"
+            },
+            {
+              "ref": "object:43"
+            }
+          ]
+        }
+      },
+      "id:Flow_09_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Flow_09_di",
+          "bpmnElement": {
+            "ref": "id:Flow_09"
+          },
+          "waypoint": [
+            {
+              "ref": "object:44"
+            },
+            {
+              "ref": "object:45"
+            },
+            {
+              "ref": "object:46"
+            },
+            {
+              "ref": "object:47"
+            }
+          ]
+        }
+      },
+      "id:Flow_10_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Flow_10_di",
+          "bpmnElement": {
+            "ref": "id:Flow_10"
+          },
+          "waypoint": [
+            {
+              "ref": "object:48"
+            },
+            {
+              "ref": "object:49"
+            },
+            {
+              "ref": "object:50"
+            }
+          ]
+        }
+      },
+      "id:Flow_11_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Flow_11_di",
+          "bpmnElement": {
+            "ref": "id:Flow_11"
+          },
+          "waypoint": [
+            {
+              "ref": "object:51"
+            },
+            {
+              "ref": "object:52"
+            },
+            {
+              "ref": "object:53"
+            },
+            {
+              "ref": "object:54"
+            },
+            {
+              "ref": "object:55"
+            }
+          ]
+        }
+      },
+      "id:Flow_12_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Flow_12_di",
+          "bpmnElement": {
+            "ref": "id:Flow_12"
+          },
+          "waypoint": [
+            {
+              "ref": "object:56"
+            },
+            {
+              "ref": "object:57"
+            }
+          ]
+        }
+      },
+      "id:Flow_13_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Flow_13_di",
+          "bpmnElement": {
+            "ref": "id:Flow_13"
+          },
+          "waypoint": [
+            {
+              "ref": "object:58"
+            },
+            {
+              "ref": "object:59"
+            },
+            {
+              "ref": "object:60"
+            },
+            {
+              "ref": "object:61"
+            }
+          ]
+        }
+      },
+      "id:Flow_14_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Flow_14_di",
+          "bpmnElement": {
+            "ref": "id:Flow_14"
+          },
+          "waypoint": [
+            {
+              "ref": "object:62"
+            },
+            {
+              "ref": "object:63"
+            }
+          ]
+        }
+      },
+      "id:Flow_15_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Flow_15_di",
+          "bpmnElement": {
+            "ref": "id:Flow_15"
+          },
+          "waypoint": [
+            {
+              "ref": "object:64"
+            },
+            {
+              "ref": "object:65"
+            }
+          ]
+        }
+      },
+      "id:Flow_16_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Flow_16_di",
+          "bpmnElement": {
+            "ref": "id:Flow_16"
+          },
+          "waypoint": [
+            {
+              "ref": "object:66"
+            },
+            {
+              "ref": "object:67"
+            },
+            {
+              "ref": "object:68"
+            },
+            {
+              "ref": "object:69"
+            }
+          ]
+        }
+      },
+      "id:Flow_17_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Flow_17_di",
+          "bpmnElement": {
+            "ref": "id:Flow_17"
+          },
+          "waypoint": [
+            {
+              "ref": "object:70"
+            },
+            {
+              "ref": "object:71"
+            },
+            {
+              "ref": "object:72"
+            }
+          ]
+        }
+      },
+      "id:Flow_18_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Flow_18_di",
+          "bpmnElement": {
+            "ref": "id:Flow_18"
+          },
+          "waypoint": [
+            {
+              "ref": "object:73"
+            },
+            {
+              "ref": "object:74"
+            },
+            {
+              "ref": "object:75"
+            },
+            {
+              "ref": "object:76"
+            },
+            {
+              "ref": "object:77"
+            },
+            {
+              "ref": "object:78"
+            }
+          ]
+        }
+      },
+      "object:1": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 100,
+          "y": 100,
+          "width": 1660,
+          "height": 750
+        }
+      },
+      "object:2": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 130,
+          "y": 100,
+          "width": 1630,
+          "height": 150
+        }
+      },
+      "object:3": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 130,
+          "y": 250,
+          "width": 1630,
+          "height": 150
+        }
+      },
+      "object:4": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 130,
+          "y": 400,
+          "width": 1630,
+          "height": 150
+        }
+      },
+      "object:5": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 130,
+          "y": 550,
+          "width": 1630,
+          "height": 150
+        }
+      },
+      "object:6": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 130,
+          "y": 700,
+          "width": 1630,
+          "height": 150
+        }
+      },
+      "object:7": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 160,
+          "y": 155,
+          "width": 36,
+          "height": 36
+        }
+      },
+      "object:8": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 225,
+          "y": 132,
+          "width": 130,
+          "height": 82
+        }
+      },
+      "object:9": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 390,
+          "y": 280,
+          "width": 140,
+          "height": 86
+        }
+      },
+      "object:10": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 565,
+          "y": 280,
+          "width": 140,
+          "height": 86
+        }
+      },
+      "object:11": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 740,
+          "y": 298,
+          "width": 50,
+          "height": 50
+        }
+      },
+      "object:12": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 690,
+          "y": 382,
+          "width": 145,
+          "height": 70
+        }
+      },
+      "object:13": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 840,
+          "y": 430,
+          "width": 145,
+          "height": 82
+        }
+      },
+      "object:14": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 1020,
+          "y": 446,
+          "width": 50,
+          "height": 50
+        }
+      },
+      "object:15": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 965,
+          "y": 280,
+          "width": 145,
+          "height": 86
+        }
+      },
+      "object:16": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 1145,
+          "y": 280,
+          "width": 130,
+          "height": 82
+        }
+      },
+      "object:17": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 1140,
+          "y": 580,
+          "width": 135,
+          "height": 82
+        }
+      },
+      "object:18": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 1320,
+          "y": 132,
+          "width": 145,
+          "height": 82
+        }
+      },
+      "object:19": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 1320,
+          "y": 730,
+          "width": 135,
+          "height": 82
+        }
+      },
+      "object:20": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 1490,
+          "y": 746,
+          "width": 50,
+          "height": 50
+        }
+      },
+      "object:21": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 1485,
+          "y": 132,
+          "width": 145,
+          "height": 82
+        }
+      },
+      "object:22": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 1670,
+          "y": 155,
+          "width": 36,
+          "height": 36
+        }
+      },
+      "object:23": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 196,
+          "y": 173
+        }
+      },
+      "object:24": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 225,
+          "y": 173
+        }
+      },
+      "object:25": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 355,
+          "y": 173
+        }
+      },
+      "object:26": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 372,
+          "y": 173
+        }
+      },
+      "object:27": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 372,
+          "y": 323
+        }
+      },
+      "object:28": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 390,
+          "y": 323
+        }
+      },
+      "object:29": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 530,
+          "y": 323
+        }
+      },
+      "object:30": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 565,
+          "y": 323
+        }
+      },
+      "object:31": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 705,
+          "y": 323
+        }
+      },
+      "object:32": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 740,
+          "y": 323
+        }
+      },
+      "object:33": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 790,
+          "y": 323
+        }
+      },
+      "object:34": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 815,
+          "y": 323
+        }
+      },
+      "object:35": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 815,
+          "y": 471
+        }
+      },
+      "object:36": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 840,
+          "y": 471
+        }
+      },
+      "object:37": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 765,
+          "y": 348
+        }
+      },
+      "object:38": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 765,
+          "y": 382
+        }
+      },
+      "object:39": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 690,
+          "y": 417
+        }
+      },
+      "object:40": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 640,
+          "y": 417
+        }
+      },
+      "object:41": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 640,
+          "y": 366
+        }
+      },
+      "object:42": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 985,
+          "y": 471
+        }
+      },
+      "object:43": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1020,
+          "y": 471
+        }
+      },
+      "object:44": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1070,
+          "y": 471
+        }
+      },
+      "object:45": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1115,
+          "y": 471
+        }
+      },
+      "object:46": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1115,
+          "y": 321
+        }
+      },
+      "object:47": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1145,
+          "y": 321
+        }
+      },
+      "object:48": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1045,
+          "y": 446
+        }
+      },
+      "object:49": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1045,
+          "y": 366
+        }
+      },
+      "object:50": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1038,
+          "y": 366
+        }
+      },
+      "object:51": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 965,
+          "y": 323
+        }
+      },
+      "object:52": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 930,
+          "y": 323
+        }
+      },
+      "object:53": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 930,
+          "y": 260
+        }
+      },
+      "object:54": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 705,
+          "y": 260
+        }
+      },
+      "object:55": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 705,
+          "y": 323
+        }
+      },
+      "object:56": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1210,
+          "y": 362
+        }
+      },
+      "object:57": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1210,
+          "y": 580
+        }
+      },
+      "object:58": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1275,
+          "y": 621
+        }
+      },
+      "object:59": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1295,
+          "y": 621
+        }
+      },
+      "object:60": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1295,
+          "y": 173
+        }
+      },
+      "object:61": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1320,
+          "y": 173
+        }
+      },
+      "object:62": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1393,
+          "y": 214
+        }
+      },
+      "object:63": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1393,
+          "y": 730
+        }
+      },
+      "object:64": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1455,
+          "y": 771
+        }
+      },
+      "object:65": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1490,
+          "y": 771
+        }
+      },
+      "object:66": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1540,
+          "y": 771
+        }
+      },
+      "object:67": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1645,
+          "y": 771
+        }
+      },
+      "object:68": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1645,
+          "y": 173
+        }
+      },
+      "object:69": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1670,
+          "y": 173
+        }
+      },
+      "object:70": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1515,
+          "y": 746
+        }
+      },
+      "object:71": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1515,
+          "y": 214
+        }
+      },
+      "object:72": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1558,
+          "y": 214
+        }
+      },
+      "object:73": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1485,
+          "y": 173
+        }
+      },
+      "object:74": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1475,
+          "y": 173
+        }
+      },
+      "object:75": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1475,
+          "y": 110
+        }
+      },
+      "object:76": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1300,
+          "y": 110
+        }
+      },
+      "object:77": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1300,
+          "y": 173
+        }
+      },
+      "object:78": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1320,
+          "y": 173
+        }
+      }
+    }
+  },
+  "source": "bpmn Collaboration_Cards \"\"\npool Participant_Ucoms \"ООО «Юкомс» · Формирование карточек товаров\"\nlane Lane_Manager \"Менеджер маркетплейсов\" in=Participant_Ucoms\nlane Lane_Technical \"Технический специалист\" in=Participant_Ucoms\nlane Lane_Supplier \"Склад и поставщики\" in=Participant_Ucoms\nlane Lane_Designer Дизайнер in=Participant_Ucoms\nlane Lane_Ozon Ozon in=Participant_Ucoms\nevent Start_Request \"Потребность в карточке\" in=Participant_Ucoms position=start\nprocess Task_Init \"Инициировать создание или изменение карточки\" in=Participant_Ucoms type=manual\nprocess Task_BOM \"Сформировать BOM и сопоставить позиции поставщиков\" in=Participant_Ucoms type=manual\nprocess Task_Compatibility \"Проверить совместимость комплектующих\" in=Participant_Ucoms type=manual\ngateway Gateway_Compatible \"Совместимо?\" in=Participant_Ucoms type=exclusive\nprocess Task_FixCompatibility \"Исправить несовместимую конфигурацию\" in=Participant_Ucoms type=manual\nprocess Task_Supplier \"Получить цены и наличие поставщиков\" in=Participant_Ucoms type=manual\ngateway Gateway_Available \"Комплектующие доступны?\" in=Participant_Ucoms type=exclusive\nprocess Task_LocalReplace \"Локально заменить компонент в отдельных BOM\" in=Participant_Ucoms type=manual\nprocess Task_Calculate \"Рассчитать цену и вес\" in=Participant_Ucoms type=manual\nprocess Task_Images \"Подготовить изображения\" in=Participant_Ucoms type=manual\nprocess Task_Publish \"Повторно ввести данные и отправить карточку\" in=Participant_Ucoms type=manual\nprocess Task_OzonReview \"Проверить карточку\" in=Participant_Ucoms type=manual\ngateway Gateway_Accepted \"Карточка принята?\" in=Participant_Ucoms type=exclusive\nprocess Task_Correct \"Исправить отклонённую карточку\" in=Participant_Ucoms type=manual\nevent End_Published \"Карточка опубликована\" in=Participant_Ucoms position=end\nflow Flow_01 \"\" from=Start_Request to=Task_Init\nflow Flow_02 \"\" from=Task_Init to=Task_BOM\nflow Flow_03 \"\" from=Task_BOM to=Task_Compatibility\nflow Flow_04 \"\" from=Task_Compatibility to=Gateway_Compatible\nflow Flow_05 Да from=Gateway_Compatible to=Task_Supplier\nflow Flow_06 Нет from=Gateway_Compatible to=Task_FixCompatibility\nflow Flow_07 \"Повторная проверка\" from=Task_FixCompatibility to=Task_Compatibility\nflow Flow_08 \"\" from=Task_Supplier to=Gateway_Available\nflow Flow_09 Да from=Gateway_Available to=Task_Calculate\nflow Flow_10 Нет from=Gateway_Available to=Task_LocalReplace\nflow Flow_11 \"Уточнить BOM\" from=Task_LocalReplace to=Task_Compatibility\nflow Flow_12 \"\" from=Task_Calculate to=Task_Images\nflow Flow_13 \"\" from=Task_Images to=Task_Publish\nflow Flow_14 \"\" from=Task_Publish to=Task_OzonReview\nflow Flow_15 \"\" from=Task_OzonReview to=Gateway_Accepted\nflow Flow_16 Да from=Gateway_Accepted to=End_Published\nflow Flow_17 Нет from=Gateway_Accepted to=Task_Correct\nflow Flow_18 \"Повторная отправка\" from=Task_Correct to=Task_Publish\n",
+  "draft": "bpmn Collaboration_Cards \"\"\npool Participant_Ucoms \"ООО «Юкомс» · Формирование карточек товаров\"\nlane Lane_Manager \"Менеджер маркетплейсов\" in=Participant_Ucoms\nlane Lane_Technical \"Технический специалист\" in=Participant_Ucoms\nlane Lane_Supplier \"Склад и поставщики\" in=Participant_Ucoms\nlane Lane_Designer Дизайнер in=Participant_Ucoms\nlane Lane_Ozon Ozon in=Participant_Ucoms\nevent Start_Request \"Потребность в карточке\" in=Participant_Ucoms position=start\nprocess Task_Init \"Инициировать создание или изменение карточки\" in=Participant_Ucoms type=manual\nprocess Task_BOM \"Сформировать BOM и сопоставить позиции поставщиков\" in=Participant_Ucoms type=manual\nprocess Task_Compatibility \"Проверить совместимость комплектующих\" in=Participant_Ucoms type=manual\ngateway Gateway_Compatible \"Совместимо?\" in=Participant_Ucoms type=exclusive\nprocess Task_FixCompatibility \"Исправить несовместимую конфигурацию\" in=Participant_Ucoms type=manual\nprocess Task_Supplier \"Получить цены и наличие поставщиков\" in=Participant_Ucoms type=manual\ngateway Gateway_Available \"Комплектующие доступны?\" in=Participant_Ucoms type=exclusive\nprocess Task_LocalReplace \"Локально заменить компонент в отдельных BOM\" in=Participant_Ucoms type=manual\nprocess Task_Calculate \"Рассчитать цену и вес\" in=Participant_Ucoms type=manual\nprocess Task_Images \"Подготовить изображения\" in=Participant_Ucoms type=manual\nprocess Task_Publish \"Повторно ввести данные и отправить карточку\" in=Participant_Ucoms type=manual\nprocess Task_OzonReview \"Проверить карточку\" in=Participant_Ucoms type=manual\ngateway Gateway_Accepted \"Карточка принята?\" in=Participant_Ucoms type=exclusive\nprocess Task_Correct \"Исправить отклонённую карточку\" in=Participant_Ucoms type=manual\nevent End_Published \"Карточка опубликована\" in=Participant_Ucoms position=end\nflow Flow_01 \"\" from=Start_Request to=Task_Init\nflow Flow_02 \"\" from=Task_Init to=Task_BOM\nflow Flow_03 \"\" from=Task_BOM to=Task_Compatibility\nflow Flow_04 \"\" from=Task_Compatibility to=Gateway_Compatible\nflow Flow_05 Да from=Gateway_Compatible to=Task_Supplier\nflow Flow_06 Нет from=Gateway_Compatible to=Task_FixCompatibility\nflow Flow_07 \"Повторная проверка\" from=Task_FixCompatibility to=Task_Compatibility\nflow Flow_08 \"\" from=Task_Supplier to=Gateway_Available\nflow Flow_09 Да from=Gateway_Available to=Task_Calculate\nflow Flow_10 Нет from=Gateway_Available to=Task_LocalReplace\nflow Flow_11 \"Уточнить BOM\" from=Task_LocalReplace to=Task_Compatibility\nflow Flow_12 \"\" from=Task_Calculate to=Task_Images\nflow Flow_13 \"\" from=Task_Images to=Task_Publish\nflow Flow_14 \"\" from=Task_Publish to=Task_OzonReview\nflow Flow_15 \"\" from=Task_OzonReview to=Gateway_Accepted\nflow Flow_16 Да from=Gateway_Accepted to=End_Published\nflow Flow_17 Нет from=Gateway_Accepted to=Task_Correct\nflow Flow_18 \"Повторная отправка\" from=Task_Correct to=Task_Publish\n"
+}

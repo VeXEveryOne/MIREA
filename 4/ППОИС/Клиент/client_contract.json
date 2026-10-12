@@ -27,7 +27,7 @@
     {"method": "GET", "path": "/api/session", "function": "S3"},
     {"method": "GET", "path": "/api/catalog", "function": "B1"},
     {"method": "GET", "path": "/api/configurations", "function": "B2"},
-    {"method": "GET", "path": "/api/bom", "function": "B2"},
+    {"method": "GET", "path": "/api/model_range", "function": "B2"},
     {"method": "POST", "path": "/api/versions", "function": "B3"},
     {"method": "POST", "path": "/api/calculate", "function": "B4"},
     {"method": "GET", "path": "/api/cards", "function": "B5"},

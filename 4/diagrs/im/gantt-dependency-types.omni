@@ -1,0 +1,328 @@
+{
+  "notation": "GANTT",
+  "formatVersion": 1,
+  "profile": "NS-GANTT-1",
+  "model": {
+    "id": "gantt_dependencies",
+    "label": "Четыре типа зависимостей и отрицательный лаг",
+    "elements": [
+      {
+        "id": "weekdays",
+        "kind": "calendar",
+        "label": "Пятидневная неделя",
+        "properties": {
+          "hoursPerDay": "8",
+          "monday": "true",
+          "tuesday": "true",
+          "wednesday": "true",
+          "thursday": "true",
+          "friday": "true",
+          "saturday": "false",
+          "sunday": "false"
+        }
+      },
+      {
+        "id": "plan",
+        "kind": "plan",
+        "label": "План проекта",
+        "properties": {
+          "start": "2026-09-28",
+          "calendar": "weekdays",
+          "mode": "auto",
+          "description": "Демонстрационный старт; праздники не добавлены автоматически."
+        }
+      },
+      {
+        "id": "main",
+        "kind": "diagram",
+        "label": "План проекта",
+        "properties": {
+          "type": "gantt",
+          "plan": "plan"
+        }
+      },
+      {
+        "id": "a",
+        "kind": "task",
+        "label": "A · пять дней",
+        "properties": {
+          "duration": "5",
+          "effortHours": "40",
+          "order": "0"
+        }
+      },
+      {
+        "id": "fs",
+        "kind": "task",
+        "label": "FS +2",
+        "properties": {
+          "duration": "3",
+          "effortHours": "8",
+          "order": "1"
+        }
+      },
+      {
+        "id": "link_fs",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "a",
+          "to": "fs",
+          "type": "FS",
+          "lag": "2"
+        }
+      },
+      {
+        "id": "ss",
+        "kind": "task",
+        "label": "SS +2",
+        "properties": {
+          "duration": "3",
+          "effortHours": "8",
+          "order": "2"
+        }
+      },
+      {
+        "id": "link_ss",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "a",
+          "to": "ss",
+          "type": "SS",
+          "lag": "2"
+        }
+      },
+      {
+        "id": "ff",
+        "kind": "task",
+        "label": "FF +1",
+        "properties": {
+          "duration": "3",
+          "effortHours": "8",
+          "order": "3"
+        }
+      },
+      {
+        "id": "link_ff",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "a",
+          "to": "ff",
+          "type": "FF",
+          "lag": "1"
+        }
+      },
+      {
+        "id": "sf",
+        "kind": "task",
+        "label": "SF +4",
+        "properties": {
+          "duration": "3",
+          "effortHours": "8",
+          "order": "4"
+        }
+      },
+      {
+        "id": "link_sf",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "a",
+          "to": "sf",
+          "type": "SF",
+          "lag": "4"
+        }
+      },
+      {
+        "id": "lead",
+        "kind": "task",
+        "label": "FS -2",
+        "properties": {
+          "duration": "3",
+          "effortHours": "8",
+          "order": "5"
+        }
+      },
+      {
+        "id": "link_lead",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "a",
+          "to": "lead",
+          "type": "FS",
+          "lag": "-2"
+        }
+      },
+      {
+        "id": "view1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "a"
+        }
+      },
+      {
+        "id": "view2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "fs"
+        }
+      },
+      {
+        "id": "view3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "ss"
+        }
+      },
+      {
+        "id": "view4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "ff"
+        }
+      },
+      {
+        "id": "view5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "sf"
+        }
+      },
+      {
+        "id": "view6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "lead"
+        }
+      },
+      {
+        "id": "view7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "link_fs",
+          "from": "view1",
+          "to": "view2"
+        }
+      },
+      {
+        "id": "view8",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "link_ss",
+          "from": "view1",
+          "to": "view3"
+        }
+      },
+      {
+        "id": "view9",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "link_ff",
+          "from": "view1",
+          "to": "view4"
+        }
+      },
+      {
+        "id": "view10",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "link_sf",
+          "from": "view1",
+          "to": "view5"
+        }
+      },
+      {
+        "id": "view11",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "link_lead",
+          "from": "view1",
+          "to": "view6"
+        }
+      }
+    ]
+  },
+  "source": "gantt gantt_dependencies \"Четыре типа зависимостей и отрицательный лаг\"\ncalendar weekdays \"Пятидневная неделя\" friday=true hoursPerDay=8 monday=true saturday=false sunday=false thursday=true tuesday=true wednesday=true\nplan plan \"План проекта\" calendar=weekdays description=\"Демонстрационный старт; праздники не добавлены автоматически.\" mode=auto start=\"2026-09-28\"\ndiagram main \"План проекта\" plan=plan type=gantt\ntask a \"A · пять дней\" duration=5 effortHours=40 order=0\ntask fs \"FS +2\" duration=3 effortHours=8 order=1\ndependency link_fs \"\" from=a lag=2 to=fs type=FS\ntask ss \"SS +2\" duration=3 effortHours=8 order=2\ndependency link_ss \"\" from=a lag=2 to=ss type=SS\ntask ff \"FF +1\" duration=3 effortHours=8 order=3\ndependency link_ff \"\" from=a lag=1 to=ff type=FF\ntask sf \"SF +4\" duration=3 effortHours=8 order=4\ndependency link_sf \"\" from=a lag=4 to=sf type=SF\ntask lead \"FS -2\" duration=3 effortHours=8 order=5\ndependency link_lead \"\" from=a lag=-2 to=lead type=FS\nview view1 \"\" diagram=main element=a\nview view2 \"\" diagram=main element=fs\nview view3 \"\" diagram=main element=ss\nview view4 \"\" diagram=main element=ff\nview view5 \"\" diagram=main element=sf\nview view6 \"\" diagram=main element=lead\nview view7 \"\" diagram=main element=link_fs from=view1 to=view2\nview view8 \"\" diagram=main element=link_ss from=view1 to=view3\nview view9 \"\" diagram=main element=link_ff from=view1 to=view4\nview view10 \"\" diagram=main element=link_sf from=view1 to=view5\nview view11 \"\" diagram=main element=link_lead from=view1 to=view6\n",
+  "draft": "gantt gantt_dependencies \"Четыре типа зависимостей и отрицательный лаг\"\ncalendar weekdays \"Пятидневная неделя\" friday=true hoursPerDay=8 monday=true saturday=false sunday=false thursday=true tuesday=true wednesday=true\nplan plan \"План проекта\" calendar=weekdays description=\"Демонстрационный старт; праздники не добавлены автоматически.\" mode=auto start=\"2026-09-28\"\ndiagram main \"План проекта\" plan=plan type=gantt\ntask a \"A · пять дней\" duration=5 effortHours=40 order=0\ntask fs \"FS +2\" duration=3 effortHours=8 order=1\ndependency link_fs \"\" from=a lag=2 to=fs type=FS\ntask ss \"SS +2\" duration=3 effortHours=8 order=2\ndependency link_ss \"\" from=a lag=2 to=ss type=SS\ntask ff \"FF +1\" duration=3 effortHours=8 order=3\ndependency link_ff \"\" from=a lag=1 to=ff type=FF\ntask sf \"SF +4\" duration=3 effortHours=8 order=4\ndependency link_sf \"\" from=a lag=4 to=sf type=SF\ntask lead \"FS -2\" duration=3 effortHours=8 order=5\ndependency link_lead \"\" from=a lag=-2 to=lead type=FS\nview view1 \"\" diagram=main element=a\nview view2 \"\" diagram=main element=fs\nview view3 \"\" diagram=main element=ss\nview view4 \"\" diagram=main element=ff\nview view5 \"\" diagram=main element=sf\nview view6 \"\" diagram=main element=lead\nview view7 \"\" diagram=main element=link_fs from=view1 to=view2\nview view8 \"\" diagram=main element=link_ss from=view1 to=view3\nview view9 \"\" diagram=main element=link_ff from=view1 to=view4\nview view10 \"\" diagram=main element=link_sf from=view1 to=view5\nview view11 \"\" diagram=main element=link_lead from=view1 to=view6\n",
+  "layout": {
+    "nodes": {
+      "view1": {
+        "x": 60,
+        "y": 60,
+        "width": 180,
+        "height": 32
+      },
+      "view2": {
+        "x": 460,
+        "y": 60,
+        "width": 180,
+        "height": 32
+      },
+      "view3": {
+        "x": 860,
+        "y": 60,
+        "width": 180,
+        "height": 32
+      },
+      "view4": {
+        "x": 1260,
+        "y": 60,
+        "width": 180,
+        "height": 32
+      },
+      "view5": {
+        "x": 60,
+        "y": 560,
+        "width": 180,
+        "height": 32
+      },
+      "view6": {
+        "x": 460,
+        "y": 560,
+        "width": 180,
+        "height": 32
+      }
+    },
+    "edges": {
+      "view7": {},
+      "view8": {},
+      "view9": {},
+      "view10": {},
+      "view11": {}
+    },
+    "diagrams": {
+      "main": {
+        "gantt": {
+          "scale": "weeks",
+          "tableWidth": 1000,
+          "today": false
+        }
+      }
+    }
+  }
+}

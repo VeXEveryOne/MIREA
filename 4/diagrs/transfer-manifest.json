@@ -1,0 +1,207 @@
+[
+  {
+    "source": "examples\\activity-parallel-pins.omni",
+    "destination": "activity-parallel-pins.omni",
+    "sha256": "4B0A5321D854D7DC20B41EA62821C65975401F14A8AB0280B518078B8A9F8495"
+  },
+  {
+    "source": "examples\\bom-erd.omni",
+    "destination": "bom-erd.omni",
+    "sha256": "1A5C116836A9CA4BB812C9F44578A37DDE6E5399A2A293045C5D451816A680D7"
+  },
+  {
+    "source": "examples\\bom-erd.sql",
+    "destination": "bom-erd.sql",
+    "sha256": "35E7BE3FD02DF56FD40F47F427EA2AF365F3D4F0ADD85C16C6C1D461FE8220FC"
+  },
+  {
+    "source": "examples\\cards-context.omni",
+    "destination": "cards-context.omni",
+    "sha256": "8A04075DA1D6708B8668C8288A8FB0FAF18D8204F221E6BFE1E181B0DEAF3D96"
+  },
+  {
+    "source": "examples\\cards-decomposition.omni",
+    "destination": "cards-decomposition.omni",
+    "sha256": "704A0BD91C26A9C01C254459A09E2BE53259AEFC6B3647DE02D6095D0535EF58"
+  },
+  {
+    "source": "examples\\cards-hierarchy.omni",
+    "destination": "cards-hierarchy.omni",
+    "sha256": "9AADE5E9A118CFF082338770BC4E6857159180C5FAA214E092884E95F50B6407"
+  },
+  {
+    "source": "examples\\cards-uml.omni",
+    "destination": "cards-uml.omni",
+    "sha256": "0B3DEC9ACF511BADDEE0C2330DBCE1423ACD2884895D06E1C1F839A04BA9BACE"
+  },
+  {
+    "source": "examples\\chart-zero-missing.omni",
+    "destination": "chart-zero-missing.omni",
+    "sha256": "8C8DAB2963A71C37D2F83BCC4F0DE92CE13B68DB66122E90FDF9DD70AD2ED35D"
+  },
+  {
+    "source": "examples\\component-ports.omni",
+    "destination": "component-ports.omni",
+    "sha256": "78875EFAD0224754D63E681A45FE8CA8DAA895C40BF9F87E0CFE71DAB2C652CF"
+  },
+  {
+    "source": "examples\\deployment-repeated-artifact.omni",
+    "destination": "deployment-repeated-artifact.omni",
+    "sha256": "76C3413D1E8B8934D49B5D9E0528640E270FD49B2366D0B58D33B582686313FC"
+  },
+  {
+    "source": "examples\\flowchart-continuation.omni",
+    "destination": "flowchart-continuation.omni",
+    "sha256": "BE78A76EF53C5E4C07F5E0493D1D557CBBEC698B79C8F9A8BB1DC70010200541"
+  },
+  {
+    "source": "examples\\function-tree-subtree.omni",
+    "destination": "function-tree-subtree.omni",
+    "sha256": "4DAD23F714EB5839149BCB8C05DA2AE9EC6A8F9CAE3149F9FEEE5EF892B135CE"
+  },
+  {
+    "source": "examples\\orders.omni",
+    "destination": "orders.omni",
+    "sha256": "07905B66ECBAB0E09C4DC8BB50EBB3968888A09FCB4ED8B2BE3D74DF1D78F829"
+  },
+  {
+    "source": "examples\\process.omni",
+    "destination": "process.omni",
+    "sha256": "839CC4713A8AEFAF7F54EE2114047D69932D175F2D9D5CAA6315EF7AEFF65D30"
+  },
+  {
+    "source": "examples\\rop-bpmn-as-is.omni",
+    "destination": "rop-bpmn-as-is.omni",
+    "sha256": "2F1528B22A645E0814A8C27C2E209048EA0C243F57A6C3E88E38C145EF65FF10"
+  },
+  {
+    "source": "examples\\rop-bpmn-to-be.omni",
+    "destination": "rop-bpmn-to-be.omni",
+    "sha256": "188BF5F25D6DC6AD6A06A6A6C896B18A4C09E539FF78C9CADE12D19DCB8E61AF"
+  },
+  {
+    "source": "examples\\rop-cards-as-is.omni",
+    "destination": "rop-cards-as-is.omni",
+    "sha256": "74C451D6C068F941FCF1A607B10735285745E773D2D94E2DC4038482444D0E2D"
+  },
+  {
+    "source": "examples\\rop-chart.omni",
+    "destination": "rop-chart.omni",
+    "sha256": "DA45708A83887E0CEB580240E7BF5A534B30745E9F378E03F6CF636190B6D5BE"
+  },
+  {
+    "source": "examples\\rop-erd.omni",
+    "destination": "rop-erd.omni",
+    "sha256": "88F1837F84F987F8A172F418A83ADE1EB5A26A0083790C620DA83A1AFF75CF18"
+  },
+  {
+    "source": "examples\\rop-flowchart.omni",
+    "destination": "rop-flowchart.omni",
+    "sha256": "7EDCF3B6F564BDC1FAC32B2B4F253CAC6A7F124742FCA5C5022D7C811CD7C17A"
+  },
+  {
+    "source": "examples\\rop-function-tree.omni",
+    "destination": "rop-function-tree.omni",
+    "sha256": "4F7863CB8B37536D5E8D43228759323123FFF26800F5D010FCB9FC60BFF60827"
+  },
+  {
+    "source": "examples\\rop-idef0-as-is.omni",
+    "destination": "rop-idef0-as-is.omni",
+    "sha256": "2CD3C69A1E3319F7D9CE3C45E45B83A4C1F7AADF43933C5F368EF10939142D02"
+  },
+  {
+    "source": "examples\\rop-idef0-to-be.omni",
+    "destination": "rop-idef0-to-be.omni",
+    "sha256": "AB67284E6D07875E772D82ED74F490383C04A8E3BF76336D47BE0D9F9B602372"
+  },
+  {
+    "source": "examples\\rop-scheme.omni",
+    "destination": "rop-scheme.omni",
+    "sha256": "F0ED7A5206D315E33CDA9E792F7D888F8A05B8A96BD5A88E47FFD7EAEF08773D"
+  },
+  {
+    "source": "examples\\rop-uml-sequences.omni",
+    "destination": "rop-uml-sequences.omni",
+    "sha256": "B9BE8C47313F69334334085346BA3FCEE5488E5E7296C6FF0991553BC1AAA066"
+  },
+  {
+    "source": "examples\\rop-uml-structure.omni",
+    "destination": "rop-uml-structure.omni",
+    "sha256": "D6B34FD13623D5CBFA9AD44361FCE341CB072EEEE1F1426CF5BD1A720410A72E"
+  },
+  {
+    "source": "examples\\rop-wireframe.omni",
+    "destination": "rop-wireframe.omni",
+    "sha256": "788A6E3A3DA726DB7B14DA7B52988A7E07224001D1CB4E29ED06CAB820FFA749"
+  },
+  {
+    "source": "examples\\scheme-code-segments.omni",
+    "destination": "scheme-code-segments.omni",
+    "sha256": "4EC67E18687291F594CFA87198B5E29E730BD1DC056B7DB34C81789EE900BD5C"
+  },
+  {
+    "source": "examples\\wireframe-table-modal.omni",
+    "destination": "wireframe-table-modal.omni",
+    "sha256": "D5BC000074D39382D68215CADA7B57803449726FF23BC877216838E6C91BAE80"
+  },
+  {
+    "source": "examples\\im\\activity-parallel-pins.omni",
+    "destination": "im\\activity-parallel-pins.omni",
+    "sha256": "4B0A5321D854D7DC20B41EA62821C65975401F14A8AB0280B518078B8A9F8495"
+  },
+  {
+    "source": "examples\\im\\component-ports.omni",
+    "destination": "im\\component-ports.omni",
+    "sha256": "78875EFAD0224754D63E681A45FE8CA8DAA895C40BF9F87E0CFE71DAB2C652CF"
+  },
+  {
+    "source": "examples\\im\\deployment-repeated-artifact.omni",
+    "destination": "im\\deployment-repeated-artifact.omni",
+    "sha256": "76C3413D1E8B8934D49B5D9E0528640E270FD49B2366D0B58D33B582686313FC"
+  },
+  {
+    "source": "examples\\im\\gantt-calendar-milestone.omni",
+    "destination": "im\\gantt-calendar-milestone.omni",
+    "sha256": "16CCE707E638972B847178A9C117A5F2F2995A7D94C5F5C15330F8E9BA45BF91"
+  },
+  {
+    "source": "examples\\im\\gantt-dependency-types.omni",
+    "destination": "im\\gantt-dependency-types.omni",
+    "sha256": "1AAACB73895A5F38D55072052196A6863D7232261E611423888CF31B8E216875"
+  },
+  {
+    "source": "examples\\im\\gantt-reserves.omni",
+    "destination": "im\\gantt-reserves.omni",
+    "sha256": "ABB0853C8665098F4FEF79177AA24728ED38124EAC2CF113D2D216864B373736"
+  },
+  {
+    "source": "examples\\im\\im-architecture.omni",
+    "destination": "im\\im-architecture.omni",
+    "sha256": "2CAC983F28464E70A924025B454D14D48B74DE578A69BEAF44330C12FEBA69AD"
+  },
+  {
+    "source": "examples\\im\\im-furps.omni",
+    "destination": "im\\im-furps.omni",
+    "sha256": "12B48A1C16E2B7A912643B6C8E1517D770DA350D9921342F038C52B64EFC7320"
+  },
+  {
+    "source": "examples\\im\\im-org.omni",
+    "destination": "im\\im-org.omni",
+    "sha256": "352A1EC5CF889D85ABB070FA7364EC9677B5300F75AAB54D273717A2F52644FF"
+  },
+  {
+    "source": "examples\\im\\im-plan.omni",
+    "destination": "im\\im-plan.omni",
+    "sha256": "78633548B80D4DF33438537D8E19CB6E3553ABDD159FCD3D86896808105A6A98"
+  },
+  {
+    "source": "examples\\im\\im-wbs.omni",
+    "destination": "im\\im-wbs.omni",
+    "sha256": "22D57A2CA38C6D078EFD339AC6C60ABB497B75899416F30573FE0E46D299D78F"
+  },
+  {
+    "source": "examples\\im\\README.md",
+    "destination": "im\\README.md",
+    "sha256": "DFE0218D48E8F44EE83ADA9178D183CD1F004624F8A2807FB94CA618761A295F"
+  }
+]

@@ -52,8 +52,8 @@ class ServerTests(unittest.TestCase):
     def browser(self, role='engineer'):
         return Browser(self.base, role)
 
-    def bom(self, browser):
-        status, rows = browser.request('/api/bom?configuration_id=' + U100 + '&version_no=1')
+    def model_range(self, browser):
+        status, rows = browser.request('/api/model_range?configuration_id=' + U100 + '&version_no=1')
         self.assertEqual(status, 200)
         return [{k: row[k] for k in ('line_no', 'quantity', 'group_id', 'requested_component_id')} for row in rows]
 
@@ -88,7 +88,7 @@ class ServerTests(unittest.TestCase):
                 if route['method'] != 'GET' or route['function'] not in spec['functions']:
                     continue
                 path = route['path']
-                if path == '/api/bom':
+                if path == '/api/model_range':
                     path += '?configuration_id=' + U100 + '&version_no=1'
                 with self.subTest(role=role, route=path):
                     self.assertEqual(browser.request(path)[0], 200)
@@ -151,14 +151,14 @@ class ServerTests(unittest.TestCase):
             'version_no': 1, 'now': '2030-01-01T00:00:00+00:00'})[0], 422)
 
     def test_quantities_boolean_and_zero_rejected(self):
-        browser = self.browser(); source = self.bom(browser)
+        browser = self.browser(); source = self.model_range(browser)
         for value in (True, 0, -1, 1.5, 2147483648):
             rows = [dict(r) for r in source]; rows[0]['quantity'] = value
             with self.subTest(quantity=value):
                 self.assertEqual(browser.request('/api/calculate', {'slots': rows})[0], 422)
 
     def test_duplicate_or_ambiguous_slots_rejected(self):
-        browser = self.browser(); source = self.bom(browser)
+        browser = self.browser(); source = self.model_range(browser)
         for alteration in ('duplicate', 'both', 'neither'):
             rows = [dict(r) for r in source]
             if alteration == 'duplicate':
@@ -170,31 +170,31 @@ class ServerTests(unittest.TestCase):
             with self.subTest(alteration=alteration):
                 self.assertEqual(browser.request('/api/calculate', {'slots': rows})[0], 422)
 
-    def test_invalid_uuid_and_missing_bom_rejected(self):
+    def test_invalid_uuid_and_missing_model_range_rejected(self):
         browser = self.browser()
-        self.assertEqual(browser.request('/api/bom?configuration_id=invalid&version_no=1')[0], 422)
-        self.assertEqual(browser.request('/api/bom?configuration_id=' + U100 + '&version_no=9999')[0], 404)
+        self.assertEqual(browser.request('/api/model_range?configuration_id=invalid&version_no=1')[0], 422)
+        self.assertEqual(browser.request('/api/model_range?configuration_id=' + U100 + '&version_no=9999')[0], 404)
 
     def test_append_version_and_stale_save_no_overwrite(self):
-        browser = self.browser(); before = self.bom(browser); latest = self.latest(browser)
+        browser = self.browser(); before = self.model_range(browser); latest = self.latest(browser)
         payload = {'configuration_id': U100, 'expected_latest': latest, 'slots': before}
         status, created = browser.request('/api/versions', payload)
         self.assertEqual(status, 200, created)
         self.assertEqual(created['state'], 'CHECKED')
         self.assertEqual(created['version_no'], latest + 1)
         self.assertEqual(browser.request('/api/versions', payload)[0], 409)
-        self.assertEqual(self.bom(browser), before)
+        self.assertEqual(self.model_range(browser), before)
 
     def test_new_configuration_and_checked_version(self):
         browser = self.browser()
         status, created = browser.request('/api/versions', {'code': 'TEST-' + uuid4().hex[:12],
-            'name': 'Учебная конфигурация HTTP', 'expected_latest': 0, 'slots': self.bom(browser)})
+            'name': 'Учебная конфигурация HTTP', 'expected_latest': 0, 'slots': self.model_range(browser)})
         self.assertEqual(status, 200, created)
         self.assertEqual(created['version_no'], 1)
         self.assertEqual(created['state'], 'CHECKED')
 
     def test_incompatible_draft_saved_with_errors_not_checked(self):
-        browser = self.browser(); source = self.bom(browser)
+        browser = self.browser(); source = self.model_range(browser)
         source[0]['group_id'] = None
         source[0]['requested_component_id'] = '00000000-0000-0000-0000-000000000017'
         status, created = browser.request('/api/versions', {'code': 'BAD-' + uuid4().hex[:12],
@@ -230,7 +230,7 @@ class ServerTests(unittest.TestCase):
         self.assertEqual(result['revision_no'], latest + 1)
         self.assertEqual(browser.request('/api/revisions', payload)[0], 409)
 
-    def test_unchecked_bom_cannot_create_revision(self):
+    def test_unchecked_model_range_cannot_create_revision(self):
         browser = self.browser('manager')
         self.assertEqual(browser.request('/api/revisions', {'seller_code': 'HTTP-' + uuid4().hex[:12],
             'name': 'Не сохраняется', 'expected_latest': 0, 'configuration_id': U100, 'version_no': 2,

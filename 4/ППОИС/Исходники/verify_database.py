@@ -49,15 +49,15 @@ def run(dsn, output):
              '23505', (uid(101), 'PC-101', 'Duplicate'))
     negative('negative offer price', 'UPDATE ppois.offer SET unit_price_rub=-1 WHERE id=%s', '23514', (uid(43),))
     negative('missing supplier FK', 'UPDATE ppois.offer SET supplier_id=%s WHERE id=%s', '23503', (uid(999), uid(43)))
-    negative('zero quantity', 'UPDATE ppois.bom_slot SET quantity=0 WHERE version_no=2 AND line_no=1', '23514')
-    negative('group mismatch', 'UPDATE ppois.bom_slot SET group_id=%s WHERE version_no=2 AND line_no=1', '23514', (uid(2),))
+    negative('zero quantity', 'UPDATE ppois.model_range_slot SET quantity=0 WHERE version_no=2 AND line_no=1', '23514')
+    negative('group mismatch', 'UPDATE ppois.model_range_slot SET group_id=%s WHERE version_no=2 AND line_no=1', '23514', (uid(2),))
     negative('missing selected offer FK',
-             'UPDATE ppois.bom_slot SET offer_id=%s WHERE version_no=2 AND line_no=1', '23503', (uid(999),))
+             'UPDATE ppois.model_range_slot SET offer_id=%s WHERE version_no=2 AND line_no=1', '23503', (uid(999),))
     negative('selected offer belongs to another group',
-             'UPDATE ppois.bom_slot SET offer_id=%s WHERE version_no=2 AND line_no=1', '23514', (uid(32),))
-    negative('frozen BOM cannot be edited', 'UPDATE ppois.bom_slot SET quantity=2 WHERE version_no=1 AND line_no=1', '23514')
-    negative('frozen BOM slot cannot move to another version',
-             'UPDATE ppois.bom_slot SET version_no=2,line_no=99 WHERE version_no=1 AND line_no=1', '23514')
+             'UPDATE ppois.model_range_slot SET offer_id=%s WHERE version_no=2 AND line_no=1', '23514', (uid(32),))
+    negative('frozen модельный ряд cannot be edited', 'UPDATE ppois.model_range_slot SET quantity=2 WHERE version_no=1 AND line_no=1', '23514')
+    negative('frozen модельный ряд slot cannot move to another version',
+             'UPDATE ppois.model_range_slot SET version_no=2,line_no=99 WHERE version_no=1 AND line_no=1', '23514')
     negative('economic snapshot cannot be overwritten', 'UPDATE ppois.card_revision SET assembly_rub=1 WHERE card_id=%s', '23514', (uid(200),))
     negative('used offer price is immutable', 'UPDATE ppois.offer SET unit_price_rub=1 WHERE id=%s', '23514', (uid(31),))
     negative('used component mass is immutable', 'UPDATE ppois.component SET mass_kg=1 WHERE id=%s', '23514', (uid(11),))

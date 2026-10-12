@@ -1,0 +1,477 @@
+{
+  "notation": "FLOWCHART",
+  "formatVersion": 1,
+  "profile": "NS-FLOWCHART-1",
+  "model": {
+    "id": "continuation",
+    "label": "Два листа и подпрограмма",
+    "elements": [
+      {
+        "id": "main",
+        "kind": "algorithm",
+        "label": "Проверка",
+        "properties": {}
+      },
+      {
+        "id": "helper",
+        "kind": "algorithm",
+        "label": "Подготовка",
+        "properties": {}
+      },
+      {
+        "id": "first",
+        "kind": "diagram",
+        "label": "Проверить",
+        "properties": {
+          "type": "algorithm",
+          "algorithm": "main"
+        }
+      },
+      {
+        "id": "second",
+        "kind": "diagram",
+        "label": "Завершить",
+        "properties": {
+          "type": "algorithm",
+          "algorithm": "main"
+        }
+      },
+      {
+        "id": "sub",
+        "kind": "diagram",
+        "label": "Подпрограмма",
+        "properties": {
+          "type": "algorithm",
+          "algorithm": "helper"
+        }
+      },
+      {
+        "id": "begin",
+        "kind": "start",
+        "label": "Начало",
+        "properties": {
+          "owner": "main"
+        }
+      },
+      {
+        "id": "call",
+        "kind": "subroutine",
+        "label": "Подготовить",
+        "properties": {
+          "owner": "main",
+          "target": "helper"
+        }
+      },
+      {
+        "id": "check",
+        "kind": "decision",
+        "label": "Готово?",
+        "properties": {
+          "owner": "main",
+          "mode": "binary",
+          "expression": "ready"
+        }
+      },
+      {
+        "id": "retry",
+        "kind": "operation",
+        "label": "Повторить",
+        "properties": {
+          "owner": "main"
+        }
+      },
+      {
+        "id": "leave",
+        "kind": "offpage",
+        "label": "A",
+        "properties": {
+          "owner": "main",
+          "code": "A"
+        }
+      },
+      {
+        "id": "enter",
+        "kind": "offpage",
+        "label": "A",
+        "properties": {
+          "owner": "main",
+          "code": "A"
+        }
+      },
+      {
+        "id": "finish",
+        "kind": "end",
+        "label": "Конец",
+        "properties": {
+          "owner": "main"
+        }
+      },
+      {
+        "id": "subStart",
+        "kind": "start",
+        "label": "Начало",
+        "properties": {
+          "owner": "helper"
+        }
+      },
+      {
+        "id": "prepare",
+        "kind": "operation",
+        "label": "Подготовить данные",
+        "properties": {
+          "owner": "helper"
+        }
+      },
+      {
+        "id": "subEnd",
+        "kind": "end",
+        "label": "Возврат",
+        "properties": {
+          "owner": "helper"
+        }
+      },
+      {
+        "id": "f1",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "begin",
+          "to": "call"
+        }
+      },
+      {
+        "id": "f2",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "call",
+          "to": "check"
+        }
+      },
+      {
+        "id": "f3",
+        "kind": "flow",
+        "label": "Да",
+        "properties": {
+          "from": "check",
+          "to": "leave",
+          "guard": "ready"
+        }
+      },
+      {
+        "id": "f4",
+        "kind": "flow",
+        "label": "Иначе",
+        "properties": {
+          "from": "check",
+          "to": "retry",
+          "otherwise": "true"
+        }
+      },
+      {
+        "id": "f5",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "retry",
+          "to": "check"
+        }
+      },
+      {
+        "id": "transfer",
+        "kind": "continuation",
+        "label": "",
+        "properties": {
+          "from": "leave",
+          "to": "enter"
+        }
+      },
+      {
+        "id": "f6",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "enter",
+          "to": "finish"
+        }
+      },
+      {
+        "id": "s1",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "subStart",
+          "to": "prepare"
+        }
+      },
+      {
+        "id": "s2",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "prepare",
+          "to": "subEnd"
+        }
+      },
+      {
+        "id": "v_begin",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "first",
+          "element": "begin"
+        }
+      },
+      {
+        "id": "v_call",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "first",
+          "element": "call"
+        }
+      },
+      {
+        "id": "v_check",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "first",
+          "element": "check"
+        }
+      },
+      {
+        "id": "v_retry",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "first",
+          "element": "retry"
+        }
+      },
+      {
+        "id": "v_leave",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "first",
+          "element": "leave"
+        }
+      },
+      {
+        "id": "v_enter",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "second",
+          "element": "enter"
+        }
+      },
+      {
+        "id": "v_finish",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "second",
+          "element": "finish"
+        }
+      },
+      {
+        "id": "v_subStart",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "sub",
+          "element": "subStart"
+        }
+      },
+      {
+        "id": "v_prepare",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "sub",
+          "element": "prepare"
+        }
+      },
+      {
+        "id": "v_subEnd",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "sub",
+          "element": "subEnd"
+        }
+      },
+      {
+        "id": "v_f1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "first",
+          "element": "f1",
+          "from": "v_begin",
+          "to": "v_call"
+        }
+      },
+      {
+        "id": "v_f2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "first",
+          "element": "f2",
+          "from": "v_call",
+          "to": "v_check"
+        }
+      },
+      {
+        "id": "v_f3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "first",
+          "element": "f3",
+          "from": "v_check",
+          "to": "v_leave"
+        }
+      },
+      {
+        "id": "v_f4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "first",
+          "element": "f4",
+          "from": "v_check",
+          "to": "v_retry"
+        }
+      },
+      {
+        "id": "v_f5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "first",
+          "element": "f5",
+          "from": "v_retry",
+          "to": "v_check"
+        }
+      },
+      {
+        "id": "v_f6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "second",
+          "element": "f6",
+          "from": "v_enter",
+          "to": "v_finish"
+        }
+      },
+      {
+        "id": "v_s1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "sub",
+          "element": "s1",
+          "from": "v_subStart",
+          "to": "v_prepare"
+        }
+      },
+      {
+        "id": "v_s2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "sub",
+          "element": "s2",
+          "from": "v_prepare",
+          "to": "v_subEnd"
+        }
+      }
+    ]
+  },
+  "source": "flowchart continuation \"Два листа и подпрограмма\"\nalgorithm main Проверка\nalgorithm helper Подготовка\ndiagram first Проверить algorithm=main type=algorithm\ndiagram second Завершить algorithm=main type=algorithm\ndiagram sub Подпрограмма algorithm=helper type=algorithm\nstart begin Начало owner=main\nsubroutine call Подготовить owner=main target=helper\ndecision check \"Готово?\" expression=ready mode=binary owner=main\noperation retry Повторить owner=main\noffpage leave A code=A owner=main\noffpage enter A code=A owner=main\nend finish Конец owner=main\nstart subStart Начало owner=helper\noperation prepare \"Подготовить данные\" owner=helper\nend subEnd Возврат owner=helper\nflow f1 \"\" from=begin to=call\nflow f2 \"\" from=call to=check\nflow f3 Да from=check guard=ready to=leave\nflow f4 Иначе from=check otherwise=true to=retry\nflow f5 \"\" from=retry to=check\ncontinuation transfer \"\" from=leave to=enter\nflow f6 \"\" from=enter to=finish\nflow s1 \"\" from=subStart to=prepare\nflow s2 \"\" from=prepare to=subEnd\nview v_begin \"\" diagram=first element=begin\nview v_call \"\" diagram=first element=call\nview v_check \"\" diagram=first element=check\nview v_retry \"\" diagram=first element=retry\nview v_leave \"\" diagram=first element=leave\nview v_enter \"\" diagram=second element=enter\nview v_finish \"\" diagram=second element=finish\nview v_subStart \"\" diagram=sub element=subStart\nview v_prepare \"\" diagram=sub element=prepare\nview v_subEnd \"\" diagram=sub element=subEnd\nview v_f1 \"\" diagram=first element=f1 from=v_begin to=v_call\nview v_f2 \"\" diagram=first element=f2 from=v_call to=v_check\nview v_f3 \"\" diagram=first element=f3 from=v_check to=v_leave\nview v_f4 \"\" diagram=first element=f4 from=v_check to=v_retry\nview v_f5 \"\" diagram=first element=f5 from=v_retry to=v_check\nview v_f6 \"\" diagram=second element=f6 from=v_enter to=v_finish\nview v_s1 \"\" diagram=sub element=s1 from=v_subStart to=v_prepare\nview v_s2 \"\" diagram=sub element=s2 from=v_prepare to=v_subEnd\n",
+  "draft": "flowchart continuation \"Два листа и подпрограмма\"\nalgorithm main Проверка\nalgorithm helper Подготовка\ndiagram first Проверить algorithm=main type=algorithm\ndiagram second Завершить algorithm=main type=algorithm\ndiagram sub Подпрограмма algorithm=helper type=algorithm\nstart begin Начало owner=main\nsubroutine call Подготовить owner=main target=helper\ndecision check \"Готово?\" expression=ready mode=binary owner=main\noperation retry Повторить owner=main\noffpage leave A code=A owner=main\noffpage enter A code=A owner=main\nend finish Конец owner=main\nstart subStart Начало owner=helper\noperation prepare \"Подготовить данные\" owner=helper\nend subEnd Возврат owner=helper\nflow f1 \"\" from=begin to=call\nflow f2 \"\" from=call to=check\nflow f3 Да from=check guard=ready to=leave\nflow f4 Иначе from=check otherwise=true to=retry\nflow f5 \"\" from=retry to=check\ncontinuation transfer \"\" from=leave to=enter\nflow f6 \"\" from=enter to=finish\nflow s1 \"\" from=subStart to=prepare\nflow s2 \"\" from=prepare to=subEnd\nview v_begin \"\" diagram=first element=begin\nview v_call \"\" diagram=first element=call\nview v_check \"\" diagram=first element=check\nview v_retry \"\" diagram=first element=retry\nview v_leave \"\" diagram=first element=leave\nview v_enter \"\" diagram=second element=enter\nview v_finish \"\" diagram=second element=finish\nview v_subStart \"\" diagram=sub element=subStart\nview v_prepare \"\" diagram=sub element=prepare\nview v_subEnd \"\" diagram=sub element=subEnd\nview v_f1 \"\" diagram=first element=f1 from=v_begin to=v_call\nview v_f2 \"\" diagram=first element=f2 from=v_call to=v_check\nview v_f3 \"\" diagram=first element=f3 from=v_check to=v_leave\nview v_f4 \"\" diagram=first element=f4 from=v_check to=v_retry\nview v_f5 \"\" diagram=first element=f5 from=v_retry to=v_check\nview v_f6 \"\" diagram=second element=f6 from=v_enter to=v_finish\nview v_s1 \"\" diagram=sub element=s1 from=v_subStart to=v_prepare\nview v_s2 \"\" diagram=sub element=s2 from=v_prepare to=v_subEnd\n",
+  "layout": {
+    "nodes": {
+      "v_begin": {
+        "x": 90,
+        "y": 70,
+        "width": 240,
+        "height": 90
+      },
+      "v_call": {
+        "x": 90,
+        "y": 310,
+        "width": 240,
+        "height": 90
+      },
+      "v_check": {
+        "x": 90,
+        "y": 550,
+        "width": 240,
+        "height": 150
+      },
+      "v_retry": {
+        "x": 90,
+        "y": 790,
+        "width": 240,
+        "height": 90
+      },
+      "v_leave": {
+        "x": 420,
+        "y": 790,
+        "width": 100,
+        "height": 90
+      },
+      "v_enter": {
+        "x": 90,
+        "y": 870,
+        "width": 100,
+        "height": 90
+      },
+      "v_finish": {
+        "x": 90,
+        "y": 1070,
+        "width": 240,
+        "height": 90
+      },
+      "v_subStart": {
+        "x": 90,
+        "y": 70,
+        "width": 240,
+        "height": 90
+      },
+      "v_prepare": {
+        "x": 90,
+        "y": 270,
+        "width": 240,
+        "height": 90
+      },
+      "v_subEnd": {
+        "x": 90,
+        "y": 470,
+        "width": 240,
+        "height": 90
+      }
+    },
+    "edges": {
+      "v_f1": {},
+      "v_f2": {},
+      "v_f3": {},
+      "v_f4": {},
+      "v_f5": {},
+      "v_f6": {},
+      "v_s1": {},
+      "v_s2": {}
+    },
+    "diagrams": {
+      "first": {},
+      "second": {},
+      "sub": {}
+    }
+  }
+}

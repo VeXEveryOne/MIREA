@@ -1,0 +1,309 @@
+{
+  "cancelled": false,
+  "items": [
+    {
+      "order": 1,
+      "notation": "UML",
+      "documentId": "parallel",
+      "diagramId": "main",
+      "title": "activity-parallel-pins · Потоки управления и данных",
+      "status": "completed",
+      "files": [
+        "D:\\OmniNotation\\out\\im\\overview\\Комплект_диаграмм.pdf"
+      ]
+    },
+    {
+      "order": 2,
+      "notation": "UML",
+      "documentId": "ports",
+      "diagramId": "main",
+      "title": "component-ports · Assembly и delegation",
+      "status": "completed",
+      "files": [
+        "D:\\OmniNotation\\out\\im\\overview\\Комплект_диаграмм.pdf"
+      ]
+    },
+    {
+      "order": 3,
+      "notation": "UML",
+      "documentId": "placements",
+      "diagramId": "main",
+      "title": "deployment-repeated-artifact · Один артефакт на двух узлах",
+      "status": "completed",
+      "files": [
+        "D:\\OmniNotation\\out\\im\\overview\\Комплект_диаграмм.pdf"
+      ]
+    },
+    {
+      "order": 4,
+      "notation": "GANTT",
+      "documentId": "gantt_calendar",
+      "diagramId": "main",
+      "title": "gantt-calendar-milestone · План проекта",
+      "status": "completed",
+      "files": [
+        "D:\\OmniNotation\\out\\im\\overview\\Комплект_диаграмм.pdf"
+      ]
+    },
+    {
+      "order": 5,
+      "notation": "GANTT",
+      "documentId": "gantt_dependencies",
+      "diagramId": "main",
+      "title": "gantt-dependency-types · План проекта",
+      "status": "completed",
+      "files": [
+        "D:\\OmniNotation\\out\\im\\overview\\Комплект_диаграмм.pdf"
+      ]
+    },
+    {
+      "order": 6,
+      "notation": "GANTT",
+      "documentId": "gantt_reserves",
+      "diagramId": "main",
+      "title": "gantt-reserves · План проекта",
+      "status": "completed",
+      "files": [
+        "D:\\OmniNotation\\out\\im\\overview\\Комплект_диаграмм.pdf"
+      ]
+    },
+    {
+      "order": 7,
+      "notation": "UML",
+      "documentId": "im_architecture",
+      "diagramId": "activity",
+      "title": "im-architecture · ИМ · Проверка и отправка карточки",
+      "status": "completed",
+      "files": [
+        "D:\\OmniNotation\\out\\im\\overview\\Комплект_диаграмм.pdf"
+      ]
+    },
+    {
+      "order": 8,
+      "notation": "UML",
+      "documentId": "im_architecture",
+      "diagramId": "components",
+      "title": "im-architecture · ИМ · Компоненты и общие интерфейсы",
+      "status": "completed",
+      "files": [
+        "D:\\OmniNotation\\out\\im\\overview\\Комплект_диаграмм.pdf"
+      ]
+    },
+    {
+      "order": 9,
+      "notation": "UML",
+      "documentId": "im_architecture",
+      "diagramId": "classes",
+      "title": "im-architecture · ИМ · Классы реализации компонентов",
+      "status": "completed",
+      "files": [
+        "D:\\OmniNotation\\out\\im\\overview\\Комплект_диаграмм.pdf"
+      ]
+    },
+    {
+      "order": 10,
+      "notation": "UML",
+      "documentId": "im_architecture",
+      "diagramId": "deployment",
+      "title": "im-architecture · ИМ · Узлы и размещение артефактов",
+      "status": "completed",
+      "files": [
+        "D:\\OmniNotation\\out\\im\\overview\\Комплект_диаграмм.pdf"
+      ]
+    },
+    {
+      "order": 11,
+      "notation": "FUNCTION_TREE",
+      "documentId": "im_furps",
+      "diagramId": "main",
+      "title": "im-furps · Требования FURPS+",
+      "status": "completed",
+      "files": [
+        "D:\\OmniNotation\\out\\im\\overview\\Комплект_диаграмм.pdf"
+      ]
+    },
+    {
+      "order": 12,
+      "notation": "FUNCTION_TREE",
+      "documentId": "im_org",
+      "diagramId": "main",
+      "title": "im-org · Организационная структура",
+      "status": "completed",
+      "files": [
+        "D:\\OmniNotation\\out\\im\\overview\\Комплект_диаграмм.pdf"
+      ]
+    },
+    {
+      "order": 13,
+      "notation": "GANTT",
+      "documentId": "im_plan",
+      "diagramId": "main",
+      "title": "im-plan · План проекта",
+      "status": "completed",
+      "files": [
+        "D:\\OmniNotation\\out\\im\\overview\\Комплект_диаграмм.pdf"
+      ]
+    },
+    {
+      "order": 14,
+      "notation": "FUNCTION_TREE",
+      "documentId": "im_wbs",
+      "diagramId": "main",
+      "title": "im-wbs · ИСР / WBS",
+      "status": "completed",
+      "files": [
+        "D:\\OmniNotation\\out\\im\\overview\\Комплект_диаграмм.pdf"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "D:\\OmniNotation\\out\\im\\overview\\Комплект_диаграмм.pdf",
+      "title": "activity-parallel-pins · Потоки управления и данных; component-ports · Assembly и delegation; deployment-repeated-artifact · Один артефакт на двух узлах; gantt-calendar-milestone · План проекта; gantt-dependency-types · План проекта; gantt-reserves · План проекта; im-architecture · ИМ · Проверка и отправка карточки; im-architecture · ИМ · Компоненты и общие интерфейсы; im-architecture · ИМ · Классы реализации компонентов; im-architecture · ИМ · Узлы и размещение артефактов; im-furps · Требования FURPS+; im-org · Организационная структура; im-plan · План проекта; im-wbs · ИСР / WBS",
+      "diagramId": "main;main;main;main;main;main;activity;components;classes;deployment;main;main;main;main"
+    }
+  ],
+  "errors": [],
+  "pages": [
+    {
+      "width": 1587,
+      "height": 1123,
+      "title": "activity-parallel-pins · Потоки управления и данных",
+      "diagramId": "main",
+      "scale": 1.1709302325581394,
+      "warnings": []
+    },
+    {
+      "width": 1587,
+      "height": 1123,
+      "title": "component-ports · Assembly и delegation",
+      "diagramId": "main",
+      "scale": 1.844578313253012,
+      "warnings": []
+    },
+    {
+      "width": 1587,
+      "height": 1123,
+      "title": "deployment-repeated-artifact · Один артефакт на двух узлах",
+      "diagramId": "main",
+      "scale": 1.4914468321727574,
+      "warnings": []
+    },
+    {
+      "width": 1587,
+      "height": 1123,
+      "title": "gantt-calendar-milestone · План проекта",
+      "diagramId": "main",
+      "scale": 1.0233957219251337,
+      "warnings": []
+    },
+    {
+      "width": 1587,
+      "height": 1123,
+      "title": "gantt-dependency-types · План проекта",
+      "diagramId": "main",
+      "scale": 1.2508169934640523,
+      "warnings": []
+    },
+    {
+      "width": 1587,
+      "height": 1123,
+      "title": "gantt-reserves · План проекта",
+      "diagramId": "main",
+      "scale": 1.2508169934640523,
+      "warnings": []
+    },
+    {
+      "width": 1587,
+      "height": 1123,
+      "title": "im-architecture · ИМ · Проверка и отправка карточки",
+      "diagramId": "activity",
+      "scale": 0.53,
+      "warnings": [
+        "Ожидаемый основной текст меньше 8 px. Выберите A3/крупный формат или постерную разбивку."
+      ]
+    },
+    {
+      "width": 1587,
+      "height": 1123,
+      "title": "im-architecture · ИМ · Компоненты и общие интерфейсы",
+      "diagramId": "components",
+      "scale": 1.1980963712076145,
+      "warnings": []
+    },
+    {
+      "width": 1587,
+      "height": 1123,
+      "title": "im-architecture · ИМ · Классы реализации компонентов",
+      "diagramId": "classes",
+      "scale": 1.7823008849557522,
+      "warnings": []
+    },
+    {
+      "width": 1587,
+      "height": 1123,
+      "title": "im-architecture · ИМ · Узлы и размещение артефактов",
+      "diagramId": "deployment",
+      "scale": 0.8533898305084746,
+      "warnings": []
+    },
+    {
+      "width": 1587,
+      "height": 1123,
+      "title": "im-furps · Требования FURPS+",
+      "diagramId": "main",
+      "scale": 0.17004390123854843,
+      "warnings": [
+        "Ожидаемый основной текст меньше 8 px. Выберите A3/крупный формат или постерную разбивку."
+      ]
+    },
+    {
+      "width": 1587,
+      "height": 1123,
+      "title": "im-org · Организационная структура",
+      "diagramId": "main",
+      "scale": 0.7087962962962963,
+      "warnings": []
+    },
+    {
+      "width": 1587,
+      "height": 1123,
+      "title": "im-plan · План проекта",
+      "diagramId": "main",
+      "scale": 0.6531569965870307,
+      "warnings": []
+    },
+    {
+      "width": 1587,
+      "height": 1123,
+      "title": "im-wbs · ИСР / WBS",
+      "diagramId": "main",
+      "scale": 0.5212215382659494,
+      "warnings": [
+        "Ожидаемый основной текст меньше 8 px. Выберите A3/крупный формат или постерную разбивку."
+      ]
+    }
+  ],
+  "warnings": [
+    "im-plan · План проекта: GANTT_RESOURCE_OVERLOAD · Перегрузка ресурса: 5 рабочих дней. Причины и задачи — в панели загрузки; даты не сдвигаются."
+  ],
+  "settings": {
+    "format": "pdf",
+    "background": "white",
+    "scale": 1.5,
+    "margin": 28,
+    "title": true,
+    "legend": true,
+    "monochrome": true,
+    "font": "Arial",
+    "includeHidden": true,
+    "page": "A3",
+    "orientation": "landscape",
+    "widthMm": 297,
+    "heightMm": 210,
+    "pagination": "fit",
+    "overlap": 20
+  },
+  "generatedAt": "2026-09-27T23:25:30.376Z",
+  "pdfRendering": "Штатная печать Chromium: HTML-текст и SVG. Возможная растеризация CSS-эффектов не исключается; полностью векторный PDF не заявляется."
+}

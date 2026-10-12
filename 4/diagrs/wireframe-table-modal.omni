@@ -1,0 +1,259 @@
+{
+  "notation": "WIREFRAME",
+  "formatVersion": 1,
+  "profile": "NS-WIREFRAME-1",
+  "model": {
+    "id": "demo",
+    "label": "Таблица и локальное окно",
+    "elements": [
+      {
+        "id": "home",
+        "kind": "screen",
+        "label": "Карточки",
+        "properties": {
+          "initial": "true",
+          "role": "Редактор"
+        }
+      },
+      {
+        "id": "main",
+        "kind": "diagram",
+        "label": "Экран",
+        "properties": {
+          "type": "screen",
+          "screen": "home"
+        }
+      },
+      {
+        "id": "table",
+        "kind": "widget",
+        "label": "Карточки",
+        "properties": {
+          "owner": "home",
+          "type": "table",
+          "order": "0"
+        }
+      },
+      {
+        "id": "code",
+        "kind": "tableColumn",
+        "label": "Код",
+        "properties": {
+          "owner": "table",
+          "key": "code",
+          "dataType": "text",
+          "order": "0"
+        }
+      },
+      {
+        "id": "name",
+        "kind": "tableColumn",
+        "label": "Название",
+        "properties": {
+          "owner": "table",
+          "key": "name",
+          "dataType": "text",
+          "order": "1"
+        }
+      },
+      {
+        "id": "row",
+        "kind": "tableRow",
+        "label": "",
+        "properties": {
+          "owner": "table",
+          "order": "0"
+        }
+      },
+      {
+        "id": "codeCell",
+        "kind": "tableCell",
+        "label": "",
+        "properties": {
+          "owner": "row",
+          "column": "code",
+          "value": "DEMO-01"
+        }
+      },
+      {
+        "id": "nameCell",
+        "kind": "tableCell",
+        "label": "",
+        "properties": {
+          "owner": "row",
+          "column": "name",
+          "value": "Учебная карточка"
+        }
+      },
+      {
+        "id": "open",
+        "kind": "widget",
+        "label": "Проверить",
+        "properties": {
+          "owner": "home",
+          "type": "button",
+          "order": "1"
+        }
+      },
+      {
+        "id": "modal",
+        "kind": "widget",
+        "label": "Результат проверки",
+        "properties": {
+          "owner": "home",
+          "type": "modal",
+          "state": "hidden",
+          "order": "2"
+        }
+      },
+      {
+        "id": "result",
+        "kind": "widget",
+        "label": "Демонстрация",
+        "properties": {
+          "owner": "modal",
+          "type": "text",
+          "text": "Проверка не вызывает сервер",
+          "order": "0"
+        }
+      },
+      {
+        "id": "close",
+        "kind": "widget",
+        "label": "Закрыть",
+        "properties": {
+          "owner": "modal",
+          "type": "button",
+          "order": "1"
+        }
+      },
+      {
+        "id": "show",
+        "kind": "uiAction",
+        "label": "Открыть окно",
+        "properties": {
+          "owner": "open",
+          "event": "click",
+          "kind": "openModal",
+          "target": "modal"
+        }
+      },
+      {
+        "id": "hide",
+        "kind": "uiAction",
+        "label": "Закрыть окно",
+        "properties": {
+          "owner": "close",
+          "event": "click",
+          "kind": "closeModal",
+          "target": "modal"
+        }
+      },
+      {
+        "id": "homeView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "home"
+        }
+      },
+      {
+        "id": "tableView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "table",
+          "parent": "homeView"
+        }
+      },
+      {
+        "id": "openView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "open",
+          "parent": "homeView"
+        }
+      },
+      {
+        "id": "modalView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "modal",
+          "parent": "homeView"
+        }
+      },
+      {
+        "id": "resultView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "result",
+          "parent": "modalView"
+        }
+      },
+      {
+        "id": "closeView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "close",
+          "parent": "modalView"
+        }
+      }
+    ]
+  },
+  "source": "wireframe demo \"Таблица и локальное окно\"\nscreen home Карточки initial=true role=Редактор\ndiagram main Экран screen=home type=screen\nwidget table Карточки order=0 owner=home type=table\ntableColumn code Код dataType=text key=code order=0 owner=table\ntableColumn name Название dataType=text key=name order=1 owner=table\ntableRow row \"\" order=0 owner=table\ntableCell codeCell \"\" column=code owner=row value=DEMO-01\ntableCell nameCell \"\" column=name owner=row value=\"Учебная карточка\"\nwidget open Проверить order=1 owner=home type=button\nwidget modal \"Результат проверки\" order=2 owner=home state=hidden type=modal\nwidget result Демонстрация order=0 owner=modal text=\"Проверка не вызывает сервер\" type=text\nwidget close Закрыть order=1 owner=modal type=button\nuiAction show \"Открыть окно\" event=click kind=openModal owner=open target=modal\nuiAction hide \"Закрыть окно\" event=click kind=closeModal owner=close target=modal\nview homeView \"\" diagram=main element=home\nview tableView \"\" diagram=main element=table parent=homeView\nview openView \"\" diagram=main element=open parent=homeView\nview modalView \"\" diagram=main element=modal parent=homeView\nview resultView \"\" diagram=main element=result parent=modalView\nview closeView \"\" diagram=main element=close parent=modalView\n",
+  "draft": "wireframe demo \"Таблица и локальное окно\"\nscreen home Карточки initial=true role=Редактор\ndiagram main Экран screen=home type=screen\nwidget table Карточки order=0 owner=home type=table\ntableColumn code Код dataType=text key=code order=0 owner=table\ntableColumn name Название dataType=text key=name order=1 owner=table\ntableRow row \"\" order=0 owner=table\ntableCell codeCell \"\" column=code owner=row value=DEMO-01\ntableCell nameCell \"\" column=name owner=row value=\"Учебная карточка\"\nwidget open Проверить order=1 owner=home type=button\nwidget modal \"Результат проверки\" order=2 owner=home state=hidden type=modal\nwidget result Демонстрация order=0 owner=modal text=\"Проверка не вызывает сервер\" type=text\nwidget close Закрыть order=1 owner=modal type=button\nuiAction show \"Открыть окно\" event=click kind=openModal owner=open target=modal\nuiAction hide \"Закрыть окно\" event=click kind=closeModal owner=close target=modal\nview homeView \"\" diagram=main element=home\nview tableView \"\" diagram=main element=table parent=homeView\nview openView \"\" diagram=main element=open parent=homeView\nview modalView \"\" diagram=main element=modal parent=homeView\nview resultView \"\" diagram=main element=result parent=modalView\nview closeView \"\" diagram=main element=close parent=modalView\n",
+  "layout": {
+    "nodes": {
+      "homeView": {
+        "x": 60,
+        "y": 60,
+        "width": 1200,
+        "height": 800
+      },
+      "tableView": {
+        "x": 76,
+        "y": 112,
+        "width": 800,
+        "height": 260
+      },
+      "openView": {
+        "x": 888,
+        "y": 112,
+        "width": 260,
+        "height": 48
+      },
+      "modalView": {
+        "x": 76,
+        "y": 384,
+        "width": 500,
+        "height": 320
+      },
+      "resultView": {
+        "x": 92,
+        "y": 428,
+        "width": 260,
+        "height": 48
+      },
+      "closeView": {
+        "x": 92,
+        "y": 488,
+        "width": 260,
+        "height": 48
+      }
+    },
+    "edges": {},
+    "diagrams": {
+      "main": {}
+    }
+  }
+}

@@ -45,21 +45,21 @@ for (const type of ['UUID','String','Integer','Decimal','DateTime','Boolean','JS
 }
 const classes = [
   ['Configuration','Конфигурация','entity', [['id {PK}','UUID'],['code','String']], [['findAffected','String','JSON']]],
-  ['BomVersion','Версия BOM','entity', [['id {PK}','UUID'],['number','Integer'],['state','String'],['createdAt','DateTime']], [['getSnapshot','Void','JSON'],['markChecked','CheckResult','Void']]],
-  ['BomSlot','Позиция BOM','entity', [['id {PK}','UUID'],['roleCode','String'],['selectionMode','String'],['quantity','Integer']], [['selectOffer','Offer','Void']]],
+  ['ModelRangeVersion','Версия модельного ряда','entity', [['id {PK}','UUID'],['number','Integer'],['state','String'],['createdAt','DateTime']], [['getSnapshot','Void','JSON'],['markChecked','CheckResult','Void']]],
+  ['ModelRangeSlot','Позиция модельного ряда','entity', [['id {PK}','UUID'],['roleCode','String'],['selectionMode','String'],['quantity','Integer']], [['selectOffer','Offer','Void']]],
   ['ComponentGroup','Группа комплектующих','entity', [['id {PK}','UUID'],['code','String'],['constraints','JSON']], [['matches','Component','Boolean']]],
   ['Component','Комплектующая','entity', [['id {PK}','UUID'],['name','String'],['attributes','JSON'],['massKg','Decimal']], [['getAttributes','Void','JSON']]],
   ['Offer','Предложение поставщика','entity', [['id {PK}','UUID'],['supplierCode','String'],['priceRub','Decimal'],['stock','Integer'],['observedAt','DateTime']], [['isFresh','DateTime','Boolean']]],
-  ['Card','Карточка товара','entity', [['id {PK}','UUID'],['sellerCode','String']], [['newRevision','BomVersion','CardRevision']]],
+  ['Card','Карточка товара','entity', [['id {PK}','UUID'],['sellerCode','String']], [['newRevision','ModelRangeVersion','CardRevision']]],
   ['CardRevision','Ревизия карточки','entity', [['id {PK}','UUID'],['state','String'],['priceRub','Decimal'],['massKg','Decimal'],['attributes','JSON']], [['getSnapshot','Void','JSON'],['markStale','Void','Void']]],
   ['Image','Изображение','entity', [['id {PK}','UUID'],['uri','String'],['checksum','String']], [['validate','Void','CheckResult']]],
   ['PublicationAttempt','Попытка публикации','entity', [['id {PK}','UUID'],['externalTaskId','String'],['state','String'],['errorCode','String'],['nextCheckAt','DateTime']], [['recordResult','ExternalResult','Void']]],
-  ['BomForm','Форма BOM','boundary', [['draftData','JSON']], [['submit','JSON','CheckResult'],['showErrors','CheckResult','Void']]],
+  ['ModelRangeForm','Форма модельного ряда','boundary', [['draftData','JSON']], [['submit','JSON','CheckResult'],['showErrors','CheckResult','Void']]],
   ['CardForm','Форма карточки','boundary', [['revisionId','UUID']], [['publish','UUID','PublicationAttempt'],['showStatus','PublicationAttempt','Void']]],
   ['MarketplaceGateway','Шлюз маркетплейса','boundary', [['baseUrl','String'],['credentialRef','String']], [['prepareRequest','CardRevision','PreparedRequest'],['send','PreparedRequest','ExternalResult'],['getResult','String','ExternalResult']]],
-  ['BomControl','Управление BOM','control', [], [['formVersion','JSON','BomVersion'],['resolveSlots','BomVersion','CheckResult'],['replacePreview','JSON','JSON']]],
-  ['Compatibility','Проверка совместимости','control', [['rules','JSON']], [['checkCompatibility','BomVersion','CheckResult']]],
-  ['Calculation','Расчёт показателей','control', [['pricingPolicy','JSON']], [['calculate','BomVersion','CalculationResult']]],
+  ['ModelRangeControl','Управление модельным рядом','control', [], [['formVersion','JSON','ModelRangeVersion'],['resolveSlots','ModelRangeVersion','CheckResult'],['replacePreview','JSON','JSON']]],
+  ['Compatibility','Проверка совместимости','control', [['rules','JSON']], [['checkCompatibility','ModelRangeVersion','CheckResult']]],
+  ['Calculation','Расчёт показателей','control', [['pricingPolicy','JSON']], [['calculate','ModelRangeVersion','CalculationResult']]],
   ['Readiness','Проверка готовности','control', [], [['checkReadiness','CardRevision','CheckResult']]],
   ['PublicationControl','Управление публикацией','control', [['retryLimit','Integer']], [['requestPublication','CardRevision','PublicationAttempt'],['checkOutcome','PublicationAttempt','ExternalResult'],['mayRetry','PublicationAttempt','Boolean']]],
 ] as const;
@@ -76,14 +76,14 @@ type Relation = [string,string,string,string,string,string,string,string?];
 // The composite Property is typed by the part; OmniNotation draws its diamond
 // at the opposite (whole) classifier, as required by the UML metamodel.
 const relations: Relation[] = [
-  ['config_versions','Configuration','1','BomVersion','0..*','versions','analysis_bom','composite'],
-  ['version_slots','BomVersion','1','BomSlot','0..*','slots','analysis_bom','composite'],
-  ['slot_group','BomSlot','0..*','ComponentGroup','0..1','group','analysis_bom'],
-  ['slot_component','BomSlot','0..*','Component','0..1','resolved component','analysis_bom'],
-  ['component_offers','Component','1','Offer','0..*','offers','analysis_bom'],
-  ['slot_offer','BomSlot','0..*','Offer','0..1','selected offer','analysis_bom'],
+  ['config_versions','Configuration','1','ModelRangeVersion','0..*','versions','analysis_model_range','composite'],
+  ['version_slots','ModelRangeVersion','1','ModelRangeSlot','0..*','slots','analysis_model_range','composite'],
+  ['slot_group','ModelRangeSlot','0..*','ComponentGroup','0..1','group','analysis_model_range'],
+  ['slot_component','ModelRangeSlot','0..*','Component','0..1','resolved component','analysis_model_range'],
+  ['component_offers','Component','1','Offer','0..*','offers','analysis_model_range'],
+  ['slot_offer','ModelRangeSlot','0..*','Offer','0..1','selected offer','analysis_model_range'],
   ['card_revisions','Card','1','CardRevision','0..*','revisions','analysis_card','composite'],
-  ['revision_bom','BomVersion','1','CardRevision','0..*','snapshot','analysis_card'],
+  ['revision_model_range','ModelRangeVersion','1','CardRevision','0..*','snapshot','analysis_card'],
   ['revision_attempts','CardRevision','1','PublicationAttempt','0..*','attempts','analysis_card','composite'],
   ['revision_images','CardRevision','0..*','Image','0..*','images','analysis_card'],
 ];
@@ -96,33 +96,33 @@ for (const [id,from,fromMultiplicity,to,toMultiplicity,label,sheet,aggregation] 
   end('a',from,fromMultiplicity,'0'); end('b',to,toMultiplicity,'1',true);
   edgeView(sheet,id,from,to);
 }
-add('diagram','analysis_bom','Классы проектирования: конфигурации, позиции и предложения',{type:'class'});
+add('diagram','analysis_model_range','Классы проектирования: конфигурации, позиции и предложения',{type:'class'});
 for (const [id,rect] of [
-  ['Configuration',[40,40,350,220]],['BomVersion',[520,40,380,250]],['BomSlot',[1050,40,420,280]],
+  ['Configuration',[40,40,350,220]],['ModelRangeVersion',[520,40,380,250]],['ModelRangeSlot',[1050,40,420,280]],
   ['ComponentGroup',[1050,430,420,220]],['Component',[520,430,380,250]],['Offer',[40,430,350,300]],
-] as const) view('analysis_bom',id,[...rect]);
+] as const) view('analysis_model_range',id,[...rect]);
 // Separate the three slot references at distinct bottom ports; crowded automatic
 // ports can displace multiplicities far from the association they describe.
-r.edges.v_analysis_bom_slot_group = {bends:[{x:1320,y:380}],label:{x:1420,y:385}};
-r.edges.v_analysis_bom_slot_component = {
+r.edges.v_analysis_model_range_slot_group = {bends:[{x:1320,y:380}],label:{x:1420,y:385}};
+r.edges.v_analysis_model_range_slot_component = {
   bends:[{x:1150,y:390},{x:950,y:390},{x:950,y:520}],label:{x:970,y:415},
 };
-r.edges.v_analysis_bom_slot_offer = {
+r.edges.v_analysis_model_range_slot_offer = {
   bends:[{x:1075,y:355},{x:470,y:355},{x:470,y:650}],label:{x:730,y:345},
 };
 add('diagram','analysis_card','Классы проектирования: неизменяемые ревизии и попытки публикации',{type:'class'});
 for (const [id,rect] of [
   ['Card',[40,40,360,220]],['CardRevision',[560,40,440,310]],['PublicationAttempt',[1160,40,480,310]],
-  ['BomVersion',[40,470,360,250]],['Image',[560,470,440,220]],
+  ['ModelRangeVersion',[40,470,360,250]],['Image',[560,470,440,220]],
 ] as const) view('analysis_card',id,[...rect]);
-// Route the BOM snapshot link in the inter-column gutter, never on the image link.
-r.edges.v_analysis_card_revision_bom = {
+// Route the модельный ряд snapshot link in the inter-column gutter, never on the image link.
+r.edges.v_analysis_card_revision_model_range = {
   bends: [{x:220,y:395},{x:480,y:395},{x:480,y:290}],
   label: {x:340,y:380},
 };
 for (const [sheet,label,entries] of [
-  ['services_bom','Управление подготовкой состава',[
-    ['BomForm',[40,40,510,190]],['BomControl',[730,40,510,260]],
+  ['services_model_range','Управление подготовкой состава',[
+    ['ModelRangeForm',[40,40,510,190]],['ModelRangeControl',[730,40,510,260]],
     ['Compatibility',[40,470,510,190]],['Calculation',[730,470,510,190]],
   ]],
   ['services_publish','Управление публикацией',[
@@ -134,8 +134,8 @@ for (const [sheet,label,entries] of [
   for (const [id,rect] of entries) view(sheet,id,[...rect]);
 }
 for (const [id,sheet,from,to] of [
-  ['d1','services_bom','BomForm','BomControl'],['d2','services_bom','BomControl','Compatibility'],
-  ['d3','services_bom','BomControl','Calculation'],
+  ['d1','services_model_range','ModelRangeForm','ModelRangeControl'],['d2','services_model_range','ModelRangeControl','Compatibility'],
+  ['d3','services_model_range','ModelRangeControl','Calculation'],
   ['d4','services_publish','CardForm','PublicationControl'],['d5','services_publish','PublicationControl','Readiness'],
   ['d6','services_publish','PublicationControl','MarketplaceGateway'],
 ] as const) {add('dependency',id,'',{from,to}); edgeView(sheet,id,from,to);}
@@ -147,24 +147,24 @@ a.add('diagram','prepare','Подготовка и проверка конкре
 a.add('diagram','main','Подготовка содержания и передача на публикацию',{type:'activity',activity:'work'});
 for (const [sheet,nodes,flows] of [
   ['prepare',[
-    ['start','initial','',[570,30,32,32]],['split','fork','',[420,110,330,18]],
+    ['start','initial','',[570,30,32,32]],['split','fork','AND: начать обе ветви',[420,110,330,18]],
     ['compose','action','Задать позиции: группа или точная комплектующая',[40,210,380,90]],
     ['fetch','action','Обновить цены, наличие и время получения предложений',[750,210,400,90]],
-    ['join','join','',[420,390,330,18]],
-    ['resolve','action','Выбрать комплектующие и предложения; сохранить черновик BOM',[390,490,390,90]],
+    ['join','join','AND: дождаться обеих ветвей',[420,390,330,18]],
+    ['resolve','action','Выбрать комплектующие и предложения; сохранить черновик модельного ряда',[390,490,390,90]],
     ['compat','action','Проверить совместимость состава',[40,490,260,90]],
     ['compatible','decision','Конфликты?',[45,680,250,90]],
     ['continue','action','Подготовить содержание карточки (продолжение на рисунке 6)',[40,885,390,90]],
-    ['fix_bom','action','Показать ошибки; вернуть черновик на доработку',[650,680,420,90]],
+    ['fix_model_range','action','Показать ошибки; вернуть черновик на доработку',[650,680,420,90]],
     ['end_ok','activityFinal','',[210,1080,40,40]],['end_bad','activityFinal','',[840,885,40,40]],
   ],[
     ['start','split',''],['split','compose',''],['split','fetch',''],['compose','join',''],['fetch','join',''],
     ['join','resolve',''],['resolve','compat',''],['compat','compatible',''],
-    ['compatible','continue','нет'],['compatible','fix_bom','есть'],['continue','end_ok',''],['fix_bom','end_bad',''],
+    ['compatible','continue','нет'],['compatible','fix_model_range','есть'],['continue','end_ok',''],['fix_model_range','end_bad',''],
   ]],
   ['main',[
     ['start_content','initial','',[180,30,32,32]],
-    ['calculate','action','Рассчитать себестоимость, цену и массу по проверенному BOM',[40,110,400,90]],
+    ['calculate','action','Рассчитать себестоимость, цену и массу по проверенному модельному ряду',[40,110,400,90]],
     ['content','action','Подготовить изображения и обязательные атрибуты',[40,280,400,90]],
     ['ready','action','Создать неизменяемую ревизию и проверить готовность',[40,450,400,90]],
     ['decision','decision','Проверки пройдены?',[110,620,250,90]],
@@ -186,14 +186,18 @@ a.edges.v_prepare_prepare_flow2 = {bends:[{x:460,y:165},{x:230,y:165}]};
 a.edges.v_prepare_prepare_flow3 = {bends:[{x:710,y:165},{x:950,y:165}]};
 a.edges.v_prepare_prepare_flow4 = {bends:[{x:230,y:350},{x:460,y:350},{x:460,y:365}]};
 a.edges.v_prepare_prepare_flow5 = {bends:[{x:950,y:350},{x:710,y:350},{x:710,y:365}]};
+a.add('annotation','and_split_note','AND: обе ветви выполняются параллельно',{target:'split'});
+a.view('prepare','and_split_note',[780,80,330,90]);
+a.add('annotation','and_join_note','AND: продолжить после завершения обеих ветвей',{target:'join'});
+a.view('prepare','and_join_note',[790,410,330,105]);
 await a.save('ПР4_Модель_деятельности.omni');
 
 const exportManifest = {
   output: '.',
   options: {format:'png',background:'white',monochrome:true,title:false,legend:false,targetWidth:3000,font:'Arial'},
   jobs: [
-    ...['analysis_bom','analysis_card','services_bom','services_publish'].map((diagramId,index)=>({file:'ПР4_Модель_проектирования.omni',diagramId,title:`ПР4_0${index+1}_Классы`})),
-    {file:'ПР4_Модель_деятельности.omni',diagramId:'prepare',title:'ПР4_05_Деятельность_BOM'},
+    ...['analysis_model_range','analysis_card','services_model_range','services_publish'].map((diagramId,index)=>({file:'ПР4_Модель_проектирования.omni',diagramId,title:`ПР4_0${index+1}_Классы`})),
+    {file:'ПР4_Модель_деятельности.omni',diagramId:'prepare',title:'ПР4_05_Деятельность_Модельный_ряд'},
     {file:'ПР4_Модель_деятельности.omni',diagramId:'main',title:'ПР4_06_Деятельность_Карточка'},
   ],
 };

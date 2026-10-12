@@ -1,8 +1,8 @@
 {
   "passed": true,
-  "executed_at": "2026-10-05T15:56:51.205867+00:00",
-  "database": "ppois10_b14eb3ab4424",
-  "api_database": "ppois10_1bf9559401df",
+  "executed_at": "2026-10-07T22:57:29.218235+00:00",
+  "database": "ppois10_598e453d9d57",
+  "api_database": "ppois10_7d16ba2d3a25",
   "http_tests": 28,
   "browser_checkpoints": 18,
   "reconciliation_checks": 111,
@@ -42,7 +42,7 @@
     "UI04 visible 76400",
     "UI04 visible 7.820",
     "Settled browser checkpoint UI05",
-    "UI05 visible Наценка, доля\" [active]: \"0.21\"",
+    "UI05 visible Наценка, доля\": \"0.21\"",
     "Stale calculation output removed",
     "Settled browser checkpoint UI06",
     "UI06 visible Создана версия 3: CHECKED.",
@@ -83,7 +83,7 @@
     "UI15 visible ppois_viewer",
     "UI15 visible read_only",
     "UI15 visible on",
-    "UI15 visible ppois10_b14eb3ab4424",
+    "UI15 visible ppois10_598e453d9d57",
     "Settled browser checkpoint UI16",
     "UI16 visible heading \"Справка\"",
     "UI16 visible paragraph: admin",
@@ -96,23 +96,23 @@
     "UI18 visible 76400",
     "UI18 visible 7.820",
     "Unique screenshot paths",
+    "Observed screenshot ПР10_Экран_входа.jpg",
+    "Observed screenshot ПР10_Фрагмент_входа.jpg",
     "Observed screenshot ПР10_Экран_инженера.jpg",
+    "Observed screenshot ПР10_Фрагмент_инженера.jpg",
     "Observed screenshot ПР10_Экран_расчёта.jpg",
     "Observed screenshot ПР10_Результат_расчёта.jpg",
+    "Observed screenshot ПР10_Фрагмент_расчёта.jpg",
     "Observed screenshot ПР10_Экран_менеджера.jpg",
+    "Observed screenshot ПР10_История_ревизий.jpg",
+    "Observed screenshot ПР10_Фрагмент_ревизий.jpg",
     "Observed screenshot ПР10_Экран_публикаций.jpg",
     "Observed screenshot ПР10_Экран_наблюдателя.jpg",
     "Observed screenshot ПР10_Результат_наблюдателя.jpg",
     "Observed screenshot ПР10_Экран_администратора.jpg",
-    "Observed screenshot ПР10_Экран_входа.jpg",
-    "Observed screenshot ПР10_История_ревизий.jpg",
-    "Observed screenshot ПР10_Фрагмент_входа.jpg",
-    "Observed screenshot ПР10_Фрагмент_расчёта.jpg",
-    "Observed screenshot ПР10_Фрагмент_ревизий.jpg",
     "Observed screenshot ПР10_Фрагмент_диагностики.jpg",
-    "Observed screenshot ПР10_Фрагмент_инженера.jpg",
-    "Browser created only one BOM version with six slots and one revision",
-    "Original and new BOM version states retained",
+    "Browser created only one модельный ряд version with six slots and one revision",
+    "Original and new модельный ряд version states retained",
     "Original and new slot quantities correct",
     "Browser revision is DRAFT on version 3",
     "Previous READY revision retained",
@@ -125,8 +125,8 @@
     "supplier": 2,
     "offer": 10,
     "configuration": 1,
-    "bom_version": 2,
-    "bom_slot": 12,
+    "model_range_version": 2,
+    "model_range_slot": 12,
     "card": 2,
     "card_revision": 2,
     "image": 1,
@@ -139,8 +139,8 @@
     "supplier": 2,
     "offer": 10,
     "configuration": 1,
-    "bom_version": 3,
-    "bom_slot": 18,
+    "model_range_version": 3,
+    "model_range_slot": 18,
     "card": 2,
     "card_revision": 3,
     "image": 1,
@@ -193,221 +193,191 @@
     {
       "id": "UI01",
       "description": "Корректный демонстрационный вход инженера открыл экран версии 2 DRAFT",
-      "observed_at": "2026-10-05T15:22:58.488Z"
+      "observed_at": "2026-10-07T22:57:26.046Z"
     },
     {
       "id": "UI02",
       "description": "Смена версии при изменённом количестве требует решения; исходный выбор и 0 сохранены",
-      "observed_at": "2026-10-05T15:23:25.219Z"
+      "observed_at": "2026-10-07T22:57:26.126Z"
     },
     {
       "id": "UI03",
       "description": "Несохранённый состав с нулевым количеством отклонён сервером",
-      "observed_at": "2026-10-05T15:23:25.791Z"
+      "observed_at": "2026-10-07T22:57:26.195Z"
     },
     {
       "id": "UI04",
       "description": "Исправление RAM до 2 восстановило расчёт: 53500.00 ₽, 76400 ₽, 7.820 кг",
-      "observed_at": "2026-10-05T15:23:53.467Z"
+      "observed_at": "2026-10-07T22:57:26.278Z"
     },
     {
       "id": "UI05",
       "description": "При изменении экономического параметра старый результат исчезает",
-      "observed_at": "2026-10-05T15:24:51.395Z"
+      "observed_at": "2026-10-07T22:57:26.398Z"
     },
     {
       "id": "UI06",
       "description": "Сохранение инженером создало версию 3 CHECKED без перезаписи 1 и 2",
-      "observed_at": "2026-10-05T15:24:52.251Z"
+      "observed_at": "2026-10-07T22:57:26.520Z"
     },
     {
       "id": "UI07",
       "description": "Выход при изменённом составе требует решения",
-      "observed_at": "2026-10-05T15:25:27.071Z"
+      "observed_at": "2026-10-07T22:57:26.545Z"
     },
     {
       "id": "UI08",
       "description": "Отмена локальных изменений загрузила исходную версию 1 с RAM=2",
-      "observed_at": "2026-10-05T15:25:27.624Z"
+      "observed_at": "2026-10-07T22:57:26.606Z"
     },
     {
       "id": "UI09",
       "description": "Менеджер не редактирует состав; ревизия для DRAFT-версии 2 недоступна",
-      "observed_at": "2026-10-05T15:26:07.738Z"
+      "observed_at": "2026-10-07T22:57:26.984Z"
     },
     {
       "id": "UI10",
       "description": "Менеджер создал ревизию 2 DRAFT на версии состава 3, ревизия 1 READY сохранена",
-      "observed_at": "2026-10-05T15:26:08.239Z"
+      "observed_at": "2026-10-07T22:57:27.169Z"
     },
     {
       "id": "UI11",
       "description": "История содержит только исходную попытку ACCEPTED; внешняя отправка недоступна",
-      "observed_at": "2026-10-05T15:26:38.065Z"
+      "observed_at": "2026-10-07T22:57:27.268Z"
     },
     {
       "id": "UI12",
       "description": "Наблюдатель видит сохранённые версии, поля заблокированы, кнопок записи нет",
-      "observed_at": "2026-10-05T15:26:38.642Z"
+      "observed_at": "2026-10-07T22:57:27.526Z"
     },
     {
       "id": "UI13",
       "description": "Наблюдатель рассчитывает сохранённую версию 3 без изменения экономических параметров",
-      "observed_at": "2026-10-05T15:27:09.547Z"
+      "observed_at": "2026-10-07T22:57:27.790Z"
     },
     {
       "id": "UI14",
       "description": "Прямая навигация наблюдателя к недоступной диагностике открывает справку, не администраторский экран",
-      "observed_at": "2026-10-05T15:27:31.163Z"
+      "observed_at": "2026-10-07T22:57:27.831Z"
     },
     {
       "id": "UI15",
       "description": "Администратор видит только диагностику и справку; соединение ограничено ppois_viewer, read_only=on",
-      "observed_at": "2026-10-05T15:27:31.977Z"
+      "observed_at": "2026-10-07T22:57:28.042Z"
     },
     {
       "id": "UI16",
       "description": "Администратор не получает бизнес-раздел через прямой hash-маршрут",
-      "observed_at": "2026-10-05T15:29:19.936Z"
+      "observed_at": "2026-10-07T22:57:28.106Z"
     },
     {
       "id": "UI17",
       "description": "Неверный пароль отклонён, сеанс не открыт",
-      "observed_at": "2026-10-05T15:29:20.482Z"
+      "observed_at": "2026-10-07T22:57:28.283Z"
     },
     {
       "id": "UI18",
       "description": "Менеджер также рассчитывает сохранённую версию 3: 76400 ₽ и 7.820 кг",
-      "observed_at": "2026-10-05T15:44:45.463Z"
+      "observed_at": "2026-10-07T22:57:28.631Z"
     }
   ],
   "screenshots": [
     {
-      "file": "ПР10_Экран_инженера.jpg",
-      "label": "Инженер просматривает исходный черновик версии 2",
-      "sha256": "dc75c9f7d1b8d8ddb2dc420d2c57a1a3a21d6a1d3a1d83732a0950c5fd64d9ae"
-    },
-    {
-      "file": "ПР10_Экран_расчёта.jpg",
-      "label": "Фактический серверный расчёт несохранённого состава инженера",
-      "sha256": "8d0d2a0208cc5d111745f9424bc03de7b34d9777572675edbf461e8599565d18"
-    },
-    {
-      "file": "ПР10_Результат_расчёта.jpg",
-      "label": "Результат расчёта в окне браузера",
-      "sha256": "a64f7099edff3ac5d057f07387c5c4b43bfcc239758e3e5547fd15e566305f57"
-    },
-    {
-      "file": "ПР10_Экран_менеджера.jpg",
-      "label": "Сохранение новой расчётной ревизии менеджером",
-      "sha256": "fd11e7dede9601bb30291db5550aa7d6e5baed7d0386cf2d1bb26e2e9e14b0fe"
-    },
-    {
-      "file": "ПР10_Экран_публикаций.jpg",
-      "label": "Просмотр исходной учебной попытки без новой внешней отправки",
-      "sha256": "1fcdc1be4082ec1f28c13a7beec0374f5330ba46592608cfc07ce20bc9affb76"
-    },
-    {
-      "file": "ПР10_Экран_наблюдателя.jpg",
-      "label": "Наблюдатель просматривает состав без права редактирования",
-      "sha256": "ff4ba8db72e2703f49f0947aee41283358e8da5fb8417256eed99c2df4b72cf1"
-    },
-    {
-      "file": "ПР10_Результат_наблюдателя.jpg",
-      "label": "Выходная форма расчёта с итогами и проверенными позициями",
-      "sha256": "9a0125dbde1c681765df9f03b01e21cfb5337a58c86f4fc9907230cdc45db7f6"
-    },
-    {
-      "file": "ПР10_Экран_администратора.jpg",
-      "label": "Служебный доступ без автоматических бизнес-прав",
-      "sha256": "d1196f3920f1a1f0d2140c34bf5efbd0a3419e4efe23773b596f9d722b9c3709"
-    },
-    {
       "file": "ПР10_Экран_входа.jpg",
-      "label": "Отказ при неверном демонстрационном пароле",
-      "sha256": "b00e58f937f1192db80bc263104fc5629ea0474e0d4b8b4948eaa8015a39cf7f"
-    },
-    {
-      "file": "ПР10_История_ревизий.jpg",
-      "label": "Новая ревизия 2 DRAFT и сохранённая ревизия 1 READY",
-      "sha256": "707edbcebced0fa5c72c1514b7464a3bd307d3f8549d6cb63da3e9d4b8867a59"
+      "label": "Демонстрационный вход",
+      "sha256": "7538054bfcefaa05f113281f6f86b3c9912397304812355b35e14eff9d4ac1a4"
     },
     {
       "file": "ПР10_Фрагмент_входа.jpg",
-      "label": "Форма демонстрационного входа без ошибки",
-      "clip": {
-        "x": 395,
-        "y": 50,
-        "width": 490,
-        "height": 610
-      },
-      "sha256": "07ccf92d2ed8a0a125d44b901280dc608a29a79dfa3d6e38ad9d79a485569f43"
+      "label": "Демонстрационный вход",
+      "sha256": "79f8928c36237df99efcb07985e08886514b56dad4885ae9c09bfece0867bc0b"
     },
     {
-      "file": "ПР10_Фрагмент_расчёта.jpg",
-      "label": "Выходная форма инженера с шестью позициями итогами и ограничениями",
-      "clip": {
-        "height": 536.1625366210938,
-        "width": 975.7999877929688,
-        "x": 257,
-        "y": 798.8125228881836
-      },
-      "sha256": "ef2263f508b8c092d8ba6648867f69af3485165fd5b3ff1afb3949225a9fb36c"
-    },
-    {
-      "file": "ПР10_Фрагмент_ревизий.jpg",
-      "label": "История ревизий и роль менеджера",
-      "clip": {
-        "height": 466.9125213623047,
-        "width": 1010,
-        "x": 250,
-        "y": 0
-      },
-      "sha256": "f817ecf82871ac7252678171277ece4d7f190f6e5a7b95ff72d459d75da8ec43"
-    },
-    {
-      "file": "ПР10_Фрагмент_диагностики.jpg",
-      "label": "Роль администратора и фактические ограничения соединения",
-      "clip": {
-        "x": 250,
-        "y": 0,
-        "width": 1010,
-        "height": 550
-      },
-      "sha256": "4cd7f0588d5503fc60a080c3bf077c1bf8a3191d4bd96c7fd8e3e5d8107ec72c"
+      "file": "ПР10_Экран_инженера.jpg",
+      "label": "Инженер: версии модельного ряда",
+      "sha256": "ac41b126d25a0aa6677f5c7313517d3c97c9f3102abb5dac0d15fa8541d70580"
     },
     {
       "file": "ПР10_Фрагмент_инженера.jpg",
-      "label": "Первые три позиции редактора новой версии инженера",
-      "clip": {
-        "height": 324.60002517700195,
-        "width": 975.7999877929688,
-        "x": 257,
-        "y": 338.75
-      },
-      "sha256": "05aa80f3dd2919357f28e3f0b46f735ff2b6ecdf9e98c5a8e78c6017ed0efee9"
+      "label": "Шесть позиций редактора новой версии инженера",
+      "sha256": "b280b3eda341c65b3db8ef811fcf8c71ff3da5f91577c606e8941b1ba5c492fd"
+    },
+    {
+      "file": "ПР10_Экран_расчёта.jpg",
+      "label": "Экономические параметры и расчёт",
+      "sha256": "fd25b1a79a2c4232118e8b4000bd8775b45a8ecbaf2fcbdfe9ac3bce37c1e2f8"
+    },
+    {
+      "file": "ПР10_Результат_расчёта.jpg",
+      "label": "Результат расчёта инженера",
+      "sha256": "fd25b1a79a2c4232118e8b4000bd8775b45a8ecbaf2fcbdfe9ac3bce37c1e2f8"
+    },
+    {
+      "file": "ПР10_Фрагмент_расчёта.jpg",
+      "label": "Шесть позиций и итоги расчёта",
+      "sha256": "0ef2975ee7a864d6410c0a356eadad2ed52eaf610c512c5388a6622786cc6c92"
+    },
+    {
+      "file": "ПР10_Экран_менеджера.jpg",
+      "label": "Менеджер: черновик не готов к созданию ревизии",
+      "sha256": "61aabbfc627f94bad8245f6683957a260337814b5bea33cba52c1f18bd899f2e"
+    },
+    {
+      "file": "ПР10_История_ревизий.jpg",
+      "label": "История ревизий после сохранения",
+      "sha256": "4d34f9d5030ca2fa37ecfd8709a74a7184a357cd169bc076919faaa1611aa229"
+    },
+    {
+      "file": "ПР10_Фрагмент_ревизий.jpg",
+      "label": "Сохранённые ревизии карточки",
+      "sha256": "35050a27f1ede8930f9e379d493626e11cc02d0e9eba7175b4d7ad13f6d2c7db"
+    },
+    {
+      "file": "ПР10_Экран_публикаций.jpg",
+      "label": "История попыток: внешняя отправка недоступна",
+      "sha256": "3bc18f62ec59a2996b5cc4ba99c21344e2974b87847423d5bc2e48a921f19d97"
+    },
+    {
+      "file": "ПР10_Экран_наблюдателя.jpg",
+      "label": "Наблюдатель: состав только для чтения",
+      "sha256": "7e2921b025dffb5bdd54314fea390c04b548a1b0a93d8781065bc42c6b6120c3"
+    },
+    {
+      "file": "ПР10_Результат_наблюдателя.jpg",
+      "label": "Расчёт наблюдателя без записи",
+      "sha256": "1c0f7a5ec30a9c19c49698050b9aaae148a198bb77252c3b6ba44f9e797b0510"
+    },
+    {
+      "file": "ПР10_Экран_администратора.jpg",
+      "label": "Администратор: диагностика",
+      "sha256": "9479db47c102f60c6a9b1896204727a717f0c5dd54dcbb753765a5010114ec1d"
+    },
+    {
+      "file": "ПР10_Фрагмент_диагностики.jpg",
+      "label": "Диагностика ограниченного соединения",
+      "sha256": "570e17abe4569ddfa5963ec67c4e1da65a34248bc1369d99008c4ab2a37d811c"
     }
   ],
   "source_sha256": {
-    "server.py": "c7bd6466af22739aa518947fdf8b0bc935f9bd713edeaad8c7a1a4e9faf57834",
-    "setup_client.py": "68d89b04b809c8c7fd866d218d2a6617fa9f6c0b8a4d0def48f2ca026a4ca223",
-    "client_contract.json": "fe5c2d9c0e02a499c49c813e0112e301eada81781238e316e400d724b509f48b",
-    "test_server.py": "768d2bf63ab1fab413eb01271abe3c0410b08308b052e319739cf1477013e394",
+    "server.py": "899d976d88bea3998759381c51c472236e51e1fc8fbad368224466c6b25f5fc6",
+    "setup_client.py": "93997e0b95259c79033889cb7748134a737af391914703b5c8de648362b088b4",
+    "client_contract.json": "3c7ac9ece4562984ee93495ff10aa9fd099bbe525c90b44ea25efcad7fde859b",
+    "test_server.py": "7ecd9d6aa3c01222f42304256cfc361a02edeab3fc48138d81abf967dbaed15e",
     "client.html": "4e1d18557f5161655d5e2b440d420e89508d52619f8bed01b0a30ff4e1955d3d",
-    "client.js": "19588b75d6f0eaf2b10135e3125fb973dada716faab08595fc7abd23db90233d",
+    "client.js": "98457663b1b263a07755915689c47c76e19dc3a2b8493516c28cda1a7d87cc43",
     "client.css": "46b02c57dcf90da3e93f7072d18df4b6a249d1511a4c0bf34dc8618c41600a2f"
   },
   "dependency_sha256": {
     "Прототип/domain.py": "28a2b93998613d65dcea6830390501d3af77860ed9d8115758cbcc6441ce135d",
-    "Прототип/repository.py": "de4643e4e29b15f662dfabd6d403aed2950fe9b5027517df4ace627b8c8b295d",
-    "База_данных/schema.sql": "0f375d5c26734b3dae4c6e662835a2f76b8dc69d56f73e422c95e40632ca6ed9",
-    "База_данных/privileges.sql": "f6c54a1a9d07feca850ff755809d51a6f887c88796094f67fc191c509b856b8a",
-    "Исходники/seed_database.py": "d39d9253bc5fc707f3f1ece31123f0a1b1a0885bb05d9f6f476b033582053fc1"
+    "Прототип/repository.py": "8a773ea21d39da561c76783340b65b9610f33503a05f04dc24d23e618fa8e063",
+    "База_данных/schema.sql": "a10ee9a70be7fa8c107fccf2614102e59711f60fb0ac1fcb652f6d3d6a471a48",
+    "База_данных/privileges.sql": "61cea0bb1b1e8a8533be27025bb0dd187d9f7924a98b2adc8f67fb168c3b41e4",
+    "Исходники/seed_database.py": "ff6a2513f9d1b1749eedcc9aeff49e9553a38b0afed2f13772b9a25b6bc51f0c"
   },
   "evidence_sha256": {
-    "client-api-verification.json": "6265178c34dd9fcc89de498f8fe52dca4ffbdee8c18caa60c02e525d3c4235cf",
-    "client-ui-verification.json": "2331226cd7bacbf948c4ed87b7c2cd33f332fc5534fdd5f480fc8e855ae2591c"
+    "client-api-verification.json": "6fa7fa41fcdfb63e815fe66e8f9804310cff9dc8825501c0a688882c0c1fbda2",
+    "client-ui-verification.json": "9aaa0c96ef1863d4a3b6cc58ba85cf1ce730dea42df0db610339fbd67402a8f3"
   },
   "scope": "localhost client 0.2; real HTTP, browser checkpoints and SQL; no external API or production deployment proof",
-  "verifier_sha256": "39e736609a295f7ff29abe1aba308dea7cd4ec11b2c39d7ac2ab81db7b908d65"
+  "verifier_sha256": "d20a116792217e975074934baaee8453c5801cc8124c7614c0a1976943058900"
 }

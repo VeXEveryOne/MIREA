@@ -1,4 +1,4 @@
-"""Read-only executable slice: PostgreSQL BOM -> selection -> checks -> calculation.
+"""Read-only executable slice: PostgreSQL модельный ряд -> selection -> checks -> calculation.
 
 No supplier requests or marketplace writes are performed. The clock is explicit
 because deterministic coursework fixtures must not masquerade as current prices.

@@ -12,8 +12,8 @@
       "Порядок создания",
       "и актуализации"
     ],
-    "bomRules": [
-      "Правила BOM: выбор,",
+    "model_rangeRules": [
+      "Правила модельного ряда: выбор,",
       "сопоставление, замена и версии"
     ],
     "compatibility": [
@@ -32,7 +32,7 @@
       "Менеджер",
       "маркетплейсов"
     ],
-    "bomMechanism": [
+    "model_rangeMechanism": [
       "Технический специалист;",
       "PC4Games / ITPartner; ИС"
     ],
@@ -49,7 +49,7 @@
       "API Ozon и ИС"
     ],
     "checked": [
-      "Согласованная BOM"
+      "Согласованный модельный ряд"
     ],
     "content": [
       "Цена, масса и контент"
@@ -67,7 +67,7 @@
       "выбранный корпус"
     ],
     "version": [
-      "Версия BOM",
+      "Версия модельного ряда",
       "на проверку"
     ],
     "feedback": [
@@ -88,14 +88,14 @@
         ],
         "C": [
           "order",
-          "bomRules",
+          "model_rangeRules",
           "compatibility",
           "contentRules",
           "marketplace"
         ],
         "M": [
           "manager",
-          "bomMechanism",
+          "model_rangeMechanism",
           "technician",
           "designer",
           "exchange"
@@ -192,7 +192,7 @@
         },
         {
           "id": "C2",
-          "label": "bomRules",
+          "label": "model_rangeRules",
           "points": [
             [
               535,
@@ -214,7 +214,7 @@
           "x": 535,
           "y": 102,
           "lines": [
-            "Правила BOM: выбор,",
+            "Правила модельного ряда: выбор,",
             "сопоставление, замена и версии"
           ]
         },
@@ -332,7 +332,7 @@
         },
         {
           "id": "M2",
-          "label": "bomMechanism",
+          "label": "model_rangeMechanism",
           "points": [
             [
               535,
@@ -466,7 +466,7 @@
           "x": 1480,
           "y": 321,
           "lines": [
-            "Согласованная BOM"
+            "Согласованный модельный ряд"
           ]
         },
         {
@@ -566,14 +566,14 @@
         ],
         "C": [
           "order",
-          "bomRules",
+          "model_rangeRules",
           "compatibility",
           "contentRules",
           "marketplace"
         ],
         "M": [
           "manager",
-          "bomMechanism",
+          "model_rangeMechanism",
           "technician",
           "designer",
           "exchange"
@@ -601,9 +601,10 @@
         {
           "id": "A2",
           "label": [
-            "Сформировать BOM",
-            "и сопоставить",
-            "товары поставщиков"
+            "Сформировать",
+            "модельный ряд и",
+            "сопоставить товары",
+            "поставщиков"
           ],
           "x": 420,
           "y": 302,
@@ -717,7 +718,7 @@
         },
         {
           "id": "C2",
-          "label": "bomRules",
+          "label": "model_rangeRules",
           "points": [
             [
               615,
@@ -731,13 +732,13 @@
           "x": 525,
           "y": 96,
           "lines": [
-            "Правила BOM: выбор,",
+            "Правила модельного ряда: выбор,",
             "сопоставление, замена и версии"
           ]
         },
         {
           "id": "M2",
-          "label": "bomMechanism",
+          "label": "model_rangeMechanism",
           "points": [
             [
               530,
@@ -779,7 +780,7 @@
           "x": 683,
           "y": 382,
           "lines": [
-            "Версия BOM",
+            "Версия модельного ряда",
             "на проверку"
           ]
         },
@@ -847,7 +848,7 @@
           "x": 968,
           "y": 504,
           "lines": [
-            "Согласованная BOM"
+            "Согласованный модельный ряд"
           ]
         },
         {
@@ -1075,7 +1076,7 @@
           "x": 1580,
           "y": 454,
           "lines": [
-            "Согласованная BOM"
+            "Согласованный модельный ряд"
           ]
         },
         {
@@ -1155,7 +1156,7 @@
     },
     {
       "node": "A2",
-      "title": "Сформировать BOM и сопоставить товары поставщиков",
+      "title": "Сформировать модельный ряд и сопоставить товары поставщиков",
       "width": 1800,
       "height": 1000,
       "boundary": {
@@ -1165,11 +1166,11 @@
         ],
         "C": [
           "order",
-          "bomRules",
+          "model_rangeRules",
           "feedback"
         ],
         "M": [
-          "bomMechanism"
+          "model_rangeMechanism"
         ],
         "O": [
           "version"
@@ -1190,8 +1191,8 @@
         {
           "id": "A22",
           "label": [
-            "Заполнить",
-            "слоты BOM"
+            "Заполнить позиции",
+            "модельного ряда"
           ],
           "x": 420,
           "y": 302,
@@ -1223,8 +1224,8 @@
         {
           "id": "A25",
           "label": [
-            "Сохранить",
-            "версию BOM"
+            "Сохранить версию",
+            "модельного ряда"
           ],
           "x": 1275,
           "y": 668,
@@ -1255,7 +1256,7 @@
         },
         {
           "id": "C2",
-          "label": "bomRules",
+          "label": "model_rangeRules",
           "points": [
             [
               615,
@@ -1277,13 +1278,13 @@
           "x": 980,
           "y": 98,
           "lines": [
-            "Правила BOM: выбор,",
+            "Правила модельного ряда: выбор,",
             "сопоставление, замена и версии"
           ]
         },
         {
           "id": "C2_1",
-          "label": "bomRules",
+          "label": "model_rangeRules",
           "points": [
             [
               615,
@@ -1300,7 +1301,7 @@
         },
         {
           "id": "C2_2",
-          "label": "bomRules",
+          "label": "model_rangeRules",
           "points": [
             [
               900,
@@ -1317,7 +1318,7 @@
         },
         {
           "id": "C2_3",
-          "label": "bomRules",
+          "label": "model_rangeRules",
           "points": [
             [
               1185,
@@ -1483,7 +1484,7 @@
         },
         {
           "id": "F1",
-          "label": "Основа BOM",
+          "label": "Основа модельного ряда",
           "points": [
             [
               355,
@@ -1505,12 +1506,12 @@
           "x": 398,
           "y": 260,
           "lines": [
-            "Основа BOM"
+            "Основа модельного ряда"
           ]
         },
         {
           "id": "F2",
-          "label": "Состав BOM",
+          "label": "Состав модельного ряда",
           "points": [
             [
               640,
@@ -1532,7 +1533,7 @@
           "x": 683,
           "y": 382,
           "lines": [
-            "Состав BOM"
+            "Состав модельного ряда"
           ]
         },
         {
@@ -1593,7 +1594,7 @@
         },
         {
           "id": "M1",
-          "label": "bomMechanism",
+          "label": "model_rangeMechanism",
           "points": [
             [
               815,
@@ -1620,7 +1621,7 @@
         },
         {
           "id": "M1_A22",
-          "label": "bomMechanism",
+          "label": "model_rangeMechanism",
           "points": [
             [
               520,
@@ -1637,7 +1638,7 @@
         },
         {
           "id": "M1_A23",
-          "label": "bomMechanism",
+          "label": "model_rangeMechanism",
           "points": [
             [
               805,
@@ -1654,7 +1655,7 @@
         },
         {
           "id": "M1_A24",
-          "label": "bomMechanism",
+          "label": "model_rangeMechanism",
           "points": [
             [
               1090,
@@ -1671,7 +1672,7 @@
         },
         {
           "id": "M1_bus_A24",
-          "label": "bomMechanism",
+          "label": "model_rangeMechanism",
           "points": [
             [
               815,
@@ -1688,7 +1689,7 @@
         },
         {
           "id": "M1_A25",
-          "label": "bomMechanism",
+          "label": "model_rangeMechanism",
           "points": [
             [
               1375,
@@ -1705,7 +1706,7 @@
         },
         {
           "id": "M1_bus_A25",
-          "label": "bomMechanism",
+          "label": "model_rangeMechanism",
           "points": [
             [
               815,
@@ -1736,7 +1737,7 @@
           "x": 1630,
           "y": 661,
           "lines": [
-            "Версия BOM",
+            "Версия модельного ряда",
             "на проверку"
           ]
         }
@@ -1791,12 +1792,12 @@
       "catalog"
     ],
     "C": [
-      "bomRules",
+      "model_rangeRules",
       "order",
       "feedback"
     ],
     "M": [
-      "bomMechanism"
+      "model_rangeMechanism"
     ],
     "O": [
       "version"

@@ -1,0 +1,190 @@
+{
+  "notation": "CHART",
+  "formatVersion": 1,
+  "profile": "NS-CHART-1",
+  "model": {
+    "id": "values",
+    "label": "Значения и отсутствие данных",
+    "elements": [
+      {
+        "id": "plot",
+        "kind": "plot",
+        "label": "Учебные наблюдения",
+        "properties": {
+          "kind": "column",
+          "decimals": "2",
+          "unit": "балл",
+          "sourceNote": "Демонстрационные значения"
+        }
+      },
+      {
+        "id": "main",
+        "kind": "diagram",
+        "label": "Наблюдения",
+        "properties": {
+          "type": "chart",
+          "plot": "plot"
+        }
+      },
+      {
+        "id": "negative",
+        "kind": "category",
+        "label": "Минус",
+        "properties": {
+          "owner": "plot",
+          "order": "0"
+        }
+      },
+      {
+        "id": "zero",
+        "kind": "category",
+        "label": "Ноль",
+        "properties": {
+          "owner": "plot",
+          "order": "1"
+        }
+      },
+      {
+        "id": "missing",
+        "kind": "category",
+        "label": "Пропуск",
+        "properties": {
+          "owner": "plot",
+          "order": "2"
+        }
+      },
+      {
+        "id": "fraction",
+        "kind": "category",
+        "label": "Дробь",
+        "properties": {
+          "owner": "plot",
+          "order": "3"
+        }
+      },
+      {
+        "id": "first",
+        "kind": "series",
+        "label": "Серия A",
+        "properties": {
+          "owner": "plot",
+          "order": "0"
+        }
+      },
+      {
+        "id": "second",
+        "kind": "series",
+        "label": "Серия B",
+        "properties": {
+          "owner": "plot",
+          "order": "1"
+        }
+      },
+      {
+        "id": "a1",
+        "kind": "value",
+        "label": "",
+        "properties": {
+          "owner": "first",
+          "category": "negative",
+          "number": "-2.5"
+        }
+      },
+      {
+        "id": "a2",
+        "kind": "value",
+        "label": "",
+        "properties": {
+          "owner": "first",
+          "category": "zero",
+          "number": "0"
+        }
+      },
+      {
+        "id": "a3",
+        "kind": "value",
+        "label": "",
+        "properties": {
+          "owner": "first",
+          "category": "missing",
+          "missing": "true"
+        }
+      },
+      {
+        "id": "a4",
+        "kind": "value",
+        "label": "",
+        "properties": {
+          "owner": "first",
+          "category": "fraction",
+          "number": "3.25"
+        }
+      },
+      {
+        "id": "b1",
+        "kind": "value",
+        "label": "",
+        "properties": {
+          "owner": "second",
+          "category": "negative",
+          "number": "-1"
+        }
+      },
+      {
+        "id": "b2",
+        "kind": "value",
+        "label": "",
+        "properties": {
+          "owner": "second",
+          "category": "zero",
+          "number": "1"
+        }
+      },
+      {
+        "id": "b3",
+        "kind": "value",
+        "label": "",
+        "properties": {
+          "owner": "second",
+          "category": "missing",
+          "number": "2"
+        }
+      },
+      {
+        "id": "b4",
+        "kind": "value",
+        "label": "",
+        "properties": {
+          "owner": "second",
+          "category": "fraction",
+          "number": "1.75"
+        }
+      },
+      {
+        "id": "plotView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "plot"
+        }
+      }
+    ]
+  },
+  "source": "chart values \"Значения и отсутствие данных\"\nplot plot \"Учебные наблюдения\" decimals=2 kind=column sourceNote=\"Демонстрационные значения\" unit=балл\ndiagram main Наблюдения plot=plot type=chart\ncategory negative Минус order=0 owner=plot\ncategory zero Ноль order=1 owner=plot\ncategory missing Пропуск order=2 owner=plot\ncategory fraction Дробь order=3 owner=plot\nseries first \"Серия A\" order=0 owner=plot\nseries second \"Серия B\" order=1 owner=plot\nvalue a1 \"\" category=negative number=-2.5 owner=first\nvalue a2 \"\" category=zero number=0 owner=first\nvalue a3 \"\" category=missing missing=true owner=first\nvalue a4 \"\" category=fraction number=3.25 owner=first\nvalue b1 \"\" category=negative number=-1 owner=second\nvalue b2 \"\" category=zero number=1 owner=second\nvalue b3 \"\" category=missing number=2 owner=second\nvalue b4 \"\" category=fraction number=1.75 owner=second\nview plotView \"\" diagram=main element=plot\n",
+  "draft": "chart values \"Значения и отсутствие данных\"\nplot plot \"Учебные наблюдения\" decimals=2 kind=column sourceNote=\"Демонстрационные значения\" unit=балл\ndiagram main Наблюдения plot=plot type=chart\ncategory negative Минус order=0 owner=plot\ncategory zero Ноль order=1 owner=plot\ncategory missing Пропуск order=2 owner=plot\ncategory fraction Дробь order=3 owner=plot\nseries first \"Серия A\" order=0 owner=plot\nseries second \"Серия B\" order=1 owner=plot\nvalue a1 \"\" category=negative number=-2.5 owner=first\nvalue a2 \"\" category=zero number=0 owner=first\nvalue a3 \"\" category=missing missing=true owner=first\nvalue a4 \"\" category=fraction number=3.25 owner=first\nvalue b1 \"\" category=negative number=-1 owner=second\nvalue b2 \"\" category=zero number=1 owner=second\nvalue b3 \"\" category=missing number=2 owner=second\nvalue b4 \"\" category=fraction number=1.75 owner=second\nview plotView \"\" diagram=main element=plot\n",
+  "layout": {
+    "nodes": {
+      "plotView": {
+        "x": 90,
+        "y": 70,
+        "width": 1000,
+        "height": 650
+      }
+    },
+    "edges": {},
+    "diagrams": {
+      "main": {}
+    }
+  }
+}

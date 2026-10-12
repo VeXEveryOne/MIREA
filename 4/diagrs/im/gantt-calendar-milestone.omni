@@ -1,0 +1,236 @@
+{
+  "notation": "GANTT",
+  "formatVersion": 1,
+  "profile": "NS-GANTT-1",
+  "model": {
+    "id": "gantt_calendar",
+    "label": "Граница вехи и исключение календаря",
+    "elements": [
+      {
+        "id": "weekdays",
+        "kind": "calendar",
+        "label": "Пятидневная неделя",
+        "properties": {
+          "hoursPerDay": "8",
+          "monday": "true",
+          "tuesday": "true",
+          "wednesday": "true",
+          "thursday": "true",
+          "friday": "true",
+          "saturday": "false",
+          "sunday": "false"
+        }
+      },
+      {
+        "id": "plan",
+        "kind": "plan",
+        "label": "План проекта",
+        "properties": {
+          "start": "2026-09-28",
+          "calendar": "weekdays",
+          "mode": "auto",
+          "description": "Демонстрационный старт; праздники не добавлены автоматически."
+        }
+      },
+      {
+        "id": "main",
+        "kind": "diagram",
+        "label": "План проекта",
+        "properties": {
+          "type": "gantt",
+          "plan": "plan"
+        }
+      },
+      {
+        "id": "analysis",
+        "kind": "task",
+        "label": "Обследование",
+        "properties": {
+          "kind": "task",
+          "duration": "5",
+          "order": "0",
+          "effortHours": "40"
+        }
+      },
+      {
+        "id": "requirements",
+        "kind": "task",
+        "label": "Требования",
+        "properties": {
+          "kind": "task",
+          "duration": "5",
+          "order": "1",
+          "effortHours": "40"
+        }
+      },
+      {
+        "id": "build",
+        "kind": "task",
+        "label": "Разработка",
+        "properties": {
+          "kind": "task",
+          "duration": "10",
+          "order": "2",
+          "effortHours": "40"
+        }
+      },
+      {
+        "id": "accepted",
+        "kind": "task",
+        "label": "Приёмка",
+        "properties": {
+          "kind": "milestone",
+          "duration": "0",
+          "order": "3",
+          "effortHours": "0"
+        }
+      },
+      {
+        "id": "link0",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "analysis",
+          "to": "requirements",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "link1",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "requirements",
+          "to": "build",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "link2",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "build",
+          "to": "accepted",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "view1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "analysis"
+        }
+      },
+      {
+        "id": "view2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "requirements"
+        }
+      },
+      {
+        "id": "view3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "build"
+        }
+      },
+      {
+        "id": "view4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "accepted"
+        }
+      },
+      {
+        "id": "view5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "link0",
+          "from": "view1",
+          "to": "view2"
+        }
+      },
+      {
+        "id": "view6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "link1",
+          "from": "view2",
+          "to": "view3"
+        }
+      },
+      {
+        "id": "view7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "link2",
+          "from": "view3",
+          "to": "view4"
+        }
+      }
+    ]
+  },
+  "source": "gantt gantt_calendar \"Граница вехи и исключение календаря\"\ncalendar weekdays \"Пятидневная неделя\" friday=true hoursPerDay=8 monday=true saturday=false sunday=false thursday=true tuesday=true wednesday=true\nplan plan \"План проекта\" calendar=weekdays description=\"Демонстрационный старт; праздники не добавлены автоматически.\" mode=auto start=\"2026-09-28\"\ndiagram main \"План проекта\" plan=plan type=gantt\ntask analysis Обследование duration=5 effortHours=40 kind=task order=0\ntask requirements Требования duration=5 effortHours=40 kind=task order=1\ntask build Разработка duration=10 effortHours=40 kind=task order=2\ntask accepted Приёмка duration=0 effortHours=0 kind=milestone order=3\ndependency link0 \"\" from=analysis lag=0 to=requirements type=FS\ndependency link1 \"\" from=requirements lag=0 to=build type=FS\ndependency link2 \"\" from=build lag=0 to=accepted type=FS\nview view1 \"\" diagram=main element=analysis\nview view2 \"\" diagram=main element=requirements\nview view3 \"\" diagram=main element=build\nview view4 \"\" diagram=main element=accepted\nview view5 \"\" diagram=main element=link0 from=view1 to=view2\nview view6 \"\" diagram=main element=link1 from=view2 to=view3\nview view7 \"\" diagram=main element=link2 from=view3 to=view4\n",
+  "draft": "gantt gantt_calendar \"Граница вехи и исключение календаря\"\ncalendar weekdays \"Пятидневная неделя\" friday=true hoursPerDay=8 monday=true saturday=false sunday=false thursday=true tuesday=true wednesday=true\nplan plan \"План проекта\" calendar=weekdays description=\"Демонстрационный старт; праздники не добавлены автоматически.\" mode=auto start=\"2026-09-28\"\ndiagram main \"План проекта\" plan=plan type=gantt\ntask analysis Обследование duration=5 effortHours=40 kind=task order=0\ntask requirements Требования duration=5 effortHours=40 kind=task order=1\ntask build Разработка duration=10 effortHours=40 kind=task order=2\ntask accepted Приёмка duration=0 effortHours=0 kind=milestone order=3\ndependency link0 \"\" from=analysis lag=0 to=requirements type=FS\ndependency link1 \"\" from=requirements lag=0 to=build type=FS\ndependency link2 \"\" from=build lag=0 to=accepted type=FS\nview view1 \"\" diagram=main element=analysis\nview view2 \"\" diagram=main element=requirements\nview view3 \"\" diagram=main element=build\nview view4 \"\" diagram=main element=accepted\nview view5 \"\" diagram=main element=link0 from=view1 to=view2\nview view6 \"\" diagram=main element=link1 from=view2 to=view3\nview view7 \"\" diagram=main element=link2 from=view3 to=view4\n",
+  "layout": {
+    "nodes": {
+      "view1": {
+        "x": 60,
+        "y": 60,
+        "width": 180,
+        "height": 32
+      },
+      "view2": {
+        "x": 460,
+        "y": 60,
+        "width": 180,
+        "height": 32
+      },
+      "view3": {
+        "x": 860,
+        "y": 60,
+        "width": 180,
+        "height": 32
+      },
+      "view4": {
+        "x": 1260,
+        "y": 60,
+        "width": 180,
+        "height": 32
+      }
+    },
+    "edges": {
+      "view5": {},
+      "view6": {},
+      "view7": {}
+    },
+    "diagrams": {
+      "main": {
+        "gantt": {
+          "scale": "weeks",
+          "tableWidth": 1000,
+          "today": false
+        }
+      }
+    }
+  }
+}

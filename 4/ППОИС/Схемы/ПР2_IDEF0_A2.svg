@@ -5,7 +5,7 @@
 <text x="670" y="32" font-family="Times New Roman" font-size="21" font-weight="bold" text-anchor="middle">ППОИС · Практическая работа № 2 · ООО «Юкомс»</text>
 <text x="1620" y="32" font-family="Times New Roman" font-size="20" font-weight="normal" text-anchor="middle">Албахтин И.В. · 2026</text>
 <text x="90" y="980" font-family="Times New Roman" font-size="21" font-weight="bold" text-anchor="middle">Узел A2</text>
-<text x="980" y="980" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Сформировать BOM и сопоставить товары поставщиков</text>
+<text x="980" y="980" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Сформировать модельный ряд и сопоставить товары поставщиков</text>
 <polyline points="315,65 315,180" fill="none" stroke="white" stroke-width="6"/><polyline points="315,65 315,180" fill="none" stroke="#80500a" stroke-width="2.2"/>
 <polygon points="315,180 319,170 311,170" fill="#80500a"/>
 <polyline points="615,65 615,155 1470,155 1470,668" fill="none" stroke="white" stroke-width="6"/><polyline points="615,65 615,155 1470,155 1470,668" fill="none" stroke="#80500a" stroke-width="2.2"/>
@@ -55,8 +55,8 @@
 <text x="245" y="235.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">и характеристики</text>
 <text x="335" y="258" font-family="Times New Roman" font-size="14" font-weight="bold" text-anchor="middle">1</text>
 <rect x="420" y="302" width="220" height="85" fill="#eff5fa" stroke="#244963" stroke-width="2.4"/>
-<text x="530" y="335.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">Заполнить</text>
-<text x="530" y="357.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">слоты BOM</text>
+<text x="530" y="335.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">Заполнить позиции</text>
+<text x="530" y="357.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">модельного ряда</text>
 <text x="620" y="380" font-family="Times New Roman" font-size="14" font-weight="bold" text-anchor="middle">2</text>
 <rect x="705" y="424" width="220" height="85" fill="#eff5fa" stroke="#244963" stroke-width="2.4"/>
 <text x="815" y="457.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">Сопоставить</text>
@@ -67,14 +67,14 @@
 <text x="1100" y="601.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">предложения</text>
 <text x="1190" y="624" font-family="Times New Roman" font-size="14" font-weight="bold" text-anchor="middle">4</text>
 <rect x="1275" y="668" width="220" height="85" fill="#eff5fa" stroke="#244963" stroke-width="2.4"/>
-<text x="1385" y="701.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">Сохранить</text>
-<text x="1385" y="723.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">версию BOM</text>
+<text x="1385" y="701.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">Сохранить версию</text>
+<text x="1385" y="723.5" font-family="Times New Roman" font-size="20" font-weight="bold" text-anchor="middle">модельного ряда</text>
 <text x="1475" y="746" font-family="Times New Roman" font-size="14" font-weight="bold" text-anchor="middle">5</text>
 <rect x="184.5" y="75" width="171" height="50" fill="white"/>
 <text x="270" y="96" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Порядок создания</text>
 <text x="270" y="121" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">и актуализации</text>
-<rect x="832.5" y="77" width="295" height="50" fill="white"/>
-<text x="980" y="98" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Правила BOM: выбор,</text>
+<rect x="824.5" y="77" width="311" height="50" fill="white"/>
+<text x="980" y="98" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Правила модельного ряда: выбор,</text>
 <text x="980" y="123" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">сопоставление, замена и версии</text>
 <rect x="1574" y="75" width="172" height="50" fill="white"/>
 <text x="1660" y="96" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Замечания</text>
@@ -86,10 +86,10 @@
 <rect x="55" y="252" width="265" height="50" fill="white"/>
 <text x="60" y="273" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="start">Ассортимент и предложения</text>
 <text x="60" y="298" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="start">поставщиков</text>
-<rect x="393" y="239" width="127" height="25" fill="white"/>
-<text x="398" y="260" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="start">Основа BOM</text>
-<rect x="678" y="361" width="125" height="25" fill="white"/>
-<text x="683" y="382" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="start">Состав BOM</text>
+<rect x="393" y="239" width="229" height="25" fill="white"/>
+<text x="398" y="260" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="start">Основа модельного ряда</text>
+<rect x="678" y="361" width="227" height="25" fill="white"/>
+<text x="683" y="382" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="start">Состав модельного ряда</text>
 <rect x="963" y="483" width="160" height="50" fill="white"/>
 <text x="968" y="504" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="start">Сопоставленные</text>
 <text x="968" y="529" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="start">товары</text>
@@ -98,8 +98,8 @@
 <text x="1253" y="651" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="start">предложения</text>
 <rect x="605.5" y="889" width="489" height="25" fill="white"/>
 <text x="850" y="910" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Технический специалист · PC4Games / ITPartner · ИС</text>
-<rect x="1567.5" y="640" width="125" height="50" fill="white"/>
-<text x="1630" y="661" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Версия BOM</text>
+<rect x="1516.5" y="640" width="227" height="50" fill="white"/>
+<text x="1630" y="661" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">Версия модельного ряда</text>
 <text x="1630" y="686" font-family="Times New Roman" font-size="21" font-weight="normal" text-anchor="middle">на проверку</text>
 <circle cx="615" cy="155" r="3.4" fill="#80500a"/>
 <circle cx="900" cy="155" r="3.4" fill="#80500a"/>

@@ -47,7 +47,7 @@ TEST_NAMES = {
     'control_calculation_and_sql_agree': 'Контрольный расчёт совпадает с SQL',
     'double_specification_rejected': 'Группа и точный компонент вместе отклоняются',
     'duplicate_line_rejected': 'Повтор номера позиции отклоняется',
-    'empty_bom_rejected': 'Пустой состав отклоняется',
+    'empty_model_range_rejected': 'Пустой состав отклоняется',
     'exact_psu_margin_is_included': 'Точная граница мощности допускается',
     'exact_rounding_multiple_is_unchanged': 'Кратная шагу цена не увеличивается',
     'exact_ttl_is_included': 'Возраст ровно TTL допускается',
@@ -140,7 +140,7 @@ def build():
             rows.append((table + '.' + c['column_name'], m['form'], physical_type(c), 'Да' if m['mandatory'] else 'Нет', mode))
     r.table('Связь всех полей БД с макетами', ['Поле БД', 'Форма', 'Физический тип', 'Обязательно', 'Режим'], rows,
             [7.5, 1, 3.5, 2, 1], center=(1, 3, 4))
-    r.paragraph('F7 использует производные суммы и массы позиций, а также итоги. Они рассчитываются из quantity, unit_price_rub и mass_kg с параметрами card_revision. Итоги не вводятся как дополнительные поля схемы; источник выбранного предложения сохраняется в bom_slot.offer_id. Для F8 внешний ID, состояние и даты сопоставляются с publication_attempt, а не с полем состояния ревизии.')
+    r.paragraph('F7 использует производные суммы и массы позиций, а также итоги. Они рассчитываются из quantity, unit_price_rub и mass_kg с параметрами card_revision. Итоги не вводятся как дополнительные поля схемы; источник выбранного предложения сохраняется в model_range_slot.offer_id. Для F8 внешний ID, состояние и даты сопоставляются с publication_attempt, а не с полем состояния ревизии.')
 
     r.page(landscape=False)
     r.heading('Математическое обеспечение')

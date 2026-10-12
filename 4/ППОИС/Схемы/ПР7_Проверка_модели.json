@@ -1,26 +1,15 @@
 {
-  "database": "ppois_4b69601445b0",
+  "database": "ppois_681e51399c24",
   "entities": 12,
   "attributes": 71,
   "foreignKeys": 13,
   "diagnostics": [],
   "source_sha256": {
-    "privileges.sql": "f6c54a1a9d07feca850ff755809d51a6f887c88796094f67fc191c509b856b8a",
-    "queries.sql": "6235f61ab8ee5d5c4788de2b0227497ac703fd6c08633d2a9baa49f85edfc337",
-    "schema.sql": "0f375d5c26734b3dae4c6e662835a2f76b8dc69d56f73e422c95e40632ca6ed9"
+    "privileges.sql": "61cea0bb1b1e8a8533be27025bb0dd187d9f7924a98b2adc8f67fb168c3b41e4",
+    "queries.sql": "f38616672657066d46ab4d74020c615118e8a8d8e9a058f2600fee67c187fd70",
+    "schema.sql": "a10ee9a70be7fa8c107fccf2614102e59711f60fb0ac1fcb652f6d3d6a471a48"
   },
   "logicalAttributeCoverage": [
-    "bom_slot__configuration_id",
-    "bom_slot__group_id",
-    "bom_slot__line_no",
-    "bom_slot__offer_id",
-    "bom_slot__quantity",
-    "bom_slot__requested_component_id",
-    "bom_slot__version_no",
-    "bom_version__configuration_id",
-    "bom_version__created_at",
-    "bom_version__state",
-    "bom_version__version_no",
     "card__id",
     "card__name",
     "card__seller_code",
@@ -59,6 +48,17 @@
     "image__sha256",
     "image__uri",
     "image__width_px",
+    "model_range_slot__configuration_id",
+    "model_range_slot__group_id",
+    "model_range_slot__line_no",
+    "model_range_slot__offer_id",
+    "model_range_slot__quantity",
+    "model_range_slot__requested_component_id",
+    "model_range_slot__version_no",
+    "model_range_version__configuration_id",
+    "model_range_version__created_at",
+    "model_range_version__state",
+    "model_range_version__version_no",
     "offer__component_id",
     "offer__id",
     "offer__observed_at",
@@ -83,11 +83,6 @@
     "supplier__name"
   ],
   "conceptualAttributeCoverage": [
-    "bom_slot__line_no",
-    "bom_slot__quantity",
-    "bom_version__created_at",
-    "bom_version__state",
-    "bom_version__version_no",
     "card__id",
     "card__name",
     "card__seller_code",
@@ -122,6 +117,11 @@
     "image__sha256",
     "image__uri",
     "image__width_px",
+    "model_range_slot__line_no",
+    "model_range_slot__quantity",
+    "model_range_version__created_at",
+    "model_range_version__state",
+    "model_range_version__version_no",
     "offer__id",
     "offer__observed_at",
     "offer__stock",
@@ -139,74 +139,13 @@
     "supplier__name"
   ],
   "weakEntities": [
-    "bom_slot",
-    "bom_version",
     "card_revision",
+    "model_range_slot",
+    "model_range_version",
     "publication_attempt",
     "revision_image"
   ],
   "conceptualSheets": [
-    {
-      "sheet": "conceptual_bom_slot_1",
-      "file": "ПР7_Чен_bom_slot_1.png",
-      "entity": "bom_slot",
-      "part": 1,
-      "total": 1,
-      "attributes": [
-        "bom_slot__line_no",
-        "bom_slot__quantity"
-      ],
-      "relationships": [
-        "bom_slot_configuration_id_version_no_fkey",
-        "bom_slot_group_id_fkey",
-        "bom_slot_offer_id_fkey",
-        "bom_slot_requested_component_id_fkey"
-      ],
-      "entityViews": [
-        "v_conceptual_bom_slot_1_bom_slot",
-        "v_conceptual_bom_slot_1_bom_version",
-        "v_conceptual_bom_slot_1_component_group",
-        "v_conceptual_bom_slot_1_offer",
-        "v_conceptual_bom_slot_1_component"
-      ],
-      "attributeViews": [
-        "v_conceptual_bom_slot_1_bom_slot__line_no",
-        "v_conceptual_bom_slot_1_bom_slot__quantity"
-      ],
-      "edgeViews": [
-        "v_conceptual_bom_slot_1_relation__bom_slot_configuration_id_version_no_fkey",
-        "v_conceptual_bom_slot_1_relation__bom_slot_group_id_fkey",
-        "v_conceptual_bom_slot_1_relation__bom_slot_offer_id_fkey",
-        "v_conceptual_bom_slot_1_relation__bom_slot_requested_component_id_fkey"
-      ]
-    },
-    {
-      "sheet": "conceptual_bom_version_1",
-      "file": "ПР7_Чен_bom_version_1.png",
-      "entity": "bom_version",
-      "part": 1,
-      "total": 1,
-      "attributes": [
-        "bom_version__version_no",
-        "bom_version__state",
-        "bom_version__created_at"
-      ],
-      "relationships": [
-        "bom_version_configuration_id_fkey"
-      ],
-      "entityViews": [
-        "v_conceptual_bom_version_1_bom_version",
-        "v_conceptual_bom_version_1_configuration"
-      ],
-      "attributeViews": [
-        "v_conceptual_bom_version_1_bom_version__version_no",
-        "v_conceptual_bom_version_1_bom_version__state",
-        "v_conceptual_bom_version_1_bom_version__created_at"
-      ],
-      "edgeViews": [
-        "v_conceptual_bom_version_1_relation__bom_version_configuration_id_fkey"
-      ]
-    },
     {
       "sheet": "conceptual_card_1",
       "file": "ПР7_Чен_card_1.png",
@@ -252,7 +191,7 @@
       "entityViews": [
         "v_conceptual_card_revision_1_card_revision",
         "v_conceptual_card_revision_1_card",
-        "v_conceptual_card_revision_1_bom_version"
+        "v_conceptual_card_revision_1_model_range_version"
       ],
       "attributeViews": [
         "v_conceptual_card_revision_1_card_revision__revision_no",
@@ -288,7 +227,7 @@
       "entityViews": [
         "v_conceptual_card_revision_2_card_revision",
         "v_conceptual_card_revision_2_card",
-        "v_conceptual_card_revision_2_bom_version"
+        "v_conceptual_card_revision_2_model_range_version"
       ],
       "attributeViews": [
         "v_conceptual_card_revision_2_card_revision__commission_rate",
@@ -407,6 +346,67 @@
         "v_conceptual_image_1_image__height_px"
       ],
       "edgeViews": []
+    },
+    {
+      "sheet": "conceptual_model_range_slot_1",
+      "file": "ПР7_Чен_model_range_slot_1.png",
+      "entity": "model_range_slot",
+      "part": 1,
+      "total": 1,
+      "attributes": [
+        "model_range_slot__line_no",
+        "model_range_slot__quantity"
+      ],
+      "relationships": [
+        "model_range_slot_configuration_id_version_no_fkey",
+        "model_range_slot_group_id_fkey",
+        "model_range_slot_offer_id_fkey",
+        "model_range_slot_requested_component_id_fkey"
+      ],
+      "entityViews": [
+        "v_conceptual_model_range_slot_1_model_range_slot",
+        "v_conceptual_model_range_slot_1_model_range_version",
+        "v_conceptual_model_range_slot_1_component_group",
+        "v_conceptual_model_range_slot_1_offer",
+        "v_conceptual_model_range_slot_1_component"
+      ],
+      "attributeViews": [
+        "v_conceptual_model_range_slot_1_model_range_slot__line_no",
+        "v_conceptual_model_range_slot_1_model_range_slot__quantity"
+      ],
+      "edgeViews": [
+        "v_conceptual_model_range_slot_1_relation__model_range_slot_configuration_id_version_no_fkey",
+        "v_conceptual_model_range_slot_1_relation__model_range_slot_group_id_fkey",
+        "v_conceptual_model_range_slot_1_relation__model_range_slot_offer_id_fkey",
+        "v_conceptual_model_range_slot_1_relation__model_range_slot_requested_component_id_fkey"
+      ]
+    },
+    {
+      "sheet": "conceptual_model_range_version_1",
+      "file": "ПР7_Чен_model_range_version_1.png",
+      "entity": "model_range_version",
+      "part": 1,
+      "total": 1,
+      "attributes": [
+        "model_range_version__version_no",
+        "model_range_version__state",
+        "model_range_version__created_at"
+      ],
+      "relationships": [
+        "model_range_version_configuration_id_fkey"
+      ],
+      "entityViews": [
+        "v_conceptual_model_range_version_1_model_range_version",
+        "v_conceptual_model_range_version_1_configuration"
+      ],
+      "attributeViews": [
+        "v_conceptual_model_range_version_1_model_range_version__version_no",
+        "v_conceptual_model_range_version_1_model_range_version__state",
+        "v_conceptual_model_range_version_1_model_range_version__created_at"
+      ],
+      "edgeViews": [
+        "v_conceptual_model_range_version_1_relation__model_range_version_configuration_id_fkey"
+      ]
     },
     {
       "sheet": "conceptual_offer_1",
@@ -541,20 +541,20 @@
         "offer_supplier_id_fkey"
       ],
       "crossReferences": [
-        "bom_slot_group_id_fkey",
-        "bom_slot_offer_id_fkey",
-        "bom_slot_requested_component_id_fkey"
+        "model_range_slot_group_id_fkey",
+        "model_range_slot_offer_id_fkey",
+        "model_range_slot_requested_component_id_fkey"
       ],
       "parallelOverlaps": 0,
       "entityIntersections": 0
     },
     {
-      "sheet": "logical_bom",
-      "file": "ПР7_Логическая_bom.png",
+      "sheet": "logical_model_range",
+      "file": "ПР7_Логическая_model_range.png",
       "entities": [
         "configuration",
-        "bom_version",
-        "bom_slot",
+        "model_range_version",
+        "model_range_slot",
         "component_group",
         "component",
         "offer"
@@ -565,12 +565,12 @@
         "offer"
       ],
       "internalRelations": [
-        "bom_slot_configuration_id_version_no_fkey",
-        "bom_slot_group_id_fkey",
-        "bom_slot_offer_id_fkey",
-        "bom_slot_requested_component_id_fkey",
-        "bom_version_configuration_id_fkey",
         "component_group_id_fkey",
+        "model_range_slot_configuration_id_version_no_fkey",
+        "model_range_slot_group_id_fkey",
+        "model_range_slot_offer_id_fkey",
+        "model_range_slot_requested_component_id_fkey",
+        "model_range_version_configuration_id_fkey",
         "offer_component_id_fkey"
       ],
       "crossReferences": [
@@ -586,18 +586,18 @@
       "entities": [
         "card",
         "card_revision",
-        "bom_version"
+        "model_range_version"
       ],
       "repeatedKeysOnly": [
-        "bom_version"
+        "model_range_version"
       ],
       "internalRelations": [
         "card_revision_card_id_fkey",
         "card_revision_configuration_id_version_no_fkey"
       ],
       "crossReferences": [
-        "bom_slot_configuration_id_version_no_fkey",
-        "bom_version_configuration_id_fkey",
+        "model_range_slot_configuration_id_version_no_fkey",
+        "model_range_version_configuration_id_fkey",
         "publication_attempt_card_id_revision_no_fkey",
         "revision_image_card_id_revision_no_fkey"
       ],
@@ -644,20 +644,20 @@
         "offer_supplier_id_fkey"
       ],
       "crossReferences": [
-        "bom_slot_group_id_fkey",
-        "bom_slot_offer_id_fkey",
-        "bom_slot_requested_component_id_fkey"
+        "model_range_slot_group_id_fkey",
+        "model_range_slot_offer_id_fkey",
+        "model_range_slot_requested_component_id_fkey"
       ],
       "parallelOverlaps": 0,
       "entityIntersections": 0
     },
     {
-      "sheet": "physical_bom",
-      "file": "ПР7_Физическая_bom.png",
+      "sheet": "physical_model_range",
+      "file": "ПР7_Физическая_model_range.png",
       "entities": [
         "configuration",
-        "bom_version",
-        "bom_slot",
+        "model_range_version",
+        "model_range_slot",
         "component_group",
         "component",
         "offer"
@@ -668,12 +668,12 @@
         "offer"
       ],
       "internalRelations": [
-        "bom_slot_configuration_id_version_no_fkey",
-        "bom_slot_group_id_fkey",
-        "bom_slot_offer_id_fkey",
-        "bom_slot_requested_component_id_fkey",
-        "bom_version_configuration_id_fkey",
         "component_group_id_fkey",
+        "model_range_slot_configuration_id_version_no_fkey",
+        "model_range_slot_group_id_fkey",
+        "model_range_slot_offer_id_fkey",
+        "model_range_slot_requested_component_id_fkey",
+        "model_range_version_configuration_id_fkey",
         "offer_component_id_fkey"
       ],
       "crossReferences": [
@@ -689,18 +689,18 @@
       "entities": [
         "card",
         "card_revision",
-        "bom_version"
+        "model_range_version"
       ],
       "repeatedKeysOnly": [
-        "bom_version"
+        "model_range_version"
       ],
       "internalRelations": [
         "card_revision_card_id_fkey",
         "card_revision_configuration_id_version_no_fkey"
       ],
       "crossReferences": [
-        "bom_slot_configuration_id_version_no_fkey",
-        "bom_version_configuration_id_fkey",
+        "model_range_slot_configuration_id_version_no_fkey",
+        "model_range_version_configuration_id_fkey",
         "publication_attempt_card_id_revision_no_fkey",
         "revision_image_card_id_revision_no_fkey"
       ],

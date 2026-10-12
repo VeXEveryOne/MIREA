@@ -1,0 +1,373 @@
+{
+  "formatVersion": 4,
+  "notation": "IDEF0",
+  "profile": "NS-IDEF0-31320-1-2012-1",
+  "model": {
+    "notation": "IDEF0",
+    "id": "cards_context",
+    "label": "Формирование и актуализация карточек товаров",
+    "nodes": [
+      {
+        "id": "sheet",
+        "kind": "diagram",
+        "label": "Контекст",
+        "properties": {
+          "node": "A-0",
+          "purpose": "Описать подготовку карточек товаров",
+          "viewpoint": "Менеджер маркетплейса"
+        }
+      },
+      {
+        "id": "A0",
+        "kind": "function",
+        "label": "Формировать и актуализировать карточки товаров компьютерных систем",
+        "properties": {
+          "number": "0"
+        }
+      },
+      {
+        "id": "request",
+        "kind": "boundary",
+        "label": "Запрос на создание или изменение карточки",
+        "properties": {
+          "side": "left",
+          "order": "0"
+        }
+      },
+      {
+        "id": "caseData",
+        "kind": "boundary",
+        "label": "Сведения о корпусе",
+        "properties": {
+          "side": "left",
+          "order": "1"
+        }
+      },
+      {
+        "id": "components",
+        "kind": "boundary",
+        "label": "Ассортимент комплектующих",
+        "properties": {
+          "side": "left",
+          "order": "2"
+        }
+      },
+      {
+        "id": "offers",
+        "kind": "boundary",
+        "label": "Предложения и цены поставщиков",
+        "properties": {
+          "side": "left",
+          "order": "3"
+        }
+      },
+      {
+        "id": "ozonRules",
+        "kind": "boundary",
+        "label": "Требования Ozon",
+        "properties": {
+          "side": "top",
+          "order": "0"
+        }
+      },
+      {
+        "id": "compatibilityRules",
+        "kind": "boundary",
+        "label": "Правила совместимости",
+        "properties": {
+          "side": "top",
+          "order": "1"
+        }
+      },
+      {
+        "id": "calculationRules",
+        "kind": "boundary",
+        "label": "Правила цены, веса и изображений",
+        "properties": {
+          "side": "top",
+          "order": "2"
+        }
+      },
+      {
+        "id": "bomOutput",
+        "kind": "boundary",
+        "label": "Согласованная BOM",
+        "properties": {
+          "side": "right",
+          "order": "0"
+        }
+      },
+      {
+        "id": "valuesOutput",
+        "kind": "boundary",
+        "label": "Цена, вес и изображения",
+        "properties": {
+          "side": "right",
+          "order": "1"
+        }
+      },
+      {
+        "id": "cardOutput",
+        "kind": "boundary",
+        "label": "Опубликованная или обновлённая карточка",
+        "properties": {
+          "side": "right",
+          "order": "2"
+        }
+      },
+      {
+        "id": "manager",
+        "kind": "boundary",
+        "label": "Менеджер маркетплейсов",
+        "properties": {
+          "side": "bottom",
+          "order": "0"
+        }
+      },
+      {
+        "id": "specialist",
+        "kind": "boundary",
+        "label": "Технический специалист",
+        "properties": {
+          "side": "bottom",
+          "order": "1"
+        }
+      },
+      {
+        "id": "designer",
+        "kind": "boundary",
+        "label": "Дизайнер",
+        "properties": {
+          "side": "bottom",
+          "order": "2"
+        }
+      },
+      {
+        "id": "systems",
+        "kind": "boundary",
+        "label": "Поставщики, Ozon и разрозненные инструменты",
+        "properties": {
+          "side": "bottom",
+          "order": "3"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "requestArrow",
+        "kind": "arrow",
+        "label": "Запрос",
+        "source": "request",
+        "target": "A0",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "caseArrow",
+        "kind": "arrow",
+        "label": "Корпус",
+        "source": "caseData",
+        "target": "A0",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "componentsArrow",
+        "kind": "arrow",
+        "label": "Комплектующие",
+        "source": "components",
+        "target": "A0",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "offersArrow",
+        "kind": "arrow",
+        "label": "Цены и наличие",
+        "source": "offers",
+        "target": "A0",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "ozonControl",
+        "kind": "arrow",
+        "label": "Требования Ozon",
+        "source": "ozonRules",
+        "target": "A0",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "compatibilityControl",
+        "kind": "arrow",
+        "label": "Совместимость",
+        "source": "compatibilityRules",
+        "target": "A0",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "calculationControl",
+        "kind": "arrow",
+        "label": "Расчёт и контент",
+        "source": "calculationRules",
+        "target": "A0",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "bomArrow",
+        "kind": "arrow",
+        "label": "BOM",
+        "source": "A0",
+        "target": "bomOutput",
+        "properties": {
+          "role": "output"
+        }
+      },
+      {
+        "id": "valuesArrow",
+        "kind": "arrow",
+        "label": "Показатели и изображения",
+        "source": "A0",
+        "target": "valuesOutput",
+        "properties": {
+          "role": "output"
+        }
+      },
+      {
+        "id": "cardArrow",
+        "kind": "arrow",
+        "label": "Карточка",
+        "source": "A0",
+        "target": "cardOutput",
+        "properties": {
+          "role": "output"
+        }
+      },
+      {
+        "id": "managerMechanism",
+        "kind": "arrow",
+        "label": "Менеджер",
+        "source": "manager",
+        "target": "A0",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "specialistMechanism",
+        "kind": "arrow",
+        "label": "Технический специалист",
+        "source": "specialist",
+        "target": "A0",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "designerMechanism",
+        "kind": "arrow",
+        "label": "Дизайнер",
+        "source": "designer",
+        "target": "A0",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "systemsMechanism",
+        "kind": "arrow",
+        "label": "Внешние системы",
+        "source": "systems",
+        "target": "A0",
+        "properties": {
+          "role": "mechanism"
+        }
+      }
+    ]
+  },
+  "source": "idef0 cards_context \"Формирование и актуализация карточек товаров\"\ndiagram sheet Контекст node=A-0 purpose=\"Описать подготовку карточек товаров\" viewpoint=\"Менеджер маркетплейса\"\nfunction A0 \"Формировать и актуализировать карточки товаров компьютерных систем\" number=0\nboundary request \"Запрос на создание или изменение карточки\" side=left order=0\nboundary caseData \"Сведения о корпусе\" side=left order=1\nboundary components \"Ассортимент комплектующих\" side=left order=2\nboundary offers \"Предложения и цены поставщиков\" side=left order=3\nboundary ozonRules \"Требования Ozon\" side=top order=0\nboundary compatibilityRules \"Правила совместимости\" side=top order=1\nboundary calculationRules \"Правила цены, веса и изображений\" side=top order=2\nboundary bomOutput \"Согласованная BOM\" side=right order=0\nboundary valuesOutput \"Цена, вес и изображения\" side=right order=1\nboundary cardOutput \"Опубликованная или обновлённая карточка\" side=right order=2\nboundary manager \"Менеджер маркетплейсов\" side=bottom order=0\nboundary specialist \"Технический специалист\" side=bottom order=1\nboundary designer \"Дизайнер\" side=bottom order=2\nboundary systems \"Поставщики, Ozon и разрозненные инструменты\" side=bottom order=3\narrow requestArrow \"Запрос\" from=request to=A0 role=input\narrow caseArrow \"Корпус\" from=caseData to=A0 role=input\narrow componentsArrow \"Комплектующие\" from=components to=A0 role=input\narrow offersArrow \"Цены и наличие\" from=offers to=A0 role=input\narrow ozonControl \"Требования Ozon\" from=ozonRules to=A0 role=control\narrow compatibilityControl \"Совместимость\" from=compatibilityRules to=A0 role=control\narrow calculationControl \"Расчёт и контент\" from=calculationRules to=A0 role=control\narrow bomArrow \"BOM\" from=A0 to=bomOutput role=output\narrow valuesArrow \"Показатели и изображения\" from=A0 to=valuesOutput role=output\narrow cardArrow \"Карточка\" from=A0 to=cardOutput role=output\narrow managerMechanism \"Менеджер\" from=manager to=A0 role=mechanism\narrow specialistMechanism \"Технический специалист\" from=specialist to=A0 role=mechanism\narrow designerMechanism \"Дизайнер\" from=designer to=A0 role=mechanism\narrow systemsMechanism \"Внешние системы\" from=systems to=A0 role=mechanism\n",
+  "draft": "idef0 cards_context \"Формирование и актуализация карточек товаров\"\ndiagram sheet Контекст node=A-0 purpose=\"Описать подготовку карточек товаров\" viewpoint=\"Менеджер маркетплейса\"\nfunction A0 \"Формировать и актуализировать карточки товаров компьютерных систем\" number=0\nboundary request \"Запрос на создание или изменение карточки\" side=left order=0\nboundary caseData \"Сведения о корпусе\" side=left order=1\nboundary components \"Ассортимент комплектующих\" side=left order=2\nboundary offers \"Предложения и цены поставщиков\" side=left order=3\nboundary ozonRules \"Требования Ozon\" side=top order=0\nboundary compatibilityRules \"Правила совместимости\" side=top order=1\nboundary calculationRules \"Правила цены, веса и изображений\" side=top order=2\nboundary bomOutput \"Согласованная BOM\" side=right order=0\nboundary valuesOutput \"Цена, вес и изображения\" side=right order=1\nboundary cardOutput \"Опубликованная или обновлённая карточка\" side=right order=2\nboundary manager \"Менеджер маркетплейсов\" side=bottom order=0\nboundary specialist \"Технический специалист\" side=bottom order=1\nboundary designer \"Дизайнер\" side=bottom order=2\nboundary systems \"Поставщики, Ozon и разрозненные инструменты\" side=bottom order=3\narrow requestArrow \"Запрос\" from=request to=A0 role=input\narrow caseArrow \"Корпус\" from=caseData to=A0 role=input\narrow componentsArrow \"Комплектующие\" from=components to=A0 role=input\narrow offersArrow \"Цены и наличие\" from=offers to=A0 role=input\narrow ozonControl \"Требования Ozon\" from=ozonRules to=A0 role=control\narrow compatibilityControl \"Совместимость\" from=compatibilityRules to=A0 role=control\narrow calculationControl \"Расчёт и контент\" from=calculationRules to=A0 role=control\narrow bomArrow \"BOM\" from=A0 to=bomOutput role=output\narrow valuesArrow \"Показатели и изображения\" from=A0 to=valuesOutput role=output\narrow cardArrow \"Карточка\" from=A0 to=cardOutput role=output\narrow managerMechanism \"Менеджер\" from=manager to=A0 role=mechanism\narrow specialistMechanism \"Технический специалист\" from=specialist to=A0 role=mechanism\narrow designerMechanism \"Дизайнер\" from=designer to=A0 role=mechanism\narrow systemsMechanism \"Внешние системы\" from=systems to=A0 role=mechanism\n",
+  "layout": {
+    "frames": {
+      "sheet": {
+        "x": 0,
+        "y": 0,
+        "width": 1200,
+        "height": 800
+      }
+    },
+    "positions": {
+      "A0": {
+        "x": 490,
+        "y": 340
+      },
+      "request": {
+        "x": 0,
+        "y": 208
+      },
+      "caseData": {
+        "x": 0,
+        "y": 336
+      },
+      "components": {
+        "x": 0,
+        "y": 464
+      },
+      "offers": {
+        "x": 0,
+        "y": 592
+      },
+      "ozonRules": {
+        "x": 340,
+        "y": 0
+      },
+      "compatibilityRules": {
+        "x": 600,
+        "y": 0
+      },
+      "calculationRules": {
+        "x": 860,
+        "y": 0
+      },
+      "bomOutput": {
+        "x": 1200,
+        "y": 240
+      },
+      "valuesOutput": {
+        "x": 1200,
+        "y": 400
+      },
+      "cardOutput": {
+        "x": 1200,
+        "y": 560
+      },
+      "manager": {
+        "x": 288,
+        "y": 800
+      },
+      "specialist": {
+        "x": 496,
+        "y": 800
+      },
+      "designer": {
+        "x": 704,
+        "y": 800
+      },
+      "systems": {
+        "x": 912,
+        "y": 800
+      }
+    },
+    "arrows": {}
+  }
+}

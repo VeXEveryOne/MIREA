@@ -165,189 +165,189 @@
         }
       },
       {
-        "id": "BomVersion",
+        "id": "ModelRangeVersion",
         "kind": "class",
-        "label": "Версия BOM",
+        "label": "Версия модельного ряда",
         "properties": {
           "role": "entity"
         }
       },
       {
-        "id": "BomVersion_a0",
+        "id": "ModelRangeVersion_a0",
         "kind": "attribute",
         "label": "id {PK}",
         "properties": {
-          "owner": "BomVersion",
+          "owner": "ModelRangeVersion",
           "classifier": "UUID",
           "visibility": "private",
           "order": "0"
         }
       },
       {
-        "id": "BomVersion_a1",
+        "id": "ModelRangeVersion_a1",
         "kind": "attribute",
         "label": "number",
         "properties": {
-          "owner": "BomVersion",
+          "owner": "ModelRangeVersion",
           "classifier": "Integer",
           "visibility": "private",
           "order": "1"
         }
       },
       {
-        "id": "BomVersion_a2",
+        "id": "ModelRangeVersion_a2",
         "kind": "attribute",
         "label": "state",
         "properties": {
-          "owner": "BomVersion",
+          "owner": "ModelRangeVersion",
           "classifier": "String",
           "visibility": "private",
           "order": "2"
         }
       },
       {
-        "id": "BomVersion_a3",
+        "id": "ModelRangeVersion_a3",
         "kind": "attribute",
         "label": "createdAt",
         "properties": {
-          "owner": "BomVersion",
+          "owner": "ModelRangeVersion",
           "classifier": "DateTime",
           "visibility": "private",
           "order": "3"
         }
       },
       {
-        "id": "BomVersion_getSnapshot",
+        "id": "ModelRangeVersion_getSnapshot",
         "kind": "operation",
         "label": "getSnapshot",
         "properties": {
-          "owner": "BomVersion",
+          "owner": "ModelRangeVersion",
           "visibility": "public",
           "order": "0"
         }
       },
       {
-        "id": "BomVersion_getSnapshot_return",
+        "id": "ModelRangeVersion_getSnapshot_return",
         "kind": "parameter",
         "label": "",
         "properties": {
-          "owner": "BomVersion_getSnapshot",
+          "owner": "ModelRangeVersion_getSnapshot",
           "classifier": "JSON",
           "direction": "return",
           "order": "1"
         }
       },
       {
-        "id": "BomVersion_markChecked",
+        "id": "ModelRangeVersion_markChecked",
         "kind": "operation",
         "label": "markChecked",
         "properties": {
-          "owner": "BomVersion",
+          "owner": "ModelRangeVersion",
           "visibility": "public",
           "order": "1"
         }
       },
       {
-        "id": "BomVersion_markChecked_input",
+        "id": "ModelRangeVersion_markChecked_input",
         "kind": "parameter",
         "label": "data",
         "properties": {
-          "owner": "BomVersion_markChecked",
+          "owner": "ModelRangeVersion_markChecked",
           "classifier": "CheckResult",
           "direction": "in",
           "order": "0"
         }
       },
       {
-        "id": "BomVersion_markChecked_return",
+        "id": "ModelRangeVersion_markChecked_return",
         "kind": "parameter",
         "label": "",
         "properties": {
-          "owner": "BomVersion_markChecked",
+          "owner": "ModelRangeVersion_markChecked",
           "classifier": "Void",
           "direction": "return",
           "order": "1"
         }
       },
       {
-        "id": "BomSlot",
+        "id": "ModelRangeSlot",
         "kind": "class",
-        "label": "Позиция BOM",
+        "label": "Позиция модельного ряда",
         "properties": {
           "role": "entity"
         }
       },
       {
-        "id": "BomSlot_a0",
+        "id": "ModelRangeSlot_a0",
         "kind": "attribute",
         "label": "id {PK}",
         "properties": {
-          "owner": "BomSlot",
+          "owner": "ModelRangeSlot",
           "classifier": "UUID",
           "visibility": "private",
           "order": "0"
         }
       },
       {
-        "id": "BomSlot_a1",
+        "id": "ModelRangeSlot_a1",
         "kind": "attribute",
         "label": "roleCode",
         "properties": {
-          "owner": "BomSlot",
+          "owner": "ModelRangeSlot",
           "classifier": "String",
           "visibility": "private",
           "order": "1"
         }
       },
       {
-        "id": "BomSlot_a2",
+        "id": "ModelRangeSlot_a2",
         "kind": "attribute",
         "label": "selectionMode",
         "properties": {
-          "owner": "BomSlot",
+          "owner": "ModelRangeSlot",
           "classifier": "String",
           "visibility": "private",
           "order": "2"
         }
       },
       {
-        "id": "BomSlot_a3",
+        "id": "ModelRangeSlot_a3",
         "kind": "attribute",
         "label": "quantity",
         "properties": {
-          "owner": "BomSlot",
+          "owner": "ModelRangeSlot",
           "classifier": "Integer",
           "visibility": "private",
           "order": "3"
         }
       },
       {
-        "id": "BomSlot_selectOffer",
+        "id": "ModelRangeSlot_selectOffer",
         "kind": "operation",
         "label": "selectOffer",
         "properties": {
-          "owner": "BomSlot",
+          "owner": "ModelRangeSlot",
           "visibility": "public",
           "order": "0"
         }
       },
       {
-        "id": "BomSlot_selectOffer_input",
+        "id": "ModelRangeSlot_selectOffer_input",
         "kind": "parameter",
         "label": "data",
         "properties": {
-          "owner": "BomSlot_selectOffer",
+          "owner": "ModelRangeSlot_selectOffer",
           "classifier": "Offer",
           "direction": "in",
           "order": "0"
         }
       },
       {
-        "id": "BomSlot_selectOffer_return",
+        "id": "ModelRangeSlot_selectOffer_return",
         "kind": "parameter",
         "label": "",
         "properties": {
-          "owner": "BomSlot_selectOffer",
+          "owner": "ModelRangeSlot_selectOffer",
           "classifier": "Void",
           "direction": "return",
           "order": "1"
@@ -640,7 +640,7 @@
         "label": "data",
         "properties": {
           "owner": "Card_newRevision",
-          "classifier": "BomVersion",
+          "classifier": "ModelRangeVersion",
           "direction": "in",
           "order": "0"
         }
@@ -919,83 +919,83 @@
         }
       },
       {
-        "id": "BomForm",
+        "id": "ModelRangeForm",
         "kind": "class",
-        "label": "Форма BOM",
+        "label": "Форма модельного ряда",
         "properties": {
           "role": "boundary"
         }
       },
       {
-        "id": "BomForm_a0",
+        "id": "ModelRangeForm_a0",
         "kind": "attribute",
         "label": "draftData",
         "properties": {
-          "owner": "BomForm",
+          "owner": "ModelRangeForm",
           "classifier": "JSON",
           "visibility": "private",
           "order": "0"
         }
       },
       {
-        "id": "BomForm_submit",
+        "id": "ModelRangeForm_submit",
         "kind": "operation",
         "label": "submit",
         "properties": {
-          "owner": "BomForm",
+          "owner": "ModelRangeForm",
           "visibility": "public",
           "order": "0"
         }
       },
       {
-        "id": "BomForm_submit_input",
+        "id": "ModelRangeForm_submit_input",
         "kind": "parameter",
         "label": "data",
         "properties": {
-          "owner": "BomForm_submit",
+          "owner": "ModelRangeForm_submit",
           "classifier": "JSON",
           "direction": "in",
           "order": "0"
         }
       },
       {
-        "id": "BomForm_submit_return",
+        "id": "ModelRangeForm_submit_return",
         "kind": "parameter",
         "label": "",
         "properties": {
-          "owner": "BomForm_submit",
+          "owner": "ModelRangeForm_submit",
           "classifier": "CheckResult",
           "direction": "return",
           "order": "1"
         }
       },
       {
-        "id": "BomForm_showErrors",
+        "id": "ModelRangeForm_showErrors",
         "kind": "operation",
         "label": "showErrors",
         "properties": {
-          "owner": "BomForm",
+          "owner": "ModelRangeForm",
           "visibility": "public",
           "order": "1"
         }
       },
       {
-        "id": "BomForm_showErrors_input",
+        "id": "ModelRangeForm_showErrors_input",
         "kind": "parameter",
         "label": "data",
         "properties": {
-          "owner": "BomForm_showErrors",
+          "owner": "ModelRangeForm_showErrors",
           "classifier": "CheckResult",
           "direction": "in",
           "order": "0"
         }
       },
       {
-        "id": "BomForm_showErrors_return",
+        "id": "ModelRangeForm_showErrors_return",
         "kind": "parameter",
         "label": "",
         "properties": {
-          "owner": "BomForm_showErrors",
+          "owner": "ModelRangeForm_showErrors",
           "classifier": "Void",
           "direction": "return",
           "order": "1"
@@ -1211,104 +1211,104 @@
         }
       },
       {
-        "id": "BomControl",
+        "id": "ModelRangeControl",
         "kind": "class",
-        "label": "Управление BOM",
+        "label": "Управление модельным рядом",
         "properties": {
           "role": "control"
         }
       },
       {
-        "id": "BomControl_formVersion",
+        "id": "ModelRangeControl_formVersion",
         "kind": "operation",
         "label": "formVersion",
         "properties": {
-          "owner": "BomControl",
+          "owner": "ModelRangeControl",
           "visibility": "public",
           "order": "0"
         }
       },
       {
-        "id": "BomControl_formVersion_input",
+        "id": "ModelRangeControl_formVersion_input",
         "kind": "parameter",
         "label": "data",
         "properties": {
-          "owner": "BomControl_formVersion",
+          "owner": "ModelRangeControl_formVersion",
           "classifier": "JSON",
           "direction": "in",
           "order": "0"
         }
       },
       {
-        "id": "BomControl_formVersion_return",
+        "id": "ModelRangeControl_formVersion_return",
         "kind": "parameter",
         "label": "",
         "properties": {
-          "owner": "BomControl_formVersion",
-          "classifier": "BomVersion",
+          "owner": "ModelRangeControl_formVersion",
+          "classifier": "ModelRangeVersion",
           "direction": "return",
           "order": "1"
         }
       },
       {
-        "id": "BomControl_resolveSlots",
+        "id": "ModelRangeControl_resolveSlots",
         "kind": "operation",
         "label": "resolveSlots",
         "properties": {
-          "owner": "BomControl",
+          "owner": "ModelRangeControl",
           "visibility": "public",
           "order": "1"
         }
       },
       {
-        "id": "BomControl_resolveSlots_input",
+        "id": "ModelRangeControl_resolveSlots_input",
         "kind": "parameter",
         "label": "data",
         "properties": {
-          "owner": "BomControl_resolveSlots",
-          "classifier": "BomVersion",
+          "owner": "ModelRangeControl_resolveSlots",
+          "classifier": "ModelRangeVersion",
           "direction": "in",
           "order": "0"
         }
       },
       {
-        "id": "BomControl_resolveSlots_return",
+        "id": "ModelRangeControl_resolveSlots_return",
         "kind": "parameter",
         "label": "",
         "properties": {
-          "owner": "BomControl_resolveSlots",
+          "owner": "ModelRangeControl_resolveSlots",
           "classifier": "CheckResult",
           "direction": "return",
           "order": "1"
         }
       },
       {
-        "id": "BomControl_replacePreview",
+        "id": "ModelRangeControl_replacePreview",
         "kind": "operation",
         "label": "replacePreview",
         "properties": {
-          "owner": "BomControl",
+          "owner": "ModelRangeControl",
           "visibility": "public",
           "order": "2"
         }
       },
       {
-        "id": "BomControl_replacePreview_input",
+        "id": "ModelRangeControl_replacePreview_input",
         "kind": "parameter",
         "label": "data",
         "properties": {
-          "owner": "BomControl_replacePreview",
+          "owner": "ModelRangeControl_replacePreview",
           "classifier": "JSON",
           "direction": "in",
           "order": "0"
         }
       },
       {
-        "id": "BomControl_replacePreview_return",
+        "id": "ModelRangeControl_replacePreview_return",
         "kind": "parameter",
         "label": "",
         "properties": {
-          "owner": "BomControl_replacePreview",
+          "owner": "ModelRangeControl_replacePreview",
           "classifier": "JSON",
           "direction": "return",
           "order": "1"
@@ -1349,7 +1349,7 @@
         "label": "data",
         "properties": {
           "owner": "Compatibility_checkCompatibility",
-          "classifier": "BomVersion",
+          "classifier": "ModelRangeVersion",
           "direction": "in",
           "order": "0"
         }
@@ -1400,7 +1400,7 @@
         "label": "data",
         "properties": {
           "owner": "Calculation_calculate",
-          "classifier": "BomVersion",
+          "classifier": "ModelRangeVersion",
           "direction": "in",
           "order": "0"
         }
@@ -1595,7 +1595,7 @@
         "label": "",
         "properties": {
           "owner": "config_versions",
-          "classifier": "BomVersion",
+          "classifier": "ModelRangeVersion",
           "lower": "0",
           "upper": "*",
           "order": "1",
@@ -1603,14 +1603,14 @@
         }
       },
       {
-        "id": "v_analysis_bom_config_versions",
+        "id": "v_analysis_model_range_config_versions",
         "kind": "view",
         "label": "",
         "properties": {
-          "diagram": "analysis_bom",
+          "diagram": "analysis_model_range",
           "element": "config_versions",
-          "from": "v_analysis_bom_Configuration",
-          "to": "v_analysis_bom_BomVersion"
+          "from": "v_analysis_model_range_Configuration",
+          "to": "v_analysis_model_range_ModelRangeVersion"
         }
       },
       {
@@ -1625,7 +1625,7 @@
         "label": "",
         "properties": {
           "owner": "version_slots",
-          "classifier": "BomVersion",
+          "classifier": "ModelRangeVersion",
           "lower": "1",
           "upper": "1",
           "order": "0"
@@ -1637,7 +1637,7 @@
         "label": "",
         "properties": {
           "owner": "version_slots",
-          "classifier": "BomSlot",
+          "classifier": "ModelRangeSlot",
           "lower": "0",
           "upper": "*",
           "order": "1",
@@ -1645,14 +1645,14 @@
         }
       },
       {
-        "id": "v_analysis_bom_version_slots",
+        "id": "v_analysis_model_range_version_slots",
         "kind": "view",
         "label": "",
         "properties": {
-          "diagram": "analysis_bom",
+          "diagram": "analysis_model_range",
           "element": "version_slots",
-          "from": "v_analysis_bom_BomVersion",
-          "to": "v_analysis_bom_BomSlot"
+          "from": "v_analysis_model_range_ModelRangeVersion",
+          "to": "v_analysis_model_range_ModelRangeSlot"
         }
       },
       {
@@ -1667,7 +1667,7 @@
         "label": "",
         "properties": {
           "owner": "slot_group",
-          "classifier": "BomSlot",
+          "classifier": "ModelRangeSlot",
           "lower": "0",
           "upper": "*",
           "order": "0"
@@ -1686,14 +1686,14 @@
         }
       },
       {
-        "id": "v_analysis_bom_slot_group",
+        "id": "v_analysis_model_range_slot_group",
         "kind": "view",
         "label": "",
         "properties": {
-          "diagram": "analysis_bom",
+          "diagram": "analysis_model_range",
           "element": "slot_group",
-          "from": "v_analysis_bom_BomSlot",
-          "to": "v_analysis_bom_ComponentGroup"
+          "from": "v_analysis_model_range_ModelRangeSlot",
+          "to": "v_analysis_model_range_ComponentGroup"
         }
       },
       {
@@ -1708,7 +1708,7 @@
         "label": "",
         "properties": {
           "owner": "slot_component",
-          "classifier": "BomSlot",
+          "classifier": "ModelRangeSlot",
           "lower": "0",
           "upper": "*",
           "order": "0"
@@ -1727,14 +1727,14 @@
         }
       },
       {
-        "id": "v_analysis_bom_slot_component",
+        "id": "v_analysis_model_range_slot_component",
         "kind": "view",
         "label": "",
         "properties": {
-          "diagram": "analysis_bom",
+          "diagram": "analysis_model_range",
           "element": "slot_component",
-          "from": "v_analysis_bom_BomSlot",
-          "to": "v_analysis_bom_Component"
+          "from": "v_analysis_model_range_ModelRangeSlot",
+          "to": "v_analysis_model_range_Component"
         }
       },
       {
@@ -1768,14 +1768,14 @@
         }
       },
       {
-        "id": "v_analysis_bom_component_offers",
+        "id": "v_analysis_model_range_component_offers",
         "kind": "view",
         "label": "",
         "properties": {
-          "diagram": "analysis_bom",
+          "diagram": "analysis_model_range",
           "element": "component_offers",
-          "from": "v_analysis_bom_Component",
-          "to": "v_analysis_bom_Offer"
+          "from": "v_analysis_model_range_Component",
+          "to": "v_analysis_model_range_Offer"
         }
       },
       {
@@ -1790,7 +1790,7 @@
         "label": "",
         "properties": {
           "owner": "slot_offer",
-          "classifier": "BomSlot",
+          "classifier": "ModelRangeSlot",
           "lower": "0",
           "upper": "*",
           "order": "0"
@@ -1809,14 +1809,14 @@
         }
       },
       {
-        "id": "v_analysis_bom_slot_offer",
+        "id": "v_analysis_model_range_slot_offer",
         "kind": "view",
         "label": "",
         "properties": {
-          "diagram": "analysis_bom",
+          "diagram": "analysis_model_range",
           "element": "slot_offer",
-          "from": "v_analysis_bom_BomSlot",
-          "to": "v_analysis_bom_Offer"
+          "from": "v_analysis_model_range_ModelRangeSlot",
+          "to": "v_analysis_model_range_Offer"
         }
       },
       {
@@ -1862,29 +1862,29 @@
         }
       },
       {
-        "id": "revision_bom",
+        "id": "revision_model_range",
         "kind": "association",
         "label": "snapshot",
         "properties": {}
       },
       {
-        "id": "revision_bom_a",
+        "id": "revision_model_range_a",
         "kind": "end",
         "label": "",
         "properties": {
-          "owner": "revision_bom",
-          "classifier": "BomVersion",
+          "owner": "revision_model_range",
+          "classifier": "ModelRangeVersion",
           "lower": "1",
           "upper": "1",
           "order": "0"
         }
       },
       {
-        "id": "revision_bom_b",
+        "id": "revision_model_range_b",
         "kind": "end",
         "label": "",
         "properties": {
-          "owner": "revision_bom",
+          "owner": "revision_model_range",
           "classifier": "CardRevision",
           "lower": "0",
           "upper": "*",
@@ -1892,13 +1892,13 @@
         }
       },
       {
-        "id": "v_analysis_card_revision_bom",
+        "id": "v_analysis_card_revision_model_range",
         "kind": "view",
         "label": "",
         "properties": {
           "diagram": "analysis_card",
-          "element": "revision_bom",
-          "from": "v_analysis_card_BomVersion",
+          "element": "revision_model_range",
+          "from": "v_analysis_card_ModelRangeVersion",
           "to": "v_analysis_card_CardRevision"
         }
       },
@@ -1986,7 +1986,7 @@
         }
       },
       {
-        "id": "analysis_bom",
+        "id": "analysis_model_range",
         "kind": "diagram",
         "label": "Классы проектирования: конфигурации, позиции и предложения",
         "properties": {
@@ -1994,56 +1994,56 @@
         }
       },
       {
-        "id": "v_analysis_bom_Configuration",
+        "id": "v_analysis_model_range_Configuration",
         "kind": "view",
         "label": "",
         "properties": {
-          "diagram": "analysis_bom",
+          "diagram": "analysis_model_range",
           "element": "Configuration"
         }
       },
       {
-        "id": "v_analysis_bom_BomVersion",
+        "id": "v_analysis_model_range_ModelRangeVersion",
         "kind": "view",
         "label": "",
         "properties": {
-          "diagram": "analysis_bom",
-          "element": "BomVersion"
+          "diagram": "analysis_model_range",
+          "element": "ModelRangeVersion"
         }
       },
       {
-        "id": "v_analysis_bom_BomSlot",
+        "id": "v_analysis_model_range_ModelRangeSlot",
         "kind": "view",
         "label": "",
         "properties": {
-          "diagram": "analysis_bom",
-          "element": "BomSlot"
+          "diagram": "analysis_model_range",
+          "element": "ModelRangeSlot"
         }
       },
       {
-        "id": "v_analysis_bom_ComponentGroup",
+        "id": "v_analysis_model_range_ComponentGroup",
         "kind": "view",
         "label": "",
         "properties": {
-          "diagram": "analysis_bom",
+          "diagram": "analysis_model_range",
           "element": "ComponentGroup"
         }
       },
       {
-        "id": "v_analysis_bom_Component",
+        "id": "v_analysis_model_range_Component",
         "kind": "view",
         "label": "",
         "properties": {
-          "diagram": "analysis_bom",
+          "diagram": "analysis_model_range",
           "element": "Component"
         }
       },
       {
-        "id": "v_analysis_bom_Offer",
+        "id": "v_analysis_model_range_Offer",
         "kind": "view",
         "label": "",
         "properties": {
-          "diagram": "analysis_bom",
+          "diagram": "analysis_model_range",
           "element": "Offer"
         }
       },
@@ -2083,12 +2083,12 @@
         }
       },
       {
-        "id": "v_analysis_card_BomVersion",
+        "id": "v_analysis_card_ModelRangeVersion",
         "kind": "view",
         "label": "",
         "properties": {
           "diagram": "analysis_card",
-          "element": "BomVersion"
+          "element": "ModelRangeVersion"
         }
       },
       {
@@ -2101,7 +2101,7 @@
         }
       },
       {
-        "id": "services_bom",
+        "id": "services_model_range",
         "kind": "diagram",
         "label": "Управление подготовкой состава",
         "properties": {
@@ -2109,38 +2109,38 @@
         }
       },
       {
-        "id": "v_services_bom_BomForm",
+        "id": "v_services_model_range_ModelRangeForm",
         "kind": "view",
         "label": "",
         "properties": {
-          "diagram": "services_bom",
-          "element": "BomForm"
+          "diagram": "services_model_range",
+          "element": "ModelRangeForm"
         }
       },
       {
-        "id": "v_services_bom_BomControl",
+        "id": "v_services_model_range_ModelRangeControl",
         "kind": "view",
         "label": "",
         "properties": {
-          "diagram": "services_bom",
-          "element": "BomControl"
+          "diagram": "services_model_range",
+          "element": "ModelRangeControl"
         }
       },
       {
-        "id": "v_services_bom_Compatibility",
+        "id": "v_services_model_range_Compatibility",
         "kind": "view",
         "label": "",
         "properties": {
-          "diagram": "services_bom",
+          "diagram": "services_model_range",
           "element": "Compatibility"
         }
       },
       {
-        "id": "v_services_bom_Calculation",
+        "id": "v_services_model_range_Calculation",
         "kind": "view",
         "label": "",
         "properties": {
-          "diagram": "services_bom",
+          "diagram": "services_model_range",
           "element": "Calculation"
         }
       },
@@ -2193,19 +2193,19 @@
         "kind": "dependency",
         "label": "",
         "properties": {
-          "from": "BomForm",
-          "to": "BomControl"
+          "from": "ModelRangeForm",
+          "to": "ModelRangeControl"
         }
       },
       {
-        "id": "v_services_bom_d1",
+        "id": "v_services_model_range_d1",
         "kind": "view",
         "label": "",
         "properties": {
-          "diagram": "services_bom",
+          "diagram": "services_model_range",
           "element": "d1",
-          "from": "v_services_bom_BomForm",
-          "to": "v_services_bom_BomControl"
+          "from": "v_services_model_range_ModelRangeForm",
+          "to": "v_services_model_range_ModelRangeControl"
         }
       },
       {
@@ -2213,19 +2213,19 @@
         "kind": "dependency",
         "label": "",
         "properties": {
-          "from": "BomControl",
+          "from": "ModelRangeControl",
           "to": "Compatibility"
         }
       },
       {
-        "id": "v_services_bom_d2",
+        "id": "v_services_model_range_d2",
         "kind": "view",
         "label": "",
         "properties": {
-          "diagram": "services_bom",
+          "diagram": "services_model_range",
           "element": "d2",
-          "from": "v_services_bom_BomControl",
-          "to": "v_services_bom_Compatibility"
+          "from": "v_services_model_range_ModelRangeControl",
+          "to": "v_services_model_range_Compatibility"
         }
       },
       {
@@ -2233,19 +2233,19 @@
         "kind": "dependency",
         "label": "",
         "properties": {
-          "from": "BomControl",
+          "from": "ModelRangeControl",
           "to": "Calculation"
         }
       },
       {
-        "id": "v_services_bom_d3",
+        "id": "v_services_model_range_d3",
         "kind": "view",
         "label": "",
         "properties": {
-          "diagram": "services_bom",
+          "diagram": "services_model_range",
           "element": "d3",
-          "from": "v_services_bom_BomControl",
-          "to": "v_services_bom_Calculation"
+          "from": "v_services_model_range_ModelRangeControl",
+          "to": "v_services_model_range_Calculation"
         }
       },
       {
@@ -2310,77 +2310,77 @@
       }
     ]
   },
-  "source": "uml ppois_design \"Проектирование ИС подготовки карточек ООО «Юкомс»\"\ndatatype UUID UUID primitive=true\ndatatype String String primitive=true\ndatatype Integer Integer primitive=true\ndatatype Decimal Decimal primitive=true\ndatatype DateTime DateTime primitive=true\ndatatype Boolean Boolean primitive=true\ndatatype JSON JSON primitive=true\ndatatype Void Void primitive=true\ndatatype CheckResult CheckResult primitive=true\ndatatype CalculationResult CalculationResult primitive=true\ndatatype PreparedRequest PreparedRequest primitive=true\ndatatype ExternalResult ExternalResult primitive=true\nclass Configuration Конфигурация role=entity\nattribute Configuration_a0 \"id {PK}\" classifier=UUID order=0 owner=Configuration visibility=private\nattribute Configuration_a1 code classifier=String order=1 owner=Configuration visibility=private\noperation Configuration_findAffected findAffected order=0 owner=Configuration visibility=public\nparameter Configuration_findAffected_input data classifier=String direction=in order=0 owner=Configuration_findAffected\nparameter Configuration_findAffected_return \"\" classifier=JSON direction=return order=1 owner=Configuration_findAffected\nclass BomVersion \"Версия BOM\" role=entity\nattribute BomVersion_a0 \"id {PK}\" classifier=UUID order=0 owner=BomVersion visibility=private\nattribute BomVersion_a1 number classifier=Integer order=1 owner=BomVersion visibility=private\nattribute BomVersion_a2 state classifier=String order=2 owner=BomVersion visibility=private\nattribute BomVersion_a3 createdAt classifier=DateTime order=3 owner=BomVersion visibility=private\noperation BomVersion_getSnapshot getSnapshot order=0 owner=BomVersion visibility=public\nparameter BomVersion_getSnapshot_return \"\" classifier=JSON direction=return order=1 owner=BomVersion_getSnapshot\noperation BomVersion_markChecked markChecked order=1 owner=BomVersion visibility=public\nparameter BomVersion_markChecked_input data classifier=CheckResult direction=in order=0 owner=BomVersion_markChecked\nparameter BomVersion_markChecked_return \"\" classifier=Void direction=return order=1 owner=BomVersion_markChecked\nclass BomSlot \"Позиция BOM\" role=entity\nattribute BomSlot_a0 \"id {PK}\" classifier=UUID order=0 owner=BomSlot visibility=private\nattribute BomSlot_a1 roleCode classifier=String order=1 owner=BomSlot visibility=private\nattribute BomSlot_a2 selectionMode classifier=String order=2 owner=BomSlot visibility=private\nattribute BomSlot_a3 quantity classifier=Integer order=3 owner=BomSlot visibility=private\noperation BomSlot_selectOffer selectOffer order=0 owner=BomSlot visibility=public\nparameter BomSlot_selectOffer_input data classifier=Offer direction=in order=0 owner=BomSlot_selectOffer\nparameter BomSlot_selectOffer_return \"\" classifier=Void direction=return order=1 owner=BomSlot_selectOffer\nclass ComponentGroup \"Группа комплектующих\" role=entity\nattribute ComponentGroup_a0 \"id {PK}\" classifier=UUID order=0 owner=ComponentGroup visibility=private\nattribute ComponentGroup_a1 code classifier=String order=1 owner=ComponentGroup visibility=private\nattribute ComponentGroup_a2 constraints classifier=JSON order=2 owner=ComponentGroup visibility=private\noperation ComponentGroup_matches matches order=0 owner=ComponentGroup visibility=public\nparameter ComponentGroup_matches_input data classifier=Component direction=in order=0 owner=ComponentGroup_matches\nparameter ComponentGroup_matches_return \"\" classifier=Boolean direction=return order=1 owner=ComponentGroup_matches\nclass Component Комплектующая role=entity\nattribute Component_a0 \"id {PK}\" classifier=UUID order=0 owner=Component visibility=private\nattribute Component_a1 name classifier=String order=1 owner=Component visibility=private\nattribute Component_a2 attributes classifier=JSON order=2 owner=Component visibility=private\nattribute Component_a3 massKg classifier=Decimal order=3 owner=Component visibility=private\noperation Component_getAttributes getAttributes order=0 owner=Component visibility=public\nparameter Component_getAttributes_return \"\" classifier=JSON direction=return order=1 owner=Component_getAttributes\nclass Offer \"Предложение поставщика\" role=entity\nattribute Offer_a0 \"id {PK}\" classifier=UUID order=0 owner=Offer visibility=private\nattribute Offer_a1 supplierCode classifier=String order=1 owner=Offer visibility=private\nattribute Offer_a2 priceRub classifier=Decimal order=2 owner=Offer visibility=private\nattribute Offer_a3 stock classifier=Integer order=3 owner=Offer visibility=private\nattribute Offer_a4 observedAt classifier=DateTime order=4 owner=Offer visibility=private\noperation Offer_isFresh isFresh order=0 owner=Offer visibility=public\nparameter Offer_isFresh_input data classifier=DateTime direction=in order=0 owner=Offer_isFresh\nparameter Offer_isFresh_return \"\" classifier=Boolean direction=return order=1 owner=Offer_isFresh\nclass Card \"Карточка товара\" role=entity\nattribute Card_a0 \"id {PK}\" classifier=UUID order=0 owner=Card visibility=private\nattribute Card_a1 sellerCode classifier=String order=1 owner=Card visibility=private\noperation Card_newRevision newRevision order=0 owner=Card visibility=public\nparameter Card_newRevision_input data classifier=BomVersion direction=in order=0 owner=Card_newRevision\nparameter Card_newRevision_return \"\" classifier=CardRevision direction=return order=1 owner=Card_newRevision\nclass CardRevision \"Ревизия карточки\" role=entity\nattribute CardRevision_a0 \"id {PK}\" classifier=UUID order=0 owner=CardRevision visibility=private\nattribute CardRevision_a1 state classifier=String order=1 owner=CardRevision visibility=private\nattribute CardRevision_a2 priceRub classifier=Decimal order=2 owner=CardRevision visibility=private\nattribute CardRevision_a3 massKg classifier=Decimal order=3 owner=CardRevision visibility=private\nattribute CardRevision_a4 attributes classifier=JSON order=4 owner=CardRevision visibility=private\noperation CardRevision_getSnapshot getSnapshot order=0 owner=CardRevision visibility=public\nparameter CardRevision_getSnapshot_return \"\" classifier=JSON direction=return order=1 owner=CardRevision_getSnapshot\noperation CardRevision_markStale markStale order=1 owner=CardRevision visibility=public\nparameter CardRevision_markStale_return \"\" classifier=Void direction=return order=1 owner=CardRevision_markStale\nclass Image Изображение role=entity\nattribute Image_a0 \"id {PK}\" classifier=UUID order=0 owner=Image visibility=private\nattribute Image_a1 uri classifier=String order=1 owner=Image visibility=private\nattribute Image_a2 checksum classifier=String order=2 owner=Image visibility=private\noperation Image_validate validate order=0 owner=Image visibility=public\nparameter Image_validate_return \"\" classifier=CheckResult direction=return order=1 owner=Image_validate\nclass PublicationAttempt \"Попытка публикации\" role=entity\nattribute PublicationAttempt_a0 \"id {PK}\" classifier=UUID order=0 owner=PublicationAttempt visibility=private\nattribute PublicationAttempt_a1 externalTaskId classifier=String order=1 owner=PublicationAttempt visibility=private\nattribute PublicationAttempt_a2 state classifier=String order=2 owner=PublicationAttempt visibility=private\nattribute PublicationAttempt_a3 errorCode classifier=String order=3 owner=PublicationAttempt visibility=private\nattribute PublicationAttempt_a4 nextCheckAt classifier=DateTime order=4 owner=PublicationAttempt visibility=private\noperation PublicationAttempt_recordResult recordResult order=0 owner=PublicationAttempt visibility=public\nparameter PublicationAttempt_recordResult_input data classifier=ExternalResult direction=in order=0 owner=PublicationAttempt_recordResult\nparameter PublicationAttempt_recordResult_return \"\" classifier=Void direction=return order=1 owner=PublicationAttempt_recordResult\nclass BomForm \"Форма BOM\" role=boundary\nattribute BomForm_a0 draftData classifier=JSON order=0 owner=BomForm visibility=private\noperation BomForm_submit submit order=0 owner=BomForm visibility=public\nparameter BomForm_submit_input data classifier=JSON direction=in order=0 owner=BomForm_submit\nparameter BomForm_submit_return \"\" classifier=CheckResult direction=return order=1 owner=BomForm_submit\noperation BomForm_showErrors showErrors order=1 owner=BomForm visibility=public\nparameter BomForm_showErrors_input data classifier=CheckResult direction=in order=0 owner=BomForm_showErrors\nparameter BomForm_showErrors_return \"\" classifier=Void direction=return order=1 owner=BomForm_showErrors\nclass CardForm \"Форма карточки\" role=boundary\nattribute CardForm_a0 revisionId classifier=UUID order=0 owner=CardForm visibility=private\noperation CardForm_publish publish order=0 owner=CardForm visibility=public\nparameter CardForm_publish_input data classifier=UUID direction=in order=0 owner=CardForm_publish\nparameter CardForm_publish_return \"\" classifier=PublicationAttempt direction=return order=1 owner=CardForm_publish\noperation CardForm_showStatus showStatus order=1 owner=CardForm visibility=public\nparameter CardForm_showStatus_input data classifier=PublicationAttempt direction=in order=0 owner=CardForm_showStatus\nparameter CardForm_showStatus_return \"\" classifier=Void direction=return order=1 owner=CardForm_showStatus\nclass MarketplaceGateway \"Шлюз маркетплейса\" role=boundary\nattribute MarketplaceGateway_a0 baseUrl classifier=String order=0 owner=MarketplaceGateway visibility=private\nattribute MarketplaceGateway_a1 credentialRef classifier=String order=1 owner=MarketplaceGateway visibility=private\noperation MarketplaceGateway_prepareRequest prepareRequest order=0 owner=MarketplaceGateway visibility=public\nparameter MarketplaceGateway_prepareRequest_input data classifier=CardRevision direction=in order=0 owner=MarketplaceGateway_prepareRequest\nparameter MarketplaceGateway_prepareRequest_return \"\" classifier=PreparedRequest direction=return order=1 owner=MarketplaceGateway_prepareRequest\noperation MarketplaceGateway_send send order=1 owner=MarketplaceGateway visibility=public\nparameter MarketplaceGateway_send_input data classifier=PreparedRequest direction=in order=0 owner=MarketplaceGateway_send\nparameter MarketplaceGateway_send_return \"\" classifier=ExternalResult direction=return order=1 owner=MarketplaceGateway_send\noperation MarketplaceGateway_getResult getResult order=2 owner=MarketplaceGateway visibility=public\nparameter MarketplaceGateway_getResult_input data classifier=String direction=in order=0 owner=MarketplaceGateway_getResult\nparameter MarketplaceGateway_getResult_return \"\" classifier=ExternalResult direction=return order=1 owner=MarketplaceGateway_getResult\nclass BomControl \"Управление BOM\" role=control\noperation BomControl_formVersion formVersion order=0 owner=BomControl visibility=public\nparameter BomControl_formVersion_input data classifier=JSON direction=in order=0 owner=BomControl_formVersion\nparameter BomControl_formVersion_return \"\" classifier=BomVersion direction=return order=1 owner=BomControl_formVersion\noperation BomControl_resolveSlots resolveSlots order=1 owner=BomControl visibility=public\nparameter BomControl_resolveSlots_input data classifier=BomVersion direction=in order=0 owner=BomControl_resolveSlots\nparameter BomControl_resolveSlots_return \"\" classifier=CheckResult direction=return order=1 owner=BomControl_resolveSlots\noperation BomControl_replacePreview replacePreview order=2 owner=BomControl visibility=public\nparameter BomControl_replacePreview_input data classifier=JSON direction=in order=0 owner=BomControl_replacePreview\nparameter BomControl_replacePreview_return \"\" classifier=JSON direction=return order=1 owner=BomControl_replacePreview\nclass Compatibility \"Проверка совместимости\" role=control\nattribute Compatibility_a0 rules classifier=JSON order=0 owner=Compatibility visibility=private\noperation Compatibility_checkCompatibility checkCompatibility order=0 owner=Compatibility visibility=public\nparameter Compatibility_checkCompatibility_input data classifier=BomVersion direction=in order=0 owner=Compatibility_checkCompatibility\nparameter Compatibility_checkCompatibility_return \"\" classifier=CheckResult direction=return order=1 owner=Compatibility_checkCompatibility\nclass Calculation \"Расчёт показателей\" role=control\nattribute Calculation_a0 pricingPolicy classifier=JSON order=0 owner=Calculation visibility=private\noperation Calculation_calculate calculate order=0 owner=Calculation visibility=public\nparameter Calculation_calculate_input data classifier=BomVersion direction=in order=0 owner=Calculation_calculate\nparameter Calculation_calculate_return \"\" classifier=CalculationResult direction=return order=1 owner=Calculation_calculate\nclass Readiness \"Проверка готовности\" role=control\noperation Readiness_checkReadiness checkReadiness order=0 owner=Readiness visibility=public\nparameter Readiness_checkReadiness_input data classifier=CardRevision direction=in order=0 owner=Readiness_checkReadiness\nparameter Readiness_checkReadiness_return \"\" classifier=CheckResult direction=return order=1 owner=Readiness_checkReadiness\nclass PublicationControl \"Управление публикацией\" role=control\nattribute PublicationControl_a0 retryLimit classifier=Integer order=0 owner=PublicationControl visibility=private\noperation PublicationControl_requestPublication requestPublication order=0 owner=PublicationControl visibility=public\nparameter PublicationControl_requestPublication_input data classifier=CardRevision direction=in order=0 owner=PublicationControl_requestPublication\nparameter PublicationControl_requestPublication_return \"\" classifier=PublicationAttempt direction=return order=1 owner=PublicationControl_requestPublication\noperation PublicationControl_checkOutcome checkOutcome order=1 owner=PublicationControl visibility=public\nparameter PublicationControl_checkOutcome_input data classifier=PublicationAttempt direction=in order=0 owner=PublicationControl_checkOutcome\nparameter PublicationControl_checkOutcome_return \"\" classifier=ExternalResult direction=return order=1 owner=PublicationControl_checkOutcome\noperation PublicationControl_mayRetry mayRetry order=2 owner=PublicationControl visibility=public\nparameter PublicationControl_mayRetry_input data classifier=PublicationAttempt direction=in order=0 owner=PublicationControl_mayRetry\nparameter PublicationControl_mayRetry_return \"\" classifier=Boolean direction=return order=1 owner=PublicationControl_mayRetry\nassociation config_versions versions\nend config_versions_a \"\" classifier=Configuration lower=1 order=0 owner=config_versions upper=1\nend config_versions_b \"\" aggregation=composite classifier=BomVersion lower=0 order=1 owner=config_versions upper=\"*\"\nview v_analysis_bom_config_versions \"\" diagram=analysis_bom element=config_versions from=v_analysis_bom_Configuration to=v_analysis_bom_BomVersion\nassociation version_slots slots\nend version_slots_a \"\" classifier=BomVersion lower=1 order=0 owner=version_slots upper=1\nend version_slots_b \"\" aggregation=composite classifier=BomSlot lower=0 order=1 owner=version_slots upper=\"*\"\nview v_analysis_bom_version_slots \"\" diagram=analysis_bom element=version_slots from=v_analysis_bom_BomVersion to=v_analysis_bom_BomSlot\nassociation slot_group group\nend slot_group_a \"\" classifier=BomSlot lower=0 order=0 owner=slot_group upper=\"*\"\nend slot_group_b \"\" classifier=ComponentGroup lower=0 order=1 owner=slot_group upper=1\nview v_analysis_bom_slot_group \"\" diagram=analysis_bom element=slot_group from=v_analysis_bom_BomSlot to=v_analysis_bom_ComponentGroup\nassociation slot_component \"resolved component\"\nend slot_component_a \"\" classifier=BomSlot lower=0 order=0 owner=slot_component upper=\"*\"\nend slot_component_b \"\" classifier=Component lower=0 order=1 owner=slot_component upper=1\nview v_analysis_bom_slot_component \"\" diagram=analysis_bom element=slot_component from=v_analysis_bom_BomSlot to=v_analysis_bom_Component\nassociation component_offers offers\nend component_offers_a \"\" classifier=Component lower=1 order=0 owner=component_offers upper=1\nend component_offers_b \"\" classifier=Offer lower=0 order=1 owner=component_offers upper=\"*\"\nview v_analysis_bom_component_offers \"\" diagram=analysis_bom element=component_offers from=v_analysis_bom_Component to=v_analysis_bom_Offer\nassociation slot_offer \"selected offer\"\nend slot_offer_a \"\" classifier=BomSlot lower=0 order=0 owner=slot_offer upper=\"*\"\nend slot_offer_b \"\" classifier=Offer lower=0 order=1 owner=slot_offer upper=1\nview v_analysis_bom_slot_offer \"\" diagram=analysis_bom element=slot_offer from=v_analysis_bom_BomSlot to=v_analysis_bom_Offer\nassociation card_revisions revisions\nend card_revisions_a \"\" classifier=Card lower=1 order=0 owner=card_revisions upper=1\nend card_revisions_b \"\" aggregation=composite classifier=CardRevision lower=0 order=1 owner=card_revisions upper=\"*\"\nview v_analysis_card_card_revisions \"\" diagram=analysis_card element=card_revisions from=v_analysis_card_Card to=v_analysis_card_CardRevision\nassociation revision_bom snapshot\nend revision_bom_a \"\" classifier=BomVersion lower=1 order=0 owner=revision_bom upper=1\nend revision_bom_b \"\" classifier=CardRevision lower=0 order=1 owner=revision_bom upper=\"*\"\nview v_analysis_card_revision_bom \"\" diagram=analysis_card element=revision_bom from=v_analysis_card_BomVersion to=v_analysis_card_CardRevision\nassociation revision_attempts attempts\nend revision_attempts_a \"\" classifier=CardRevision lower=1 order=0 owner=revision_attempts upper=1\nend revision_attempts_b \"\" aggregation=composite classifier=PublicationAttempt lower=0 order=1 owner=revision_attempts upper=\"*\"\nview v_analysis_card_revision_attempts \"\" diagram=analysis_card element=revision_attempts from=v_analysis_card_CardRevision to=v_analysis_card_PublicationAttempt\nassociation revision_images images\nend revision_images_a \"\" classifier=CardRevision lower=0 order=0 owner=revision_images upper=\"*\"\nend revision_images_b \"\" classifier=Image lower=0 order=1 owner=revision_images upper=\"*\"\nview v_analysis_card_revision_images \"\" diagram=analysis_card element=revision_images from=v_analysis_card_CardRevision to=v_analysis_card_Image\ndiagram analysis_bom \"Классы проектирования: конфигурации, позиции и предложения\" type=class\nview v_analysis_bom_Configuration \"\" diagram=analysis_bom element=Configuration\nview v_analysis_bom_BomVersion \"\" diagram=analysis_bom element=BomVersion\nview v_analysis_bom_BomSlot \"\" diagram=analysis_bom element=BomSlot\nview v_analysis_bom_ComponentGroup \"\" diagram=analysis_bom element=ComponentGroup\nview v_analysis_bom_Component \"\" diagram=analysis_bom element=Component\nview v_analysis_bom_Offer \"\" diagram=analysis_bom element=Offer\ndiagram analysis_card \"Классы проектирования: неизменяемые ревизии и попытки публикации\" type=class\nview v_analysis_card_Card \"\" diagram=analysis_card element=Card\nview v_analysis_card_CardRevision \"\" diagram=analysis_card element=CardRevision\nview v_analysis_card_PublicationAttempt \"\" diagram=analysis_card element=PublicationAttempt\nview v_analysis_card_BomVersion \"\" diagram=analysis_card element=BomVersion\nview v_analysis_card_Image \"\" diagram=analysis_card element=Image\ndiagram services_bom \"Управление подготовкой состава\" type=class\nview v_services_bom_BomForm \"\" diagram=services_bom element=BomForm\nview v_services_bom_BomControl \"\" diagram=services_bom element=BomControl\nview v_services_bom_Compatibility \"\" diagram=services_bom element=Compatibility\nview v_services_bom_Calculation \"\" diagram=services_bom element=Calculation\ndiagram services_publish \"Управление публикацией\" type=class\nview v_services_publish_CardForm \"\" diagram=services_publish element=CardForm\nview v_services_publish_PublicationControl \"\" diagram=services_publish element=PublicationControl\nview v_services_publish_Readiness \"\" diagram=services_publish element=Readiness\nview v_services_publish_MarketplaceGateway \"\" diagram=services_publish element=MarketplaceGateway\ndependency d1 \"\" from=BomForm to=BomControl\nview v_services_bom_d1 \"\" diagram=services_bom element=d1 from=v_services_bom_BomForm to=v_services_bom_BomControl\ndependency d2 \"\" from=BomControl to=Compatibility\nview v_services_bom_d2 \"\" diagram=services_bom element=d2 from=v_services_bom_BomControl to=v_services_bom_Compatibility\ndependency d3 \"\" from=BomControl to=Calculation\nview v_services_bom_d3 \"\" diagram=services_bom element=d3 from=v_services_bom_BomControl to=v_services_bom_Calculation\ndependency d4 \"\" from=CardForm to=PublicationControl\nview v_services_publish_d4 \"\" diagram=services_publish element=d4 from=v_services_publish_CardForm to=v_services_publish_PublicationControl\ndependency d5 \"\" from=PublicationControl to=Readiness\nview v_services_publish_d5 \"\" diagram=services_publish element=d5 from=v_services_publish_PublicationControl to=v_services_publish_Readiness\ndependency d6 \"\" from=PublicationControl to=MarketplaceGateway\nview v_services_publish_d6 \"\" diagram=services_publish element=d6 from=v_services_publish_PublicationControl to=v_services_publish_MarketplaceGateway\n",
-  "draft": "uml ppois_design \"Проектирование ИС подготовки карточек ООО «Юкомс»\"\ndatatype UUID UUID primitive=true\ndatatype String String primitive=true\ndatatype Integer Integer primitive=true\ndatatype Decimal Decimal primitive=true\ndatatype DateTime DateTime primitive=true\ndatatype Boolean Boolean primitive=true\ndatatype JSON JSON primitive=true\ndatatype Void Void primitive=true\ndatatype CheckResult CheckResult primitive=true\ndatatype CalculationResult CalculationResult primitive=true\ndatatype PreparedRequest PreparedRequest primitive=true\ndatatype ExternalResult ExternalResult primitive=true\nclass Configuration Конфигурация role=entity\nattribute Configuration_a0 \"id {PK}\" classifier=UUID order=0 owner=Configuration visibility=private\nattribute Configuration_a1 code classifier=String order=1 owner=Configuration visibility=private\noperation Configuration_findAffected findAffected order=0 owner=Configuration visibility=public\nparameter Configuration_findAffected_input data classifier=String direction=in order=0 owner=Configuration_findAffected\nparameter Configuration_findAffected_return \"\" classifier=JSON direction=return order=1 owner=Configuration_findAffected\nclass BomVersion \"Версия BOM\" role=entity\nattribute BomVersion_a0 \"id {PK}\" classifier=UUID order=0 owner=BomVersion visibility=private\nattribute BomVersion_a1 number classifier=Integer order=1 owner=BomVersion visibility=private\nattribute BomVersion_a2 state classifier=String order=2 owner=BomVersion visibility=private\nattribute BomVersion_a3 createdAt classifier=DateTime order=3 owner=BomVersion visibility=private\noperation BomVersion_getSnapshot getSnapshot order=0 owner=BomVersion visibility=public\nparameter BomVersion_getSnapshot_return \"\" classifier=JSON direction=return order=1 owner=BomVersion_getSnapshot\noperation BomVersion_markChecked markChecked order=1 owner=BomVersion visibility=public\nparameter BomVersion_markChecked_input data classifier=CheckResult direction=in order=0 owner=BomVersion_markChecked\nparameter BomVersion_markChecked_return \"\" classifier=Void direction=return order=1 owner=BomVersion_markChecked\nclass BomSlot \"Позиция BOM\" role=entity\nattribute BomSlot_a0 \"id {PK}\" classifier=UUID order=0 owner=BomSlot visibility=private\nattribute BomSlot_a1 roleCode classifier=String order=1 owner=BomSlot visibility=private\nattribute BomSlot_a2 selectionMode classifier=String order=2 owner=BomSlot visibility=private\nattribute BomSlot_a3 quantity classifier=Integer order=3 owner=BomSlot visibility=private\noperation BomSlot_selectOffer selectOffer order=0 owner=BomSlot visibility=public\nparameter BomSlot_selectOffer_input data classifier=Offer direction=in order=0 owner=BomSlot_selectOffer\nparameter BomSlot_selectOffer_return \"\" classifier=Void direction=return order=1 owner=BomSlot_selectOffer\nclass ComponentGroup \"Группа комплектующих\" role=entity\nattribute ComponentGroup_a0 \"id {PK}\" classifier=UUID order=0 owner=ComponentGroup visibility=private\nattribute ComponentGroup_a1 code classifier=String order=1 owner=ComponentGroup visibility=private\nattribute ComponentGroup_a2 constraints classifier=JSON order=2 owner=ComponentGroup visibility=private\noperation ComponentGroup_matches matches order=0 owner=ComponentGroup visibility=public\nparameter ComponentGroup_matches_input data classifier=Component direction=in order=0 owner=ComponentGroup_matches\nparameter ComponentGroup_matches_return \"\" classifier=Boolean direction=return order=1 owner=ComponentGroup_matches\nclass Component Комплектующая role=entity\nattribute Component_a0 \"id {PK}\" classifier=UUID order=0 owner=Component visibility=private\nattribute Component_a1 name classifier=String order=1 owner=Component visibility=private\nattribute Component_a2 attributes classifier=JSON order=2 owner=Component visibility=private\nattribute Component_a3 massKg classifier=Decimal order=3 owner=Component visibility=private\noperation Component_getAttributes getAttributes order=0 owner=Component visibility=public\nparameter Component_getAttributes_return \"\" classifier=JSON direction=return order=1 owner=Component_getAttributes\nclass Offer \"Предложение поставщика\" role=entity\nattribute Offer_a0 \"id {PK}\" classifier=UUID order=0 owner=Offer visibility=private\nattribute Offer_a1 supplierCode classifier=String order=1 owner=Offer visibility=private\nattribute Offer_a2 priceRub classifier=Decimal order=2 owner=Offer visibility=private\nattribute Offer_a3 stock classifier=Integer order=3 owner=Offer visibility=private\nattribute Offer_a4 observedAt classifier=DateTime order=4 owner=Offer visibility=private\noperation Offer_isFresh isFresh order=0 owner=Offer visibility=public\nparameter Offer_isFresh_input data classifier=DateTime direction=in order=0 owner=Offer_isFresh\nparameter Offer_isFresh_return \"\" classifier=Boolean direction=return order=1 owner=Offer_isFresh\nclass Card \"Карточка товара\" role=entity\nattribute Card_a0 \"id {PK}\" classifier=UUID order=0 owner=Card visibility=private\nattribute Card_a1 sellerCode classifier=String order=1 owner=Card visibility=private\noperation Card_newRevision newRevision order=0 owner=Card visibility=public\nparameter Card_newRevision_input data classifier=BomVersion direction=in order=0 owner=Card_newRevision\nparameter Card_newRevision_return \"\" classifier=CardRevision direction=return order=1 owner=Card_newRevision\nclass CardRevision \"Ревизия карточки\" role=entity\nattribute CardRevision_a0 \"id {PK}\" classifier=UUID order=0 owner=CardRevision visibility=private\nattribute CardRevision_a1 state classifier=String order=1 owner=CardRevision visibility=private\nattribute CardRevision_a2 priceRub classifier=Decimal order=2 owner=CardRevision visibility=private\nattribute CardRevision_a3 massKg classifier=Decimal order=3 owner=CardRevision visibility=private\nattribute CardRevision_a4 attributes classifier=JSON order=4 owner=CardRevision visibility=private\noperation CardRevision_getSnapshot getSnapshot order=0 owner=CardRevision visibility=public\nparameter CardRevision_getSnapshot_return \"\" classifier=JSON direction=return order=1 owner=CardRevision_getSnapshot\noperation CardRevision_markStale markStale order=1 owner=CardRevision visibility=public\nparameter CardRevision_markStale_return \"\" classifier=Void direction=return order=1 owner=CardRevision_markStale\nclass Image Изображение role=entity\nattribute Image_a0 \"id {PK}\" classifier=UUID order=0 owner=Image visibility=private\nattribute Image_a1 uri classifier=String order=1 owner=Image visibility=private\nattribute Image_a2 checksum classifier=String order=2 owner=Image visibility=private\noperation Image_validate validate order=0 owner=Image visibility=public\nparameter Image_validate_return \"\" classifier=CheckResult direction=return order=1 owner=Image_validate\nclass PublicationAttempt \"Попытка публикации\" role=entity\nattribute PublicationAttempt_a0 \"id {PK}\" classifier=UUID order=0 owner=PublicationAttempt visibility=private\nattribute PublicationAttempt_a1 externalTaskId classifier=String order=1 owner=PublicationAttempt visibility=private\nattribute PublicationAttempt_a2 state classifier=String order=2 owner=PublicationAttempt visibility=private\nattribute PublicationAttempt_a3 errorCode classifier=String order=3 owner=PublicationAttempt visibility=private\nattribute PublicationAttempt_a4 nextCheckAt classifier=DateTime order=4 owner=PublicationAttempt visibility=private\noperation PublicationAttempt_recordResult recordResult order=0 owner=PublicationAttempt visibility=public\nparameter PublicationAttempt_recordResult_input data classifier=ExternalResult direction=in order=0 owner=PublicationAttempt_recordResult\nparameter PublicationAttempt_recordResult_return \"\" classifier=Void direction=return order=1 owner=PublicationAttempt_recordResult\nclass BomForm \"Форма BOM\" role=boundary\nattribute BomForm_a0 draftData classifier=JSON order=0 owner=BomForm visibility=private\noperation BomForm_submit submit order=0 owner=BomForm visibility=public\nparameter BomForm_submit_input data classifier=JSON direction=in order=0 owner=BomForm_submit\nparameter BomForm_submit_return \"\" classifier=CheckResult direction=return order=1 owner=BomForm_submit\noperation BomForm_showErrors showErrors order=1 owner=BomForm visibility=public\nparameter BomForm_showErrors_input data classifier=CheckResult direction=in order=0 owner=BomForm_showErrors\nparameter BomForm_showErrors_return \"\" classifier=Void direction=return order=1 owner=BomForm_showErrors\nclass CardForm \"Форма карточки\" role=boundary\nattribute CardForm_a0 revisionId classifier=UUID order=0 owner=CardForm visibility=private\noperation CardForm_publish publish order=0 owner=CardForm visibility=public\nparameter CardForm_publish_input data classifier=UUID direction=in order=0 owner=CardForm_publish\nparameter CardForm_publish_return \"\" classifier=PublicationAttempt direction=return order=1 owner=CardForm_publish\noperation CardForm_showStatus showStatus order=1 owner=CardForm visibility=public\nparameter CardForm_showStatus_input data classifier=PublicationAttempt direction=in order=0 owner=CardForm_showStatus\nparameter CardForm_showStatus_return \"\" classifier=Void direction=return order=1 owner=CardForm_showStatus\nclass MarketplaceGateway \"Шлюз маркетплейса\" role=boundary\nattribute MarketplaceGateway_a0 baseUrl classifier=String order=0 owner=MarketplaceGateway visibility=private\nattribute MarketplaceGateway_a1 credentialRef classifier=String order=1 owner=MarketplaceGateway visibility=private\noperation MarketplaceGateway_prepareRequest prepareRequest order=0 owner=MarketplaceGateway visibility=public\nparameter MarketplaceGateway_prepareRequest_input data classifier=CardRevision direction=in order=0 owner=MarketplaceGateway_prepareRequest\nparameter MarketplaceGateway_prepareRequest_return \"\" classifier=PreparedRequest direction=return order=1 owner=MarketplaceGateway_prepareRequest\noperation MarketplaceGateway_send send order=1 owner=MarketplaceGateway visibility=public\nparameter MarketplaceGateway_send_input data classifier=PreparedRequest direction=in order=0 owner=MarketplaceGateway_send\nparameter MarketplaceGateway_send_return \"\" classifier=ExternalResult direction=return order=1 owner=MarketplaceGateway_send\noperation MarketplaceGateway_getResult getResult order=2 owner=MarketplaceGateway visibility=public\nparameter MarketplaceGateway_getResult_input data classifier=String direction=in order=0 owner=MarketplaceGateway_getResult\nparameter MarketplaceGateway_getResult_return \"\" classifier=ExternalResult direction=return order=1 owner=MarketplaceGateway_getResult\nclass BomControl \"Управление BOM\" role=control\noperation BomControl_formVersion formVersion order=0 owner=BomControl visibility=public\nparameter BomControl_formVersion_input data classifier=JSON direction=in order=0 owner=BomControl_formVersion\nparameter BomControl_formVersion_return \"\" classifier=BomVersion direction=return order=1 owner=BomControl_formVersion\noperation BomControl_resolveSlots resolveSlots order=1 owner=BomControl visibility=public\nparameter BomControl_resolveSlots_input data classifier=BomVersion direction=in order=0 owner=BomControl_resolveSlots\nparameter BomControl_resolveSlots_return \"\" classifier=CheckResult direction=return order=1 owner=BomControl_resolveSlots\noperation BomControl_replacePreview replacePreview order=2 owner=BomControl visibility=public\nparameter BomControl_replacePreview_input data classifier=JSON direction=in order=0 owner=BomControl_replacePreview\nparameter BomControl_replacePreview_return \"\" classifier=JSON direction=return order=1 owner=BomControl_replacePreview\nclass Compatibility \"Проверка совместимости\" role=control\nattribute Compatibility_a0 rules classifier=JSON order=0 owner=Compatibility visibility=private\noperation Compatibility_checkCompatibility checkCompatibility order=0 owner=Compatibility visibility=public\nparameter Compatibility_checkCompatibility_input data classifier=BomVersion direction=in order=0 owner=Compatibility_checkCompatibility\nparameter Compatibility_checkCompatibility_return \"\" classifier=CheckResult direction=return order=1 owner=Compatibility_checkCompatibility\nclass Calculation \"Расчёт показателей\" role=control\nattribute Calculation_a0 pricingPolicy classifier=JSON order=0 owner=Calculation visibility=private\noperation Calculation_calculate calculate order=0 owner=Calculation visibility=public\nparameter Calculation_calculate_input data classifier=BomVersion direction=in order=0 owner=Calculation_calculate\nparameter Calculation_calculate_return \"\" classifier=CalculationResult direction=return order=1 owner=Calculation_calculate\nclass Readiness \"Проверка готовности\" role=control\noperation Readiness_checkReadiness checkReadiness order=0 owner=Readiness visibility=public\nparameter Readiness_checkReadiness_input data classifier=CardRevision direction=in order=0 owner=Readiness_checkReadiness\nparameter Readiness_checkReadiness_return \"\" classifier=CheckResult direction=return order=1 owner=Readiness_checkReadiness\nclass PublicationControl \"Управление публикацией\" role=control\nattribute PublicationControl_a0 retryLimit classifier=Integer order=0 owner=PublicationControl visibility=private\noperation PublicationControl_requestPublication requestPublication order=0 owner=PublicationControl visibility=public\nparameter PublicationControl_requestPublication_input data classifier=CardRevision direction=in order=0 owner=PublicationControl_requestPublication\nparameter PublicationControl_requestPublication_return \"\" classifier=PublicationAttempt direction=return order=1 owner=PublicationControl_requestPublication\noperation PublicationControl_checkOutcome checkOutcome order=1 owner=PublicationControl visibility=public\nparameter PublicationControl_checkOutcome_input data classifier=PublicationAttempt direction=in order=0 owner=PublicationControl_checkOutcome\nparameter PublicationControl_checkOutcome_return \"\" classifier=ExternalResult direction=return order=1 owner=PublicationControl_checkOutcome\noperation PublicationControl_mayRetry mayRetry order=2 owner=PublicationControl visibility=public\nparameter PublicationControl_mayRetry_input data classifier=PublicationAttempt direction=in order=0 owner=PublicationControl_mayRetry\nparameter PublicationControl_mayRetry_return \"\" classifier=Boolean direction=return order=1 owner=PublicationControl_mayRetry\nassociation config_versions versions\nend config_versions_a \"\" classifier=Configuration lower=1 order=0 owner=config_versions upper=1\nend config_versions_b \"\" aggregation=composite classifier=BomVersion lower=0 order=1 owner=config_versions upper=\"*\"\nview v_analysis_bom_config_versions \"\" diagram=analysis_bom element=config_versions from=v_analysis_bom_Configuration to=v_analysis_bom_BomVersion\nassociation version_slots slots\nend version_slots_a \"\" classifier=BomVersion lower=1 order=0 owner=version_slots upper=1\nend version_slots_b \"\" aggregation=composite classifier=BomSlot lower=0 order=1 owner=version_slots upper=\"*\"\nview v_analysis_bom_version_slots \"\" diagram=analysis_bom element=version_slots from=v_analysis_bom_BomVersion to=v_analysis_bom_BomSlot\nassociation slot_group group\nend slot_group_a \"\" classifier=BomSlot lower=0 order=0 owner=slot_group upper=\"*\"\nend slot_group_b \"\" classifier=ComponentGroup lower=0 order=1 owner=slot_group upper=1\nview v_analysis_bom_slot_group \"\" diagram=analysis_bom element=slot_group from=v_analysis_bom_BomSlot to=v_analysis_bom_ComponentGroup\nassociation slot_component \"resolved component\"\nend slot_component_a \"\" classifier=BomSlot lower=0 order=0 owner=slot_component upper=\"*\"\nend slot_component_b \"\" classifier=Component lower=0 order=1 owner=slot_component upper=1\nview v_analysis_bom_slot_component \"\" diagram=analysis_bom element=slot_component from=v_analysis_bom_BomSlot to=v_analysis_bom_Component\nassociation component_offers offers\nend component_offers_a \"\" classifier=Component lower=1 order=0 owner=component_offers upper=1\nend component_offers_b \"\" classifier=Offer lower=0 order=1 owner=component_offers upper=\"*\"\nview v_analysis_bom_component_offers \"\" diagram=analysis_bom element=component_offers from=v_analysis_bom_Component to=v_analysis_bom_Offer\nassociation slot_offer \"selected offer\"\nend slot_offer_a \"\" classifier=BomSlot lower=0 order=0 owner=slot_offer upper=\"*\"\nend slot_offer_b \"\" classifier=Offer lower=0 order=1 owner=slot_offer upper=1\nview v_analysis_bom_slot_offer \"\" diagram=analysis_bom element=slot_offer from=v_analysis_bom_BomSlot to=v_analysis_bom_Offer\nassociation card_revisions revisions\nend card_revisions_a \"\" classifier=Card lower=1 order=0 owner=card_revisions upper=1\nend card_revisions_b \"\" aggregation=composite classifier=CardRevision lower=0 order=1 owner=card_revisions upper=\"*\"\nview v_analysis_card_card_revisions \"\" diagram=analysis_card element=card_revisions from=v_analysis_card_Card to=v_analysis_card_CardRevision\nassociation revision_bom snapshot\nend revision_bom_a \"\" classifier=BomVersion lower=1 order=0 owner=revision_bom upper=1\nend revision_bom_b \"\" classifier=CardRevision lower=0 order=1 owner=revision_bom upper=\"*\"\nview v_analysis_card_revision_bom \"\" diagram=analysis_card element=revision_bom from=v_analysis_card_BomVersion to=v_analysis_card_CardRevision\nassociation revision_attempts attempts\nend revision_attempts_a \"\" classifier=CardRevision lower=1 order=0 owner=revision_attempts upper=1\nend revision_attempts_b \"\" aggregation=composite classifier=PublicationAttempt lower=0 order=1 owner=revision_attempts upper=\"*\"\nview v_analysis_card_revision_attempts \"\" diagram=analysis_card element=revision_attempts from=v_analysis_card_CardRevision to=v_analysis_card_PublicationAttempt\nassociation revision_images images\nend revision_images_a \"\" classifier=CardRevision lower=0 order=0 owner=revision_images upper=\"*\"\nend revision_images_b \"\" classifier=Image lower=0 order=1 owner=revision_images upper=\"*\"\nview v_analysis_card_revision_images \"\" diagram=analysis_card element=revision_images from=v_analysis_card_CardRevision to=v_analysis_card_Image\ndiagram analysis_bom \"Классы проектирования: конфигурации, позиции и предложения\" type=class\nview v_analysis_bom_Configuration \"\" diagram=analysis_bom element=Configuration\nview v_analysis_bom_BomVersion \"\" diagram=analysis_bom element=BomVersion\nview v_analysis_bom_BomSlot \"\" diagram=analysis_bom element=BomSlot\nview v_analysis_bom_ComponentGroup \"\" diagram=analysis_bom element=ComponentGroup\nview v_analysis_bom_Component \"\" diagram=analysis_bom element=Component\nview v_analysis_bom_Offer \"\" diagram=analysis_bom element=Offer\ndiagram analysis_card \"Классы проектирования: неизменяемые ревизии и попытки публикации\" type=class\nview v_analysis_card_Card \"\" diagram=analysis_card element=Card\nview v_analysis_card_CardRevision \"\" diagram=analysis_card element=CardRevision\nview v_analysis_card_PublicationAttempt \"\" diagram=analysis_card element=PublicationAttempt\nview v_analysis_card_BomVersion \"\" diagram=analysis_card element=BomVersion\nview v_analysis_card_Image \"\" diagram=analysis_card element=Image\ndiagram services_bom \"Управление подготовкой состава\" type=class\nview v_services_bom_BomForm \"\" diagram=services_bom element=BomForm\nview v_services_bom_BomControl \"\" diagram=services_bom element=BomControl\nview v_services_bom_Compatibility \"\" diagram=services_bom element=Compatibility\nview v_services_bom_Calculation \"\" diagram=services_bom element=Calculation\ndiagram services_publish \"Управление публикацией\" type=class\nview v_services_publish_CardForm \"\" diagram=services_publish element=CardForm\nview v_services_publish_PublicationControl \"\" diagram=services_publish element=PublicationControl\nview v_services_publish_Readiness \"\" diagram=services_publish element=Readiness\nview v_services_publish_MarketplaceGateway \"\" diagram=services_publish element=MarketplaceGateway\ndependency d1 \"\" from=BomForm to=BomControl\nview v_services_bom_d1 \"\" diagram=services_bom element=d1 from=v_services_bom_BomForm to=v_services_bom_BomControl\ndependency d2 \"\" from=BomControl to=Compatibility\nview v_services_bom_d2 \"\" diagram=services_bom element=d2 from=v_services_bom_BomControl to=v_services_bom_Compatibility\ndependency d3 \"\" from=BomControl to=Calculation\nview v_services_bom_d3 \"\" diagram=services_bom element=d3 from=v_services_bom_BomControl to=v_services_bom_Calculation\ndependency d4 \"\" from=CardForm to=PublicationControl\nview v_services_publish_d4 \"\" diagram=services_publish element=d4 from=v_services_publish_CardForm to=v_services_publish_PublicationControl\ndependency d5 \"\" from=PublicationControl to=Readiness\nview v_services_publish_d5 \"\" diagram=services_publish element=d5 from=v_services_publish_PublicationControl to=v_services_publish_Readiness\ndependency d6 \"\" from=PublicationControl to=MarketplaceGateway\nview v_services_publish_d6 \"\" diagram=services_publish element=d6 from=v_services_publish_PublicationControl to=v_services_publish_MarketplaceGateway\n",
+  "source": "uml ppois_design \"Проектирование ИС подготовки карточек ООО «Юкомс»\"\ndatatype UUID UUID primitive=true\ndatatype String String primitive=true\ndatatype Integer Integer primitive=true\ndatatype Decimal Decimal primitive=true\ndatatype DateTime DateTime primitive=true\ndatatype Boolean Boolean primitive=true\ndatatype JSON JSON primitive=true\ndatatype Void Void primitive=true\ndatatype CheckResult CheckResult primitive=true\ndatatype CalculationResult CalculationResult primitive=true\ndatatype PreparedRequest PreparedRequest primitive=true\ndatatype ExternalResult ExternalResult primitive=true\nclass Configuration Конфигурация role=entity\nattribute Configuration_a0 \"id {PK}\" classifier=UUID order=0 owner=Configuration visibility=private\nattribute Configuration_a1 code classifier=String order=1 owner=Configuration visibility=private\noperation Configuration_findAffected findAffected order=0 owner=Configuration visibility=public\nparameter Configuration_findAffected_input data classifier=String direction=in order=0 owner=Configuration_findAffected\nparameter Configuration_findAffected_return \"\" classifier=JSON direction=return order=1 owner=Configuration_findAffected\nclass ModelRangeVersion \"Версия модельного ряда\" role=entity\nattribute ModelRangeVersion_a0 \"id {PK}\" classifier=UUID order=0 owner=ModelRangeVersion visibility=private\nattribute ModelRangeVersion_a1 number classifier=Integer order=1 owner=ModelRangeVersion visibility=private\nattribute ModelRangeVersion_a2 state classifier=String order=2 owner=ModelRangeVersion visibility=private\nattribute ModelRangeVersion_a3 createdAt classifier=DateTime order=3 owner=ModelRangeVersion visibility=private\noperation ModelRangeVersion_getSnapshot getSnapshot order=0 owner=ModelRangeVersion visibility=public\nparameter ModelRangeVersion_getSnapshot_return \"\" classifier=JSON direction=return order=1 owner=ModelRangeVersion_getSnapshot\noperation ModelRangeVersion_markChecked markChecked order=1 owner=ModelRangeVersion visibility=public\nparameter ModelRangeVersion_markChecked_input data classifier=CheckResult direction=in order=0 owner=ModelRangeVersion_markChecked\nparameter ModelRangeVersion_markChecked_return \"\" classifier=Void direction=return order=1 owner=ModelRangeVersion_markChecked\nclass ModelRangeSlot \"Позиция модельного ряда\" role=entity\nattribute ModelRangeSlot_a0 \"id {PK}\" classifier=UUID order=0 owner=ModelRangeSlot visibility=private\nattribute ModelRangeSlot_a1 roleCode classifier=String order=1 owner=ModelRangeSlot visibility=private\nattribute ModelRangeSlot_a2 selectionMode classifier=String order=2 owner=ModelRangeSlot visibility=private\nattribute ModelRangeSlot_a3 quantity classifier=Integer order=3 owner=ModelRangeSlot visibility=private\noperation ModelRangeSlot_selectOffer selectOffer order=0 owner=ModelRangeSlot visibility=public\nparameter ModelRangeSlot_selectOffer_input data classifier=Offer direction=in order=0 owner=ModelRangeSlot_selectOffer\nparameter ModelRangeSlot_selectOffer_return \"\" classifier=Void direction=return order=1 owner=ModelRangeSlot_selectOffer\nclass ComponentGroup \"Группа комплектующих\" role=entity\nattribute ComponentGroup_a0 \"id {PK}\" classifier=UUID order=0 owner=ComponentGroup visibility=private\nattribute ComponentGroup_a1 code classifier=String order=1 owner=ComponentGroup visibility=private\nattribute ComponentGroup_a2 constraints classifier=JSON order=2 owner=ComponentGroup visibility=private\noperation ComponentGroup_matches matches order=0 owner=ComponentGroup visibility=public\nparameter ComponentGroup_matches_input data classifier=Component direction=in order=0 owner=ComponentGroup_matches\nparameter ComponentGroup_matches_return \"\" classifier=Boolean direction=return order=1 owner=ComponentGroup_matches\nclass Component Комплектующая role=entity\nattribute Component_a0 \"id {PK}\" classifier=UUID order=0 owner=Component visibility=private\nattribute Component_a1 name classifier=String order=1 owner=Component visibility=private\nattribute Component_a2 attributes classifier=JSON order=2 owner=Component visibility=private\nattribute Component_a3 massKg classifier=Decimal order=3 owner=Component visibility=private\noperation Component_getAttributes getAttributes order=0 owner=Component visibility=public\nparameter Component_getAttributes_return \"\" classifier=JSON direction=return order=1 owner=Component_getAttributes\nclass Offer \"Предложение поставщика\" role=entity\nattribute Offer_a0 \"id {PK}\" classifier=UUID order=0 owner=Offer visibility=private\nattribute Offer_a1 supplierCode classifier=String order=1 owner=Offer visibility=private\nattribute Offer_a2 priceRub classifier=Decimal order=2 owner=Offer visibility=private\nattribute Offer_a3 stock classifier=Integer order=3 owner=Offer visibility=private\nattribute Offer_a4 observedAt classifier=DateTime order=4 owner=Offer visibility=private\noperation Offer_isFresh isFresh order=0 owner=Offer visibility=public\nparameter Offer_isFresh_input data classifier=DateTime direction=in order=0 owner=Offer_isFresh\nparameter Offer_isFresh_return \"\" classifier=Boolean direction=return order=1 owner=Offer_isFresh\nclass Card \"Карточка товара\" role=entity\nattribute Card_a0 \"id {PK}\" classifier=UUID order=0 owner=Card visibility=private\nattribute Card_a1 sellerCode classifier=String order=1 owner=Card visibility=private\noperation Card_newRevision newRevision order=0 owner=Card visibility=public\nparameter Card_newRevision_input data classifier=ModelRangeVersion direction=in order=0 owner=Card_newRevision\nparameter Card_newRevision_return \"\" classifier=CardRevision direction=return order=1 owner=Card_newRevision\nclass CardRevision \"Ревизия карточки\" role=entity\nattribute CardRevision_a0 \"id {PK}\" classifier=UUID order=0 owner=CardRevision visibility=private\nattribute CardRevision_a1 state classifier=String order=1 owner=CardRevision visibility=private\nattribute CardRevision_a2 priceRub classifier=Decimal order=2 owner=CardRevision visibility=private\nattribute CardRevision_a3 massKg classifier=Decimal order=3 owner=CardRevision visibility=private\nattribute CardRevision_a4 attributes classifier=JSON order=4 owner=CardRevision visibility=private\noperation CardRevision_getSnapshot getSnapshot order=0 owner=CardRevision visibility=public\nparameter CardRevision_getSnapshot_return \"\" classifier=JSON direction=return order=1 owner=CardRevision_getSnapshot\noperation CardRevision_markStale markStale order=1 owner=CardRevision visibility=public\nparameter CardRevision_markStale_return \"\" classifier=Void direction=return order=1 owner=CardRevision_markStale\nclass Image Изображение role=entity\nattribute Image_a0 \"id {PK}\" classifier=UUID order=0 owner=Image visibility=private\nattribute Image_a1 uri classifier=String order=1 owner=Image visibility=private\nattribute Image_a2 checksum classifier=String order=2 owner=Image visibility=private\noperation Image_validate validate order=0 owner=Image visibility=public\nparameter Image_validate_return \"\" classifier=CheckResult direction=return order=1 owner=Image_validate\nclass PublicationAttempt \"Попытка публикации\" role=entity\nattribute PublicationAttempt_a0 \"id {PK}\" classifier=UUID order=0 owner=PublicationAttempt visibility=private\nattribute PublicationAttempt_a1 externalTaskId classifier=String order=1 owner=PublicationAttempt visibility=private\nattribute PublicationAttempt_a2 state classifier=String order=2 owner=PublicationAttempt visibility=private\nattribute PublicationAttempt_a3 errorCode classifier=String order=3 owner=PublicationAttempt visibility=private\nattribute PublicationAttempt_a4 nextCheckAt classifier=DateTime order=4 owner=PublicationAttempt visibility=private\noperation PublicationAttempt_recordResult recordResult order=0 owner=PublicationAttempt visibility=public\nparameter PublicationAttempt_recordResult_input data classifier=ExternalResult direction=in order=0 owner=PublicationAttempt_recordResult\nparameter PublicationAttempt_recordResult_return \"\" classifier=Void direction=return order=1 owner=PublicationAttempt_recordResult\nclass ModelRangeForm \"Форма модельного ряда\" role=boundary\nattribute ModelRangeForm_a0 draftData classifier=JSON order=0 owner=ModelRangeForm visibility=private\noperation ModelRangeForm_submit submit order=0 owner=ModelRangeForm visibility=public\nparameter ModelRangeForm_submit_input data classifier=JSON direction=in order=0 owner=ModelRangeForm_submit\nparameter ModelRangeForm_submit_return \"\" classifier=CheckResult direction=return order=1 owner=ModelRangeForm_submit\noperation ModelRangeForm_showErrors showErrors order=1 owner=ModelRangeForm visibility=public\nparameter ModelRangeForm_showErrors_input data classifier=CheckResult direction=in order=0 owner=ModelRangeForm_showErrors\nparameter ModelRangeForm_showErrors_return \"\" classifier=Void direction=return order=1 owner=ModelRangeForm_showErrors\nclass CardForm \"Форма карточки\" role=boundary\nattribute CardForm_a0 revisionId classifier=UUID order=0 owner=CardForm visibility=private\noperation CardForm_publish publish order=0 owner=CardForm visibility=public\nparameter CardForm_publish_input data classifier=UUID direction=in order=0 owner=CardForm_publish\nparameter CardForm_publish_return \"\" classifier=PublicationAttempt direction=return order=1 owner=CardForm_publish\noperation CardForm_showStatus showStatus order=1 owner=CardForm visibility=public\nparameter CardForm_showStatus_input data classifier=PublicationAttempt direction=in order=0 owner=CardForm_showStatus\nparameter CardForm_showStatus_return \"\" classifier=Void direction=return order=1 owner=CardForm_showStatus\nclass MarketplaceGateway \"Шлюз маркетплейса\" role=boundary\nattribute MarketplaceGateway_a0 baseUrl classifier=String order=0 owner=MarketplaceGateway visibility=private\nattribute MarketplaceGateway_a1 credentialRef classifier=String order=1 owner=MarketplaceGateway visibility=private\noperation MarketplaceGateway_prepareRequest prepareRequest order=0 owner=MarketplaceGateway visibility=public\nparameter MarketplaceGateway_prepareRequest_input data classifier=CardRevision direction=in order=0 owner=MarketplaceGateway_prepareRequest\nparameter MarketplaceGateway_prepareRequest_return \"\" classifier=PreparedRequest direction=return order=1 owner=MarketplaceGateway_prepareRequest\noperation MarketplaceGateway_send send order=1 owner=MarketplaceGateway visibility=public\nparameter MarketplaceGateway_send_input data classifier=PreparedRequest direction=in order=0 owner=MarketplaceGateway_send\nparameter MarketplaceGateway_send_return \"\" classifier=ExternalResult direction=return order=1 owner=MarketplaceGateway_send\noperation MarketplaceGateway_getResult getResult order=2 owner=MarketplaceGateway visibility=public\nparameter MarketplaceGateway_getResult_input data classifier=String direction=in order=0 owner=MarketplaceGateway_getResult\nparameter MarketplaceGateway_getResult_return \"\" classifier=ExternalResult direction=return order=1 owner=MarketplaceGateway_getResult\nclass ModelRangeControl \"Управление модельным рядом\" role=control\noperation ModelRangeControl_formVersion formVersion order=0 owner=ModelRangeControl visibility=public\nparameter ModelRangeControl_formVersion_input data classifier=JSON direction=in order=0 owner=ModelRangeControl_formVersion\nparameter ModelRangeControl_formVersion_return \"\" classifier=ModelRangeVersion direction=return order=1 owner=ModelRangeControl_formVersion\noperation ModelRangeControl_resolveSlots resolveSlots order=1 owner=ModelRangeControl visibility=public\nparameter ModelRangeControl_resolveSlots_input data classifier=ModelRangeVersion direction=in order=0 owner=ModelRangeControl_resolveSlots\nparameter ModelRangeControl_resolveSlots_return \"\" classifier=CheckResult direction=return order=1 owner=ModelRangeControl_resolveSlots\noperation ModelRangeControl_replacePreview replacePreview order=2 owner=ModelRangeControl visibility=public\nparameter ModelRangeControl_replacePreview_input data classifier=JSON direction=in order=0 owner=ModelRangeControl_replacePreview\nparameter ModelRangeControl_replacePreview_return \"\" classifier=JSON direction=return order=1 owner=ModelRangeControl_replacePreview\nclass Compatibility \"Проверка совместимости\" role=control\nattribute Compatibility_a0 rules classifier=JSON order=0 owner=Compatibility visibility=private\noperation Compatibility_checkCompatibility checkCompatibility order=0 owner=Compatibility visibility=public\nparameter Compatibility_checkCompatibility_input data classifier=ModelRangeVersion direction=in order=0 owner=Compatibility_checkCompatibility\nparameter Compatibility_checkCompatibility_return \"\" classifier=CheckResult direction=return order=1 owner=Compatibility_checkCompatibility\nclass Calculation \"Расчёт показателей\" role=control\nattribute Calculation_a0 pricingPolicy classifier=JSON order=0 owner=Calculation visibility=private\noperation Calculation_calculate calculate order=0 owner=Calculation visibility=public\nparameter Calculation_calculate_input data classifier=ModelRangeVersion direction=in order=0 owner=Calculation_calculate\nparameter Calculation_calculate_return \"\" classifier=CalculationResult direction=return order=1 owner=Calculation_calculate\nclass Readiness \"Проверка готовности\" role=control\noperation Readiness_checkReadiness checkReadiness order=0 owner=Readiness visibility=public\nparameter Readiness_checkReadiness_input data classifier=CardRevision direction=in order=0 owner=Readiness_checkReadiness\nparameter Readiness_checkReadiness_return \"\" classifier=CheckResult direction=return order=1 owner=Readiness_checkReadiness\nclass PublicationControl \"Управление публикацией\" role=control\nattribute PublicationControl_a0 retryLimit classifier=Integer order=0 owner=PublicationControl visibility=private\noperation PublicationControl_requestPublication requestPublication order=0 owner=PublicationControl visibility=public\nparameter PublicationControl_requestPublication_input data classifier=CardRevision direction=in order=0 owner=PublicationControl_requestPublication\nparameter PublicationControl_requestPublication_return \"\" classifier=PublicationAttempt direction=return order=1 owner=PublicationControl_requestPublication\noperation PublicationControl_checkOutcome checkOutcome order=1 owner=PublicationControl visibility=public\nparameter PublicationControl_checkOutcome_input data classifier=PublicationAttempt direction=in order=0 owner=PublicationControl_checkOutcome\nparameter PublicationControl_checkOutcome_return \"\" classifier=ExternalResult direction=return order=1 owner=PublicationControl_checkOutcome\noperation PublicationControl_mayRetry mayRetry order=2 owner=PublicationControl visibility=public\nparameter PublicationControl_mayRetry_input data classifier=PublicationAttempt direction=in order=0 owner=PublicationControl_mayRetry\nparameter PublicationControl_mayRetry_return \"\" classifier=Boolean direction=return order=1 owner=PublicationControl_mayRetry\nassociation config_versions versions\nend config_versions_a \"\" classifier=Configuration lower=1 order=0 owner=config_versions upper=1\nend config_versions_b \"\" aggregation=composite classifier=ModelRangeVersion lower=0 order=1 owner=config_versions upper=\"*\"\nview v_analysis_model_range_config_versions \"\" diagram=analysis_model_range element=config_versions from=v_analysis_model_range_Configuration to=v_analysis_model_range_ModelRangeVersion\nassociation version_slots slots\nend version_slots_a \"\" classifier=ModelRangeVersion lower=1 order=0 owner=version_slots upper=1\nend version_slots_b \"\" aggregation=composite classifier=ModelRangeSlot lower=0 order=1 owner=version_slots upper=\"*\"\nview v_analysis_model_range_version_slots \"\" diagram=analysis_model_range element=version_slots from=v_analysis_model_range_ModelRangeVersion to=v_analysis_model_range_ModelRangeSlot\nassociation slot_group group\nend slot_group_a \"\" classifier=ModelRangeSlot lower=0 order=0 owner=slot_group upper=\"*\"\nend slot_group_b \"\" classifier=ComponentGroup lower=0 order=1 owner=slot_group upper=1\nview v_analysis_model_range_slot_group \"\" diagram=analysis_model_range element=slot_group from=v_analysis_model_range_ModelRangeSlot to=v_analysis_model_range_ComponentGroup\nassociation slot_component \"resolved component\"\nend slot_component_a \"\" classifier=ModelRangeSlot lower=0 order=0 owner=slot_component upper=\"*\"\nend slot_component_b \"\" classifier=Component lower=0 order=1 owner=slot_component upper=1\nview v_analysis_model_range_slot_component \"\" diagram=analysis_model_range element=slot_component from=v_analysis_model_range_ModelRangeSlot to=v_analysis_model_range_Component\nassociation component_offers offers\nend component_offers_a \"\" classifier=Component lower=1 order=0 owner=component_offers upper=1\nend component_offers_b \"\" classifier=Offer lower=0 order=1 owner=component_offers upper=\"*\"\nview v_analysis_model_range_component_offers \"\" diagram=analysis_model_range element=component_offers from=v_analysis_model_range_Component to=v_analysis_model_range_Offer\nassociation slot_offer \"selected offer\"\nend slot_offer_a \"\" classifier=ModelRangeSlot lower=0 order=0 owner=slot_offer upper=\"*\"\nend slot_offer_b \"\" classifier=Offer lower=0 order=1 owner=slot_offer upper=1\nview v_analysis_model_range_slot_offer \"\" diagram=analysis_model_range element=slot_offer from=v_analysis_model_range_ModelRangeSlot to=v_analysis_model_range_Offer\nassociation card_revisions revisions\nend card_revisions_a \"\" classifier=Card lower=1 order=0 owner=card_revisions upper=1\nend card_revisions_b \"\" aggregation=composite classifier=CardRevision lower=0 order=1 owner=card_revisions upper=\"*\"\nview v_analysis_card_card_revisions \"\" diagram=analysis_card element=card_revisions from=v_analysis_card_Card to=v_analysis_card_CardRevision\nassociation revision_model_range snapshot\nend revision_model_range_a \"\" classifier=ModelRangeVersion lower=1 order=0 owner=revision_model_range upper=1\nend revision_model_range_b \"\" classifier=CardRevision lower=0 order=1 owner=revision_model_range upper=\"*\"\nview v_analysis_card_revision_model_range \"\" diagram=analysis_card element=revision_model_range from=v_analysis_card_ModelRangeVersion to=v_analysis_card_CardRevision\nassociation revision_attempts attempts\nend revision_attempts_a \"\" classifier=CardRevision lower=1 order=0 owner=revision_attempts upper=1\nend revision_attempts_b \"\" aggregation=composite classifier=PublicationAttempt lower=0 order=1 owner=revision_attempts upper=\"*\"\nview v_analysis_card_revision_attempts \"\" diagram=analysis_card element=revision_attempts from=v_analysis_card_CardRevision to=v_analysis_card_PublicationAttempt\nassociation revision_images images\nend revision_images_a \"\" classifier=CardRevision lower=0 order=0 owner=revision_images upper=\"*\"\nend revision_images_b \"\" classifier=Image lower=0 order=1 owner=revision_images upper=\"*\"\nview v_analysis_card_revision_images \"\" diagram=analysis_card element=revision_images from=v_analysis_card_CardRevision to=v_analysis_card_Image\ndiagram analysis_model_range \"Классы проектирования: конфигурации, позиции и предложения\" type=class\nview v_analysis_model_range_Configuration \"\" diagram=analysis_model_range element=Configuration\nview v_analysis_model_range_ModelRangeVersion \"\" diagram=analysis_model_range element=ModelRangeVersion\nview v_analysis_model_range_ModelRangeSlot \"\" diagram=analysis_model_range element=ModelRangeSlot\nview v_analysis_model_range_ComponentGroup \"\" diagram=analysis_model_range element=ComponentGroup\nview v_analysis_model_range_Component \"\" diagram=analysis_model_range element=Component\nview v_analysis_model_range_Offer \"\" diagram=analysis_model_range element=Offer\ndiagram analysis_card \"Классы проектирования: неизменяемые ревизии и попытки публикации\" type=class\nview v_analysis_card_Card \"\" diagram=analysis_card element=Card\nview v_analysis_card_CardRevision \"\" diagram=analysis_card element=CardRevision\nview v_analysis_card_PublicationAttempt \"\" diagram=analysis_card element=PublicationAttempt\nview v_analysis_card_ModelRangeVersion \"\" diagram=analysis_card element=ModelRangeVersion\nview v_analysis_card_Image \"\" diagram=analysis_card element=Image\ndiagram services_model_range \"Управление подготовкой состава\" type=class\nview v_services_model_range_ModelRangeForm \"\" diagram=services_model_range element=ModelRangeForm\nview v_services_model_range_ModelRangeControl \"\" diagram=services_model_range element=ModelRangeControl\nview v_services_model_range_Compatibility \"\" diagram=services_model_range element=Compatibility\nview v_services_model_range_Calculation \"\" diagram=services_model_range element=Calculation\ndiagram services_publish \"Управление публикацией\" type=class\nview v_services_publish_CardForm \"\" diagram=services_publish element=CardForm\nview v_services_publish_PublicationControl \"\" diagram=services_publish element=PublicationControl\nview v_services_publish_Readiness \"\" diagram=services_publish element=Readiness\nview v_services_publish_MarketplaceGateway \"\" diagram=services_publish element=MarketplaceGateway\ndependency d1 \"\" from=ModelRangeForm to=ModelRangeControl\nview v_services_model_range_d1 \"\" diagram=services_model_range element=d1 from=v_services_model_range_ModelRangeForm to=v_services_model_range_ModelRangeControl\ndependency d2 \"\" from=ModelRangeControl to=Compatibility\nview v_services_model_range_d2 \"\" diagram=services_model_range element=d2 from=v_services_model_range_ModelRangeControl to=v_services_model_range_Compatibility\ndependency d3 \"\" from=ModelRangeControl to=Calculation\nview v_services_model_range_d3 \"\" diagram=services_model_range element=d3 from=v_services_model_range_ModelRangeControl to=v_services_model_range_Calculation\ndependency d4 \"\" from=CardForm to=PublicationControl\nview v_services_publish_d4 \"\" diagram=services_publish element=d4 from=v_services_publish_CardForm to=v_services_publish_PublicationControl\ndependency d5 \"\" from=PublicationControl to=Readiness\nview v_services_publish_d5 \"\" diagram=services_publish element=d5 from=v_services_publish_PublicationControl to=v_services_publish_Readiness\ndependency d6 \"\" from=PublicationControl to=MarketplaceGateway\nview v_services_publish_d6 \"\" diagram=services_publish element=d6 from=v_services_publish_PublicationControl to=v_services_publish_MarketplaceGateway\n",
+  "draft": "uml ppois_design \"Проектирование ИС подготовки карточек ООО «Юкомс»\"\ndatatype UUID UUID primitive=true\ndatatype String String primitive=true\ndatatype Integer Integer primitive=true\ndatatype Decimal Decimal primitive=true\ndatatype DateTime DateTime primitive=true\ndatatype Boolean Boolean primitive=true\ndatatype JSON JSON primitive=true\ndatatype Void Void primitive=true\ndatatype CheckResult CheckResult primitive=true\ndatatype CalculationResult CalculationResult primitive=true\ndatatype PreparedRequest PreparedRequest primitive=true\ndatatype ExternalResult ExternalResult primitive=true\nclass Configuration Конфигурация role=entity\nattribute Configuration_a0 \"id {PK}\" classifier=UUID order=0 owner=Configuration visibility=private\nattribute Configuration_a1 code classifier=String order=1 owner=Configuration visibility=private\noperation Configuration_findAffected findAffected order=0 owner=Configuration visibility=public\nparameter Configuration_findAffected_input data classifier=String direction=in order=0 owner=Configuration_findAffected\nparameter Configuration_findAffected_return \"\" classifier=JSON direction=return order=1 owner=Configuration_findAffected\nclass ModelRangeVersion \"Версия модельного ряда\" role=entity\nattribute ModelRangeVersion_a0 \"id {PK}\" classifier=UUID order=0 owner=ModelRangeVersion visibility=private\nattribute ModelRangeVersion_a1 number classifier=Integer order=1 owner=ModelRangeVersion visibility=private\nattribute ModelRangeVersion_a2 state classifier=String order=2 owner=ModelRangeVersion visibility=private\nattribute ModelRangeVersion_a3 createdAt classifier=DateTime order=3 owner=ModelRangeVersion visibility=private\noperation ModelRangeVersion_getSnapshot getSnapshot order=0 owner=ModelRangeVersion visibility=public\nparameter ModelRangeVersion_getSnapshot_return \"\" classifier=JSON direction=return order=1 owner=ModelRangeVersion_getSnapshot\noperation ModelRangeVersion_markChecked markChecked order=1 owner=ModelRangeVersion visibility=public\nparameter ModelRangeVersion_markChecked_input data classifier=CheckResult direction=in order=0 owner=ModelRangeVersion_markChecked\nparameter ModelRangeVersion_markChecked_return \"\" classifier=Void direction=return order=1 owner=ModelRangeVersion_markChecked\nclass ModelRangeSlot \"Позиция модельного ряда\" role=entity\nattribute ModelRangeSlot_a0 \"id {PK}\" classifier=UUID order=0 owner=ModelRangeSlot visibility=private\nattribute ModelRangeSlot_a1 roleCode classifier=String order=1 owner=ModelRangeSlot visibility=private\nattribute ModelRangeSlot_a2 selectionMode classifier=String order=2 owner=ModelRangeSlot visibility=private\nattribute ModelRangeSlot_a3 quantity classifier=Integer order=3 owner=ModelRangeSlot visibility=private\noperation ModelRangeSlot_selectOffer selectOffer order=0 owner=ModelRangeSlot visibility=public\nparameter ModelRangeSlot_selectOffer_input data classifier=Offer direction=in order=0 owner=ModelRangeSlot_selectOffer\nparameter ModelRangeSlot_selectOffer_return \"\" classifier=Void direction=return order=1 owner=ModelRangeSlot_selectOffer\nclass ComponentGroup \"Группа комплектующих\" role=entity\nattribute ComponentGroup_a0 \"id {PK}\" classifier=UUID order=0 owner=ComponentGroup visibility=private\nattribute ComponentGroup_a1 code classifier=String order=1 owner=ComponentGroup visibility=private\nattribute ComponentGroup_a2 constraints classifier=JSON order=2 owner=ComponentGroup visibility=private\noperation ComponentGroup_matches matches order=0 owner=ComponentGroup visibility=public\nparameter ComponentGroup_matches_input data classifier=Component direction=in order=0 owner=ComponentGroup_matches\nparameter ComponentGroup_matches_return \"\" classifier=Boolean direction=return order=1 owner=ComponentGroup_matches\nclass Component Комплектующая role=entity\nattribute Component_a0 \"id {PK}\" classifier=UUID order=0 owner=Component visibility=private\nattribute Component_a1 name classifier=String order=1 owner=Component visibility=private\nattribute Component_a2 attributes classifier=JSON order=2 owner=Component visibility=private\nattribute Component_a3 massKg classifier=Decimal order=3 owner=Component visibility=private\noperation Component_getAttributes getAttributes order=0 owner=Component visibility=public\nparameter Component_getAttributes_return \"\" classifier=JSON direction=return order=1 owner=Component_getAttributes\nclass Offer \"Предложение поставщика\" role=entity\nattribute Offer_a0 \"id {PK}\" classifier=UUID order=0 owner=Offer visibility=private\nattribute Offer_a1 supplierCode classifier=String order=1 owner=Offer visibility=private\nattribute Offer_a2 priceRub classifier=Decimal order=2 owner=Offer visibility=private\nattribute Offer_a3 stock classifier=Integer order=3 owner=Offer visibility=private\nattribute Offer_a4 observedAt classifier=DateTime order=4 owner=Offer visibility=private\noperation Offer_isFresh isFresh order=0 owner=Offer visibility=public\nparameter Offer_isFresh_input data classifier=DateTime direction=in order=0 owner=Offer_isFresh\nparameter Offer_isFresh_return \"\" classifier=Boolean direction=return order=1 owner=Offer_isFresh\nclass Card \"Карточка товара\" role=entity\nattribute Card_a0 \"id {PK}\" classifier=UUID order=0 owner=Card visibility=private\nattribute Card_a1 sellerCode classifier=String order=1 owner=Card visibility=private\noperation Card_newRevision newRevision order=0 owner=Card visibility=public\nparameter Card_newRevision_input data classifier=ModelRangeVersion direction=in order=0 owner=Card_newRevision\nparameter Card_newRevision_return \"\" classifier=CardRevision direction=return order=1 owner=Card_newRevision\nclass CardRevision \"Ревизия карточки\" role=entity\nattribute CardRevision_a0 \"id {PK}\" classifier=UUID order=0 owner=CardRevision visibility=private\nattribute CardRevision_a1 state classifier=String order=1 owner=CardRevision visibility=private\nattribute CardRevision_a2 priceRub classifier=Decimal order=2 owner=CardRevision visibility=private\nattribute CardRevision_a3 massKg classifier=Decimal order=3 owner=CardRevision visibility=private\nattribute CardRevision_a4 attributes classifier=JSON order=4 owner=CardRevision visibility=private\noperation CardRevision_getSnapshot getSnapshot order=0 owner=CardRevision visibility=public\nparameter CardRevision_getSnapshot_return \"\" classifier=JSON direction=return order=1 owner=CardRevision_getSnapshot\noperation CardRevision_markStale markStale order=1 owner=CardRevision visibility=public\nparameter CardRevision_markStale_return \"\" classifier=Void direction=return order=1 owner=CardRevision_markStale\nclass Image Изображение role=entity\nattribute Image_a0 \"id {PK}\" classifier=UUID order=0 owner=Image visibility=private\nattribute Image_a1 uri classifier=String order=1 owner=Image visibility=private\nattribute Image_a2 checksum classifier=String order=2 owner=Image visibility=private\noperation Image_validate validate order=0 owner=Image visibility=public\nparameter Image_validate_return \"\" classifier=CheckResult direction=return order=1 owner=Image_validate\nclass PublicationAttempt \"Попытка публикации\" role=entity\nattribute PublicationAttempt_a0 \"id {PK}\" classifier=UUID order=0 owner=PublicationAttempt visibility=private\nattribute PublicationAttempt_a1 externalTaskId classifier=String order=1 owner=PublicationAttempt visibility=private\nattribute PublicationAttempt_a2 state classifier=String order=2 owner=PublicationAttempt visibility=private\nattribute PublicationAttempt_a3 errorCode classifier=String order=3 owner=PublicationAttempt visibility=private\nattribute PublicationAttempt_a4 nextCheckAt classifier=DateTime order=4 owner=PublicationAttempt visibility=private\noperation PublicationAttempt_recordResult recordResult order=0 owner=PublicationAttempt visibility=public\nparameter PublicationAttempt_recordResult_input data classifier=ExternalResult direction=in order=0 owner=PublicationAttempt_recordResult\nparameter PublicationAttempt_recordResult_return \"\" classifier=Void direction=return order=1 owner=PublicationAttempt_recordResult\nclass ModelRangeForm \"Форма модельного ряда\" role=boundary\nattribute ModelRangeForm_a0 draftData classifier=JSON order=0 owner=ModelRangeForm visibility=private\noperation ModelRangeForm_submit submit order=0 owner=ModelRangeForm visibility=public\nparameter ModelRangeForm_submit_input data classifier=JSON direction=in order=0 owner=ModelRangeForm_submit\nparameter ModelRangeForm_submit_return \"\" classifier=CheckResult direction=return order=1 owner=ModelRangeForm_submit\noperation ModelRangeForm_showErrors showErrors order=1 owner=ModelRangeForm visibility=public\nparameter ModelRangeForm_showErrors_input data classifier=CheckResult direction=in order=0 owner=ModelRangeForm_showErrors\nparameter ModelRangeForm_showErrors_return \"\" classifier=Void direction=return order=1 owner=ModelRangeForm_showErrors\nclass CardForm \"Форма карточки\" role=boundary\nattribute CardForm_a0 revisionId classifier=UUID order=0 owner=CardForm visibility=private\noperation CardForm_publish publish order=0 owner=CardForm visibility=public\nparameter CardForm_publish_input data classifier=UUID direction=in order=0 owner=CardForm_publish\nparameter CardForm_publish_return \"\" classifier=PublicationAttempt direction=return order=1 owner=CardForm_publish\noperation CardForm_showStatus showStatus order=1 owner=CardForm visibility=public\nparameter CardForm_showStatus_input data classifier=PublicationAttempt direction=in order=0 owner=CardForm_showStatus\nparameter CardForm_showStatus_return \"\" classifier=Void direction=return order=1 owner=CardForm_showStatus\nclass MarketplaceGateway \"Шлюз маркетплейса\" role=boundary\nattribute MarketplaceGateway_a0 baseUrl classifier=String order=0 owner=MarketplaceGateway visibility=private\nattribute MarketplaceGateway_a1 credentialRef classifier=String order=1 owner=MarketplaceGateway visibility=private\noperation MarketplaceGateway_prepareRequest prepareRequest order=0 owner=MarketplaceGateway visibility=public\nparameter MarketplaceGateway_prepareRequest_input data classifier=CardRevision direction=in order=0 owner=MarketplaceGateway_prepareRequest\nparameter MarketplaceGateway_prepareRequest_return \"\" classifier=PreparedRequest direction=return order=1 owner=MarketplaceGateway_prepareRequest\noperation MarketplaceGateway_send send order=1 owner=MarketplaceGateway visibility=public\nparameter MarketplaceGateway_send_input data classifier=PreparedRequest direction=in order=0 owner=MarketplaceGateway_send\nparameter MarketplaceGateway_send_return \"\" classifier=ExternalResult direction=return order=1 owner=MarketplaceGateway_send\noperation MarketplaceGateway_getResult getResult order=2 owner=MarketplaceGateway visibility=public\nparameter MarketplaceGateway_getResult_input data classifier=String direction=in order=0 owner=MarketplaceGateway_getResult\nparameter MarketplaceGateway_getResult_return \"\" classifier=ExternalResult direction=return order=1 owner=MarketplaceGateway_getResult\nclass ModelRangeControl \"Управление модельным рядом\" role=control\noperation ModelRangeControl_formVersion formVersion order=0 owner=ModelRangeControl visibility=public\nparameter ModelRangeControl_formVersion_input data classifier=JSON direction=in order=0 owner=ModelRangeControl_formVersion\nparameter ModelRangeControl_formVersion_return \"\" classifier=ModelRangeVersion direction=return order=1 owner=ModelRangeControl_formVersion\noperation ModelRangeControl_resolveSlots resolveSlots order=1 owner=ModelRangeControl visibility=public\nparameter ModelRangeControl_resolveSlots_input data classifier=ModelRangeVersion direction=in order=0 owner=ModelRangeControl_resolveSlots\nparameter ModelRangeControl_resolveSlots_return \"\" classifier=CheckResult direction=return order=1 owner=ModelRangeControl_resolveSlots\noperation ModelRangeControl_replacePreview replacePreview order=2 owner=ModelRangeControl visibility=public\nparameter ModelRangeControl_replacePreview_input data classifier=JSON direction=in order=0 owner=ModelRangeControl_replacePreview\nparameter ModelRangeControl_replacePreview_return \"\" classifier=JSON direction=return order=1 owner=ModelRangeControl_replacePreview\nclass Compatibility \"Проверка совместимости\" role=control\nattribute Compatibility_a0 rules classifier=JSON order=0 owner=Compatibility visibility=private\noperation Compatibility_checkCompatibility checkCompatibility order=0 owner=Compatibility visibility=public\nparameter Compatibility_checkCompatibility_input data classifier=ModelRangeVersion direction=in order=0 owner=Compatibility_checkCompatibility\nparameter Compatibility_checkCompatibility_return \"\" classifier=CheckResult direction=return order=1 owner=Compatibility_checkCompatibility\nclass Calculation \"Расчёт показателей\" role=control\nattribute Calculation_a0 pricingPolicy classifier=JSON order=0 owner=Calculation visibility=private\noperation Calculation_calculate calculate order=0 owner=Calculation visibility=public\nparameter Calculation_calculate_input data classifier=ModelRangeVersion direction=in order=0 owner=Calculation_calculate\nparameter Calculation_calculate_return \"\" classifier=CalculationResult direction=return order=1 owner=Calculation_calculate\nclass Readiness \"Проверка готовности\" role=control\noperation Readiness_checkReadiness checkReadiness order=0 owner=Readiness visibility=public\nparameter Readiness_checkReadiness_input data classifier=CardRevision direction=in order=0 owner=Readiness_checkReadiness\nparameter Readiness_checkReadiness_return \"\" classifier=CheckResult direction=return order=1 owner=Readiness_checkReadiness\nclass PublicationControl \"Управление публикацией\" role=control\nattribute PublicationControl_a0 retryLimit classifier=Integer order=0 owner=PublicationControl visibility=private\noperation PublicationControl_requestPublication requestPublication order=0 owner=PublicationControl visibility=public\nparameter PublicationControl_requestPublication_input data classifier=CardRevision direction=in order=0 owner=PublicationControl_requestPublication\nparameter PublicationControl_requestPublication_return \"\" classifier=PublicationAttempt direction=return order=1 owner=PublicationControl_requestPublication\noperation PublicationControl_checkOutcome checkOutcome order=1 owner=PublicationControl visibility=public\nparameter PublicationControl_checkOutcome_input data classifier=PublicationAttempt direction=in order=0 owner=PublicationControl_checkOutcome\nparameter PublicationControl_checkOutcome_return \"\" classifier=ExternalResult direction=return order=1 owner=PublicationControl_checkOutcome\noperation PublicationControl_mayRetry mayRetry order=2 owner=PublicationControl visibility=public\nparameter PublicationControl_mayRetry_input data classifier=PublicationAttempt direction=in order=0 owner=PublicationControl_mayRetry\nparameter PublicationControl_mayRetry_return \"\" classifier=Boolean direction=return order=1 owner=PublicationControl_mayRetry\nassociation config_versions versions\nend config_versions_a \"\" classifier=Configuration lower=1 order=0 owner=config_versions upper=1\nend config_versions_b \"\" aggregation=composite classifier=ModelRangeVersion lower=0 order=1 owner=config_versions upper=\"*\"\nview v_analysis_model_range_config_versions \"\" diagram=analysis_model_range element=config_versions from=v_analysis_model_range_Configuration to=v_analysis_model_range_ModelRangeVersion\nassociation version_slots slots\nend version_slots_a \"\" classifier=ModelRangeVersion lower=1 order=0 owner=version_slots upper=1\nend version_slots_b \"\" aggregation=composite classifier=ModelRangeSlot lower=0 order=1 owner=version_slots upper=\"*\"\nview v_analysis_model_range_version_slots \"\" diagram=analysis_model_range element=version_slots from=v_analysis_model_range_ModelRangeVersion to=v_analysis_model_range_ModelRangeSlot\nassociation slot_group group\nend slot_group_a \"\" classifier=ModelRangeSlot lower=0 order=0 owner=slot_group upper=\"*\"\nend slot_group_b \"\" classifier=ComponentGroup lower=0 order=1 owner=slot_group upper=1\nview v_analysis_model_range_slot_group \"\" diagram=analysis_model_range element=slot_group from=v_analysis_model_range_ModelRangeSlot to=v_analysis_model_range_ComponentGroup\nassociation slot_component \"resolved component\"\nend slot_component_a \"\" classifier=ModelRangeSlot lower=0 order=0 owner=slot_component upper=\"*\"\nend slot_component_b \"\" classifier=Component lower=0 order=1 owner=slot_component upper=1\nview v_analysis_model_range_slot_component \"\" diagram=analysis_model_range element=slot_component from=v_analysis_model_range_ModelRangeSlot to=v_analysis_model_range_Component\nassociation component_offers offers\nend component_offers_a \"\" classifier=Component lower=1 order=0 owner=component_offers upper=1\nend component_offers_b \"\" classifier=Offer lower=0 order=1 owner=component_offers upper=\"*\"\nview v_analysis_model_range_component_offers \"\" diagram=analysis_model_range element=component_offers from=v_analysis_model_range_Component to=v_analysis_model_range_Offer\nassociation slot_offer \"selected offer\"\nend slot_offer_a \"\" classifier=ModelRangeSlot lower=0 order=0 owner=slot_offer upper=\"*\"\nend slot_offer_b \"\" classifier=Offer lower=0 order=1 owner=slot_offer upper=1\nview v_analysis_model_range_slot_offer \"\" diagram=analysis_model_range element=slot_offer from=v_analysis_model_range_ModelRangeSlot to=v_analysis_model_range_Offer\nassociation card_revisions revisions\nend card_revisions_a \"\" classifier=Card lower=1 order=0 owner=card_revisions upper=1\nend card_revisions_b \"\" aggregation=composite classifier=CardRevision lower=0 order=1 owner=card_revisions upper=\"*\"\nview v_analysis_card_card_revisions \"\" diagram=analysis_card element=card_revisions from=v_analysis_card_Card to=v_analysis_card_CardRevision\nassociation revision_model_range snapshot\nend revision_model_range_a \"\" classifier=ModelRangeVersion lower=1 order=0 owner=revision_model_range upper=1\nend revision_model_range_b \"\" classifier=CardRevision lower=0 order=1 owner=revision_model_range upper=\"*\"\nview v_analysis_card_revision_model_range \"\" diagram=analysis_card element=revision_model_range from=v_analysis_card_ModelRangeVersion to=v_analysis_card_CardRevision\nassociation revision_attempts attempts\nend revision_attempts_a \"\" classifier=CardRevision lower=1 order=0 owner=revision_attempts upper=1\nend revision_attempts_b \"\" aggregation=composite classifier=PublicationAttempt lower=0 order=1 owner=revision_attempts upper=\"*\"\nview v_analysis_card_revision_attempts \"\" diagram=analysis_card element=revision_attempts from=v_analysis_card_CardRevision to=v_analysis_card_PublicationAttempt\nassociation revision_images images\nend revision_images_a \"\" classifier=CardRevision lower=0 order=0 owner=revision_images upper=\"*\"\nend revision_images_b \"\" classifier=Image lower=0 order=1 owner=revision_images upper=\"*\"\nview v_analysis_card_revision_images \"\" diagram=analysis_card element=revision_images from=v_analysis_card_CardRevision to=v_analysis_card_Image\ndiagram analysis_model_range \"Классы проектирования: конфигурации, позиции и предложения\" type=class\nview v_analysis_model_range_Configuration \"\" diagram=analysis_model_range element=Configuration\nview v_analysis_model_range_ModelRangeVersion \"\" diagram=analysis_model_range element=ModelRangeVersion\nview v_analysis_model_range_ModelRangeSlot \"\" diagram=analysis_model_range element=ModelRangeSlot\nview v_analysis_model_range_ComponentGroup \"\" diagram=analysis_model_range element=ComponentGroup\nview v_analysis_model_range_Component \"\" diagram=analysis_model_range element=Component\nview v_analysis_model_range_Offer \"\" diagram=analysis_model_range element=Offer\ndiagram analysis_card \"Классы проектирования: неизменяемые ревизии и попытки публикации\" type=class\nview v_analysis_card_Card \"\" diagram=analysis_card element=Card\nview v_analysis_card_CardRevision \"\" diagram=analysis_card element=CardRevision\nview v_analysis_card_PublicationAttempt \"\" diagram=analysis_card element=PublicationAttempt\nview v_analysis_card_ModelRangeVersion \"\" diagram=analysis_card element=ModelRangeVersion\nview v_analysis_card_Image \"\" diagram=analysis_card element=Image\ndiagram services_model_range \"Управление подготовкой состава\" type=class\nview v_services_model_range_ModelRangeForm \"\" diagram=services_model_range element=ModelRangeForm\nview v_services_model_range_ModelRangeControl \"\" diagram=services_model_range element=ModelRangeControl\nview v_services_model_range_Compatibility \"\" diagram=services_model_range element=Compatibility\nview v_services_model_range_Calculation \"\" diagram=services_model_range element=Calculation\ndiagram services_publish \"Управление публикацией\" type=class\nview v_services_publish_CardForm \"\" diagram=services_publish element=CardForm\nview v_services_publish_PublicationControl \"\" diagram=services_publish element=PublicationControl\nview v_services_publish_Readiness \"\" diagram=services_publish element=Readiness\nview v_services_publish_MarketplaceGateway \"\" diagram=services_publish element=MarketplaceGateway\ndependency d1 \"\" from=ModelRangeForm to=ModelRangeControl\nview v_services_model_range_d1 \"\" diagram=services_model_range element=d1 from=v_services_model_range_ModelRangeForm to=v_services_model_range_ModelRangeControl\ndependency d2 \"\" from=ModelRangeControl to=Compatibility\nview v_services_model_range_d2 \"\" diagram=services_model_range element=d2 from=v_services_model_range_ModelRangeControl to=v_services_model_range_Compatibility\ndependency d3 \"\" from=ModelRangeControl to=Calculation\nview v_services_model_range_d3 \"\" diagram=services_model_range element=d3 from=v_services_model_range_ModelRangeControl to=v_services_model_range_Calculation\ndependency d4 \"\" from=CardForm to=PublicationControl\nview v_services_publish_d4 \"\" diagram=services_publish element=d4 from=v_services_publish_CardForm to=v_services_publish_PublicationControl\ndependency d5 \"\" from=PublicationControl to=Readiness\nview v_services_publish_d5 \"\" diagram=services_publish element=d5 from=v_services_publish_PublicationControl to=v_services_publish_Readiness\ndependency d6 \"\" from=PublicationControl to=MarketplaceGateway\nview v_services_publish_d6 \"\" diagram=services_publish element=d6 from=v_services_publish_PublicationControl to=v_services_publish_MarketplaceGateway\n",
   "layout": {
     "nodes": {
-      "v_analysis_bom_config_versions": {
+      "v_analysis_model_range_config_versions": {
         "x": 80,
         "y": 80,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
-      "v_analysis_bom_version_slots": {
+      "v_analysis_model_range_version_slots": {
         "x": 330,
         "y": 80,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
-      "v_analysis_bom_slot_group": {
+      "v_analysis_model_range_slot_group": {
         "x": 580,
         "y": 80,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
-      "v_analysis_bom_slot_component": {
+      "v_analysis_model_range_slot_component": {
         "x": 830,
         "y": 80,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
-      "v_analysis_bom_component_offers": {
+      "v_analysis_model_range_component_offers": {
         "x": 80,
         "y": 260,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
-      "v_analysis_bom_slot_offer": {
+      "v_analysis_model_range_slot_offer": {
         "x": 330,
         "y": 260,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
-      "v_analysis_bom_Configuration": {
+      "v_analysis_model_range_Configuration": {
         "x": 40,
         "y": 40,
         "width": 350,
         "height": 220
       },
-      "v_analysis_bom_BomVersion": {
+      "v_analysis_model_range_ModelRangeVersion": {
         "x": 520,
         "y": 40,
         "width": 380,
         "height": 250
       },
-      "v_analysis_bom_BomSlot": {
+      "v_analysis_model_range_ModelRangeSlot": {
         "x": 1050,
         "y": 40,
         "width": 420,
         "height": 280
       },
-      "v_analysis_bom_ComponentGroup": {
+      "v_analysis_model_range_ComponentGroup": {
         "x": 1050,
         "y": 430,
         "width": 420,
         "height": 220
       },
-      "v_analysis_bom_Component": {
+      "v_analysis_model_range_Component": {
         "x": 520,
         "y": 430,
         "width": 380,
         "height": 250
       },
-      "v_analysis_bom_Offer": {
+      "v_analysis_model_range_Offer": {
         "x": 40,
         "y": 430,
         "width": 350,
@@ -2389,25 +2389,25 @@
       "v_analysis_card_card_revisions": {
         "x": 80,
         "y": 80,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
-      "v_analysis_card_revision_bom": {
+      "v_analysis_card_revision_model_range": {
         "x": 330,
         "y": 80,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_analysis_card_revision_attempts": {
         "x": 580,
         "y": 80,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_analysis_card_revision_images": {
         "x": 830,
         "y": 80,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_analysis_card_Card": {
@@ -2428,7 +2428,7 @@
         "width": 480,
         "height": 310
       },
-      "v_analysis_card_BomVersion": {
+      "v_analysis_card_ModelRangeVersion": {
         "x": 40,
         "y": 470,
         "width": 360,
@@ -2440,46 +2440,46 @@
         "width": 440,
         "height": 220
       },
-      "v_services_bom_BomForm": {
+      "v_services_model_range_ModelRangeForm": {
         "x": 40,
         "y": 40,
         "width": 510,
         "height": 190
       },
-      "v_services_bom_BomControl": {
+      "v_services_model_range_ModelRangeControl": {
         "x": 730,
         "y": 40,
         "width": 510,
         "height": 260
       },
-      "v_services_bom_Compatibility": {
+      "v_services_model_range_Compatibility": {
         "x": 40,
         "y": 470,
         "width": 510,
         "height": 190
       },
-      "v_services_bom_Calculation": {
+      "v_services_model_range_Calculation": {
         "x": 730,
         "y": 470,
         "width": 510,
         "height": 190
       },
-      "v_services_bom_d1": {
+      "v_services_model_range_d1": {
         "x": 80,
         "y": 260,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
-      "v_services_bom_d2": {
+      "v_services_model_range_d2": {
         "x": 330,
         "y": 260,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
-      "v_services_bom_d3": {
+      "v_services_model_range_d3": {
         "x": 580,
         "y": 260,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_services_publish_CardForm": {
@@ -2509,24 +2509,24 @@
       "v_services_publish_d4": {
         "x": 80,
         "y": 260,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_services_publish_d5": {
         "x": 330,
         "y": 260,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_services_publish_d6": {
         "x": 580,
         "y": 260,
-        "width": 210,
+        "width": 220,
         "height": 140
       }
     },
     "edges": {
-      "v_analysis_bom_slot_group": {
+      "v_analysis_model_range_slot_group": {
         "label": {
           "x": 1420,
           "y": 385
@@ -2538,7 +2538,7 @@
           }
         ]
       },
-      "v_analysis_bom_slot_component": {
+      "v_analysis_model_range_slot_component": {
         "label": {
           "x": 970,
           "y": 415
@@ -2558,7 +2558,7 @@
           }
         ]
       },
-      "v_analysis_bom_slot_offer": {
+      "v_analysis_model_range_slot_offer": {
         "label": {
           "x": 730,
           "y": 345
@@ -2578,7 +2578,7 @@
           }
         ]
       },
-      "v_analysis_card_revision_bom": {
+      "v_analysis_card_revision_model_range": {
         "label": {
           "x": 340,
           "y": 380

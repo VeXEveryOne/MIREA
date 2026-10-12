@@ -1,0 +1,282 @@
+{
+  "formatVersion": 3,
+  "notation": "BPMN",
+  "model": {
+    "root": "id:Definitions_1",
+    "objects": {
+      "id:Definitions_1": {
+        "type": "bpmn:Definitions",
+        "properties": {
+          "id": "Definitions_1",
+          "targetNamespace": "urn:omninotation:bpmn",
+          "rootElements": [
+            {
+              "ref": "id:Process_1"
+            }
+          ],
+          "diagrams": [
+            {
+              "ref": "id:Diagram_1"
+            }
+          ]
+        }
+      },
+      "id:Process_1": {
+        "type": "bpmn:Process",
+        "properties": {
+          "id": "Process_1",
+          "name": "Новый процесс",
+          "flowElements": [
+            {
+              "ref": "id:Start_1"
+            },
+            {
+              "ref": "id:Task_1"
+            },
+            {
+              "ref": "id:End_1"
+            },
+            {
+              "ref": "id:Flow_1"
+            },
+            {
+              "ref": "id:Flow_2"
+            }
+          ],
+          "isExecutable": false
+        }
+      },
+      "id:Start_1": {
+        "type": "bpmn:StartEvent",
+        "properties": {
+          "id": "Start_1",
+          "name": "Начало",
+          "outgoing": [
+            {
+              "ref": "id:Flow_1"
+            }
+          ]
+        }
+      },
+      "id:Task_1": {
+        "type": "bpmn:Task",
+        "properties": {
+          "id": "Task_1",
+          "name": "Обработать заявку",
+          "incoming": [
+            {
+              "ref": "id:Flow_1"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:Flow_2"
+            }
+          ]
+        }
+      },
+      "id:End_1": {
+        "type": "bpmn:EndEvent",
+        "properties": {
+          "id": "End_1",
+          "name": "Завершено",
+          "incoming": [
+            {
+              "ref": "id:Flow_2"
+            }
+          ]
+        }
+      },
+      "id:Flow_1": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Flow_1",
+          "sourceRef": {
+            "ref": "id:Start_1"
+          },
+          "targetRef": {
+            "ref": "id:Task_1"
+          }
+        }
+      },
+      "id:Flow_2": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Flow_2",
+          "sourceRef": {
+            "ref": "id:Task_1"
+          },
+          "targetRef": {
+            "ref": "id:End_1"
+          }
+        }
+      }
+    }
+  },
+  "layout": {
+    "objects": {
+      "id:Diagram_1": {
+        "type": "bpmndi:BPMNDiagram",
+        "properties": {
+          "id": "Diagram_1",
+          "plane": {
+            "ref": "id:Plane_1"
+          }
+        }
+      },
+      "id:Plane_1": {
+        "type": "bpmndi:BPMNPlane",
+        "properties": {
+          "id": "Plane_1",
+          "bpmnElement": {
+            "ref": "id:Process_1"
+          },
+          "planeElement": [
+            {
+              "ref": "id:Start_1_di"
+            },
+            {
+              "ref": "id:Task_1_di"
+            },
+            {
+              "ref": "id:End_1_di"
+            },
+            {
+              "ref": "id:Flow_1_di"
+            },
+            {
+              "ref": "id:Flow_2_di"
+            }
+          ]
+        }
+      },
+      "id:Start_1_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Start_1_di",
+          "bpmnElement": {
+            "ref": "id:Start_1"
+          },
+          "bounds": {
+            "ref": "object:1"
+          }
+        }
+      },
+      "id:Task_1_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Task_1_di",
+          "bpmnElement": {
+            "ref": "id:Task_1"
+          },
+          "bounds": {
+            "ref": "object:2"
+          }
+        }
+      },
+      "id:End_1_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "End_1_di",
+          "bpmnElement": {
+            "ref": "id:End_1"
+          },
+          "bounds": {
+            "ref": "object:3"
+          }
+        }
+      },
+      "id:Flow_1_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Flow_1_di",
+          "bpmnElement": {
+            "ref": "id:Flow_1"
+          },
+          "waypoint": [
+            {
+              "ref": "object:4"
+            },
+            {
+              "ref": "object:5"
+            }
+          ]
+        }
+      },
+      "id:Flow_2_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Flow_2_di",
+          "bpmnElement": {
+            "ref": "id:Flow_2"
+          },
+          "waypoint": [
+            {
+              "ref": "object:6"
+            },
+            {
+              "ref": "object:7"
+            }
+          ]
+        }
+      },
+      "object:1": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 180,
+          "y": 160,
+          "width": 36,
+          "height": 36
+        }
+      },
+      "object:2": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 280,
+          "y": 138,
+          "width": 120,
+          "height": 80
+        }
+      },
+      "object:3": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 470,
+          "y": 160,
+          "width": 36,
+          "height": 36
+        }
+      },
+      "object:4": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 216,
+          "y": 178
+        }
+      },
+      "object:5": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 280,
+          "y": 178
+        }
+      },
+      "object:6": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 400,
+          "y": 178
+        }
+      },
+      "object:7": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 470,
+          "y": 178
+        }
+      }
+    }
+  },
+  "source": "bpmn Process_1 \"Новый процесс\"\nevent Start_1 Начало position=start\nprocess Task_1 \"Обработать заявку\"\nevent End_1 Завершено position=end\nflow Flow_1 \"\" from=Start_1 to=Task_1\nflow Flow_2 \"\" from=Task_1 to=End_1\n",
+  "draft": "bpmn Process_1 \"Новый процесс\"\nevent Start_1 Начало position=start\nprocess Task_1 \"Обработать заявку\"\nevent End_1 Завершено position=end\nflow Flow_1 \"\" from=Start_1 to=Task_1\nflow Flow_2 \"\" from=Task_1 to=End_1\n"
+}

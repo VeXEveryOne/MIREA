@@ -55,6 +55,105 @@ function endpoint(message:any, side:'send'|'receive') {
   return occurrence.properties.lifeline;
 }
 const emitted:any[]=[];
+// Small, explicit use-case and analysis-class routes are shared with the
+// editable sheets; they are printed without an auto-router's joined-looking
+// actor trunk lines.
+function line(route:string,arrow=false,dashed=false) {
+  return `<path d="${route}" fill="none" stroke="white" stroke-width="8"/><path d="${route}" fill="none" stroke="#111" stroke-width="2.2" ${dashed?'stroke-dasharray="10 6"':''} ${arrow?'marker-end="url(#reply)"':''}/>`;
+}
+async function useCases() {
+  let body=`<rect x="320" y="10" width="1150" height="1450" fill="white" stroke="#111" stroke-width="2"/>`;
+  body+=text(895,52,['ИС формирования и актуализации карточек ООО «Юкомс»'],29);
+  const routeSpecs:any[]=[
+    ['manager_UC01','M170 140 H275 V165 H420'],['manager_UC05','M170 1170 H275 V1165 H420'],
+    ['manager_UC06','M1630 345 H1490 V200 H1360'],
+    ['specialist_UC02','M170 600 H290 V415 H420'],
+    ['specialist_UC03','M135 620 H250 V665 H420'],['specialist_UC04','M135 635 H270 V915 H420'],
+    ['suppliers_UC06','M1630 140 H1510 V165 H1380'],
+    ['designer_UC07','M1630 590 H1510 V415 H1380'],
+    ['designer_UC09','M1665 615 H1535 V915 H1380'],
+    ['admin_UC10','M1630 1180 H1510 V1165 H1380'],
+    ['ozon_UC05','M170 1370 H280 V1200 H441'],
+    ['UC02_UC03','M610 490 V590',true,725,555],
+    ['UC04_UC03','M610 840 V740',true,725,805],
+    ['UC05_UC08','M800 1165 H900 V665 H1000',true,940,1000],
+  ];
+  for(const [id,route,included,lx,ly] of routeSpecs) {
+    if(!index.has(id)) throw Error('Missing use-case link '+id);
+    body+=line(route,Boolean(included),Boolean(included));
+    if(included) body+=text(lx,ly,['«include»'],27);
+  }
+  for(let i=1;i<=10;i++) {
+    const id='UC'+String(i).padStart(2,'0'), e:any=index.get(id);
+    const x=i<=5?420:1000,y=90+((i-1)%5)*250;
+    const lines=await wrap(e.label,310,28);
+    body+=`<ellipse cx="${x+190}" cy="${y+75}" rx="190" ry="75" fill="white" stroke="#111" stroke-width="2"/>`;
+    body+=text(x+190,y+75-(lines.length-1)*16+9,lines,28);
+  }
+  for(const [id,x,y] of [['manager',135,90],['manager',135,1120],['manager',1665,295],
+    ['specialist',135,550],['suppliers',1665,90],['designer',1665,540],
+    ['admin',1665,1130],['ozon',135,1320]] as any[]) {
+    body+=`<circle cx="${x}" cy="${y+10}" r="14" fill="white" stroke="#111" stroke-width="2"/><path d="M${x} ${y+24} V${y+90} M${x-35} ${y+50} H${x+35} M${x} ${y+90} L${x-32} ${y+124} M${x} ${y+90} L${x+32} ${y+124}" stroke="#111" stroke-width="2" fill="none"/>`;
+    body+=text(x,y+163,await wrap(index.get(id).label,260,29),29);
+  }
+  body+=text(895,1538,['Сплошная линия — участие актора; пунктирная стрелка — включаемый вариант.'],26);
+  await save('ПР3_01_Варианты_использования',1800,1580,body);
+}
+async function analysisClasses() {
+  const sheets=[['classes_range','ПР3_02_Классы_анализа_1'],['classes_publish','ПР3_02_Классы_анализа_2']];
+  for(const [sheet,name] of sheets) {
+    const views:any[]=elements.filter((e:any)=>e.kind==='view'&&e.properties.diagram===sheet);
+    const classes=views.map(v=>index.get(v.properties.element)).filter(e=>e?.kind==='class');
+    const rects=new Map(classes.map(e=>[e.id,document.layout.nodes[`v_${sheet}_${e.id}`]]));
+    let body='';
+    for(const v of views) {
+      const e:any=index.get(v.properties.element);if(e?.kind!=='association') continue;
+      const ends:any[]=elements.filter((q:any)=>q.kind==='end'&&q.properties.owner===e.id)
+        .sort((a:any,b:any)=>Number(a.properties.order)-Number(b.properties.order));
+      const a:any=rects.get(ends[0].properties.classifier),b:any=rects.get(ends[1].properties.classifier);
+      let route:string;
+      if(e.id==='slot_offer') route='M260 1180 V1240 H1340 V1180';
+      else if(e.id==='dep_ModelRangeController_Offer'||e.id==='dep_PubController_Publication')
+        route='M1000 270 H1050 V605 H1340 V760';
+      else if(a.y===b.y) route=a.x<b.x?`M${a.x+a.width} ${a.y+210} H${b.x}`:`M${a.x} ${a.y+210} H${b.x+b.width}`;
+      else route=`M${a.x+200} ${a.y+a.height} V${b.y}`;
+      body+=line(route,ends[1].properties.navigation==='navigable');
+      // The four entity links show the multiplicities that were already
+      // specified in the semantic model; control links indicate navigation.
+      if(!e.id.startsWith('dep_')) {
+        const format=(end:any)=>end.properties.lower===end.properties.upper?end.properties.lower:end.properties.lower+'..'+end.properties.upper;
+        if(e.id==='slot_offer') body+=text(300,1223,[format(ends[0])],27)+text(1300,1223,[format(ends[1])],27);
+        else body+=text(a.x<b.x?a.x+a.width+40:a.x-45,a.y+190,[format(ends[0])],27)+
+          text(a.x<b.x?b.x-45:b.x+b.width+40,b.y+190,[format(ends[1])],27);
+      }
+    }
+    for(const e of classes) {
+      const r:any=rects.get(e.id),size=29;
+      const labels=await wrap(e.label,r.width-32,size);
+      body+=`<rect x="${r.x}" y="${r.y}" width="${r.width}" height="${r.height}" fill="white" stroke="#111" stroke-width="2"/>`;
+      body+=text(r.x+r.width/2,r.y+35,[`«${e.properties.role}»`],27);
+      body+=text(r.x+r.width/2,r.y+76,labels,size);
+      const divider=r.y+76+labels.length*33;
+      body+=`<path d="M${r.x} ${divider} h${r.width}" stroke="#111"/>`;
+      let y=divider+37;
+      for(const attribute of elements.filter((q:any)=>q.kind==='attribute'&&q.properties.owner===e.id)) {
+        const lines=await wrap('- '+attribute.label,r.width-28,27);
+        body+=text(r.x+14,y,lines,27,'start');y+=lines.length*31+5;
+      }
+      body+=`<path d="M${r.x} ${y-14} h${r.width}" stroke="#111"/>`;
+      y+=19;
+      for(const operation of elements.filter((q:any)=>q.kind==='operation'&&q.properties.owner===e.id)) {
+        const lines=await wrap('+ '+operation.label+'()',r.width-28,27);
+        body+=text(r.x+14,y,lines,27,'start');y+=lines.length*31+9;
+      }
+      if(y>r.y+r.height+8) throw Error('Class content exceeds its box: '+e.id);
+    }
+    body+=text(800,1322,['Сплошная связь — ассоциация; открытый наконечник — направление навигации.'],26);
+    await save(name,1600,1360,body);
+  }
+}
+await useCases();
+await analysisClasses();
 async function sequence(interaction:string, split:number, filename:string) {
   const lanes:any[]=elements.filter((e:any)=>e.kind==='lifeline'&&e.properties.owner===interaction);
   const messages:any[]=elements.filter((e:any)=>e.kind==='message'&&e.properties.owner===interaction)
@@ -86,7 +185,7 @@ async function sequence(interaction:string, split:number, filename:string) {
       y+=rowHeight;
     }
     const height=y+35;
-    let body=text(width/2,30,[`${interaction==='bom'?'UC02':'UC05'} · сообщения ${selected[0].properties.sequence}–${selected.at(-1).properties.sequence}${part?' · продолжение':''}`],23);
+    let body=text(width/2,30,[`${interaction==='model_range'?'UC02':'UC05'} · сообщения ${selected[0].properties.sequence}–${selected.at(-1).properties.sequence}${part?' · продолжение':''}`],23);
     for(let i=0;i<lanes.length;i++) {
       const x=margin+i*step;
       body+=`<rect x="${x}" y="50" width="${box}" height="${headerHeight}" fill="white" stroke="#111" stroke-width="1.7"/>`;
@@ -105,7 +204,8 @@ async function sequence(interaction:string, split:number, filename:string) {
       const x1=margin+box/2+row.a*step, x2=margin+box/2+row.b*step;
       const route=row.self?`M${x1} ${row.arrowY} H${x1+42} V${row.arrowY+32} H${x1}`:`M${x1} ${row.arrowY} H${x2}`;
       const reply=row.message.properties.sort==='reply';
-      body+=`<path d="${route}" stroke="#111" stroke-width="1.8" ${reply?'stroke-dasharray="8 5"':''} fill="none" marker-end="url(#${reply?'reply':'call'})"/>`;
+      const open=reply||row.message.properties.sort.startsWith('asynch');
+      body+=`<path d="${route}" stroke="#111" stroke-width="1.8" ${reply?'stroke-dasharray="8 5"':''} fill="none" marker-end="url(#${open?'reply':'call'})"/>`;
       const labelX=row.self?x1+55:(x1+x2)/2;
       // Opaque label backgrounds prevent lifelines from crossing letters.
       const maskWidth=Math.max(...await Promise.all(row.lines.map((line:string)=>measure(line,size))))+12;
@@ -119,7 +219,7 @@ async function sequence(interaction:string, split:number, filename:string) {
   await save(filename,width,fullHeight,parts[0].body+`<g transform="translate(0 ${parts[0].height+30})">${parts[1].body}</g>`);
   if(new Set(emitted.filter(e=>e.view===filename).map(e=>e.id)).size!==messages.length) throw new Error('A split sequence lost messages');
 }
-await sequence('bom',7,'ПР3_03_Последовательность_UC02');
+await sequence('model_range',7,'ПР3_03_Последовательность_UC02');
 await sequence('pub',5,'ПР3_04_Последовательность_UC05');
 async function communication() {
   const {interactionFingerprint} = await omniModule('src/notations/uml/model.ts');
@@ -141,10 +241,12 @@ async function communication() {
     {route:'M405 563 H280',labels:[[14,343,650,330]],from:'pub_lane1',to:'pub_lane0'},
     {route:'M655 524 H825',labels:[[2,740,397,330]],from:'pub_lane1',to:'pub_lane2'},
     {route:'M825 563 H655',labels:[[13,740,650,330]],from:'pub_lane2',to:'pub_lane1'},
-    {route:'M940 500 V165',labels:[[3,715,250,350],[12,715,350,350]],from:'pub_lane2',to:'pub_lane3'},
+    {route:'M940 500 V165',labels:[[3,715,250,350]],from:'pub_lane2',to:'pub_lane3'},
+    {route:'M910 500 V165',labels:[[12,715,350,350]],from:'pub_lane2',to:'pub_lane3'},
     {route:'M1000 165 V500',labels:[[4,1210,220,360]],from:'pub_lane3',to:'pub_lane2'},
     {route:'M1115 509 H1210 V325 H1040 V500',labels:[[5,1430,305,350]],from:'pub_lane2',to:'pub_lane2'},
-    {route:'M970 595 V850',labels:[[6,745,742,350],[11,745,812,350]],from:'pub_lane2',to:'pub_lane6'},
+    {route:'M970 595 V850',labels:[[6,745,742,350]],from:'pub_lane2',to:'pub_lane6'},
+    {route:'M1010 595 V850',labels:[[11,745,812,350]],from:'pub_lane2',to:'pub_lane6'},
     {route:'M1115 530 H1320',labels:[[7,1460,452,350]],from:'pub_lane2',to:'pub_lane4'},
     {route:'M1320 568 H1115',labels:[[10,1218,650,350]],from:'pub_lane4',to:'pub_lane2'},
     {route:'M1428 595 V850',labels:[[8,1230,742,315]],from:'pub_lane4',to:'pub_lane5'},
@@ -155,7 +257,8 @@ async function communication() {
     const first:any=selected.get(channel.labels[0][0]);
     if(!first) throw new Error('Missing scenario message');
     const reply=first.properties.sort==='reply';
-    body+=`<path d="${channel.route}" fill="none" stroke="white" stroke-width="7"/><path d="${channel.route}" fill="none" stroke="#111" stroke-width="1.9" ${reply?'stroke-dasharray="8 5"':''} marker-end="url(#${reply?'reply':'call'})"/>`;
+    const open=reply||first.properties.sort.startsWith('asynch');
+    body+=`<path d="${channel.route}" fill="none" stroke="white" stroke-width="7"/><path d="${channel.route}" fill="none" stroke="#111" stroke-width="1.9" ${reply?'stroke-dasharray="8 5"':''} marker-end="url(#${open?'reply':'call'})"/>`;
     for(const [number,x,y,width] of channel.labels) {
       const message:any=selected.get(number);
       if(!message || endpoint(message,'send')!==channel.from || endpoint(message,'receive')!==channel.to || (message.properties.sort==='reply')!==reply) throw new Error('Communication channel changed');
@@ -183,4 +286,4 @@ async function communication() {
 }
 await communication();
 await fs.writeFile(path.join(output,'ПР3_Сообщения.json'),JSON.stringify(emitted,null,2)+'\n');
-console.log(JSON.stringify({source,output,sequenceMessages:29,communicationMessages:emitted.length-29,diagrams:3,sequenceParts:4}));
+console.log(JSON.stringify({source,output,sequenceMessages:29,communicationMessages:emitted.length-29,diagrams:6,printViews:8,sequenceParts:4}));

@@ -1,0 +1,263 @@
+gantt uitpOmniNotation "Разработка и маркетинг OmniNotation"
+
+// Источник: УИТП_АлбахтинИВ_Отчёт_OmniNotation.docx, приложение А, таблица 5.
+// 36 работ и 3 вехи. Даты из отчёта сохранены в ручном режиме.
+// Пятидневная неделя без добавленных праздников. Один человеко-день = 8 часов.
+// Всего 312 человеко-дней = 2496 человеко-часов. Прогресс будущих работ = 0.
+
+calendar weekdays "Пятидневная неделя" hoursPerDay=8 monday=true tuesday=true wednesday=true thursday=true friday=true saturday=false sunday=false
+plan projectPlan "План проекта OmniNotation" start="2026-11-02" calendar=weekdays mode=manual description="Учебный план на 02.11.2026–30.06.2027. 312 чел.-дн., 2496 чел.-ч. Бюджет с резервом 3649800 руб. Расчётная критическая цепь отчёта без фиксированных дат: 1.1.1 → 1.1.3 → 1.2.1 → 1.2.2 → 6.1.1 → 6.1.2 → 6.1.3 → 6.2.1 → 6.2.2 → 6.2.3 → 6.2.4 → 6.9.0. Длина в отчёте — 163 рабочих дня. В ручном режиме критичность не пересчитывается."
+diagram main "Полный календарный план" type=gantt plan=projectPlan
+
+// Исполнители из таблицы 3. Учебные ставки сохранены в описаниях.
+resource rp "Руководитель проекта и аналитик" capacityHoursPerDay=8 role="РП" description="Учебная ставка: 8000 руб. за человеко-день."
+resource ar "Архитектор и разработчик платформы" capacityHoursPerDay=8 role="АР" description="Учебная ставка: 10000 руб. за человеко-день."
+resource notationDev "Разработчик нотаций и языка" capacityHoursPerDay=8 role="ИН" description="Учебная ставка: 9000 руб. за человеко-день."
+resource ux "UX-специалист" capacityHoursPerDay=8 role="UX" description="Учебная ставка: 7000 руб. за человеко-день."
+resource mk "Специалист по маркетингу и ручной проверке" capacityHoursPerDay=8 role="МК" description="Учебная ставка: 7000 руб. за человеко-день."
+
+// Иерархия работ: этапы, подэтапы, операции и контрольные вехи.
+task stage1 "Концепция и аудитория" kind=summary order=1 wbsCode="1"
+task stage1_1 "Старт и исследование" kind=summary parent=stage1 order=1 wbsCode="1.1"
+task t1_1_1 "Старт проекта и критерии успеха" kind=task parent=stage1_1 order=1 wbsCode="1.1.1" start="2026-11-02" duration=5 deadline="2026-11-06" effortHours=24 progress=0
+task t1_1_2 "Аудит текущей версии OmniNotation" kind=task parent=stage1_1 order=2 wbsCode="1.1.2" start="2026-11-02" duration=10 deadline="2026-11-13" effortHours=40 progress=0
+task t1_1_3 "Интервью и сегменты пользователей" kind=task parent=stage1_1 order=3 wbsCode="1.1.3" start="2026-11-09" duration=10 deadline="2026-11-20" effortHours=56 progress=0
+task stage1_2 "Позиционирование и концепция" kind=summary parent=stage1 order=2 wbsCode="1.2"
+task t1_2_1 "Анализ альтернатив и позиционирования" kind=task parent=stage1_2 order=1 wbsCode="1.2.1" start="2026-11-16" duration=10 deadline="2026-11-27" effortHours=24 progress=0
+task t1_2_2 "Концепция, границы и KPI" kind=task parent=stage1_2 order=2 wbsCode="1.2.2" start="2026-11-30" duration=5 deadline="2026-12-04" effortHours=32 progress=0
+task t1_9_0 "Веха: концепция утверждена" kind=milestone parent=stage1 order=9 wbsCode="1.9.0" start="2026-12-04" duration=0 deadline="2026-12-04" effortHours=0 progress=0
+
+task stage2 "Требования и дизайн" kind=summary order=2 wbsCode="2"
+task stage2_1 "Сценарии и требования" kind=summary parent=stage2 order=1 wbsCode="2.1"
+task t2_1_1 "Сценарии применения DFD/IDEF0/BPMN/UML" kind=task parent=stage2_1 order=1 wbsCode="2.1.1" start="2026-12-07" duration=10 deadline="2026-12-18" effortHours=48 progress=0
+task t2_1_2 "Функциональные требования" kind=task parent=stage2_1 order=2 wbsCode="2.1.2" start="2026-12-14" duration=20 deadline="2027-01-08" effortHours=64 progress=0
+task t2_1_3 "Профили нотаций и критерии приёмки" kind=task parent=stage2_1 order=3 wbsCode="2.1.3" start="2026-12-21" duration=15 deadline="2027-01-08" effortHours=72 progress=0
+task stage2_2 "Интерфейс и бэклог" kind=summary parent=stage2 order=2 wbsCode="2.2"
+task t2_2_1 "Прототипы сценариев и интерфейса" kind=task parent=stage2_2 order=1 wbsCode="2.2.1" start="2026-12-14" duration=20 deadline="2027-01-08" effortHours=96 progress=0
+task t2_2_2 "Приоритетный бэклог и оценки" kind=task parent=stage2_2 order=2 wbsCode="2.2.2" start="2027-01-11" duration=10 deadline="2027-01-22" effortHours=56 progress=0
+
+task stage3 "Общая платформа" kind=summary order=3 wbsCode="3"
+task stage3_1 "Архитектура и язык" kind=summary parent=stage3 order=1 wbsCode="3.1"
+task t3_1_1 "Уточнение архитектуры модулей" kind=task parent=stage3_1 order=1 wbsCode="3.1.1" start="2027-01-25" duration=15 deadline="2027-02-12" effortHours=80 progress=0
+task t3_1_2 "Общий хост и реестр адаптеров" kind=task parent=stage3_1 order=2 wbsCode="3.1.2" start="2027-02-01" duration=15 deadline="2027-02-19" effortHours=40 progress=0
+task t3_1_3 "Общий язык и синхронизация модели" kind=task parent=stage3_1 order=3 wbsCode="3.1.3" start="2027-02-15" duration=10 deadline="2027-02-26" effortHours=56 progress=0
+task stage3_2 "Редактор, сохранение и экспорт" kind=summary parent=stage3 order=2 wbsCode="3.2"
+task t3_2_1 "Сохранение, черновики и восстановление" kind=task parent=stage3_2 order=1 wbsCode="3.2.1" start="2027-02-22" duration=20 deadline="2027-03-19" effortHours=96 progress=0
+task t3_2_2 "Единый интерфейс редактора" kind=task parent=stage3_2 order=2 wbsCode="3.2.2" start="2027-02-22" duration=20 deadline="2027-03-19" effortHours=96 progress=0
+task t3_2_3 "Экспорт и выпускные сборки" kind=task parent=stage3_2 order=3 wbsCode="3.2.3" start="2027-03-22" duration=15 deadline="2027-04-09" effortHours=72 progress=0
+
+task stage4 "Нотации и синхронизация" kind=summary order=4 wbsCode="4"
+task stage4_1 "DFD, IDEF0 и BPMN" kind=summary parent=stage4 order=1 wbsCode="4.1"
+task t4_1_1 "Доработка DFD" kind=task parent=stage4_1 order=1 wbsCode="4.1.1" start="2027-03-01" duration=15 deadline="2027-03-19" effortHours=88 progress=0
+task t4_1_2 "Доработка IDEF0" kind=task parent=stage4_1 order=2 wbsCode="4.1.2" start="2027-03-22" duration=20 deadline="2027-04-16" effortHours=104 progress=0
+task t4_1_3 "Доработка графического BPMN" kind=task parent=stage4_1 order=3 wbsCode="4.1.3" start="2027-03-01" duration=20 deadline="2027-03-26" effortHours=64 progress=0
+task t4_1_4 "Семантические правила BPMN" kind=task parent=stage4_1 order=4 wbsCode="4.1.4" start="2027-03-29" duration=25 deadline="2027-04-30" effortHours=64 progress=0
+task stage4_2 "UML, примеры и интеграция" kind=summary parent=stage4 order=2 wbsCode="4.2"
+task t4_2_1 "Доработка UML-профилей" kind=task parent=stage4_2 order=1 wbsCode="4.2.1" start="2027-04-19" duration=20 deadline="2027-05-14" effortHours=96 progress=0
+task t4_2_2 "Проверка text ↔ diagram round-trip" kind=task parent=stage4_2 order=2 wbsCode="4.2.2" start="2027-04-12" duration=20 deadline="2027-05-07" effortHours=112 progress=0
+task t4_2_3 "Библиотека примеров и шаблонов" kind=task parent=stage4_2 order=3 wbsCode="4.2.3" start="2027-05-03" duration=15 deadline="2027-05-21" effortHours=64 progress=0
+task t4_2_4 "Интеграция и исправление дефектов" kind=task parent=stage4_2 order=4 wbsCode="4.2.4" start="2027-05-17" duration=10 deadline="2027-05-28" effortHours=56 progress=0
+task t4_9_0 "Веха: функциональный контур готов" kind=milestone parent=stage4 order=9 wbsCode="4.9.0" start="2027-05-28" duration=0 deadline="2027-05-28" effortHours=0 progress=0
+
+task stage5 "Приёмка и выпуск" kind=summary order=5 wbsCode="5"
+task stage5_1 "Проверка" kind=summary parent=stage5 order=1 wbsCode="5.1"
+task t5_1_1 "Сценарии ручной проверки" kind=task parent=stage5_1 order=1 wbsCode="5.1.1" start="2027-04-12" duration=15 deadline="2027-04-30" effortHours=56 progress=0
+task t5_1_2 "Ручная приёмка и пилотная проверка" kind=task parent=stage5_1 order=2 wbsCode="5.1.2" start="2027-05-31" duration=10 deadline="2027-06-11" effortHours=56 progress=0
+task t5_1_3 "Устойчивость и производительность" kind=task parent=stage5_1 order=3 wbsCode="5.1.3" start="2027-05-24" duration=15 deadline="2027-06-11" effortHours=88 progress=0
+task stage5_2 "Выпуск и руководство" kind=summary parent=stage5 order=2 wbsCode="5.2"
+task t5_2_1 "Кандидат выпуска" kind=task parent=stage5_2 order=1 wbsCode="5.2.1" start="2027-06-14" duration=5 deadline="2027-06-18" effortHours=32 progress=0
+task t5_2_2 "Руководство пользователя" kind=task parent=stage5_2 order=2 wbsCode="5.2.2" start="2027-05-31" duration=15 deadline="2027-06-18" effortHours=72 progress=0
+
+task stage6 "Маркетинг и пилот" kind=summary order=6 wbsCode="6"
+task stage6_1 "Предложение и материалы" kind=summary parent=stage6 order=1 wbsCode="6.1"
+task t6_1_1 "Ценностное предложение и аудитории" kind=task parent=stage6_1 order=1 wbsCode="6.1.1" start="2026-12-07" duration=30 deadline="2027-01-15" effortHours=120 progress=0
+task t6_1_2 "Лендинг и демонстрация продукта" kind=task parent=stage6_1 order=2 wbsCode="6.1.2" start="2027-01-18" duration=30 deadline="2027-02-26" effortHours=120 progress=0
+task t6_1_3 "Контент-план и учебные материалы" kind=task parent=stage6_1 order=3 wbsCode="6.1.3" start="2027-03-01" duration=20 deadline="2027-03-26" effortHours=80 progress=0
+task stage6_2 "Пилот и план запуска" kind=summary parent=stage6 order=2 wbsCode="6.2"
+task t6_2_1 "Набор пилотной группы" kind=task parent=stage6_2 order=1 wbsCode="6.2.1" start="2027-04-05" duration=20 deadline="2027-04-30" effortHours=80 progress=0
+task t6_2_2 "Пилот и сбор обратной связи" kind=task parent=stage6_2 order=2 wbsCode="6.2.2" start="2027-05-03" duration=20 deadline="2027-05-28" effortHours=80 progress=0
+task t6_2_3 "Анализ отклика и гипотезы монетизации" kind=task parent=stage6_2 order=3 wbsCode="6.2.3" start="2027-05-31" duration=15 deadline="2027-06-18" effortHours=64 progress=0
+task t6_2_4 "Презентация и план запуска" kind=task parent=stage6_2 order=4 wbsCode="6.2.4" start="2027-06-21" duration=8 deadline="2027-06-30" effortHours=48 progress=0
+task t6_9_0 "Веха: план защищён" kind=milestone parent=stage6 order=9 wbsCode="6.9.0" start="2027-06-30" duration=0 deadline="2027-06-30" effortHours=0 progress=0
+
+// Связи из приложения А. В manual они проверяют ограничения, не сдвигая даты.
+// Для FF к вехе lag=-1 сохраняет последний рабочий день из отчёта.
+// В OmniNotation окончание работы — граница после последнего дня, веха — начало дня.
+dependency dep01 "" from=t1_1_1 to=t1_1_2 type=SS lag=0
+dependency dep02 "" from=t1_1_1 to=t1_1_3 type=FS lag=0
+dependency dep03 "" from=t1_1_3 to=t1_2_1 type=SS lag=0
+dependency dep04 "" from=t1_2_1 to=t1_2_2 type=FS lag=0
+dependency dep05 "" from=t1_2_2 to=t2_1_1 type=FS lag=0
+dependency dep06 "" from=t2_1_1 to=t2_1_2 type=SS lag=0
+dependency dep07 "" from=t2_1_2 to=t2_1_3 type=SS lag=0
+dependency dep08 "" from=t2_1_1 to=t2_2_1 type=SS lag=0
+dependency dep09 "" from=t2_1_3 to=t2_2_2 type=FS lag=0
+dependency dep10 "" from=t2_2_2 to=t3_1_1 type=FS lag=0
+dependency dep11 "" from=t3_1_1 to=t3_1_2 type=SS lag=0
+dependency dep12 "" from=t3_1_1 to=t3_1_3 type=FS lag=0
+dependency dep13 "" from=t3_1_2 to=t3_2_1 type=FS lag=0
+dependency dep14 "" from=t3_1_2 to=t3_2_2 type=FS lag=0
+dependency dep15 "" from=t3_2_1 to=t3_2_3 type=FS lag=0
+dependency dep16 "" from=t3_1_3 to=t4_1_1 type=FS lag=0
+dependency dep17 "" from=t4_1_1 to=t4_1_2 type=FS lag=0
+dependency dep18 "" from=t3_1_2 to=t4_1_3 type=FS lag=0
+dependency dep19 "" from=t4_1_3 to=t4_1_4 type=FS lag=0
+dependency dep20 "" from=t4_1_2 to=t4_2_1 type=FS lag=0
+dependency dep21 "" from=t3_2_3 to=t4_2_2 type=FS lag=0
+dependency dep22 "" from=t4_1_4 to=t4_2_3 type=FS lag=0
+dependency dep23 "" from=t4_2_1 to=t4_2_4 type=FS lag=0
+dependency dep24 "" from=t4_1_3 to=t5_1_1 type=FS lag=0
+dependency dep25 "" from=t4_2_4 to=t5_1_2 type=FS lag=0
+dependency dep26 "" from=t4_2_2 to=t5_1_3 type=FS lag=0
+dependency dep27 "" from=t5_1_2 to=t5_2_1 type=FS lag=0
+dependency dep28 "" from=t4_2_3 to=t5_2_2 type=FS lag=0
+dependency dep29 "" from=t1_2_2 to=t6_1_1 type=FS lag=0
+dependency dep30 "" from=t6_1_1 to=t6_1_2 type=FS lag=0
+dependency dep31 "" from=t6_1_2 to=t6_1_3 type=FS lag=0
+dependency dep32 "" from=t6_1_3 to=t6_2_1 type=FS lag=0
+dependency dep33 "" from=t6_2_1 to=t6_2_2 type=FS lag=0
+dependency dep34 "" from=t6_2_2 to=t6_2_3 type=FS lag=0
+dependency dep35 "" from=t5_2_1 to=t6_2_4 type=FS lag=0
+dependency dep36 "" from=t6_2_3 to=t6_2_4 type=FS lag=0
+dependency dep37 "" from=t1_2_2 to=t1_9_0 type=FF lag=-1 description="FF из отчёта; lag=-1 согласует веху с последним рабочим днём предшественника."
+dependency dep38 "" from=t4_2_4 to=t4_9_0 type=FF lag=-1 description="FF из отчёта; lag=-1 согласует веху с последним рабочим днём предшественника."
+dependency dep39 "" from=t6_2_4 to=t6_9_0 type=FF lag=-1 description="FF из отчёта; lag=-1 согласует веху с последним рабочим днём предшественника."
+
+// Назначения: трудозатраты каждой строки отчёта переведены в часы.
+assignment a1_1_1 "" task=t1_1_1 resource=rp effortHours=24
+assignment a1_1_2 "" task=t1_1_2 resource=ar effortHours=40
+assignment a1_1_3 "" task=t1_1_3 resource=mk effortHours=56
+assignment a1_2_1 "" task=t1_2_1 resource=mk effortHours=24
+assignment a1_2_2 "" task=t1_2_2 resource=rp effortHours=32
+assignment a2_1_1 "" task=t2_1_1 resource=rp effortHours=48
+assignment a2_1_2 "" task=t2_1_2 resource=rp effortHours=64
+assignment a2_1_3 "" task=t2_1_3 resource=notationDev effortHours=72
+assignment a2_2_1 "" task=t2_2_1 resource=ux effortHours=96
+assignment a2_2_2 "" task=t2_2_2 resource=rp effortHours=56
+assignment a3_1_1 "" task=t3_1_1 resource=ar effortHours=80
+assignment a3_1_2 "" task=t3_1_2 resource=ar effortHours=40
+assignment a3_1_3 "" task=t3_1_3 resource=notationDev effortHours=56
+assignment a3_2_1 "" task=t3_2_1 resource=ar effortHours=96
+assignment a3_2_2 "" task=t3_2_2 resource=ux effortHours=96
+assignment a3_2_3 "" task=t3_2_3 resource=ar effortHours=72
+assignment a4_1_1 "" task=t4_1_1 resource=notationDev effortHours=88
+assignment a4_1_2 "" task=t4_1_2 resource=notationDev effortHours=104
+assignment a4_1_3 "" task=t4_1_3 resource=ar effortHours=64
+assignment a4_1_4 "" task=t4_1_4 resource=notationDev effortHours=64
+assignment a4_2_1 "" task=t4_2_1 resource=notationDev effortHours=96
+assignment a4_2_2 "" task=t4_2_2 resource=ar effortHours=112
+assignment a4_2_3 "" task=t4_2_3 resource=ux effortHours=64
+assignment a4_2_4 "" task=t4_2_4 resource=notationDev effortHours=56
+assignment a5_1_1 "" task=t5_1_1 resource=mk effortHours=56
+assignment a5_1_2 "" task=t5_1_2 resource=rp effortHours=56
+assignment a5_1_3 "" task=t5_1_3 resource=ar effortHours=88
+assignment a5_2_1 "" task=t5_2_1 resource=ar effortHours=32
+assignment a5_2_2 "" task=t5_2_2 resource=ux effortHours=72
+assignment a6_1_1 "" task=t6_1_1 resource=mk effortHours=120
+assignment a6_1_2 "" task=t6_1_2 resource=mk effortHours=120
+assignment a6_1_3 "" task=t6_1_3 resource=mk effortHours=80
+assignment a6_2_1 "" task=t6_2_1 resource=mk effortHours=80
+assignment a6_2_2 "" task=t6_2_2 resource=mk effortHours=80
+assignment a6_2_3 "" task=t6_2_3 resource=mk effortHours=64
+assignment a6_2_4 "" task=t6_2_4 resource=rp effortHours=48
+assignment a1_9_0 "" task=t1_9_0 resource=rp effortHours=0
+assignment a4_9_0 "" task=t4_9_0 resource=rp effortHours=0
+assignment a6_9_0 "" task=t6_9_0 resource=rp effortHours=0
+
+// Явные отображения нужны, чтобы все задачи и связи появились на полотне.
+view v_stage1 "" diagram=main element=stage1
+view v_stage1_1 "" diagram=main element=stage1_1
+view v_t1_1_1 "" diagram=main element=t1_1_1
+view v_t1_1_2 "" diagram=main element=t1_1_2
+view v_t1_1_3 "" diagram=main element=t1_1_3
+view v_stage1_2 "" diagram=main element=stage1_2
+view v_t1_2_1 "" diagram=main element=t1_2_1
+view v_t1_2_2 "" diagram=main element=t1_2_2
+view v_t1_9_0 "" diagram=main element=t1_9_0
+view v_stage2 "" diagram=main element=stage2
+view v_stage2_1 "" diagram=main element=stage2_1
+view v_t2_1_1 "" diagram=main element=t2_1_1
+view v_t2_1_2 "" diagram=main element=t2_1_2
+view v_t2_1_3 "" diagram=main element=t2_1_3
+view v_stage2_2 "" diagram=main element=stage2_2
+view v_t2_2_1 "" diagram=main element=t2_2_1
+view v_t2_2_2 "" diagram=main element=t2_2_2
+view v_stage3 "" diagram=main element=stage3
+view v_stage3_1 "" diagram=main element=stage3_1
+view v_t3_1_1 "" diagram=main element=t3_1_1
+view v_t3_1_2 "" diagram=main element=t3_1_2
+view v_t3_1_3 "" diagram=main element=t3_1_3
+view v_stage3_2 "" diagram=main element=stage3_2
+view v_t3_2_1 "" diagram=main element=t3_2_1
+view v_t3_2_2 "" diagram=main element=t3_2_2
+view v_t3_2_3 "" diagram=main element=t3_2_3
+view v_stage4 "" diagram=main element=stage4
+view v_stage4_1 "" diagram=main element=stage4_1
+view v_t4_1_1 "" diagram=main element=t4_1_1
+view v_t4_1_2 "" diagram=main element=t4_1_2
+view v_t4_1_3 "" diagram=main element=t4_1_3
+view v_t4_1_4 "" diagram=main element=t4_1_4
+view v_stage4_2 "" diagram=main element=stage4_2
+view v_t4_2_1 "" diagram=main element=t4_2_1
+view v_t4_2_2 "" diagram=main element=t4_2_2
+view v_t4_2_3 "" diagram=main element=t4_2_3
+view v_t4_2_4 "" diagram=main element=t4_2_4
+view v_t4_9_0 "" diagram=main element=t4_9_0
+view v_stage5 "" diagram=main element=stage5
+view v_stage5_1 "" diagram=main element=stage5_1
+view v_t5_1_1 "" diagram=main element=t5_1_1
+view v_t5_1_2 "" diagram=main element=t5_1_2
+view v_t5_1_3 "" diagram=main element=t5_1_3
+view v_stage5_2 "" diagram=main element=stage5_2
+view v_t5_2_1 "" diagram=main element=t5_2_1
+view v_t5_2_2 "" diagram=main element=t5_2_2
+view v_stage6 "" diagram=main element=stage6
+view v_stage6_1 "" diagram=main element=stage6_1
+view v_t6_1_1 "" diagram=main element=t6_1_1
+view v_t6_1_2 "" diagram=main element=t6_1_2
+view v_t6_1_3 "" diagram=main element=t6_1_3
+view v_stage6_2 "" diagram=main element=stage6_2
+view v_t6_2_1 "" diagram=main element=t6_2_1
+view v_t6_2_2 "" diagram=main element=t6_2_2
+view v_t6_2_3 "" diagram=main element=t6_2_3
+view v_t6_2_4 "" diagram=main element=t6_2_4
+view v_t6_9_0 "" diagram=main element=t6_9_0
+view v_dep01 "" diagram=main element=dep01 from=v_t1_1_1 to=v_t1_1_2
+view v_dep02 "" diagram=main element=dep02 from=v_t1_1_1 to=v_t1_1_3
+view v_dep03 "" diagram=main element=dep03 from=v_t1_1_3 to=v_t1_2_1
+view v_dep04 "" diagram=main element=dep04 from=v_t1_2_1 to=v_t1_2_2
+view v_dep05 "" diagram=main element=dep05 from=v_t1_2_2 to=v_t2_1_1
+view v_dep06 "" diagram=main element=dep06 from=v_t2_1_1 to=v_t2_1_2
+view v_dep07 "" diagram=main element=dep07 from=v_t2_1_2 to=v_t2_1_3
+view v_dep08 "" diagram=main element=dep08 from=v_t2_1_1 to=v_t2_2_1
+view v_dep09 "" diagram=main element=dep09 from=v_t2_1_3 to=v_t2_2_2
+view v_dep10 "" diagram=main element=dep10 from=v_t2_2_2 to=v_t3_1_1
+view v_dep11 "" diagram=main element=dep11 from=v_t3_1_1 to=v_t3_1_2
+view v_dep12 "" diagram=main element=dep12 from=v_t3_1_1 to=v_t3_1_3
+view v_dep13 "" diagram=main element=dep13 from=v_t3_1_2 to=v_t3_2_1
+view v_dep14 "" diagram=main element=dep14 from=v_t3_1_2 to=v_t3_2_2
+view v_dep15 "" diagram=main element=dep15 from=v_t3_2_1 to=v_t3_2_3
+view v_dep16 "" diagram=main element=dep16 from=v_t3_1_3 to=v_t4_1_1
+view v_dep17 "" diagram=main element=dep17 from=v_t4_1_1 to=v_t4_1_2
+view v_dep18 "" diagram=main element=dep18 from=v_t3_1_2 to=v_t4_1_3
+view v_dep19 "" diagram=main element=dep19 from=v_t4_1_3 to=v_t4_1_4
+view v_dep20 "" diagram=main element=dep20 from=v_t4_1_2 to=v_t4_2_1
+view v_dep21 "" diagram=main element=dep21 from=v_t3_2_3 to=v_t4_2_2
+view v_dep22 "" diagram=main element=dep22 from=v_t4_1_4 to=v_t4_2_3
+view v_dep23 "" diagram=main element=dep23 from=v_t4_2_1 to=v_t4_2_4
+view v_dep24 "" diagram=main element=dep24 from=v_t4_1_3 to=v_t5_1_1
+view v_dep25 "" diagram=main element=dep25 from=v_t4_2_4 to=v_t5_1_2
+view v_dep26 "" diagram=main element=dep26 from=v_t4_2_2 to=v_t5_1_3
+view v_dep27 "" diagram=main element=dep27 from=v_t5_1_2 to=v_t5_2_1
+view v_dep28 "" diagram=main element=dep28 from=v_t4_2_3 to=v_t5_2_2
+view v_dep29 "" diagram=main element=dep29 from=v_t1_2_2 to=v_t6_1_1
+view v_dep30 "" diagram=main element=dep30 from=v_t6_1_1 to=v_t6_1_2
+view v_dep31 "" diagram=main element=dep31 from=v_t6_1_2 to=v_t6_1_3
+view v_dep32 "" diagram=main element=dep32 from=v_t6_1_3 to=v_t6_2_1
+view v_dep33 "" diagram=main element=dep33 from=v_t6_2_1 to=v_t6_2_2
+view v_dep34 "" diagram=main element=dep34 from=v_t6_2_2 to=v_t6_2_3
+view v_dep35 "" diagram=main element=dep35 from=v_t5_2_1 to=v_t6_2_4
+view v_dep36 "" diagram=main element=dep36 from=v_t6_2_3 to=v_t6_2_4
+view v_dep37 "" diagram=main element=dep37 from=v_t1_2_2 to=v_t1_9_0
+view v_dep38 "" diagram=main element=dep38 from=v_t4_2_4 to=v_t4_9_0
+view v_dep39 "" diagram=main element=dep39 from=v_t6_2_4 to=v_t6_9_0

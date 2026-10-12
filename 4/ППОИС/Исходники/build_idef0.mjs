@@ -11,38 +11,38 @@ const L={
  request:['Запрос на создание или','изменение карточки'],
  catalog:['Ассортимент, характеристики','и предложения поставщиков'],
  order:['Порядок создания','и актуализации'],
- bomRules:['Правила BOM: выбор,','сопоставление, замена и версии'],
+ model_rangeRules:['Правила модельного ряда: выбор,','сопоставление, замена и версии'],
  compatibility:['Правила','совместимости'],
  contentRules:['Правила цены, массы','и подготовки контента'],
  marketplace:['Требования Ozon','к карточке'],
  manager:['Менеджер','маркетплейсов'],
- bomMechanism:['Технический специалист;','PC4Games / ITPartner; ИС'],
+ model_rangeMechanism:['Технический специалист;','PC4Games / ITPartner; ИС'],
  technician:['Технический','специалист'],
  designer:['Дизайнер;','проектируемая ИС'],
  exchange:['Менеджер;','API Ozon и ИС'],
- checked:['Согласованная BOM'],
+ checked:['Согласованный модельный ряд'],
  content:['Цена, масса и контент'],
  published:['Подтверждённая','публикация карточки'],
  outcome:['Состояние попытки','и замечания'],
  selected:['Запрос и','выбранный корпус'],
- version:['Версия BOM','на проверку'],
+ version:['Версия модельного ряда','на проверку'],
  feedback:['Замечания','по совместимости'],
 };
-const rootBoundary={I:['request','catalog'],C:['order','bomRules','compatibility','contentRules','marketplace'],M:['manager','bomMechanism','technician','designer','exchange'],O:['checked','content','published','outcome']};
-const a2Boundary={I:['selected','catalog'],C:['order','bomRules','feedback'],M:['bomMechanism'],O:['version']};
+const rootBoundary={I:['request','catalog'],C:['order','model_rangeRules','compatibility','contentRules','marketplace'],M:['manager','model_rangeMechanism','technician','designer','exchange'],O:['checked','content','published','outcome']};
+const a2Boundary={I:['selected','catalog'],C:['order','model_rangeRules','feedback'],M:['model_rangeMechanism'],O:['version']};
 const a0Nodes=[
  ['A1',['Инициировать','создание или','изменение карточки']],
- ['A2',['Сформировать BOM','и сопоставить','товары поставщиков']],
+ ['A2',['Сформировать','модельный ряд и','сопоставить товары','поставщиков']],
  ['A3',['Проверить','совместимость']],
  ['A4',['Рассчитать цену, массу','и подготовить','контент']],
  ['A5',['Проверить и','опубликовать','карточку в Ozon']],
 ].map(([id,label],i)=>({id,label,x:135+285*i,y:180+122*i,w:220,h:85}));
 const a2Nodes=[
  ['A21',['Выбрать корпус','и характеристики']],
- ['A22',['Заполнить','слоты BOM']],
+ ['A22',['Заполнить позиции','модельного ряда']],
  ['A23',['Сопоставить','компоненты и товары']],
  ['A24',['Выбрать актуальные','предложения']],
- ['A25',['Сохранить','версию BOM']],
+ ['A25',['Сохранить версию','модельного ряда']],
 ].map(([id,label],i)=>({id,label,x:135+285*i,y:180+122*i,w:220,h:85}));
 const edge=(id,label,points,x,y,lines=L[label] ?? [label])=>({id,label,points,x,y,lines});
 const context={node:'A-0',title:'Формировать и актуализировать карточки компьютерных систем',width:1800,height:1000,boundary:rootBoundary,nodes:[{id:'A0',label:['Формировать и','актуализировать карточки','компьютерных систем'],x:695,y:405,w:365,h:190}],edges:[]};
@@ -68,11 +68,11 @@ a0.edges.push(edge('O3','published',[[1495,699],[1795,699]],1640,655));
 a0.edges.push(edge('O4','outcome',[[1495,734],[1795,734]],1640,771));
 a0.junctions=[[330,155]];
 
-const a2={node:'A2',title:'Сформировать BOM и сопоставить товары поставщиков',width:1800,height:1000,boundary:a2Boundary,nodes:a2Nodes,edges:[],junctions:[]};
+const a2={node:'A2',title:'Сформировать модельный ряд и сопоставить товары поставщиков',width:1800,height:1000,boundary:a2Boundary,nodes:a2Nodes,edges:[],junctions:[]};
 a2.edges.push(edge('C1','order',[[315,65],[315,180]],270,96));
-a2.edges.push(edge('C2','bomRules',[[615,65],[615,155],[1470,155],[1470,668]],980,98));
+a2.edges.push(edge('C2','model_rangeRules',[[615,65],[615,155],[1470,155],[1470,668]],980,98));
 for(const [i,x] of [[1,615],[2,900],[3,1185]]){
- a2.edges.push(edge(`C2_${i}`,'bomRules',[[x,155],[x,a2Nodes[i].y]],null,null,[]));
+ a2.edges.push(edge(`C2_${i}`,'model_rangeRules',[[x,155],[x,a2Nodes[i].y]],null,null,[]));
  a2.junctions.push([x,155]);
 }
 a2.edges.push(edge('C3','feedback',[[1700,65],[1700,205],[580,205],[580,302]],1660,96));
@@ -82,14 +82,14 @@ a2.edges.push(edge('I2_corpus','catalog',[[35,320],[35,247],[135,247]],null,null
 a2.edges.push(edge('I2_matching','catalog',[[35,320],[35,406],[680,406],[680,446],[705,446]],null,null,[]));
 a2.edges.push(edge('I2_offer','catalog',[[35,406],[35,540],[970,540],[970,570],[990,570]],null,null,[]));
 a2.junctions.push([35,320],[35,406]);
-const internal=[['Основа BOM'],['Состав BOM'],['Сопоставленные','товары'],['Выбранные','предложения']];
+const internal=[['Основа модельного ряда'],['Состав модельного ряда'],['Сопоставленные','товары'],['Выбранные','предложения']];
 a2Nodes.forEach((n,i)=>{
  if(i<4){const next=a2Nodes[i+1];a2.edges.push(edge(`F${i+1}`,internal[i].join(' '),[[n.x+n.w,n.y+43],[n.x+n.w+25,n.y+43],[n.x+n.w+25,next.y+43],[next.x,next.y+43]],n.x+n.w+43,n.y+80,internal[i]));}
 });
-a2.edges.push(edge('M1','bomMechanism',[[815,945],[815,845],[340,845],[340,265]],850,910,['Технический специалист · PC4Games / ITPartner · ИС']));
+a2.edges.push(edge('M1','model_rangeMechanism',[[815,945],[815,845],[340,845],[340,265]],850,910,['Технический специалист · PC4Games / ITPartner · ИС']));
 for(const n of a2Nodes.slice(1)){
- const x=n.x+100;a2.edges.push(edge(`M1_${n.id}`,'bomMechanism',[[x,845],[x,n.y+n.h]],null,null,[]));
- if(x>815)a2.edges.push(edge(`M1_bus_${n.id}`,'bomMechanism',[[815,845],[x,845]],null,null,[]));
+ const x=n.x+100;a2.edges.push(edge(`M1_${n.id}`,'model_rangeMechanism',[[x,845],[x,n.y+n.h]],null,null,[]));
+ if(x>815)a2.edges.push(edge(`M1_bus_${n.id}`,'model_rangeMechanism',[[815,845],[x,845]],null,null,[]));
  a2.junctions.push([x,845]);
 }
 a2.junctions.push([815,845]);

@@ -23,6 +23,17 @@ SUBJECT = ROOT / '4/ППОИС'
 NS = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
 
 
+def heading_style(doc, level):
+    # Word localizes the legacy template's custom heading names on save.
+    # Resolve the existing style object without adding a new styles.xml part.
+    for name in (f'Heading {level}', f'Заголовок {level}', f'Заголовок {level}1'):
+        try:
+            return doc.styles[name]
+        except KeyError:
+            pass
+    raise ValueError(f'Heading level {level} is missing from the report template')
+
+
 def prune_unused_images(path: Path):
     """Remove only unreferenced image relationships and their orphan media.
 
@@ -92,19 +103,24 @@ def merge_package(original: Path, edited: Path, destination: Path, permitted: se
 
 
 def patch_text(source: Path, destination: Path, replacements: dict[str, str]):
+    from update_terminology import terminology
+    replacements={terminology(k):terminology(v) for k,v in replacements.items()}
     with ZipFile(source) as archive:
         xml = etree.fromstring(archive.read('word/document.xml'))
         found = set()
         accepted={value:key for key,value in replacements.items()}
         for paragraph in xml.xpath('//w:p', namespaces=NS):
             nodes = paragraph.xpath('.//w:t', namespaces=NS)
-            text = ''.join(node.text or '' for node in nodes)
+            text = terminology(''.join(node.text or '' for node in nodes))
             if text in replacements:
                 nodes[0].text = replacements[text]
                 for node in nodes[1:]: node.text = ''
                 found.add(text)
             elif text in accepted:
                 found.add(accepted[text])
+            elif text.endswith(' Сообщения 11 «Сохранить результат» и 12 «Обновить статус» — асинхронные вызовы со сплошной стрелкой и открытым наконечником.'):
+                base=text.rsplit(' Сообщения 11 «Сохранить результат»',1)[0]
+                if base in accepted:found.add(accepted[base])
         if found != set(replacements):
             raise ValueError(f'Missing replacement paragraphs: {set(replacements) - found}')
         for fonts in xml.xpath('//w:rFonts', namespaces=NS):
@@ -148,7 +164,27 @@ ANALYSIS_PARTS = [
 
 
 def replace_analysis_images(path: Path, figures: Path):
-    """Replace print views, not the title/use-case/class diagram or relationships."""
+    """Replace every analysis print view and add a readable second class sheet."""
+    doc=Document(path)
+    captions=[p for p in doc.paragraphs if p.text.startswith('Рисунок 2')]
+    if len(captions)==1:
+        from docx.text.paragraph import Paragraph
+        caption=captions[0]
+        picture=doc.add_paragraph()
+        picture.paragraph_format.alignment=WD_ALIGN_PARAGRAPH.CENTER
+        picture.paragraph_format.first_line_indent=Cm(0)
+        picture.paragraph_format.page_break_before=True
+        picture.paragraph_format.keep_with_next=True
+        picture.paragraph_format.line_spacing=1
+        file=figures/'ПР3_02_Классы_анализа_2.png'
+        with Image.open(file) as image:
+            picture.add_run().add_picture(str(file),height=Cm(14.3))
+        caption._p.addnext(picture._p)
+        last=deepcopy(caption._p)
+        continuation=Paragraph(last,doc._body)
+        continuation.clear();font(continuation.add_run(caption.text+' (окончание)'))
+        picture._p.addnext(last)
+        doc.save(path)
     with ZipFile(path) as original:
         xml=etree.fromstring(original.read('word/document.xml'))
         rels=etree.fromstring(original.read('word/_rels/document.xml.rels'))
@@ -156,9 +192,11 @@ def replace_analysis_images(path: Path, figures: Path):
         drawing_ns={'a':'http://schemas.openxmlformats.org/drawingml/2006/main',
                     'r':'http://schemas.openxmlformats.org/officeDocument/2006/relationships'}
         pictures=xml.xpath('//w:body//a:blip',namespaces={**NS,**drawing_ns})
-        if len(pictures)!=8: raise ValueError('PPOIS3: expected title and seven diagram images')
+        if len(pictures)!=9: raise ValueError('PPOIS3: expected title and eight diagram images')
         replacements={}
-        for blip,name in zip(pictures[3:],ANALYSIS_PARTS):
+        files=['ПР3_01_Варианты_использования.png','ПР3_02_Классы_анализа_1.png',
+               'ПР3_02_Классы_анализа_2.png',*ANALYSIS_PARTS]
+        for blip,name in zip(pictures[1:],files):
             target='word/'+relationships[blip.get('{'+drawing_ns['r']+'}embed')]
             replacements[target]=(figures/name).read_bytes()
         temporary=path.with_suffix('.writing.docx')
@@ -230,7 +268,7 @@ def format_existing(path: Path, working: Path, figures: Path | None = None):
                 continue
             if heading:
                 sub = bool(re.match(r'^\d+\.\d+\s',text))
-                paragraph.style = 'Heading 2' if sub else 'Heading 1'
+                paragraph.style = heading_style(doc, 2 if sub else 1)
                 pf.first_line_indent = Cm(0)
                 pf.alignment = WD_ALIGN_PARAGRAPH.LEFT if sub else WD_ALIGN_PARAGRAPH.CENTER
                 pf.space_before = Pt(12); pf.space_after = Pt(6)
@@ -294,7 +332,7 @@ def format_existing(path: Path, working: Path, figures: Path | None = None):
             if priority:
                 widths = [1.6,8.0,4.1,2.8]
             elif operations:
-                widths = [1.7,3.1,3.5,3.2,2.4,3.8,3.0,4.5]
+                widths = [1.7,3.1,3.5,3.2,2.8,3.8,3.0,4.1]
                 for cell,text in zip(table.rows[0].cells,['Код','Результат','Операция','Исполнитель','Период','Основание','Реестр','Примечание']): cell.text=text
                 for row in table.rows[1:]:
                     if row.cells[2].text=='Зарегистрировать запрос': row.cells[2].text='Записать запрос'
@@ -363,7 +401,7 @@ def build_four(source: Path, destination: Path, figures: Path, working: Path):
     figure_number = 0
 
     def p(text='', *, heading=0, size=14, italic=False, align=None, indent=1.25, before=0, after=0, spacing=1.5, keep=False):
-        paragraph = doc.add_paragraph(style=f'Heading {heading}' if heading else 'Normal')
+        paragraph = doc.add_paragraph(style=heading_style(doc, heading) if heading else 'Normal')
         pf = paragraph.paragraph_format
         pf.alignment = align if align is not None else (WD_ALIGN_PARAGRAPH.CENTER if heading == 1 else WD_ALIGN_PARAGRAPH.LEFT if heading else WD_ALIGN_PARAGRAPH.JUSTIFY)
         pf.first_line_indent = Cm(0 if heading else indent)
@@ -450,7 +488,7 @@ def build_four(source: Path, destination: Path, figures: Path, working: Path):
     p('2 Этапы выполнения работы',heading=1)
     for text in [
         '1. Классы анализа уточнены до классов-сущностей, границ и управления; для них определены типизированные данные и операции.',
-        '2. Уточнены групповые и точные позиции BOM, условия выбора предложений и неизменяемые снимки ревизий.',
+        '2. Уточнены групповые и точные позиции модельного ряда, условия выбора предложений и неизменяемые снимки ревизий.',
         '3. Независимая подготовка состава и обновление предложений разделены параллельно; зависимые проверки, расчёты и подготовка содержания выполняются после синхронизации.',
         '4. В жизненном цикле отделены приём задачи, подтверждённая публикация, окончательный отказ, временная ошибка и неизвестный исход.',
         '5. Классы, действия и переходы сопоставлены с функциями IDEF0 и сообщениями UC02/UC05.',
@@ -458,7 +496,7 @@ def build_four(source: Path, destination: Path, figures: Path, working: Path):
     section(True)
     p('3 Диаграммы классов проектирования',heading=1)
     for index, (file, caption) in enumerate([
-        ('01_ПР4_01_Классы.png','Классы конфигураций, позиций BOM и предложений'),
+        ('01_ПР4_01_Классы.png','Классы конфигураций, позиций модельного ряда и предложений'),
         ('02_ПР4_02_Классы.png','Классы ревизий и попыток публикации'),
         ('03_ПР4_03_Классы.png','Границы и управление подготовкой состава'),
         ('04_ПР4_04_Классы.png','Границы и управление публикацией'),
@@ -469,8 +507,8 @@ def build_four(source: Path, destination: Path, figures: Path, working: Path):
     elements = model['elements']; by_id = {e['id']:e for e in elements}
     descriptions = {
         'Configuration':'Код модельного ряда; поиск затронутых конфигураций.',
-        'BomVersion':'Версия состава и результат проверки; после использования в ревизии её состав не меняется.',
-        'BomSlot':'Роль и количество; режим GROUP или EXACT; выбор конкретного предложения.',
+        'ModelRangeVersion':'Версия состава и результат проверки; после использования в ревизии её состав не меняется.',
+        'ModelRangeSlot':'Роль и количество; режим GROUP или EXACT; выбор конкретного предложения.',
         'ComponentGroup':'Ограничения выбора, например чипсет B650; не является конкретным товаром.',
         'Component':'Нормализованные технические характеристики и масса конкретной модели.',
         'Offer':'Цена, наличие и время получения предложения конкретного поставщика.',
@@ -478,10 +516,10 @@ def build_four(source: Path, destination: Path, figures: Path, working: Path):
         'CardRevision':'Неизменяемый снимок проверенного состава, цены, массы, атрибутов и изображений.',
         'Image':'Адрес файла и контрольная сумма; одна картинка может использоваться в разных ревизиях.',
         'PublicationAttempt':'Идентификатор попытки и внешней задачи, состояние и замечания; прошлые попытки сохраняются.',
-        'BomForm':'Ввод черновика и показ замечаний; передача команды управлению BOM.',
+        'ModelRangeForm':'Ввод черновика и показ замечаний; передача команды управлению модельным рядом.',
         'CardForm':'Подтверждение отправки ревизии и показ состояния попытки.',
         'MarketplaceGateway':'Подготовка внешнего запроса, отправка и сверка результата. credentialRef — ссылка на секрет, не сам ключ.',
-        'BomControl':'Версионирование, разрешение слотов и предварительный просмотр массовой замены.',
+        'ModelRangeControl':'Версионирование, разрешение слотов и предварительный просмотр массовой замены.',
         'Compatibility':'Проверка конкретных моделей по сокету, габаритам, питанию и интерфейсам.',
         'Calculation':'Расчёт себестоимости, цены и массы по выбранным актуальным предложениям.',
         'Readiness':'Проверка совместимости, актуальности, обязательных полей и изображений.',
@@ -505,9 +543,9 @@ def build_four(source: Path, destination: Path, figures: Path, working: Path):
             props=e['properties']; return props['lower'] if props['lower']==props['upper'] else props['lower']+'..'+props['upper']
         relations.append([by_id[ends[0]['properties']['classifier']]['label'],multiplicity(ends[0])+' — '+multiplicity(ends[1]),'Композиция' if any(e['properties'].get('aggregation')=='composite' for e in ends) else 'Ассоциация',by_id[ends[1]['properties']['classifier']]['label']])
     table('Кратности связей классов-сущностей',['Класс','Кратность','Отношение','Связанный класс'],relations,[4.6,2.4,3.0,6.5])
-    p('Ревизия всегда ссылается ровно на одну версию BOM. Цена, масса, атрибуты и контрольные суммы изображений входят в снимок. При изменении исходных данных создаётся новая ревизия; уже отправленный payload и прежние попытки не перезаписываются. У композиционных объектов единственный владелец; удаление истории публикаций физическим каскадом не допускается.')
+    p('Ревизия всегда ссылается ровно на одну версию модельного ряда. Цена, масса, атрибуты и контрольные суммы изображений входят в снимок. При изменении исходных данных создаётся новая ревизия; уже отправленный payload и прежние попытки не перезаписываются. У композиционных объектов единственный владелец; удаление истории публикаций физическим каскадом не допускается.')
     table('Соответствие сообщениям модели анализа',['Сценарий / сообщение','Операция проектирования','Результат'],[
-        ['UC02: сохранить состав, получить предложения','BomControl:\nformVersion /\nresolveSlots','Черновик версии; конкретные модели и выбранные предложения'],
+        ['UC02: сохранить состав, получить предложения','ModelRangeControl:\nformVersion /\nresolveSlots','Черновик версии; конкретные модели и выбранные предложения'],
         ['UC02: проверить совместимость','Compatibility:\ncheckCompatibility','CheckResult; CHECKED только при отсутствии ошибок'],
         ['UC05: получить снимок, проверить готовность','CardRevision: getSnapshot;\nReadiness: checkReadiness','Снимок и проверяемое решение о возможности отправки'],
         ['UC05: создать запись отправки, передать снимок','PublicationControl:\nrequestPublication;\nMarketplaceGateway:\nprepareRequest / send','Попытка до обмена; ACCEPTED либо ошибка, но не фиктивный успех'],
@@ -515,14 +553,14 @@ def build_four(source: Path, destination: Path, figures: Path, working: Path):
     ],[5.1,5.8,5.6])
     heading=p('4 Диаграмма деятельности',heading=1)
     heading.paragraph_format.page_break_before = True
-    figure('05_ПР4_05_Деятельность_BOM.png','Деятельность: подготовка и проверка состава',new_page=False)
+    figure('05_ПР4_05_Деятельность_Модельный_ряд.png','Деятельность: подготовка и проверка состава',new_page=False)
     figure('06_ПР4_06_Деятельность_Карточка.png','Деятельность: подготовка содержания и передача на публикацию')
-    p('Две первые ветви независимы: технический специалист задаёт требования к позициям, а система обновляет каталог предложений для выбранных поставщиков. Ветвь загрузки не получает объект BOM из параллельной ветви. После AND-синхронизации выбираются конкретные модели и предложения, проверяется совместимость и готовится содержание. Ошибки загрузки сохраняются как результат ветви и блокируют выбор непроверенных предложений; токен завершения ветви не теряется.')
+    p('Две первые ветви независимы: технический специалист задаёт требования к позициям, а система обновляет каталог предложений для выбранных поставщиков. Ветвь загрузки не получает модельный ряд из параллельной ветви. Сплошные полосы UML обозначают разделение (fork) и синхронизацию (join) параллельных потоков, то есть AND. Ромб задаёт выбор по взаимоисключающим условиям, то есть альтернативные ветви. После синхронизации выбираются конкретные модели и предложения, проверяется совместимость и готовится содержание. Ошибки загрузки сохраняются как результат ветви и блокируют выбор непроверенных предложений; токен завершения ветви не теряется.')
     table('Действия подготовки ревизии',['Действие','Исполнитель','Результат'],[
         ['Задать позиции','Технический специалист','Роли, количество, группы либо точные модели'],
         ['Обновить предложения','Система / администратор интеграций','Данные с ценой, наличием, временем и диагностикой загрузки'],
-        ['Разрешить слоты','Управление BOM','Конкретные модели и предложения; сохранён черновик'],
-        ['Проверить совместимость','Проверка совместимости','Проверенная BOM либо адресные конфликты'],
+        ['Разрешить слоты','Управление модельным рядом','Конкретные модели и предложения; сохранён черновик'],
+        ['Проверить совместимость','Проверка совместимости','Проверенный модельный ряд либо адресные конфликты'],
         ['Рассчитать показатели','Расчёт показателей','Себестоимость, цена, масса'],
         ['Подготовить содержание','Дизайнер / менеджер / система','Изображения, название и обязательные атрибуты'],
         ['Проверить ревизию','Проверка готовности','Полный снимок либо замечания к черновику'],
@@ -532,9 +570,10 @@ def build_four(source: Path, destination: Path, figures: Path, working: Path):
     section(True)
     p('5 Диаграммы состояний',heading=1)
     figure('ПР4_07_Состояния_Карточка.png','Состояния карточки с составным состоянием внешнего обмена',landscape=True,new_page=False)
-    figure('ПР4_08_Состояния_Обмен.png','Состояния попытки внешнего обмена',landscape=True)
+    figure('ПР4_08_Состояния_Обмен.png','Отправка и первичные исходы внешнего обмена',landscape=True)
+    figure('ПР4_09_Состояния_Сверка.png','Ожидание результата, сверка и ограниченный повтор',landscape=True)
     section()
-    p('Объект жизненного цикла — карточка с выбранной текущей ревизией. История прежних ревизий остаётся неизменной; состояние обмена уточняется в попытках. «Обмен с Ozon» — составное состояние, раскрытое отдельно. После приёма задачи карточка ожидает окончательного результата. Только подтверждённое создание или обновление даёт состояние «Опубликована».')
+    p('Объект жизненного цикла — карточка с выбранной текущей ревизией. История прежних ревизий остаётся неизменной; состояние обмена уточняется в попытках. «Обмен с Ozon» — составное состояние, раскрытое на рисунках 8 и 9. События, условия и действия подписаны непосредственно у переходов; таблица содержит их полное описание. После приёма задачи карточка ожидает окончательного результата. Только подтверждённое создание или обновление даёт состояние «Опубликована».')
     transitions=json.loads((figures/'ПР4_Переходы.json').read_text(encoding='utf-8'))
     table('Переходы жизненного цикла',['ID','Исходное состояние','Событие и условие','Новое состояние'],transitions,[1.2,3.7,7.9,3.7])
     p('При UNKNOWN запрещена слепая повторная отправка: сначала выполняется сверка по известному внешнему идентификатору или идентификатору товара. Если исход надёжно установить нельзя, попытка остаётся на ручном разборе. Автоматически повторяются только подтверждённые временные отказы без принятия операции, с увеличением задержки и ограничением количества. Валидационные ошибки и отказы в доступе требуют исправления, а не бесконечной очереди.')
@@ -542,7 +581,7 @@ def build_four(source: Path, destination: Path, figures: Path, working: Path):
     p('6 Согласованность проектной модели',heading=1)
     table('Связь с функциями IDEF0 и требованиями',['Функция / требование','Классы и правило'],[
         ['A1 — инициировать карточку','Формы создают запрос и черновик; границы приёма запроса из практики 2 сохранены.'],
-        ['A2 — сформировать BOM','Управление BOM, конфигурация, версия, позиции, группы, комплектующие и предложения.'],
+        ['A2 — сформировать модельный ряд','Управление модельным рядом, конфигурация, версия, позиции, группы, комплектующие и предложения.'],
         ['A3 — проверить совместимость','Проверка совместимости; конфликты блокируют CHECKED и отправку.'],
         ['A4 — рассчитать и подготовить контент','Расчёт показателей, ревизия и изображения; содержание подготовлено до готовности.'],
         ['A5 — проверить и опубликовать','Проверка готовности, управление публикацией, шлюз и попытки.'],
@@ -582,7 +621,7 @@ def main():
             'Общество с ограниченной ответственностью «Юкомс» зарегистрировано в Москве и осуществляет деятельность, связанную с компьютерной техникой, электронной торговлей и информационными технологиями. Для рассматриваемого проекта существенным направлением является формирование и продажа готовых компьютерных систем через электронные каналы. Компания использует сведения поставщиков комплектующих и публикует товарные предложения на маркетплейсе Ozon [1-3].':'Объект учебного проекта — формирование и продажа компьютерных систем ООО «Юкомс». Открытый сайт компании описывает компьютеры и электронные каналы продаж [2]. Внутренние роли, документооборот и связи с PC4Games и ITPartner ниже приняты как проектные предположения для автоматизации, а не результаты фактического интервью или доступа к внутренним регламентам.',
             'Инициирующее событие процесса - руководитель или менеджер принимает решение создать новое товарное предложение либо изменить существующее. Завершающее событие - Ozon принял новую или обновлённую карточку, а система сохранила результат публикации. При ошибке процесс завершается только после регистрации проблемы и назначения карточке статуса «ошибка публикации».':'Инициирующее событие — решение руководителя или менеджера создать либо изменить товарное предложение. Успешное завершение — подтверждено создание или обновление карточки и сохранён окончательный результат. Приём задачи без окончательного результата означает ожидание. Отказ, временная ошибка и неизвестный исход регистрируются отдельно; неизвестный исход требует сверки, а не слепой повторной отправки.',
             'Система должна помещать неуспешную внешнюю операцию в очередь повторной отправки.':'Система должна разделять окончательные, временные ошибки и неизвестный исход. Повторная отправка допускается только для подтверждённых временных отказов без принятия операции, с задержкой и лимитом попыток. Ошибки данных исправляются; неизвестный исход сначала сверяется.',
-            'В ходе практической работы выполнено предварительное обследование ООО «Юкомс» в части формирования и актуализации карточек товаров компьютерных систем. Определены участники, границы и проблемы процесса. Основной причиной проектирования специализированной ИС является необходимость согласованно изменять BOM, точные модели поставщиков и опубликованные карточки при сохранении технической совместимости и актуальности цены.':'В ходе практической работы подготовлено учебное предпроектное описание процесса формирования и актуализации карточек компьютерных систем ООО «Юкомс». По открытым материалам и явно заданным проектным предположениям определены участники, границы и проблемы. Необходимость специализированной ИС связана с согласованным изменением BOM, моделей поставщиков и карточек при сохранении совместимости и актуальности цены. Фактические интервью и результаты внедрения не утверждаются.',
+            'В ходе практической работы выполнено предварительное обследование ООО «Юкомс» в части формирования и актуализации карточек товаров компьютерных систем. Определены участники, границы и проблемы процесса. Основной причиной проектирования специализированной ИС является необходимость согласованно изменять модельный ряд, точные модели поставщиков и опубликованные карточки при сохранении технической совместимости и актуальности цены.':'В ходе практической работы подготовлено учебное предпроектное описание процесса формирования и актуализации карточек компьютерных систем ООО «Юкомс». По открытым материалам и явно заданным проектным предположениям определены участники, границы и проблемы. Необходимость специализированной ИС связана с согласованным изменением модельного ряда, моделей поставщиков и карточек при сохранении совместимости и актуальности цены. Фактические интервью и результаты внедрения не утверждаются.',
         },
         2:{
             'На диаграмме A0 основной процесс разложен на пять взаимосвязанных функций. Результат каждой функции служит входом следующей; публикация допускается только после успешного прохождения предыдущих этапов. Декомпозиция показана на рисунке 2.':'На рисунке 2 показана декомпозиция на пять функций. Публикация допускается только после проверки ревизии.',
@@ -605,10 +644,46 @@ def main():
             log[name]['only_document_xml_changed']=False
         if number==3:
             log[name]['changed_media']=replace_analysis_images(args.output/name,args.figures)
+            report=Document(args.output/name)
+            for shape,file,height in zip(list(report.inline_shapes)[1:],
+                ['ПР3_01_Варианты_использования.png','ПР3_02_Классы_анализа_1.png','ПР3_02_Классы_анализа_2.png',*ANALYSIS_PARTS],
+                [14.5,14.3,14.3,12.3,14.3,12.3,14.3,12.9]):
+                with Image.open(args.figures/file) as image:
+                    width=min(25.2,height*image.width/image.height)
+                    shape.width=Cm(width);shape.height=int(Cm(width)*image.height/image.width)
+            for p in report.paragraphs:
+                if 'В UC05 попытка регистрируется до отправки.' in p.text:
+                    if 'Сообщения 11 «Сохранить результат»' not in p.text:
+                        p.add_run(' Сообщения 11 «Сохранить результат» и 12 «Обновить статус» — асинхронные вызовы со сплошной стрелкой и открытым наконечником.')
+                    for run in p.runs:font(run)
+            for table in report.tables:
+                if len(table.columns)!=4:continue
+                if any('Сформировать версию' in c.text for row in table.rows for c in row.cells):
+                    widths=[6.1,3.3,9.7,6.1]
+                    for column,width in zip(table.columns,widths):column.width=Cm(width)
+                    for row in table.rows:
+                        for cell,width in zip(row.cells,widths):cell.width=Cm(width)
+                if any('11. Сохранить результат' in c.text for row in table.rows for c in row.cells):
+                    widths=[5.3,4.4,9.7,5.8]
+                    for column,width in zip(table.columns,widths):column.width=Cm(width)
+                    for row in table.rows:
+                        for cell,width in zip(row.cells,widths):cell.width=Cm(width)
+                for row in table.rows:
+                    if any('11. Сохранить результат' in c.text or '12. Обновить статус' in c.text for c in row.cells):
+                        cell=row.cells[1];cell.text='Асинхронный вызов'
+                        for p in cell.paragraphs:
+                            p.paragraph_format.first_line_indent=Cm(0);p.paragraph_format.line_spacing=1
+                            p.paragraph_format.left_indent=Cm(0);p.paragraph_format.right_indent=Cm(0)
+                            p.paragraph_format.space_before=Pt(0);p.paragraph_format.space_after=Pt(0)
+                            p.alignment=WD_ALIGN_PARAGRAPH.LEFT
+                            for run in p.runs:font(run,12)
+            report.save(args.output/name)
             log[name]['only_document_xml_changed']=False
     name='ППОИС_4_АлбахтинИВ.docx'
     log[name]=build_four(args.baseline/name,args.output/name,args.figures,args.working)
     for name in log:
+        from update_terminology import patch_docx
+        patch_docx(args.output/name)
         log[name]['package_cleanup']=prune_unused_images(args.output/name)
     (args.working/'revision_log.json').write_text(json.dumps(log,ensure_ascii=False,indent=2),encoding='utf-8')
     print(json.dumps(log,ensure_ascii=False,indent=2))

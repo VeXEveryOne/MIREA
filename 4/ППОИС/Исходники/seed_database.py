@@ -38,11 +38,11 @@ def seed(conn):
                  (uid(44), uid(17), uid(22), 14500, 10, NOW)]
         c.executemany('INSERT INTO ppois.offer VALUES (%s,%s,%s,%s,%s,%s)', rows)
         c.execute('INSERT INTO ppois.configuration VALUES (%s,%s,%s)', (uid(100), 'PC-101', 'Учебная конфигурация AM5'))
-        c.executemany('INSERT INTO ppois.bom_version VALUES (%s,%s,%s,%s)',
+        c.executemany('INSERT INTO ppois.model_range_version VALUES (%s,%s,%s,%s)',
                       [(uid(100), 1, 'CHECKED', NOW), (uid(100), 2, 'DRAFT', NOW)])
         for version in (1, 2):
             for i, (_, _, _, role) in enumerate(groups):
-                c.execute('INSERT INTO ppois.bom_slot VALUES (%s,%s,%s,%s,%s,%s,%s)',
+                c.execute('INSERT INTO ppois.model_range_slot VALUES (%s,%s,%s,%s,%s,%s,%s)',
                           (uid(100), version, i+1, uid(i+1), None,
                            uid(31+i), 2 if role == 'RAM' else 1))
         c.executemany('INSERT INTO ppois.card VALUES (%s,%s,%s)',
@@ -56,7 +56,7 @@ def seed(conn):
                        'Компьютер AM5 32 ГБ / SSD 1 ТБ', 'Учебная карточка без внешней публикации',
                        2000, 500, 700,
                        Decimal('.20'), Decimal('.15'), 100, Decimal('.800'), NOW))
-        c.execute('UPDATE ppois.bom_version SET state = %s WHERE version_no = 1', ('FROZEN',))
+        c.execute('UPDATE ppois.model_range_version SET state = %s WHERE version_no = 1', ('FROZEN',))
         c.execute('INSERT INTO ppois.image VALUES (%s,%s,%s,%s,%s)',
                   (uid(300), 'images/pc-101.svg', 'a'*64, 1200, 1200))
         c.execute('INSERT INTO ppois.revision_image VALUES (%s,1,%s,1)', (uid(200), uid(300)))

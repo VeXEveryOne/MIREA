@@ -1,0 +1,3074 @@
+{
+  "notation": "GANTT",
+  "formatVersion": 1,
+  "profile": "NS-GANTT-1",
+  "model": {
+    "id": "uitpOmniNotation",
+    "label": "Разработка и маркетинг OmniNotation",
+    "elements": [
+      {
+        "id": "weekdays",
+        "kind": "calendar",
+        "label": "Пятидневная неделя",
+        "properties": {
+          "hoursPerDay": "8",
+          "monday": "true",
+          "tuesday": "true",
+          "wednesday": "true",
+          "thursday": "true",
+          "friday": "true",
+          "saturday": "false",
+          "sunday": "false"
+        }
+      },
+      {
+        "id": "projectPlan",
+        "kind": "plan",
+        "label": "План проекта OmniNotation",
+        "properties": {
+          "start": "2026-11-02",
+          "calendar": "weekdays",
+          "mode": "manual",
+          "description": "Учебный план на 02.11.2026–30.06.2027. 312 чел.-дн., 2496 чел.-ч. Бюджет с резервом 3649800 руб. Расчётная критическая цепь отчёта без фиксированных дат: 1.1.1 → 1.1.3 → 1.2.1 → 1.2.2 → 6.1.1 → 6.1.2 → 6.1.3 → 6.2.1 → 6.2.2 → 6.2.3 → 6.2.4 → 6.9.0. Длина в отчёте — 163 рабочих дня. В ручном режиме критичность не пересчитывается."
+        }
+      },
+      {
+        "id": "main",
+        "kind": "diagram",
+        "label": "Полный календарный план",
+        "properties": {
+          "type": "gantt",
+          "plan": "projectPlan"
+        }
+      },
+      {
+        "id": "rp",
+        "kind": "resource",
+        "label": "Руководитель проекта и аналитик",
+        "properties": {
+          "capacityHoursPerDay": "8",
+          "role": "РП",
+          "description": "Учебная ставка: 8000 руб. за человеко-день."
+        }
+      },
+      {
+        "id": "ar",
+        "kind": "resource",
+        "label": "Архитектор и разработчик платформы",
+        "properties": {
+          "capacityHoursPerDay": "8",
+          "role": "АР",
+          "description": "Учебная ставка: 10000 руб. за человеко-день."
+        }
+      },
+      {
+        "id": "notationDev",
+        "kind": "resource",
+        "label": "Разработчик нотаций и языка",
+        "properties": {
+          "capacityHoursPerDay": "8",
+          "role": "ИН",
+          "description": "Учебная ставка: 9000 руб. за человеко-день."
+        }
+      },
+      {
+        "id": "ux",
+        "kind": "resource",
+        "label": "UX-специалист",
+        "properties": {
+          "capacityHoursPerDay": "8",
+          "role": "UX",
+          "description": "Учебная ставка: 7000 руб. за человеко-день."
+        }
+      },
+      {
+        "id": "mk",
+        "kind": "resource",
+        "label": "Специалист по маркетингу и ручной проверке",
+        "properties": {
+          "capacityHoursPerDay": "8",
+          "role": "МК",
+          "description": "Учебная ставка: 7000 руб. за человеко-день."
+        }
+      },
+      {
+        "id": "stage1",
+        "kind": "task",
+        "label": "Концепция и аудитория",
+        "properties": {
+          "kind": "summary",
+          "order": "1",
+          "wbsCode": "1"
+        }
+      },
+      {
+        "id": "stage1_1",
+        "kind": "task",
+        "label": "Старт и исследование",
+        "properties": {
+          "kind": "summary",
+          "parent": "stage1",
+          "order": "1",
+          "wbsCode": "1.1"
+        }
+      },
+      {
+        "id": "t1_1_1",
+        "kind": "task",
+        "label": "Старт проекта и критерии успеха",
+        "properties": {
+          "kind": "task",
+          "parent": "stage1_1",
+          "order": "1",
+          "wbsCode": "1.1.1",
+          "start": "2026-11-02",
+          "duration": "5",
+          "deadline": "2026-11-06",
+          "effortHours": "24",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t1_1_2",
+        "kind": "task",
+        "label": "Аудит текущей версии OmniNotation",
+        "properties": {
+          "kind": "task",
+          "parent": "stage1_1",
+          "order": "2",
+          "wbsCode": "1.1.2",
+          "start": "2026-11-02",
+          "duration": "10",
+          "deadline": "2026-11-13",
+          "effortHours": "40",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t1_1_3",
+        "kind": "task",
+        "label": "Интервью и сегменты пользователей",
+        "properties": {
+          "kind": "task",
+          "parent": "stage1_1",
+          "order": "3",
+          "wbsCode": "1.1.3",
+          "start": "2026-11-09",
+          "duration": "10",
+          "deadline": "2026-11-20",
+          "effortHours": "56",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "stage1_2",
+        "kind": "task",
+        "label": "Позиционирование и концепция",
+        "properties": {
+          "kind": "summary",
+          "parent": "stage1",
+          "order": "2",
+          "wbsCode": "1.2"
+        }
+      },
+      {
+        "id": "t1_2_1",
+        "kind": "task",
+        "label": "Анализ альтернатив и позиционирования",
+        "properties": {
+          "kind": "task",
+          "parent": "stage1_2",
+          "order": "1",
+          "wbsCode": "1.2.1",
+          "start": "2026-11-16",
+          "duration": "10",
+          "deadline": "2026-11-27",
+          "effortHours": "24",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t1_2_2",
+        "kind": "task",
+        "label": "Концепция, границы и KPI",
+        "properties": {
+          "kind": "task",
+          "parent": "stage1_2",
+          "order": "2",
+          "wbsCode": "1.2.2",
+          "start": "2026-11-30",
+          "duration": "5",
+          "deadline": "2026-12-04",
+          "effortHours": "32",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t1_9_0",
+        "kind": "task",
+        "label": "Веха: концепция утверждена",
+        "properties": {
+          "kind": "milestone",
+          "parent": "stage1",
+          "order": "9",
+          "wbsCode": "1.9.0",
+          "start": "2026-12-04",
+          "duration": "0",
+          "deadline": "2026-12-04",
+          "effortHours": "0",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "stage2",
+        "kind": "task",
+        "label": "Требования и дизайн",
+        "properties": {
+          "kind": "summary",
+          "order": "2",
+          "wbsCode": "2"
+        }
+      },
+      {
+        "id": "stage2_1",
+        "kind": "task",
+        "label": "Сценарии и требования",
+        "properties": {
+          "kind": "summary",
+          "parent": "stage2",
+          "order": "1",
+          "wbsCode": "2.1"
+        }
+      },
+      {
+        "id": "t2_1_1",
+        "kind": "task",
+        "label": "Сценарии применения DFD/IDEF0/BPMN/UML",
+        "properties": {
+          "kind": "task",
+          "parent": "stage2_1",
+          "order": "1",
+          "wbsCode": "2.1.1",
+          "start": "2026-12-07",
+          "duration": "10",
+          "deadline": "2026-12-18",
+          "effortHours": "48",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t2_1_2",
+        "kind": "task",
+        "label": "Функциональные требования",
+        "properties": {
+          "kind": "task",
+          "parent": "stage2_1",
+          "order": "2",
+          "wbsCode": "2.1.2",
+          "start": "2026-12-14",
+          "duration": "20",
+          "deadline": "2027-01-08",
+          "effortHours": "64",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t2_1_3",
+        "kind": "task",
+        "label": "Профили нотаций и критерии приёмки",
+        "properties": {
+          "kind": "task",
+          "parent": "stage2_1",
+          "order": "3",
+          "wbsCode": "2.1.3",
+          "start": "2026-12-21",
+          "duration": "15",
+          "deadline": "2027-01-08",
+          "effortHours": "72",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "stage2_2",
+        "kind": "task",
+        "label": "Интерфейс и бэклог",
+        "properties": {
+          "kind": "summary",
+          "parent": "stage2",
+          "order": "2",
+          "wbsCode": "2.2"
+        }
+      },
+      {
+        "id": "t2_2_1",
+        "kind": "task",
+        "label": "Прототипы сценариев и интерфейса",
+        "properties": {
+          "kind": "task",
+          "parent": "stage2_2",
+          "order": "1",
+          "wbsCode": "2.2.1",
+          "start": "2026-12-14",
+          "duration": "20",
+          "deadline": "2027-01-08",
+          "effortHours": "96",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t2_2_2",
+        "kind": "task",
+        "label": "Приоритетный бэклог и оценки",
+        "properties": {
+          "kind": "task",
+          "parent": "stage2_2",
+          "order": "2",
+          "wbsCode": "2.2.2",
+          "start": "2027-01-11",
+          "duration": "10",
+          "deadline": "2027-01-22",
+          "effortHours": "56",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "stage3",
+        "kind": "task",
+        "label": "Общая платформа",
+        "properties": {
+          "kind": "summary",
+          "order": "3",
+          "wbsCode": "3"
+        }
+      },
+      {
+        "id": "stage3_1",
+        "kind": "task",
+        "label": "Архитектура и язык",
+        "properties": {
+          "kind": "summary",
+          "parent": "stage3",
+          "order": "1",
+          "wbsCode": "3.1"
+        }
+      },
+      {
+        "id": "t3_1_1",
+        "kind": "task",
+        "label": "Уточнение архитектуры модулей",
+        "properties": {
+          "kind": "task",
+          "parent": "stage3_1",
+          "order": "1",
+          "wbsCode": "3.1.1",
+          "start": "2027-01-25",
+          "duration": "15",
+          "deadline": "2027-02-12",
+          "effortHours": "80",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t3_1_2",
+        "kind": "task",
+        "label": "Общий хост и реестр адаптеров",
+        "properties": {
+          "kind": "task",
+          "parent": "stage3_1",
+          "order": "2",
+          "wbsCode": "3.1.2",
+          "start": "2027-02-01",
+          "duration": "15",
+          "deadline": "2027-02-19",
+          "effortHours": "40",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t3_1_3",
+        "kind": "task",
+        "label": "Общий язык и синхронизация модели",
+        "properties": {
+          "kind": "task",
+          "parent": "stage3_1",
+          "order": "3",
+          "wbsCode": "3.1.3",
+          "start": "2027-02-15",
+          "duration": "10",
+          "deadline": "2027-02-26",
+          "effortHours": "56",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "stage3_2",
+        "kind": "task",
+        "label": "Редактор, сохранение и экспорт",
+        "properties": {
+          "kind": "summary",
+          "parent": "stage3",
+          "order": "2",
+          "wbsCode": "3.2"
+        }
+      },
+      {
+        "id": "t3_2_1",
+        "kind": "task",
+        "label": "Сохранение, черновики и восстановление",
+        "properties": {
+          "kind": "task",
+          "parent": "stage3_2",
+          "order": "1",
+          "wbsCode": "3.2.1",
+          "start": "2027-02-22",
+          "duration": "20",
+          "deadline": "2027-03-19",
+          "effortHours": "96",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t3_2_2",
+        "kind": "task",
+        "label": "Единый интерфейс редактора",
+        "properties": {
+          "kind": "task",
+          "parent": "stage3_2",
+          "order": "2",
+          "wbsCode": "3.2.2",
+          "start": "2027-02-22",
+          "duration": "20",
+          "deadline": "2027-03-19",
+          "effortHours": "96",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t3_2_3",
+        "kind": "task",
+        "label": "Экспорт и выпускные сборки",
+        "properties": {
+          "kind": "task",
+          "parent": "stage3_2",
+          "order": "3",
+          "wbsCode": "3.2.3",
+          "start": "2027-03-22",
+          "duration": "15",
+          "deadline": "2027-04-09",
+          "effortHours": "72",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "stage4",
+        "kind": "task",
+        "label": "Нотации и синхронизация",
+        "properties": {
+          "kind": "summary",
+          "order": "4",
+          "wbsCode": "4"
+        }
+      },
+      {
+        "id": "stage4_1",
+        "kind": "task",
+        "label": "DFD, IDEF0 и BPMN",
+        "properties": {
+          "kind": "summary",
+          "parent": "stage4",
+          "order": "1",
+          "wbsCode": "4.1"
+        }
+      },
+      {
+        "id": "t4_1_1",
+        "kind": "task",
+        "label": "Доработка DFD",
+        "properties": {
+          "kind": "task",
+          "parent": "stage4_1",
+          "order": "1",
+          "wbsCode": "4.1.1",
+          "start": "2027-03-01",
+          "duration": "15",
+          "deadline": "2027-03-19",
+          "effortHours": "88",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t4_1_2",
+        "kind": "task",
+        "label": "Доработка IDEF0",
+        "properties": {
+          "kind": "task",
+          "parent": "stage4_1",
+          "order": "2",
+          "wbsCode": "4.1.2",
+          "start": "2027-03-22",
+          "duration": "20",
+          "deadline": "2027-04-16",
+          "effortHours": "104",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t4_1_3",
+        "kind": "task",
+        "label": "Доработка графического BPMN",
+        "properties": {
+          "kind": "task",
+          "parent": "stage4_1",
+          "order": "3",
+          "wbsCode": "4.1.3",
+          "start": "2027-03-01",
+          "duration": "20",
+          "deadline": "2027-03-26",
+          "effortHours": "64",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t4_1_4",
+        "kind": "task",
+        "label": "Семантические правила BPMN",
+        "properties": {
+          "kind": "task",
+          "parent": "stage4_1",
+          "order": "4",
+          "wbsCode": "4.1.4",
+          "start": "2027-03-29",
+          "duration": "25",
+          "deadline": "2027-04-30",
+          "effortHours": "64",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "stage4_2",
+        "kind": "task",
+        "label": "UML, примеры и интеграция",
+        "properties": {
+          "kind": "summary",
+          "parent": "stage4",
+          "order": "2",
+          "wbsCode": "4.2"
+        }
+      },
+      {
+        "id": "t4_2_1",
+        "kind": "task",
+        "label": "Доработка UML-профилей",
+        "properties": {
+          "kind": "task",
+          "parent": "stage4_2",
+          "order": "1",
+          "wbsCode": "4.2.1",
+          "start": "2027-04-19",
+          "duration": "20",
+          "deadline": "2027-05-14",
+          "effortHours": "96",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t4_2_2",
+        "kind": "task",
+        "label": "Проверка text ↔ diagram round-trip",
+        "properties": {
+          "kind": "task",
+          "parent": "stage4_2",
+          "order": "2",
+          "wbsCode": "4.2.2",
+          "start": "2027-04-12",
+          "duration": "20",
+          "deadline": "2027-05-07",
+          "effortHours": "112",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t4_2_3",
+        "kind": "task",
+        "label": "Библиотека примеров и шаблонов",
+        "properties": {
+          "kind": "task",
+          "parent": "stage4_2",
+          "order": "3",
+          "wbsCode": "4.2.3",
+          "start": "2027-05-03",
+          "duration": "15",
+          "deadline": "2027-05-21",
+          "effortHours": "64",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t4_2_4",
+        "kind": "task",
+        "label": "Интеграция и исправление дефектов",
+        "properties": {
+          "kind": "task",
+          "parent": "stage4_2",
+          "order": "4",
+          "wbsCode": "4.2.4",
+          "start": "2027-05-17",
+          "duration": "10",
+          "deadline": "2027-05-28",
+          "effortHours": "56",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t4_9_0",
+        "kind": "task",
+        "label": "Веха: функциональный контур готов",
+        "properties": {
+          "kind": "milestone",
+          "parent": "stage4",
+          "order": "9",
+          "wbsCode": "4.9.0",
+          "start": "2027-05-28",
+          "duration": "0",
+          "deadline": "2027-05-28",
+          "effortHours": "0",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "stage5",
+        "kind": "task",
+        "label": "Приёмка и выпуск",
+        "properties": {
+          "kind": "summary",
+          "order": "5",
+          "wbsCode": "5"
+        }
+      },
+      {
+        "id": "stage5_1",
+        "kind": "task",
+        "label": "Проверка",
+        "properties": {
+          "kind": "summary",
+          "parent": "stage5",
+          "order": "1",
+          "wbsCode": "5.1"
+        }
+      },
+      {
+        "id": "t5_1_1",
+        "kind": "task",
+        "label": "Сценарии ручной проверки",
+        "properties": {
+          "kind": "task",
+          "parent": "stage5_1",
+          "order": "1",
+          "wbsCode": "5.1.1",
+          "start": "2027-04-12",
+          "duration": "15",
+          "deadline": "2027-04-30",
+          "effortHours": "56",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t5_1_2",
+        "kind": "task",
+        "label": "Ручная приёмка и пилотная проверка",
+        "properties": {
+          "kind": "task",
+          "parent": "stage5_1",
+          "order": "2",
+          "wbsCode": "5.1.2",
+          "start": "2027-05-31",
+          "duration": "10",
+          "deadline": "2027-06-11",
+          "effortHours": "56",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t5_1_3",
+        "kind": "task",
+        "label": "Устойчивость и производительность",
+        "properties": {
+          "kind": "task",
+          "parent": "stage5_1",
+          "order": "3",
+          "wbsCode": "5.1.3",
+          "start": "2027-05-24",
+          "duration": "15",
+          "deadline": "2027-06-11",
+          "effortHours": "88",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "stage5_2",
+        "kind": "task",
+        "label": "Выпуск и руководство",
+        "properties": {
+          "kind": "summary",
+          "parent": "stage5",
+          "order": "2",
+          "wbsCode": "5.2"
+        }
+      },
+      {
+        "id": "t5_2_1",
+        "kind": "task",
+        "label": "Кандидат выпуска",
+        "properties": {
+          "kind": "task",
+          "parent": "stage5_2",
+          "order": "1",
+          "wbsCode": "5.2.1",
+          "start": "2027-06-14",
+          "duration": "5",
+          "deadline": "2027-06-18",
+          "effortHours": "32",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t5_2_2",
+        "kind": "task",
+        "label": "Руководство пользователя",
+        "properties": {
+          "kind": "task",
+          "parent": "stage5_2",
+          "order": "2",
+          "wbsCode": "5.2.2",
+          "start": "2027-05-31",
+          "duration": "15",
+          "deadline": "2027-06-18",
+          "effortHours": "72",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "stage6",
+        "kind": "task",
+        "label": "Маркетинг и пилот",
+        "properties": {
+          "kind": "summary",
+          "order": "6",
+          "wbsCode": "6"
+        }
+      },
+      {
+        "id": "stage6_1",
+        "kind": "task",
+        "label": "Предложение и материалы",
+        "properties": {
+          "kind": "summary",
+          "parent": "stage6",
+          "order": "1",
+          "wbsCode": "6.1"
+        }
+      },
+      {
+        "id": "t6_1_1",
+        "kind": "task",
+        "label": "Ценностное предложение и аудитории",
+        "properties": {
+          "kind": "task",
+          "parent": "stage6_1",
+          "order": "1",
+          "wbsCode": "6.1.1",
+          "start": "2026-12-07",
+          "duration": "30",
+          "deadline": "2027-01-15",
+          "effortHours": "120",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t6_1_2",
+        "kind": "task",
+        "label": "Лендинг и демонстрация продукта",
+        "properties": {
+          "kind": "task",
+          "parent": "stage6_1",
+          "order": "2",
+          "wbsCode": "6.1.2",
+          "start": "2027-01-18",
+          "duration": "30",
+          "deadline": "2027-02-26",
+          "effortHours": "120",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t6_1_3",
+        "kind": "task",
+        "label": "Контент-план и учебные материалы",
+        "properties": {
+          "kind": "task",
+          "parent": "stage6_1",
+          "order": "3",
+          "wbsCode": "6.1.3",
+          "start": "2027-03-01",
+          "duration": "20",
+          "deadline": "2027-03-26",
+          "effortHours": "80",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "stage6_2",
+        "kind": "task",
+        "label": "Пилот и план запуска",
+        "properties": {
+          "kind": "summary",
+          "parent": "stage6",
+          "order": "2",
+          "wbsCode": "6.2"
+        }
+      },
+      {
+        "id": "t6_2_1",
+        "kind": "task",
+        "label": "Набор пилотной группы",
+        "properties": {
+          "kind": "task",
+          "parent": "stage6_2",
+          "order": "1",
+          "wbsCode": "6.2.1",
+          "start": "2027-04-05",
+          "duration": "20",
+          "deadline": "2027-04-30",
+          "effortHours": "80",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t6_2_2",
+        "kind": "task",
+        "label": "Пилот и сбор обратной связи",
+        "properties": {
+          "kind": "task",
+          "parent": "stage6_2",
+          "order": "2",
+          "wbsCode": "6.2.2",
+          "start": "2027-05-03",
+          "duration": "20",
+          "deadline": "2027-05-28",
+          "effortHours": "80",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t6_2_3",
+        "kind": "task",
+        "label": "Анализ отклика и гипотезы монетизации",
+        "properties": {
+          "kind": "task",
+          "parent": "stage6_2",
+          "order": "3",
+          "wbsCode": "6.2.3",
+          "start": "2027-05-31",
+          "duration": "15",
+          "deadline": "2027-06-18",
+          "effortHours": "64",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t6_2_4",
+        "kind": "task",
+        "label": "Презентация и план запуска",
+        "properties": {
+          "kind": "task",
+          "parent": "stage6_2",
+          "order": "4",
+          "wbsCode": "6.2.4",
+          "start": "2027-06-21",
+          "duration": "8",
+          "deadline": "2027-06-30",
+          "effortHours": "48",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "t6_9_0",
+        "kind": "task",
+        "label": "Веха: план защищён",
+        "properties": {
+          "kind": "milestone",
+          "parent": "stage6",
+          "order": "9",
+          "wbsCode": "6.9.0",
+          "start": "2027-06-30",
+          "duration": "0",
+          "deadline": "2027-06-30",
+          "effortHours": "0",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "dep01",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t1_1_1",
+          "to": "t1_1_2",
+          "type": "SS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep02",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t1_1_1",
+          "to": "t1_1_3",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep03",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t1_1_3",
+          "to": "t1_2_1",
+          "type": "SS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep04",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t1_2_1",
+          "to": "t1_2_2",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep05",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t1_2_2",
+          "to": "t2_1_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep06",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t2_1_1",
+          "to": "t2_1_2",
+          "type": "SS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep07",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t2_1_2",
+          "to": "t2_1_3",
+          "type": "SS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep08",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t2_1_1",
+          "to": "t2_2_1",
+          "type": "SS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep09",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t2_1_3",
+          "to": "t2_2_2",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep10",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t2_2_2",
+          "to": "t3_1_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep11",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t3_1_1",
+          "to": "t3_1_2",
+          "type": "SS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep12",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t3_1_1",
+          "to": "t3_1_3",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep13",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t3_1_2",
+          "to": "t3_2_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep14",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t3_1_2",
+          "to": "t3_2_2",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep15",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t3_2_1",
+          "to": "t3_2_3",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep16",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t3_1_3",
+          "to": "t4_1_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep17",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t4_1_1",
+          "to": "t4_1_2",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep18",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t3_1_2",
+          "to": "t4_1_3",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep19",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t4_1_3",
+          "to": "t4_1_4",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep20",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t4_1_2",
+          "to": "t4_2_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep21",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t3_2_3",
+          "to": "t4_2_2",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep22",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t4_1_4",
+          "to": "t4_2_3",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep23",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t4_2_1",
+          "to": "t4_2_4",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep24",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t4_1_3",
+          "to": "t5_1_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep25",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t4_2_4",
+          "to": "t5_1_2",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep26",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t4_2_2",
+          "to": "t5_1_3",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep27",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t5_1_2",
+          "to": "t5_2_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep28",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t4_2_3",
+          "to": "t5_2_2",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep29",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t1_2_2",
+          "to": "t6_1_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep30",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t6_1_1",
+          "to": "t6_1_2",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep31",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t6_1_2",
+          "to": "t6_1_3",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep32",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t6_1_3",
+          "to": "t6_2_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep33",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t6_2_1",
+          "to": "t6_2_2",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep34",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t6_2_2",
+          "to": "t6_2_3",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep35",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t5_2_1",
+          "to": "t6_2_4",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep36",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t6_2_3",
+          "to": "t6_2_4",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "dep37",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t1_2_2",
+          "to": "t1_9_0",
+          "type": "FF",
+          "lag": "-1",
+          "description": "FF из отчёта; lag=-1 согласует веху с последним рабочим днём предшественника."
+        }
+      },
+      {
+        "id": "dep38",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t4_2_4",
+          "to": "t4_9_0",
+          "type": "FF",
+          "lag": "-1",
+          "description": "FF из отчёта; lag=-1 согласует веху с последним рабочим днём предшественника."
+        }
+      },
+      {
+        "id": "dep39",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "t6_2_4",
+          "to": "t6_9_0",
+          "type": "FF",
+          "lag": "-1",
+          "description": "FF из отчёта; lag=-1 согласует веху с последним рабочим днём предшественника."
+        }
+      },
+      {
+        "id": "a1_1_1",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t1_1_1",
+          "resource": "rp",
+          "effortHours": "24"
+        }
+      },
+      {
+        "id": "a1_1_2",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t1_1_2",
+          "resource": "ar",
+          "effortHours": "40"
+        }
+      },
+      {
+        "id": "a1_1_3",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t1_1_3",
+          "resource": "mk",
+          "effortHours": "56"
+        }
+      },
+      {
+        "id": "a1_2_1",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t1_2_1",
+          "resource": "mk",
+          "effortHours": "24"
+        }
+      },
+      {
+        "id": "a1_2_2",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t1_2_2",
+          "resource": "rp",
+          "effortHours": "32"
+        }
+      },
+      {
+        "id": "a2_1_1",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t2_1_1",
+          "resource": "rp",
+          "effortHours": "48"
+        }
+      },
+      {
+        "id": "a2_1_2",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t2_1_2",
+          "resource": "rp",
+          "effortHours": "64"
+        }
+      },
+      {
+        "id": "a2_1_3",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t2_1_3",
+          "resource": "notationDev",
+          "effortHours": "72"
+        }
+      },
+      {
+        "id": "a2_2_1",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t2_2_1",
+          "resource": "ux",
+          "effortHours": "96"
+        }
+      },
+      {
+        "id": "a2_2_2",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t2_2_2",
+          "resource": "rp",
+          "effortHours": "56"
+        }
+      },
+      {
+        "id": "a3_1_1",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t3_1_1",
+          "resource": "ar",
+          "effortHours": "80"
+        }
+      },
+      {
+        "id": "a3_1_2",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t3_1_2",
+          "resource": "ar",
+          "effortHours": "40"
+        }
+      },
+      {
+        "id": "a3_1_3",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t3_1_3",
+          "resource": "notationDev",
+          "effortHours": "56"
+        }
+      },
+      {
+        "id": "a3_2_1",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t3_2_1",
+          "resource": "ar",
+          "effortHours": "96"
+        }
+      },
+      {
+        "id": "a3_2_2",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t3_2_2",
+          "resource": "ux",
+          "effortHours": "96"
+        }
+      },
+      {
+        "id": "a3_2_3",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t3_2_3",
+          "resource": "ar",
+          "effortHours": "72"
+        }
+      },
+      {
+        "id": "a4_1_1",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t4_1_1",
+          "resource": "notationDev",
+          "effortHours": "88"
+        }
+      },
+      {
+        "id": "a4_1_2",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t4_1_2",
+          "resource": "notationDev",
+          "effortHours": "104"
+        }
+      },
+      {
+        "id": "a4_1_3",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t4_1_3",
+          "resource": "ar",
+          "effortHours": "64"
+        }
+      },
+      {
+        "id": "a4_1_4",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t4_1_4",
+          "resource": "notationDev",
+          "effortHours": "64"
+        }
+      },
+      {
+        "id": "a4_2_1",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t4_2_1",
+          "resource": "notationDev",
+          "effortHours": "96"
+        }
+      },
+      {
+        "id": "a4_2_2",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t4_2_2",
+          "resource": "ar",
+          "effortHours": "112"
+        }
+      },
+      {
+        "id": "a4_2_3",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t4_2_3",
+          "resource": "ux",
+          "effortHours": "64"
+        }
+      },
+      {
+        "id": "a4_2_4",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t4_2_4",
+          "resource": "notationDev",
+          "effortHours": "56"
+        }
+      },
+      {
+        "id": "a5_1_1",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t5_1_1",
+          "resource": "mk",
+          "effortHours": "56"
+        }
+      },
+      {
+        "id": "a5_1_2",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t5_1_2",
+          "resource": "rp",
+          "effortHours": "56"
+        }
+      },
+      {
+        "id": "a5_1_3",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t5_1_3",
+          "resource": "ar",
+          "effortHours": "88"
+        }
+      },
+      {
+        "id": "a5_2_1",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t5_2_1",
+          "resource": "ar",
+          "effortHours": "32"
+        }
+      },
+      {
+        "id": "a5_2_2",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t5_2_2",
+          "resource": "ux",
+          "effortHours": "72"
+        }
+      },
+      {
+        "id": "a6_1_1",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t6_1_1",
+          "resource": "mk",
+          "effortHours": "120"
+        }
+      },
+      {
+        "id": "a6_1_2",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t6_1_2",
+          "resource": "mk",
+          "effortHours": "120"
+        }
+      },
+      {
+        "id": "a6_1_3",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t6_1_3",
+          "resource": "mk",
+          "effortHours": "80"
+        }
+      },
+      {
+        "id": "a6_2_1",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t6_2_1",
+          "resource": "mk",
+          "effortHours": "80"
+        }
+      },
+      {
+        "id": "a6_2_2",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t6_2_2",
+          "resource": "mk",
+          "effortHours": "80"
+        }
+      },
+      {
+        "id": "a6_2_3",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t6_2_3",
+          "resource": "mk",
+          "effortHours": "64"
+        }
+      },
+      {
+        "id": "a6_2_4",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t6_2_4",
+          "resource": "rp",
+          "effortHours": "48"
+        }
+      },
+      {
+        "id": "a1_9_0",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t1_9_0",
+          "resource": "rp",
+          "effortHours": "0"
+        }
+      },
+      {
+        "id": "a4_9_0",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t4_9_0",
+          "resource": "rp",
+          "effortHours": "0"
+        }
+      },
+      {
+        "id": "a6_9_0",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "t6_9_0",
+          "resource": "rp",
+          "effortHours": "0"
+        }
+      },
+      {
+        "id": "v_stage1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage1"
+        }
+      },
+      {
+        "id": "v_stage1_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage1_1"
+        }
+      },
+      {
+        "id": "v_t1_1_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t1_1_1"
+        }
+      },
+      {
+        "id": "v_t1_1_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t1_1_2"
+        }
+      },
+      {
+        "id": "v_t1_1_3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t1_1_3"
+        }
+      },
+      {
+        "id": "v_stage1_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage1_2"
+        }
+      },
+      {
+        "id": "v_t1_2_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t1_2_1"
+        }
+      },
+      {
+        "id": "v_t1_2_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t1_2_2"
+        }
+      },
+      {
+        "id": "v_t1_9_0",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t1_9_0"
+        }
+      },
+      {
+        "id": "v_stage2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage2"
+        }
+      },
+      {
+        "id": "v_stage2_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage2_1"
+        }
+      },
+      {
+        "id": "v_t2_1_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t2_1_1"
+        }
+      },
+      {
+        "id": "v_t2_1_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t2_1_2"
+        }
+      },
+      {
+        "id": "v_t2_1_3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t2_1_3"
+        }
+      },
+      {
+        "id": "v_stage2_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage2_2"
+        }
+      },
+      {
+        "id": "v_t2_2_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t2_2_1"
+        }
+      },
+      {
+        "id": "v_t2_2_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t2_2_2"
+        }
+      },
+      {
+        "id": "v_stage3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage3"
+        }
+      },
+      {
+        "id": "v_stage3_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage3_1"
+        }
+      },
+      {
+        "id": "v_t3_1_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t3_1_1"
+        }
+      },
+      {
+        "id": "v_t3_1_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t3_1_2"
+        }
+      },
+      {
+        "id": "v_t3_1_3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t3_1_3"
+        }
+      },
+      {
+        "id": "v_stage3_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage3_2"
+        }
+      },
+      {
+        "id": "v_t3_2_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t3_2_1"
+        }
+      },
+      {
+        "id": "v_t3_2_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t3_2_2"
+        }
+      },
+      {
+        "id": "v_t3_2_3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t3_2_3"
+        }
+      },
+      {
+        "id": "v_stage4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage4"
+        }
+      },
+      {
+        "id": "v_stage4_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage4_1"
+        }
+      },
+      {
+        "id": "v_t4_1_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t4_1_1"
+        }
+      },
+      {
+        "id": "v_t4_1_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t4_1_2"
+        }
+      },
+      {
+        "id": "v_t4_1_3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t4_1_3"
+        }
+      },
+      {
+        "id": "v_t4_1_4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t4_1_4"
+        }
+      },
+      {
+        "id": "v_stage4_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage4_2"
+        }
+      },
+      {
+        "id": "v_t4_2_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t4_2_1"
+        }
+      },
+      {
+        "id": "v_t4_2_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t4_2_2"
+        }
+      },
+      {
+        "id": "v_t4_2_3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t4_2_3"
+        }
+      },
+      {
+        "id": "v_t4_2_4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t4_2_4"
+        }
+      },
+      {
+        "id": "v_t4_9_0",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t4_9_0"
+        }
+      },
+      {
+        "id": "v_stage5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage5"
+        }
+      },
+      {
+        "id": "v_stage5_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage5_1"
+        }
+      },
+      {
+        "id": "v_t5_1_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t5_1_1"
+        }
+      },
+      {
+        "id": "v_t5_1_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t5_1_2"
+        }
+      },
+      {
+        "id": "v_t5_1_3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t5_1_3"
+        }
+      },
+      {
+        "id": "v_stage5_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage5_2"
+        }
+      },
+      {
+        "id": "v_t5_2_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t5_2_1"
+        }
+      },
+      {
+        "id": "v_t5_2_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t5_2_2"
+        }
+      },
+      {
+        "id": "v_stage6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage6"
+        }
+      },
+      {
+        "id": "v_stage6_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage6_1"
+        }
+      },
+      {
+        "id": "v_t6_1_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t6_1_1"
+        }
+      },
+      {
+        "id": "v_t6_1_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t6_1_2"
+        }
+      },
+      {
+        "id": "v_t6_1_3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t6_1_3"
+        }
+      },
+      {
+        "id": "v_stage6_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "stage6_2"
+        }
+      },
+      {
+        "id": "v_t6_2_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t6_2_1"
+        }
+      },
+      {
+        "id": "v_t6_2_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t6_2_2"
+        }
+      },
+      {
+        "id": "v_t6_2_3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t6_2_3"
+        }
+      },
+      {
+        "id": "v_t6_2_4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t6_2_4"
+        }
+      },
+      {
+        "id": "v_t6_9_0",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "t6_9_0"
+        }
+      },
+      {
+        "id": "v_dep01",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep01",
+          "from": "v_t1_1_1",
+          "to": "v_t1_1_2"
+        }
+      },
+      {
+        "id": "v_dep02",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep02",
+          "from": "v_t1_1_1",
+          "to": "v_t1_1_3"
+        }
+      },
+      {
+        "id": "v_dep03",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep03",
+          "from": "v_t1_1_3",
+          "to": "v_t1_2_1"
+        }
+      },
+      {
+        "id": "v_dep04",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep04",
+          "from": "v_t1_2_1",
+          "to": "v_t1_2_2"
+        }
+      },
+      {
+        "id": "v_dep05",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep05",
+          "from": "v_t1_2_2",
+          "to": "v_t2_1_1"
+        }
+      },
+      {
+        "id": "v_dep06",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep06",
+          "from": "v_t2_1_1",
+          "to": "v_t2_1_2"
+        }
+      },
+      {
+        "id": "v_dep07",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep07",
+          "from": "v_t2_1_2",
+          "to": "v_t2_1_3"
+        }
+      },
+      {
+        "id": "v_dep08",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep08",
+          "from": "v_t2_1_1",
+          "to": "v_t2_2_1"
+        }
+      },
+      {
+        "id": "v_dep09",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep09",
+          "from": "v_t2_1_3",
+          "to": "v_t2_2_2"
+        }
+      },
+      {
+        "id": "v_dep10",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep10",
+          "from": "v_t2_2_2",
+          "to": "v_t3_1_1"
+        }
+      },
+      {
+        "id": "v_dep11",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep11",
+          "from": "v_t3_1_1",
+          "to": "v_t3_1_2"
+        }
+      },
+      {
+        "id": "v_dep12",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep12",
+          "from": "v_t3_1_1",
+          "to": "v_t3_1_3"
+        }
+      },
+      {
+        "id": "v_dep13",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep13",
+          "from": "v_t3_1_2",
+          "to": "v_t3_2_1"
+        }
+      },
+      {
+        "id": "v_dep14",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep14",
+          "from": "v_t3_1_2",
+          "to": "v_t3_2_2"
+        }
+      },
+      {
+        "id": "v_dep15",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep15",
+          "from": "v_t3_2_1",
+          "to": "v_t3_2_3"
+        }
+      },
+      {
+        "id": "v_dep16",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep16",
+          "from": "v_t3_1_3",
+          "to": "v_t4_1_1"
+        }
+      },
+      {
+        "id": "v_dep17",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep17",
+          "from": "v_t4_1_1",
+          "to": "v_t4_1_2"
+        }
+      },
+      {
+        "id": "v_dep18",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep18",
+          "from": "v_t3_1_2",
+          "to": "v_t4_1_3"
+        }
+      },
+      {
+        "id": "v_dep19",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep19",
+          "from": "v_t4_1_3",
+          "to": "v_t4_1_4"
+        }
+      },
+      {
+        "id": "v_dep20",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep20",
+          "from": "v_t4_1_2",
+          "to": "v_t4_2_1"
+        }
+      },
+      {
+        "id": "v_dep21",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep21",
+          "from": "v_t3_2_3",
+          "to": "v_t4_2_2"
+        }
+      },
+      {
+        "id": "v_dep22",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep22",
+          "from": "v_t4_1_4",
+          "to": "v_t4_2_3"
+        }
+      },
+      {
+        "id": "v_dep23",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep23",
+          "from": "v_t4_2_1",
+          "to": "v_t4_2_4"
+        }
+      },
+      {
+        "id": "v_dep24",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep24",
+          "from": "v_t4_1_3",
+          "to": "v_t5_1_1"
+        }
+      },
+      {
+        "id": "v_dep25",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep25",
+          "from": "v_t4_2_4",
+          "to": "v_t5_1_2"
+        }
+      },
+      {
+        "id": "v_dep26",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep26",
+          "from": "v_t4_2_2",
+          "to": "v_t5_1_3"
+        }
+      },
+      {
+        "id": "v_dep27",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep27",
+          "from": "v_t5_1_2",
+          "to": "v_t5_2_1"
+        }
+      },
+      {
+        "id": "v_dep28",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep28",
+          "from": "v_t4_2_3",
+          "to": "v_t5_2_2"
+        }
+      },
+      {
+        "id": "v_dep29",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep29",
+          "from": "v_t1_2_2",
+          "to": "v_t6_1_1"
+        }
+      },
+      {
+        "id": "v_dep30",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep30",
+          "from": "v_t6_1_1",
+          "to": "v_t6_1_2"
+        }
+      },
+      {
+        "id": "v_dep31",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep31",
+          "from": "v_t6_1_2",
+          "to": "v_t6_1_3"
+        }
+      },
+      {
+        "id": "v_dep32",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep32",
+          "from": "v_t6_1_3",
+          "to": "v_t6_2_1"
+        }
+      },
+      {
+        "id": "v_dep33",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep33",
+          "from": "v_t6_2_1",
+          "to": "v_t6_2_2"
+        }
+      },
+      {
+        "id": "v_dep34",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep34",
+          "from": "v_t6_2_2",
+          "to": "v_t6_2_3"
+        }
+      },
+      {
+        "id": "v_dep35",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep35",
+          "from": "v_t5_2_1",
+          "to": "v_t6_2_4"
+        }
+      },
+      {
+        "id": "v_dep36",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep36",
+          "from": "v_t6_2_3",
+          "to": "v_t6_2_4"
+        }
+      },
+      {
+        "id": "v_dep37",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep37",
+          "from": "v_t1_2_2",
+          "to": "v_t1_9_0"
+        }
+      },
+      {
+        "id": "v_dep38",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep38",
+          "from": "v_t4_2_4",
+          "to": "v_t4_9_0"
+        }
+      },
+      {
+        "id": "v_dep39",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "dep39",
+          "from": "v_t6_2_4",
+          "to": "v_t6_9_0"
+        }
+      }
+    ]
+  },
+  "source": "gantt uitpOmniNotation \"Разработка и маркетинг OmniNotation\"\r\n\r\n// Источник: УИТП_АлбахтинИВ_Отчёт_OmniNotation.docx, приложение А, таблица 5.\r\n// 36 работ и 3 вехи. Даты из отчёта сохранены в ручном режиме.\r\n// Пятидневная неделя без добавленных праздников. Один человеко-день = 8 часов.\r\n// Всего 312 человеко-дней = 2496 человеко-часов. Прогресс будущих работ = 0.\r\n\r\ncalendar weekdays \"Пятидневная неделя\" hoursPerDay=8 monday=true tuesday=true wednesday=true thursday=true friday=true saturday=false sunday=false\r\nplan projectPlan \"План проекта OmniNotation\" start=\"2026-11-02\" calendar=weekdays mode=manual description=\"Учебный план на 02.11.2026–30.06.2027. 312 чел.-дн., 2496 чел.-ч. Бюджет с резервом 3649800 руб. Расчётная критическая цепь отчёта без фиксированных дат: 1.1.1 → 1.1.3 → 1.2.1 → 1.2.2 → 6.1.1 → 6.1.2 → 6.1.3 → 6.2.1 → 6.2.2 → 6.2.3 → 6.2.4 → 6.9.0. Длина в отчёте — 163 рабочих дня. В ручном режиме критичность не пересчитывается.\"\r\ndiagram main \"Полный календарный план\" type=gantt plan=projectPlan\r\n\r\n// Исполнители из таблицы 3. Учебные ставки сохранены в описаниях.\r\nresource rp \"Руководитель проекта и аналитик\" capacityHoursPerDay=8 role=\"РП\" description=\"Учебная ставка: 8000 руб. за человеко-день.\"\r\nresource ar \"Архитектор и разработчик платформы\" capacityHoursPerDay=8 role=\"АР\" description=\"Учебная ставка: 10000 руб. за человеко-день.\"\r\nresource notationDev \"Разработчик нотаций и языка\" capacityHoursPerDay=8 role=\"ИН\" description=\"Учебная ставка: 9000 руб. за человеко-день.\"\r\nresource ux \"UX-специалист\" capacityHoursPerDay=8 role=\"UX\" description=\"Учебная ставка: 7000 руб. за человеко-день.\"\r\nresource mk \"Специалист по маркетингу и ручной проверке\" capacityHoursPerDay=8 role=\"МК\" description=\"Учебная ставка: 7000 руб. за человеко-день.\"\r\n\r\n// Иерархия работ: этапы, подэтапы, операции и контрольные вехи.\r\ntask stage1 \"Концепция и аудитория\" kind=summary order=1 wbsCode=\"1\"\r\ntask stage1_1 \"Старт и исследование\" kind=summary parent=stage1 order=1 wbsCode=\"1.1\"\r\ntask t1_1_1 \"Старт проекта и критерии успеха\" kind=task parent=stage1_1 order=1 wbsCode=\"1.1.1\" start=\"2026-11-02\" duration=5 deadline=\"2026-11-06\" effortHours=24 progress=0\r\ntask t1_1_2 \"Аудит текущей версии OmniNotation\" kind=task parent=stage1_1 order=2 wbsCode=\"1.1.2\" start=\"2026-11-02\" duration=10 deadline=\"2026-11-13\" effortHours=40 progress=0\r\ntask t1_1_3 \"Интервью и сегменты пользователей\" kind=task parent=stage1_1 order=3 wbsCode=\"1.1.3\" start=\"2026-11-09\" duration=10 deadline=\"2026-11-20\" effortHours=56 progress=0\r\ntask stage1_2 \"Позиционирование и концепция\" kind=summary parent=stage1 order=2 wbsCode=\"1.2\"\r\ntask t1_2_1 \"Анализ альтернатив и позиционирования\" kind=task parent=stage1_2 order=1 wbsCode=\"1.2.1\" start=\"2026-11-16\" duration=10 deadline=\"2026-11-27\" effortHours=24 progress=0\r\ntask t1_2_2 \"Концепция, границы и KPI\" kind=task parent=stage1_2 order=2 wbsCode=\"1.2.2\" start=\"2026-11-30\" duration=5 deadline=\"2026-12-04\" effortHours=32 progress=0\r\ntask t1_9_0 \"Веха: концепция утверждена\" kind=milestone parent=stage1 order=9 wbsCode=\"1.9.0\" start=\"2026-12-04\" duration=0 deadline=\"2026-12-04\" effortHours=0 progress=0\r\n\r\ntask stage2 \"Требования и дизайн\" kind=summary order=2 wbsCode=\"2\"\r\ntask stage2_1 \"Сценарии и требования\" kind=summary parent=stage2 order=1 wbsCode=\"2.1\"\r\ntask t2_1_1 \"Сценарии применения DFD/IDEF0/BPMN/UML\" kind=task parent=stage2_1 order=1 wbsCode=\"2.1.1\" start=\"2026-12-07\" duration=10 deadline=\"2026-12-18\" effortHours=48 progress=0\r\ntask t2_1_2 \"Функциональные требования\" kind=task parent=stage2_1 order=2 wbsCode=\"2.1.2\" start=\"2026-12-14\" duration=20 deadline=\"2027-01-08\" effortHours=64 progress=0\r\ntask t2_1_3 \"Профили нотаций и критерии приёмки\" kind=task parent=stage2_1 order=3 wbsCode=\"2.1.3\" start=\"2026-12-21\" duration=15 deadline=\"2027-01-08\" effortHours=72 progress=0\r\ntask stage2_2 \"Интерфейс и бэклог\" kind=summary parent=stage2 order=2 wbsCode=\"2.2\"\r\ntask t2_2_1 \"Прототипы сценариев и интерфейса\" kind=task parent=stage2_2 order=1 wbsCode=\"2.2.1\" start=\"2026-12-14\" duration=20 deadline=\"2027-01-08\" effortHours=96 progress=0\r\ntask t2_2_2 \"Приоритетный бэклог и оценки\" kind=task parent=stage2_2 order=2 wbsCode=\"2.2.2\" start=\"2027-01-11\" duration=10 deadline=\"2027-01-22\" effortHours=56 progress=0\r\n\r\ntask stage3 \"Общая платформа\" kind=summary order=3 wbsCode=\"3\"\r\ntask stage3_1 \"Архитектура и язык\" kind=summary parent=stage3 order=1 wbsCode=\"3.1\"\r\ntask t3_1_1 \"Уточнение архитектуры модулей\" kind=task parent=stage3_1 order=1 wbsCode=\"3.1.1\" start=\"2027-01-25\" duration=15 deadline=\"2027-02-12\" effortHours=80 progress=0\r\ntask t3_1_2 \"Общий хост и реестр адаптеров\" kind=task parent=stage3_1 order=2 wbsCode=\"3.1.2\" start=\"2027-02-01\" duration=15 deadline=\"2027-02-19\" effortHours=40 progress=0\r\ntask t3_1_3 \"Общий язык и синхронизация модели\" kind=task parent=stage3_1 order=3 wbsCode=\"3.1.3\" start=\"2027-02-15\" duration=10 deadline=\"2027-02-26\" effortHours=56 progress=0\r\ntask stage3_2 \"Редактор, сохранение и экспорт\" kind=summary parent=stage3 order=2 wbsCode=\"3.2\"\r\ntask t3_2_1 \"Сохранение, черновики и восстановление\" kind=task parent=stage3_2 order=1 wbsCode=\"3.2.1\" start=\"2027-02-22\" duration=20 deadline=\"2027-03-19\" effortHours=96 progress=0\r\ntask t3_2_2 \"Единый интерфейс редактора\" kind=task parent=stage3_2 order=2 wbsCode=\"3.2.2\" start=\"2027-02-22\" duration=20 deadline=\"2027-03-19\" effortHours=96 progress=0\r\ntask t3_2_3 \"Экспорт и выпускные сборки\" kind=task parent=stage3_2 order=3 wbsCode=\"3.2.3\" start=\"2027-03-22\" duration=15 deadline=\"2027-04-09\" effortHours=72 progress=0\r\n\r\ntask stage4 \"Нотации и синхронизация\" kind=summary order=4 wbsCode=\"4\"\r\ntask stage4_1 \"DFD, IDEF0 и BPMN\" kind=summary parent=stage4 order=1 wbsCode=\"4.1\"\r\ntask t4_1_1 \"Доработка DFD\" kind=task parent=stage4_1 order=1 wbsCode=\"4.1.1\" start=\"2027-03-01\" duration=15 deadline=\"2027-03-19\" effortHours=88 progress=0\r\ntask t4_1_2 \"Доработка IDEF0\" kind=task parent=stage4_1 order=2 wbsCode=\"4.1.2\" start=\"2027-03-22\" duration=20 deadline=\"2027-04-16\" effortHours=104 progress=0\r\ntask t4_1_3 \"Доработка графического BPMN\" kind=task parent=stage4_1 order=3 wbsCode=\"4.1.3\" start=\"2027-03-01\" duration=20 deadline=\"2027-03-26\" effortHours=64 progress=0\r\ntask t4_1_4 \"Семантические правила BPMN\" kind=task parent=stage4_1 order=4 wbsCode=\"4.1.4\" start=\"2027-03-29\" duration=25 deadline=\"2027-04-30\" effortHours=64 progress=0\r\ntask stage4_2 \"UML, примеры и интеграция\" kind=summary parent=stage4 order=2 wbsCode=\"4.2\"\r\ntask t4_2_1 \"Доработка UML-профилей\" kind=task parent=stage4_2 order=1 wbsCode=\"4.2.1\" start=\"2027-04-19\" duration=20 deadline=\"2027-05-14\" effortHours=96 progress=0\r\ntask t4_2_2 \"Проверка text ↔ diagram round-trip\" kind=task parent=stage4_2 order=2 wbsCode=\"4.2.2\" start=\"2027-04-12\" duration=20 deadline=\"2027-05-07\" effortHours=112 progress=0\r\ntask t4_2_3 \"Библиотека примеров и шаблонов\" kind=task parent=stage4_2 order=3 wbsCode=\"4.2.3\" start=\"2027-05-03\" duration=15 deadline=\"2027-05-21\" effortHours=64 progress=0\r\ntask t4_2_4 \"Интеграция и исправление дефектов\" kind=task parent=stage4_2 order=4 wbsCode=\"4.2.4\" start=\"2027-05-17\" duration=10 deadline=\"2027-05-28\" effortHours=56 progress=0\r\ntask t4_9_0 \"Веха: функциональный контур готов\" kind=milestone parent=stage4 order=9 wbsCode=\"4.9.0\" start=\"2027-05-28\" duration=0 deadline=\"2027-05-28\" effortHours=0 progress=0\r\n\r\ntask stage5 \"Приёмка и выпуск\" kind=summary order=5 wbsCode=\"5\"\r\ntask stage5_1 \"Проверка\" kind=summary parent=stage5 order=1 wbsCode=\"5.1\"\r\ntask t5_1_1 \"Сценарии ручной проверки\" kind=task parent=stage5_1 order=1 wbsCode=\"5.1.1\" start=\"2027-04-12\" duration=15 deadline=\"2027-04-30\" effortHours=56 progress=0\r\ntask t5_1_2 \"Ручная приёмка и пилотная проверка\" kind=task parent=stage5_1 order=2 wbsCode=\"5.1.2\" start=\"2027-05-31\" duration=10 deadline=\"2027-06-11\" effortHours=56 progress=0\r\ntask t5_1_3 \"Устойчивость и производительность\" kind=task parent=stage5_1 order=3 wbsCode=\"5.1.3\" start=\"2027-05-24\" duration=15 deadline=\"2027-06-11\" effortHours=88 progress=0\r\ntask stage5_2 \"Выпуск и руководство\" kind=summary parent=stage5 order=2 wbsCode=\"5.2\"\r\ntask t5_2_1 \"Кандидат выпуска\" kind=task parent=stage5_2 order=1 wbsCode=\"5.2.1\" start=\"2027-06-14\" duration=5 deadline=\"2027-06-18\" effortHours=32 progress=0\r\ntask t5_2_2 \"Руководство пользователя\" kind=task parent=stage5_2 order=2 wbsCode=\"5.2.2\" start=\"2027-05-31\" duration=15 deadline=\"2027-06-18\" effortHours=72 progress=0\r\n\r\ntask stage6 \"Маркетинг и пилот\" kind=summary order=6 wbsCode=\"6\"\r\ntask stage6_1 \"Предложение и материалы\" kind=summary parent=stage6 order=1 wbsCode=\"6.1\"\r\ntask t6_1_1 \"Ценностное предложение и аудитории\" kind=task parent=stage6_1 order=1 wbsCode=\"6.1.1\" start=\"2026-12-07\" duration=30 deadline=\"2027-01-15\" effortHours=120 progress=0\r\ntask t6_1_2 \"Лендинг и демонстрация продукта\" kind=task parent=stage6_1 order=2 wbsCode=\"6.1.2\" start=\"2027-01-18\" duration=30 deadline=\"2027-02-26\" effortHours=120 progress=0\r\ntask t6_1_3 \"Контент-план и учебные материалы\" kind=task parent=stage6_1 order=3 wbsCode=\"6.1.3\" start=\"2027-03-01\" duration=20 deadline=\"2027-03-26\" effortHours=80 progress=0\r\ntask stage6_2 \"Пилот и план запуска\" kind=summary parent=stage6 order=2 wbsCode=\"6.2\"\r\ntask t6_2_1 \"Набор пилотной группы\" kind=task parent=stage6_2 order=1 wbsCode=\"6.2.1\" start=\"2027-04-05\" duration=20 deadline=\"2027-04-30\" effortHours=80 progress=0\r\ntask t6_2_2 \"Пилот и сбор обратной связи\" kind=task parent=stage6_2 order=2 wbsCode=\"6.2.2\" start=\"2027-05-03\" duration=20 deadline=\"2027-05-28\" effortHours=80 progress=0\r\ntask t6_2_3 \"Анализ отклика и гипотезы монетизации\" kind=task parent=stage6_2 order=3 wbsCode=\"6.2.3\" start=\"2027-05-31\" duration=15 deadline=\"2027-06-18\" effortHours=64 progress=0\r\ntask t6_2_4 \"Презентация и план запуска\" kind=task parent=stage6_2 order=4 wbsCode=\"6.2.4\" start=\"2027-06-21\" duration=8 deadline=\"2027-06-30\" effortHours=48 progress=0\r\ntask t6_9_0 \"Веха: план защищён\" kind=milestone parent=stage6 order=9 wbsCode=\"6.9.0\" start=\"2027-06-30\" duration=0 deadline=\"2027-06-30\" effortHours=0 progress=0\r\n\r\n// Связи из приложения А. В manual они проверяют ограничения, не сдвигая даты.\r\n// Для FF к вехе lag=-1 сохраняет последний рабочий день из отчёта.\r\n// В OmniNotation окончание работы — граница после последнего дня, веха — начало дня.\r\ndependency dep01 \"\" from=t1_1_1 to=t1_1_2 type=SS lag=0\r\ndependency dep02 \"\" from=t1_1_1 to=t1_1_3 type=FS lag=0\r\ndependency dep03 \"\" from=t1_1_3 to=t1_2_1 type=SS lag=0\r\ndependency dep04 \"\" from=t1_2_1 to=t1_2_2 type=FS lag=0\r\ndependency dep05 \"\" from=t1_2_2 to=t2_1_1 type=FS lag=0\r\ndependency dep06 \"\" from=t2_1_1 to=t2_1_2 type=SS lag=0\r\ndependency dep07 \"\" from=t2_1_2 to=t2_1_3 type=SS lag=0\r\ndependency dep08 \"\" from=t2_1_1 to=t2_2_1 type=SS lag=0\r\ndependency dep09 \"\" from=t2_1_3 to=t2_2_2 type=FS lag=0\r\ndependency dep10 \"\" from=t2_2_2 to=t3_1_1 type=FS lag=0\r\ndependency dep11 \"\" from=t3_1_1 to=t3_1_2 type=SS lag=0\r\ndependency dep12 \"\" from=t3_1_1 to=t3_1_3 type=FS lag=0\r\ndependency dep13 \"\" from=t3_1_2 to=t3_2_1 type=FS lag=0\r\ndependency dep14 \"\" from=t3_1_2 to=t3_2_2 type=FS lag=0\r\ndependency dep15 \"\" from=t3_2_1 to=t3_2_3 type=FS lag=0\r\ndependency dep16 \"\" from=t3_1_3 to=t4_1_1 type=FS lag=0\r\ndependency dep17 \"\" from=t4_1_1 to=t4_1_2 type=FS lag=0\r\ndependency dep18 \"\" from=t3_1_2 to=t4_1_3 type=FS lag=0\r\ndependency dep19 \"\" from=t4_1_3 to=t4_1_4 type=FS lag=0\r\ndependency dep20 \"\" from=t4_1_2 to=t4_2_1 type=FS lag=0\r\ndependency dep21 \"\" from=t3_2_3 to=t4_2_2 type=FS lag=0\r\ndependency dep22 \"\" from=t4_1_4 to=t4_2_3 type=FS lag=0\r\ndependency dep23 \"\" from=t4_2_1 to=t4_2_4 type=FS lag=0\r\ndependency dep24 \"\" from=t4_1_3 to=t5_1_1 type=FS lag=0\r\ndependency dep25 \"\" from=t4_2_4 to=t5_1_2 type=FS lag=0\r\ndependency dep26 \"\" from=t4_2_2 to=t5_1_3 type=FS lag=0\r\ndependency dep27 \"\" from=t5_1_2 to=t5_2_1 type=FS lag=0\r\ndependency dep28 \"\" from=t4_2_3 to=t5_2_2 type=FS lag=0\r\ndependency dep29 \"\" from=t1_2_2 to=t6_1_1 type=FS lag=0\r\ndependency dep30 \"\" from=t6_1_1 to=t6_1_2 type=FS lag=0\r\ndependency dep31 \"\" from=t6_1_2 to=t6_1_3 type=FS lag=0\r\ndependency dep32 \"\" from=t6_1_3 to=t6_2_1 type=FS lag=0\r\ndependency dep33 \"\" from=t6_2_1 to=t6_2_2 type=FS lag=0\r\ndependency dep34 \"\" from=t6_2_2 to=t6_2_3 type=FS lag=0\r\ndependency dep35 \"\" from=t5_2_1 to=t6_2_4 type=FS lag=0\r\ndependency dep36 \"\" from=t6_2_3 to=t6_2_4 type=FS lag=0\r\ndependency dep37 \"\" from=t1_2_2 to=t1_9_0 type=FF lag=-1 description=\"FF из отчёта; lag=-1 согласует веху с последним рабочим днём предшественника.\"\r\ndependency dep38 \"\" from=t4_2_4 to=t4_9_0 type=FF lag=-1 description=\"FF из отчёта; lag=-1 согласует веху с последним рабочим днём предшественника.\"\r\ndependency dep39 \"\" from=t6_2_4 to=t6_9_0 type=FF lag=-1 description=\"FF из отчёта; lag=-1 согласует веху с последним рабочим днём предшественника.\"\r\n\r\n// Назначения: трудозатраты каждой строки отчёта переведены в часы.\r\nassignment a1_1_1 \"\" task=t1_1_1 resource=rp effortHours=24\r\nassignment a1_1_2 \"\" task=t1_1_2 resource=ar effortHours=40\r\nassignment a1_1_3 \"\" task=t1_1_3 resource=mk effortHours=56\r\nassignment a1_2_1 \"\" task=t1_2_1 resource=mk effortHours=24\r\nassignment a1_2_2 \"\" task=t1_2_2 resource=rp effortHours=32\r\nassignment a2_1_1 \"\" task=t2_1_1 resource=rp effortHours=48\r\nassignment a2_1_2 \"\" task=t2_1_2 resource=rp effortHours=64\r\nassignment a2_1_3 \"\" task=t2_1_3 resource=notationDev effortHours=72\r\nassignment a2_2_1 \"\" task=t2_2_1 resource=ux effortHours=96\r\nassignment a2_2_2 \"\" task=t2_2_2 resource=rp effortHours=56\r\nassignment a3_1_1 \"\" task=t3_1_1 resource=ar effortHours=80\r\nassignment a3_1_2 \"\" task=t3_1_2 resource=ar effortHours=40\r\nassignment a3_1_3 \"\" task=t3_1_3 resource=notationDev effortHours=56\r\nassignment a3_2_1 \"\" task=t3_2_1 resource=ar effortHours=96\r\nassignment a3_2_2 \"\" task=t3_2_2 resource=ux effortHours=96\r\nassignment a3_2_3 \"\" task=t3_2_3 resource=ar effortHours=72\r\nassignment a4_1_1 \"\" task=t4_1_1 resource=notationDev effortHours=88\r\nassignment a4_1_2 \"\" task=t4_1_2 resource=notationDev effortHours=104\r\nassignment a4_1_3 \"\" task=t4_1_3 resource=ar effortHours=64\r\nassignment a4_1_4 \"\" task=t4_1_4 resource=notationDev effortHours=64\r\nassignment a4_2_1 \"\" task=t4_2_1 resource=notationDev effortHours=96\r\nassignment a4_2_2 \"\" task=t4_2_2 resource=ar effortHours=112\r\nassignment a4_2_3 \"\" task=t4_2_3 resource=ux effortHours=64\r\nassignment a4_2_4 \"\" task=t4_2_4 resource=notationDev effortHours=56\r\nassignment a5_1_1 \"\" task=t5_1_1 resource=mk effortHours=56\r\nassignment a5_1_2 \"\" task=t5_1_2 resource=rp effortHours=56\r\nassignment a5_1_3 \"\" task=t5_1_3 resource=ar effortHours=88\r\nassignment a5_2_1 \"\" task=t5_2_1 resource=ar effortHours=32\r\nassignment a5_2_2 \"\" task=t5_2_2 resource=ux effortHours=72\r\nassignment a6_1_1 \"\" task=t6_1_1 resource=mk effortHours=120\r\nassignment a6_1_2 \"\" task=t6_1_2 resource=mk effortHours=120\r\nassignment a6_1_3 \"\" task=t6_1_3 resource=mk effortHours=80\r\nassignment a6_2_1 \"\" task=t6_2_1 resource=mk effortHours=80\r\nassignment a6_2_2 \"\" task=t6_2_2 resource=mk effortHours=80\r\nassignment a6_2_3 \"\" task=t6_2_3 resource=mk effortHours=64\r\nassignment a6_2_4 \"\" task=t6_2_4 resource=rp effortHours=48\r\nassignment a1_9_0 \"\" task=t1_9_0 resource=rp effortHours=0\r\nassignment a4_9_0 \"\" task=t4_9_0 resource=rp effortHours=0\r\nassignment a6_9_0 \"\" task=t6_9_0 resource=rp effortHours=0\r\n\r\n// Явные отображения нужны, чтобы все задачи и связи появились на полотне.\r\nview v_stage1 \"\" diagram=main element=stage1\r\nview v_stage1_1 \"\" diagram=main element=stage1_1\r\nview v_t1_1_1 \"\" diagram=main element=t1_1_1\r\nview v_t1_1_2 \"\" diagram=main element=t1_1_2\r\nview v_t1_1_3 \"\" diagram=main element=t1_1_3\r\nview v_stage1_2 \"\" diagram=main element=stage1_2\r\nview v_t1_2_1 \"\" diagram=main element=t1_2_1\r\nview v_t1_2_2 \"\" diagram=main element=t1_2_2\r\nview v_t1_9_0 \"\" diagram=main element=t1_9_0\r\nview v_stage2 \"\" diagram=main element=stage2\r\nview v_stage2_1 \"\" diagram=main element=stage2_1\r\nview v_t2_1_1 \"\" diagram=main element=t2_1_1\r\nview v_t2_1_2 \"\" diagram=main element=t2_1_2\r\nview v_t2_1_3 \"\" diagram=main element=t2_1_3\r\nview v_stage2_2 \"\" diagram=main element=stage2_2\r\nview v_t2_2_1 \"\" diagram=main element=t2_2_1\r\nview v_t2_2_2 \"\" diagram=main element=t2_2_2\r\nview v_stage3 \"\" diagram=main element=stage3\r\nview v_stage3_1 \"\" diagram=main element=stage3_1\r\nview v_t3_1_1 \"\" diagram=main element=t3_1_1\r\nview v_t3_1_2 \"\" diagram=main element=t3_1_2\r\nview v_t3_1_3 \"\" diagram=main element=t3_1_3\r\nview v_stage3_2 \"\" diagram=main element=stage3_2\r\nview v_t3_2_1 \"\" diagram=main element=t3_2_1\r\nview v_t3_2_2 \"\" diagram=main element=t3_2_2\r\nview v_t3_2_3 \"\" diagram=main element=t3_2_3\r\nview v_stage4 \"\" diagram=main element=stage4\r\nview v_stage4_1 \"\" diagram=main element=stage4_1\r\nview v_t4_1_1 \"\" diagram=main element=t4_1_1\r\nview v_t4_1_2 \"\" diagram=main element=t4_1_2\r\nview v_t4_1_3 \"\" diagram=main element=t4_1_3\r\nview v_t4_1_4 \"\" diagram=main element=t4_1_4\r\nview v_stage4_2 \"\" diagram=main element=stage4_2\r\nview v_t4_2_1 \"\" diagram=main element=t4_2_1\r\nview v_t4_2_2 \"\" diagram=main element=t4_2_2\r\nview v_t4_2_3 \"\" diagram=main element=t4_2_3\r\nview v_t4_2_4 \"\" diagram=main element=t4_2_4\r\nview v_t4_9_0 \"\" diagram=main element=t4_9_0\r\nview v_stage5 \"\" diagram=main element=stage5\r\nview v_stage5_1 \"\" diagram=main element=stage5_1\r\nview v_t5_1_1 \"\" diagram=main element=t5_1_1\r\nview v_t5_1_2 \"\" diagram=main element=t5_1_2\r\nview v_t5_1_3 \"\" diagram=main element=t5_1_3\r\nview v_stage5_2 \"\" diagram=main element=stage5_2\r\nview v_t5_2_1 \"\" diagram=main element=t5_2_1\r\nview v_t5_2_2 \"\" diagram=main element=t5_2_2\r\nview v_stage6 \"\" diagram=main element=stage6\r\nview v_stage6_1 \"\" diagram=main element=stage6_1\r\nview v_t6_1_1 \"\" diagram=main element=t6_1_1\r\nview v_t6_1_2 \"\" diagram=main element=t6_1_2\r\nview v_t6_1_3 \"\" diagram=main element=t6_1_3\r\nview v_stage6_2 \"\" diagram=main element=stage6_2\r\nview v_t6_2_1 \"\" diagram=main element=t6_2_1\r\nview v_t6_2_2 \"\" diagram=main element=t6_2_2\r\nview v_t6_2_3 \"\" diagram=main element=t6_2_3\r\nview v_t6_2_4 \"\" diagram=main element=t6_2_4\r\nview v_t6_9_0 \"\" diagram=main element=t6_9_0\r\nview v_dep01 \"\" diagram=main element=dep01 from=v_t1_1_1 to=v_t1_1_2\r\nview v_dep02 \"\" diagram=main element=dep02 from=v_t1_1_1 to=v_t1_1_3\r\nview v_dep03 \"\" diagram=main element=dep03 from=v_t1_1_3 to=v_t1_2_1\r\nview v_dep04 \"\" diagram=main element=dep04 from=v_t1_2_1 to=v_t1_2_2\r\nview v_dep05 \"\" diagram=main element=dep05 from=v_t1_2_2 to=v_t2_1_1\r\nview v_dep06 \"\" diagram=main element=dep06 from=v_t2_1_1 to=v_t2_1_2\r\nview v_dep07 \"\" diagram=main element=dep07 from=v_t2_1_2 to=v_t2_1_3\r\nview v_dep08 \"\" diagram=main element=dep08 from=v_t2_1_1 to=v_t2_2_1\r\nview v_dep09 \"\" diagram=main element=dep09 from=v_t2_1_3 to=v_t2_2_2\r\nview v_dep10 \"\" diagram=main element=dep10 from=v_t2_2_2 to=v_t3_1_1\r\nview v_dep11 \"\" diagram=main element=dep11 from=v_t3_1_1 to=v_t3_1_2\r\nview v_dep12 \"\" diagram=main element=dep12 from=v_t3_1_1 to=v_t3_1_3\r\nview v_dep13 \"\" diagram=main element=dep13 from=v_t3_1_2 to=v_t3_2_1\r\nview v_dep14 \"\" diagram=main element=dep14 from=v_t3_1_2 to=v_t3_2_2\r\nview v_dep15 \"\" diagram=main element=dep15 from=v_t3_2_1 to=v_t3_2_3\r\nview v_dep16 \"\" diagram=main element=dep16 from=v_t3_1_3 to=v_t4_1_1\r\nview v_dep17 \"\" diagram=main element=dep17 from=v_t4_1_1 to=v_t4_1_2\r\nview v_dep18 \"\" diagram=main element=dep18 from=v_t3_1_2 to=v_t4_1_3\r\nview v_dep19 \"\" diagram=main element=dep19 from=v_t4_1_3 to=v_t4_1_4\r\nview v_dep20 \"\" diagram=main element=dep20 from=v_t4_1_2 to=v_t4_2_1\r\nview v_dep21 \"\" diagram=main element=dep21 from=v_t3_2_3 to=v_t4_2_2\r\nview v_dep22 \"\" diagram=main element=dep22 from=v_t4_1_4 to=v_t4_2_3\r\nview v_dep23 \"\" diagram=main element=dep23 from=v_t4_2_1 to=v_t4_2_4\r\nview v_dep24 \"\" diagram=main element=dep24 from=v_t4_1_3 to=v_t5_1_1\r\nview v_dep25 \"\" diagram=main element=dep25 from=v_t4_2_4 to=v_t5_1_2\r\nview v_dep26 \"\" diagram=main element=dep26 from=v_t4_2_2 to=v_t5_1_3\r\nview v_dep27 \"\" diagram=main element=dep27 from=v_t5_1_2 to=v_t5_2_1\r\nview v_dep28 \"\" diagram=main element=dep28 from=v_t4_2_3 to=v_t5_2_2\r\nview v_dep29 \"\" diagram=main element=dep29 from=v_t1_2_2 to=v_t6_1_1\r\nview v_dep30 \"\" diagram=main element=dep30 from=v_t6_1_1 to=v_t6_1_2\r\nview v_dep31 \"\" diagram=main element=dep31 from=v_t6_1_2 to=v_t6_1_3\r\nview v_dep32 \"\" diagram=main element=dep32 from=v_t6_1_3 to=v_t6_2_1\r\nview v_dep33 \"\" diagram=main element=dep33 from=v_t6_2_1 to=v_t6_2_2\r\nview v_dep34 \"\" diagram=main element=dep34 from=v_t6_2_2 to=v_t6_2_3\r\nview v_dep35 \"\" diagram=main element=dep35 from=v_t5_2_1 to=v_t6_2_4\r\nview v_dep36 \"\" diagram=main element=dep36 from=v_t6_2_3 to=v_t6_2_4\r\nview v_dep37 \"\" diagram=main element=dep37 from=v_t1_2_2 to=v_t1_9_0\r\nview v_dep38 \"\" diagram=main element=dep38 from=v_t4_2_4 to=v_t4_9_0\r\nview v_dep39 \"\" diagram=main element=dep39 from=v_t6_2_4 to=v_t6_9_0\r\n",
+  "draft": "gantt uitpOmniNotation \"Разработка и маркетинг OmniNotation\"\r\n\r\n// Источник: УИТП_АлбахтинИВ_Отчёт_OmniNotation.docx, приложение А, таблица 5.\r\n// 36 работ и 3 вехи. Даты из отчёта сохранены в ручном режиме.\r\n// Пятидневная неделя без добавленных праздников. Один человеко-день = 8 часов.\r\n// Всего 312 человеко-дней = 2496 человеко-часов. Прогресс будущих работ = 0.\r\n\r\ncalendar weekdays \"Пятидневная неделя\" hoursPerDay=8 monday=true tuesday=true wednesday=true thursday=true friday=true saturday=false sunday=false\r\nplan projectPlan \"План проекта OmniNotation\" start=\"2026-11-02\" calendar=weekdays mode=manual description=\"Учебный план на 02.11.2026–30.06.2027. 312 чел.-дн., 2496 чел.-ч. Бюджет с резервом 3649800 руб. Расчётная критическая цепь отчёта без фиксированных дат: 1.1.1 → 1.1.3 → 1.2.1 → 1.2.2 → 6.1.1 → 6.1.2 → 6.1.3 → 6.2.1 → 6.2.2 → 6.2.3 → 6.2.4 → 6.9.0. Длина в отчёте — 163 рабочих дня. В ручном режиме критичность не пересчитывается.\"\r\ndiagram main \"Полный календарный план\" type=gantt plan=projectPlan\r\n\r\n// Исполнители из таблицы 3. Учебные ставки сохранены в описаниях.\r\nresource rp \"Руководитель проекта и аналитик\" capacityHoursPerDay=8 role=\"РП\" description=\"Учебная ставка: 8000 руб. за человеко-день.\"\r\nresource ar \"Архитектор и разработчик платформы\" capacityHoursPerDay=8 role=\"АР\" description=\"Учебная ставка: 10000 руб. за человеко-день.\"\r\nresource notationDev \"Разработчик нотаций и языка\" capacityHoursPerDay=8 role=\"ИН\" description=\"Учебная ставка: 9000 руб. за человеко-день.\"\r\nresource ux \"UX-специалист\" capacityHoursPerDay=8 role=\"UX\" description=\"Учебная ставка: 7000 руб. за человеко-день.\"\r\nresource mk \"Специалист по маркетингу и ручной проверке\" capacityHoursPerDay=8 role=\"МК\" description=\"Учебная ставка: 7000 руб. за человеко-день.\"\r\n\r\n// Иерархия работ: этапы, подэтапы, операции и контрольные вехи.\r\ntask stage1 \"Концепция и аудитория\" kind=summary order=1 wbsCode=\"1\"\r\ntask stage1_1 \"Старт и исследование\" kind=summary parent=stage1 order=1 wbsCode=\"1.1\"\r\ntask t1_1_1 \"Старт проекта и критерии успеха\" kind=task parent=stage1_1 order=1 wbsCode=\"1.1.1\" start=\"2026-11-02\" duration=5 deadline=\"2026-11-06\" effortHours=24 progress=0\r\ntask t1_1_2 \"Аудит текущей версии OmniNotation\" kind=task parent=stage1_1 order=2 wbsCode=\"1.1.2\" start=\"2026-11-02\" duration=10 deadline=\"2026-11-13\" effortHours=40 progress=0\r\ntask t1_1_3 \"Интервью и сегменты пользователей\" kind=task parent=stage1_1 order=3 wbsCode=\"1.1.3\" start=\"2026-11-09\" duration=10 deadline=\"2026-11-20\" effortHours=56 progress=0\r\ntask stage1_2 \"Позиционирование и концепция\" kind=summary parent=stage1 order=2 wbsCode=\"1.2\"\r\ntask t1_2_1 \"Анализ альтернатив и позиционирования\" kind=task parent=stage1_2 order=1 wbsCode=\"1.2.1\" start=\"2026-11-16\" duration=10 deadline=\"2026-11-27\" effortHours=24 progress=0\r\ntask t1_2_2 \"Концепция, границы и KPI\" kind=task parent=stage1_2 order=2 wbsCode=\"1.2.2\" start=\"2026-11-30\" duration=5 deadline=\"2026-12-04\" effortHours=32 progress=0\r\ntask t1_9_0 \"Веха: концепция утверждена\" kind=milestone parent=stage1 order=9 wbsCode=\"1.9.0\" start=\"2026-12-04\" duration=0 deadline=\"2026-12-04\" effortHours=0 progress=0\r\n\r\ntask stage2 \"Требования и дизайн\" kind=summary order=2 wbsCode=\"2\"\r\ntask stage2_1 \"Сценарии и требования\" kind=summary parent=stage2 order=1 wbsCode=\"2.1\"\r\ntask t2_1_1 \"Сценарии применения DFD/IDEF0/BPMN/UML\" kind=task parent=stage2_1 order=1 wbsCode=\"2.1.1\" start=\"2026-12-07\" duration=10 deadline=\"2026-12-18\" effortHours=48 progress=0\r\ntask t2_1_2 \"Функциональные требования\" kind=task parent=stage2_1 order=2 wbsCode=\"2.1.2\" start=\"2026-12-14\" duration=20 deadline=\"2027-01-08\" effortHours=64 progress=0\r\ntask t2_1_3 \"Профили нотаций и критерии приёмки\" kind=task parent=stage2_1 order=3 wbsCode=\"2.1.3\" start=\"2026-12-21\" duration=15 deadline=\"2027-01-08\" effortHours=72 progress=0\r\ntask stage2_2 \"Интерфейс и бэклог\" kind=summary parent=stage2 order=2 wbsCode=\"2.2\"\r\ntask t2_2_1 \"Прототипы сценариев и интерфейса\" kind=task parent=stage2_2 order=1 wbsCode=\"2.2.1\" start=\"2026-12-14\" duration=20 deadline=\"2027-01-08\" effortHours=96 progress=0\r\ntask t2_2_2 \"Приоритетный бэклог и оценки\" kind=task parent=stage2_2 order=2 wbsCode=\"2.2.2\" start=\"2027-01-11\" duration=10 deadline=\"2027-01-22\" effortHours=56 progress=0\r\n\r\ntask stage3 \"Общая платформа\" kind=summary order=3 wbsCode=\"3\"\r\ntask stage3_1 \"Архитектура и язык\" kind=summary parent=stage3 order=1 wbsCode=\"3.1\"\r\ntask t3_1_1 \"Уточнение архитектуры модулей\" kind=task parent=stage3_1 order=1 wbsCode=\"3.1.1\" start=\"2027-01-25\" duration=15 deadline=\"2027-02-12\" effortHours=80 progress=0\r\ntask t3_1_2 \"Общий хост и реестр адаптеров\" kind=task parent=stage3_1 order=2 wbsCode=\"3.1.2\" start=\"2027-02-01\" duration=15 deadline=\"2027-02-19\" effortHours=40 progress=0\r\ntask t3_1_3 \"Общий язык и синхронизация модели\" kind=task parent=stage3_1 order=3 wbsCode=\"3.1.3\" start=\"2027-02-15\" duration=10 deadline=\"2027-02-26\" effortHours=56 progress=0\r\ntask stage3_2 \"Редактор, сохранение и экспорт\" kind=summary parent=stage3 order=2 wbsCode=\"3.2\"\r\ntask t3_2_1 \"Сохранение, черновики и восстановление\" kind=task parent=stage3_2 order=1 wbsCode=\"3.2.1\" start=\"2027-02-22\" duration=20 deadline=\"2027-03-19\" effortHours=96 progress=0\r\ntask t3_2_2 \"Единый интерфейс редактора\" kind=task parent=stage3_2 order=2 wbsCode=\"3.2.2\" start=\"2027-02-22\" duration=20 deadline=\"2027-03-19\" effortHours=96 progress=0\r\ntask t3_2_3 \"Экспорт и выпускные сборки\" kind=task parent=stage3_2 order=3 wbsCode=\"3.2.3\" start=\"2027-03-22\" duration=15 deadline=\"2027-04-09\" effortHours=72 progress=0\r\n\r\ntask stage4 \"Нотации и синхронизация\" kind=summary order=4 wbsCode=\"4\"\r\ntask stage4_1 \"DFD, IDEF0 и BPMN\" kind=summary parent=stage4 order=1 wbsCode=\"4.1\"\r\ntask t4_1_1 \"Доработка DFD\" kind=task parent=stage4_1 order=1 wbsCode=\"4.1.1\" start=\"2027-03-01\" duration=15 deadline=\"2027-03-19\" effortHours=88 progress=0\r\ntask t4_1_2 \"Доработка IDEF0\" kind=task parent=stage4_1 order=2 wbsCode=\"4.1.2\" start=\"2027-03-22\" duration=20 deadline=\"2027-04-16\" effortHours=104 progress=0\r\ntask t4_1_3 \"Доработка графического BPMN\" kind=task parent=stage4_1 order=3 wbsCode=\"4.1.3\" start=\"2027-03-01\" duration=20 deadline=\"2027-03-26\" effortHours=64 progress=0\r\ntask t4_1_4 \"Семантические правила BPMN\" kind=task parent=stage4_1 order=4 wbsCode=\"4.1.4\" start=\"2027-03-29\" duration=25 deadline=\"2027-04-30\" effortHours=64 progress=0\r\ntask stage4_2 \"UML, примеры и интеграция\" kind=summary parent=stage4 order=2 wbsCode=\"4.2\"\r\ntask t4_2_1 \"Доработка UML-профилей\" kind=task parent=stage4_2 order=1 wbsCode=\"4.2.1\" start=\"2027-04-19\" duration=20 deadline=\"2027-05-14\" effortHours=96 progress=0\r\ntask t4_2_2 \"Проверка text ↔ diagram round-trip\" kind=task parent=stage4_2 order=2 wbsCode=\"4.2.2\" start=\"2027-04-12\" duration=20 deadline=\"2027-05-07\" effortHours=112 progress=0\r\ntask t4_2_3 \"Библиотека примеров и шаблонов\" kind=task parent=stage4_2 order=3 wbsCode=\"4.2.3\" start=\"2027-05-03\" duration=15 deadline=\"2027-05-21\" effortHours=64 progress=0\r\ntask t4_2_4 \"Интеграция и исправление дефектов\" kind=task parent=stage4_2 order=4 wbsCode=\"4.2.4\" start=\"2027-05-17\" duration=10 deadline=\"2027-05-28\" effortHours=56 progress=0\r\ntask t4_9_0 \"Веха: функциональный контур готов\" kind=milestone parent=stage4 order=9 wbsCode=\"4.9.0\" start=\"2027-05-28\" duration=0 deadline=\"2027-05-28\" effortHours=0 progress=0\r\n\r\ntask stage5 \"Приёмка и выпуск\" kind=summary order=5 wbsCode=\"5\"\r\ntask stage5_1 \"Проверка\" kind=summary parent=stage5 order=1 wbsCode=\"5.1\"\r\ntask t5_1_1 \"Сценарии ручной проверки\" kind=task parent=stage5_1 order=1 wbsCode=\"5.1.1\" start=\"2027-04-12\" duration=15 deadline=\"2027-04-30\" effortHours=56 progress=0\r\ntask t5_1_2 \"Ручная приёмка и пилотная проверка\" kind=task parent=stage5_1 order=2 wbsCode=\"5.1.2\" start=\"2027-05-31\" duration=10 deadline=\"2027-06-11\" effortHours=56 progress=0\r\ntask t5_1_3 \"Устойчивость и производительность\" kind=task parent=stage5_1 order=3 wbsCode=\"5.1.3\" start=\"2027-05-24\" duration=15 deadline=\"2027-06-11\" effortHours=88 progress=0\r\ntask stage5_2 \"Выпуск и руководство\" kind=summary parent=stage5 order=2 wbsCode=\"5.2\"\r\ntask t5_2_1 \"Кандидат выпуска\" kind=task parent=stage5_2 order=1 wbsCode=\"5.2.1\" start=\"2027-06-14\" duration=5 deadline=\"2027-06-18\" effortHours=32 progress=0\r\ntask t5_2_2 \"Руководство пользователя\" kind=task parent=stage5_2 order=2 wbsCode=\"5.2.2\" start=\"2027-05-31\" duration=15 deadline=\"2027-06-18\" effortHours=72 progress=0\r\n\r\ntask stage6 \"Маркетинг и пилот\" kind=summary order=6 wbsCode=\"6\"\r\ntask stage6_1 \"Предложение и материалы\" kind=summary parent=stage6 order=1 wbsCode=\"6.1\"\r\ntask t6_1_1 \"Ценностное предложение и аудитории\" kind=task parent=stage6_1 order=1 wbsCode=\"6.1.1\" start=\"2026-12-07\" duration=30 deadline=\"2027-01-15\" effortHours=120 progress=0\r\ntask t6_1_2 \"Лендинг и демонстрация продукта\" kind=task parent=stage6_1 order=2 wbsCode=\"6.1.2\" start=\"2027-01-18\" duration=30 deadline=\"2027-02-26\" effortHours=120 progress=0\r\ntask t6_1_3 \"Контент-план и учебные материалы\" kind=task parent=stage6_1 order=3 wbsCode=\"6.1.3\" start=\"2027-03-01\" duration=20 deadline=\"2027-03-26\" effortHours=80 progress=0\r\ntask stage6_2 \"Пилот и план запуска\" kind=summary parent=stage6 order=2 wbsCode=\"6.2\"\r\ntask t6_2_1 \"Набор пилотной группы\" kind=task parent=stage6_2 order=1 wbsCode=\"6.2.1\" start=\"2027-04-05\" duration=20 deadline=\"2027-04-30\" effortHours=80 progress=0\r\ntask t6_2_2 \"Пилот и сбор обратной связи\" kind=task parent=stage6_2 order=2 wbsCode=\"6.2.2\" start=\"2027-05-03\" duration=20 deadline=\"2027-05-28\" effortHours=80 progress=0\r\ntask t6_2_3 \"Анализ отклика и гипотезы монетизации\" kind=task parent=stage6_2 order=3 wbsCode=\"6.2.3\" start=\"2027-05-31\" duration=15 deadline=\"2027-06-18\" effortHours=64 progress=0\r\ntask t6_2_4 \"Презентация и план запуска\" kind=task parent=stage6_2 order=4 wbsCode=\"6.2.4\" start=\"2027-06-21\" duration=8 deadline=\"2027-06-30\" effortHours=48 progress=0\r\ntask t6_9_0 \"Веха: план защищён\" kind=milestone parent=stage6 order=9 wbsCode=\"6.9.0\" start=\"2027-06-30\" duration=0 deadline=\"2027-06-30\" effortHours=0 progress=0\r\n\r\n// Связи из приложения А. В manual они проверяют ограничения, не сдвигая даты.\r\n// Для FF к вехе lag=-1 сохраняет последний рабочий день из отчёта.\r\n// В OmniNotation окончание работы — граница после последнего дня, веха — начало дня.\r\ndependency dep01 \"\" from=t1_1_1 to=t1_1_2 type=SS lag=0\r\ndependency dep02 \"\" from=t1_1_1 to=t1_1_3 type=FS lag=0\r\ndependency dep03 \"\" from=t1_1_3 to=t1_2_1 type=SS lag=0\r\ndependency dep04 \"\" from=t1_2_1 to=t1_2_2 type=FS lag=0\r\ndependency dep05 \"\" from=t1_2_2 to=t2_1_1 type=FS lag=0\r\ndependency dep06 \"\" from=t2_1_1 to=t2_1_2 type=SS lag=0\r\ndependency dep07 \"\" from=t2_1_2 to=t2_1_3 type=SS lag=0\r\ndependency dep08 \"\" from=t2_1_1 to=t2_2_1 type=SS lag=0\r\ndependency dep09 \"\" from=t2_1_3 to=t2_2_2 type=FS lag=0\r\ndependency dep10 \"\" from=t2_2_2 to=t3_1_1 type=FS lag=0\r\ndependency dep11 \"\" from=t3_1_1 to=t3_1_2 type=SS lag=0\r\ndependency dep12 \"\" from=t3_1_1 to=t3_1_3 type=FS lag=0\r\ndependency dep13 \"\" from=t3_1_2 to=t3_2_1 type=FS lag=0\r\ndependency dep14 \"\" from=t3_1_2 to=t3_2_2 type=FS lag=0\r\ndependency dep15 \"\" from=t3_2_1 to=t3_2_3 type=FS lag=0\r\ndependency dep16 \"\" from=t3_1_3 to=t4_1_1 type=FS lag=0\r\ndependency dep17 \"\" from=t4_1_1 to=t4_1_2 type=FS lag=0\r\ndependency dep18 \"\" from=t3_1_2 to=t4_1_3 type=FS lag=0\r\ndependency dep19 \"\" from=t4_1_3 to=t4_1_4 type=FS lag=0\r\ndependency dep20 \"\" from=t4_1_2 to=t4_2_1 type=FS lag=0\r\ndependency dep21 \"\" from=t3_2_3 to=t4_2_2 type=FS lag=0\r\ndependency dep22 \"\" from=t4_1_4 to=t4_2_3 type=FS lag=0\r\ndependency dep23 \"\" from=t4_2_1 to=t4_2_4 type=FS lag=0\r\ndependency dep24 \"\" from=t4_1_3 to=t5_1_1 type=FS lag=0\r\ndependency dep25 \"\" from=t4_2_4 to=t5_1_2 type=FS lag=0\r\ndependency dep26 \"\" from=t4_2_2 to=t5_1_3 type=FS lag=0\r\ndependency dep27 \"\" from=t5_1_2 to=t5_2_1 type=FS lag=0\r\ndependency dep28 \"\" from=t4_2_3 to=t5_2_2 type=FS lag=0\r\ndependency dep29 \"\" from=t1_2_2 to=t6_1_1 type=FS lag=0\r\ndependency dep30 \"\" from=t6_1_1 to=t6_1_2 type=FS lag=0\r\ndependency dep31 \"\" from=t6_1_2 to=t6_1_3 type=FS lag=0\r\ndependency dep32 \"\" from=t6_1_3 to=t6_2_1 type=FS lag=0\r\ndependency dep33 \"\" from=t6_2_1 to=t6_2_2 type=FS lag=0\r\ndependency dep34 \"\" from=t6_2_2 to=t6_2_3 type=FS lag=0\r\ndependency dep35 \"\" from=t5_2_1 to=t6_2_4 type=FS lag=0\r\ndependency dep36 \"\" from=t6_2_3 to=t6_2_4 type=FS lag=0\r\ndependency dep37 \"\" from=t1_2_2 to=t1_9_0 type=FF lag=-1 description=\"FF из отчёта; lag=-1 согласует веху с последним рабочим днём предшественника.\"\r\ndependency dep38 \"\" from=t4_2_4 to=t4_9_0 type=FF lag=-1 description=\"FF из отчёта; lag=-1 согласует веху с последним рабочим днём предшественника.\"\r\ndependency dep39 \"\" from=t6_2_4 to=t6_9_0 type=FF lag=-1 description=\"FF из отчёта; lag=-1 согласует веху с последним рабочим днём предшественника.\"\r\n\r\n// Назначения: трудозатраты каждой строки отчёта переведены в часы.\r\nassignment a1_1_1 \"\" task=t1_1_1 resource=rp effortHours=24\r\nassignment a1_1_2 \"\" task=t1_1_2 resource=ar effortHours=40\r\nassignment a1_1_3 \"\" task=t1_1_3 resource=mk effortHours=56\r\nassignment a1_2_1 \"\" task=t1_2_1 resource=mk effortHours=24\r\nassignment a1_2_2 \"\" task=t1_2_2 resource=rp effortHours=32\r\nassignment a2_1_1 \"\" task=t2_1_1 resource=rp effortHours=48\r\nassignment a2_1_2 \"\" task=t2_1_2 resource=rp effortHours=64\r\nassignment a2_1_3 \"\" task=t2_1_3 resource=notationDev effortHours=72\r\nassignment a2_2_1 \"\" task=t2_2_1 resource=ux effortHours=96\r\nassignment a2_2_2 \"\" task=t2_2_2 resource=rp effortHours=56\r\nassignment a3_1_1 \"\" task=t3_1_1 resource=ar effortHours=80\r\nassignment a3_1_2 \"\" task=t3_1_2 resource=ar effortHours=40\r\nassignment a3_1_3 \"\" task=t3_1_3 resource=notationDev effortHours=56\r\nassignment a3_2_1 \"\" task=t3_2_1 resource=ar effortHours=96\r\nassignment a3_2_2 \"\" task=t3_2_2 resource=ux effortHours=96\r\nassignment a3_2_3 \"\" task=t3_2_3 resource=ar effortHours=72\r\nassignment a4_1_1 \"\" task=t4_1_1 resource=notationDev effortHours=88\r\nassignment a4_1_2 \"\" task=t4_1_2 resource=notationDev effortHours=104\r\nassignment a4_1_3 \"\" task=t4_1_3 resource=ar effortHours=64\r\nassignment a4_1_4 \"\" task=t4_1_4 resource=notationDev effortHours=64\r\nassignment a4_2_1 \"\" task=t4_2_1 resource=notationDev effortHours=96\r\nassignment a4_2_2 \"\" task=t4_2_2 resource=ar effortHours=112\r\nassignment a4_2_3 \"\" task=t4_2_3 resource=ux effortHours=64\r\nassignment a4_2_4 \"\" task=t4_2_4 resource=notationDev effortHours=56\r\nassignment a5_1_1 \"\" task=t5_1_1 resource=mk effortHours=56\r\nassignment a5_1_2 \"\" task=t5_1_2 resource=rp effortHours=56\r\nassignment a5_1_3 \"\" task=t5_1_3 resource=ar effortHours=88\r\nassignment a5_2_1 \"\" task=t5_2_1 resource=ar effortHours=32\r\nassignment a5_2_2 \"\" task=t5_2_2 resource=ux effortHours=72\r\nassignment a6_1_1 \"\" task=t6_1_1 resource=mk effortHours=120\r\nassignment a6_1_2 \"\" task=t6_1_2 resource=mk effortHours=120\r\nassignment a6_1_3 \"\" task=t6_1_3 resource=mk effortHours=80\r\nassignment a6_2_1 \"\" task=t6_2_1 resource=mk effortHours=80\r\nassignment a6_2_2 \"\" task=t6_2_2 resource=mk effortHours=80\r\nassignment a6_2_3 \"\" task=t6_2_3 resource=mk effortHours=64\r\nassignment a6_2_4 \"\" task=t6_2_4 resource=rp effortHours=48\r\nassignment a1_9_0 \"\" task=t1_9_0 resource=rp effortHours=0\r\nassignment a4_9_0 \"\" task=t4_9_0 resource=rp effortHours=0\r\nassignment a6_9_0 \"\" task=t6_9_0 resource=rp effortHours=0\r\n\r\n// Явные отображения нужны, чтобы все задачи и связи появились на полотне.\r\nview v_stage1 \"\" diagram=main element=stage1\r\nview v_stage1_1 \"\" diagram=main element=stage1_1\r\nview v_t1_1_1 \"\" diagram=main element=t1_1_1\r\nview v_t1_1_2 \"\" diagram=main element=t1_1_2\r\nview v_t1_1_3 \"\" diagram=main element=t1_1_3\r\nview v_stage1_2 \"\" diagram=main element=stage1_2\r\nview v_t1_2_1 \"\" diagram=main element=t1_2_1\r\nview v_t1_2_2 \"\" diagram=main element=t1_2_2\r\nview v_t1_9_0 \"\" diagram=main element=t1_9_0\r\nview v_stage2 \"\" diagram=main element=stage2\r\nview v_stage2_1 \"\" diagram=main element=stage2_1\r\nview v_t2_1_1 \"\" diagram=main element=t2_1_1\r\nview v_t2_1_2 \"\" diagram=main element=t2_1_2\r\nview v_t2_1_3 \"\" diagram=main element=t2_1_3\r\nview v_stage2_2 \"\" diagram=main element=stage2_2\r\nview v_t2_2_1 \"\" diagram=main element=t2_2_1\r\nview v_t2_2_2 \"\" diagram=main element=t2_2_2\r\nview v_stage3 \"\" diagram=main element=stage3\r\nview v_stage3_1 \"\" diagram=main element=stage3_1\r\nview v_t3_1_1 \"\" diagram=main element=t3_1_1\r\nview v_t3_1_2 \"\" diagram=main element=t3_1_2\r\nview v_t3_1_3 \"\" diagram=main element=t3_1_3\r\nview v_stage3_2 \"\" diagram=main element=stage3_2\r\nview v_t3_2_1 \"\" diagram=main element=t3_2_1\r\nview v_t3_2_2 \"\" diagram=main element=t3_2_2\r\nview v_t3_2_3 \"\" diagram=main element=t3_2_3\r\nview v_stage4 \"\" diagram=main element=stage4\r\nview v_stage4_1 \"\" diagram=main element=stage4_1\r\nview v_t4_1_1 \"\" diagram=main element=t4_1_1\r\nview v_t4_1_2 \"\" diagram=main element=t4_1_2\r\nview v_t4_1_3 \"\" diagram=main element=t4_1_3\r\nview v_t4_1_4 \"\" diagram=main element=t4_1_4\r\nview v_stage4_2 \"\" diagram=main element=stage4_2\r\nview v_t4_2_1 \"\" diagram=main element=t4_2_1\r\nview v_t4_2_2 \"\" diagram=main element=t4_2_2\r\nview v_t4_2_3 \"\" diagram=main element=t4_2_3\r\nview v_t4_2_4 \"\" diagram=main element=t4_2_4\r\nview v_t4_9_0 \"\" diagram=main element=t4_9_0\r\nview v_stage5 \"\" diagram=main element=stage5\r\nview v_stage5_1 \"\" diagram=main element=stage5_1\r\nview v_t5_1_1 \"\" diagram=main element=t5_1_1\r\nview v_t5_1_2 \"\" diagram=main element=t5_1_2\r\nview v_t5_1_3 \"\" diagram=main element=t5_1_3\r\nview v_stage5_2 \"\" diagram=main element=stage5_2\r\nview v_t5_2_1 \"\" diagram=main element=t5_2_1\r\nview v_t5_2_2 \"\" diagram=main element=t5_2_2\r\nview v_stage6 \"\" diagram=main element=stage6\r\nview v_stage6_1 \"\" diagram=main element=stage6_1\r\nview v_t6_1_1 \"\" diagram=main element=t6_1_1\r\nview v_t6_1_2 \"\" diagram=main element=t6_1_2\r\nview v_t6_1_3 \"\" diagram=main element=t6_1_3\r\nview v_stage6_2 \"\" diagram=main element=stage6_2\r\nview v_t6_2_1 \"\" diagram=main element=t6_2_1\r\nview v_t6_2_2 \"\" diagram=main element=t6_2_2\r\nview v_t6_2_3 \"\" diagram=main element=t6_2_3\r\nview v_t6_2_4 \"\" diagram=main element=t6_2_4\r\nview v_t6_9_0 \"\" diagram=main element=t6_9_0\r\nview v_dep01 \"\" diagram=main element=dep01 from=v_t1_1_1 to=v_t1_1_2\r\nview v_dep02 \"\" diagram=main element=dep02 from=v_t1_1_1 to=v_t1_1_3\r\nview v_dep03 \"\" diagram=main element=dep03 from=v_t1_1_3 to=v_t1_2_1\r\nview v_dep04 \"\" diagram=main element=dep04 from=v_t1_2_1 to=v_t1_2_2\r\nview v_dep05 \"\" diagram=main element=dep05 from=v_t1_2_2 to=v_t2_1_1\r\nview v_dep06 \"\" diagram=main element=dep06 from=v_t2_1_1 to=v_t2_1_2\r\nview v_dep07 \"\" diagram=main element=dep07 from=v_t2_1_2 to=v_t2_1_3\r\nview v_dep08 \"\" diagram=main element=dep08 from=v_t2_1_1 to=v_t2_2_1\r\nview v_dep09 \"\" diagram=main element=dep09 from=v_t2_1_3 to=v_t2_2_2\r\nview v_dep10 \"\" diagram=main element=dep10 from=v_t2_2_2 to=v_t3_1_1\r\nview v_dep11 \"\" diagram=main element=dep11 from=v_t3_1_1 to=v_t3_1_2\r\nview v_dep12 \"\" diagram=main element=dep12 from=v_t3_1_1 to=v_t3_1_3\r\nview v_dep13 \"\" diagram=main element=dep13 from=v_t3_1_2 to=v_t3_2_1\r\nview v_dep14 \"\" diagram=main element=dep14 from=v_t3_1_2 to=v_t3_2_2\r\nview v_dep15 \"\" diagram=main element=dep15 from=v_t3_2_1 to=v_t3_2_3\r\nview v_dep16 \"\" diagram=main element=dep16 from=v_t3_1_3 to=v_t4_1_1\r\nview v_dep17 \"\" diagram=main element=dep17 from=v_t4_1_1 to=v_t4_1_2\r\nview v_dep18 \"\" diagram=main element=dep18 from=v_t3_1_2 to=v_t4_1_3\r\nview v_dep19 \"\" diagram=main element=dep19 from=v_t4_1_3 to=v_t4_1_4\r\nview v_dep20 \"\" diagram=main element=dep20 from=v_t4_1_2 to=v_t4_2_1\r\nview v_dep21 \"\" diagram=main element=dep21 from=v_t3_2_3 to=v_t4_2_2\r\nview v_dep22 \"\" diagram=main element=dep22 from=v_t4_1_4 to=v_t4_2_3\r\nview v_dep23 \"\" diagram=main element=dep23 from=v_t4_2_1 to=v_t4_2_4\r\nview v_dep24 \"\" diagram=main element=dep24 from=v_t4_1_3 to=v_t5_1_1\r\nview v_dep25 \"\" diagram=main element=dep25 from=v_t4_2_4 to=v_t5_1_2\r\nview v_dep26 \"\" diagram=main element=dep26 from=v_t4_2_2 to=v_t5_1_3\r\nview v_dep27 \"\" diagram=main element=dep27 from=v_t5_1_2 to=v_t5_2_1\r\nview v_dep28 \"\" diagram=main element=dep28 from=v_t4_2_3 to=v_t5_2_2\r\nview v_dep29 \"\" diagram=main element=dep29 from=v_t1_2_2 to=v_t6_1_1\r\nview v_dep30 \"\" diagram=main element=dep30 from=v_t6_1_1 to=v_t6_1_2\r\nview v_dep31 \"\" diagram=main element=dep31 from=v_t6_1_2 to=v_t6_1_3\r\nview v_dep32 \"\" diagram=main element=dep32 from=v_t6_1_3 to=v_t6_2_1\r\nview v_dep33 \"\" diagram=main element=dep33 from=v_t6_2_1 to=v_t6_2_2\r\nview v_dep34 \"\" diagram=main element=dep34 from=v_t6_2_2 to=v_t6_2_3\r\nview v_dep35 \"\" diagram=main element=dep35 from=v_t5_2_1 to=v_t6_2_4\r\nview v_dep36 \"\" diagram=main element=dep36 from=v_t6_2_3 to=v_t6_2_4\r\nview v_dep37 \"\" diagram=main element=dep37 from=v_t1_2_2 to=v_t1_9_0\r\nview v_dep38 \"\" diagram=main element=dep38 from=v_t4_2_4 to=v_t4_9_0\r\nview v_dep39 \"\" diagram=main element=dep39 from=v_t6_2_4 to=v_t6_9_0\r\n",
+  "layout": {
+    "nodes": {
+      "v_stage1": {
+        "x": 60,
+        "y": 60,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage1_1": {
+        "x": 460,
+        "y": 60,
+        "width": 180,
+        "height": 40
+      },
+      "v_t1_1_1": {
+        "x": 860,
+        "y": 60,
+        "width": 180,
+        "height": 40
+      },
+      "v_t1_1_2": {
+        "x": 1260,
+        "y": 60,
+        "width": 180,
+        "height": 40
+      },
+      "v_t1_1_3": {
+        "x": 60,
+        "y": 560,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage1_2": {
+        "x": 460,
+        "y": 560,
+        "width": 180,
+        "height": 40
+      },
+      "v_t1_2_1": {
+        "x": 860,
+        "y": 560,
+        "width": 180,
+        "height": 40
+      },
+      "v_t1_2_2": {
+        "x": 1260,
+        "y": 560,
+        "width": 180,
+        "height": 40
+      },
+      "v_t1_9_0": {
+        "x": 60,
+        "y": 1060,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage2": {
+        "x": 460,
+        "y": 1060,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage2_1": {
+        "x": 860,
+        "y": 1060,
+        "width": 180,
+        "height": 40
+      },
+      "v_t2_1_1": {
+        "x": 1260,
+        "y": 1060,
+        "width": 180,
+        "height": 40
+      },
+      "v_t2_1_2": {
+        "x": 60,
+        "y": 1560,
+        "width": 180,
+        "height": 40
+      },
+      "v_t2_1_3": {
+        "x": 460,
+        "y": 1560,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage2_2": {
+        "x": 860,
+        "y": 1560,
+        "width": 180,
+        "height": 40
+      },
+      "v_t2_2_1": {
+        "x": 1260,
+        "y": 1560,
+        "width": 180,
+        "height": 40
+      },
+      "v_t2_2_2": {
+        "x": 60,
+        "y": 2060,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage3": {
+        "x": 460,
+        "y": 2060,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage3_1": {
+        "x": 860,
+        "y": 2060,
+        "width": 180,
+        "height": 40
+      },
+      "v_t3_1_1": {
+        "x": 1260,
+        "y": 2060,
+        "width": 180,
+        "height": 40
+      },
+      "v_t3_1_2": {
+        "x": 60,
+        "y": 2560,
+        "width": 180,
+        "height": 40
+      },
+      "v_t3_1_3": {
+        "x": 460,
+        "y": 2560,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage3_2": {
+        "x": 860,
+        "y": 2560,
+        "width": 180,
+        "height": 40
+      },
+      "v_t3_2_1": {
+        "x": 1260,
+        "y": 2560,
+        "width": 180,
+        "height": 40
+      },
+      "v_t3_2_2": {
+        "x": 60,
+        "y": 3060,
+        "width": 180,
+        "height": 40
+      },
+      "v_t3_2_3": {
+        "x": 460,
+        "y": 3060,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage4": {
+        "x": 860,
+        "y": 3060,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage4_1": {
+        "x": 1260,
+        "y": 3060,
+        "width": 180,
+        "height": 40
+      },
+      "v_t4_1_1": {
+        "x": 60,
+        "y": 3560,
+        "width": 180,
+        "height": 40
+      },
+      "v_t4_1_2": {
+        "x": 460,
+        "y": 3560,
+        "width": 180,
+        "height": 40
+      },
+      "v_t4_1_3": {
+        "x": 860,
+        "y": 3560,
+        "width": 180,
+        "height": 40
+      },
+      "v_t4_1_4": {
+        "x": 1260,
+        "y": 3560,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage4_2": {
+        "x": 60,
+        "y": 4060,
+        "width": 180,
+        "height": 40
+      },
+      "v_t4_2_1": {
+        "x": 460,
+        "y": 4060,
+        "width": 180,
+        "height": 40
+      },
+      "v_t4_2_2": {
+        "x": 860,
+        "y": 4060,
+        "width": 180,
+        "height": 40
+      },
+      "v_t4_2_3": {
+        "x": 1260,
+        "y": 4060,
+        "width": 180,
+        "height": 40
+      },
+      "v_t4_2_4": {
+        "x": 60,
+        "y": 4560,
+        "width": 180,
+        "height": 40
+      },
+      "v_t4_9_0": {
+        "x": 460,
+        "y": 4560,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage5": {
+        "x": 860,
+        "y": 4560,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage5_1": {
+        "x": 1260,
+        "y": 4560,
+        "width": 180,
+        "height": 40
+      },
+      "v_t5_1_1": {
+        "x": 60,
+        "y": 5060,
+        "width": 180,
+        "height": 40
+      },
+      "v_t5_1_2": {
+        "x": 460,
+        "y": 5060,
+        "width": 180,
+        "height": 40
+      },
+      "v_t5_1_3": {
+        "x": 860,
+        "y": 5060,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage5_2": {
+        "x": 1260,
+        "y": 5060,
+        "width": 180,
+        "height": 40
+      },
+      "v_t5_2_1": {
+        "x": 60,
+        "y": 5560,
+        "width": 180,
+        "height": 40
+      },
+      "v_t5_2_2": {
+        "x": 460,
+        "y": 5560,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage6": {
+        "x": 860,
+        "y": 5560,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage6_1": {
+        "x": 1260,
+        "y": 5560,
+        "width": 180,
+        "height": 40
+      },
+      "v_t6_1_1": {
+        "x": 60,
+        "y": 6060,
+        "width": 180,
+        "height": 40
+      },
+      "v_t6_1_2": {
+        "x": 460,
+        "y": 6060,
+        "width": 180,
+        "height": 40
+      },
+      "v_t6_1_3": {
+        "x": 860,
+        "y": 6060,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage6_2": {
+        "x": 1260,
+        "y": 6060,
+        "width": 180,
+        "height": 40
+      },
+      "v_t6_2_1": {
+        "x": 60,
+        "y": 6560,
+        "width": 180,
+        "height": 40
+      },
+      "v_t6_2_2": {
+        "x": 460,
+        "y": 6560,
+        "width": 180,
+        "height": 40
+      },
+      "v_t6_2_3": {
+        "x": 860,
+        "y": 6560,
+        "width": 180,
+        "height": 40
+      },
+      "v_t6_2_4": {
+        "x": 1260,
+        "y": 6560,
+        "width": 180,
+        "height": 40
+      },
+      "v_t6_9_0": {
+        "x": 60,
+        "y": 7060,
+        "width": 180,
+        "height": 40
+      }
+    },
+    "edges": {
+      "v_dep01": {},
+      "v_dep02": {},
+      "v_dep03": {},
+      "v_dep04": {},
+      "v_dep05": {},
+      "v_dep06": {},
+      "v_dep07": {},
+      "v_dep08": {},
+      "v_dep09": {},
+      "v_dep10": {},
+      "v_dep11": {},
+      "v_dep12": {},
+      "v_dep13": {},
+      "v_dep14": {},
+      "v_dep15": {},
+      "v_dep16": {},
+      "v_dep17": {},
+      "v_dep18": {},
+      "v_dep19": {},
+      "v_dep20": {},
+      "v_dep21": {},
+      "v_dep22": {},
+      "v_dep23": {},
+      "v_dep24": {},
+      "v_dep25": {},
+      "v_dep26": {},
+      "v_dep27": {},
+      "v_dep28": {},
+      "v_dep29": {},
+      "v_dep30": {},
+      "v_dep31": {},
+      "v_dep32": {},
+      "v_dep33": {},
+      "v_dep34": {},
+      "v_dep35": {},
+      "v_dep36": {},
+      "v_dep37": {},
+      "v_dep38": {},
+      "v_dep39": {}
+    },
+    "diagrams": {
+      "main": {
+        "gantt": {
+          "scale": "months",
+          "tableWidth": 1120,
+          "today": false
+        }
+      }
+    }
+  }
+}

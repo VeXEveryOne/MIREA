@@ -21,13 +21,13 @@ from report_layout import Report, ROOT, SUBJECT, field, font
 DATABASE = SUBJECT / 'База_данных'
 DIAGRAMS = SUBJECT / 'Схемы'
 ORDER = ['component_group', 'component', 'supplier', 'offer', 'configuration',
-         'bom_version', 'bom_slot', 'card', 'card_revision', 'image',
+         'model_range_version', 'model_range_slot', 'card', 'card_revision', 'image',
          'revision_image', 'publication_attempt']
 NAMES = {
     'component_group': 'Группа компонентов', 'component': 'Компонент',
     'supplier': 'Поставщик', 'offer': 'Предложение',
-    'configuration': 'Конфигурация', 'bom_version': 'Версия состава',
-    'bom_slot': 'Позиция состава', 'card': 'Карточка',
+    'configuration': 'Конфигурация', 'model_range_version': 'Версия состава',
+    'model_range_slot': 'Позиция состава', 'card': 'Карточка',
     'card_revision': 'Ревизия карточки', 'image': 'Изображение',
     'revision_image': 'Изображение ревизии', 'publication_attempt': 'Попытка публикации',
 }
@@ -37,8 +37,8 @@ DESCRIPTIONS = {
     'supplier': 'Источник предложения с уникальным кодом. Сведения в учебной базе не являются реквизитами реального поставщика.',
     'offer': 'Наблюдение цены и остатка конкретного компонента у поставщика в зафиксированный момент времени.',
     'configuration': 'Стабильный объект компьютерной конфигурации; изменения её состава оформляются версиями.',
-    'bom_version': 'Версия спецификации состава внутри конфигурации. Локальный номер версии дополняет ключ владельца.',
-    'bom_slot': 'Позиция версии состава: группа либо точный компонент, количество и выбранное предложение.',
+    'model_range_version': 'Версия спецификации состава внутри конфигурации. Локальный номер версии дополняет ключ владельца.',
+    'model_range_slot': 'Позиция версии состава: группа либо точный компонент, количество и выбранное предложение.',
     'card': 'Стабильная товарная карточка с уникальным кодом продавца, не зависящим от номера ревизии.',
     'card_revision': 'Снимок содержания и экономических параметров карточки, связанный с одной версией состава.',
     'image': 'Метаданные изображения: URI, контрольная сумма и размеры. Файл хранится вне таблицы.',
@@ -46,11 +46,11 @@ DESCRIPTIONS = {
     'publication_attempt': 'Попытка публикации конкретной ревизии: состояние, внешний ID, ошибка и срок проверки результата.',
 }
 CHECKS = {
-    'bom_slot_check': 'Заполнено ровно одно поле: group_id либо requested_component_id.',
-    'bom_slot_line_no_check': 'line_no > 0.',
-    'bom_slot_quantity_check': 'quantity > 0.',
-    'bom_version_state_check': 'state ∈ {DRAFT, CHECKED, FROZEN}.',
-    'bom_version_version_no_check': 'version_no > 0.',
+    'model_range_slot_check': 'Заполнено ровно одно поле: group_id либо requested_component_id.',
+    'model_range_slot_line_no_check': 'line_no > 0.',
+    'model_range_slot_quantity_check': 'quantity > 0.',
+    'model_range_version_state_check': 'state ∈ {DRAFT, CHECKED, FROZEN}.',
+    'model_range_version_version_no_check': 'version_no > 0.',
     'card_revision_assembly_rub_check': 'assembly_rub ≥ 0.',
     'card_revision_commission_rate_check': '0 ≤ commission_rate < 1.',
     'card_revision_logistics_rub_check': 'logistics_rub ≥ 0.',
@@ -83,8 +83,8 @@ TEST_NAMES = {
     'group mismatch': 'Несоответствие группы выбранному предложению',
     'missing selected offer FK': 'Ссылка на отсутствующее предложение',
     'selected offer belongs to another group': 'Предложение относится к другой группе',
-    'frozen BOM cannot be edited': 'Изменение состава, используемого ревизией',
-    'frozen BOM slot cannot move to another version': 'Перенос используемой позиции в другую версию',
+    'frozen модельный ряд cannot be edited': 'Изменение состава, используемого ревизией',
+    'frozen модельный ряд slot cannot move to another version': 'Перенос используемой позиции в другую версию',
     'economic snapshot cannot be overwritten': 'Перезапись экономических параметров ревизии',
     'used offer price is immutable': 'Изменение цены используемого предложения',
     'used component mass is immutable': 'Изменение массы используемого компонента',
@@ -266,9 +266,9 @@ def build():
     r.paragraph('Для концептуальной модели используются прямоугольники сущностей, овалы атрибутов и ромбы связей Чена [2]. Двойной прямоугольник обозначает зависимую сущность, двойной ромб — идентифицирующую связь. Сплошное подчёркивание обозначает первичный ключ сильной сущности, пунктирное — локальный дискриминатор слабой. Применено бинарное расширение min–max: 1, 0..1 и 0..N. Метка у конца связи показывает число объектов этого конца для одного объекта противоположного конца.')
     r.paragraph('Внешние ключи концептуально представлены связями и не дублируются как отдельные овалы. Все их поля и обязательность включены в логическую и физическую модели. Тринадцать листов Чена являются согласованными представлениями одной модели, а не отдельными базами. Атрибуты ревизии карточки разделены между двумя листами; повторённые владельцы и связи сохраняют тот же смысл.')
     r.table('Зависимые сущности и их идентификация', ['Сущность', 'Владелец и полный ключ', 'Локальная идентификация'], [
-        ['bom_version', 'configuration; PK(configuration_id, version_no)', 'Номер версии внутри конфигурации.'],
-        ['bom_slot', 'bom_version; PK(configuration_id, version_no, line_no)', 'Номер позиции внутри версии.'],
-        ['card_revision', 'card; PK(card_id, revision_no)', 'Номер ревизии внутри карточки; BOM-ссылка не идентифицирует.'],
+        ['model_range_version', 'configuration; PK(configuration_id, version_no)', 'Номер версии внутри конфигурации.'],
+        ['model_range_slot', 'model_range_version; PK(configuration_id, version_no, line_no)', 'Номер позиции внутри версии.'],
+        ['card_revision', 'card; PK(card_id, revision_no)', 'Номер ревизии внутри карточки; ссылка на версию состава не идентифицирует.'],
         ['publication_attempt', 'card_revision; PK(card_id, revision_no, attempt_no)', 'Номер попытки внутри ревизии.'],
         ['revision_image', 'card_revision и image; PK(card_id, revision_no, image_id)', 'Ключ — пара владельцев; ordinal образует альтернативный ключ.'],
     ], [4.7, 6.3, 5.5])
@@ -279,7 +279,7 @@ def build():
     # a full page and are never shrunk to make room for another model.
     conceptual_pages = [
         ['component_group', 'supplier'], ['component'], ['offer'],
-        ['configuration', 'card'], ['bom_version'], ['bom_slot'],
+        ['configuration', 'card'], ['model_range_version'], ['model_range_slot'],
         ['card_revision'], ['image'], ['revision_image'], ['publication_attempt'],
     ]
     ordered_sheets = []
@@ -316,7 +316,7 @@ def build():
     r.paragraph('Перечень зависимостей основан на указанных бизнес-правилах; равенство значений в нескольких тестовых строках не считается новой функциональной зависимостью. Статусы ревизии и попытки публикации разделены: изменение внешнего результата не переписывает содержание карточки.')
     r.heading('2.2 Логические диаграммы Crow’s Foot', 2)
     r.paragraph('В Crow’s Foot кружок означает необязательность, черта — единичность, развилка — множество. PK обозначает первичный ключ, FK — внешний, UQ — уникальное ограничение; несколько меток у полей одного ключа не означают отдельную уникальность каждого поля. На повторённых справочных блоках показаны только ключи; полный набор атрибутов дан на основном листе и в таблицах.')
-    for i, (group, title) in enumerate([('catalog', 'каталога и предложений'), ('bom', 'конфигурации и состава'),
+    for i, (group, title) in enumerate([('catalog', 'каталога и предложений'), ('model_range', 'конфигурации и состава'),
                                       ('cards', 'карточки и расчёта'), ('publication', 'изображений и публикации')]):
         r.page(True, new_page=True)
         r.figure('Логическая модель ' + title, DIAGRAMS / f'ПР7_Логическая_{group}.png', max_height=13.6,
@@ -343,7 +343,7 @@ def build():
     r.table('Поля физической модели', ['Наименование сущности', 'Название поля', 'Тип данных', 'Обязательно', 'Ограничения'],
             [[c['table_name'], c['column_name'], physical_type(c), 'Да' if c['is_nullable'] == 'NO' else 'Нет', constraints(c)]
              for t in ORDER for c in columns(t)], [5, 6.2, 3.1, 3.1, 7.8], center=(3,))
-    for i, (group, title) in enumerate([('catalog', 'каталога и предложений'), ('bom', 'конфигурации и состава'),
+    for i, (group, title) in enumerate([('catalog', 'каталога и предложений'), ('model_range', 'конфигурации и состава'),
                                       ('cards', 'карточки и расчёта'), ('publication', 'изображений и публикации')]):
         r.page(True, new_page=True)
         if i == 0:
@@ -352,7 +352,7 @@ def build():
                  lead=f'На рисунке {r.figure_count+1} показана физическая модель {title}.')
     r.page(False)
     r.heading('2.7 Межтабличные инварианты и границы SQL', 2)
-    r.paragraph('В CHECK проверяется только текущая строка. Соответствие выбранного предложения группе или точному компоненту проверяется триггером guard_bom_slot. Этот же триггер запрещает вставку, удаление и изменение позиций версии, на которую уже ссылается ревизия, включая перенос позиции в другую версию. guard_revision_snapshot разрешает менять только state ревизии; guard_used_catalog запрещает обновление предложения и компонента, используемых ревизией.')
+    r.paragraph('В CHECK проверяется только текущая строка. Соответствие выбранного предложения группе или точному компоненту проверяется триггером guard_model_range_slot. Этот же триггер запрещает вставку, удаление и изменение позиций версии, на которую уже ссылается ревизия, включая перенос позиции в другую версию. guard_revision_snapshot разрешает менять только state ревизии; guard_used_catalog запрещает обновление предложения и компонента, используемых ревизией.')
     r.paragraph('Триггеры не заменяют проверку полной совместимости и готовности прикладным сервисом. DRAFT/READY/STALE в таблице являются хранимыми состояниями; представление card_status не доказывает полноту состава или наличие всех изображений. Роль manager может менять state, но не экономические поля. Перечень разрешённых переходов, конкурентная блокировка и повторная проверка перед внешней отправкой относятся к дальнейшей реализации сервисного слоя.')
     r.paragraph('Пять зависимых сущностей имеют составные ключи; все тринадцать FK защищают существование владельцев. Прикладным ролям не выданы DELETE, TRUNCATE и CREATE в схеме. Роли в учебном кластере созданы с NOLOGIN: вход выполняется выделенной лабораторной учётной записью, а проверки прав — с SET LOCAL ROLE внутри транзакции. Это проверка прав PostgreSQL, не готовая пользовательская аутентификация веб-приложения.')
     r.heading('3 Реализация и проверка базы данных')
@@ -365,9 +365,9 @@ def build():
     r.page(True)
     r.heading('3.2 Содержимое тестовой базы', 2)
     fixture_order = ['component_group', 'supplier', 'component', 'configuration', 'card',
-                     'offer', 'bom_version', 'bom_slot', 'card_revision', 'image',
+                     'offer', 'model_range_version', 'model_range_slot', 'card_revision', 'image',
                      'revision_image', 'publication_attempt']
-    fixture_page_starts = {'component', 'offer', 'bom_version', 'card_revision', 'image', 'publication_attempt'}
+    fixture_page_starts = {'component', 'offer', 'model_range_version', 'card_revision', 'image', 'publication_attempt'}
     for t in fixture_order:
         records = evidence['fixtures'][t]
         fields = [c['column_name'] for c in columns(t)]
@@ -396,8 +396,8 @@ def build():
         ('DDL1 Создание пространства имён', r'CREATE SCHEMA ppois;'),
         ('DDL2 Справочник групп', r'CREATE TABLE ppois\.component_group \([\s\S]*?\n\);'),
         ('DDL3 Наблюдение предложения', r'CREATE TABLE ppois\.offer \([\s\S]*?\n\);'),
-        ('DDL4 Версия состава', r'CREATE TABLE ppois\.bom_version \([\s\S]*?\n\);'),
-        ('DDL5 Позиция состава и составной внешний ключ', r'CREATE TABLE ppois\.bom_slot \([\s\S]*?\n\);'),
+        ('DDL4 Версия состава', r'CREATE TABLE ppois\.model_range_version \([\s\S]*?\n\);'),
+        ('DDL5 Позиция состава и составной внешний ключ', r'CREATE TABLE ppois\.model_range_slot \([\s\S]*?\n\);'),
         ('DDL6 Индекс для поиска свежих предложений', r'CREATE INDEX offer_freshness_idx[^;]+;'),
         ('DDL7 Представление состояния карточки', r'CREATE VIEW ppois\.card_status AS[\s\S]*?\) p ON true;'),
         ('DDL8 Функция защиты снимка ревизии', r'CREATE FUNCTION ppois\.guard_revision_snapshot\(\)[\s\S]*?END \$\$;'),
@@ -409,7 +409,7 @@ def build():
             raise ValueError('DDL excerpt missing: ' + title)
         r.paragraph(title, keep=True)
         sql(r, match.group())
-    r.paragraph('Создание объектов завершилось успешно; реальные имена полей, типы и ограничения получены из information_schema и pg_catalog. Первичные и уникальные ограничения создают собственные индексы; дополнительно заданы offer_freshness_idx, revision_bom_idx и частичный attempt_reconcile_idx. Последний ускоряет выбор состояний ACCEPTED, UNKNOWN и TEMP_ERROR, но сам по себе не разрешает повторную отправку.')
+    r.paragraph('Создание объектов завершилось успешно; реальные имена полей, типы и ограничения получены из information_schema и pg_catalog. Первичные и уникальные ограничения создают собственные индексы; дополнительно заданы offer_freshness_idx, revision_model_range_idx и частичный attempt_reconcile_idx. Последний ускоряет выбор состояний ACCEPTED, UNKNOWN и TEMP_ERROR, но сам по себе не разрешает повторную отправку.')
     r.heading('3.4 Выполненные запросы DCL', 2)
     r.paragraph('После создания четырёх NOLOGIN-ролей выполнены двенадцать операторов GRANT/REVOKE из privileges.sql. USAGE разрешает обращаться к именам в схеме, SELECT — читать данные, а INSERT/UPDATE выданы по рабочим обязанностям. Право UPDATE отдельных столбцов не даёт права изменять остальные поля [4].')
     dcl = (DATABASE / 'privileges.sql').read_text(encoding='utf-8')

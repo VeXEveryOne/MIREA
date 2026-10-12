@@ -22,7 +22,7 @@ class ExecutableSliceTests(unittest.TestCase):
     def tearDown(self):
         self.conn.close()
 
-    def test_frozen_bom_calculation_matches_both_stored_revisions(self):
+    def test_frozen_model_range_calculation_matches_both_stored_revisions(self):
         result = run(self.conn, uid(100), 1, NOW)
         self.assertEqual(result['calculation']['price_rub'], '76400')
         self.assertEqual(result['calculation']['mass_kg'], '7.820')

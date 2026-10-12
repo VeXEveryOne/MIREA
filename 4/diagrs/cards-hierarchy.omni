@@ -1,0 +1,824 @@
+{
+  "formatVersion": 4,
+  "notation": "IDEF0",
+  "profile": "NS-IDEF0-31320-1-2012-1",
+  "model": {
+    "notation": "IDEF0",
+    "id": "cards_decomposition",
+    "label": "Декомпозиция процесса формирования карточек AS IS",
+    "nodes": [
+      {
+        "id": "sheet",
+        "kind": "diagram",
+        "label": "Декомпозиция",
+        "parent": "function_example_1",
+        "properties": {
+          "node": "A0",
+          "purpose": "Описать подготовку карточек товаров",
+          "viewpoint": "Менеджер маркетплейса"
+        }
+      },
+      {
+        "id": "A1",
+        "kind": "function",
+        "label": "Инициировать создание или изменение карточки",
+        "parent": "sheet",
+        "properties": {
+          "number": "1"
+        }
+      },
+      {
+        "id": "A2",
+        "kind": "function",
+        "label": "Сформировать конфигурацию и сопоставить товары поставщиков",
+        "parent": "sheet",
+        "properties": {
+          "number": "2"
+        }
+      },
+      {
+        "id": "A3",
+        "kind": "function",
+        "label": "Проверить совместимость комплектующих",
+        "parent": "sheet",
+        "properties": {
+          "number": "3"
+        }
+      },
+      {
+        "id": "A4",
+        "kind": "function",
+        "label": "Рассчитать цену и вес, подготовить изображения",
+        "parent": "sheet",
+        "properties": {
+          "number": "4"
+        }
+      },
+      {
+        "id": "A5",
+        "kind": "function",
+        "label": "Заполнить, проверить и опубликовать карточку в Ozon",
+        "parent": "sheet",
+        "properties": {
+          "number": "5"
+        }
+      },
+      {
+        "id": "request",
+        "kind": "boundary",
+        "label": "Запрос на карточку",
+        "parent": "sheet",
+        "properties": {
+          "order": "0",
+          "parentArrow": "arrow_example_1",
+          "parentEnd": "to",
+          "side": "left"
+        }
+      },
+      {
+        "id": "assortment",
+        "kind": "boundary",
+        "label": "Корпус, ассортимент и предложения поставщиков",
+        "parent": "sheet",
+        "properties": {
+          "order": "1",
+          "parentArrow": "arrow_example_2",
+          "parentEnd": "to",
+          "side": "left"
+        }
+      },
+      {
+        "id": "ozonRules",
+        "kind": "boundary",
+        "label": "Требования Ozon",
+        "parent": "sheet",
+        "properties": {
+          "order": "0",
+          "parentArrow": "arrow_example_3",
+          "parentEnd": "to",
+          "side": "top"
+        }
+      },
+      {
+        "id": "compatibilityRules",
+        "kind": "boundary",
+        "label": "Правила совместимости",
+        "parent": "sheet",
+        "properties": {
+          "order": "1",
+          "parentArrow": "arrow_example_4",
+          "parentEnd": "to",
+          "side": "top"
+        }
+      },
+      {
+        "id": "calculationRules",
+        "kind": "boundary",
+        "label": "Правила цены, веса и изображений",
+        "parent": "sheet",
+        "properties": {
+          "order": "2",
+          "parentArrow": "arrow_example_5",
+          "parentEnd": "to",
+          "side": "top"
+        }
+      },
+      {
+        "id": "cardOutput",
+        "kind": "boundary",
+        "label": "Опубликованная / обновлённая карточка",
+        "parent": "sheet",
+        "properties": {
+          "order": "0",
+          "parentArrow": "arrow_example_6",
+          "parentEnd": "from",
+          "side": "right"
+        }
+      },
+      {
+        "id": "bomOutput",
+        "kind": "boundary",
+        "label": "Подготовленная BOM",
+        "parent": "sheet",
+        "properties": {
+          "order": "1",
+          "parentArrow": "arrow_example_7",
+          "parentEnd": "from",
+          "side": "right"
+        }
+      },
+      {
+        "id": "valuesOutput",
+        "kind": "boundary",
+        "label": "Рассчитанные показатели и изображения",
+        "parent": "sheet",
+        "properties": {
+          "order": "2",
+          "parentArrow": "arrow_example_8",
+          "parentEnd": "from",
+          "side": "right"
+        }
+      },
+      {
+        "id": "manager",
+        "kind": "boundary",
+        "label": "Менеджер маркетплейсов",
+        "parent": "sheet",
+        "properties": {
+          "order": "0",
+          "parentArrow": "arrow_example_9",
+          "parentEnd": "to",
+          "side": "bottom"
+        }
+      },
+      {
+        "id": "specialist",
+        "kind": "boundary",
+        "label": "Технический специалист",
+        "parent": "sheet",
+        "properties": {
+          "order": "1",
+          "parentArrow": "arrow_example_10",
+          "parentEnd": "to",
+          "side": "bottom"
+        }
+      },
+      {
+        "id": "supplier",
+        "kind": "boundary",
+        "label": "Склад и поставщики",
+        "parent": "sheet",
+        "properties": {
+          "order": "2",
+          "parentArrow": "arrow_example_11",
+          "parentEnd": "to",
+          "side": "bottom"
+        }
+      },
+      {
+        "id": "designer",
+        "kind": "boundary",
+        "label": "Дизайнер",
+        "parent": "sheet",
+        "properties": {
+          "order": "3",
+          "parentArrow": "arrow_example_12",
+          "parentEnd": "to",
+          "side": "bottom"
+        }
+      },
+      {
+        "id": "ozon",
+        "kind": "boundary",
+        "label": "Ozon",
+        "parent": "sheet",
+        "properties": {
+          "order": "4",
+          "parentArrow": "arrow_example_13",
+          "parentEnd": "to",
+          "side": "bottom"
+        }
+      },
+      {
+        "id": "context_example_1",
+        "kind": "diagram",
+        "label": "Контекст",
+        "properties": {
+          "node": "A-0",
+          "purpose": "Описать подготовку карточек товаров",
+          "viewpoint": "Менеджер маркетплейса"
+        }
+      },
+      {
+        "id": "function_example_1",
+        "kind": "function",
+        "label": "Декомпозиция",
+        "parent": "context_example_1",
+        "properties": {
+          "number": "0"
+        }
+      },
+      {
+        "id": "boundary_example_1",
+        "kind": "boundary",
+        "label": "Запрос на карточку",
+        "parent": "context_example_1",
+        "properties": {
+          "direction": "in",
+          "side": "left"
+        }
+      },
+      {
+        "id": "boundary_example_2",
+        "kind": "boundary",
+        "label": "Корпус, ассортимент и предложения поставщиков",
+        "parent": "context_example_1",
+        "properties": {
+          "direction": "in",
+          "side": "left"
+        }
+      },
+      {
+        "id": "boundary_example_3",
+        "kind": "boundary",
+        "label": "Требования Ozon",
+        "parent": "context_example_1",
+        "properties": {
+          "direction": "in",
+          "side": "top"
+        }
+      },
+      {
+        "id": "boundary_example_4",
+        "kind": "boundary",
+        "label": "Правила совместимости",
+        "parent": "context_example_1",
+        "properties": {
+          "direction": "in",
+          "side": "top"
+        }
+      },
+      {
+        "id": "boundary_example_5",
+        "kind": "boundary",
+        "label": "Правила цены, веса и изображений",
+        "parent": "context_example_1",
+        "properties": {
+          "direction": "in",
+          "side": "top"
+        }
+      },
+      {
+        "id": "boundary_example_6",
+        "kind": "boundary",
+        "label": "Опубликованная / обновлённая карточка",
+        "parent": "context_example_1",
+        "properties": {
+          "direction": "out",
+          "side": "right"
+        }
+      },
+      {
+        "id": "boundary_example_7",
+        "kind": "boundary",
+        "label": "Подготовленная BOM",
+        "parent": "context_example_1",
+        "properties": {
+          "direction": "out",
+          "side": "right"
+        }
+      },
+      {
+        "id": "boundary_example_8",
+        "kind": "boundary",
+        "label": "Рассчитанные показатели и изображения",
+        "parent": "context_example_1",
+        "properties": {
+          "direction": "out",
+          "side": "right"
+        }
+      },
+      {
+        "id": "boundary_example_9",
+        "kind": "boundary",
+        "label": "Менеджер маркетплейсов",
+        "parent": "context_example_1",
+        "properties": {
+          "direction": "in",
+          "side": "bottom"
+        }
+      },
+      {
+        "id": "boundary_example_10",
+        "kind": "boundary",
+        "label": "Технический специалист",
+        "parent": "context_example_1",
+        "properties": {
+          "direction": "in",
+          "side": "bottom"
+        }
+      },
+      {
+        "id": "boundary_example_11",
+        "kind": "boundary",
+        "label": "Склад и поставщики",
+        "parent": "context_example_1",
+        "properties": {
+          "direction": "in",
+          "side": "bottom"
+        }
+      },
+      {
+        "id": "boundary_example_12",
+        "kind": "boundary",
+        "label": "Дизайнер",
+        "parent": "context_example_1",
+        "properties": {
+          "direction": "in",
+          "side": "bottom"
+        }
+      },
+      {
+        "id": "boundary_example_13",
+        "kind": "boundary",
+        "label": "Ozon",
+        "parent": "context_example_1",
+        "properties": {
+          "direction": "in",
+          "side": "bottom"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "requestArrow",
+        "kind": "arrow",
+        "label": "Потребность",
+        "source": "request",
+        "target": "A1",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "assortmentArrow",
+        "kind": "arrow",
+        "label": "Исходные сведения",
+        "source": "assortment",
+        "target": "A2",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "step12",
+        "kind": "arrow",
+        "label": "Запрос и выбранный корпус",
+        "source": "A1",
+        "target": "A2",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "step23",
+        "kind": "arrow",
+        "label": "Проект конфигурации",
+        "source": "A2",
+        "target": "A3",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "step34",
+        "kind": "arrow",
+        "label": "Согласованная BOM",
+        "source": "A3",
+        "target": "A4",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "step45",
+        "kind": "arrow",
+        "label": "Данные карточки",
+        "source": "A4",
+        "target": "A5",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "ozonControl",
+        "kind": "arrow",
+        "label": "Требования площадки",
+        "source": "ozonRules",
+        "target": "A5",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "compatibilityControl",
+        "kind": "arrow",
+        "label": "Ограничения",
+        "source": "compatibilityRules",
+        "target": "A3",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "calculationControl",
+        "kind": "arrow",
+        "label": "Правила расчёта",
+        "source": "calculationRules",
+        "target": "A4",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "managerMechanism",
+        "kind": "arrow",
+        "label": "Менеджер",
+        "source": "manager",
+        "target": "A1",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "specialistMechanism",
+        "kind": "arrow",
+        "label": "Специалист",
+        "source": "specialist",
+        "target": "A3",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "supplierMechanism",
+        "kind": "arrow",
+        "label": "Поставщики",
+        "source": "supplier",
+        "target": "A2",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "designerMechanism",
+        "kind": "arrow",
+        "label": "Дизайнер",
+        "source": "designer",
+        "target": "A4",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "ozonMechanism",
+        "kind": "arrow",
+        "label": "Ozon",
+        "source": "ozon",
+        "target": "A5",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "bomArrow",
+        "kind": "arrow",
+        "label": "BOM",
+        "source": "A3",
+        "target": "bomOutput",
+        "properties": {
+          "role": "output"
+        }
+      },
+      {
+        "id": "valuesArrow",
+        "kind": "arrow",
+        "label": "Цена, вес, изображения",
+        "source": "A4",
+        "target": "valuesOutput",
+        "properties": {
+          "role": "output"
+        }
+      },
+      {
+        "id": "cardArrow",
+        "kind": "arrow",
+        "label": "Карточка",
+        "source": "A5",
+        "target": "cardOutput",
+        "properties": {
+          "role": "output"
+        }
+      },
+      {
+        "id": "arrow_example_1",
+        "kind": "arrow",
+        "label": "Запрос на карточку",
+        "source": "boundary_example_1",
+        "target": "function_example_1",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "arrow_example_2",
+        "kind": "arrow",
+        "label": "Корпус, ассортимент и предложения поставщиков",
+        "source": "boundary_example_2",
+        "target": "function_example_1",
+        "properties": {
+          "role": "input"
+        }
+      },
+      {
+        "id": "arrow_example_3",
+        "kind": "arrow",
+        "label": "Требования Ozon",
+        "source": "boundary_example_3",
+        "target": "function_example_1",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "arrow_example_4",
+        "kind": "arrow",
+        "label": "Правила совместимости",
+        "source": "boundary_example_4",
+        "target": "function_example_1",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "arrow_example_5",
+        "kind": "arrow",
+        "label": "Правила цены, веса и изображений",
+        "source": "boundary_example_5",
+        "target": "function_example_1",
+        "properties": {
+          "role": "control"
+        }
+      },
+      {
+        "id": "arrow_example_6",
+        "kind": "arrow",
+        "label": "Опубликованная / обновлённая карточка",
+        "source": "function_example_1",
+        "target": "boundary_example_6",
+        "properties": {
+          "role": "output"
+        }
+      },
+      {
+        "id": "arrow_example_7",
+        "kind": "arrow",
+        "label": "Подготовленная BOM",
+        "source": "function_example_1",
+        "target": "boundary_example_7",
+        "properties": {
+          "role": "output"
+        }
+      },
+      {
+        "id": "arrow_example_8",
+        "kind": "arrow",
+        "label": "Рассчитанные показатели и изображения",
+        "source": "function_example_1",
+        "target": "boundary_example_8",
+        "properties": {
+          "role": "output"
+        }
+      },
+      {
+        "id": "arrow_example_9",
+        "kind": "arrow",
+        "label": "Менеджер маркетплейсов",
+        "source": "boundary_example_9",
+        "target": "function_example_1",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "arrow_example_10",
+        "kind": "arrow",
+        "label": "Технический специалист",
+        "source": "boundary_example_10",
+        "target": "function_example_1",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "arrow_example_11",
+        "kind": "arrow",
+        "label": "Склад и поставщики",
+        "source": "boundary_example_11",
+        "target": "function_example_1",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "arrow_example_12",
+        "kind": "arrow",
+        "label": "Дизайнер",
+        "source": "boundary_example_12",
+        "target": "function_example_1",
+        "properties": {
+          "role": "mechanism"
+        }
+      },
+      {
+        "id": "arrow_example_13",
+        "kind": "arrow",
+        "label": "Ozon",
+        "source": "boundary_example_13",
+        "target": "function_example_1",
+        "properties": {
+          "role": "mechanism"
+        }
+      }
+    ]
+  },
+  "source": "idef0 cards_decomposition \"Декомпозиция процесса формирования карточек AS IS\"\ndiagram sheet Декомпозиция in=function_example_1 node=A0 purpose=\"Описать подготовку карточек товаров\" viewpoint=\"Менеджер маркетплейса\"\nfunction A1 \"Инициировать создание или изменение карточки\" in=sheet number=1\nfunction A2 \"Сформировать конфигурацию и сопоставить товары поставщиков\" in=sheet number=2\nfunction A3 \"Проверить совместимость комплектующих\" in=sheet number=3\nfunction A4 \"Рассчитать цену и вес, подготовить изображения\" in=sheet number=4\nfunction A5 \"Заполнить, проверить и опубликовать карточку в Ozon\" in=sheet number=5\nboundary request \"Запрос на карточку\" in=sheet order=0 parentArrow=arrow_example_1 parentEnd=to side=left\nboundary assortment \"Корпус, ассортимент и предложения поставщиков\" in=sheet order=1 parentArrow=arrow_example_2 parentEnd=to side=left\nboundary ozonRules \"Требования Ozon\" in=sheet order=0 parentArrow=arrow_example_3 parentEnd=to side=top\nboundary compatibilityRules \"Правила совместимости\" in=sheet order=1 parentArrow=arrow_example_4 parentEnd=to side=top\nboundary calculationRules \"Правила цены, веса и изображений\" in=sheet order=2 parentArrow=arrow_example_5 parentEnd=to side=top\nboundary cardOutput \"Опубликованная / обновлённая карточка\" in=sheet order=0 parentArrow=arrow_example_6 parentEnd=from side=right\nboundary bomOutput \"Подготовленная BOM\" in=sheet order=1 parentArrow=arrow_example_7 parentEnd=from side=right\nboundary valuesOutput \"Рассчитанные показатели и изображения\" in=sheet order=2 parentArrow=arrow_example_8 parentEnd=from side=right\nboundary manager \"Менеджер маркетплейсов\" in=sheet order=0 parentArrow=arrow_example_9 parentEnd=to side=bottom\nboundary specialist \"Технический специалист\" in=sheet order=1 parentArrow=arrow_example_10 parentEnd=to side=bottom\nboundary supplier \"Склад и поставщики\" in=sheet order=2 parentArrow=arrow_example_11 parentEnd=to side=bottom\nboundary designer Дизайнер in=sheet order=3 parentArrow=arrow_example_12 parentEnd=to side=bottom\nboundary ozon Ozon in=sheet order=4 parentArrow=arrow_example_13 parentEnd=to side=bottom\narrow requestArrow \"Потребность\" from=request to=A1 role=input\narrow assortmentArrow \"Исходные сведения\" from=assortment to=A2 role=input\narrow step12 \"Запрос и выбранный корпус\" from=A1 to=A2 role=input\narrow step23 \"Проект конфигурации\" from=A2 to=A3 role=input\narrow step34 \"Согласованная BOM\" from=A3 to=A4 role=input\narrow step45 \"Данные карточки\" from=A4 to=A5 role=input\narrow ozonControl \"Требования площадки\" from=ozonRules to=A5 role=control\narrow compatibilityControl \"Ограничения\" from=compatibilityRules to=A3 role=control\narrow calculationControl \"Правила расчёта\" from=calculationRules to=A4 role=control\narrow managerMechanism \"Менеджер\" from=manager to=A1 role=mechanism\narrow specialistMechanism \"Специалист\" from=specialist to=A3 role=mechanism\narrow supplierMechanism \"Поставщики\" from=supplier to=A2 role=mechanism\narrow designerMechanism \"Дизайнер\" from=designer to=A4 role=mechanism\narrow ozonMechanism \"Ozon\" from=ozon to=A5 role=mechanism\narrow bomArrow \"BOM\" from=A3 to=bomOutput role=output\narrow valuesArrow \"Цена, вес, изображения\" from=A4 to=valuesOutput role=output\narrow cardArrow \"Карточка\" from=A5 to=cardOutput role=output\ndiagram context_example_1 Контекст node=A-0 purpose=\"Описать подготовку карточек товаров\" viewpoint=\"Менеджер маркетплейса\"\nfunction function_example_1 Декомпозиция in=context_example_1 number=0\nboundary boundary_example_1 \"Запрос на карточку\" direction=in in=context_example_1 side=left\nboundary boundary_example_2 \"Корпус, ассортимент и предложения поставщиков\" direction=in in=context_example_1 side=left\nboundary boundary_example_3 \"Требования Ozon\" direction=in in=context_example_1 side=top\nboundary boundary_example_4 \"Правила совместимости\" direction=in in=context_example_1 side=top\nboundary boundary_example_5 \"Правила цены, веса и изображений\" direction=in in=context_example_1 side=top\nboundary boundary_example_6 \"Опубликованная / обновлённая карточка\" direction=out in=context_example_1 side=right\nboundary boundary_example_7 \"Подготовленная BOM\" direction=out in=context_example_1 side=right\nboundary boundary_example_8 \"Рассчитанные показатели и изображения\" direction=out in=context_example_1 side=right\nboundary boundary_example_9 \"Менеджер маркетплейсов\" direction=in in=context_example_1 side=bottom\nboundary boundary_example_10 \"Технический специалист\" direction=in in=context_example_1 side=bottom\nboundary boundary_example_11 \"Склад и поставщики\" direction=in in=context_example_1 side=bottom\nboundary boundary_example_12 Дизайнер direction=in in=context_example_1 side=bottom\nboundary boundary_example_13 Ozon direction=in in=context_example_1 side=bottom\narrow arrow_example_1 \"Запрос на карточку\" from=boundary_example_1 role=input to=function_example_1\narrow arrow_example_2 \"Корпус, ассортимент и предложения поставщиков\" from=boundary_example_2 role=input to=function_example_1\narrow arrow_example_3 \"Требования Ozon\" from=boundary_example_3 role=control to=function_example_1\narrow arrow_example_4 \"Правила совместимости\" from=boundary_example_4 role=control to=function_example_1\narrow arrow_example_5 \"Правила цены, веса и изображений\" from=boundary_example_5 role=control to=function_example_1\narrow arrow_example_6 \"Опубликованная / обновлённая карточка\" from=function_example_1 role=output to=boundary_example_6\narrow arrow_example_7 \"Подготовленная BOM\" from=function_example_1 role=output to=boundary_example_7\narrow arrow_example_8 \"Рассчитанные показатели и изображения\" from=function_example_1 role=output to=boundary_example_8\narrow arrow_example_9 \"Менеджер маркетплейсов\" from=boundary_example_9 role=mechanism to=function_example_1\narrow arrow_example_10 \"Технический специалист\" from=boundary_example_10 role=mechanism to=function_example_1\narrow arrow_example_11 \"Склад и поставщики\" from=boundary_example_11 role=mechanism to=function_example_1\narrow arrow_example_12 Дизайнер from=boundary_example_12 role=mechanism to=function_example_1\narrow arrow_example_13 Ozon from=boundary_example_13 role=mechanism to=function_example_1\n",
+  "draft": "idef0 cards_decomposition \"Декомпозиция процесса формирования карточек AS IS\"\ndiagram sheet Декомпозиция in=function_example_1 node=A0 purpose=\"Описать подготовку карточек товаров\" viewpoint=\"Менеджер маркетплейса\"\nfunction A1 \"Инициировать создание или изменение карточки\" in=sheet number=1\nfunction A2 \"Сформировать конфигурацию и сопоставить товары поставщиков\" in=sheet number=2\nfunction A3 \"Проверить совместимость комплектующих\" in=sheet number=3\nfunction A4 \"Рассчитать цену и вес, подготовить изображения\" in=sheet number=4\nfunction A5 \"Заполнить, проверить и опубликовать карточку в Ozon\" in=sheet number=5\nboundary request \"Запрос на карточку\" in=sheet order=0 parentArrow=arrow_example_1 parentEnd=to side=left\nboundary assortment \"Корпус, ассортимент и предложения поставщиков\" in=sheet order=1 parentArrow=arrow_example_2 parentEnd=to side=left\nboundary ozonRules \"Требования Ozon\" in=sheet order=0 parentArrow=arrow_example_3 parentEnd=to side=top\nboundary compatibilityRules \"Правила совместимости\" in=sheet order=1 parentArrow=arrow_example_4 parentEnd=to side=top\nboundary calculationRules \"Правила цены, веса и изображений\" in=sheet order=2 parentArrow=arrow_example_5 parentEnd=to side=top\nboundary cardOutput \"Опубликованная / обновлённая карточка\" in=sheet order=0 parentArrow=arrow_example_6 parentEnd=from side=right\nboundary bomOutput \"Подготовленная BOM\" in=sheet order=1 parentArrow=arrow_example_7 parentEnd=from side=right\nboundary valuesOutput \"Рассчитанные показатели и изображения\" in=sheet order=2 parentArrow=arrow_example_8 parentEnd=from side=right\nboundary manager \"Менеджер маркетплейсов\" in=sheet order=0 parentArrow=arrow_example_9 parentEnd=to side=bottom\nboundary specialist \"Технический специалист\" in=sheet order=1 parentArrow=arrow_example_10 parentEnd=to side=bottom\nboundary supplier \"Склад и поставщики\" in=sheet order=2 parentArrow=arrow_example_11 parentEnd=to side=bottom\nboundary designer Дизайнер in=sheet order=3 parentArrow=arrow_example_12 parentEnd=to side=bottom\nboundary ozon Ozon in=sheet order=4 parentArrow=arrow_example_13 parentEnd=to side=bottom\narrow requestArrow \"Потребность\" from=request to=A1 role=input\narrow assortmentArrow \"Исходные сведения\" from=assortment to=A2 role=input\narrow step12 \"Запрос и выбранный корпус\" from=A1 to=A2 role=input\narrow step23 \"Проект конфигурации\" from=A2 to=A3 role=input\narrow step34 \"Согласованная BOM\" from=A3 to=A4 role=input\narrow step45 \"Данные карточки\" from=A4 to=A5 role=input\narrow ozonControl \"Требования площадки\" from=ozonRules to=A5 role=control\narrow compatibilityControl \"Ограничения\" from=compatibilityRules to=A3 role=control\narrow calculationControl \"Правила расчёта\" from=calculationRules to=A4 role=control\narrow managerMechanism \"Менеджер\" from=manager to=A1 role=mechanism\narrow specialistMechanism \"Специалист\" from=specialist to=A3 role=mechanism\narrow supplierMechanism \"Поставщики\" from=supplier to=A2 role=mechanism\narrow designerMechanism \"Дизайнер\" from=designer to=A4 role=mechanism\narrow ozonMechanism \"Ozon\" from=ozon to=A5 role=mechanism\narrow bomArrow \"BOM\" from=A3 to=bomOutput role=output\narrow valuesArrow \"Цена, вес, изображения\" from=A4 to=valuesOutput role=output\narrow cardArrow \"Карточка\" from=A5 to=cardOutput role=output\ndiagram context_example_1 Контекст node=A-0 purpose=\"Описать подготовку карточек товаров\" viewpoint=\"Менеджер маркетплейса\"\nfunction function_example_1 Декомпозиция in=context_example_1 number=0\nboundary boundary_example_1 \"Запрос на карточку\" direction=in in=context_example_1 side=left\nboundary boundary_example_2 \"Корпус, ассортимент и предложения поставщиков\" direction=in in=context_example_1 side=left\nboundary boundary_example_3 \"Требования Ozon\" direction=in in=context_example_1 side=top\nboundary boundary_example_4 \"Правила совместимости\" direction=in in=context_example_1 side=top\nboundary boundary_example_5 \"Правила цены, веса и изображений\" direction=in in=context_example_1 side=top\nboundary boundary_example_6 \"Опубликованная / обновлённая карточка\" direction=out in=context_example_1 side=right\nboundary boundary_example_7 \"Подготовленная BOM\" direction=out in=context_example_1 side=right\nboundary boundary_example_8 \"Рассчитанные показатели и изображения\" direction=out in=context_example_1 side=right\nboundary boundary_example_9 \"Менеджер маркетплейсов\" direction=in in=context_example_1 side=bottom\nboundary boundary_example_10 \"Технический специалист\" direction=in in=context_example_1 side=bottom\nboundary boundary_example_11 \"Склад и поставщики\" direction=in in=context_example_1 side=bottom\nboundary boundary_example_12 Дизайнер direction=in in=context_example_1 side=bottom\nboundary boundary_example_13 Ozon direction=in in=context_example_1 side=bottom\narrow arrow_example_1 \"Запрос на карточку\" from=boundary_example_1 role=input to=function_example_1\narrow arrow_example_2 \"Корпус, ассортимент и предложения поставщиков\" from=boundary_example_2 role=input to=function_example_1\narrow arrow_example_3 \"Требования Ozon\" from=boundary_example_3 role=control to=function_example_1\narrow arrow_example_4 \"Правила совместимости\" from=boundary_example_4 role=control to=function_example_1\narrow arrow_example_5 \"Правила цены, веса и изображений\" from=boundary_example_5 role=control to=function_example_1\narrow arrow_example_6 \"Опубликованная / обновлённая карточка\" from=function_example_1 role=output to=boundary_example_6\narrow arrow_example_7 \"Подготовленная BOM\" from=function_example_1 role=output to=boundary_example_7\narrow arrow_example_8 \"Рассчитанные показатели и изображения\" from=function_example_1 role=output to=boundary_example_8\narrow arrow_example_9 \"Менеджер маркетплейсов\" from=boundary_example_9 role=mechanism to=function_example_1\narrow arrow_example_10 \"Технический специалист\" from=boundary_example_10 role=mechanism to=function_example_1\narrow arrow_example_11 \"Склад и поставщики\" from=boundary_example_11 role=mechanism to=function_example_1\narrow arrow_example_12 Дизайнер from=boundary_example_12 role=mechanism to=function_example_1\narrow arrow_example_13 Ozon from=boundary_example_13 role=mechanism to=function_example_1\n",
+  "layout": {
+    "frames": {
+      "sheet": {
+        "x": 0,
+        "y": 0,
+        "width": 1540,
+        "height": 900
+      },
+      "context_example_1": {
+        "x": 0,
+        "y": 0,
+        "width": 1200,
+        "height": 800
+      }
+    },
+    "positions": {
+      "A1": {
+        "x": 200,
+        "y": 180
+      },
+      "A2": {
+        "x": 460,
+        "y": 310
+      },
+      "A3": {
+        "x": 720,
+        "y": 440
+      },
+      "A4": {
+        "x": 980,
+        "y": 570
+      },
+      "A5": {
+        "x": 1240,
+        "y": 700
+      },
+      "request": {
+        "x": 0,
+        "y": 326.66666666666663
+      },
+      "assortment": {
+        "x": 0,
+        "y": 573.3333333333333
+      },
+      "ozonRules": {
+        "x": 425,
+        "y": 0
+      },
+      "compatibilityRules": {
+        "x": 770,
+        "y": 0
+      },
+      "calculationRules": {
+        "x": 1115,
+        "y": 0
+      },
+      "cardOutput": {
+        "x": 1540,
+        "y": 265
+      },
+      "bomOutput": {
+        "x": 1540,
+        "y": 450
+      },
+      "valuesOutput": {
+        "x": 1540,
+        "y": 635
+      },
+      "manager": {
+        "x": 310,
+        "y": 900
+      },
+      "specialist": {
+        "x": 540,
+        "y": 900
+      },
+      "supplier": {
+        "x": 770,
+        "y": 900
+      },
+      "designer": {
+        "x": 1000,
+        "y": 900
+      },
+      "ozon": {
+        "x": 1230,
+        "y": 900
+      },
+      "function_example_1": {
+        "x": 490,
+        "y": 340
+      },
+      "boundary_example_1": {
+        "x": 0,
+        "y": 293.3333333333333
+      },
+      "boundary_example_2": {
+        "x": 0,
+        "y": 506.66666666666663
+      },
+      "boundary_example_3": {
+        "x": 340,
+        "y": 0
+      },
+      "boundary_example_4": {
+        "x": 600,
+        "y": 0
+      },
+      "boundary_example_5": {
+        "x": 860,
+        "y": 0
+      },
+      "boundary_example_6": {
+        "x": 1200,
+        "y": 240
+      },
+      "boundary_example_7": {
+        "x": 1200,
+        "y": 400
+      },
+      "boundary_example_8": {
+        "x": 1200,
+        "y": 560
+      },
+      "boundary_example_9": {
+        "x": 253.33333333333331,
+        "y": 800
+      },
+      "boundary_example_10": {
+        "x": 426.66666666666663,
+        "y": 800
+      },
+      "boundary_example_11": {
+        "x": 600,
+        "y": 800
+      },
+      "boundary_example_12": {
+        "x": 773.3333333333333,
+        "y": 800
+      },
+      "boundary_example_13": {
+        "x": 946.6666666666667,
+        "y": 800
+      }
+    },
+    "arrows": {}
+  }
+}

@@ -1,0 +1,493 @@
+{
+  "notation": "FUNCTION_TREE",
+  "formatVersion": 1,
+  "profile": "NS-FUNCTION-TREE-1",
+  "model": {
+    "id": "im_org",
+    "label": "Организационная структура ООО «Юкомс»",
+    "elements": [
+      {
+        "id": "options",
+        "kind": "settings",
+        "label": "",
+        "properties": {
+          "profile": "org",
+          "numbering": "none"
+        }
+      },
+      {
+        "id": "root",
+        "kind": "node",
+        "label": "ООО «Юкомс»",
+        "properties": {
+          "kind": "organization",
+          "order": "0"
+        }
+      },
+      {
+        "id": "main",
+        "kind": "diagram",
+        "label": "Организационная структура",
+        "properties": {
+          "type": "org",
+          "root": "root"
+        }
+      },
+      {
+        "id": "rootView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "root"
+        }
+      },
+      {
+        "id": "director",
+        "kind": "node",
+        "label": "Генеральный директор",
+        "properties": {
+          "kind": "role",
+          "parent": "root",
+          "order": "0",
+          "function": "Управление компанией",
+          "description": "Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны."
+        }
+      },
+      {
+        "id": "commerce",
+        "kind": "node",
+        "label": "Отдел электронной коммерции",
+        "properties": {
+          "kind": "department",
+          "parent": "root",
+          "order": "1",
+          "function": "Подготовка и публикация предложений",
+          "description": "Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны."
+        }
+      },
+      {
+        "id": "marketManager",
+        "kind": "node",
+        "label": "Менеджер маркетплейсов",
+        "properties": {
+          "kind": "role",
+          "parent": "commerce",
+          "order": "2",
+          "function": "Подготовка и публикация предложений",
+          "description": "Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны."
+        }
+      },
+      {
+        "id": "designer",
+        "kind": "node",
+        "label": "Дизайнер",
+        "properties": {
+          "kind": "role",
+          "parent": "marketManager",
+          "order": "3",
+          "function": "Подготовка визуальных материалов",
+          "description": "Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны."
+        }
+      },
+      {
+        "id": "production",
+        "kind": "node",
+        "label": "Производственный участок",
+        "properties": {
+          "kind": "department",
+          "parent": "root",
+          "order": "4",
+          "manager": "productionLead",
+          "function": "Подготовка конфигураций компьютерных систем",
+          "description": "Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны."
+        }
+      },
+      {
+        "id": "productionLead",
+        "kind": "node",
+        "label": "Руководитель производственного участка",
+        "properties": {
+          "kind": "role",
+          "parent": "production",
+          "order": "5",
+          "description": "Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны."
+        }
+      },
+      {
+        "id": "platformAssembler",
+        "kind": "node",
+        "label": "Сборщик платформ",
+        "properties": {
+          "kind": "role",
+          "parent": "productionLead",
+          "order": "6",
+          "description": "Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны."
+        }
+      },
+      {
+        "id": "pcAssembler",
+        "kind": "node",
+        "label": "Сборщик ПК",
+        "properties": {
+          "kind": "role",
+          "parent": "platformAssembler",
+          "order": "7",
+          "description": "Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны."
+        }
+      },
+      {
+        "id": "warehouse",
+        "kind": "node",
+        "label": "Складской отдел",
+        "properties": {
+          "kind": "department",
+          "parent": "production",
+          "order": "8",
+          "manager": "productionLead",
+          "function": "Учёт компонентов",
+          "description": "Исходный рисунок: склад под руководителем производственного участка. В редакторском профиле склад вложен в производственный участок, а руководитель указан отдельной ссылкой manager; роль не содержит подразделение."
+        }
+      },
+      {
+        "id": "support",
+        "kind": "node",
+        "label": "Отдел клиентской поддержки и сервисного обслуживания",
+        "properties": {
+          "kind": "department",
+          "parent": "root",
+          "order": "9",
+          "function": "Обработка обращений клиентов",
+          "description": "Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны."
+        }
+      },
+      {
+        "id": "supportSpecialist",
+        "kind": "node",
+        "label": "Специалист поддержки",
+        "properties": {
+          "kind": "role",
+          "parent": "support",
+          "order": "10",
+          "description": "Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны."
+        }
+      },
+      {
+        "id": "it",
+        "kind": "node",
+        "label": "Отдел ИТ-поддержки и технического сопровождения",
+        "properties": {
+          "kind": "department",
+          "parent": "root",
+          "order": "11",
+          "function": "Разработка и сопровождение системы",
+          "description": "Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны."
+        }
+      },
+      {
+        "id": "leadDeveloper",
+        "kind": "node",
+        "label": "Ведущий разработчик",
+        "properties": {
+          "kind": "role",
+          "parent": "it",
+          "order": "12",
+          "description": "Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны."
+        }
+      },
+      {
+        "id": "developer",
+        "kind": "node",
+        "label": "Разработчик",
+        "properties": {
+          "kind": "role",
+          "parent": "leadDeveloper",
+          "order": "13",
+          "description": "Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны."
+        }
+      },
+      {
+        "id": "logistics",
+        "kind": "node",
+        "label": "Отдел логистики",
+        "properties": {
+          "kind": "department",
+          "parent": "root",
+          "order": "14",
+          "function": "Доставка компьютерных систем",
+          "description": "Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны."
+        }
+      },
+      {
+        "id": "driver",
+        "kind": "node",
+        "label": "Водитель",
+        "properties": {
+          "kind": "role",
+          "parent": "logistics",
+          "order": "15",
+          "function": "Доставка компьютерных систем",
+          "description": "Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны."
+        }
+      },
+      {
+        "id": "v_director",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "director"
+        }
+      },
+      {
+        "id": "v_commerce",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "commerce"
+        }
+      },
+      {
+        "id": "v_marketManager",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "marketManager"
+        }
+      },
+      {
+        "id": "v_designer",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "designer"
+        }
+      },
+      {
+        "id": "v_production",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "production"
+        }
+      },
+      {
+        "id": "v_productionLead",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "productionLead"
+        }
+      },
+      {
+        "id": "v_platformAssembler",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "platformAssembler"
+        }
+      },
+      {
+        "id": "v_pcAssembler",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "pcAssembler"
+        }
+      },
+      {
+        "id": "v_warehouse",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "warehouse"
+        }
+      },
+      {
+        "id": "v_support",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "support"
+        }
+      },
+      {
+        "id": "v_supportSpecialist",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "supportSpecialist"
+        }
+      },
+      {
+        "id": "v_it",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "it"
+        }
+      },
+      {
+        "id": "v_leadDeveloper",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "leadDeveloper"
+        }
+      },
+      {
+        "id": "v_developer",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "developer"
+        }
+      },
+      {
+        "id": "v_logistics",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "logistics"
+        }
+      },
+      {
+        "id": "v_driver",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "driver"
+        }
+      }
+    ]
+  },
+  "source": "functree im_org \"Организационная структура ООО «Юкомс»\"\nsettings options \"\" numbering=none profile=org\nnode root \"ООО «Юкомс»\" kind=organization order=0\ndiagram main \"Организационная структура\" root=root type=org\nview rootView \"\" diagram=main element=root\nnode director \"Генеральный директор\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" function=\"Управление компанией\" kind=role order=0 parent=root\nnode commerce \"Отдел электронной коммерции\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" function=\"Подготовка и публикация предложений\" kind=department order=1 parent=root\nnode marketManager \"Менеджер маркетплейсов\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" function=\"Подготовка и публикация предложений\" kind=role order=2 parent=commerce\nnode designer Дизайнер description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" function=\"Подготовка визуальных материалов\" kind=role order=3 parent=marketManager\nnode production \"Производственный участок\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" function=\"Подготовка конфигураций компьютерных систем\" kind=department manager=productionLead order=4 parent=root\nnode productionLead \"Руководитель производственного участка\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" kind=role order=5 parent=production\nnode platformAssembler \"Сборщик платформ\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" kind=role order=6 parent=productionLead\nnode pcAssembler \"Сборщик ПК\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" kind=role order=7 parent=platformAssembler\nnode warehouse \"Складской отдел\" description=\"Исходный рисунок: склад под руководителем производственного участка. В редакторском профиле склад вложен в производственный участок, а руководитель указан отдельной ссылкой manager; роль не содержит подразделение.\" function=\"Учёт компонентов\" kind=department manager=productionLead order=8 parent=production\nnode support \"Отдел клиентской поддержки и сервисного обслуживания\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" function=\"Обработка обращений клиентов\" kind=department order=9 parent=root\nnode supportSpecialist \"Специалист поддержки\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" kind=role order=10 parent=support\nnode it \"Отдел ИТ-поддержки и технического сопровождения\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" function=\"Разработка и сопровождение системы\" kind=department order=11 parent=root\nnode leadDeveloper \"Ведущий разработчик\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" kind=role order=12 parent=it\nnode developer Разработчик description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" kind=role order=13 parent=leadDeveloper\nnode logistics \"Отдел логистики\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" function=\"Доставка компьютерных систем\" kind=department order=14 parent=root\nnode driver Водитель description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" function=\"Доставка компьютерных систем\" kind=role order=15 parent=logistics\nview v_director \"\" diagram=main element=director\nview v_commerce \"\" diagram=main element=commerce\nview v_marketManager \"\" diagram=main element=marketManager\nview v_designer \"\" diagram=main element=designer\nview v_production \"\" diagram=main element=production\nview v_productionLead \"\" diagram=main element=productionLead\nview v_platformAssembler \"\" diagram=main element=platformAssembler\nview v_pcAssembler \"\" diagram=main element=pcAssembler\nview v_warehouse \"\" diagram=main element=warehouse\nview v_support \"\" diagram=main element=support\nview v_supportSpecialist \"\" diagram=main element=supportSpecialist\nview v_it \"\" diagram=main element=it\nview v_leadDeveloper \"\" diagram=main element=leadDeveloper\nview v_developer \"\" diagram=main element=developer\nview v_logistics \"\" diagram=main element=logistics\nview v_driver \"\" diagram=main element=driver\n",
+  "draft": "functree im_org \"Организационная структура ООО «Юкомс»\"\nsettings options \"\" numbering=none profile=org\nnode root \"ООО «Юкомс»\" kind=organization order=0\ndiagram main \"Организационная структура\" root=root type=org\nview rootView \"\" diagram=main element=root\nnode director \"Генеральный директор\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" function=\"Управление компанией\" kind=role order=0 parent=root\nnode commerce \"Отдел электронной коммерции\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" function=\"Подготовка и публикация предложений\" kind=department order=1 parent=root\nnode marketManager \"Менеджер маркетплейсов\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" function=\"Подготовка и публикация предложений\" kind=role order=2 parent=commerce\nnode designer Дизайнер description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" function=\"Подготовка визуальных материалов\" kind=role order=3 parent=marketManager\nnode production \"Производственный участок\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" function=\"Подготовка конфигураций компьютерных систем\" kind=department manager=productionLead order=4 parent=root\nnode productionLead \"Руководитель производственного участка\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" kind=role order=5 parent=production\nnode platformAssembler \"Сборщик платформ\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" kind=role order=6 parent=productionLead\nnode pcAssembler \"Сборщик ПК\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" kind=role order=7 parent=platformAssembler\nnode warehouse \"Складской отдел\" description=\"Исходный рисунок: склад под руководителем производственного участка. В редакторском профиле склад вложен в производственный участок, а руководитель указан отдельной ссылкой manager; роль не содержит подразделение.\" function=\"Учёт компонентов\" kind=department manager=productionLead order=8 parent=production\nnode support \"Отдел клиентской поддержки и сервисного обслуживания\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" function=\"Обработка обращений клиентов\" kind=department order=9 parent=root\nnode supportSpecialist \"Специалист поддержки\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" kind=role order=10 parent=support\nnode it \"Отдел ИТ-поддержки и технического сопровождения\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" function=\"Разработка и сопровождение системы\" kind=department order=11 parent=root\nnode leadDeveloper \"Ведущий разработчик\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" kind=role order=12 parent=it\nnode developer Разработчик description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" kind=role order=13 parent=leadDeveloper\nnode logistics \"Отдел логистики\" description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" function=\"Доставка компьютерных систем\" kind=department order=14 parent=root\nnode driver Водитель description=\"Источник: организационная структура практики 1, рисунок 1 (стр. 7 PDF), таблица 1.5 общего отчёта. Только должности и подразделения; фактические сотрудники и штатная численность не указаны.\" function=\"Доставка компьютерных систем\" kind=role order=15 parent=logistics\nview v_director \"\" diagram=main element=director\nview v_commerce \"\" diagram=main element=commerce\nview v_marketManager \"\" diagram=main element=marketManager\nview v_designer \"\" diagram=main element=designer\nview v_production \"\" diagram=main element=production\nview v_productionLead \"\" diagram=main element=productionLead\nview v_platformAssembler \"\" diagram=main element=platformAssembler\nview v_pcAssembler \"\" diagram=main element=pcAssembler\nview v_warehouse \"\" diagram=main element=warehouse\nview v_support \"\" diagram=main element=support\nview v_supportSpecialist \"\" diagram=main element=supportSpecialist\nview v_it \"\" diagram=main element=it\nview v_leadDeveloper \"\" diagram=main element=leadDeveloper\nview v_developer \"\" diagram=main element=developer\nview v_logistics \"\" diagram=main element=logistics\nview v_driver \"\" diagram=main element=driver\n",
+  "layout": {
+    "nodes": {
+      "rootView": {
+        "x": 70,
+        "y": 684,
+        "width": 360,
+        "height": 150
+      },
+      "v_director": {
+        "x": 520,
+        "y": 90,
+        "width": 360,
+        "height": 150
+      },
+      "v_commerce": {
+        "x": 520,
+        "y": 288,
+        "width": 360,
+        "height": 150
+      },
+      "v_marketManager": {
+        "x": 970,
+        "y": 288,
+        "width": 360,
+        "height": 150
+      },
+      "v_designer": {
+        "x": 1420,
+        "y": 288,
+        "width": 360,
+        "height": 150
+      },
+      "v_production": {
+        "x": 520,
+        "y": 585,
+        "width": 360,
+        "height": 150
+      },
+      "v_productionLead": {
+        "x": 970,
+        "y": 486,
+        "width": 360,
+        "height": 150
+      },
+      "v_platformAssembler": {
+        "x": 1420,
+        "y": 486,
+        "width": 360,
+        "height": 150
+      },
+      "v_pcAssembler": {
+        "x": 1870,
+        "y": 486,
+        "width": 360,
+        "height": 150
+      },
+      "v_warehouse": {
+        "x": 970,
+        "y": 684,
+        "width": 360,
+        "height": 150
+      },
+      "v_support": {
+        "x": 520,
+        "y": 882,
+        "width": 360,
+        "height": 150
+      },
+      "v_supportSpecialist": {
+        "x": 970,
+        "y": 882,
+        "width": 360,
+        "height": 150
+      },
+      "v_it": {
+        "x": 520,
+        "y": 1080,
+        "width": 360,
+        "height": 150
+      },
+      "v_leadDeveloper": {
+        "x": 970,
+        "y": 1080,
+        "width": 360,
+        "height": 150
+      },
+      "v_developer": {
+        "x": 1420,
+        "y": 1080,
+        "width": 360,
+        "height": 150
+      },
+      "v_logistics": {
+        "x": 520,
+        "y": 1278,
+        "width": 360,
+        "height": 150
+      },
+      "v_driver": {
+        "x": 970,
+        "y": 1278,
+        "width": 360,
+        "height": 150
+      }
+    },
+    "edges": {},
+    "diagrams": {
+      "main": {
+        "direction": "right"
+      }
+    }
+  }
+}

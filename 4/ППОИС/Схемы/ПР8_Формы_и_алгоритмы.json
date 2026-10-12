@@ -1,8 +1,8 @@
 {
-  "database": "ppois_4b69601445b0",
-  "database_evidence_sha256": "9160798a92bed2f2353c25c24fd5db89f0851e92ff98533bbe885059d8fff6b8",
-  "mathematics_sha256": "ba90638f5e1944ce0b8cb9c223fd8e3a61cbf2cfa6f6c40e6d065c7f829edf74",
-  "source_sha256": "ed97d9faa717ca1e4067927d9b38db67ee9bd4c244d32cab61a84a08b7d4bcd7",
+  "database": "ppois_681e51399c24",
+  "database_evidence_sha256": "4cde527f37163f5250f54a2fefc53fd1d9998508a238adc1a4ca6df402be52ad",
+  "mathematics_sha256": "b0ee2bcf13e95c6886ea7d73eb5441d17df1a828c07eaefef5ab73a10641e04d",
+  "source_sha256": "a84b3304cff0c84ba706d013a4d3224991b794fe2edb62e3b9e00352b873fd13",
   "kind": "Explicitly labelled project mockups, not implemented client screenshots",
   "forms": [
     {
@@ -180,26 +180,26 @@
           "value": "Учебная конфигурация AM5"
         },
         {
-          "table": "bom_version",
+          "table": "model_range_version",
           "column": "configuration_id",
           "label": "Конфигурация",
           "value": "U100",
           "visible": false
         },
         {
-          "table": "bom_version",
+          "table": "model_range_version",
           "column": "version_no",
           "label": "Версия состава",
           "value": "2"
         },
         {
-          "table": "bom_version",
+          "table": "model_range_version",
           "column": "state",
           "label": "Состояние",
           "value": "DRAFT"
         },
         {
-          "table": "bom_version",
+          "table": "model_range_version",
           "column": "created_at",
           "label": "Создано",
           "value": "2026-10-05 07:00:00 UTC"
@@ -642,94 +642,6 @@
   ],
   "mapping": [
     {
-      "table": "bom_slot",
-      "column": "configuration_id",
-      "form": "F3",
-      "mode": "Системное поле / ссылка / управляемое состояние",
-      "mandatory": true,
-      "type": "uuid"
-    },
-    {
-      "table": "bom_slot",
-      "column": "version_no",
-      "form": "F3",
-      "mode": "Системное поле / ссылка / управляемое состояние",
-      "mandatory": true,
-      "type": "int4"
-    },
-    {
-      "table": "bom_slot",
-      "column": "line_no",
-      "form": "F3",
-      "mode": "Ввод при создании объекта или в черновике",
-      "mandatory": true,
-      "type": "int4"
-    },
-    {
-      "table": "bom_slot",
-      "column": "group_id",
-      "form": "F3",
-      "mode": "Ввод при создании объекта или в черновике",
-      "mandatory": false,
-      "type": "uuid"
-    },
-    {
-      "table": "bom_slot",
-      "column": "requested_component_id",
-      "form": "F3",
-      "mode": "Ввод при создании объекта или в черновике",
-      "mandatory": false,
-      "type": "uuid"
-    },
-    {
-      "table": "bom_slot",
-      "column": "offer_id",
-      "form": "F3",
-      "mode": "Ввод при создании объекта или в черновике",
-      "mandatory": false,
-      "type": "uuid"
-    },
-    {
-      "table": "bom_slot",
-      "column": "quantity",
-      "form": "F3",
-      "mode": "Ввод при создании объекта или в черновике",
-      "mandatory": true,
-      "type": "int4"
-    },
-    {
-      "table": "bom_version",
-      "column": "configuration_id",
-      "form": "F3",
-      "mode": "Системное поле / ссылка / управляемое состояние",
-      "mandatory": true,
-      "type": "uuid"
-    },
-    {
-      "table": "bom_version",
-      "column": "version_no",
-      "form": "F3",
-      "mode": "Системное поле / ссылка / управляемое состояние",
-      "mandatory": true,
-      "type": "int4"
-    },
-    {
-      "table": "bom_version",
-      "column": "state",
-      "form": "F3",
-      "mode": "Системное поле / ссылка / управляемое состояние",
-      "mandatory": true,
-      "type": "varchar"
-    },
-    {
-      "table": "bom_version",
-      "column": "created_at",
-      "form": "F3",
-      "mode": "Системное поле / ссылка / управляемое состояние",
-      "mandatory": true,
-      "type": "timestamptz"
-    },
-    {
       "table": "card",
       "column": "id",
       "form": "F4",
@@ -1032,6 +944,94 @@
       "mode": "Системное поле / ссылка / управляемое состояние",
       "mandatory": true,
       "type": "int4"
+    },
+    {
+      "table": "model_range_slot",
+      "column": "configuration_id",
+      "form": "F3",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "uuid"
+    },
+    {
+      "table": "model_range_slot",
+      "column": "version_no",
+      "form": "F3",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "int4"
+    },
+    {
+      "table": "model_range_slot",
+      "column": "line_no",
+      "form": "F3",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": true,
+      "type": "int4"
+    },
+    {
+      "table": "model_range_slot",
+      "column": "group_id",
+      "form": "F3",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": false,
+      "type": "uuid"
+    },
+    {
+      "table": "model_range_slot",
+      "column": "requested_component_id",
+      "form": "F3",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": false,
+      "type": "uuid"
+    },
+    {
+      "table": "model_range_slot",
+      "column": "offer_id",
+      "form": "F3",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": false,
+      "type": "uuid"
+    },
+    {
+      "table": "model_range_slot",
+      "column": "quantity",
+      "form": "F3",
+      "mode": "Ввод при создании объекта или в черновике",
+      "mandatory": true,
+      "type": "int4"
+    },
+    {
+      "table": "model_range_version",
+      "column": "configuration_id",
+      "form": "F3",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "uuid"
+    },
+    {
+      "table": "model_range_version",
+      "column": "version_no",
+      "form": "F3",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "int4"
+    },
+    {
+      "table": "model_range_version",
+      "column": "state",
+      "form": "F3",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "varchar"
+    },
+    {
+      "table": "model_range_version",
+      "column": "created_at",
+      "form": "F3",
+      "mode": "Системное поле / ссылка / управляемое состояние",
+      "mandatory": true,
+      "type": "timestamptz"
     },
     {
       "table": "offer",
@@ -1785,7 +1785,7 @@
     },
     {
       "file": "ПР8_F3.png",
-      "sha256": "a13578140fbe7ddcb0fb29b8167bcde9c27357741086c2bdcf5db8bc7435a619"
+      "sha256": "074df5aed921a8b41a08b8fa21dacd769ead64c1ca34e2b9dc274ba1e53c43c6"
     },
     {
       "file": "ПР8_F4.png",

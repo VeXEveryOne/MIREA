@@ -62,7 +62,7 @@ class DomainTests(unittest.TestCase):
     def test_double_specification_rejected(self):
         with self.assertRaises(DomainError):self.rows([replace(self.slots[0],requested_component_id=str(uid(11)))]+self.slots[1:])
 
-    def test_empty_bom_rejected(self):
+    def test_empty_model_range_rejected(self):
         with self.assertRaises(DomainError):resolve([],self.components,self.offers,NOW)
 
     def test_duplicate_line_rejected(self):

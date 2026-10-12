@@ -19,12 +19,12 @@ for(const [name,hash] of Object.entries(evidence.source_sha256)){
 }
 if(!evidence.tests.every((t:any)=>t.passed))throw Error('Database checks must pass');
 const labels:Record<string,string>={component_group:'Группа компонентов',component:'Компонент',supplier:'Поставщик',offer:'Предложение',
-  configuration:'Конфигурация',bom_version:'Версия состава',bom_slot:'Позиция состава',card:'Карточка',card_revision:'Ревизия карточки',
+  configuration:'Конфигурация',model_range_version:'Версия состава',model_range_slot:'Позиция состава',card:'Карточка',card_revision:'Ревизия карточки',
   image:'Изображение',revision_image:'Изображение ревизии',publication_attempt:'Попытка публикации'};
 const groups=[
   ['catalog','Каталог и предложения',['component_group','component','supplier','offer']],
-  ['bom','Конфигурация и состав',['configuration','bom_version','bom_slot','component_group','component','offer']],
-  ['cards','Карточка и расчёт',['card','card_revision','bom_version']],
+  ['model_range','Конфигурация и состав',['configuration','model_range_version','model_range_slot','component_group','component','offer']],
+  ['cards','Карточка и расчёт',['card','card_revision','model_range_version']],
   ['publication','Изображения и публикация',['card_revision','image','revision_image','publication_attempt']],
 ] as const;
 const model:any={id:'ppois_database',label:'ПР7 информационная модель ИС подготовки карточек',elements:[]};
@@ -53,9 +53,9 @@ for(const k of keys){
 }
 const relations:any[]=[];
 const relationLabels:Record<string,string>={
-  bom_slot_configuration_id_version_no_fkey:'Имеет позицию',bom_slot_group_id_fkey:'Задаёт группу',
-  bom_slot_offer_id_fkey:'Выбирает предложение',bom_slot_requested_component_id_fkey:'Требует компонент',
-  bom_version_configuration_id_fkey:'Имеет версию',card_revision_card_id_fkey:'Имеет ревизию',
+  model_range_slot_configuration_id_version_no_fkey:'Имеет позицию',model_range_slot_group_id_fkey:'Задаёт группу',
+  model_range_slot_offer_id_fkey:'Выбирает предложение',model_range_slot_requested_component_id_fkey:'Требует компонент',
+  model_range_version_configuration_id_fkey:'Имеет версию',card_revision_card_id_fkey:'Имеет ревизию',
   card_revision_configuration_id_version_no_fkey:'Использует состав',component_group_id_fkey:'Классифицирует',
   offer_component_id_fkey:'Предлагается',offer_supplier_id_fkey:'Поставляет',
   publication_attempt_card_id_revision_no_fkey:'Имеет попытку',
@@ -79,8 +79,8 @@ for(const c of evidence.constraints.filter((c:any)=>c.contype==='c'))
   add('check',c.conname,'',{owner:c.table_name,sqlName:c.conname,expression:c.definition.slice(6,-1)});
 const primaryColumns=(table:string)=>keys.find((k:any)=>k.table_name===table&&k.contype==='p').columns;
 const compact=(group:string,table:string)=>
-  group==='bom'&&['component_group','component','offer'].includes(table)||
-  group==='cards'&&table==='bom_version'||group==='publication'&&table==='card_revision';
+  group==='model_range'&&['component_group','component','offer'].includes(table)||
+  group==='cards'&&table==='model_range_version'||group==='publication'&&table==='card_revision';
 const flags=(table:string,column:string)=>[
   primaryColumns(table).includes(column)?'PK':'',
   keys.some((k:any)=>k.table_name===table&&k.contype==='u'&&k.columns.includes(column))?'UQ':'',
@@ -134,15 +134,21 @@ for(const table of Object.keys(evidence.counts)){
 }
 function separateRoute(start:any,end:any,from:string,to:string,boxes:any[],lanes:any[][]){
   const vectors:Record<string,any>={left:{x:-1,y:0},right:{x:1,y:0},top:{x:0,y:-1},bottom:{x:0,y:1}};
-  const extend=(p:any,side:string)=>({x:p.x+vectors[side].x*42,y:p.y+vectors[side].y*42});
-  const a=extend(start,from),b=extend(end,to);
   const frame={x:0,y:0,width:2190,height:Math.max(...boxes.map(n=>n.y+n.height))+140};
-  const route=routeAroundFunctions(a,b,boxes,frame,12,lanes,true);
-  if(!route)throw Error('No unobstructed ER route');
-  const points=[start,...route,end];
-  if(points.slice(1).some((p:any,i:number)=>parallelFlowPenalty(points[i],p,lanes)>0))
-    throw Error('ER links overlap or run too close in parallel');
-  return points;
+  for(const stub of [42,54,66,78,90,102,114,126]){
+    const extend=(p:any,side:string)=>({x:p.x+vectors[side].x*stub,y:p.y+vectors[side].y*stub});
+    const route=routeAroundFunctions(extend(start,from),extend(end,to),boxes,frame,12,lanes,true);
+    if(!route)continue;
+    const points=[start,...route,end];
+    // Remove redundant collinear bends, including a router's short backtrack.
+    for(let i=1;i<points.length-1;){
+      const [a,b,c]=points.slice(i-1,i+2);
+      if(a.x===b.x&&b.x===c.x||a.y===b.y&&b.y===c.y)points.splice(i,1);
+      else i++;
+    }
+    if(!routeHitsBox(points,boxes)&&!points.slice(1).some((p:any,i:number)=>parallelFlowPenalty(points[i],p,lanes)>0))return points;
+  }
+  throw Error('No unobstructed ER route with separate parallel lanes');
 }
 for(const physical of [false,true])for(const [group,title,tables] of groups){
   const sheet=(physical?'physical_':'logical_')+group;
@@ -184,9 +190,12 @@ for(const physical of [false,true])for(const [group,title,tables] of groups){
   for(const r of relations){
     const a=nodes.find(n=>n.table===r.parent_table),b=nodes.find(n=>n.table===r.table_name);
     if(!a||!b)continue;
-    const leftRight=a.y===b.y,from=leftRight?(a.x<b.x?'right':'left'):(a.y<b.y?'bottom':'top');
+    const leftRight=a.x!==b.x,from=leftRight?(a.x<b.x?'right':'left'):(a.y<b.y?'bottom':'top');
     const to=leftRight?(a.x<b.x?'left':'right'):(a.y<b.y?'top':'bottom');
-    const start=port(a,from),end=port(b,to),points=separateRoute(start,end,from,to,nodes,printRelations.map(e=>e.points));
+    const start=port(a,from),end=port(b,to);
+    let points:any[];
+    try {points=separateRoute(start,end,from,to,nodes,printRelations.map(e=>e.points));}
+    catch(error) {throw Error(`${sheet}: ${r.conname}: ${error}`);}
     if(routeHitsBox(points,nodes))throw Error('ER path intersects an entity: '+r.conname);
     const element=physical?r.conname:r.id,viewId='v_'+sheet+'_'+element;
     // Physical semantic orientation is child -> parent; logical orientation is parent -> child.

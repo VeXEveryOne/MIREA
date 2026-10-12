@@ -29,11 +29,5 @@
     "source_pages": [1, 2, 3],
     "required": ["function tree with main and service branches", "role-specific functionality", "dialog scenario model", "structural component/module diagram"],
     "evidence": ["editable readable models", "implemented client routes and role matrix", "interaction tests", "report"]
-  },
-  "ensemble_7": {
-    "source_pages": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-    "required": ["classification or regression dataset not repeated in group", "bagging", "boosting on exactly the same data", "compare time and quality", "conclusions", "report", "Colab Notebook"],
-    "evidence": ["dataset source/license/hash", "identical holdout and leakage-safe training", "executed notebook and raw measurements", "Colab run evidence", "group uniqueness confirmation", "report"],
-    "pending_user_checks": ["dataset uniqueness in group", "available signed-in Colab session"]
   }
 }

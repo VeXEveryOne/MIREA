@@ -1,0 +1,182 @@
+{
+  "notation": "GANTT",
+  "formatVersion": 1,
+  "profile": "NS-GANTT-1",
+  "model": {
+    "id": "gantt_reserves",
+    "label": "Резервы A / B / C",
+    "elements": [
+      {
+        "id": "weekdays",
+        "kind": "calendar",
+        "label": "Пятидневная неделя",
+        "properties": {
+          "hoursPerDay": "8",
+          "monday": "true",
+          "tuesday": "true",
+          "wednesday": "true",
+          "thursday": "true",
+          "friday": "true",
+          "saturday": "false",
+          "sunday": "false"
+        }
+      },
+      {
+        "id": "plan",
+        "kind": "plan",
+        "label": "План проекта",
+        "properties": {
+          "start": "2026-09-28",
+          "calendar": "weekdays",
+          "mode": "auto",
+          "description": "Демонстрационный старт; праздники не добавлены автоматически."
+        }
+      },
+      {
+        "id": "main",
+        "kind": "diagram",
+        "label": "План проекта",
+        "properties": {
+          "type": "gantt",
+          "plan": "plan"
+        }
+      },
+      {
+        "id": "a",
+        "kind": "task",
+        "label": "A",
+        "properties": {
+          "duration": "5",
+          "order": "0",
+          "effortHours": "8"
+        }
+      },
+      {
+        "id": "b",
+        "kind": "task",
+        "label": "B",
+        "properties": {
+          "duration": "3",
+          "order": "1",
+          "effortHours": "8"
+        }
+      },
+      {
+        "id": "c",
+        "kind": "task",
+        "label": "C",
+        "properties": {
+          "duration": "2",
+          "order": "2",
+          "effortHours": "8"
+        }
+      },
+      {
+        "id": "ab",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "a",
+          "to": "b",
+          "type": "FS"
+        }
+      },
+      {
+        "id": "ac",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "a",
+          "to": "c",
+          "type": "FS"
+        }
+      },
+      {
+        "id": "view1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "a"
+        }
+      },
+      {
+        "id": "view2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "b"
+        }
+      },
+      {
+        "id": "view3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "c"
+        }
+      },
+      {
+        "id": "view4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "ab",
+          "from": "view1",
+          "to": "view2"
+        }
+      },
+      {
+        "id": "view5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "ac",
+          "from": "view1",
+          "to": "view3"
+        }
+      }
+    ]
+  },
+  "source": "gantt gantt_reserves \"Резервы A / B / C\"\ncalendar weekdays \"Пятидневная неделя\" friday=true hoursPerDay=8 monday=true saturday=false sunday=false thursday=true tuesday=true wednesday=true\nplan plan \"План проекта\" calendar=weekdays description=\"Демонстрационный старт; праздники не добавлены автоматически.\" mode=auto start=\"2026-09-28\"\ndiagram main \"План проекта\" plan=plan type=gantt\ntask a A duration=5 effortHours=8 order=0\ntask b B duration=3 effortHours=8 order=1\ntask c C duration=2 effortHours=8 order=2\ndependency ab \"\" from=a to=b type=FS\ndependency ac \"\" from=a to=c type=FS\nview view1 \"\" diagram=main element=a\nview view2 \"\" diagram=main element=b\nview view3 \"\" diagram=main element=c\nview view4 \"\" diagram=main element=ab from=view1 to=view2\nview view5 \"\" diagram=main element=ac from=view1 to=view3\n",
+  "draft": "gantt gantt_reserves \"Резервы A / B / C\"\ncalendar weekdays \"Пятидневная неделя\" friday=true hoursPerDay=8 monday=true saturday=false sunday=false thursday=true tuesday=true wednesday=true\nplan plan \"План проекта\" calendar=weekdays description=\"Демонстрационный старт; праздники не добавлены автоматически.\" mode=auto start=\"2026-09-28\"\ndiagram main \"План проекта\" plan=plan type=gantt\ntask a A duration=5 effortHours=8 order=0\ntask b B duration=3 effortHours=8 order=1\ntask c C duration=2 effortHours=8 order=2\ndependency ab \"\" from=a to=b type=FS\ndependency ac \"\" from=a to=c type=FS\nview view1 \"\" diagram=main element=a\nview view2 \"\" diagram=main element=b\nview view3 \"\" diagram=main element=c\nview view4 \"\" diagram=main element=ab from=view1 to=view2\nview view5 \"\" diagram=main element=ac from=view1 to=view3\n",
+  "layout": {
+    "nodes": {
+      "view1": {
+        "x": 60,
+        "y": 60,
+        "width": 180,
+        "height": 32
+      },
+      "view2": {
+        "x": 460,
+        "y": 60,
+        "width": 180,
+        "height": 32
+      },
+      "view3": {
+        "x": 860,
+        "y": 60,
+        "width": 180,
+        "height": 32
+      }
+    },
+    "edges": {
+      "view4": {},
+      "view5": {}
+    },
+    "diagrams": {
+      "main": {
+        "gantt": {
+          "scale": "weeks",
+          "tableWidth": 1000,
+          "today": false
+        }
+      }
+    }
+  }
+}

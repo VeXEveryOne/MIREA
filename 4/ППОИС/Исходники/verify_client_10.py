@@ -41,7 +41,7 @@ def verify():
         'UI02': ['Есть несохранённые изменения', 'Количество строки 3": "0"'],
         'UI03': ['alert: "Количество:', 'Проверяется несохранённый состав'],
         'UI04': ['53500.00', '76400', '7.820'],
-        'UI05': ['Наценка, доля" [active]: "0.21"'],
+        'UI05': ['Наценка, доля": "0.21"'],
         'UI06': ['Создана версия 3: CHECKED.', 'версия 1 · FROZEN', 'версия 2 · DRAFT'],
         'UI07': ['Состав не сохранён', 'Выйти без сохранения'],
         'UI08': ['версия 1 · FROZEN · используется ревизией" [selected]', 'Количество строки 3": "2"'],
@@ -74,12 +74,12 @@ def verify():
     _, session = app.login({'username': 'viewer', 'password': DEMO_PASSWORD})
     with app.database(session) as conn:
         counts = {table: conn.execute('SELECT count(*) AS n FROM ppois.' + table).fetchone()['n'] for table in env['initial_counts']}
-        expected = dict(env['initial_counts'], bom_version=3, bom_slot=18, card_revision=3)
-        check(counts == expected and sum(counts.values()) == 56, 'Browser created only one BOM version with six slots and one revision')
-        versions = conn.execute('SELECT version_no,state FROM ppois.bom_version ORDER BY version_no').fetchall()
+        expected = dict(env['initial_counts'], model_range_version=3, model_range_slot=18, card_revision=3)
+        check(counts == expected and sum(counts.values()) == 56, 'Browser created only one модельный ряд version with six slots and one revision')
+        versions = conn.execute('SELECT version_no,state FROM ppois.model_range_version ORDER BY version_no').fetchall()
         check(versions == [{'version_no': 1, 'state': 'FROZEN'}, {'version_no': 2, 'state': 'DRAFT'}, {'version_no': 3, 'state': 'CHECKED'}],
-              'Original and new BOM version states retained')
-        slots = conn.execute('SELECT version_no,line_no,quantity FROM ppois.bom_slot ORDER BY version_no,line_no').fetchall()
+              'Original and new модельный ряд version states retained')
+        slots = conn.execute('SELECT version_no,line_no,quantity FROM ppois.model_range_slot ORDER BY version_no,line_no').fetchall()
         check(all(r['quantity'] == (2 if r['line_no'] == 3 else 1) for r in slots), 'Original and new slot quantities correct')
         revisions = conn.execute('SELECT card_id,revision_no,version_no,state,title FROM ppois.card_revision ORDER BY card_id,revision_no').fetchall()
         new = next(r for r in revisions if r['revision_no'] == 2)

@@ -40,7 +40,7 @@ def setup(output, reuse=None):
             conn.commit()
             seed(conn)
         expected = {'component_group': 7, 'component': 7, 'supplier': 2, 'offer': 10,
-                    'configuration': 1, 'bom_version': 2, 'bom_slot': 12, 'card': 2,
+                    'configuration': 1, 'model_range_version': 2, 'model_range_slot': 12, 'card': 2,
                     'card_revision': 2, 'image': 1, 'revision_image': 1, 'publication_attempt': 1}
         actual = {table: conn.execute(sql.SQL('SELECT count(*) FROM ppois.{}').format(
                     sql.Identifier(table))).fetchone()[0] for table in expected}

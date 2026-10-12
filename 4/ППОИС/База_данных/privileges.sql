@@ -11,10 +11,10 @@ REVOKE ALL ON SCHEMA ppois FROM PUBLIC;
 GRANT USAGE ON SCHEMA ppois TO ppois_engineer, ppois_manager, ppois_viewer, ppois_worker;
 -- DCL03: read-only role, including the status view.
 GRANT SELECT ON ALL TABLES IN SCHEMA ppois TO ppois_viewer;
--- DCL04: engineer reads catalog and works on configurations/BOM.
+-- DCL04: engineer reads catalog and works on configurations/модельный ряд.
 GRANT SELECT ON ALL TABLES IN SCHEMA ppois TO ppois_engineer;
--- DCL05: engineer may create/edit BOM; triggers enforce frozen snapshots.
-GRANT INSERT, UPDATE ON ppois.configuration, ppois.bom_version, ppois.bom_slot TO ppois_engineer;
+-- DCL05: engineer may create/edit модельный ряд; triggers enforce frozen snapshots.
+GRANT INSERT, UPDATE ON ppois.configuration, ppois.model_range_version, ppois.model_range_slot TO ppois_engineer;
 -- DCL06: manager can read the complete preparation result.
 GRANT SELECT ON ALL TABLES IN SCHEMA ppois TO ppois_manager;
 -- DCL07: manager creates cards/revisions/images and requests publication.

@@ -59,11 +59,11 @@ forms.push({id:'F1',title:'Группы и комплектующие',role:'А�
  fields:[...fields('component_group',fixture('component_group')),...fields('component',fixture('component'))],buttons:['Новый компонент','Закрыть']});
 forms.push({id:'F2',title:'Поставщики и наблюдения предложений',role:'Администратор справочников — проектная роль',note:'Новое наблюдение не перезаписывает цену, связанную с прежней ревизией.',
  fields:[...fields('supplier',fixture('supplier')),...fields('offer',fixture('offer'))],buttons:['Новое наблюдение','Показать историю']});
-const version=db.fixtures.bom_version.find(r=>r.version_no===2);
+const version=db.fixtures.model_range_version.find(r=>r.version_no===2);
 forms.push({id:'F3',title:'Редактор черновой версии состава',role:'Инженер',note:'Версия 2 — DRAFT; версия 1, использованная ревизиями, не редактируется.',
- fields:[...fields('configuration',fixture('configuration')),...fields('bom_version',version)],
+ fields:[...fields('configuration',fixture('configuration')),...fields('model_range_version',version)],
  table:{headers:['Строка','Группа','Точный компонент','Предложение','Кол-во'],widths:[90,250,260,230,130],
- rows:db.fixtures.bom_slot.filter(r=>r.version_no===2).map(r=>[r.line_no,value(r.group_id),value(r.requested_component_id),value(r.offer_id),r.quantity])},buttons:['Проверить и рассчитать','Сохранить черновик']});
+ rows:db.fixtures.model_range_slot.filter(r=>r.version_no===2).map(r=>[r.line_no,value(r.group_id),value(r.requested_component_id),value(r.offer_id),r.quantity])},buttons:['Проверить и рассчитать','Сохранить черновик']});
 const revision=fixture('card_revision');
 forms.push({id:'F4',title:'Содержание ревизии карточки',role:'Менеджер',note:'Ревизия 1 — READY: содержание только для чтения. Исправление создаёт новую ревизию.',
  fields:[...fields('card',fixture('card')),...fields('card_revision',revision,['card_id','revision_no','configuration_id','version_no','state','title','description'])],buttons:['Новая ревизия','Параметры расчёта']});
@@ -80,7 +80,7 @@ forms.push({id:'F8',title:'Результат попытки публикаци�
  fields:fields('publication_attempt',fixture('publication_attempt')),buttons:['Проверить результат','Повторить отправку — запрещено']});
 // The repeated owner FK is already represented by configuration.id in the
 // form header; keep it in the schema map without a duplicate visible control.
-forms.find(f=>f.id==='F3').fields.find(f=>f.table==='bom_version'&&f.column==='configuration_id').visible=false;
+forms.find(f=>f.id==='F3').fields.find(f=>f.table==='model_range_version'&&f.column==='configuration_id').visible=false;
 function screen(form){
   let svg=`<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="950" viewBox="0 0 1500 950"><rect width="1500" height="950" fill="white"/><g font-family="Arial">`;
   svg+=rect(0,0,1500,78,'#f1f4f7','#d7dee5',0)+txt(30,49,'Юкомс',32)+txt(255,49,form.title,30)+txt(1466,47,form.id+' · МАКЕТ',22,'end');
@@ -109,7 +109,7 @@ function screen(form){
 }
 const mapping=db.columns.map(c=>{
   let form= forms.find(f=>f.fields.some(v=>v.table===c.table_name && v.column===c.column_name));
-  if(c.table_name==='bom_slot')form=forms.find(f=>f.id==='F3');
+  if(c.table_name==='model_range_slot')form=forms.find(f=>f.id==='F3');
   if(!form)throw Error('Unmapped physical field '+c.table_name+'.'+c.column_name);
   const generated=['id','configuration_id','card_id','created_at','calculated_at','attempt_no','external_task_id','error_code','confirmed_not_accepted','next_check_at'];
   const server=generated.includes(c.column_name)||['version_no','revision_no','state'].includes(c.column_name)||c.table_name==='image';

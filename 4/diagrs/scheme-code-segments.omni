@@ -1,0 +1,86 @@
+{
+  "notation": "SCHEME",
+  "formatVersion": 1,
+  "profile": "NS-SCHEME-1",
+  "model": {
+    "id": "code",
+    "label": "Код BOM",
+    "elements": [
+      {
+        "id": "main",
+        "kind": "diagram",
+        "label": "Редактируемые сегменты",
+        "properties": {
+          "type": "coding"
+        }
+      },
+      {
+        "id": "pattern",
+        "kind": "codePattern",
+        "label": "Номер версии",
+        "properties": {}
+      },
+      {
+        "id": "prefix",
+        "kind": "segment",
+        "label": "Префикс",
+        "properties": {
+          "owner": "pattern",
+          "kind": "literal",
+          "literal": "BOM",
+          "order": "0"
+        }
+      },
+      {
+        "id": "separator",
+        "kind": "segment",
+        "label": "Разделитель",
+        "properties": {
+          "owner": "pattern",
+          "kind": "literal",
+          "literal": "-",
+          "order": "1"
+        }
+      },
+      {
+        "id": "counter",
+        "kind": "segment",
+        "label": "Номер",
+        "properties": {
+          "owner": "pattern",
+          "kind": "counter",
+          "width": "5",
+          "alphabet": "digits",
+          "example": "00127",
+          "meaning": "Условный порядковый номер",
+          "order": "2"
+        }
+      },
+      {
+        "id": "patternView",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "pattern"
+        }
+      }
+    ]
+  },
+  "source": "scheme code \"Код BOM\"\ndiagram main \"Редактируемые сегменты\" type=coding\ncodePattern pattern \"Номер версии\"\nsegment prefix Префикс kind=literal literal=BOM order=0 owner=pattern\nsegment separator Разделитель kind=literal literal=\"-\" order=1 owner=pattern\nsegment counter Номер alphabet=digits example=00127 kind=counter meaning=\"Условный порядковый номер\" order=2 owner=pattern width=5\nview patternView \"\" diagram=main element=pattern\n",
+  "draft": "scheme code \"Код BOM\"\ndiagram main \"Редактируемые сегменты\" type=coding\ncodePattern pattern \"Номер версии\"\nsegment prefix Префикс kind=literal literal=BOM order=0 owner=pattern\nsegment separator Разделитель kind=literal literal=\"-\" order=1 owner=pattern\nsegment counter Номер alphabet=digits example=00127 kind=counter meaning=\"Условный порядковый номер\" order=2 owner=pattern width=5\nview patternView \"\" diagram=main element=pattern\n",
+  "layout": {
+    "nodes": {
+      "patternView": {
+        "x": 90,
+        "y": 70,
+        "width": 660,
+        "height": 230
+      }
+    },
+    "edges": {},
+    "diagrams": {
+      "main": {}
+    }
+  }
+}

@@ -68,9 +68,9 @@ function defaultSlots() {
   return ['CPU-AM5','BOARD-AM5','RAM-DDR5','SSD-M2','CASE-ATX','PSU-650'].map((code,i)=>({line_no:i+1,
     quantity:code==='RAM-DDR5'?2:1,group_id:groups.find(g=>g.code===code)?.id ?? null,requested_component_id:null}));
 }
-async function loadBom() {
+async function loadModelRange() {
   if (!state.configurationId) {state.slots=defaultSlots();return;}
-  const rows = await api('/api/bom?configuration_id=' + encodeURIComponent(state.configurationId) + '&version_no=' + state.version);
+  const rows = await api('/api/model_range?configuration_id=' + encodeURIComponent(state.configurationId) + '&version_no=' + state.version);
   state.slots = rows.map(({line_no,quantity,group_id,requested_component_id})=>({line_no,quantity,group_id,requested_component_id}));
   state.dirty=false; invalidateResult();
 }
@@ -82,13 +82,13 @@ async function loadData() {
   if (can('B2') && !configurations().some(c=>c.id===state.configurationId && c.version_no===state.version)) {
     const first = configurations()[0]; state.configurationId=first?.id ?? null;state.version=first?.version_no ?? 0;
   }
-  if (can('B2')) await loadBom();
+  if (can('B2')) await loadModelRange();
   if (can('B5') && !state.data.cards.cards.some(c=>c.id===state.cardId)) state.cardId=state.data.cards.cards[0]?.id ?? null;
 }
 function availablePages() {return Object.keys(labels).filter(page=>state.contract.functions.some(f=>f.page===page && can(f.id)));}
 async function selectConfiguration(value) {
   if (value==='new') {state.configurationId=null;state.version=0;state.slots=defaultSlots();state.newCode='';state.newName='';state.dirty=true;invalidateResult();return;}
-  const [id,version] = value.split('/');state.configurationId=id;state.version=Number(version);await loadBom();
+  const [id,version] = value.split('/');state.configurationId=id;state.version=Number(version);await loadModelRange();
 }
 function chooseConfiguration(value) {
   if (state.dirty) {state.pendingSelection=value;render();return;}

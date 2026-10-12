@@ -16,7 +16,7 @@ def load_catalog(conn):
 
 def load_slots(conn, configuration_id, version_no):
     with conn.cursor(row_factory=dict_row) as c:
-        c.execute('SELECT * FROM ppois.bom_slot WHERE configuration_id=%s AND version_no=%s ORDER BY line_no',
+        c.execute('SELECT * FROM ppois.model_range_slot WHERE configuration_id=%s AND version_no=%s ORDER BY line_no',
                   (configuration_id,version_no))
         return [Slot(r['line_no'],r['quantity'],str(r['group_id']) if r['group_id'] else None,
                      str(r['requested_component_id']) if r['requested_component_id'] else None) for r in c]

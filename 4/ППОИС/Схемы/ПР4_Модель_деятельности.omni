@@ -50,7 +50,7 @@
       {
         "id": "split",
         "kind": "fork",
-        "label": "",
+        "label": "AND: начать обе ветви",
         "properties": {
           "owner": "work"
         }
@@ -103,7 +103,7 @@
       {
         "id": "join",
         "kind": "join",
-        "label": "",
+        "label": "AND: дождаться обеих ветвей",
         "properties": {
           "owner": "work",
           "joinSpec": "and"
@@ -121,7 +121,7 @@
       {
         "id": "resolve",
         "kind": "action",
-        "label": "Выбрать комплектующие и предложения; сохранить черновик BOM",
+        "label": "Выбрать комплектующие и предложения; сохранить черновик модельного ряда",
         "properties": {
           "owner": "work",
           "kind": "opaque"
@@ -190,7 +190,7 @@
         }
       },
       {
-        "id": "fix_bom",
+        "id": "fix_model_range",
         "kind": "action",
         "label": "Показать ошибки; вернуть черновик на доработку",
         "properties": {
@@ -199,12 +199,12 @@
         }
       },
       {
-        "id": "v_prepare_fix_bom",
+        "id": "v_prepare_fix_model_range",
         "kind": "view",
         "label": "",
         "properties": {
           "diagram": "prepare",
-          "element": "fix_bom"
+          "element": "fix_model_range"
         }
       },
       {
@@ -438,7 +438,7 @@
         "properties": {
           "owner": "work",
           "from": "compatible",
-          "to": "fix_bom",
+          "to": "fix_model_range",
           "guard": "есть"
         }
       },
@@ -450,7 +450,7 @@
           "diagram": "prepare",
           "element": "prepare_flow10",
           "from": "v_prepare_compatible",
-          "to": "v_prepare_fix_bom"
+          "to": "v_prepare_fix_model_range"
         }
       },
       {
@@ -480,7 +480,7 @@
         "label": "",
         "properties": {
           "owner": "work",
-          "from": "fix_bom",
+          "from": "fix_model_range",
           "to": "end_bad"
         }
       },
@@ -491,7 +491,7 @@
         "properties": {
           "diagram": "prepare",
           "element": "prepare_flow12",
-          "from": "v_prepare_fix_bom",
+          "from": "v_prepare_fix_model_range",
           "to": "v_prepare_end_bad"
         }
       },
@@ -515,7 +515,7 @@
       {
         "id": "calculate",
         "kind": "action",
-        "label": "Рассчитать себестоимость, цену и массу по проверенному BOM",
+        "label": "Рассчитать себестоимость, цену и массу по проверенному модельному ряду",
         "properties": {
           "owner": "work",
           "kind": "opaque"
@@ -822,11 +822,45 @@
           "from": "v_main_fix",
           "to": "v_main_done_fix"
         }
+      },
+      {
+        "id": "and_split_note",
+        "kind": "annotation",
+        "label": "AND: обе ветви выполняются параллельно",
+        "properties": {
+          "target": "split"
+        }
+      },
+      {
+        "id": "v_prepare_and_split_note",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "prepare",
+          "element": "and_split_note"
+        }
+      },
+      {
+        "id": "and_join_note",
+        "kind": "annotation",
+        "label": "AND: продолжить после завершения обеих ветвей",
+        "properties": {
+          "target": "join"
+        }
+      },
+      {
+        "id": "v_prepare_and_join_note",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "prepare",
+          "element": "and_join_note"
+        }
       }
     ]
   },
-  "source": "uml ppois_activity \"Подготовка ревизии для публикации\"\nactivity work \"Подготовить ревизию карточки\"\ndiagram prepare \"Подготовка и проверка конкретного состава\" activity=work type=activity\ndiagram main \"Подготовка содержания и передача на публикацию\" activity=work type=activity\ninitial start \"\" owner=work\nview v_prepare_start \"\" diagram=prepare element=start\nfork split \"\" owner=work\nview v_prepare_split \"\" diagram=prepare element=split\naction compose \"Задать позиции: группа или точная комплектующая\" kind=opaque owner=work\nview v_prepare_compose \"\" diagram=prepare element=compose\naction fetch \"Обновить цены, наличие и время получения предложений\" kind=opaque owner=work\nview v_prepare_fetch \"\" diagram=prepare element=fetch\njoin join \"\" joinSpec=and owner=work\nview v_prepare_join \"\" diagram=prepare element=join\naction resolve \"Выбрать комплектующие и предложения; сохранить черновик BOM\" kind=opaque owner=work\nview v_prepare_resolve \"\" diagram=prepare element=resolve\naction compat \"Проверить совместимость состава\" kind=opaque owner=work\nview v_prepare_compat \"\" diagram=prepare element=compat\ndecision compatible \"Конфликты?\" owner=work\nview v_prepare_compatible \"\" diagram=prepare element=compatible\naction continue \"Подготовить содержание карточки (продолжение на рисунке 6)\" kind=opaque owner=work\nview v_prepare_continue \"\" diagram=prepare element=continue\naction fix_bom \"Показать ошибки; вернуть черновик на доработку\" kind=opaque owner=work\nview v_prepare_fix_bom \"\" diagram=prepare element=fix_bom\nactivityFinal end_ok \"\" owner=work\nview v_prepare_end_ok \"\" diagram=prepare element=end_ok\nactivityFinal end_bad \"\" owner=work\nview v_prepare_end_bad \"\" diagram=prepare element=end_bad\ncontrolFlow prepare_flow1 \"\" from=start owner=work to=split\nview v_prepare_prepare_flow1 \"\" diagram=prepare element=prepare_flow1 from=v_prepare_start to=v_prepare_split\ncontrolFlow prepare_flow2 \"\" from=split owner=work to=compose\nview v_prepare_prepare_flow2 \"\" diagram=prepare element=prepare_flow2 from=v_prepare_split to=v_prepare_compose\ncontrolFlow prepare_flow3 \"\" from=split owner=work to=fetch\nview v_prepare_prepare_flow3 \"\" diagram=prepare element=prepare_flow3 from=v_prepare_split to=v_prepare_fetch\ncontrolFlow prepare_flow4 \"\" from=compose owner=work to=join\nview v_prepare_prepare_flow4 \"\" diagram=prepare element=prepare_flow4 from=v_prepare_compose to=v_prepare_join\ncontrolFlow prepare_flow5 \"\" from=fetch owner=work to=join\nview v_prepare_prepare_flow5 \"\" diagram=prepare element=prepare_flow5 from=v_prepare_fetch to=v_prepare_join\ncontrolFlow prepare_flow6 \"\" from=join owner=work to=resolve\nview v_prepare_prepare_flow6 \"\" diagram=prepare element=prepare_flow6 from=v_prepare_join to=v_prepare_resolve\ncontrolFlow prepare_flow7 \"\" from=resolve owner=work to=compat\nview v_prepare_prepare_flow7 \"\" diagram=prepare element=prepare_flow7 from=v_prepare_resolve to=v_prepare_compat\ncontrolFlow prepare_flow8 \"\" from=compat owner=work to=compatible\nview v_prepare_prepare_flow8 \"\" diagram=prepare element=prepare_flow8 from=v_prepare_compat to=v_prepare_compatible\ncontrolFlow prepare_flow9 \"\" from=compatible guard=нет owner=work to=continue\nview v_prepare_prepare_flow9 \"\" diagram=prepare element=prepare_flow9 from=v_prepare_compatible to=v_prepare_continue\ncontrolFlow prepare_flow10 \"\" from=compatible guard=есть owner=work to=fix_bom\nview v_prepare_prepare_flow10 \"\" diagram=prepare element=prepare_flow10 from=v_prepare_compatible to=v_prepare_fix_bom\ncontrolFlow prepare_flow11 \"\" from=continue owner=work to=end_ok\nview v_prepare_prepare_flow11 \"\" diagram=prepare element=prepare_flow11 from=v_prepare_continue to=v_prepare_end_ok\ncontrolFlow prepare_flow12 \"\" from=fix_bom owner=work to=end_bad\nview v_prepare_prepare_flow12 \"\" diagram=prepare element=prepare_flow12 from=v_prepare_fix_bom to=v_prepare_end_bad\ninitial start_content \"\" owner=work\nview v_main_start_content \"\" diagram=main element=start_content\naction calculate \"Рассчитать себестоимость, цену и массу по проверенному BOM\" kind=opaque owner=work\nview v_main_calculate \"\" diagram=main element=calculate\naction content \"Подготовить изображения и обязательные атрибуты\" kind=opaque owner=work\nview v_main_content \"\" diagram=main element=content\naction ready \"Создать неизменяемую ревизию и проверить готовность\" kind=opaque owner=work\nview v_main_ready \"\" diagram=main element=ready\ndecision decision \"Проверки пройдены?\" owner=work\nview v_main_decision \"\" diagram=main element=decision\naction send \"Зарегистрировать попытку и передать ревизию модулю публикации\" kind=opaque owner=work\nview v_main_send \"\" diagram=main element=send\naction fix \"Показать ошибки; сохранить черновик для доработки\" kind=opaque owner=work\nview v_main_fix \"\" diagram=main element=fix\nactivityFinal done_send \"\" owner=work\nview v_main_done_send \"\" diagram=main element=done_send\nactivityFinal done_fix \"\" owner=work\nview v_main_done_fix \"\" diagram=main element=done_fix\ncontrolFlow main_flow1 \"\" from=start_content owner=work to=calculate\nview v_main_main_flow1 \"\" diagram=main element=main_flow1 from=v_main_start_content to=v_main_calculate\ncontrolFlow main_flow2 \"\" from=calculate owner=work to=content\nview v_main_main_flow2 \"\" diagram=main element=main_flow2 from=v_main_calculate to=v_main_content\ncontrolFlow main_flow3 \"\" from=content owner=work to=ready\nview v_main_main_flow3 \"\" diagram=main element=main_flow3 from=v_main_content to=v_main_ready\ncontrolFlow main_flow4 \"\" from=ready owner=work to=decision\nview v_main_main_flow4 \"\" diagram=main element=main_flow4 from=v_main_ready to=v_main_decision\ncontrolFlow main_flow5 \"\" from=decision guard=да owner=work to=send\nview v_main_main_flow5 \"\" diagram=main element=main_flow5 from=v_main_decision to=v_main_send\ncontrolFlow main_flow6 \"\" from=decision guard=else owner=work to=fix\nview v_main_main_flow6 \"\" diagram=main element=main_flow6 from=v_main_decision to=v_main_fix\ncontrolFlow main_flow7 \"\" from=send owner=work to=done_send\nview v_main_main_flow7 \"\" diagram=main element=main_flow7 from=v_main_send to=v_main_done_send\ncontrolFlow main_flow8 \"\" from=fix owner=work to=done_fix\nview v_main_main_flow8 \"\" diagram=main element=main_flow8 from=v_main_fix to=v_main_done_fix\n",
-  "draft": "uml ppois_activity \"Подготовка ревизии для публикации\"\nactivity work \"Подготовить ревизию карточки\"\ndiagram prepare \"Подготовка и проверка конкретного состава\" activity=work type=activity\ndiagram main \"Подготовка содержания и передача на публикацию\" activity=work type=activity\ninitial start \"\" owner=work\nview v_prepare_start \"\" diagram=prepare element=start\nfork split \"\" owner=work\nview v_prepare_split \"\" diagram=prepare element=split\naction compose \"Задать позиции: группа или точная комплектующая\" kind=opaque owner=work\nview v_prepare_compose \"\" diagram=prepare element=compose\naction fetch \"Обновить цены, наличие и время получения предложений\" kind=opaque owner=work\nview v_prepare_fetch \"\" diagram=prepare element=fetch\njoin join \"\" joinSpec=and owner=work\nview v_prepare_join \"\" diagram=prepare element=join\naction resolve \"Выбрать комплектующие и предложения; сохранить черновик BOM\" kind=opaque owner=work\nview v_prepare_resolve \"\" diagram=prepare element=resolve\naction compat \"Проверить совместимость состава\" kind=opaque owner=work\nview v_prepare_compat \"\" diagram=prepare element=compat\ndecision compatible \"Конфликты?\" owner=work\nview v_prepare_compatible \"\" diagram=prepare element=compatible\naction continue \"Подготовить содержание карточки (продолжение на рисунке 6)\" kind=opaque owner=work\nview v_prepare_continue \"\" diagram=prepare element=continue\naction fix_bom \"Показать ошибки; вернуть черновик на доработку\" kind=opaque owner=work\nview v_prepare_fix_bom \"\" diagram=prepare element=fix_bom\nactivityFinal end_ok \"\" owner=work\nview v_prepare_end_ok \"\" diagram=prepare element=end_ok\nactivityFinal end_bad \"\" owner=work\nview v_prepare_end_bad \"\" diagram=prepare element=end_bad\ncontrolFlow prepare_flow1 \"\" from=start owner=work to=split\nview v_prepare_prepare_flow1 \"\" diagram=prepare element=prepare_flow1 from=v_prepare_start to=v_prepare_split\ncontrolFlow prepare_flow2 \"\" from=split owner=work to=compose\nview v_prepare_prepare_flow2 \"\" diagram=prepare element=prepare_flow2 from=v_prepare_split to=v_prepare_compose\ncontrolFlow prepare_flow3 \"\" from=split owner=work to=fetch\nview v_prepare_prepare_flow3 \"\" diagram=prepare element=prepare_flow3 from=v_prepare_split to=v_prepare_fetch\ncontrolFlow prepare_flow4 \"\" from=compose owner=work to=join\nview v_prepare_prepare_flow4 \"\" diagram=prepare element=prepare_flow4 from=v_prepare_compose to=v_prepare_join\ncontrolFlow prepare_flow5 \"\" from=fetch owner=work to=join\nview v_prepare_prepare_flow5 \"\" diagram=prepare element=prepare_flow5 from=v_prepare_fetch to=v_prepare_join\ncontrolFlow prepare_flow6 \"\" from=join owner=work to=resolve\nview v_prepare_prepare_flow6 \"\" diagram=prepare element=prepare_flow6 from=v_prepare_join to=v_prepare_resolve\ncontrolFlow prepare_flow7 \"\" from=resolve owner=work to=compat\nview v_prepare_prepare_flow7 \"\" diagram=prepare element=prepare_flow7 from=v_prepare_resolve to=v_prepare_compat\ncontrolFlow prepare_flow8 \"\" from=compat owner=work to=compatible\nview v_prepare_prepare_flow8 \"\" diagram=prepare element=prepare_flow8 from=v_prepare_compat to=v_prepare_compatible\ncontrolFlow prepare_flow9 \"\" from=compatible guard=нет owner=work to=continue\nview v_prepare_prepare_flow9 \"\" diagram=prepare element=prepare_flow9 from=v_prepare_compatible to=v_prepare_continue\ncontrolFlow prepare_flow10 \"\" from=compatible guard=есть owner=work to=fix_bom\nview v_prepare_prepare_flow10 \"\" diagram=prepare element=prepare_flow10 from=v_prepare_compatible to=v_prepare_fix_bom\ncontrolFlow prepare_flow11 \"\" from=continue owner=work to=end_ok\nview v_prepare_prepare_flow11 \"\" diagram=prepare element=prepare_flow11 from=v_prepare_continue to=v_prepare_end_ok\ncontrolFlow prepare_flow12 \"\" from=fix_bom owner=work to=end_bad\nview v_prepare_prepare_flow12 \"\" diagram=prepare element=prepare_flow12 from=v_prepare_fix_bom to=v_prepare_end_bad\ninitial start_content \"\" owner=work\nview v_main_start_content \"\" diagram=main element=start_content\naction calculate \"Рассчитать себестоимость, цену и массу по проверенному BOM\" kind=opaque owner=work\nview v_main_calculate \"\" diagram=main element=calculate\naction content \"Подготовить изображения и обязательные атрибуты\" kind=opaque owner=work\nview v_main_content \"\" diagram=main element=content\naction ready \"Создать неизменяемую ревизию и проверить готовность\" kind=opaque owner=work\nview v_main_ready \"\" diagram=main element=ready\ndecision decision \"Проверки пройдены?\" owner=work\nview v_main_decision \"\" diagram=main element=decision\naction send \"Зарегистрировать попытку и передать ревизию модулю публикации\" kind=opaque owner=work\nview v_main_send \"\" diagram=main element=send\naction fix \"Показать ошибки; сохранить черновик для доработки\" kind=opaque owner=work\nview v_main_fix \"\" diagram=main element=fix\nactivityFinal done_send \"\" owner=work\nview v_main_done_send \"\" diagram=main element=done_send\nactivityFinal done_fix \"\" owner=work\nview v_main_done_fix \"\" diagram=main element=done_fix\ncontrolFlow main_flow1 \"\" from=start_content owner=work to=calculate\nview v_main_main_flow1 \"\" diagram=main element=main_flow1 from=v_main_start_content to=v_main_calculate\ncontrolFlow main_flow2 \"\" from=calculate owner=work to=content\nview v_main_main_flow2 \"\" diagram=main element=main_flow2 from=v_main_calculate to=v_main_content\ncontrolFlow main_flow3 \"\" from=content owner=work to=ready\nview v_main_main_flow3 \"\" diagram=main element=main_flow3 from=v_main_content to=v_main_ready\ncontrolFlow main_flow4 \"\" from=ready owner=work to=decision\nview v_main_main_flow4 \"\" diagram=main element=main_flow4 from=v_main_ready to=v_main_decision\ncontrolFlow main_flow5 \"\" from=decision guard=да owner=work to=send\nview v_main_main_flow5 \"\" diagram=main element=main_flow5 from=v_main_decision to=v_main_send\ncontrolFlow main_flow6 \"\" from=decision guard=else owner=work to=fix\nview v_main_main_flow6 \"\" diagram=main element=main_flow6 from=v_main_decision to=v_main_fix\ncontrolFlow main_flow7 \"\" from=send owner=work to=done_send\nview v_main_main_flow7 \"\" diagram=main element=main_flow7 from=v_main_send to=v_main_done_send\ncontrolFlow main_flow8 \"\" from=fix owner=work to=done_fix\nview v_main_main_flow8 \"\" diagram=main element=main_flow8 from=v_main_fix to=v_main_done_fix\n",
+  "source": "uml ppois_activity \"Подготовка ревизии для публикации\"\nactivity work \"Подготовить ревизию карточки\"\ndiagram prepare \"Подготовка и проверка конкретного состава\" activity=work type=activity\ndiagram main \"Подготовка содержания и передача на публикацию\" activity=work type=activity\ninitial start \"\" owner=work\nview v_prepare_start \"\" diagram=prepare element=start\nfork split \"AND: начать обе ветви\" owner=work\nview v_prepare_split \"\" diagram=prepare element=split\naction compose \"Задать позиции: группа или точная комплектующая\" kind=opaque owner=work\nview v_prepare_compose \"\" diagram=prepare element=compose\naction fetch \"Обновить цены, наличие и время получения предложений\" kind=opaque owner=work\nview v_prepare_fetch \"\" diagram=prepare element=fetch\njoin join \"AND: дождаться обеих ветвей\" joinSpec=and owner=work\nview v_prepare_join \"\" diagram=prepare element=join\naction resolve \"Выбрать комплектующие и предложения; сохранить черновик модельного ряда\" kind=opaque owner=work\nview v_prepare_resolve \"\" diagram=prepare element=resolve\naction compat \"Проверить совместимость состава\" kind=opaque owner=work\nview v_prepare_compat \"\" diagram=prepare element=compat\ndecision compatible \"Конфликты?\" owner=work\nview v_prepare_compatible \"\" diagram=prepare element=compatible\naction continue \"Подготовить содержание карточки (продолжение на рисунке 6)\" kind=opaque owner=work\nview v_prepare_continue \"\" diagram=prepare element=continue\naction fix_model_range \"Показать ошибки; вернуть черновик на доработку\" kind=opaque owner=work\nview v_prepare_fix_model_range \"\" diagram=prepare element=fix_model_range\nactivityFinal end_ok \"\" owner=work\nview v_prepare_end_ok \"\" diagram=prepare element=end_ok\nactivityFinal end_bad \"\" owner=work\nview v_prepare_end_bad \"\" diagram=prepare element=end_bad\ncontrolFlow prepare_flow1 \"\" from=start owner=work to=split\nview v_prepare_prepare_flow1 \"\" diagram=prepare element=prepare_flow1 from=v_prepare_start to=v_prepare_split\ncontrolFlow prepare_flow2 \"\" from=split owner=work to=compose\nview v_prepare_prepare_flow2 \"\" diagram=prepare element=prepare_flow2 from=v_prepare_split to=v_prepare_compose\ncontrolFlow prepare_flow3 \"\" from=split owner=work to=fetch\nview v_prepare_prepare_flow3 \"\" diagram=prepare element=prepare_flow3 from=v_prepare_split to=v_prepare_fetch\ncontrolFlow prepare_flow4 \"\" from=compose owner=work to=join\nview v_prepare_prepare_flow4 \"\" diagram=prepare element=prepare_flow4 from=v_prepare_compose to=v_prepare_join\ncontrolFlow prepare_flow5 \"\" from=fetch owner=work to=join\nview v_prepare_prepare_flow5 \"\" diagram=prepare element=prepare_flow5 from=v_prepare_fetch to=v_prepare_join\ncontrolFlow prepare_flow6 \"\" from=join owner=work to=resolve\nview v_prepare_prepare_flow6 \"\" diagram=prepare element=prepare_flow6 from=v_prepare_join to=v_prepare_resolve\ncontrolFlow prepare_flow7 \"\" from=resolve owner=work to=compat\nview v_prepare_prepare_flow7 \"\" diagram=prepare element=prepare_flow7 from=v_prepare_resolve to=v_prepare_compat\ncontrolFlow prepare_flow8 \"\" from=compat owner=work to=compatible\nview v_prepare_prepare_flow8 \"\" diagram=prepare element=prepare_flow8 from=v_prepare_compat to=v_prepare_compatible\ncontrolFlow prepare_flow9 \"\" from=compatible guard=нет owner=work to=continue\nview v_prepare_prepare_flow9 \"\" diagram=prepare element=prepare_flow9 from=v_prepare_compatible to=v_prepare_continue\ncontrolFlow prepare_flow10 \"\" from=compatible guard=есть owner=work to=fix_model_range\nview v_prepare_prepare_flow10 \"\" diagram=prepare element=prepare_flow10 from=v_prepare_compatible to=v_prepare_fix_model_range\ncontrolFlow prepare_flow11 \"\" from=continue owner=work to=end_ok\nview v_prepare_prepare_flow11 \"\" diagram=prepare element=prepare_flow11 from=v_prepare_continue to=v_prepare_end_ok\ncontrolFlow prepare_flow12 \"\" from=fix_model_range owner=work to=end_bad\nview v_prepare_prepare_flow12 \"\" diagram=prepare element=prepare_flow12 from=v_prepare_fix_model_range to=v_prepare_end_bad\ninitial start_content \"\" owner=work\nview v_main_start_content \"\" diagram=main element=start_content\naction calculate \"Рассчитать себестоимость, цену и массу по проверенному модельному ряду\" kind=opaque owner=work\nview v_main_calculate \"\" diagram=main element=calculate\naction content \"Подготовить изображения и обязательные атрибуты\" kind=opaque owner=work\nview v_main_content \"\" diagram=main element=content\naction ready \"Создать неизменяемую ревизию и проверить готовность\" kind=opaque owner=work\nview v_main_ready \"\" diagram=main element=ready\ndecision decision \"Проверки пройдены?\" owner=work\nview v_main_decision \"\" diagram=main element=decision\naction send \"Зарегистрировать попытку и передать ревизию модулю публикации\" kind=opaque owner=work\nview v_main_send \"\" diagram=main element=send\naction fix \"Показать ошибки; сохранить черновик для доработки\" kind=opaque owner=work\nview v_main_fix \"\" diagram=main element=fix\nactivityFinal done_send \"\" owner=work\nview v_main_done_send \"\" diagram=main element=done_send\nactivityFinal done_fix \"\" owner=work\nview v_main_done_fix \"\" diagram=main element=done_fix\ncontrolFlow main_flow1 \"\" from=start_content owner=work to=calculate\nview v_main_main_flow1 \"\" diagram=main element=main_flow1 from=v_main_start_content to=v_main_calculate\ncontrolFlow main_flow2 \"\" from=calculate owner=work to=content\nview v_main_main_flow2 \"\" diagram=main element=main_flow2 from=v_main_calculate to=v_main_content\ncontrolFlow main_flow3 \"\" from=content owner=work to=ready\nview v_main_main_flow3 \"\" diagram=main element=main_flow3 from=v_main_content to=v_main_ready\ncontrolFlow main_flow4 \"\" from=ready owner=work to=decision\nview v_main_main_flow4 \"\" diagram=main element=main_flow4 from=v_main_ready to=v_main_decision\ncontrolFlow main_flow5 \"\" from=decision guard=да owner=work to=send\nview v_main_main_flow5 \"\" diagram=main element=main_flow5 from=v_main_decision to=v_main_send\ncontrolFlow main_flow6 \"\" from=decision guard=else owner=work to=fix\nview v_main_main_flow6 \"\" diagram=main element=main_flow6 from=v_main_decision to=v_main_fix\ncontrolFlow main_flow7 \"\" from=send owner=work to=done_send\nview v_main_main_flow7 \"\" diagram=main element=main_flow7 from=v_main_send to=v_main_done_send\ncontrolFlow main_flow8 \"\" from=fix owner=work to=done_fix\nview v_main_main_flow8 \"\" diagram=main element=main_flow8 from=v_main_fix to=v_main_done_fix\nannotation and_split_note \"AND: обе ветви выполняются параллельно\" target=split\nview v_prepare_and_split_note \"\" diagram=prepare element=and_split_note\nannotation and_join_note \"AND: продолжить после завершения обеих ветвей\" target=join\nview v_prepare_and_join_note \"\" diagram=prepare element=and_join_note\n",
+  "draft": "uml ppois_activity \"Подготовка ревизии для публикации\"\nactivity work \"Подготовить ревизию карточки\"\ndiagram prepare \"Подготовка и проверка конкретного состава\" activity=work type=activity\ndiagram main \"Подготовка содержания и передача на публикацию\" activity=work type=activity\ninitial start \"\" owner=work\nview v_prepare_start \"\" diagram=prepare element=start\nfork split \"AND: начать обе ветви\" owner=work\nview v_prepare_split \"\" diagram=prepare element=split\naction compose \"Задать позиции: группа или точная комплектующая\" kind=opaque owner=work\nview v_prepare_compose \"\" diagram=prepare element=compose\naction fetch \"Обновить цены, наличие и время получения предложений\" kind=opaque owner=work\nview v_prepare_fetch \"\" diagram=prepare element=fetch\njoin join \"AND: дождаться обеих ветвей\" joinSpec=and owner=work\nview v_prepare_join \"\" diagram=prepare element=join\naction resolve \"Выбрать комплектующие и предложения; сохранить черновик модельного ряда\" kind=opaque owner=work\nview v_prepare_resolve \"\" diagram=prepare element=resolve\naction compat \"Проверить совместимость состава\" kind=opaque owner=work\nview v_prepare_compat \"\" diagram=prepare element=compat\ndecision compatible \"Конфликты?\" owner=work\nview v_prepare_compatible \"\" diagram=prepare element=compatible\naction continue \"Подготовить содержание карточки (продолжение на рисунке 6)\" kind=opaque owner=work\nview v_prepare_continue \"\" diagram=prepare element=continue\naction fix_model_range \"Показать ошибки; вернуть черновик на доработку\" kind=opaque owner=work\nview v_prepare_fix_model_range \"\" diagram=prepare element=fix_model_range\nactivityFinal end_ok \"\" owner=work\nview v_prepare_end_ok \"\" diagram=prepare element=end_ok\nactivityFinal end_bad \"\" owner=work\nview v_prepare_end_bad \"\" diagram=prepare element=end_bad\ncontrolFlow prepare_flow1 \"\" from=start owner=work to=split\nview v_prepare_prepare_flow1 \"\" diagram=prepare element=prepare_flow1 from=v_prepare_start to=v_prepare_split\ncontrolFlow prepare_flow2 \"\" from=split owner=work to=compose\nview v_prepare_prepare_flow2 \"\" diagram=prepare element=prepare_flow2 from=v_prepare_split to=v_prepare_compose\ncontrolFlow prepare_flow3 \"\" from=split owner=work to=fetch\nview v_prepare_prepare_flow3 \"\" diagram=prepare element=prepare_flow3 from=v_prepare_split to=v_prepare_fetch\ncontrolFlow prepare_flow4 \"\" from=compose owner=work to=join\nview v_prepare_prepare_flow4 \"\" diagram=prepare element=prepare_flow4 from=v_prepare_compose to=v_prepare_join\ncontrolFlow prepare_flow5 \"\" from=fetch owner=work to=join\nview v_prepare_prepare_flow5 \"\" diagram=prepare element=prepare_flow5 from=v_prepare_fetch to=v_prepare_join\ncontrolFlow prepare_flow6 \"\" from=join owner=work to=resolve\nview v_prepare_prepare_flow6 \"\" diagram=prepare element=prepare_flow6 from=v_prepare_join to=v_prepare_resolve\ncontrolFlow prepare_flow7 \"\" from=resolve owner=work to=compat\nview v_prepare_prepare_flow7 \"\" diagram=prepare element=prepare_flow7 from=v_prepare_resolve to=v_prepare_compat\ncontrolFlow prepare_flow8 \"\" from=compat owner=work to=compatible\nview v_prepare_prepare_flow8 \"\" diagram=prepare element=prepare_flow8 from=v_prepare_compat to=v_prepare_compatible\ncontrolFlow prepare_flow9 \"\" from=compatible guard=нет owner=work to=continue\nview v_prepare_prepare_flow9 \"\" diagram=prepare element=prepare_flow9 from=v_prepare_compatible to=v_prepare_continue\ncontrolFlow prepare_flow10 \"\" from=compatible guard=есть owner=work to=fix_model_range\nview v_prepare_prepare_flow10 \"\" diagram=prepare element=prepare_flow10 from=v_prepare_compatible to=v_prepare_fix_model_range\ncontrolFlow prepare_flow11 \"\" from=continue owner=work to=end_ok\nview v_prepare_prepare_flow11 \"\" diagram=prepare element=prepare_flow11 from=v_prepare_continue to=v_prepare_end_ok\ncontrolFlow prepare_flow12 \"\" from=fix_model_range owner=work to=end_bad\nview v_prepare_prepare_flow12 \"\" diagram=prepare element=prepare_flow12 from=v_prepare_fix_model_range to=v_prepare_end_bad\ninitial start_content \"\" owner=work\nview v_main_start_content \"\" diagram=main element=start_content\naction calculate \"Рассчитать себестоимость, цену и массу по проверенному модельному ряду\" kind=opaque owner=work\nview v_main_calculate \"\" diagram=main element=calculate\naction content \"Подготовить изображения и обязательные атрибуты\" kind=opaque owner=work\nview v_main_content \"\" diagram=main element=content\naction ready \"Создать неизменяемую ревизию и проверить готовность\" kind=opaque owner=work\nview v_main_ready \"\" diagram=main element=ready\ndecision decision \"Проверки пройдены?\" owner=work\nview v_main_decision \"\" diagram=main element=decision\naction send \"Зарегистрировать попытку и передать ревизию модулю публикации\" kind=opaque owner=work\nview v_main_send \"\" diagram=main element=send\naction fix \"Показать ошибки; сохранить черновик для доработки\" kind=opaque owner=work\nview v_main_fix \"\" diagram=main element=fix\nactivityFinal done_send \"\" owner=work\nview v_main_done_send \"\" diagram=main element=done_send\nactivityFinal done_fix \"\" owner=work\nview v_main_done_fix \"\" diagram=main element=done_fix\ncontrolFlow main_flow1 \"\" from=start_content owner=work to=calculate\nview v_main_main_flow1 \"\" diagram=main element=main_flow1 from=v_main_start_content to=v_main_calculate\ncontrolFlow main_flow2 \"\" from=calculate owner=work to=content\nview v_main_main_flow2 \"\" diagram=main element=main_flow2 from=v_main_calculate to=v_main_content\ncontrolFlow main_flow3 \"\" from=content owner=work to=ready\nview v_main_main_flow3 \"\" diagram=main element=main_flow3 from=v_main_content to=v_main_ready\ncontrolFlow main_flow4 \"\" from=ready owner=work to=decision\nview v_main_main_flow4 \"\" diagram=main element=main_flow4 from=v_main_ready to=v_main_decision\ncontrolFlow main_flow5 \"\" from=decision guard=да owner=work to=send\nview v_main_main_flow5 \"\" diagram=main element=main_flow5 from=v_main_decision to=v_main_send\ncontrolFlow main_flow6 \"\" from=decision guard=else owner=work to=fix\nview v_main_main_flow6 \"\" diagram=main element=main_flow6 from=v_main_decision to=v_main_fix\ncontrolFlow main_flow7 \"\" from=send owner=work to=done_send\nview v_main_main_flow7 \"\" diagram=main element=main_flow7 from=v_main_send to=v_main_done_send\ncontrolFlow main_flow8 \"\" from=fix owner=work to=done_fix\nview v_main_main_flow8 \"\" diagram=main element=main_flow8 from=v_main_fix to=v_main_done_fix\nannotation and_split_note \"AND: обе ветви выполняются параллельно\" target=split\nview v_prepare_and_split_note \"\" diagram=prepare element=and_split_note\nannotation and_join_note \"AND: продолжить после завершения обеих ветвей\" target=join\nview v_prepare_and_join_note \"\" diagram=prepare element=and_join_note\n",
   "layout": {
     "nodes": {
       "v_prepare_start": {
@@ -883,7 +917,7 @@
         "width": 390,
         "height": 90
       },
-      "v_prepare_fix_bom": {
+      "v_prepare_fix_model_range": {
         "x": 650,
         "y": 680,
         "width": 420,
@@ -904,74 +938,86 @@
       "v_prepare_prepare_flow1": {
         "x": 80,
         "y": 620,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_prepare_prepare_flow2": {
         "x": 330,
         "y": 620,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_prepare_prepare_flow3": {
         "x": 580,
         "y": 620,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_prepare_prepare_flow4": {
         "x": 830,
         "y": 620,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_prepare_prepare_flow5": {
         "x": 80,
         "y": 800,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_prepare_prepare_flow6": {
         "x": 330,
         "y": 800,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_prepare_prepare_flow7": {
         "x": 580,
         "y": 800,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_prepare_prepare_flow8": {
         "x": 830,
         "y": 800,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_prepare_prepare_flow9": {
         "x": 80,
         "y": 980,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_prepare_prepare_flow10": {
         "x": 330,
         "y": 980,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_prepare_prepare_flow11": {
         "x": 580,
         "y": 980,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_prepare_prepare_flow12": {
         "x": 830,
         "y": 980,
-        "width": 210,
+        "width": 220,
         "height": 140
+      },
+      "v_prepare_and_split_note": {
+        "x": 780,
+        "y": 80,
+        "width": 330,
+        "height": 90
+      },
+      "v_prepare_and_join_note": {
+        "x": 790,
+        "y": 410,
+        "width": 330,
+        "height": 105
       },
       "v_main_start_content": {
         "x": 180,
@@ -1030,49 +1076,49 @@
       "v_main_main_flow1": {
         "x": 330,
         "y": 440,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_main_main_flow2": {
         "x": 580,
         "y": 440,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_main_main_flow3": {
         "x": 830,
         "y": 440,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_main_main_flow4": {
         "x": 80,
         "y": 620,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_main_main_flow5": {
         "x": 330,
         "y": 620,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_main_main_flow6": {
         "x": 580,
         "y": 620,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_main_main_flow7": {
         "x": 830,
         "y": 620,
-        "width": 210,
+        "width": 220,
         "height": 140
       },
       "v_main_main_flow8": {
         "x": 80,
         "y": 800,
-        "width": 210,
+        "width": 220,
         "height": 140
       }
     },

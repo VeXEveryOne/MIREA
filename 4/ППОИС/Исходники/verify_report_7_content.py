@@ -127,7 +127,7 @@ def verify():
     figure_paths = [DIAGRAMS / s['file'] for s in models['conceptualSheets']]
     figure_paths += [DIAGRAMS / f'ПР7_{kind}_{group}.png'
                      for kind in ('Логическая', 'Физическая')
-                     for group in ('catalog', 'bom', 'cards', 'publication')]
+                     for group in ('catalog', 'model_range', 'cards', 'publication')]
     package_image_hashes = {sha256(rel.target_part.blob).hexdigest()
                             for rel in document.part.rels.values()
                             if rel.reltype.endswith('/image')}

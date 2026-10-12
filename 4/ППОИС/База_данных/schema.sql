@@ -40,14 +40,14 @@ CREATE TABLE ppois.configuration (
     code varchar(30) NOT NULL UNIQUE,
     name varchar(160) NOT NULL
 );
-CREATE TABLE ppois.bom_version (
+CREATE TABLE ppois.model_range_version (
     configuration_id uuid NOT NULL REFERENCES ppois.configuration(id),
     version_no integer NOT NULL CHECK (version_no > 0),
     state varchar(12) NOT NULL CHECK (state IN ('DRAFT','CHECKED','FROZEN')),
     created_at timestamptz NOT NULL,
     PRIMARY KEY (configuration_id, version_no)
 );
-CREATE TABLE ppois.bom_slot (
+CREATE TABLE ppois.model_range_slot (
     configuration_id uuid NOT NULL,
     version_no integer NOT NULL,
     line_no integer NOT NULL CHECK (line_no > 0),
@@ -56,7 +56,7 @@ CREATE TABLE ppois.bom_slot (
     offer_id uuid REFERENCES ppois.offer(id),
     quantity integer NOT NULL CHECK (quantity > 0),
     PRIMARY KEY (configuration_id, version_no, line_no),
-    FOREIGN KEY (configuration_id, version_no) REFERENCES ppois.bom_version(configuration_id, version_no),
+    FOREIGN KEY (configuration_id, version_no) REFERENCES ppois.model_range_version(configuration_id, version_no),
     CHECK ((group_id IS NOT NULL AND requested_component_id IS NULL)
         OR (requested_component_id IS NOT NULL AND group_id IS NULL))
 );
@@ -84,7 +84,7 @@ CREATE TABLE ppois.card_revision (
     packaging_mass_kg numeric(9,3) NOT NULL CHECK (packaging_mass_kg >= 0),
     calculated_at timestamptz NOT NULL,
     PRIMARY KEY (card_id, revision_no),
-    FOREIGN KEY (configuration_id, version_no) REFERENCES ppois.bom_version(configuration_id, version_no)
+    FOREIGN KEY (configuration_id, version_no) REFERENCES ppois.model_range_version(configuration_id, version_no)
 );
 CREATE TABLE ppois.image (
     id uuid PRIMARY KEY,
@@ -121,7 +121,7 @@ CREATE TABLE ppois.publication_attempt (
 
 -- DDL05: operational indexes; all PK/UNIQUE indexes already exist.
 CREATE INDEX offer_freshness_idx ON ppois.offer(component_id, observed_at DESC, unit_price_rub);
-CREATE INDEX revision_bom_idx ON ppois.card_revision(configuration_id, version_no);
+CREATE INDEX revision_model_range_idx ON ppois.card_revision(configuration_id, version_no);
 CREATE INDEX attempt_reconcile_idx ON ppois.publication_attempt(state, next_check_at)
     WHERE state IN ('ACCEPTED','UNKNOWN','TEMP_ERROR');
 
@@ -138,7 +138,7 @@ FROM ppois.card c JOIN ppois.card_revision r ON r.card_id = c.id
 LEFT JOIN LATERAL (
     SELECT SUM(s.quantity * o.unit_price_rub) AS component_cost_rub,
            SUM(s.quantity * cmp.mass_kg) AS component_mass_kg
-    FROM ppois.bom_slot s JOIN ppois.offer o ON o.id=s.offer_id
+    FROM ppois.model_range_slot s JOIN ppois.offer o ON o.id=s.offer_id
     JOIN ppois.component cmp ON cmp.id=o.component_id
     WHERE (s.configuration_id,s.version_no)=(r.configuration_id,r.version_no)
 ) calc ON true
@@ -159,20 +159,20 @@ END $$;
 CREATE TRIGGER revision_snapshot_guard BEFORE UPDATE ON ppois.card_revision
 FOR EACH ROW EXECUTE FUNCTION ppois.guard_revision_snapshot();
 
--- DDL08: the BOM referenced by a revision is frozen; group resolution must match.
-CREATE FUNCTION ppois.guard_bom_slot() RETURNS trigger LANGUAGE plpgsql AS $$
+-- DDL08: the модельный ряд referenced by a revision is frozen; group resolution must match.
+CREATE FUNCTION ppois.guard_model_range_slot() RETURNS trigger LANGUAGE plpgsql AS $$
 DECLARE c uuid; v integer; actual_group uuid; actual_component uuid;
 BEGIN
     IF TG_OP = 'UPDATE' AND EXISTS (
         SELECT 1 FROM ppois.card_revision
         WHERE configuration_id = OLD.configuration_id AND version_no = OLD.version_no
     ) THEN
-        RAISE EXCEPTION 'BOM_FROZEN: cannot move a referenced slot' USING ERRCODE = '23514';
+        RAISE EXCEPTION 'модельный ряд_FROZEN: cannot move a referenced slot' USING ERRCODE = '23514';
     END IF;
     c := COALESCE(NEW.configuration_id, OLD.configuration_id);
     v := COALESCE(NEW.version_no, OLD.version_no);
     IF EXISTS (SELECT 1 FROM ppois.card_revision WHERE configuration_id = c AND version_no = v) THEN
-        RAISE EXCEPTION 'BOM_FROZEN: create a new version' USING ERRCODE = '23514';
+        RAISE EXCEPTION 'модельный ряд_FROZEN: create a new version' USING ERRCODE = '23514';
     END IF;
     IF TG_OP <> 'DELETE' AND NEW.offer_id IS NOT NULL THEN
         SELECT cmp.group_id, cmp.id INTO actual_group,actual_component
@@ -188,19 +188,19 @@ BEGIN
     IF TG_OP = 'DELETE' THEN RETURN OLD; END IF;
     RETURN NEW;
 END $$;
-CREATE TRIGGER bom_slot_guard BEFORE INSERT OR UPDATE OR DELETE ON ppois.bom_slot
-FOR EACH ROW EXECUTE FUNCTION ppois.guard_bom_slot();
+CREATE TRIGGER model_range_slot_guard BEFORE INSERT OR UPDATE OR DELETE ON ppois.model_range_slot
+FOR EACH ROW EXECUTE FUNCTION ppois.guard_model_range_slot();
 
 -- DDL09: observations and component masses referenced by snapshots cannot change.
 CREATE FUNCTION ppois.guard_used_catalog() RETURNS trigger LANGUAGE plpgsql AS $$
 BEGIN
     IF TG_TABLE_NAME='offer' AND EXISTS (
-        SELECT 1 FROM ppois.bom_slot s JOIN ppois.card_revision r
+        SELECT 1 FROM ppois.model_range_slot s JOIN ppois.card_revision r
         ON (r.configuration_id,r.version_no)=(s.configuration_id,s.version_no) WHERE s.offer_id=OLD.id
     ) THEN
         RAISE EXCEPTION 'OFFER_SNAPSHOT_IMMUTABLE' USING ERRCODE='23514';
     ELSIF TG_TABLE_NAME='component' AND EXISTS (
-        SELECT 1 FROM ppois.bom_slot s JOIN ppois.offer o ON o.id=s.offer_id JOIN ppois.card_revision r
+        SELECT 1 FROM ppois.model_range_slot s JOIN ppois.offer o ON o.id=s.offer_id JOIN ppois.card_revision r
         ON (r.configuration_id,r.version_no)=(s.configuration_id,s.version_no) WHERE o.component_id=OLD.id
     ) THEN
         RAISE EXCEPTION 'COMPONENT_SNAPSHOT_IMMUTABLE' USING ERRCODE='23514';
@@ -212,6 +212,6 @@ FOR EACH ROW EXECUTE FUNCTION ppois.guard_used_catalog();
 CREATE TRIGGER used_component_guard BEFORE UPDATE ON ppois.component
 FOR EACH ROW EXECUTE FUNCTION ppois.guard_used_catalog();
 
-COMMENT ON TABLE ppois.bom_slot IS 'Слабая сущность: номер строки уникален внутри версии BOM';
+COMMENT ON TABLE ppois.model_range_slot IS 'Слабая сущность: номер строки уникален внутри версии модельного ряда';
 COMMENT ON TABLE ppois.card_revision IS 'Слабая сущность: неизменяемый снимок с локальным номером ревизии';
 COMMENT ON TABLE ppois.publication_attempt IS 'Слабая сущность: попытка конкретной ревизии; внутренние статусы';

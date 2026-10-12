@@ -1,0 +1,205 @@
+{
+  "notation": "FUNCTION_TREE",
+  "formatVersion": 1,
+  "profile": "NS-FUNCTION-TREE-1",
+  "model": {
+    "id": "tree",
+    "label": "Иерархия функций",
+    "elements": [
+      {
+        "id": "root",
+        "kind": "function",
+        "label": "Обслуживать карточки",
+        "properties": {
+          "order": "0",
+          "code": "F0"
+        }
+      },
+      {
+        "id": "prepare",
+        "kind": "function",
+        "label": "Подготовить",
+        "properties": {
+          "parent": "root",
+          "order": "0"
+        }
+      },
+      {
+        "id": "publish",
+        "kind": "function",
+        "label": "Опубликовать",
+        "properties": {
+          "parent": "root",
+          "order": "1"
+        }
+      },
+      {
+        "id": "compose",
+        "kind": "function",
+        "label": "Составить BOM",
+        "properties": {
+          "parent": "prepare",
+          "order": "0"
+        }
+      },
+      {
+        "id": "check",
+        "kind": "function",
+        "label": "Проверить BOM",
+        "properties": {
+          "parent": "prepare",
+          "order": "1"
+        }
+      },
+      {
+        "id": "main",
+        "kind": "diagram",
+        "label": "Полное дерево",
+        "properties": {
+          "type": "tree",
+          "root": "root"
+        }
+      },
+      {
+        "id": "detail",
+        "kind": "diagram",
+        "label": "Подготовка",
+        "properties": {
+          "type": "tree",
+          "root": "prepare"
+        }
+      },
+      {
+        "id": "v_root",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "root"
+        }
+      },
+      {
+        "id": "v_prepare",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "prepare"
+        }
+      },
+      {
+        "id": "v_publish",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "publish"
+        }
+      },
+      {
+        "id": "v_compose",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "compose"
+        }
+      },
+      {
+        "id": "v_check",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "check"
+        }
+      },
+      {
+        "id": "d_prepare",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "detail",
+          "element": "prepare"
+        }
+      },
+      {
+        "id": "d_compose",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "detail",
+          "element": "compose"
+        }
+      },
+      {
+        "id": "d_check",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "detail",
+          "element": "check"
+        }
+      }
+    ]
+  },
+  "source": "functree tree \"Иерархия функций\"\nfunction root \"Обслуживать карточки\" code=F0 order=0\nfunction prepare Подготовить order=0 parent=root\nfunction publish Опубликовать order=1 parent=root\nfunction compose \"Составить BOM\" order=0 parent=prepare\nfunction check \"Проверить BOM\" order=1 parent=prepare\ndiagram main \"Полное дерево\" root=root type=tree\ndiagram detail Подготовка root=prepare type=tree\nview v_root \"\" diagram=main element=root\nview v_prepare \"\" diagram=main element=prepare\nview v_publish \"\" diagram=main element=publish\nview v_compose \"\" diagram=main element=compose\nview v_check \"\" diagram=main element=check\nview d_prepare \"\" diagram=detail element=prepare\nview d_compose \"\" diagram=detail element=compose\nview d_check \"\" diagram=detail element=check\n",
+  "draft": "functree tree \"Иерархия функций\"\nfunction root \"Обслуживать карточки\" code=F0 order=0\nfunction prepare Подготовить order=0 parent=root\nfunction publish Опубликовать order=1 parent=root\nfunction compose \"Составить BOM\" order=0 parent=prepare\nfunction check \"Проверить BOM\" order=1 parent=prepare\ndiagram main \"Полное дерево\" root=root type=tree\ndiagram detail Подготовка root=prepare type=tree\nview v_root \"\" diagram=main element=root\nview v_prepare \"\" diagram=main element=prepare\nview v_publish \"\" diagram=main element=publish\nview v_compose \"\" diagram=main element=compose\nview v_check \"\" diagram=main element=check\nview d_prepare \"\" diagram=detail element=prepare\nview d_compose \"\" diagram=detail element=compose\nview d_check \"\" diagram=detail element=check\n",
+  "layout": {
+    "nodes": {
+      "v_root": {
+        "x": 90,
+        "y": 70,
+        "width": 260,
+        "height": 90
+      },
+      "v_prepare": {
+        "x": 90,
+        "y": 270,
+        "width": 260,
+        "height": 90
+      },
+      "v_publish": {
+        "x": 440,
+        "y": 270,
+        "width": 260,
+        "height": 90
+      },
+      "v_compose": {
+        "x": 90,
+        "y": 470,
+        "width": 260,
+        "height": 90
+      },
+      "v_check": {
+        "x": 440,
+        "y": 470,
+        "width": 260,
+        "height": 90
+      },
+      "d_prepare": {
+        "x": 90,
+        "y": 70,
+        "width": 260,
+        "height": 90
+      },
+      "d_compose": {
+        "x": 90,
+        "y": 270,
+        "width": 260,
+        "height": 90
+      },
+      "d_check": {
+        "x": 440,
+        "y": 270,
+        "width": 260,
+        "height": 90
+      }
+    },
+    "edges": {},
+    "diagrams": {
+      "main": {},
+      "detail": {}
+    }
+  }
+}

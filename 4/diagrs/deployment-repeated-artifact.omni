@@ -1,0 +1,283 @@
+{
+  "formatVersion": 2,
+  "notation": "UML",
+  "profile": "NS-UML-2.5.1-2",
+  "model": {
+    "id": "placements",
+    "label": "Повторное размещение",
+    "elements": [
+      {
+        "id": "main",
+        "kind": "diagram",
+        "label": "Один артефакт на двух узлах",
+        "properties": {
+          "type": "deployment"
+        }
+      },
+      {
+        "id": "first",
+        "kind": "device",
+        "label": "Сервер A",
+        "properties": {}
+      },
+      {
+        "id": "second",
+        "kind": "device",
+        "label": "Сервер B",
+        "properties": {}
+      },
+      {
+        "id": "envA",
+        "kind": "executionEnvironment",
+        "label": "Среда A",
+        "properties": {
+          "owner": "first"
+        }
+      },
+      {
+        "id": "envB",
+        "kind": "executionEnvironment",
+        "label": "Среда B",
+        "properties": {
+          "owner": "second"
+        }
+      },
+      {
+        "id": "archive",
+        "kind": "artifact",
+        "label": "cards.jar",
+        "properties": {
+          "fileName": "cards.jar"
+        }
+      },
+      {
+        "id": "service",
+        "kind": "component",
+        "label": "Сервис карточек",
+        "properties": {}
+      },
+      {
+        "id": "one",
+        "kind": "deployment",
+        "label": "deploy",
+        "properties": {
+          "location": "envA",
+          "artifact": "archive"
+        }
+      },
+      {
+        "id": "two",
+        "kind": "deployment",
+        "label": "deploy",
+        "properties": {
+          "location": "envB",
+          "artifact": "archive"
+        }
+      },
+      {
+        "id": "implementation",
+        "kind": "manifestation",
+        "label": "manifest",
+        "properties": {
+          "from": "archive",
+          "to": "service"
+        }
+      },
+      {
+        "id": "path",
+        "kind": "communicationPath",
+        "label": "HTTPS / 443",
+        "properties": {
+          "from": "first",
+          "to": "second",
+          "protocol": "HTTPS",
+          "port": "443"
+        }
+      },
+      {
+        "id": "v_first",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "first"
+        }
+      },
+      {
+        "id": "v_second",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "second"
+        }
+      },
+      {
+        "id": "v_envA",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "envA",
+          "parent": "v_first"
+        }
+      },
+      {
+        "id": "v_envB",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "envB",
+          "parent": "v_second"
+        }
+      },
+      {
+        "id": "v_archive",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "archive",
+          "parent": "v_envA"
+        }
+      },
+      {
+        "id": "v_service",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "service"
+        }
+      },
+      {
+        "id": "v_one",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "one",
+          "from": "v_envA",
+          "to": "v_archive"
+        }
+      },
+      {
+        "id": "v_two",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "two",
+          "from": "v_envB",
+          "to": "v_archiveB"
+        }
+      },
+      {
+        "id": "v_implementation",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "implementation",
+          "from": "v_archive",
+          "to": "v_service"
+        }
+      },
+      {
+        "id": "v_path",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "path",
+          "from": "v_first",
+          "to": "v_second"
+        }
+      },
+      {
+        "id": "v_archiveB",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "archive",
+          "parent": "v_envB"
+        }
+      }
+    ]
+  },
+  "source": "uml placements \"Повторное размещение\"\ndiagram main \"Один артефакт на двух узлах\" type=deployment\ndevice first \"Сервер A\"\ndevice second \"Сервер B\"\nexecutionEnvironment envA \"Среда A\" owner=first\nexecutionEnvironment envB \"Среда B\" owner=second\nartifact archive cards.jar fileName=cards.jar\ncomponent service \"Сервис карточек\"\ndeployment one deploy artifact=archive location=envA\ndeployment two deploy artifact=archive location=envB\nmanifestation implementation manifest from=archive to=service\ncommunicationPath path \"HTTPS / 443\" from=first port=443 protocol=HTTPS to=second\nview v_first \"\" diagram=main element=first\nview v_second \"\" diagram=main element=second\nview v_envA \"\" diagram=main element=envA parent=v_first\nview v_envB \"\" diagram=main element=envB parent=v_second\nview v_archive \"\" diagram=main element=archive parent=v_envA\nview v_service \"\" diagram=main element=service\nview v_one \"\" diagram=main element=one from=v_envA to=v_archive\nview v_two \"\" diagram=main element=two from=v_envB to=v_archiveB\nview v_implementation \"\" diagram=main element=implementation from=v_archive to=v_service\nview v_path \"\" diagram=main element=path from=v_first to=v_second\nview v_archiveB \"\" diagram=main element=archive parent=v_envB\n",
+  "draft": "uml placements \"Повторное размещение\"\ndiagram main \"Один артефакт на двух узлах\" type=deployment\ndevice first \"Сервер A\"\ndevice second \"Сервер B\"\nexecutionEnvironment envA \"Среда A\" owner=first\nexecutionEnvironment envB \"Среда B\" owner=second\nartifact archive cards.jar fileName=cards.jar\ncomponent service \"Сервис карточек\"\ndeployment one deploy artifact=archive location=envA\ndeployment two deploy artifact=archive location=envB\nmanifestation implementation manifest from=archive to=service\ncommunicationPath path \"HTTPS / 443\" from=first port=443 protocol=HTTPS to=second\nview v_first \"\" diagram=main element=first\nview v_second \"\" diagram=main element=second\nview v_envA \"\" diagram=main element=envA parent=v_first\nview v_envB \"\" diagram=main element=envB parent=v_second\nview v_archive \"\" diagram=main element=archive parent=v_envA\nview v_service \"\" diagram=main element=service\nview v_one \"\" diagram=main element=one from=v_envA to=v_archive\nview v_two \"\" diagram=main element=two from=v_envB to=v_archiveB\nview v_implementation \"\" diagram=main element=implementation from=v_archive to=v_service\nview v_path \"\" diagram=main element=path from=v_first to=v_second\nview v_archiveB \"\" diagram=main element=archive parent=v_envB\n",
+  "layout": {
+    "nodes": {
+      "v_first": {
+        "x": 70,
+        "y": 60,
+        "width": 400,
+        "height": 370
+      },
+      "v_second": {
+        "x": 650,
+        "y": 60,
+        "width": 400,
+        "height": 370
+      },
+      "v_envA": {
+        "x": 110,
+        "y": 145,
+        "width": 310,
+        "height": 200
+      },
+      "v_envB": {
+        "x": 690,
+        "y": 145,
+        "width": 310,
+        "height": 200
+      },
+      "v_archive": {
+        "x": 155,
+        "y": 220,
+        "width": 220,
+        "height": 70
+      },
+      "v_service": {
+        "x": 420,
+        "y": 570,
+        "width": 280,
+        "height": 90
+      },
+      "v_one": {
+        "x": 580,
+        "y": 260,
+        "width": 210,
+        "height": 140
+      },
+      "v_two": {
+        "x": 830,
+        "y": 260,
+        "width": 210,
+        "height": 140
+      },
+      "v_implementation": {
+        "x": 80,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_path": {
+        "x": 330,
+        "y": 440,
+        "width": 210,
+        "height": 140
+      },
+      "v_archiveB": {
+        "x": 735,
+        "y": 220,
+        "width": 220,
+        "height": 70
+      }
+    },
+    "edges": {}
+  }
+}

@@ -12,7 +12,7 @@
   "jobs": [
     {
       "file": "ПР4_Модель_проектирования.omni",
-      "diagramId": "analysis_bom",
+      "diagramId": "analysis_model_range",
       "title": "ПР4_01_Классы"
     },
     {
@@ -22,7 +22,7 @@
     },
     {
       "file": "ПР4_Модель_проектирования.omni",
-      "diagramId": "services_bom",
+      "diagramId": "services_model_range",
       "title": "ПР4_03_Классы"
     },
     {
@@ -33,7 +33,7 @@
     {
       "file": "ПР4_Модель_деятельности.omni",
       "diagramId": "prepare",
-      "title": "ПР4_05_Деятельность_BOM"
+      "title": "ПР4_05_Деятельность_Модельный_ряд"
     },
     {
       "file": "ПР4_Модель_деятельности.omni",

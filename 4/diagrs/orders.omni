@@ -1,0 +1,99 @@
+{
+  "formatVersion": 3,
+  "notation": "DFD",
+  "model": {
+    "id": "orders",
+    "label": "Обработка заказов",
+    "blocks": [
+      {
+        "id": "customer",
+        "kind": "entity",
+        "label": "Клиент"
+      },
+      {
+        "id": "receive",
+        "kind": "process",
+        "label": "Принять заказ"
+      },
+      {
+        "id": "orders",
+        "kind": "store",
+        "label": "Заказы"
+      },
+      {
+        "id": "fulfil",
+        "kind": "process",
+        "label": "Собрать заказ"
+      },
+      {
+        "id": "warehouse",
+        "kind": "entity",
+        "label": "Склад"
+      }
+    ],
+    "flows": [
+      {
+        "id": "request",
+        "source": "customer",
+        "target": "receive",
+        "label": "Заказ"
+      },
+      {
+        "id": "record",
+        "source": "receive",
+        "target": "orders",
+        "label": "Данные заказа"
+      },
+      {
+        "id": "read",
+        "source": "orders",
+        "target": "fulfil",
+        "label": "Состав заказа"
+      },
+      {
+        "id": "shipment",
+        "source": "fulfil",
+        "target": "warehouse",
+        "label": "Задание на отгрузку"
+      },
+      {
+        "id": "confirmation",
+        "source": "receive",
+        "target": "customer",
+        "label": "Подтверждение"
+      }
+    ]
+  },
+  "source": "dfd orders \"Обработка заказов\"\nentity customer Клиент\nprocess receive \"Принять заказ\"\nstore orders Заказы\nprocess fulfil \"Собрать заказ\"\nentity warehouse Склад\nflow request Заказ from=customer to=receive\nflow record \"Данные заказа\" from=receive to=orders\nflow read \"Состав заказа\" from=orders to=fulfil\nflow shipment \"Задание на отгрузку\" from=fulfil to=warehouse\nflow confirmation Подтверждение from=receive to=customer\n",
+  "draft": "dfd orders \"Обработка заказов\"\nentity customer Клиент\nprocess receive \"Принять заказ\"\nstore orders Заказы\nprocess fulfil \"Собрать заказ\"\nentity warehouse Склад\nflow request Заказ from=customer to=receive\nflow record \"Данные заказа\" from=receive to=orders\nflow read \"Состав заказа\" from=orders to=fulfil\nflow shipment \"Задание на отгрузку\" from=fulfil to=warehouse\nflow confirmation Подтверждение from=receive to=customer\n",
+  "layout": {
+    "positions": {
+      "customer": {
+        "x": 40,
+        "y": 140
+      },
+      "receive": {
+        "x": 340,
+        "y": 140
+      },
+      "orders": {
+        "x": 640,
+        "y": 140
+      },
+      "fulfil": {
+        "x": 640,
+        "y": 380
+      },
+      "warehouse": {
+        "x": 940,
+        "y": 380
+      }
+    },
+    "routes": {},
+    "labels": {},
+    "attachments": {}
+  },
+  "settings": {
+    "snapToGrid": true
+  }
+}

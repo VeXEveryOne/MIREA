@@ -33,9 +33,9 @@ function edge(sheet:string,kind:string,id:string,label:string,from:string,to:str
 }
 const printedEdges:any[]=[];
 const allocations:Record<string,string[]>={
-  web:['BomForm','CardForm'],
-  api:['BomControl','Readiness','PublicationControl'],
-  domain:['Configuration','BomVersion','BomSlot','Compatibility','Calculation'],
+  web:['ModelRangeForm','CardForm'],
+  api:['ModelRangeControl','Readiness','PublicationControl'],
+  domain:['Configuration','ModelRangeVersion','ModelRangeSlot','Compatibility','Calculation'],
   catalog:['ComponentGroup','Component','Offer'],
   content:['Card','CardRevision','Image','PublicationAttempt'],
   gateway:['MarketplaceGateway'],
@@ -43,7 +43,7 @@ const allocations:Record<string,string[]>={
 };
 const labels:Record<string,string>={web:'Веб клиент',api:'Прикладной сервис',domain:'Состав и расчёты',
   catalog:'Каталог и предложения',content:'Карточки и контент',gateway:'Шлюз публикации',storage:'Доступ к данным'};
-const details:Record<string,string>={web:'Формы BOM и карточки',api:'Сценарии и права доступа',domain:'Проверка и вычисления',
+const details:Record<string,string>={web:'Формы модельного ряда и карточки',api:'Сценарии и права доступа',domain:'Проверка и вычисления',
   catalog:'Комплектующие и цены',content:'Версии и изображения',gateway:'Запрос и внешний результат',storage:'PostgreSQL и транзакции'};
 const classIds=previous.model.elements.filter((e:any)=>e.kind==='class').map((e:any)=>e.id).sort();
 const assigned=Object.values(allocations).flat().sort();

@@ -2,118 +2,118 @@
   {
     "view": "ПР3_03_Последовательность_UC02",
     "part": 1,
-    "id": "bom_m1",
+    "id": "model_range_m1",
     "sequence": 1,
-    "from": "bom_lane0",
-    "to": "bom_lane1",
+    "from": "model_range_lane0",
+    "to": "model_range_lane1",
     "sort": "synchCall"
   },
   {
     "view": "ПР3_03_Последовательность_UC02",
     "part": 1,
-    "id": "bom_m2",
+    "id": "model_range_m2",
     "sequence": 2,
-    "from": "bom_lane1",
-    "to": "bom_lane2",
+    "from": "model_range_lane1",
+    "to": "model_range_lane2",
     "sort": "synchCall"
   },
   {
     "view": "ПР3_03_Последовательность_UC02",
     "part": 1,
-    "id": "bom_m3",
+    "id": "model_range_m3",
     "sequence": 3,
-    "from": "bom_lane2",
-    "to": "bom_lane3",
+    "from": "model_range_lane2",
+    "to": "model_range_lane3",
     "sort": "synchCall"
   },
   {
     "view": "ПР3_03_Последовательность_UC02",
     "part": 1,
-    "id": "bom_m4",
+    "id": "model_range_m4",
     "sequence": 4,
-    "from": "bom_lane3",
-    "to": "bom_lane2",
+    "from": "model_range_lane3",
+    "to": "model_range_lane2",
     "sort": "reply"
   },
   {
     "view": "ПР3_03_Последовательность_UC02",
     "part": 1,
-    "id": "bom_m5",
+    "id": "model_range_m5",
     "sequence": 5,
-    "from": "bom_lane2",
-    "to": "bom_lane4",
+    "from": "model_range_lane2",
+    "to": "model_range_lane4",
     "sort": "synchCall"
   },
   {
     "view": "ПР3_03_Последовательность_UC02",
     "part": 1,
-    "id": "bom_m6",
+    "id": "model_range_m6",
     "sequence": 6,
-    "from": "bom_lane4",
-    "to": "bom_lane2",
+    "from": "model_range_lane4",
+    "to": "model_range_lane2",
     "sort": "reply"
   },
   {
     "view": "ПР3_03_Последовательность_UC02",
     "part": 1,
-    "id": "bom_m7",
+    "id": "model_range_m7",
     "sequence": 7,
-    "from": "bom_lane2",
-    "to": "bom_lane2",
+    "from": "model_range_lane2",
+    "to": "model_range_lane2",
     "sort": "synchCall"
   },
   {
     "view": "ПР3_03_Последовательность_UC02",
     "part": 2,
-    "id": "bom_m8",
+    "id": "model_range_m8",
     "sequence": 8,
-    "from": "bom_lane2",
-    "to": "bom_lane5",
+    "from": "model_range_lane2",
+    "to": "model_range_lane5",
     "sort": "synchCall"
   },
   {
     "view": "ПР3_03_Последовательность_UC02",
     "part": 2,
-    "id": "bom_m9",
+    "id": "model_range_m9",
     "sequence": 9,
-    "from": "bom_lane5",
-    "to": "bom_lane2",
+    "from": "model_range_lane5",
+    "to": "model_range_lane2",
     "sort": "reply"
   },
   {
     "view": "ПР3_03_Последовательность_UC02",
     "part": 2,
-    "id": "bom_m10",
+    "id": "model_range_m10",
     "sequence": 10,
-    "from": "bom_lane2",
-    "to": "bom_lane1",
+    "from": "model_range_lane2",
+    "to": "model_range_lane1",
     "sort": "reply"
   },
   {
     "view": "ПР3_03_Последовательность_UC02",
     "part": 2,
-    "id": "bom_m11",
+    "id": "model_range_m11",
     "sequence": 11,
-    "from": "bom_lane1",
-    "to": "bom_lane0",
+    "from": "model_range_lane1",
+    "to": "model_range_lane0",
     "sort": "reply"
   },
   {
     "view": "ПР3_03_Последовательность_UC02",
     "part": 2,
-    "id": "bom_m12",
+    "id": "model_range_m12",
     "sequence": 12,
-    "from": "bom_lane2",
-    "to": "bom_lane1",
+    "from": "model_range_lane2",
+    "to": "model_range_lane1",
     "sort": "reply"
   },
   {
     "view": "ПР3_03_Последовательность_UC02",
     "part": 2,
-    "id": "bom_m13",
+    "id": "model_range_m13",
     "sequence": 13,
-    "from": "bom_lane1",
-    "to": "bom_lane0",
+    "from": "model_range_lane1",
+    "to": "model_range_lane0",
     "sort": "reply"
   },
   {
@@ -213,7 +213,7 @@
     "sequence": 11,
     "from": "pub_lane2",
     "to": "pub_lane6",
-    "sort": "synchCall"
+    "sort": "asynchCall"
   },
   {
     "view": "ПР3_04_Последовательность_UC05",
@@ -222,7 +222,7 @@
     "sequence": 12,
     "from": "pub_lane2",
     "to": "pub_lane3",
-    "sort": "synchCall"
+    "sort": "asynchCall"
   },
   {
     "view": "ПР3_04_Последовательность_UC05",
@@ -311,7 +311,7 @@
     "sequence": 12,
     "from": "pub_lane2",
     "to": "pub_lane3",
-    "sort": "synchCall",
+    "sort": "asynchCall",
     "scenario": "ready_card"
   },
   {
@@ -347,7 +347,7 @@
     "sequence": 11,
     "from": "pub_lane2",
     "to": "pub_lane6",
-    "sort": "synchCall",
+    "sort": "asynchCall",
     "scenario": "ready_card"
   },
   {

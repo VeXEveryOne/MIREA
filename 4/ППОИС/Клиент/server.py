@@ -190,15 +190,15 @@ class Application:
                 return conn.execute('''SELECT c.*, b.version_no,b.state,b.created_at,
                     EXISTS(SELECT 1 FROM ppois.card_revision r WHERE
                     (r.configuration_id,r.version_no)=(b.configuration_id,b.version_no)) AS referenced
-                    FROM ppois.configuration c JOIN ppois.bom_version b ON b.configuration_id=c.id
+                    FROM ppois.configuration c JOIN ppois.model_range_version b ON b.configuration_id=c.id
                     ORDER BY c.code,b.version_no DESC''').fetchall()
-            if path == '/api/bom':
+            if path == '/api/model_range':
                 config = uuid(query.get('configuration_id', [''])[0])
                 try:
                     version = positive(int(query.get('version_no', [''])[0]), 'Версия')
                 except ValueError:
                     raise ApiError(422, 'Неверный номер версии') from None
-                rows = conn.execute('SELECT * FROM ppois.bom_slot WHERE configuration_id=%s AND version_no=%s ORDER BY line_no',
+                rows = conn.execute('SELECT * FROM ppois.model_range_slot WHERE configuration_id=%s AND version_no=%s ORDER BY line_no',
                                     (config, version)).fetchall()
                 if not rows:
                     raise ApiError(404, 'Состав не найден')
@@ -236,8 +236,8 @@ class Application:
         latest_expected = positive(data['expected_latest'], 'Последняя версия', allow_zero=True)
         selected_slots = slots(data['slots'])
         config = uuid(data['configuration_id']) if data.get('configuration_id') else str(uuid4())
-        conn.execute("SELECT pg_advisory_xact_lock(hashtextextended(%s,0))", ('bom:' + config,))
-        latest = conn.execute('SELECT COALESCE(max(version_no),0) AS n FROM ppois.bom_version WHERE configuration_id=%s',
+        conn.execute("SELECT pg_advisory_xact_lock(hashtextextended(%s,0))", ('model_range:' + config,))
+        latest = conn.execute('SELECT COALESCE(max(version_no),0) AS n FROM ppois.model_range_version WHERE configuration_id=%s',
                               (config,)).fetchone()['n']
         if latest != latest_expected:
             raise ApiError(409, 'Версия изменилась; обновите данные перед сохранением')
@@ -257,10 +257,10 @@ class Application:
         if latest >= 2147483647:
             raise ApiError(422, 'Достигнут предельный номер версии')
         version = latest + 1; state = 'DRAFT' if errors else 'CHECKED'
-        conn.execute('INSERT INTO ppois.bom_version VALUES (%s,%s,%s,%s)',
+        conn.execute('INSERT INTO ppois.model_range_version VALUES (%s,%s,%s,%s)',
                      (config, version, state, datetime.now(timezone.utc)))
         with conn.cursor() as cursor:
-            cursor.executemany('INSERT INTO ppois.bom_slot VALUES (%s,%s,%s,%s,%s,%s,%s)',
+            cursor.executemany('INSERT INTO ppois.model_range_slot VALUES (%s,%s,%s,%s,%s,%s,%s)',
                 [(config, version, s.line_no, s.group_id, s.requested_component_id, chosen.get(s.line_no), s.quantity)
                  for s in selected_slots])
         return {'configuration_id': config, 'version_no': version, 'state': state, 'errors': errors}
@@ -272,15 +272,15 @@ class Application:
         card = uuid(data['card_id']) if data.get('card_id') else str(uuid4())
         expected = positive(data['expected_latest'], 'Последняя ревизия', allow_zero=True)
         # Same first lock as an engineer's save; all lock acquisition order is
-        # BOM before card. Only SELECT functions, no elevated table mutation.
-        for key in ('bom:' + config, 'card:' + card):
+        # модельный ряд before card. Only SELECT functions, no elevated table mutation.
+        for key in ('model_range:' + config, 'card:' + card):
             conn.execute('SELECT pg_advisory_xact_lock(hashtextextended(%s,0))', (key,))
         result, resolved, params = self.calculation(conn, {k: data[k] for k in ('configuration_id', 'version_no', 'policy') if k in data})
-        saved = conn.execute('SELECT line_no,offer_id FROM ppois.bom_slot WHERE configuration_id=%s AND version_no=%s',
+        saved = conn.execute('SELECT line_no,offer_id FROM ppois.model_range_slot WHERE configuration_id=%s AND version_no=%s',
                              (config, version)).fetchall()
         if {r['line_no']: str(r['offer_id']) for r in saved} != {r.slot.line_no: r.offer.id for r in resolved}:
             raise ApiError(409, 'Подбор изменился; инженер должен сохранить новую проверенную версию')
-        state = conn.execute('SELECT state FROM ppois.bom_version WHERE configuration_id=%s AND version_no=%s',
+        state = conn.execute('SELECT state FROM ppois.model_range_version WHERE configuration_id=%s AND version_no=%s',
                              (config, version)).fetchone()['state']
         if state not in ('CHECKED', 'FROZEN'):
             raise ApiError(409, 'Сначала сохранить проверенную версию состава')

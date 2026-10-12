@@ -1,0 +1,312 @@
+{
+  "formatVersion": 2,
+  "notation": "UML",
+  "profile": "NS-UML-2.5.1-2",
+  "model": {
+    "id": "ports",
+    "label": "Простые порты и части",
+    "elements": [
+      {
+        "id": "main",
+        "kind": "diagram",
+        "label": "Assembly и delegation",
+        "properties": {
+          "type": "component"
+        }
+      },
+      {
+        "id": "system",
+        "kind": "component",
+        "label": "Система карточек",
+        "properties": {}
+      },
+      {
+        "id": "web",
+        "kind": "component",
+        "label": "Интерфейс",
+        "properties": {}
+      },
+      {
+        "id": "service",
+        "kind": "component",
+        "label": "Сервис BOM",
+        "properties": {}
+      },
+      {
+        "id": "api",
+        "kind": "interface",
+        "label": "API карточек",
+        "properties": {}
+      },
+      {
+        "id": "client",
+        "kind": "part",
+        "label": "web",
+        "properties": {
+          "owner": "system",
+          "classifier": "web",
+          "lower": "1",
+          "upper": "1"
+        }
+      },
+      {
+        "id": "server",
+        "kind": "part",
+        "label": "bom",
+        "properties": {
+          "owner": "system",
+          "classifier": "service",
+          "lower": "1",
+          "upper": "1"
+        }
+      },
+      {
+        "id": "required",
+        "kind": "port",
+        "label": "API required",
+        "properties": {
+          "owner": "web",
+          "classifier": "api",
+          "conjugated": "true"
+        }
+      },
+      {
+        "id": "provided",
+        "kind": "port",
+        "label": "API provided",
+        "properties": {
+          "owner": "service",
+          "classifier": "api",
+          "conjugated": "false"
+        }
+      },
+      {
+        "id": "external",
+        "kind": "port",
+        "label": "Внешний API",
+        "properties": {
+          "owner": "system",
+          "classifier": "api",
+          "conjugated": "false"
+        }
+      },
+      {
+        "id": "need",
+        "kind": "interfaceUse",
+        "label": "",
+        "properties": {
+          "owner": "required",
+          "interface": "api",
+          "direction": "required"
+        }
+      },
+      {
+        "id": "provide",
+        "kind": "interfaceUse",
+        "label": "",
+        "properties": {
+          "owner": "provided",
+          "interface": "api",
+          "direction": "provided"
+        }
+      },
+      {
+        "id": "assembly",
+        "kind": "componentConnector",
+        "label": "assembly",
+        "properties": {
+          "owner": "system",
+          "kind": "assembly"
+        }
+      },
+      {
+        "id": "a1",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "assembly",
+          "part": "client",
+          "port": "required",
+          "order": "0"
+        }
+      },
+      {
+        "id": "a2",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "assembly",
+          "part": "server",
+          "port": "provided",
+          "order": "1"
+        }
+      },
+      {
+        "id": "delegation",
+        "kind": "componentConnector",
+        "label": "delegation",
+        "properties": {
+          "owner": "system",
+          "kind": "delegation"
+        }
+      },
+      {
+        "id": "d1",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "delegation",
+          "port": "external",
+          "order": "0"
+        }
+      },
+      {
+        "id": "d2",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "delegation",
+          "part": "server",
+          "port": "provided",
+          "order": "1"
+        }
+      },
+      {
+        "id": "v_system",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "system"
+        }
+      },
+      {
+        "id": "v_client",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "client",
+          "parent": "v_system"
+        }
+      },
+      {
+        "id": "v_server",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "server",
+          "parent": "v_system"
+        }
+      },
+      {
+        "id": "v_required",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "required",
+          "parent": "v_client"
+        }
+      },
+      {
+        "id": "v_provided",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "provided",
+          "parent": "v_server"
+        }
+      },
+      {
+        "id": "v_external",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "external",
+          "parent": "v_system"
+        }
+      },
+      {
+        "id": "v_assembly",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "assembly",
+          "from": "v_required",
+          "to": "v_provided"
+        }
+      },
+      {
+        "id": "v_delegation",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "main",
+          "element": "delegation",
+          "from": "v_external",
+          "to": "v_provided"
+        }
+      }
+    ]
+  },
+  "source": "uml ports \"Простые порты и части\"\ndiagram main \"Assembly и delegation\" type=component\ncomponent system \"Система карточек\"\ncomponent web Интерфейс\ncomponent service \"Сервис BOM\"\ninterface api \"API карточек\"\npart client web classifier=web lower=1 owner=system upper=1\npart server bom classifier=service lower=1 owner=system upper=1\nport required \"API required\" classifier=api conjugated=true owner=web\nport provided \"API provided\" classifier=api conjugated=false owner=service\nport external \"Внешний API\" classifier=api conjugated=false owner=system\ninterfaceUse need \"\" direction=required interface=api owner=required\ninterfaceUse provide \"\" direction=provided interface=api owner=provided\ncomponentConnector assembly assembly kind=assembly owner=system\ncomponentEnd a1 \"\" order=0 owner=assembly part=client port=required\ncomponentEnd a2 \"\" order=1 owner=assembly part=server port=provided\ncomponentConnector delegation delegation kind=delegation owner=system\ncomponentEnd d1 \"\" order=0 owner=delegation port=external\ncomponentEnd d2 \"\" order=1 owner=delegation part=server port=provided\nview v_system \"\" diagram=main element=system\nview v_client \"\" diagram=main element=client parent=v_system\nview v_server \"\" diagram=main element=server parent=v_system\nview v_required \"\" diagram=main element=required parent=v_client\nview v_provided \"\" diagram=main element=provided parent=v_server\nview v_external \"\" diagram=main element=external parent=v_system\nview v_assembly \"\" diagram=main element=assembly from=v_required to=v_provided\nview v_delegation \"\" diagram=main element=delegation from=v_external to=v_provided\n",
+  "draft": "uml ports \"Простые порты и части\"\ndiagram main \"Assembly и delegation\" type=component\ncomponent system \"Система карточек\"\ncomponent web Интерфейс\ncomponent service \"Сервис BOM\"\ninterface api \"API карточек\"\npart client web classifier=web lower=1 owner=system upper=1\npart server bom classifier=service lower=1 owner=system upper=1\nport required \"API required\" classifier=api conjugated=true owner=web\nport provided \"API provided\" classifier=api conjugated=false owner=service\nport external \"Внешний API\" classifier=api conjugated=false owner=system\ninterfaceUse need \"\" direction=required interface=api owner=required\ninterfaceUse provide \"\" direction=provided interface=api owner=provided\ncomponentConnector assembly assembly kind=assembly owner=system\ncomponentEnd a1 \"\" order=0 owner=assembly part=client port=required\ncomponentEnd a2 \"\" order=1 owner=assembly part=server port=provided\ncomponentConnector delegation delegation kind=delegation owner=system\ncomponentEnd d1 \"\" order=0 owner=delegation port=external\ncomponentEnd d2 \"\" order=1 owner=delegation part=server port=provided\nview v_system \"\" diagram=main element=system\nview v_client \"\" diagram=main element=client parent=v_system\nview v_server \"\" diagram=main element=server parent=v_system\nview v_required \"\" diagram=main element=required parent=v_client\nview v_provided \"\" diagram=main element=provided parent=v_server\nview v_external \"\" diagram=main element=external parent=v_system\nview v_assembly \"\" diagram=main element=assembly from=v_required to=v_provided\nview v_delegation \"\" diagram=main element=delegation from=v_external to=v_provided\n",
+  "layout": {
+    "nodes": {
+      "v_system": {
+        "x": 70,
+        "y": 60,
+        "width": 830,
+        "height": 420
+      },
+      "v_client": {
+        "x": 130,
+        "y": 160,
+        "width": 250,
+        "height": 130
+      },
+      "v_server": {
+        "x": 560,
+        "y": 160,
+        "width": 260,
+        "height": 130
+      },
+      "v_required": {
+        "x": 362,
+        "y": 205,
+        "width": 28,
+        "height": 28
+      },
+      "v_provided": {
+        "x": 547,
+        "y": 205,
+        "width": 28,
+        "height": 28
+      },
+      "v_external": {
+        "x": 545,
+        "y": 45,
+        "width": 28,
+        "height": 28
+      },
+      "v_assembly": {
+        "x": 580,
+        "y": 260,
+        "width": 210,
+        "height": 140
+      },
+      "v_delegation": {
+        "x": 830,
+        "y": 260,
+        "width": 210,
+        "height": 140
+      }
+    },
+    "edges": {}
+  }
+}

@@ -1,0 +1,354 @@
+{
+  "notation": "ERD",
+  "formatVersion": 1,
+  "profile": "NS-ERD-1",
+  "model": {
+    "id": "revisions",
+    "label": "Версии BOM и позиции",
+    "elements": [
+      {
+        "id": "logical",
+        "kind": "diagram",
+        "label": "Логическая модель",
+        "properties": {
+          "type": "logical"
+        }
+      },
+      {
+        "id": "physical",
+        "kind": "diagram",
+        "label": "Физическая модель",
+        "properties": {
+          "type": "physical"
+        }
+      },
+      {
+        "id": "version",
+        "kind": "entity",
+        "label": "Версия BOM",
+        "properties": {
+          "schema": "public",
+          "sqlName": "bom_version"
+        }
+      },
+      {
+        "id": "bom",
+        "kind": "attribute",
+        "label": "Код BOM",
+        "properties": {
+          "owner": "version",
+          "sqlName": "bom_id",
+          "sqlType": "bigint",
+          "nullable": "false",
+          "order": "0"
+        }
+      },
+      {
+        "id": "rev",
+        "kind": "attribute",
+        "label": "Номер версии",
+        "properties": {
+          "owner": "version",
+          "sqlName": "revision",
+          "sqlType": "integer",
+          "nullable": "false",
+          "order": "1"
+        }
+      },
+      {
+        "id": "versionPk",
+        "kind": "key",
+        "label": "Составной PK",
+        "properties": {
+          "owner": "version",
+          "kind": "primary",
+          "sqlName": "bom_version_pkey"
+        }
+      },
+      {
+        "id": "pkBom",
+        "kind": "keyPart",
+        "label": "",
+        "properties": {
+          "owner": "versionPk",
+          "attribute": "bom",
+          "order": "0"
+        }
+      },
+      {
+        "id": "pkRev",
+        "kind": "keyPart",
+        "label": "",
+        "properties": {
+          "owner": "versionPk",
+          "attribute": "rev",
+          "order": "1"
+        }
+      },
+      {
+        "id": "slot",
+        "kind": "entity",
+        "label": "Позиция BOM",
+        "properties": {
+          "schema": "public",
+          "sqlName": "bom_slot"
+        }
+      },
+      {
+        "id": "slotId",
+        "kind": "attribute",
+        "label": "Идентификатор",
+        "properties": {
+          "owner": "slot",
+          "sqlName": "id",
+          "sqlType": "bigint",
+          "nullable": "false",
+          "identity": "always",
+          "order": "0"
+        }
+      },
+      {
+        "id": "slotBom",
+        "kind": "attribute",
+        "label": "Код BOM",
+        "properties": {
+          "owner": "slot",
+          "sqlName": "bom_id",
+          "sqlType": "bigint",
+          "nullable": "false",
+          "order": "1"
+        }
+      },
+      {
+        "id": "slotRev",
+        "kind": "attribute",
+        "label": "Номер версии",
+        "properties": {
+          "owner": "slot",
+          "sqlName": "revision",
+          "sqlType": "integer",
+          "nullable": "false",
+          "order": "2"
+        }
+      },
+      {
+        "id": "slotQty",
+        "kind": "attribute",
+        "label": "Количество",
+        "properties": {
+          "owner": "slot",
+          "sqlName": "quantity",
+          "sqlType": "integer",
+          "nullable": "false",
+          "default": "1",
+          "order": "3"
+        }
+      },
+      {
+        "id": "slotPk",
+        "kind": "key",
+        "label": "PK",
+        "properties": {
+          "owner": "slot",
+          "kind": "primary",
+          "sqlName": "bom_slot_pkey"
+        }
+      },
+      {
+        "id": "slotPkId",
+        "kind": "keyPart",
+        "label": "",
+        "properties": {
+          "owner": "slotPk",
+          "attribute": "slotId",
+          "order": "0"
+        }
+      },
+      {
+        "id": "contains",
+        "kind": "relation",
+        "label": "Содержит позиции",
+        "properties": {
+          "from": "version",
+          "to": "slot",
+          "fromMin": "1",
+          "fromMax": "1",
+          "toMin": "0",
+          "toMax": "many"
+        }
+      },
+      {
+        "id": "slotVersion",
+        "kind": "foreignKey",
+        "label": "Версия позиции",
+        "properties": {
+          "owner": "slot",
+          "targetKey": "versionPk",
+          "relation": "contains",
+          "onDelete": "restrict",
+          "onUpdate": "noAction",
+          "match": "full"
+        }
+      },
+      {
+        "id": "slotVersionBom",
+        "kind": "fkPart",
+        "label": "",
+        "properties": {
+          "owner": "slotVersion",
+          "attribute": "slotBom",
+          "target": "bom",
+          "order": "0"
+        }
+      },
+      {
+        "id": "slotVersionRev",
+        "kind": "fkPart",
+        "label": "",
+        "properties": {
+          "owner": "slotVersion",
+          "attribute": "slotRev",
+          "target": "rev",
+          "order": "1"
+        }
+      },
+      {
+        "id": "positive",
+        "kind": "check",
+        "label": "Количество положительно",
+        "properties": {
+          "owner": "slot",
+          "expression": "quantity > 0"
+        }
+      },
+      {
+        "id": "latest",
+        "kind": "index",
+        "label": "Позиции по версии",
+        "properties": {
+          "owner": "slot",
+          "sqlName": "slot_version_idx",
+          "method": "btree"
+        }
+      },
+      {
+        "id": "idxBom",
+        "kind": "indexPart",
+        "label": "",
+        "properties": {
+          "owner": "latest",
+          "attribute": "slotBom",
+          "direction": "asc",
+          "order": "0"
+        }
+      },
+      {
+        "id": "idxRev",
+        "kind": "indexPart",
+        "label": "",
+        "properties": {
+          "owner": "latest",
+          "attribute": "slotRev",
+          "direction": "desc",
+          "order": "1"
+        }
+      },
+      {
+        "id": "versionL",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "logical",
+          "element": "version"
+        }
+      },
+      {
+        "id": "slotL",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "logical",
+          "element": "slot"
+        }
+      },
+      {
+        "id": "containsL",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "logical",
+          "element": "contains",
+          "from": "versionL",
+          "to": "slotL"
+        }
+      },
+      {
+        "id": "versionP",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "physical",
+          "element": "version"
+        }
+      },
+      {
+        "id": "slotP",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "physical",
+          "element": "slot"
+        }
+      },
+      {
+        "id": "slotVersionP",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "physical",
+          "element": "slotVersion",
+          "from": "slotP",
+          "to": "versionP"
+        }
+      }
+    ]
+  },
+  "source": "erd revisions \"Версии BOM и позиции\"\ndiagram logical \"Логическая модель\" type=logical\ndiagram physical \"Физическая модель\" type=physical\nentity version \"Версия BOM\" schema=public sqlName=bom_version\nattribute bom \"Код BOM\" nullable=false order=0 owner=version sqlName=bom_id sqlType=bigint\nattribute rev \"Номер версии\" nullable=false order=1 owner=version sqlName=revision sqlType=integer\nkey versionPk \"Составной PK\" kind=primary owner=version sqlName=bom_version_pkey\nkeyPart pkBom \"\" attribute=bom order=0 owner=versionPk\nkeyPart pkRev \"\" attribute=rev order=1 owner=versionPk\nentity slot \"Позиция BOM\" schema=public sqlName=bom_slot\nattribute slotId Идентификатор identity=always nullable=false order=0 owner=slot sqlName=id sqlType=bigint\nattribute slotBom \"Код BOM\" nullable=false order=1 owner=slot sqlName=bom_id sqlType=bigint\nattribute slotRev \"Номер версии\" nullable=false order=2 owner=slot sqlName=revision sqlType=integer\nattribute slotQty Количество default=1 nullable=false order=3 owner=slot sqlName=quantity sqlType=integer\nkey slotPk PK kind=primary owner=slot sqlName=bom_slot_pkey\nkeyPart slotPkId \"\" attribute=slotId order=0 owner=slotPk\nrelation contains \"Содержит позиции\" from=version fromMax=1 fromMin=1 to=slot toMax=many toMin=0\nforeignKey slotVersion \"Версия позиции\" match=full onDelete=restrict onUpdate=noAction owner=slot relation=contains targetKey=versionPk\nfkPart slotVersionBom \"\" attribute=slotBom order=0 owner=slotVersion target=bom\nfkPart slotVersionRev \"\" attribute=slotRev order=1 owner=slotVersion target=rev\ncheck positive \"Количество положительно\" expression=\"quantity > 0\" owner=slot\nindex latest \"Позиции по версии\" method=btree owner=slot sqlName=slot_version_idx\nindexPart idxBom \"\" attribute=slotBom direction=asc order=0 owner=latest\nindexPart idxRev \"\" attribute=slotRev direction=desc order=1 owner=latest\nview versionL \"\" diagram=logical element=version\nview slotL \"\" diagram=logical element=slot\nview containsL \"\" diagram=logical element=contains from=versionL to=slotL\nview versionP \"\" diagram=physical element=version\nview slotP \"\" diagram=physical element=slot\nview slotVersionP \"\" diagram=physical element=slotVersion from=slotP to=versionP\n",
+  "draft": "erd revisions \"Версии BOM и позиции\"\ndiagram logical \"Логическая модель\" type=logical\ndiagram physical \"Физическая модель\" type=physical\nentity version \"Версия BOM\" schema=public sqlName=bom_version\nattribute bom \"Код BOM\" nullable=false order=0 owner=version sqlName=bom_id sqlType=bigint\nattribute rev \"Номер версии\" nullable=false order=1 owner=version sqlName=revision sqlType=integer\nkey versionPk \"Составной PK\" kind=primary owner=version sqlName=bom_version_pkey\nkeyPart pkBom \"\" attribute=bom order=0 owner=versionPk\nkeyPart pkRev \"\" attribute=rev order=1 owner=versionPk\nentity slot \"Позиция BOM\" schema=public sqlName=bom_slot\nattribute slotId Идентификатор identity=always nullable=false order=0 owner=slot sqlName=id sqlType=bigint\nattribute slotBom \"Код BOM\" nullable=false order=1 owner=slot sqlName=bom_id sqlType=bigint\nattribute slotRev \"Номер версии\" nullable=false order=2 owner=slot sqlName=revision sqlType=integer\nattribute slotQty Количество default=1 nullable=false order=3 owner=slot sqlName=quantity sqlType=integer\nkey slotPk PK kind=primary owner=slot sqlName=bom_slot_pkey\nkeyPart slotPkId \"\" attribute=slotId order=0 owner=slotPk\nrelation contains \"Содержит позиции\" from=version fromMax=1 fromMin=1 to=slot toMax=many toMin=0\nforeignKey slotVersion \"Версия позиции\" match=full onDelete=restrict onUpdate=noAction owner=slot relation=contains targetKey=versionPk\nfkPart slotVersionBom \"\" attribute=slotBom order=0 owner=slotVersion target=bom\nfkPart slotVersionRev \"\" attribute=slotRev order=1 owner=slotVersion target=rev\ncheck positive \"Количество положительно\" expression=\"quantity > 0\" owner=slot\nindex latest \"Позиции по версии\" method=btree owner=slot sqlName=slot_version_idx\nindexPart idxBom \"\" attribute=slotBom direction=asc order=0 owner=latest\nindexPart idxRev \"\" attribute=slotRev direction=desc order=1 owner=latest\nview versionL \"\" diagram=logical element=version\nview slotL \"\" diagram=logical element=slot\nview containsL \"\" diagram=logical element=contains from=versionL to=slotL\nview versionP \"\" diagram=physical element=version\nview slotP \"\" diagram=physical element=slot\nview slotVersionP \"\" diagram=physical element=slotVersion from=slotP to=versionP\n",
+  "layout": {
+    "nodes": {
+      "versionL": {
+        "x": 80,
+        "y": 80,
+        "width": 410,
+        "height": 170
+      },
+      "slotL": {
+        "x": 660,
+        "y": 80,
+        "width": 460,
+        "height": 245
+      },
+      "versionP": {
+        "x": 80,
+        "y": 80,
+        "width": 410,
+        "height": 170
+      },
+      "slotP": {
+        "x": 700,
+        "y": 80,
+        "width": 520,
+        "height": 285
+      }
+    },
+    "edges": {
+      "containsL": {},
+      "slotVersionP": {}
+    },
+    "diagrams": {
+      "logical": {},
+      "physical": {}
+    }
+  }
+}

@@ -1,7 +1,7 @@
 -- Q01: eligible offers for each group position, including quantity and freshness.
 SELECT s.line_no, c.sku, o.id AS offer_id, p.code AS supplier,
        o.unit_price_rub, o.stock, o.observed_at
-FROM ppois.bom_slot s
+FROM ppois.model_range_slot s
 JOIN ppois.component c ON (s.group_id IS NOT NULL AND c.group_id = s.group_id)
     OR (s.requested_component_id IS NOT NULL AND c.id = s.requested_component_id)
 JOIN ppois.offer o ON o.component_id = c.id
@@ -12,12 +12,12 @@ WHERE s.configuration_id = '00000000-0000-0000-0000-000000000100'
   AND o.observed_at <= TIMESTAMPTZ '2026-10-05 10:00:00+03'
 ORDER BY s.line_no, o.unit_price_rub, o.id;
 
--- Q02: component cost and physical mass from the selected concrete BOM.
+-- Q02: component cost and physical mass from the selected concrete модельный ряд.
 SELECT s.configuration_id, s.version_no,
        SUM(s.quantity * o.unit_price_rub) AS component_cost_rub,
        SUM(s.quantity * c.mass_kg) AS component_mass_kg,
        COUNT(*) AS positions
-FROM ppois.bom_slot s JOIN ppois.offer o ON o.id = s.offer_id
+FROM ppois.model_range_slot s JOIN ppois.offer o ON o.id = s.offer_id
 JOIN ppois.component c ON c.id = o.component_id
 GROUP BY s.configuration_id, s.version_no;
 
@@ -29,7 +29,7 @@ ORDER BY seller_code, revision_no;
 -- Q04: inverse impact of a changed component; no arbitrary card lookup by name.
 SELECT DISTINCT c.seller_code, r.revision_no, r.state
 FROM ppois.card_revision r JOIN ppois.card c ON c.id = r.card_id
-JOIN ppois.bom_slot s ON (s.configuration_id, s.version_no) = (r.configuration_id, r.version_no)
+JOIN ppois.model_range_slot s ON (s.configuration_id, s.version_no) = (r.configuration_id, r.version_no)
 JOIN ppois.offer o ON o.id=s.offer_id
 WHERE o.component_id = '00000000-0000-0000-0000-000000000011'
 ORDER BY c.seller_code, r.revision_no;
