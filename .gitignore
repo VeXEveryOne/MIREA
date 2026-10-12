@@ -13,6 +13,7 @@
 *.py[cod]
 **/.pytest_cache/
 **/.ipynb_checkpoints/
+**/.jupyter_runtime/
 
 # IDE and compiled project output
 **/.gradle/

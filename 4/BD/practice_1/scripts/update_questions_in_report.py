@@ -12,8 +12,8 @@ from docx.shared import Pt
 
 
 ROOT = Path(__file__).resolve().parents[1]
-REPORT = ROOT / "Практическая работа №1.docx"
-QUESTIONS = ROOT / "Контрольные_вопросы.md"
+REPORT = ROOT.parent / "ТИАБД_ПР1_АлбахтинИВ.docx"
+QUESTIONS = ROOT.parent / "ТИАБД_ПР1_Ответы.md"
 
 
 def set_font(run, *, size: float = 12, bold: bool | None = None) -> None:

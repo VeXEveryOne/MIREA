@@ -130,7 +130,7 @@ def build3():
     d.h('Источники')
     for text in ['1. Практическая работа №3. Распределенная модель обработки данных. Предоставленная методичка.', '2. Транзакции КОМУС.zip. Предоставленный учебный архив; SHA-256 зафиксирован в source_manifest.json.', '3. Apache Spark 3.5.7. Installation. https://spark.apache.org/docs/3.5.7/api/python/getting_started/install.html', '4. Таблицы Olist из второй практики; версия и количество строк зафиксированы в source_manifest.json.']:
         d.p(text)
-    d.save(ROOT/'4'/'BD'/'Практическая работа №3.docx')
+    d.save(ROOT/'4'/'BD'/'ТИАБД_ПР3_АлбахтинИВ.docx')
 
 def metric_rows(metrics,names):
     return [[label,len(metrics[key]['jobs']),len(metrics[key]['stages']),metrics[key]['tasks'],num(metrics[key]['shuffle_read']/1024,2),num(metrics[key]['shuffle_write']/1024,2)] for key,label in names]
@@ -206,7 +206,7 @@ def build4():
     d.h('Источники')
     for text in ['1. Технологии и инструментарий анализа больших данных. Практика №4. Предоставленная методичка.', '2. Восстановленные таблицы Olist второй практики, source_manifest.json.', '3. Apache Spark 3.5.7. Monitoring and Instrumentation. https://spark.apache.org/docs/3.5.7/monitoring.html', '4. Apache Spark 3.5.7. Tuning. https://spark.apache.org/docs/3.5.7/tuning.html']:
         d.p(text)
-    d.save(ROOT/'4'/'BD'/'Практическая работа №4.docx')
+    d.save(ROOT/'4'/'BD'/'ТИАБД_ПР4_АлбахтинИВ.docx')
 
 if __name__=='__main__':
     build3(); build4()

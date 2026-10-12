@@ -17,9 +17,9 @@ from docx.shared import Inches, Pt, RGBColor
 
 
 ROOT = Path(__file__).resolve().parents[1]
-REFERENCE = ROOT.parent / "practice_1" / "Практическая работа №1.docx"
-FINAL = Path(os.environ.get('BD_REPORT_OUTPUT', str(ROOT / "Практическая работа №2.docx")))
+REFERENCE = ROOT.parent / "ТИАБД_ПР1_АлбахтинИВ.docx"
 REPO_ROOT = Path(__file__).resolve().parents[4]
+FINAL = Path(os.environ.get('BD_REPORT_OUTPUT', str(REPO_ROOT / '.cache' / 'bd-practice2-legacy.docx')))
 SUMMARY = json.loads((ROOT / "output" / "summary.json").read_text(encoding="utf-8"))
 TIMINGS = pd.read_csv(ROOT / "output" / "dimension_reduction_timings.csv")
 DATA = pd.read_csv(ROOT / "data" / "day.csv")
@@ -517,7 +517,7 @@ add_text(
     "Ниже приведены краткие ответы по объектной модели Matplotlib, возможностям "
     "Plotly и интерпретации методов снижения размерности.",
 )
-for number, question, answer_paragraphs in parse_questions(ROOT / "Контрольные вопросы.md"):
+for number, question, answer_paragraphs in parse_questions(ROOT.parent / "ТИАБД_ПР2_Визуализация_Ответы.md"):
     heading = doc.add_paragraph()
     heading.paragraph_format.space_before = Pt(5)
     heading.paragraph_format.space_after = Pt(2)
@@ -543,6 +543,7 @@ formatter_path = REPO_ROOT / 'tools' / 'report_formatting' / 'bd' / 'format_repo
 formatter_spec = importlib.util.spec_from_file_location('bd_report_formatter', formatter_path)
 formatter = importlib.util.module_from_spec(formatter_spec)
 formatter_spec.loader.exec_module(formatter)
+FINAL.parent.mkdir(parents=True, exist_ok=True)
 formatter.run(2, draft, FINAL)
 assert sha256(REFERENCE) == reference_hash_before, "Reference document was modified."
 print(FINAL)

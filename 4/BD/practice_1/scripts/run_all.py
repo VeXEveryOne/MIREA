@@ -26,7 +26,7 @@ def main():
         source = jupytext.read(ROOT / "scripts" / f"{stem}.py")
         notebook.cells.extend(source.cells)
 
-    questions = (ROOT / "Контрольные_вопросы.md").read_text(encoding="utf-8")
+    questions = (ROOT.parent / "ТИАБД_ПР1_Ответы.md").read_text(encoding="utf-8")
     notebook.cells.append(nbformat.v4.new_markdown_cell(questions))
     notebook.metadata["kernelspec"] = {
         "display_name": "Python (BD - VS Code)",

@@ -1,13 +1,14 @@
 param([string]$OutputDirectory = '')
 $ErrorActionPreference = 'Stop'
 $taskPack = Split-Path -Parent $PSScriptRoot
-if (-not $OutputDirectory) { $OutputDirectory = $taskPack }
+$taskBD = Split-Path -Parent $taskPack
+if (-not $OutputDirectory) { $OutputDirectory = $taskBD }
 New-Item -ItemType Directory -Force -Path $OutputDirectory | Out-Null
 $taskWord = New-Object -ComObject Word.Application
 $taskWord.Visible = $false
 $taskWord.DisplayAlerts = 0
 try {
-    foreach ($taskSource in Get-ChildItem -LiteralPath $taskPack -Filter '*.docx' -File) {
+    foreach ($taskSource in Get-ChildItem -LiteralPath $taskBD -Filter 'ТИАБД_*_ГубаревСА.docx' -File) {
         $taskDoc = $taskWord.Documents.Open($taskSource.FullName, $false, $false)
         try {
             $taskYear = $null

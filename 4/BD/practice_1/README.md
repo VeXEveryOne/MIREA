@@ -3,17 +3,17 @@
 ## Содержание
 
 - [Единый выполненный Notebook](Практика_1.ipynb) — анализ FiresRu, самостоятельный анализ Bike Sharing и ответы на 12 контрольных вопросов.
-- [Контрольные вопросы](Контрольные_вопросы.md) — отдельный текстовый источник ответов, включённый в конец Notebook.
+- [Контрольные вопросы](../ТИАБД_ПР1_Ответы.md) — отдельный текстовый источник ответов, включённый в конец Notebook.
 
 Для просмотра без Jupyter: [единый HTML-отчёт](reports/Практика_1.html). Он содержит весь код, таблицы, графики, выводы и ответы.
 
 ## Запуск
 
-Откройте `start_jupyter.cmd` и выберите ядро **Python (BD Practice 1)**.
-Для полного выполнения единого ноутбука и обновления HTML-отчёта запустите `run_all.cmd`.
+Откройте `../scripts/start_jupyter.cmd` и выберите ядро **Python (BD Practice 1)**.
+Для полного выполнения единого ноутбука и обновления HTML-отчёта запустите `../scripts/run_all.cmd`.
 
 Текстовые разделы ноутбука находятся в `scripts/01_FiresRu.py` и `scripts/02_BikeSharing.py`.
-`run_all.cmd` объединяет их в `Практика_1.ipynb`, добавляет ответы и выполняет все ячейки в одном ядре.
+`../scripts/run_all.cmd` объединяет их в `Практика_1.ipynb`, добавляет ответы и выполняет все ячейки в одном ядре.
 
 ## Установка на другом компьютере
 
@@ -21,7 +21,7 @@
 
 ```powershell
 py -3.12 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m pip install -r scripts/requirements.txt
 .\.venv\Scripts\python.exe -m ipykernel install --sys-prefix --name bd-practice-1 --display-name "Python (BD Practice 1)"
 .\.venv\Scripts\python.exe practice_1\scripts\run_all.py
 ```

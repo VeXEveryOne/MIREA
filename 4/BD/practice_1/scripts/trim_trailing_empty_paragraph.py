@@ -5,7 +5,7 @@ from pathlib import Path
 from docx import Document
 
 
-path = Path(__file__).resolve().parents[1] / "Практическая работа №1.docx"
+path = Path(__file__).resolve().parents[2] / "ТИАБД_ПР1_АлбахтинИВ.docx"
 document = Document(path)
 removed = 0
 

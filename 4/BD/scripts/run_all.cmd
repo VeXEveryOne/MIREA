@@ -1,6 +1,6 @@
 @echo off
 setlocal
-cd /d "%~dp0"
+cd /d "%~dp0.."
 
 ".venv\Scripts\python.exe" practice_1\scripts\run_all.py
 if errorlevel 1 exit /b %errorlevel%

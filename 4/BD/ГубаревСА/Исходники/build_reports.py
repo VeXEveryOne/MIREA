@@ -163,7 +163,9 @@ def save(doc, name):
             outline = OxmlElement('w:outlineLvl'); outline.set(qn('w:val'), str(level-1)); ppr.append(outline)
     add_toc(doc)
     doc.core_properties.title = name.replace('_', ' ')
-    doc.save(PACK / (name + '.docx'))
+    target = (PACK / 'Исходники/Компоненты_ПР2' if name.startswith('ТИАБД_ПР2_') else BD) / (name + '.docx')
+    target.parent.mkdir(parents=True, exist_ok=True)
+    doc.save(target)
     print(name)
 
 
@@ -291,7 +293,7 @@ def pandas_report():
     for c in conclusions: r.p(c)
     r.p('Ограничения FiresRu: отсутствует время, не подтверждены некоторые единицы и полнота регистрации событий. По координатам нельзя оценивать риск региона без внешних данных о территории и охвате наблюдений.')
     r.p('Ограничения Bike Sharing: только один город и два года; рост инфраструктуры и календарь могут смешиваться с погодой. Нулевая влажность и неоднозначная расшифровка season ограничивают предметную интерпретацию. IQR и корреляция не заменяют проверку первоисточника.')
-    markdown_section(r, root / 'Контрольные_вопросы.md')
+    markdown_section(r, BD / 'ТИАБД_ПР1_Ответы.md')
     # Replace the outdated value in the original answer material with the measured result.
     for node in r.doc.element.body.xpath('.//w:t'):
         if node.text:
@@ -314,8 +316,8 @@ def lecture_report():
     for run in r.doc.paragraphs[4].runs: font(run, 16, bold=True)
     r.h('Назначение работы')
     r.p('Документ содержит ответы на все 16 контрольных вопросов двух предоставленных лекций: архитектура больших данных, масштабирование и аналитические слои; SQL, оконные функции, планы выполнения и модели NoSQL. Нумерация вопросов соответствует страницам 70 первой лекции и 107 второй.')
-    markdown_section(r, BD / 'practice_1/Лекция_1_Контрольные_вопросы.md', new_page=False)
-    markdown_section(r, BD / 'practice_2/Лекция_2_Контрольные_вопросы.md', new_page=True)
+    markdown_section(r, BD / 'ТИАБД_Лекция_1_Ответы.md', new_page=False)
+    markdown_section(r, BD / 'ТИАБД_Лекция_2_Ответы.md', new_page=True)
     r.h('Источники')
     r.p('Технологии и инструментарий анализа больших данных. Лекция №1. Предоставленный PDF, контрольные вопросы на странице 70.')
     r.p('Технологии и инструментарий анализа больших данных. Лекция №2. Предоставленный PDF, контрольные вопросы на странице 107.')
@@ -382,7 +384,7 @@ def visualization_report():
         '6. Измерения зависят от прогрева Numba, размера набора и нагрузки. Результат одной серии на 1 797 объектах не переносится без проверки на более крупные данные.',
         'Ограничения: Bike Sharing относится к одному городу и двум годам; исходная расшифровка сезонов неоднозначна. Двумерные нелинейные проекции теряют часть информации и не являются доказательством существования истинных кластеров.'
     ]: r.p(text)
-    markdown_section(r, BD / 'practice_2/Контрольные вопросы.md')
+    markdown_section(r, BD / 'ТИАБД_ПР2_Визуализация_Ответы.md')
     r.h('Источники и приложения')
     r.p('Методическое задание «Практика №2» — визуализация данных в Python, восемь пунктов задания.')
     r.p('Bike Sharing. UCI Machine Learning Repository. https://doi.org/10.24432/C5W894. CC BY 4.0.')
@@ -392,9 +394,9 @@ def visualization_report():
 
 def retained_reports(targets=None):
     sources = [
-        (BD / 'Практическая работа №2.docx', 'ТИАБД_ПР2_Хранение_ГубаревСА'),
-        (BD / 'Практическая работа №3.docx', 'ТИАБД_ПР3_ГубаревСА'),
-        (BD / 'Практическая работа №4.docx', 'ТИАБД_ПР4_ГубаревСА'),
+        (BD / 'АлбахтинИВ/Исходники/Компоненты_ПР2/ТИАБД_ПР2_Хранение_АлбахтинИВ.docx', 'ТИАБД_ПР2_Хранение_ГубаревСА'),
+        (BD / 'ТИАБД_ПР3_АлбахтинИВ.docx', 'ТИАБД_ПР3_ГубаревСА'),
+        (BD / 'ТИАБД_ПР4_АлбахтинИВ.docx', 'ТИАБД_ПР4_ГубаревСА'),
     ]
     for source, target in sources:
         if targets is not None and target not in targets:

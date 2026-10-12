@@ -40,7 +40,7 @@ for n,qa,count in [(1,'qa1-v5',41),(2,'qa2-v3',14)]:
     name=f'Практическая работа №{n}'
     source=BASE/'backups'/f'practice_{n}'/(name+'.docx')
     final=BASE/f'practice_{n}'/(name+'_fields.docx')
-    original=ROOT/f'4/BD/practice_{n}'/(name+'.docx')
+    original=(ROOT/'4/BD/ТИАБД_ПР1_АлбахтинИВ.docx' if n==1 else ROOT/'4/BD/АлбахтинИВ/Исходники/Компоненты_ПР2/ТИАБД_ПР2_Визуализация_АлбахтинИВ.docx')
     assert digest(original)==digest(source),'Original changed while working'
     assert digest(original.with_suffix('.pdf'))==digest(source.with_suffix('.pdf'))
     before=Document(source);after=Document(final)

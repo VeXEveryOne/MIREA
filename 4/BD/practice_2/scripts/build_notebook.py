@@ -19,7 +19,7 @@ def main() -> None:
         asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
     notebook = jupytext.read(ROOT / "scripts" / "03_Visualization.py")
-    questions = (ROOT / "Контрольные вопросы.md").read_text(encoding="utf-8")
+    questions = (ROOT.parent / "ТИАБД_ПР2_Визуализация_Ответы.md").read_text(encoding="utf-8")
     notebook.cells.append(nbformat.v4.new_markdown_cell(questions))
     notebook.metadata["kernelspec"] = {
         "display_name": "Python (BD - VS Code)",
