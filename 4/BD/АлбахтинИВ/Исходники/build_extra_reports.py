@@ -47,86 +47,9 @@ def environment_table(report, result):
     report.p('Работа выполнена в новой VM с отдельной установкой Ubuntu и пользователем albakhtin. Каждый ноутбук запущен полностью в новом ядре. Local[*] использует два виртуальных ядра одного узла; физическая сеть кластера в таком режиме не проверяется. Методичка рекомендует Python 3.11; системный Python 3.10 совместим с выбранными Spark 3.5.7 и JDK 17.')
 
 def storage_report():
-    r = read_json(STORAGE / 'storage.json')
-    d = VMReport(2, 'Система хранения данных')
-    d.h('1 Цель и выполненные задания')
-    d.p('Цель работы — развернуть серверное окружение, подготовить схему и импортировать взаимосвязанные CSV, выполнить четыре аналитические SQL-задачи и собрать дашборд Grafana. Все сервисы и данные созданы заново в отдельной виртуальной машине для Албахтина И.В.; результаты запросов сохранены после фактического выполнения.')
-    d.h('2 Виртуальная инфраструктура')
-    d.table('Конфигурация стенда', ['Параметр', 'Значение'], [
-        ['Имя VM', 'TIABD-Albakhtin-IV'], ['UUID VM', r['vm_uuid']],
-        ['ОС', 'Ubuntu Server 22.04.5 LTS'], ['Ресурсы', '2 vCPU, 4 ГБ RAM, VDI 40 ГБ'],
-        ['Пользователь / hostname', 'albakhtin / tiabd-albakhtin-iv'],
-        ['Сеть', 'NAT, 10.0.2.15; SSH через 127.0.0.1:2223'],
-        ['PostgreSQL', r['postgres'].split(' on ')[0]],
-    ], [5, 11.5])
-    d.figure(STORAGE / '01_vm.png', 'Реальная консоль отдельной VM с параметрами стенда', 16)
-    d.p('В Docker Compose развернуты PostgreSQL, ADCM с отдельной служебной БД, postgres_exporter, Prometheus и Grafana. PostgreSQL использует официальный образ postgres:16. В ADCM загружен учебный community-бандл с действиями реальной проверки TCP-порта PostgreSQL и HTTP-доступности мониторинга. Промышленный бинарный дистрибутив Arenadata PostgreSQL в этом стенде не установлен.')
-    d.table('Доступ к сервисам с Windows', ['Сервис', 'Локальный адрес'], [
-        ['ADCM', 'http://127.0.0.1:8001'], ['PostgreSQL', '127.0.0.1:5433'],
-        ['Prometheus', 'http://127.0.0.1:9091'], ['Grafana', 'http://127.0.0.1:11211'],
-        ['JupyterLab', 'http://127.0.0.1:8889'], ['Spark UI во время работы', 'http://127.0.0.1:4041'],
-    ], [5, 11.5])
-    d.figure(STORAGE / '02_services.png', 'Новые контейнеры и успешные проверки PostgreSQL и мониторинга', 16)
-    d.figure(STORAGE / '03_adcm.png', 'Личный кластер учебного бандла в ADCM', 16)
-    d.h('3 Схема и импорт данных')
-    d.p('Исходные 11 CSV Olist сохранены без изменения содержимого; контрольные суммы приведены в source_inputs.json. Таблицы, первичные и внешние ключи созданы до импорта. Зависимые таблицы загружаются после справочников. Для отсутствующих переводов добавлены две категории с NULL-переводом. В leads_closed ссылки на отсутствующих продавцов заменены на NULL в промежуточной таблице; исходный CSV не изменён.')
-    d.code('docker compose exec -T adpg psql -U postgres -d ecommerce -f /sql/schema.sql\ndocker compose exec -T adpg psql -U postgres -d ecommerce -f /sql/load.sql\ndocker compose exec -T adpg psql -U postgres -d ecommerce -f /sql/analytics.sql')
-    d.table('Фактически импортированные строки', ['Таблица', 'Строк'], [[name, n(count)] for name, count in r['counts'].items()] + [['Итого', n(sum(r['counts'].values()))]], [11, 5.5])
-    d.p(f'Все 11 таблиц присутствуют в новой базе. Подтверждено {r["validated_foreign_keys"]} внешних ключей с convalidated=true. Импорт использует ON_ERROR_STOP, поэтому SQL-ошибка останавливает выполнение. ANALYZE обновляет статистику для планировщика после загрузки.')
-    d.h('4 Аналитические SQL-задачи')
-    tasks = [
-        ('4.1 Топ товарных категорий по выручке', 'category', ['Категория', 'Выручка R$', 'Заказы', 'Позиции'], ['category_en', 'revenue', 'orders_count', 'items_count']),
-        ('4.2 Поведение покупателей при оплате', 'payments', ['Тип', 'Платежи', 'Части', 'Средний R$', 'Заказы %'], ['payment_type', 'payments_count', 'avg_installments', 'avg_payment', 'order_share_pct']),
-        ('4.3 Оценка в зависимости от срока доставки', 'delivery', ['Интервал', 'Заказы', 'Средняя оценка'], ['delivery_group', 'orders_count', 'avg_review_score']),
-        ('4.4 Рейтинг продавцов по заказам', 'sellers', ['Продавец', 'Заказы', 'Клиенты', 'Позиции', 'Оборот R$'], ['seller_id', 'orders_count', 'customers_count', 'items_count', 'revenue']),
-    ]
-    for i, (title, tag, headers, keys) in enumerate(tasks):
-        d.h(title, 2)
-        task = r['queries'][i]
-        d.code(task['sql'])
-        rows = []
-        for row in task['rows']:
-            values = []
-            for key in keys:
-                value = row[key]
-                if key == 'seller_id': value = value[:8] + '…'
-                elif isinstance(value, float): value = n(value, 2)
-                elif isinstance(value, int): value = n(value)
-                values.append(value)
-            rows.append(values)
-        widths = {0: [5.5, 4, 3.5, 3.5], 1: [4, 3, 3, 3.5, 3], 2: [7, 4.5, 5], 3: [3.5, 3, 3, 3, 4]}[i]
-        d.table(title[4:], headers, rows, widths)
-        if i == 0:
-            leader = task['rows'][0]
-            d.p(f'Лидирует {leader["category_en"]}: {n(leader["revenue"],2)} R$. SUM(price) отражает стоимость товарных позиций и не включает доставку. COUNT(DISTINCT order_id) считает заказы независимо от числа позиций.')
-        elif i == 1:
-            leader = task['rows'][0]
-            d.p(f'Наиболее распространена оплата {leader["payment_type"]}: {n(leader["payments_count"])} платёжных строк. Доли рассчитаны по уникальным заказам; они могут суммироваться более чем в 100%, если заказ оплачен несколькими способами.')
-        elif i == 2:
-            d.p('Отзывы предварительно усреднены до одной строки на заказ, поэтому заказ с несколькими отзывами не получает дополнительный вес. Средняя оценка снижается при росте срока доставки. Это связь в наблюдениях, а не доказательство причинности; недоставленные заказы исключены из данной задачи.')
-        else:
-            d.p('Рейтинг сортируется по числу уникальных заказов и затем по выручке. Покупатели считаются по customer_unique_id: customer_id в Olist относится к записи покупателя конкретного заказа. Лидер по активности может отличаться от лидера по обороту.')
-    d.h('5 Grafana и проверка мониторинга')
-    d.p('PostgreSQL datasource ecommerce-postgres подключён к новой базе. Проверка datasource health вернула OK, база Grafana — ok; значение pg_up в Prometheus равно 1. Дашборд содержит четыре обязательные панели и две дополнительные: динамику заказов, распределение оценок, способы оплаты, топ категорий, общую выручку и число уникальных покупателей.')
-    d.figure(STORAGE / '04_grafana.png', 'Фактический дашборд из шести панелей в новой VM', 16)
-    d.table('Контрольные показатели дашборда', ['Показатель', 'Значение'], [
-        ['Стоимость товарных позиций', n(r['revenue'], 2) + ' R$'], ['Уникальные покупатели', n(r['buyers'])],
-        ['PostgreSQL exporter pg_up', '1'], ['Grafana datasource health', r['datasource_health']['status']],
-    ], [10, 6.5])
-    d.h('6 Выводы')
-    for text in [
-        '1. Создана независимая VM и заново развернут полный учебный контур хранения, управления и мониторинга.',
-        '2. Порядок импорта и промежуточные таблицы позволили сохранить строки при проверке типов и ссылочной целостности.',
-        '3. Четыре аналитические задачи используют корректную детализацию: позиции для выручки, уникальные заказы для активности и один средний отзыв на заказ.',
-        '4. Рост срока доставки сопровождается снижением оценки, но имеющиеся наблюдения не устанавливают причинность.',
-        '5. Дашборд и проверки health/pg_up подтверждают доступность новой базы для анализа и мониторинга.',
-        'Ограничения: локальная учебная VM не моделирует отказоустойчивый промышленный кластер; официальный PostgreSQL и community-бандл ADCM не являются промышленной сборкой ADPG.',
-    ]: d.p(text)
-    qs = read_json(PACK / 'Исходники/questions_storage.json')
-    d.questions([q['question'] for q in qs], [q['answer'] for q in qs])
-    d.h('Источники и приложения')
-    d.p('Источники: предоставленная методичка №2 и набор Olist. SQL, схема, Docker Compose и бандл ADCM — Исходники/ПР2_Хранение; измерения и скриншоты — Результаты/Хранение.')
-    save(d.doc, 'ТИАБД_ПР2_Хранение_АлбахтинИВ')
+    from build_pr2_storage_report import build
+    build()
+
 
 def build4():
     r = read_json(SPARK / 'results/pr4.json')
@@ -208,4 +131,5 @@ if __name__ == '__main__':
     assert execution['hostname'] == 'tiabd-albakhtin-iv'
     original.Report = VMReport
     original.environment_table = environment_table
-    storage_report(); original.build3(); build4()
+    from build_pr3_report import build as build3
+    storage_report(); build3(); build4()

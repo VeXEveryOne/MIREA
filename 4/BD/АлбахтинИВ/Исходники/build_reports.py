@@ -100,7 +100,7 @@ def personalize(doc):
             row.cells[0].text = 'Студент группы'
             row.cells[1].text = f'{GROUP}, {STUDENT}'
         elif label.startswith('Преподаватель'):
-            row.cells[1].text = 'Воронцов Ю.А.'
+            row.cells[1].text = 'Приходько Н.А.'
     for row in signature.rows:
         for cell in row.cells:
             for p in cell.paragraphs:

@@ -39,6 +39,10 @@
 .DS_Store
 Thumbs.db
 
+# Local credentials of the TIABD teaching VM
+4/BD/**/.env
+4/BD/**/.official.env
+
 # Large local-only teaching material
 3/VR/
 4/ИСУРО/VID_20260916_125645.mp4

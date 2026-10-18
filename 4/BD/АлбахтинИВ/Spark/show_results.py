@@ -19,17 +19,19 @@ elif topic == 'olist':
     print('category                     items     revenue')
     for row in r['category'][:10]:
         print(f'{row["category"]:28} {row["items"]:6} {row["revenue"]:12.2f}')
-    print('Export checks:',r['export'])
+    print('Export checks:',{key:r['export'][key] for key in ['rows','types_equal','nullable_equal','sql_diff']})
 elif topic == 'komus':
     k=r['komus']
     print('Rows:',k['rows'],'Dimension unique:',k['dim_unique'])
     print('Null counts:',k['nulls'])
     print('JOIN counts:',k['joins'])
     print('Output groups:',k['output_rows'])
+    print('CSV source mismatches:',k.get('source_product_mismatches'))
+    print('Source dimension groups:',k.get('source_dimension_groups'))
     print('Roundtrip types:',k['roundtrip_types_equal'])
-    print('Branches:')
-    for b in k['branches']:
-        print(b['branch'],b['lines'],f'{b["revenue"]:.2f}')
+    print('Top product groups:')
+    for b in k['groups'][:5]:
+        print(b['product_group'],b['lines'],f'{b["revenue"]:.2f}')
 elif topic == 'partitions':
     print('variant          min       max      mean')
     for name,v in r['profiles'].items():

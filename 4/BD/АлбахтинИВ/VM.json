@@ -12,7 +12,7 @@
     "vcpus": 2,
     "ram_mib": 4096
   },
-  "network": "NAT, Windows forwarding bound to 127.0.0.1",
+  "network": "NAT 10.0.2.15/24 and Host-Only 192.168.56.103/24; Windows NAT forwards bound to 127.0.0.1",
   "ports": {
     "ssh": 2223,
     "adcm": 8001,
@@ -22,7 +22,7 @@
     "spark": 4041,
     "jupyter": 8889
   },
-  "reboot_verified_utc": "2026-10-05T17:14:28.417796+00:00",
+  "reboot_verified_utc": "2026-10-18T19:00:07.041744+00:00",
   "guest": {
     "hostname": "tiabd-albakhtin-iv",
     "ubuntu": "Ubuntu 22.04.5 LTS",
@@ -44,52 +44,29 @@
       }
     },
     "adcm_cluster": {
-      "id": 1,
-      "name": "TIABD Albakhtin IV Ecommerce",
-      "state": "running"
+      "id": 2,
+      "name": "TIABD Albakhtin IV ADPG",
+      "state": "installed",
+      "status": "up",
+      "prototype": {
+        "id": 5,
+        "name": "ADPG",
+        "displayName": "ADP",
+        "version": "16.3_arenadata6.5_b2-1"
+      }
     },
     "containers": [
       {
         "Service": "adcm",
         "ID": "365b2aa087ef",
         "Image": "hub.arenadata.io/adcm/adcm:2.12.0",
-        "State": "running",
-        "Health": ""
+        "State": "running"
       },
       {
         "Service": "adcm-db",
         "ID": "51c40c645ac9",
         "Image": "postgres:16",
-        "State": "running",
-        "Health": "healthy"
-      },
-      {
-        "Service": "adpg",
-        "ID": "7340b8baa013",
-        "Image": "postgres:16",
-        "State": "running",
-        "Health": "healthy"
-      },
-      {
-        "Service": "grafana",
-        "ID": "d55f90b86889",
-        "Image": "grafana/grafana:latest",
-        "State": "running",
-        "Health": ""
-      },
-      {
-        "Service": "postgres-exporter",
-        "ID": "e188d2d37582",
-        "Image": "quay.io/prometheuscommunity/postgres-exporter:latest",
-        "State": "running",
-        "Health": ""
-      },
-      {
-        "Service": "prometheus",
-        "ID": "bc94b814e23d",
-        "Image": "prom/prometheus:latest",
-        "State": "running",
-        "Health": ""
+        "State": "running"
       }
     ],
     "docker_images": [
@@ -128,6 +105,130 @@
           "quay.io/prometheuscommunity/postgres-exporter@sha256:ac5ec343104fae0e2d84a27bb8d69b38430a11910c5382cad85d478d2bab713e"
         ]
       }
+    ],
+    "native_storage_services": [
+      {
+        "unit": "admprom-grafana.service",
+        "load": "loaded",
+        "active": "active",
+        "sub": "running"
+      },
+      {
+        "unit": "admprom-node-exporter.service",
+        "load": "loaded",
+        "active": "active",
+        "sub": "running"
+      },
+      {
+        "unit": "admprom-prometheus.service",
+        "load": "loaded",
+        "active": "active",
+        "sub": "running"
+      },
+      {
+        "unit": "adpg16-pgwatch2.service",
+        "load": "loaded",
+        "active": "active",
+        "sub": "running"
+      },
+      {
+        "unit": "adpg16.service",
+        "load": "loaded",
+        "active": "active",
+        "sub": "running"
+      },
+      {
+        "unit": "chrony.service",
+        "load": "loaded",
+        "active": "active",
+        "sub": "running"
+      }
+    ],
+    "adpg_packages": [
+      {
+        "package": "admprom-grafana",
+        "version": "9.5.8-121+gitf31caed"
+      },
+      {
+        "package": "admprom-node-exporter",
+        "version": "1.6.1-121+git4a1b776"
+      },
+      {
+        "package": "admprom-prometheus",
+        "version": "2.53.3-121+git1491d29"
+      },
+      {
+        "package": "adpg16",
+        "version": "16.3-arenadata1-102+git05ffe93"
+      },
+      {
+        "package": "adpg16-contrib",
+        "version": "16.3-arenadata1-102+git05ffe93"
+      },
+      {
+        "package": "adpg16-libs",
+        "version": "16.3-arenadata1-102+git05ffe93"
+      },
+      {
+        "package": "adpg16-llvmjit",
+        "version": "16.3-arenadata1-102+git05ffe93"
+      },
+      {
+        "package": "adpg16-pgaudit",
+        "version": "16.1-102+gita81792e"
+      },
+      {
+        "package": "adpg16-pgauditlogtofile",
+        "version": "1.6.4-102+git81d29fd"
+      },
+      {
+        "package": "adpg16-pgorphaned",
+        "version": "1.0-102+git35c2176"
+      },
+      {
+        "package": "adpg16-pgrepack",
+        "version": "1.5.2-102+git9f36c65"
+      },
+      {
+        "package": "adpg16-pgvector",
+        "version": "0.8.0-102+git2627c5f"
+      },
+      {
+        "package": "adpg16-pgwatch2",
+        "version": "1.14.0-arenadata1-222+git7fa4679"
+      },
+      {
+        "package": "adpg16-plperl",
+        "version": "16.3-arenadata1-102+git05ffe93"
+      },
+      {
+        "package": "adpg16-plpython3",
+        "version": "16.3-arenadata1-102+git05ffe93"
+      },
+      {
+        "package": "adpg16-pltcl",
+        "version": "16.3-arenadata1-102+git05ffe93"
+      },
+      {
+        "package": "adpg16-postgis",
+        "version": "3.4.1-102"
+      },
+      {
+        "package": "adpg16-server",
+        "version": "16.3-arenadata1-102+git05ffe93"
+      },
+      {
+        "package": "adpg16-timescaledb",
+        "version": "2.15.0-102+git19f731d"
+      },
+      {
+        "package": "adpg16-timescaledb-extras",
+        "version": "1.0-102+git03a5c71"
+      },
+      {
+        "package": "adpg16-timescaledb-toolkit",
+        "version": "1.19.0-102+git56909b9"
+      }
     ]
   },
   "execution": {
@@ -164,10 +265,56 @@
         "completed_utc": "2026-10-05T17:01:34.637245+00:00"
       }
     ],
-    "completed_utc": "2026-10-05T17:01:34.637694+00:00"
+    "completed_utc": "2026-10-05T17:01:34.637694+00:00",
+    "latest_notebook_runs": {
+      "Spark/Practice_3.ipynb": {
+        "status": "passed",
+        "started_utc": "2026-10-18T21:34:44.070216+00:00",
+        "completed_utc": "2026-10-18T21:35:27.898014+00:00",
+        "seconds": 43.82779968199975,
+        "fresh_kernel": true,
+        "run_all": true,
+        "capture_pause": false,
+        "code_cells": 9,
+        "execution_counts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "errors": 0,
+        "screenshots": [
+          "screenshots/pr3/01_spark_jobs.png"
+        ],
+        "notebook_sha256": "923eebcfad23541a970c8194fb928561d71913fb65f66584d41957f1d36b1209"
+      }
+    }
   },
   "limitations": [
-    "PostgreSQL official image and ADCM educational community bundle; industrial ADPG is not installed.",
-    "Spark local[*] uses two virtual CPU cores of one Linux node."
-  ]
+    "Spark local[*] uses two virtual CPU cores of one Linux node.",
+    "Official Arenadata ADPG Community in a single-host educational deployment; high availability is not configured."
+  ],
+  "storage_revision": {
+    "verified_utc": "2026-10-18T19:00:07.041744+00:00",
+    "reboot_verified": true,
+    "boot_id": "ab82d688-3cfb-4d3a-b923-0ba083c30bf3",
+    "kernel": "5.15.0-198-generic",
+    "baseline_snapshot": "before-pr2-adpg-20261018",
+    "deployment": "Official Arenadata ADPG Community bundle via ADCM"
+  },
+  "pr3_revision": {
+    "completed_utc": "2026-10-18T21:35:27.898014+00:00",
+    "fresh_kernel": true,
+    "run_all": "passed",
+    "code_cells": 9,
+    "errors": 0,
+    "product_field_mismatches": 0,
+    "komus_groups": 437,
+    "independent_all_group_aggregates": "match"
+  }
 }

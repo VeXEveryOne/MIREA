@@ -55,6 +55,15 @@ def prepare(student):
     assert len(cover.runs) >= 2
     cover.runs[1].text = "\nВизуализация и хранение данных"
     visual.core_properties.title = "Практическая работа №2. Визуализация и хранение данных"
+    if student == 'АлбахтинИВ':
+        for p in visual.paragraphs:
+            if p.text.startswith('Кафедра '):
+                replace_runs(p, lambda _: 'Кафедра квантовых информационных технологий, практической и прикладной информатики (ККИТПиПИ)')
+        for table in visual.tables:
+            for row in table.rows:
+                if row.cells and row.cells[0].text.strip().startswith('Преподаватель'):
+                    for p in row.cells[1].paragraphs:
+                        replace_runs(p, lambda _: 'Приходько Н.А.')
 
     for p in visual.paragraphs:
         if p.style.name.startswith(("Heading", "Заголовок")):
@@ -113,5 +122,9 @@ def prepare(student):
 
 
 if __name__ == "__main__":
-    for student_name in ("АлбахтинИВ", "ГубаревСА"):
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--student', choices=['АлбахтинИВ', 'ГубаревСА'])
+    args = parser.parse_args()
+    for student_name in ([args.student] if args.student else ("АлбахтинИВ", "ГубаревСА")):
         prepare(student_name)

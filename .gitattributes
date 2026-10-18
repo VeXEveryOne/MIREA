@@ -7,6 +7,9 @@
 4/ИМ/Исходники/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 
 # Office documents and exported media are binary artifacts.
+# PR3 execution records verify the notebook bytes; keep them stable on Windows.
+4/BD/АлбахтинИВ/Spark/Practice_3.ipynb text eol=lf
+
 *.docx binary
 *.xlsx binary
 *.pptx binary

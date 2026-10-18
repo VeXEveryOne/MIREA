@@ -1,0 +1,59 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-10-18T21:43:19.093150+00:00",
+  "run_all": {
+    "status": "passed",
+    "started_utc": "2026-10-18T21:34:44.070216+00:00",
+    "completed_utc": "2026-10-18T21:35:27.898014+00:00",
+    "seconds": 43.82779968199975,
+    "fresh_kernel": true,
+    "run_all": true,
+    "capture_pause": false,
+    "code_cells": 9,
+    "execution_counts": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "errors": 0,
+    "screenshots": [
+      "screenshots/pr3/01_spark_jobs.png"
+    ],
+    "notebook_sha256": "923eebcfad23541a970c8194fb928561d71913fb65f66584d41957f1d36b1209"
+  },
+  "report_pages": 18,
+  "visual_review": "all 18 pages of render-v3 inspected",
+  "figures": 4,
+  "tables": 15,
+  "control_questions": 16,
+  "teacher": "Приходько Н.А.",
+  "komus_sales_rows": 865222,
+  "komus_dimension_groups": 464,
+  "komus_result_groups": 437,
+  "source_product_field_mismatches": 0,
+  "independent_source_all_437_groups": "counts, cost coverage, revenue, margin and average match to rounding tolerance",
+  "sql_api_diff": 0,
+  "parquet_roundtrip_types_equal": true,
+  "reference_unchanged": true,
+  "limitations": [
+    "Reconstructed Olist has 100000 reviews rather than 97621 in the methodological example; explicitly documented."
+  ],
+  "artifacts": [
+    {
+      "file": "4/BD/ТИАБД_ПР3_АлбахтинИВ.docx",
+      "sha256": "349c661473d92abeacb9cc054365884154815bee5b40536781f06f0fb5ed02b4",
+      "bytes": 327904
+    },
+    {
+      "file": "4/BD/ТИАБД_ПР3_АлбахтинИВ.pdf",
+      "sha256": "66489402c82c2819a884bd4419ed1e70bd96e0d091dd0e9faefaca6511b0b6af",
+      "bytes": 566525
+    }
+  ]
+}

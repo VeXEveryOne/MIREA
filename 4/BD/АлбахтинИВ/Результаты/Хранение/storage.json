@@ -3,7 +3,9 @@
   "vm": "TIABD-Albakhtin-IV",
   "vm_uuid": "40603a5d-2404-4561-a4d6-02d13a8b388d",
   "hostname": "tiabd-albakhtin-iv",
-  "captured_utc": "2026-10-05T17:10:41.280489+00:00",
+  "captured_utc": "2026-10-18T19:00:07.041744+00:00",
+  "deployment": "Official Arenadata ADPG Community bundle via ADCM",
+  "postgres": "PostgreSQL 16.3 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04.2) 11.4.0, 64-bit",
   "queries": [
     {
       "sql": "-- 1. Top 10 categories by revenue with English translation.\nSELECT\n  p.product_category_name,\n  COALESCE(t.product_category_name_english, 'not translated') AS category_en,\n  ROUND(SUM(oi.price), 2) AS revenue,\n  COUNT(DISTINCT oi.order_id) AS orders_count,\n  COUNT(*) AS items_count\nFROM order_items oi\nJOIN products p ON p.product_id = oi.product_id\nLEFT JOIN product_category_name_translation t\n  ON t.product_category_name = p.product_category_name\nGROUP BY p.product_category_name, t.product_category_name_english\nORDER BY revenue DESC\nLIMIT 10;",
@@ -226,7 +228,6 @@
       ]
     }
   ],
-  "postgres": "PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
   "counts": {
     "customers": 99441,
     "geolocation": 1000163,
@@ -240,215 +241,253 @@
     "products": 32951,
     "sellers": 3095
   },
-  "validated_foreign_keys": 9,
-  "revenue": 13591643.7,
-  "buyers": 96096,
-  "services": [
+  "foreign_keys": [
     {
-      "Command": "\"/etc/startup.sh\"",
-      "CreatedAt": "2026-10-05 19:40:54 +0300 MSK",
-      "Engine": "",
-      "ExitCode": 0,
-      "Health": "",
-      "ID": "365b2aa087ef",
-      "Image": "hub.arenadata.io/adcm/adcm:2.12.0",
-      "Labels": "com.docker.compose.project.config_files=/home/albakhtin/tiabd/storage/docker-compose.yml,com.docker.compose.service=adcm,com.docker.compose.depends_on=adcm-db:service_healthy:false,com.docker.compose.oneoff=False,com.docker.compose.project.working_dir=/home/albakhtin/tiabd/storage,com.docker.compose.version=5.6.0,com.docker.compose.config-hash=06848c7773afd454d391f0bb4f137cf53d10fd811f1ed633275f58eb1ca55bf2,com.docker.compose.container-number=1,com.docker.compose.image=sha256:e89527f329e9609be80ad643357ce8b22457938504ee7fa65cc7cc47304dd3c3,com.docker.compose.project=storage",
-      "LocalVolumes": "1",
-      "Mounts": "storage_adcm-d…",
-      "Name": "adcm",
-      "Names": "adcm",
-      "Networks": "adcm-net",
-      "Ports": "0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp",
-      "Project": "storage",
-      "Publishers": [
-        {
-          "URL": "0.0.0.0",
-          "TargetPort": 8000,
-          "PublishedPort": 8000,
-          "Protocol": "tcp"
-        },
-        {
-          "URL": "::",
-          "TargetPort": 8000,
-          "PublishedPort": 8000,
-          "Protocol": "tcp"
-        }
-      ],
-      "RunningFor": "29 minutes ago",
-      "Service": "adcm",
-      "Size": "0B",
-      "State": "running",
-      "Status": "Up 4 minutes"
+      "source_table": "leads_closed",
+      "target_table": "leads_qualified",
+      "name": "fk_leads_closed_mql",
+      "definition": "FOREIGN KEY (mql_id) REFERENCES leads_qualified(mql_id) ON UPDATE CASCADE ON DELETE CASCADE",
+      "validated": true
     },
     {
-      "Command": "\"docker-entrypoint.s…\"",
-      "CreatedAt": "2026-10-05 19:40:54 +0300 MSK",
-      "Engine": "",
-      "ExitCode": 0,
-      "Health": "healthy",
-      "ID": "51c40c645ac9",
-      "Image": "postgres:16",
-      "Labels": "com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:a85daf0dbd5e79586e850e3fe4b21b796799828ad015ce2166aeb98cc24da61c,com.docker.compose.project=storage,com.docker.compose.project.working_dir=/home/albakhtin/tiabd/storage,com.docker.compose.service=adcm-db,com.docker.compose.config-hash=e7ba290aa058a907fe888e723374c61ddc60489304c73edd49a394a7266284f7,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/home/albakhtin/tiabd/storage/docker-compose.yml,com.docker.compose.version=5.6.0",
-      "LocalVolumes": "1",
-      "Mounts": "storage_adcm-d…",
-      "Name": "adcm-db",
-      "Names": "adcm-db",
-      "Networks": "adcm-net",
-      "Ports": "5432/tcp",
-      "Project": "storage",
-      "Publishers": [
-        {
-          "URL": "",
-          "TargetPort": 5432,
-          "PublishedPort": 0,
-          "Protocol": "tcp"
-        }
-      ],
-      "RunningFor": "29 minutes ago",
-      "Service": "adcm-db",
-      "Size": "0B",
-      "State": "running",
-      "Status": "Up 4 minutes (healthy)"
+      "source_table": "leads_closed",
+      "target_table": "sellers",
+      "name": "fk_leads_closed_seller",
+      "definition": "FOREIGN KEY (seller_id) REFERENCES sellers(seller_id) ON UPDATE CASCADE ON DELETE SET NULL",
+      "validated": true
     },
     {
-      "Command": "\"docker-entrypoint.s…\"",
-      "CreatedAt": "2026-10-05 19:40:54 +0300 MSK",
-      "Engine": "",
-      "ExitCode": 0,
-      "Health": "healthy",
-      "ID": "7340b8baa013",
-      "Image": "postgres:16",
-      "Labels": "com.docker.compose.service=adpg,com.docker.compose.version=5.6.0,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.image=sha256:a85daf0dbd5e79586e850e3fe4b21b796799828ad015ce2166aeb98cc24da61c,com.docker.compose.project.working_dir=/home/albakhtin/tiabd/storage,com.docker.compose.config-hash=0f05e474f718d7bb7f8208e29f4047825e247fcf8276dfe3b44e489925d7484c,com.docker.compose.oneoff=False,com.docker.compose.project=storage,com.docker.compose.project.config_files=/home/albakhtin/tiabd/storage/docker-compose.yml",
-      "LocalVolumes": "1",
-      "Mounts": "/home/albakhti…,/home/albakhti…,storage_adpg-d…",
-      "Name": "adpg",
-      "Names": "adpg",
-      "Networks": "adcm-net",
-      "Ports": "0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp",
-      "Project": "storage",
-      "Publishers": [
-        {
-          "URL": "0.0.0.0",
-          "TargetPort": 5432,
-          "PublishedPort": 5432,
-          "Protocol": "tcp"
-        },
-        {
-          "URL": "::",
-          "TargetPort": 5432,
-          "PublishedPort": 5432,
-          "Protocol": "tcp"
-        }
-      ],
-      "RunningFor": "29 minutes ago",
-      "Service": "adpg",
-      "Size": "0B",
-      "State": "running",
-      "Status": "Up 4 minutes (healthy)"
+      "source_table": "order_items",
+      "target_table": "orders",
+      "name": "fk_order_items_order",
+      "definition": "FOREIGN KEY (order_id) REFERENCES orders(order_id) ON UPDATE CASCADE ON DELETE CASCADE",
+      "validated": true
     },
     {
-      "Command": "\"/run.sh\"",
-      "CreatedAt": "2026-10-05 19:40:54 +0300 MSK",
-      "Engine": "",
-      "ExitCode": 0,
-      "Health": "",
-      "ID": "d55f90b86889",
-      "Image": "grafana/grafana:latest",
-      "Labels": "com.docker.compose.depends_on=prometheus:service_started:false,adpg:service_healthy:false,com.docker.compose.image=sha256:d84563330dc9d2fd2bc096d0fb96021b5319c75bf6ed555566709998e823dec4,com.docker.compose.project.config_files=/home/albakhtin/tiabd/storage/docker-compose.yml,com.docker.compose.project.working_dir=/home/albakhtin/tiabd/storage,com.docker.compose.version=5.6.0,maintainer=Grafana Labs <hello@grafana.com>,org.opencontainers.image.source=https://github.com/grafana/grafana,com.docker.compose.container-number=1,com.docker.compose.oneoff=False,com.docker.compose.project=storage,com.docker.compose.service=grafana,com.docker.compose.config-hash=12342e646002e80875f17253a8bff1d52dc3c68236407fc6916ce2ef05f9e68e",
-      "LocalVolumes": "1",
-      "Mounts": "/home/albakhti…,storage_grafan…,/home/albakhti…",
-      "Name": "grafana",
-      "Names": "grafana",
-      "Networks": "adcm-net",
-      "Ports": "0.0.0.0:11210->3000/tcp, [::]:11210->3000/tcp",
-      "Project": "storage",
-      "Publishers": [
-        {
-          "URL": "0.0.0.0",
-          "TargetPort": 3000,
-          "PublishedPort": 11210,
-          "Protocol": "tcp"
-        },
-        {
-          "URL": "::",
-          "TargetPort": 3000,
-          "PublishedPort": 11210,
-          "Protocol": "tcp"
-        }
-      ],
-      "RunningFor": "29 minutes ago",
-      "Service": "grafana",
-      "Size": "0B",
-      "State": "running",
-      "Status": "Up 4 minutes"
+      "source_table": "order_items",
+      "target_table": "products",
+      "name": "fk_order_items_product",
+      "definition": "FOREIGN KEY (product_id) REFERENCES products(product_id) ON UPDATE CASCADE ON DELETE SET NULL",
+      "validated": true
     },
     {
-      "Command": "\"/bin/postgres_expor…\"",
-      "CreatedAt": "2026-10-05 19:40:54 +0300 MSK",
-      "Engine": "",
-      "ExitCode": 0,
-      "Health": "",
-      "ID": "e188d2d37582",
-      "Image": "quay.io/prometheuscommunity/postgres-exporter:latest",
-      "Labels": "com.docker.compose.image=sha256:4f3d82803c1f99ea5e767890de3557d2479ebbc711f63f2e04c663daa840057a,com.docker.compose.project.config_files=/home/albakhtin/tiabd/storage/docker-compose.yml,com.docker.compose.project.working_dir=/home/albakhtin/tiabd/storage,com.docker.compose.version=5.6.0,com.docker.compose.depends_on=adpg:service_healthy:false,com.docker.compose.oneoff=False,com.docker.compose.project=storage,com.docker.compose.service=postgres-exporter,maintainer=The Prometheus Authors <prometheus-developers@googlegroups.com>,com.docker.compose.config-hash=b3cbb69ceb2855e7ef1f99f2255882ba19860e8f8a4a951c761d26a5afee98c2,com.docker.compose.container-number=1",
-      "LocalVolumes": "0",
-      "Mounts": "",
-      "Name": "postgres-exporter",
-      "Names": "postgres-exporter",
-      "Networks": "adcm-net",
-      "Ports": "9187/tcp",
-      "Project": "storage",
-      "Publishers": [
-        {
-          "URL": "",
-          "TargetPort": 9187,
-          "PublishedPort": 0,
-          "Protocol": "tcp"
-        }
-      ],
-      "RunningFor": "29 minutes ago",
-      "Service": "postgres-exporter",
-      "Size": "0B",
-      "State": "running",
-      "Status": "Up 4 minutes"
+      "source_table": "order_items",
+      "target_table": "sellers",
+      "name": "fk_order_items_seller",
+      "definition": "FOREIGN KEY (seller_id) REFERENCES sellers(seller_id) ON UPDATE CASCADE ON DELETE SET NULL",
+      "validated": true
     },
     {
-      "Command": "\"/bin/prometheus --c…\"",
-      "CreatedAt": "2026-10-05 19:40:54 +0300 MSK",
-      "Engine": "",
-      "ExitCode": 0,
-      "Health": "",
-      "ID": "bc94b814e23d",
-      "Image": "prom/prometheus:latest",
-      "Labels": "com.docker.compose.depends_on=,com.docker.compose.service=prometheus,io.prometheus.image.variant=busybox,org.opencontainers.image.source=https://github.com/prometheus/prometheus,org.opencontainers.image.title=Prometheus,maintainer=The Prometheus Authors <prometheus-developers@googlegroups.com>,org.opencontainers.image.authors=The Prometheus Authors,com.docker.compose.config-hash=1a554809a5987af300a1baa1aef1fdb7e0046fcdd992dde32e0e5ac9ba8fd486,com.docker.compose.container-number=1,com.docker.compose.image=sha256:86b17a25c2db1d16a61b16b3c8f336679eb19e26333d03e808da387206e40faa,com.docker.compose.project.config_files=/home/albakhtin/tiabd/storage/docker-compose.yml,com.docker.compose.project.working_dir=/home/albakhtin/tiabd/storage,org.opencontainers.image.description=The Prometheus monitoring system and time series database,org.opencontainers.image.url=https://github.com/prometheus/prometheus,org.opencontainers.image.vendor=Prometheus,com.docker.compose.oneoff=False,com.docker.compose.project=storage,com.docker.compose.version=5.6.0,org.opencontainers.image.documentation=https://prometheus.io/docs,org.opencontainers.image.licenses=Apache License 2.0",
-      "LocalVolumes": "1",
-      "Mounts": "storage_promet…,/home/albakhti…",
-      "Name": "prometheus",
-      "Names": "prometheus",
-      "Networks": "adcm-net",
-      "Ports": "0.0.0.0:9090->9090/tcp, [::]:9090->9090/tcp",
-      "Project": "storage",
-      "Publishers": [
-        {
-          "URL": "0.0.0.0",
-          "TargetPort": 9090,
-          "PublishedPort": 9090,
-          "Protocol": "tcp"
-        },
-        {
-          "URL": "::",
-          "TargetPort": 9090,
-          "PublishedPort": 9090,
-          "Protocol": "tcp"
-        }
-      ],
-      "RunningFor": "29 minutes ago",
-      "Service": "prometheus",
-      "Size": "0B",
-      "State": "running",
-      "Status": "Up 4 minutes"
+      "source_table": "order_payments",
+      "target_table": "orders",
+      "name": "fk_order_payments_order",
+      "definition": "FOREIGN KEY (order_id) REFERENCES orders(order_id) ON UPDATE CASCADE ON DELETE CASCADE",
+      "validated": true
+    },
+    {
+      "source_table": "order_reviews",
+      "target_table": "orders",
+      "name": "fk_order_reviews_order",
+      "definition": "FOREIGN KEY (order_id) REFERENCES orders(order_id) ON UPDATE CASCADE ON DELETE CASCADE",
+      "validated": true
+    },
+    {
+      "source_table": "orders",
+      "target_table": "customers",
+      "name": "fk_orders_customer",
+      "definition": "FOREIGN KEY (customer_id) REFERENCES customers(customer_id) ON UPDATE CASCADE ON DELETE RESTRICT",
+      "validated": true
+    },
+    {
+      "source_table": "products",
+      "target_table": "product_category_name_translation",
+      "name": "fk_products_category",
+      "definition": "FOREIGN KEY (product_category_name) REFERENCES product_category_name_translation(product_category_name) ON UPDATE CASCADE ON DELETE SET NULL",
+      "validated": true
     }
   ],
+  "validated_foreign_keys": 9,
+  "primary_keys": [
+    {
+      "table_name": "customers",
+      "definition": "PRIMARY KEY (customer_id)"
+    },
+    {
+      "table_name": "geolocation",
+      "definition": "PRIMARY KEY (geolocation_id)"
+    },
+    {
+      "table_name": "leads_closed",
+      "definition": "PRIMARY KEY (mql_id)"
+    },
+    {
+      "table_name": "leads_qualified",
+      "definition": "PRIMARY KEY (mql_id)"
+    },
+    {
+      "table_name": "order_items",
+      "definition": "PRIMARY KEY (order_id, order_item_id)"
+    },
+    {
+      "table_name": "order_payments",
+      "definition": "PRIMARY KEY (order_id, payment_sequential)"
+    },
+    {
+      "table_name": "order_reviews",
+      "definition": "PRIMARY KEY (review_row_id)"
+    },
+    {
+      "table_name": "orders",
+      "definition": "PRIMARY KEY (order_id)"
+    },
+    {
+      "table_name": "product_category_name_translation",
+      "definition": "PRIMARY KEY (product_category_name)"
+    },
+    {
+      "table_name": "products",
+      "definition": "PRIMARY KEY (product_id)"
+    },
+    {
+      "table_name": "sellers",
+      "definition": "PRIMARY KEY (seller_id)"
+    }
+  ],
+  "revenue": 13591643.7,
+  "buyers": 96096,
+  "native_services": [
+    {
+      "unit": "admprom-grafana.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "admprom-node-exporter.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "admprom-prometheus.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "adpg16-pgwatch2.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "adpg16.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "unit": "chrony.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    }
+  ],
+  "packages": [
+    {
+      "package": "admprom-grafana",
+      "version": "9.5.8-121+gitf31caed"
+    },
+    {
+      "package": "admprom-node-exporter",
+      "version": "1.6.1-121+git4a1b776"
+    },
+    {
+      "package": "admprom-prometheus",
+      "version": "2.53.3-121+git1491d29"
+    },
+    {
+      "package": "adpg16",
+      "version": "16.3-arenadata1-102+git05ffe93"
+    },
+    {
+      "package": "adpg16-contrib",
+      "version": "16.3-arenadata1-102+git05ffe93"
+    },
+    {
+      "package": "adpg16-libs",
+      "version": "16.3-arenadata1-102+git05ffe93"
+    },
+    {
+      "package": "adpg16-llvmjit",
+      "version": "16.3-arenadata1-102+git05ffe93"
+    },
+    {
+      "package": "adpg16-pgaudit",
+      "version": "16.1-102+gita81792e"
+    },
+    {
+      "package": "adpg16-pgauditlogtofile",
+      "version": "1.6.4-102+git81d29fd"
+    },
+    {
+      "package": "adpg16-pgorphaned",
+      "version": "1.0-102+git35c2176"
+    },
+    {
+      "package": "adpg16-pgrepack",
+      "version": "1.5.2-102+git9f36c65"
+    },
+    {
+      "package": "adpg16-pgvector",
+      "version": "0.8.0-102+git2627c5f"
+    },
+    {
+      "package": "adpg16-pgwatch2",
+      "version": "1.14.0-arenadata1-222+git7fa4679"
+    },
+    {
+      "package": "adpg16-plperl",
+      "version": "16.3-arenadata1-102+git05ffe93"
+    },
+    {
+      "package": "adpg16-plpython3",
+      "version": "16.3-arenadata1-102+git05ffe93"
+    },
+    {
+      "package": "adpg16-pltcl",
+      "version": "16.3-arenadata1-102+git05ffe93"
+    },
+    {
+      "package": "adpg16-postgis",
+      "version": "3.4.1-102"
+    },
+    {
+      "package": "adpg16-server",
+      "version": "16.3-arenadata1-102+git05ffe93"
+    },
+    {
+      "package": "adpg16-timescaledb",
+      "version": "2.15.0-102+git19f731d"
+    },
+    {
+      "package": "adpg16-timescaledb-extras",
+      "version": "1.0-102+git03a5c71"
+    },
+    {
+      "package": "adpg16-timescaledb-toolkit",
+      "version": "1.19.0-102+git56909b9"
+    }
+  ],
+  "grafana_health": {
+    "commit": "f31caed",
+    "database": "ok",
+    "version": "9.5.8"
+  },
+  "datasource_health": {
+    "message": "Database Connection OK",
+    "status": "OK"
+  },
   "prometheus": {
     "status": "success",
     "data": {
@@ -456,25 +495,45 @@
       "result": [
         {
           "metric": {
-            "__name__": "pg_up",
-            "instance": "postgres-exporter:9187",
-            "job": "adpg"
+            "__name__": "up",
+            "cluster_id": "d81fe091-58fa-4315-981f-056449974ab6",
+            "cluster_name": "TIABD Albakhtin IV ADPG",
+            "instance": "192.168.56.103:11203",
+            "job": "job-node-exporter"
           },
           "value": [
-            1791220242.305,
+            1792350008.678,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "up",
+            "cluster_id": "d81fe091-58fa-4315-981f-056449974ab6",
+            "cluster_name": "TIABD Albakhtin IV ADPG",
+            "instance": "192.168.56.103:11200",
+            "job": "job-prometheus"
+          },
+          "value": [
+            1792350008.678,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "up",
+            "cluster_id": "d81fe091-58fa-4315-981f-056449974ab6",
+            "cluster_name": "TIABD Albakhtin IV ADPG",
+            "instance": "tiabd-albakhtin-iv:9187",
+            "job": "job-pgwatch2"
+          },
+          "value": [
+            1792350008.678,
             "1"
           ]
         }
       ]
     }
   },
-  "grafana_health": {
-    "database": "ok",
-    "version": "13.2.3",
-    "commit": "90ffed056f0884267356c12a0eeb72a022af53f1"
-  },
-  "datasource_health": {
-    "message": "Database Connection OK",
-    "status": "OK"
-  }
+  "network": "lo               UNKNOWN        127.0.0.1/8 \nenp0s3           UP             10.0.2.15/24 metric 100 \nenp0s8           UP             192.168.56.103/24 \nbr-be17ffeb8149  UP             172.18.0.1/16 \ndocker0          DOWN           172.17.0.1/16"
 }

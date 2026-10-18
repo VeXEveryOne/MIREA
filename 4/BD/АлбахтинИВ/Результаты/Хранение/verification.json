@@ -1,0 +1,38 @@
+{
+  "student": "Албахтин И.В.",
+  "verified_utc": "2026-10-18T19:05:38.990423+00:00",
+  "status": "passed",
+  "official_adpg": true,
+  "adcm_install": "success",
+  "adcm_services": "all up",
+  "tables": 11,
+  "rows": 1560542,
+  "primary_keys": 11,
+  "foreign_keys": 9,
+  "sql_tasks": 4,
+  "sql_results_match_retained_source_data": true,
+  "grafana_panels_with_data": 6,
+  "prometheus_targets_up": 3,
+  "reboot_verified": true,
+  "report_pages": 36,
+  "visual_review": "all 36 pages passed; unchanged images checked byte-for-byte against the first reviewed render",
+  "figure_captions": 13,
+  "table_captions": 13,
+  "storage_control_questions": 12,
+  "teacher": "Приходько Н.А.",
+  "reference_unchanged": true,
+  "other_student_reports_unchanged": true,
+  "credential_scan": "passed",
+  "artifacts": [
+    {
+      "file": "4/BD/ТИАБД_ПР2_АлбахтинИВ.docx",
+      "sha256": "5f405c1d4d4988507e5d3fca5640936f43cdbe2b82053339de9f9d3ad1429e7d",
+      "bytes": 1550067
+    },
+    {
+      "file": "4/BD/ТИАБД_ПР2_АлбахтинИВ.pdf",
+      "sha256": "e74d23b93f57c65aef0b95c9d299cf257647d510c6b21eda70d9cb3b33296130",
+      "bytes": 1170516
+    }
+  ]
+}

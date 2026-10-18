@@ -1,0 +1,76 @@
+{
+  "dashboard": {
+    "id": 8,
+    "slug": "tiabd-ecommerce-albahtin-i-v",
+    "status": "success",
+    "uid": "tiabd-ecommerce-albakhtin-adpg",
+    "url": "/d/tiabd-ecommerce-albakhtin-adpg/tiabd-ecommerce-albahtin-i-v",
+    "version": 4
+  },
+  "queries": [
+    {
+      "panel": "Динамика числа заказов по месяцам",
+      "checks": [
+        {
+          "refId": "A",
+          "frames": 1,
+          "rows": 25
+        }
+      ]
+    },
+    {
+      "panel": "Количество заказов по оценкам",
+      "checks": [
+        {
+          "refId": "A",
+          "frames": 1,
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "panel": "Распределение способов оплаты",
+      "checks": [
+        {
+          "refId": "A",
+          "frames": 1,
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "panel": "Топ категорий по обороту",
+      "checks": [
+        {
+          "refId": "A",
+          "frames": 1,
+          "rows": 10
+        }
+      ]
+    },
+    {
+      "panel": "Оборот товарных позиций, R$",
+      "checks": [
+        {
+          "refId": "A",
+          "frames": 1,
+          "rows": 1
+        }
+      ]
+    },
+    {
+      "panel": "Уникальные покупатели",
+      "checks": [
+        {
+          "refId": "A",
+          "frames": 1,
+          "rows": 1
+        }
+      ]
+    }
+  ],
+  "datasource_health": {
+    "message": "Database Connection OK",
+    "status": "OK"
+  }
+}
