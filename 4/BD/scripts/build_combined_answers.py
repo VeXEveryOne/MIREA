@@ -1,4 +1,4 @@
-"""Assemble one practice 2 study file from the retained answer components."""
+"""Assemble one study file for practice 2 and lecture 2."""
 from pathlib import Path
 from urllib.parse import quote
 import re
@@ -28,14 +28,17 @@ def link(label, relative):
 def build():
     visual = question_body('ТИАБД_ПР2_Визуализация_Ответы.md', 16)
     storage = question_body('ТИАБД_ПР2_Хранение_Ответы.md', 12)
+    lecture = question_body('ТИАБД_Лекция_2_Ответы.md', 8, end='\n# Практическая работа №2.')
     visual_source = link('Методичка по визуализации', 'practice_2/assignment/Практика №2.pdf')
     storage_source = link('Методичка по хранению', 'practice_2/assignment/Практическая работа №2_Хранение.docx')
-    text = f'''# Практическая работа 2 ответы на вопросы
+    lecture_source = link('Лекция №2', 'Методички/Технологии и инструментарий анализа больших данных_Лекции №2.pdf')
+    text = f'''# Практическая работа 2 и лекция 2 ответы на вопросы
 
-Все ответы для подготовки по двум заданиям практики №2 собраны в одном файле: 16 учебных вопросов по визуализации и 12 контрольных вопросов по хранению данных. Всего 28 ответов; нумерация начинается заново в каждом разделе.
+Все ответы для подготовки по практике №2 и лекции №2 собраны в одном файле: 16 учебных вопросов по визуализации, 12 контрольных вопросов по хранению данных и 8 контрольных вопросов лекции. Всего 36 ответов; нумерация начинается заново в каждом разделе.
 
 - [Визуализация](#i-практика-2-визуализация)
 - [Хранение данных](#ii-практика-2-хранение-данных)
+- [Лекция 2](#iii-лекция-2)
 
 ## I Практика 2 Визуализация
 
@@ -49,11 +52,17 @@ def build():
 
 {storage}
 
+## III Лекция 2
+
+{lecture_source}, страница 107 PDF, раздел «Контрольные вопросы». Все 8 формулировок сохранены.
+
+{lecture}
+
 '''
-    assert len(re.findall(r'^\d+\. \*\*', text, re.M)) == 28
+    assert len(re.findall(r'^\d+\. \*\*', text, re.M)) == 36
     assert text.count('```') % 2 == 0
     TARGET.write_text(text.rstrip() + '\n', encoding='utf-8')
-    print(f'{TARGET.name}: 16 + 12 = 28 answers')
+    print(f'{TARGET.name}: 16 + 12 + 8 = 36 answers')
 
 
 if __name__ == '__main__':
