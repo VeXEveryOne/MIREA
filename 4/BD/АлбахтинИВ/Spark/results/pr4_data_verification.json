@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-10-25T21:04:52.941269+00:00",
+  "sqlite_tables": 5,
+  "state_top_matches": true,
+  "seller_top_matches": true,
+  "variant_groups_matches": 23,
+  "export_rows_csv_parquet": 23,
+  "gross_checksum": 15843553.239998734,
+  "synthetic_checksum": 1885618790.0630512,
+  "profile_empty_partitions_included": true,
+  "files_verified": true,
+  "job_stage_counters_match_rest": true,
+  "cache_released": true,
+  "jobs": 167,
+  "completed_stages": 342,
+  "sql_executions": 109
+}

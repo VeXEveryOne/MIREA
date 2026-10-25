@@ -23,24 +23,24 @@ Input [3]: [seller_id#206, price#208, freight_value#209]
 Condition : (isnotnull(price#208) AND (price#208 >= 100.0))
 
 (4) Project [codegen id : 1]
-Output [2]: [seller_id#206, (price#208 + freight_value#209) AS gross#469]
+Output [2]: [seller_id#206, (price#208 + freight_value#209) AS gross#546]
 Input [3]: [seller_id#206, price#208, freight_value#209]
 
 (5) HashAggregate [codegen id : 1]
-Input [2]: [seller_id#206, gross#469]
+Input [2]: [seller_id#206, gross#546]
 Keys [1]: [seller_id#206]
-Functions [1]: [partial_sum(gross#469)]
-Aggregate Attributes [1]: [sum#482]
-Results [2]: [seller_id#206, sum#483]
+Functions [1]: [partial_sum(gross#546)]
+Aggregate Attributes [1]: [sum#559]
+Results [2]: [seller_id#206, sum#560]
 
 (6) Exchange
-Input [2]: [seller_id#206, sum#483]
-Arguments: hashpartitioning(seller_id#206, 8), ENSURE_REQUIREMENTS, [plan_id=1132]
+Input [2]: [seller_id#206, sum#560]
+Arguments: hashpartitioning(seller_id#206, 8), ENSURE_REQUIREMENTS, [plan_id=1526]
 
 (7) HashAggregate [codegen id : 2]
-Input [2]: [seller_id#206, sum#483]
+Input [2]: [seller_id#206, sum#560]
 Keys [1]: [seller_id#206]
-Functions [1]: [sum(gross#469)]
-Aggregate Attributes [1]: [sum(gross#469)#478]
-Results [2]: [seller_id#206, round(sum(gross#469)#478, 2) AS gross_sum#479]
+Functions [1]: [sum(gross#546)]
+Aggregate Attributes [1]: [sum(gross#546)#555]
+Results [2]: [seller_id#206, round(sum(gross#546)#555, 2) AS gross_sum#556]
 

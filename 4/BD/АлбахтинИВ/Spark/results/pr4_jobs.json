@@ -1,13 +1,13 @@
 [
   {
-    "jobId": 157,
+    "jobId": 166,
     "name": "parquet at NativeMethodAccessorImpl.java:0",
     "description": "P4_FILES_variant_4",
-    "submissionTime": "2026-10-05T17:00:12.476GMT",
-    "completionTime": "2026-10-05T17:00:12.595GMT",
+    "submissionTime": "2026-10-25T21:02:13.165GMT",
+    "completionTime": "2026-10-25T21:02:13.298GMT",
     "stageIds": [
-      333,
-      334
+      357,
+      358
     ],
     "jobGroup": "P4_FILES_variant_4",
     "jobTags": [],
@@ -26,17 +26,17 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 156,
+    "jobId": 165,
     "name": "$anonfun$withThreadLocalCaptured$1 at FutureTask.java:264",
     "description": "P4_FILES_variant_4",
-    "submissionTime": "2026-10-05T17:00:12.458GMT",
-    "completionTime": "2026-10-05T17:00:12.463GMT",
+    "submissionTime": "2026-10-25T21:02:13.149GMT",
+    "completionTime": "2026-10-25T21:02:13.153GMT",
     "stageIds": [
-      332
+      356
     ],
     "jobGroup": "P4_FILES_variant_4",
     "jobTags": [
-      "broadcast exchange (runId 70d08072-9cd2-47d1-9450-19c6b3e74d27)"
+      "broadcast exchange (runId 6aa9adbf-6816-4e28-8250-f3d1bcd76c2c)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -53,15 +53,95 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 155,
+    "jobId": 164,
+    "name": "toPandas at /tmp/ipykernel_2702624/2878985613.py:41",
+    "description": "P4_FILES_variant_4",
+    "submissionTime": "2026-10-25T21:02:13.083GMT",
+    "completionTime": "2026-10-25T21:02:13.118GMT",
+    "stageIds": [
+      353,
+      354,
+      355
+    ],
+    "jobGroup": "P4_FILES_variant_4",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 18,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 16,
+    "numSkippedTasks": 2,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 16,
+    "numActiveStages": 0,
+    "numCompletedStages": 2,
+    "numSkippedStages": 1,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 163,
+    "name": "toPandas at /tmp/ipykernel_2702624/2878985613.py:41",
+    "description": "P4_FILES_variant_4",
+    "submissionTime": "2026-10-25T21:02:13.038GMT",
+    "completionTime": "2026-10-25T21:02:13.078GMT",
+    "stageIds": [
+      351,
+      352
+    ],
+    "jobGroup": "P4_FILES_variant_4",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 10,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 10,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 10,
+    "numActiveStages": 0,
+    "numCompletedStages": 2,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 162,
+    "name": "toPandas at /tmp/ipykernel_2702624/2878985613.py:41",
+    "description": "P4_FILES_variant_4",
+    "submissionTime": "2026-10-25T21:02:13.015GMT",
+    "completionTime": "2026-10-25T21:02:13.020GMT",
+    "stageIds": [
+      350
+    ],
+    "jobGroup": "P4_FILES_variant_4",
+    "jobTags": [
+      "broadcast exchange (runId 517d24a1-54d1-4760-a733-221718aff8dd)"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 161,
     "name": "parquet at NativeMethodAccessorImpl.java:0",
     "description": "P4_FILES_variant_4",
-    "submissionTime": "2026-10-05T17:00:12.329GMT",
-    "completionTime": "2026-10-05T17:00:12.409GMT",
+    "submissionTime": "2026-10-25T21:02:12.681GMT",
+    "completionTime": "2026-10-25T21:02:12.784GMT",
     "stageIds": [
-      329,
-      330,
-      331
+      347,
+      348,
+      349
     ],
     "jobGroup": "P4_FILES_variant_4",
     "jobTags": [],
@@ -80,17 +160,17 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 154,
+    "jobId": 160,
     "name": "$anonfun$withThreadLocalCaptured$1 at FutureTask.java:264",
     "description": "P4_FILES_variant_4",
-    "submissionTime": "2026-10-05T17:00:12.316GMT",
-    "completionTime": "2026-10-05T17:00:12.320GMT",
+    "submissionTime": "2026-10-25T21:02:12.658GMT",
+    "completionTime": "2026-10-25T21:02:12.664GMT",
     "stageIds": [
-      328
+      346
     ],
     "jobGroup": "P4_FILES_variant_4",
     "jobTags": [
-      "broadcast exchange (runId 8e833f4d-6842-4459-9506-3c7971faed7a)"
+      "broadcast exchange (runId 267e4686-112e-48fc-b7ab-8050084a62b3)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -107,15 +187,15 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 153,
+    "jobId": 159,
     "name": "parquet at NativeMethodAccessorImpl.java:0",
     "description": "P4_FILES_variant_1",
-    "submissionTime": "2026-10-05T17:00:12.178GMT",
-    "completionTime": "2026-10-05T17:00:12.249GMT",
+    "submissionTime": "2026-10-25T21:02:12.503GMT",
+    "completionTime": "2026-10-25T21:02:12.596GMT",
     "stageIds": [
-      325,
-      326,
-      327
+      343,
+      344,
+      345
     ],
     "jobGroup": "P4_FILES_variant_1",
     "jobTags": [],
@@ -134,17 +214,179 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 152,
+    "jobId": 158,
     "name": "$anonfun$withThreadLocalCaptured$1 at FutureTask.java:264",
     "description": "P4_FILES_variant_1",
-    "submissionTime": "2026-10-05T17:00:12.163GMT",
-    "completionTime": "2026-10-05T17:00:12.167GMT",
+    "submissionTime": "2026-10-25T21:02:12.486GMT",
+    "completionTime": "2026-10-25T21:02:12.491GMT",
     "stageIds": [
-      324
+      342
     ],
     "jobGroup": "P4_FILES_variant_1",
     "jobTags": [
-      "broadcast exchange (runId c45f622d-88f3-49c9-b629-f3a593d31f30)"
+      "broadcast exchange (runId ffba8c22-faaf-4aad-a4be-824a14b9474c)"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 157,
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
+    "description": "P4_B_GROUPBY",
+    "submissionTime": "2026-10-25T21:02:12.334GMT",
+    "completionTime": "2026-10-25T21:02:12.437GMT",
+    "stageIds": [
+      339,
+      340,
+      341
+    ],
+    "jobGroup": "P4_B_GROUPBY",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 18,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 18,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 18,
+    "numActiveStages": 0,
+    "numCompletedStages": 3,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 156,
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
+    "description": "P4_B_GROUPBY",
+    "submissionTime": "2026-10-25T21:02:12.318GMT",
+    "completionTime": "2026-10-25T21:02:12.323GMT",
+    "stageIds": [
+      338
+    ],
+    "jobGroup": "P4_B_GROUPBY",
+    "jobTags": [
+      "broadcast exchange (runId 5de15fbe-f5a6-4364-bec4-5c566355eb3d)"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 155,
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
+    "description": "P4_B_GROUPBY",
+    "submissionTime": "2026-10-25T21:02:12.114GMT",
+    "completionTime": "2026-10-25T21:02:12.284GMT",
+    "stageIds": [
+      335,
+      336,
+      337
+    ],
+    "jobGroup": "P4_B_GROUPBY",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 18,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 18,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 18,
+    "numActiveStages": 0,
+    "numCompletedStages": 3,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 154,
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
+    "description": "P4_B_GROUPBY",
+    "submissionTime": "2026-10-25T21:02:12.091GMT",
+    "completionTime": "2026-10-25T21:02:12.097GMT",
+    "stageIds": [
+      334
+    ],
+    "jobGroup": "P4_B_GROUPBY",
+    "jobTags": [
+      "broadcast exchange (runId b4926928-362e-4983-95cc-de3a5f45859c)"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 153,
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
+    "description": "P4_B_GROUPBY",
+    "submissionTime": "2026-10-25T21:02:11.953GMT",
+    "completionTime": "2026-10-25T21:02:12.054GMT",
+    "stageIds": [
+      332,
+      333,
+      331
+    ],
+    "jobGroup": "P4_B_GROUPBY",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 18,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 18,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 18,
+    "numActiveStages": 0,
+    "numCompletedStages": 3,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 152,
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
+    "description": "P4_B_GROUPBY",
+    "submissionTime": "2026-10-25T21:02:11.933GMT",
+    "completionTime": "2026-10-25T21:02:11.941GMT",
+    "stageIds": [
+      330
+    ],
+    "jobGroup": "P4_B_GROUPBY",
+    "jobTags": [
+      "broadcast exchange (runId df31ca36-db89-431d-9eec-7cb86cddef9f)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -162,14 +404,14 @@
   },
   {
     "jobId": 151,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:12.045GMT",
-    "completionTime": "2026-10-05T17:00:12.137GMT",
+    "submissionTime": "2026-10-25T21:02:11.804GMT",
+    "completionTime": "2026-10-25T21:02:11.908GMT",
     "stageIds": [
-      321,
-      322,
-      323
+      328,
+      329,
+      327
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [],
@@ -189,16 +431,16 @@
   },
   {
     "jobId": 150,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:12.031GMT",
-    "completionTime": "2026-10-05T17:00:12.035GMT",
+    "submissionTime": "2026-10-25T21:02:11.786GMT",
+    "completionTime": "2026-10-25T21:02:11.791GMT",
     "stageIds": [
-      320
+      326
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [
-      "broadcast exchange (runId 280e9abf-8871-4171-b36f-d73c76d9eb63)"
+      "broadcast exchange (runId a87783e0-d736-490f-92bd-11d0b0d55c90)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -216,25 +458,25 @@
   },
   {
     "jobId": 149,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:11.922GMT",
-    "completionTime": "2026-10-05T17:00:12.005GMT",
+    "submissionTime": "2026-10-25T21:02:11.650GMT",
+    "completionTime": "2026-10-25T21:02:11.756GMT",
     "stageIds": [
-      317,
-      318,
-      319
+      324,
+      325,
+      323
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [],
     "status": "SUCCEEDED",
-    "numTasks": 18,
+    "numTasks": 14,
     "numActiveTasks": 0,
-    "numCompletedTasks": 18,
+    "numCompletedTasks": 14,
     "numSkippedTasks": 0,
     "numFailedTasks": 0,
     "numKilledTasks": 0,
-    "numCompletedIndices": 18,
+    "numCompletedIndices": 14,
     "numActiveStages": 0,
     "numCompletedStages": 3,
     "numSkippedStages": 0,
@@ -243,16 +485,16 @@
   },
   {
     "jobId": 148,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:11.907GMT",
-    "completionTime": "2026-10-05T17:00:11.912GMT",
+    "submissionTime": "2026-10-25T21:02:11.631GMT",
+    "completionTime": "2026-10-25T21:02:11.640GMT",
     "stageIds": [
-      316
+      322
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [
-      "broadcast exchange (runId e1771112-f652-45fa-8e99-6e243334e04f)"
+      "broadcast exchange (runId dd513cc0-1949-4e0b-acdb-d491b205396e)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -270,25 +512,25 @@
   },
   {
     "jobId": 147,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:11.788GMT",
-    "completionTime": "2026-10-05T17:00:11.887GMT",
+    "submissionTime": "2026-10-25T21:02:11.526GMT",
+    "completionTime": "2026-10-25T21:02:11.606GMT",
     "stageIds": [
-      314,
-      315,
-      313
+      320,
+      321,
+      319
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [],
     "status": "SUCCEEDED",
-    "numTasks": 18,
+    "numTasks": 14,
     "numActiveTasks": 0,
-    "numCompletedTasks": 18,
+    "numCompletedTasks": 14,
     "numSkippedTasks": 0,
     "numFailedTasks": 0,
     "numKilledTasks": 0,
-    "numCompletedIndices": 18,
+    "numCompletedIndices": 14,
     "numActiveStages": 0,
     "numCompletedStages": 3,
     "numSkippedStages": 0,
@@ -297,16 +539,16 @@
   },
   {
     "jobId": 146,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:11.773GMT",
-    "completionTime": "2026-10-05T17:00:11.778GMT",
+    "submissionTime": "2026-10-25T21:02:11.505GMT",
+    "completionTime": "2026-10-25T21:02:11.510GMT",
     "stageIds": [
-      312
+      318
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [
-      "broadcast exchange (runId 2513f8c4-425d-4426-9a1a-e8f50a3b58e4)"
+      "broadcast exchange (runId 51c389fd-c962-48c1-acdb-db3ec1585ffb)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -324,25 +566,25 @@
   },
   {
     "jobId": 145,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:11.656GMT",
-    "completionTime": "2026-10-05T17:00:11.746GMT",
+    "submissionTime": "2026-10-25T21:02:11.387GMT",
+    "completionTime": "2026-10-25T21:02:11.476GMT",
     "stageIds": [
-      310,
-      311,
-      309
+      317,
+      315,
+      316
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [],
     "status": "SUCCEEDED",
-    "numTasks": 18,
+    "numTasks": 14,
     "numActiveTasks": 0,
-    "numCompletedTasks": 18,
+    "numCompletedTasks": 14,
     "numSkippedTasks": 0,
     "numFailedTasks": 0,
     "numKilledTasks": 0,
-    "numCompletedIndices": 18,
+    "numCompletedIndices": 14,
     "numActiveStages": 0,
     "numCompletedStages": 3,
     "numSkippedStages": 0,
@@ -351,16 +593,16 @@
   },
   {
     "jobId": 144,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:11.641GMT",
-    "completionTime": "2026-10-05T17:00:11.646GMT",
+    "submissionTime": "2026-10-25T21:02:11.370GMT",
+    "completionTime": "2026-10-25T21:02:11.375GMT",
     "stageIds": [
-      308
+      314
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [
-      "broadcast exchange (runId 47246f7a-509b-42f0-ba3a-9e966ffd4bc5)"
+      "broadcast exchange (runId 6a227c90-477f-4197-a1d6-3355b4476a5d)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -378,14 +620,14 @@
   },
   {
     "jobId": 143,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:11.524GMT",
-    "completionTime": "2026-10-05T17:00:11.606GMT",
+    "submissionTime": "2026-10-25T21:02:11.253GMT",
+    "completionTime": "2026-10-25T21:02:11.345GMT",
     "stageIds": [
-      305,
-      306,
-      307
+      311,
+      312,
+      313
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [],
@@ -405,16 +647,16 @@
   },
   {
     "jobId": 142,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:11.508GMT",
-    "completionTime": "2026-10-05T17:00:11.513GMT",
+    "submissionTime": "2026-10-25T21:02:11.237GMT",
+    "completionTime": "2026-10-25T21:02:11.241GMT",
     "stageIds": [
-      304
+      310
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [
-      "broadcast exchange (runId d8aa50df-8af0-490c-847e-773e7085c63f)"
+      "broadcast exchange (runId 190bd166-942a-439a-9ce6-3ed3eaf563a9)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -432,25 +674,25 @@
   },
   {
     "jobId": 141,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:11.405GMT",
-    "completionTime": "2026-10-05T17:00:11.479GMT",
+    "submissionTime": "2026-10-25T21:02:11.140GMT",
+    "completionTime": "2026-10-25T21:02:11.208GMT",
     "stageIds": [
-      302,
-      303,
-      301
+      307,
+      308,
+      309
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [],
     "status": "SUCCEEDED",
-    "numTasks": 14,
+    "numTasks": 12,
     "numActiveTasks": 0,
-    "numCompletedTasks": 14,
+    "numCompletedTasks": 12,
     "numSkippedTasks": 0,
     "numFailedTasks": 0,
     "numKilledTasks": 0,
-    "numCompletedIndices": 14,
+    "numCompletedIndices": 12,
     "numActiveStages": 0,
     "numCompletedStages": 3,
     "numSkippedStages": 0,
@@ -459,16 +701,16 @@
   },
   {
     "jobId": 140,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:11.391GMT",
-    "completionTime": "2026-10-05T17:00:11.396GMT",
+    "submissionTime": "2026-10-25T21:02:11.116GMT",
+    "completionTime": "2026-10-25T21:02:11.122GMT",
     "stageIds": [
-      300
+      306
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [
-      "broadcast exchange (runId 1d01b63f-51e4-44cf-91cf-179562418cf2)"
+      "broadcast exchange (runId 8d11b182-dad4-4be0-947e-745b06784452)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -486,25 +728,25 @@
   },
   {
     "jobId": 139,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:11.240GMT",
-    "completionTime": "2026-10-05T17:00:11.336GMT",
+    "submissionTime": "2026-10-25T21:02:10.983GMT",
+    "completionTime": "2026-10-25T21:02:11.077GMT",
     "stageIds": [
-      299,
-      297,
-      298
+      305,
+      303,
+      304
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [],
     "status": "SUCCEEDED",
-    "numTasks": 14,
+    "numTasks": 12,
     "numActiveTasks": 0,
-    "numCompletedTasks": 14,
+    "numCompletedTasks": 12,
     "numSkippedTasks": 0,
     "numFailedTasks": 0,
     "numKilledTasks": 0,
-    "numCompletedIndices": 14,
+    "numCompletedIndices": 12,
     "numActiveStages": 0,
     "numCompletedStages": 3,
     "numSkippedStages": 0,
@@ -513,16 +755,16 @@
   },
   {
     "jobId": 138,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:11.223GMT",
-    "completionTime": "2026-10-05T17:00:11.228GMT",
+    "submissionTime": "2026-10-25T21:02:10.964GMT",
+    "completionTime": "2026-10-25T21:02:10.970GMT",
     "stageIds": [
-      296
+      302
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [
-      "broadcast exchange (runId ee99584b-0582-434b-8e95-be8854c9e7c1)"
+      "broadcast exchange (runId dfcf5734-3ea8-4fc0-8dce-83a53e2995cb)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -540,25 +782,25 @@
   },
   {
     "jobId": 137,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:11.048GMT",
-    "completionTime": "2026-10-05T17:00:11.181GMT",
+    "submissionTime": "2026-10-25T21:02:10.840GMT",
+    "completionTime": "2026-10-25T21:02:10.933GMT",
     "stageIds": [
-      293,
-      294,
-      295
+      299,
+      300,
+      301
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [],
     "status": "SUCCEEDED",
-    "numTasks": 14,
+    "numTasks": 12,
     "numActiveTasks": 0,
-    "numCompletedTasks": 14,
+    "numCompletedTasks": 12,
     "numSkippedTasks": 0,
     "numFailedTasks": 0,
     "numKilledTasks": 0,
-    "numCompletedIndices": 14,
+    "numCompletedIndices": 12,
     "numActiveStages": 0,
     "numCompletedStages": 3,
     "numSkippedStages": 0,
@@ -567,16 +809,16 @@
   },
   {
     "jobId": 136,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:11.024GMT",
-    "completionTime": "2026-10-05T17:00:11.035GMT",
+    "submissionTime": "2026-10-25T21:02:10.817GMT",
+    "completionTime": "2026-10-25T21:02:10.824GMT",
     "stageIds": [
-      292
+      298
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [
-      "broadcast exchange (runId cacd3d03-1e32-4f99-ac1a-67914b1f67e2)"
+      "broadcast exchange (runId db01b6b6-dc75-4899-b20e-5c6c2781bb96)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -594,14 +836,14 @@
   },
   {
     "jobId": 135,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:10.899GMT",
-    "completionTime": "2026-10-05T17:00:10.983GMT",
+    "submissionTime": "2026-10-25T21:02:10.653GMT",
+    "completionTime": "2026-10-25T21:02:10.785GMT",
     "stageIds": [
-      291,
-      289,
-      290
+      296,
+      297,
+      295
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [],
@@ -621,16 +863,16 @@
   },
   {
     "jobId": 134,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:10.876GMT",
-    "completionTime": "2026-10-05T17:00:10.887GMT",
+    "submissionTime": "2026-10-25T21:02:10.627GMT",
+    "completionTime": "2026-10-25T21:02:10.634GMT",
     "stageIds": [
-      288
+      294
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [
-      "broadcast exchange (runId 695b3010-b947-4d35-ab8d-83a90d585d88)"
+      "broadcast exchange (runId 90b1df67-0794-43a3-ba66-4a12c89c0ecd)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -648,43 +890,42 @@
   },
   {
     "jobId": 133,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:10.757GMT",
-    "completionTime": "2026-10-05T17:00:10.849GMT",
+    "submissionTime": "2026-10-25T21:02:10.528GMT",
+    "completionTime": "2026-10-25T21:02:10.589GMT",
     "stageIds": [
-      287,
-      285,
-      286
+      292,
+      293
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [],
     "status": "SUCCEEDED",
-    "numTasks": 12,
+    "numTasks": 3,
     "numActiveTasks": 0,
-    "numCompletedTasks": 12,
+    "numCompletedTasks": 3,
     "numSkippedTasks": 0,
     "numFailedTasks": 0,
     "numKilledTasks": 0,
-    "numCompletedIndices": 12,
+    "numCompletedIndices": 3,
     "numActiveStages": 0,
-    "numCompletedStages": 3,
+    "numCompletedStages": 2,
     "numSkippedStages": 0,
     "numFailedStages": 0,
     "killedTasksSummary": {}
   },
   {
     "jobId": 132,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:10.742GMT",
-    "completionTime": "2026-10-05T17:00:10.746GMT",
+    "submissionTime": "2026-10-25T21:02:10.505GMT",
+    "completionTime": "2026-10-25T21:02:10.512GMT",
     "stageIds": [
-      284
+      291
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [
-      "broadcast exchange (runId b9ece0ce-60e5-445f-831f-5e6e9091008e)"
+      "broadcast exchange (runId b4575f12-8c15-4068-8f02-58d5ee125e46)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -702,43 +943,42 @@
   },
   {
     "jobId": 131,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:10.619GMT",
-    "completionTime": "2026-10-05T17:00:10.712GMT",
+    "submissionTime": "2026-10-25T21:02:10.390GMT",
+    "completionTime": "2026-10-25T21:02:10.461GMT",
     "stageIds": [
-      281,
-      282,
-      283
+      289,
+      290
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [],
     "status": "SUCCEEDED",
-    "numTasks": 12,
+    "numTasks": 3,
     "numActiveTasks": 0,
-    "numCompletedTasks": 12,
+    "numCompletedTasks": 3,
     "numSkippedTasks": 0,
     "numFailedTasks": 0,
     "numKilledTasks": 0,
-    "numCompletedIndices": 12,
+    "numCompletedIndices": 3,
     "numActiveStages": 0,
-    "numCompletedStages": 3,
+    "numCompletedStages": 2,
     "numSkippedStages": 0,
     "numFailedStages": 0,
     "killedTasksSummary": {}
   },
   {
     "jobId": 130,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:10.605GMT",
-    "completionTime": "2026-10-05T17:00:10.609GMT",
+    "submissionTime": "2026-10-25T21:02:10.368GMT",
+    "completionTime": "2026-10-25T21:02:10.374GMT",
     "stageIds": [
-      280
+      288
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [
-      "broadcast exchange (runId 6ed66255-2441-486a-afc5-5f50d9ab928b)"
+      "broadcast exchange (runId 8ef7aca2-58d3-4662-ab10-2c2c6b342fa6)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -756,43 +996,42 @@
   },
   {
     "jobId": 129,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:10.463GMT",
-    "completionTime": "2026-10-05T17:00:10.575GMT",
+    "submissionTime": "2026-10-25T21:02:10.256GMT",
+    "completionTime": "2026-10-25T21:02:10.319GMT",
     "stageIds": [
-      277,
-      278,
-      279
+      287,
+      286
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [],
     "status": "SUCCEEDED",
-    "numTasks": 12,
+    "numTasks": 3,
     "numActiveTasks": 0,
-    "numCompletedTasks": 12,
+    "numCompletedTasks": 3,
     "numSkippedTasks": 0,
     "numFailedTasks": 0,
     "numKilledTasks": 0,
-    "numCompletedIndices": 12,
+    "numCompletedIndices": 3,
     "numActiveStages": 0,
-    "numCompletedStages": 3,
+    "numCompletedStages": 2,
     "numSkippedStages": 0,
     "numFailedStages": 0,
     "killedTasksSummary": {}
   },
   {
     "jobId": 128,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:10.442GMT",
-    "completionTime": "2026-10-05T17:00:10.446GMT",
+    "submissionTime": "2026-10-25T21:02:10.234GMT",
+    "completionTime": "2026-10-25T21:02:10.241GMT",
     "stageIds": [
-      276
+      285
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [
-      "broadcast exchange (runId 1f2e587a-8aa2-409b-88f1-e64148da3651)"
+      "broadcast exchange (runId 69319cda-b61c-4aa7-b7b6-cef31848d97d)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -810,10 +1049,117 @@
   },
   {
     "jobId": 127,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:10.363GMT",
-    "completionTime": "2026-10-05T17:00:10.405GMT",
+    "submissionTime": "2026-10-25T21:02:10.075GMT",
+    "completionTime": "2026-10-25T21:02:10.165GMT",
+    "stageIds": [
+      284,
+      283
+    ],
+    "jobGroup": "P4_B_GROUPBY",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 3,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 3,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 3,
+    "numActiveStages": 0,
+    "numCompletedStages": 2,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 126,
+    "name": "collect at /tmp/ipykernel_2702624/2878985613.py:37",
+    "description": "P4_B_GROUPBY",
+    "submissionTime": "2026-10-25T21:02:10.045GMT",
+    "completionTime": "2026-10-25T21:02:10.053GMT",
+    "stageIds": [
+      282
+    ],
+    "jobGroup": "P4_B_GROUPBY",
+    "jobTags": [
+      "broadcast exchange (runId 0d81e942-9a3b-400a-8005-8cc10776d836)"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 125,
+    "name": "first at /tmp/ipykernel_2702624/2878985613.py:21",
+    "description": "P4_B_GROUPBY",
+    "submissionTime": "2026-10-25T21:02:05.690GMT",
+    "completionTime": "2026-10-25T21:02:05.777GMT",
+    "stageIds": [
+      281,
+      279,
+      280
+    ],
+    "jobGroup": "P4_B_GROUPBY",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 11,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 11,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 11,
+    "numActiveStages": 0,
+    "numCompletedStages": 3,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 124,
+    "name": "first at /tmp/ipykernel_2702624/2878985613.py:21",
+    "description": "P4_B_GROUPBY",
+    "submissionTime": "2026-10-25T21:02:05.550GMT",
+    "completionTime": "2026-10-25T21:02:05.620GMT",
+    "stageIds": [
+      277,
+      278,
+      276
+    ],
+    "jobGroup": "P4_B_GROUPBY",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 11,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 11,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 11,
+    "numActiveStages": 0,
+    "numCompletedStages": 3,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 123,
+    "name": "count at <unknown>:0",
+    "description": "P4_B_GROUPBY",
+    "submissionTime": "2026-10-25T21:02:05.354GMT",
+    "completionTime": "2026-10-25T21:02:05.505GMT",
     "stageIds": [
       274,
       275
@@ -835,123 +1181,17 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 126,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "jobId": 122,
+    "name": "$anonfun$withThreadLocalCaptured$1 at FutureTask.java:264",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:10.344GMT",
-    "completionTime": "2026-10-05T17:00:10.349GMT",
+    "submissionTime": "2026-10-25T21:02:05.326GMT",
+    "completionTime": "2026-10-25T21:02:05.333GMT",
     "stageIds": [
       273
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [
-      "broadcast exchange (runId 52ebc527-0ef2-4588-9aa6-2f02ce98692a)"
-    ],
-    "status": "SUCCEEDED",
-    "numTasks": 1,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 1,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 1,
-    "numActiveStages": 0,
-    "numCompletedStages": 1,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 125,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
-    "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:10.283GMT",
-    "completionTime": "2026-10-05T17:00:10.322GMT",
-    "stageIds": [
-      271,
-      272
-    ],
-    "jobGroup": "P4_B_GROUPBY",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 3,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 3,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 3,
-    "numActiveStages": 0,
-    "numCompletedStages": 2,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 124,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
-    "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:10.269GMT",
-    "completionTime": "2026-10-05T17:00:10.274GMT",
-    "stageIds": [
-      270
-    ],
-    "jobGroup": "P4_B_GROUPBY",
-    "jobTags": [
-      "broadcast exchange (runId e74ccc31-7f31-400a-9182-92b93e2c4b5e)"
-    ],
-    "status": "SUCCEEDED",
-    "numTasks": 1,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 1,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 1,
-    "numActiveStages": 0,
-    "numCompletedStages": 1,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 123,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
-    "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:10.172GMT",
-    "completionTime": "2026-10-05T17:00:10.231GMT",
-    "stageIds": [
-      269,
-      268
-    ],
-    "jobGroup": "P4_B_GROUPBY",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 3,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 3,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 3,
-    "numActiveStages": 0,
-    "numCompletedStages": 2,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 122,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
-    "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:10.152GMT",
-    "completionTime": "2026-10-05T17:00:10.158GMT",
-    "stageIds": [
-      267
-    ],
-    "jobGroup": "P4_B_GROUPBY",
-    "jobTags": [
-      "broadcast exchange (runId ee7b21db-65c7-4a7e-95f7-f907746fd684)"
+      "broadcast exchange (runId 38035228-9125-4c01-8add-00c07ddc65f0)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -969,42 +1209,43 @@
   },
   {
     "jobId": 121,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "first at /tmp/ipykernel_2702624/2878985613.py:21",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:10.022GMT",
-    "completionTime": "2026-10-05T17:00:10.099GMT",
+    "submissionTime": "2026-10-25T21:02:05.222GMT",
+    "completionTime": "2026-10-25T21:02:05.294GMT",
     "stageIds": [
-      266,
-      265
+      270,
+      271,
+      272
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [],
     "status": "SUCCEEDED",
-    "numTasks": 3,
+    "numTasks": 11,
     "numActiveTasks": 0,
-    "numCompletedTasks": 3,
+    "numCompletedTasks": 11,
     "numSkippedTasks": 0,
     "numFailedTasks": 0,
     "numKilledTasks": 0,
-    "numCompletedIndices": 3,
+    "numCompletedIndices": 11,
     "numActiveStages": 0,
-    "numCompletedStages": 2,
+    "numCompletedStages": 3,
     "numSkippedStages": 0,
     "numFailedStages": 0,
     "killedTasksSummary": {}
   },
   {
     "jobId": 120,
-    "name": "collect at /tmp/ipykernel_13575/911693517.py:34",
+    "name": "first at /tmp/ipykernel_2702624/2878985613.py:21",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T17:00:10.002GMT",
-    "completionTime": "2026-10-05T17:00:10.007GMT",
+    "submissionTime": "2026-10-25T21:02:05.206GMT",
+    "completionTime": "2026-10-25T21:02:05.211GMT",
     "stageIds": [
-      264
+      269
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [
-      "broadcast exchange (runId 0681e119-d7ed-426b-ac36-b440037f4b19)"
+      "broadcast exchange (runId 1fb02cfc-a9c5-4944-8009-7900818d8652)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -1022,14 +1263,14 @@
   },
   {
     "jobId": 119,
-    "name": "first at /tmp/ipykernel_13575/911693517.py:21",
+    "name": "first at /tmp/ipykernel_2702624/2878985613.py:21",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T16:54:25.507GMT",
-    "completionTime": "2026-10-05T16:54:25.565GMT",
+    "submissionTime": "2026-10-25T21:02:05.062GMT",
+    "completionTime": "2026-10-25T21:02:05.172GMT",
     "stageIds": [
-      263,
-      261,
-      262
+      266,
+      267,
+      268
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [],
@@ -1049,230 +1290,69 @@
   },
   {
     "jobId": 118,
-    "name": "first at /tmp/ipykernel_13575/911693517.py:21",
+    "name": "first at /tmp/ipykernel_2702624/2878985613.py:21",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T16:54:25.385GMT",
-    "completionTime": "2026-10-05T16:54:25.488GMT",
+    "submissionTime": "2026-10-25T21:02:05.038GMT",
+    "completionTime": "2026-10-25T21:02:05.042GMT",
     "stageIds": [
-      259,
-      260,
-      258
+      265
     ],
     "jobGroup": "P4_B_GROUPBY",
-    "jobTags": [],
+    "jobTags": [
+      "broadcast exchange (runId 94122df8-73e0-48e2-be08-3e4f3f241035)"
+    ],
     "status": "SUCCEEDED",
-    "numTasks": 11,
+    "numTasks": 1,
     "numActiveTasks": 0,
-    "numCompletedTasks": 11,
+    "numCompletedTasks": 1,
     "numSkippedTasks": 0,
     "numFailedTasks": 0,
     "numKilledTasks": 0,
-    "numCompletedIndices": 11,
+    "numCompletedIndices": 1,
     "numActiveStages": 0,
-    "numCompletedStages": 3,
+    "numCompletedStages": 1,
     "numSkippedStages": 0,
     "numFailedStages": 0,
     "killedTasksSummary": {}
   },
   {
     "jobId": 117,
-    "name": "count at <unknown>:0",
+    "name": "$anonfun$withThreadLocalCaptured$1 at FutureTask.java:264",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T16:54:25.171GMT",
-    "completionTime": "2026-10-05T16:54:25.328GMT",
+    "submissionTime": "2026-10-25T21:02:04.976GMT",
+    "completionTime": "2026-10-25T21:02:04.981GMT",
     "stageIds": [
-      256,
-      257
+      264
     ],
     "jobGroup": "P4_B_GROUPBY",
-    "jobTags": [],
+    "jobTags": [
+      "broadcast exchange (runId def75cbd-2107-4d80-a80c-c7d70a7dcdb4)"
+    ],
     "status": "SUCCEEDED",
-    "numTasks": 3,
+    "numTasks": 1,
     "numActiveTasks": 0,
-    "numCompletedTasks": 3,
+    "numCompletedTasks": 1,
     "numSkippedTasks": 0,
     "numFailedTasks": 0,
     "numKilledTasks": 0,
-    "numCompletedIndices": 3,
+    "numCompletedIndices": 1,
     "numActiveStages": 0,
-    "numCompletedStages": 2,
+    "numCompletedStages": 1,
     "numSkippedStages": 0,
     "numFailedStages": 0,
     "killedTasksSummary": {}
   },
   {
     "jobId": 116,
-    "name": "$anonfun$withThreadLocalCaptured$1 at FutureTask.java:264",
-    "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T16:54:25.148GMT",
-    "completionTime": "2026-10-05T16:54:25.155GMT",
-    "stageIds": [
-      255
-    ],
-    "jobGroup": "P4_B_GROUPBY",
-    "jobTags": [
-      "broadcast exchange (runId 2e13875f-a279-4630-a812-c79192d335cc)"
-    ],
-    "status": "SUCCEEDED",
-    "numTasks": 1,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 1,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 1,
-    "numActiveStages": 0,
-    "numCompletedStages": 1,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 115,
-    "name": "first at /tmp/ipykernel_13575/911693517.py:21",
-    "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T16:54:25.045GMT",
-    "completionTime": "2026-10-05T16:54:25.117GMT",
-    "stageIds": [
-      252,
-      253,
-      254
-    ],
-    "jobGroup": "P4_B_GROUPBY",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 11,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 11,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 11,
-    "numActiveStages": 0,
-    "numCompletedStages": 3,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 114,
-    "name": "first at /tmp/ipykernel_13575/911693517.py:21",
-    "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T16:54:25.019GMT",
-    "completionTime": "2026-10-05T16:54:25.034GMT",
-    "stageIds": [
-      251
-    ],
-    "jobGroup": "P4_B_GROUPBY",
-    "jobTags": [
-      "broadcast exchange (runId 46eefb46-eb57-4ceb-9c3e-6236919ad87d)"
-    ],
-    "status": "SUCCEEDED",
-    "numTasks": 1,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 1,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 1,
-    "numActiveStages": 0,
-    "numCompletedStages": 1,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 113,
-    "name": "first at /tmp/ipykernel_13575/911693517.py:21",
-    "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T16:54:24.870GMT",
-    "completionTime": "2026-10-05T16:54:24.970GMT",
-    "stageIds": [
-      248,
-      249,
-      250
-    ],
-    "jobGroup": "P4_B_GROUPBY",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 11,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 11,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 11,
-    "numActiveStages": 0,
-    "numCompletedStages": 3,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 112,
-    "name": "first at /tmp/ipykernel_13575/911693517.py:21",
-    "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T16:54:24.838GMT",
-    "completionTime": "2026-10-05T16:54:24.851GMT",
-    "stageIds": [
-      247
-    ],
-    "jobGroup": "P4_B_GROUPBY",
-    "jobTags": [
-      "broadcast exchange (runId 97c5a135-2ae9-424d-8c57-009e39fabc4e)"
-    ],
-    "status": "SUCCEEDED",
-    "numTasks": 1,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 1,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 1,
-    "numActiveStages": 0,
-    "numCompletedStages": 1,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 111,
-    "name": "$anonfun$withThreadLocalCaptured$1 at FutureTask.java:264",
-    "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T16:54:24.787GMT",
-    "completionTime": "2026-10-05T16:54:24.795GMT",
-    "stageIds": [
-      246
-    ],
-    "jobGroup": "P4_B_GROUPBY",
-    "jobTags": [
-      "broadcast exchange (runId 4b099005-aa3a-4940-a238-a3180e96877e)"
-    ],
-    "status": "SUCCEEDED",
-    "numTasks": 1,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 1,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 1,
-    "numActiveStages": 0,
-    "numCompletedStages": 1,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 110,
     "name": "collect at /home/albakhtin/tiabd/АлбахтинИВ/Spark/lab_helpers.py:21",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T16:54:24.738GMT",
-    "completionTime": "2026-10-05T16:54:24.774GMT",
+    "submissionTime": "2026-10-25T21:02:04.920GMT",
+    "completionTime": "2026-10-25T21:02:04.960GMT",
     "stageIds": [
-      245,
-      242,
-      243,
-      244
+      263,
+      260,
+      261,
+      262
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [],
@@ -1291,15 +1371,15 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 109,
+    "jobId": 115,
     "name": "collect at /home/albakhtin/tiabd/АлбахтинИВ/Spark/lab_helpers.py:21",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T16:54:24.660GMT",
-    "completionTime": "2026-10-05T16:54:24.734GMT",
+    "submissionTime": "2026-10-25T21:02:04.846GMT",
+    "completionTime": "2026-10-25T21:02:04.916GMT",
     "stageIds": [
-      241,
-      239,
-      240
+      259,
+      257,
+      258
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [],
@@ -1318,17 +1398,17 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 108,
+    "jobId": 114,
     "name": "collect at /home/albakhtin/tiabd/АлбахтинИВ/Spark/lab_helpers.py:21",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T16:54:24.643GMT",
-    "completionTime": "2026-10-05T16:54:24.648GMT",
+    "submissionTime": "2026-10-25T21:02:04.828GMT",
+    "completionTime": "2026-10-25T21:02:04.833GMT",
     "stageIds": [
-      238
+      256
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [
-      "broadcast exchange (runId 97620ac4-9128-42e9-805f-07f4785017c2)"
+      "broadcast exchange (runId 3cdc636e-7e23-4281-8236-701500fbe634)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -1345,17 +1425,17 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 107,
+    "jobId": 113,
     "name": "$anonfun$withThreadLocalCaptured$1 at FutureTask.java:264",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T16:54:24.583GMT",
-    "completionTime": "2026-10-05T16:54:24.592GMT",
+    "submissionTime": "2026-10-25T21:02:04.776GMT",
+    "completionTime": "2026-10-25T21:02:04.784GMT",
     "stageIds": [
-      237
+      255
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [
-      "broadcast exchange (runId 5c89e852-86b9-4431-9ebd-86715d3dc8ec)"
+      "broadcast exchange (runId f99a48a4-ecc5-4864-8750-b8dfa15fbe38)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -1372,17 +1452,17 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 106,
+    "jobId": 112,
     "name": "collect at /home/albakhtin/tiabd/АлбахтинИВ/Spark/lab_helpers.py:21",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T16:54:24.533GMT",
-    "completionTime": "2026-10-05T16:54:24.563GMT",
+    "submissionTime": "2026-10-25T21:02:04.728GMT",
+    "completionTime": "2026-10-25T21:02:04.764GMT",
     "stageIds": [
-      233,
-      234,
-      235,
-      232,
-      236
+      251,
+      252,
+      253,
+      250,
+      254
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [],
@@ -1401,16 +1481,16 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 105,
+    "jobId": 111,
     "name": "collect at /home/albakhtin/tiabd/АлбахтинИВ/Spark/lab_helpers.py:21",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T16:54:24.400GMT",
-    "completionTime": "2026-10-05T16:54:24.529GMT",
+    "submissionTime": "2026-10-25T21:02:04.587GMT",
+    "completionTime": "2026-10-25T21:02:04.724GMT",
     "stageIds": [
-      230,
-      231,
-      228,
-      229
+      248,
+      249,
+      246,
+      247
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [],
@@ -1429,17 +1509,17 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 104,
+    "jobId": 110,
     "name": "collect at /home/albakhtin/tiabd/АлбахтинИВ/Spark/lab_helpers.py:21",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T16:54:24.365GMT",
-    "completionTime": "2026-10-05T16:54:24.376GMT",
+    "submissionTime": "2026-10-25T21:02:04.566GMT",
+    "completionTime": "2026-10-25T21:02:04.570GMT",
     "stageIds": [
-      227
+      245
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [
-      "broadcast exchange (runId 1cc7177f-dfd9-4fe4-844e-0ae86120c36e)"
+      "broadcast exchange (runId d9153e6b-aec5-4327-bc59-49e828c98504)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -1456,15 +1536,15 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 103,
+    "jobId": 109,
     "name": "collect at /home/albakhtin/tiabd/АлбахтинИВ/Spark/lab_helpers.py:21",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T16:54:24.188GMT",
-    "completionTime": "2026-10-05T16:54:24.237GMT",
+    "submissionTime": "2026-10-25T21:02:04.422GMT",
+    "completionTime": "2026-10-25T21:02:04.474GMT",
     "stageIds": [
-      224,
-      225,
-      226
+      242,
+      243,
+      244
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [],
@@ -1483,14 +1563,14 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 102,
+    "jobId": 108,
     "name": "collect at /home/albakhtin/tiabd/АлбахтинИВ/Spark/lab_helpers.py:21",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T16:54:24.095GMT",
-    "completionTime": "2026-10-05T16:54:24.183GMT",
+    "submissionTime": "2026-10-25T21:02:04.322GMT",
+    "completionTime": "2026-10-25T21:02:04.417GMT",
     "stageIds": [
-      222,
-      223
+      241,
+      240
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [],
@@ -1509,17 +1589,17 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 101,
+    "jobId": 107,
     "name": "collect at /home/albakhtin/tiabd/АлбахтинИВ/Spark/lab_helpers.py:21",
     "description": "P4_B_GROUPBY",
-    "submissionTime": "2026-10-05T16:54:24.066GMT",
-    "completionTime": "2026-10-05T16:54:24.072GMT",
+    "submissionTime": "2026-10-25T21:02:04.297GMT",
+    "completionTime": "2026-10-25T21:02:04.302GMT",
     "stageIds": [
-      221
+      239
     ],
     "jobGroup": "P4_B_GROUPBY",
     "jobTags": [
-      "broadcast exchange (runId c29dc7e0-aba1-476f-a05e-c5f53ab75e2e)"
+      "broadcast exchange (runId da555eba-7e44-49f0-ad0d-bf2d434d4591)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -1536,14 +1616,14 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 100,
+    "jobId": 106,
     "name": "count at <unknown>:0",
     "description": "P4_B_BHJ",
-    "submissionTime": "2026-10-05T16:54:23.975GMT",
-    "completionTime": "2026-10-05T16:54:24.017GMT",
+    "submissionTime": "2026-10-25T21:02:04.223GMT",
+    "completionTime": "2026-10-25T21:02:04.258GMT",
     "stageIds": [
-      219,
-      220
+      237,
+      238
     ],
     "jobGroup": "P4_B_BHJ",
     "jobTags": [],
@@ -1562,17 +1642,17 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 99,
+    "jobId": 105,
     "name": "$anonfun$withThreadLocalCaptured$1 at FutureTask.java:264",
     "description": "P4_B_BHJ",
-    "submissionTime": "2026-10-05T16:54:23.950GMT",
-    "completionTime": "2026-10-05T16:54:23.960GMT",
+    "submissionTime": "2026-10-25T21:02:04.202GMT",
+    "completionTime": "2026-10-25T21:02:04.209GMT",
     "stageIds": [
-      218
+      236
     ],
     "jobGroup": "P4_B_BHJ",
     "jobTags": [
-      "broadcast exchange (runId 10430f1b-9a72-4396-ac0a-7bd46ab71262)"
+      "broadcast exchange (runId 45305c49-a797-419b-8058-84aa1c17be07)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -1589,16 +1669,16 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 98,
+    "jobId": 104,
     "name": "count at <unknown>:0",
     "description": "P4_B_SMJ",
-    "submissionTime": "2026-10-05T16:54:23.747GMT",
-    "completionTime": "2026-10-05T16:54:23.903GMT",
+    "submissionTime": "2026-10-25T21:02:04.028GMT",
+    "completionTime": "2026-10-25T21:02:04.151GMT",
     "stageIds": [
-      215,
-      216,
-      217,
-      214
+      233,
+      234,
+      235,
+      232
     ],
     "jobGroup": "P4_B_SMJ",
     "jobTags": [],
@@ -1617,14 +1697,14 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 97,
+    "jobId": 103,
     "name": "count at <unknown>:0",
     "description": "P4_B_LAZY",
-    "submissionTime": "2026-10-05T16:54:23.649GMT",
-    "completionTime": "2026-10-05T16:54:23.677GMT",
+    "submissionTime": "2026-10-25T21:02:03.904GMT",
+    "completionTime": "2026-10-25T21:02:03.930GMT",
     "stageIds": [
-      212,
-      213
+      230,
+      231
     ],
     "jobGroup": "P4_B_LAZY",
     "jobTags": [],
@@ -1643,14 +1723,14 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 96,
-    "name": "collect at /tmp/ipykernel_13575/2694857706.py:15",
+    "jobId": 102,
+    "name": "collect at /tmp/ipykernel_2702624/2694857706.py:15",
     "description": "P4_FILES_items_64",
-    "submissionTime": "2026-10-05T16:54:23.593GMT",
-    "completionTime": "2026-10-05T16:54:23.596GMT",
+    "submissionTime": "2026-10-25T21:02:03.855GMT",
+    "completionTime": "2026-10-25T21:02:03.865GMT",
     "stageIds": [
-      210,
-      211
+      228,
+      229
     ],
     "jobGroup": "P4_FILES_items_64",
     "jobTags": [],
@@ -1669,14 +1749,14 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 95,
-    "name": "collect at /tmp/ipykernel_13575/2694857706.py:14",
+    "jobId": 101,
+    "name": "collect at /tmp/ipykernel_2702624/2694857706.py:14",
     "description": "P4_FILES_items_64",
-    "submissionTime": "2026-10-05T16:54:23.576GMT",
-    "completionTime": "2026-10-05T16:54:23.584GMT",
+    "submissionTime": "2026-10-25T21:02:03.841GMT",
+    "completionTime": "2026-10-25T21:02:03.848GMT",
     "stageIds": [
-      208,
-      209
+      227,
+      226
     ],
     "jobGroup": "P4_FILES_items_64",
     "jobTags": [],
@@ -1695,13 +1775,13 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 94,
-    "name": "collect at /tmp/ipykernel_13575/2694857706.py:14",
+    "jobId": 100,
+    "name": "collect at /tmp/ipykernel_2702624/2694857706.py:14",
     "description": "P4_FILES_items_64",
-    "submissionTime": "2026-10-05T16:54:23.496GMT",
-    "completionTime": "2026-10-05T16:54:23.555GMT",
+    "submissionTime": "2026-10-25T21:02:03.765GMT",
+    "completionTime": "2026-10-25T21:02:03.821GMT",
     "stageIds": [
-      207
+      225
     ],
     "jobGroup": "P4_FILES_items_64",
     "jobTags": [],
@@ -1720,13 +1800,13 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 93,
+    "jobId": 99,
     "name": "parquet at NativeMethodAccessorImpl.java:0",
     "description": "P4_FILES_items_64",
-    "submissionTime": "2026-10-05T16:54:23.265GMT",
-    "completionTime": "2026-10-05T16:54:23.436GMT",
+    "submissionTime": "2026-10-25T21:02:03.548GMT",
+    "completionTime": "2026-10-25T21:02:03.706GMT",
     "stageIds": [
-      206
+      224
     ],
     "jobGroup": "P4_FILES_items_64",
     "jobTags": [],
@@ -1745,14 +1825,14 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 92,
+    "jobId": 98,
     "name": "parquet at NativeMethodAccessorImpl.java:0",
     "description": "P4_FILES_items_64",
-    "submissionTime": "2026-10-05T16:54:22.207GMT",
-    "completionTime": "2026-10-05T16:54:23.194GMT",
+    "submissionTime": "2026-10-25T21:02:02.549GMT",
+    "completionTime": "2026-10-25T21:02:03.497GMT",
     "stageIds": [
-      204,
-      205
+      222,
+      223
     ],
     "jobGroup": "P4_FILES_items_64",
     "jobTags": [],
@@ -1771,14 +1851,14 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 91,
+    "jobId": 97,
     "name": "parquet at NativeMethodAccessorImpl.java:0",
     "description": "P4_FILES_items_16",
-    "submissionTime": "2026-10-05T16:54:21.740GMT",
-    "completionTime": "2026-10-05T16:54:22.171GMT",
+    "submissionTime": "2026-10-25T21:02:01.778GMT",
+    "completionTime": "2026-10-25T21:02:02.501GMT",
     "stageIds": [
-      202,
-      203
+      220,
+      221
     ],
     "jobGroup": "P4_FILES_items_16",
     "jobTags": [],
@@ -1797,14 +1877,14 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 90,
+    "jobId": 96,
     "name": "parquet at NativeMethodAccessorImpl.java:0",
     "description": "P4_FILES_items_4",
-    "submissionTime": "2026-10-05T16:54:21.403GMT",
-    "completionTime": "2026-10-05T16:54:21.694GMT",
+    "submissionTime": "2026-10-25T21:02:01.186GMT",
+    "completionTime": "2026-10-25T21:02:01.662GMT",
     "stageIds": [
-      201,
-      200
+      219,
+      218
     ],
     "jobGroup": "P4_FILES_items_4",
     "jobTags": [],
@@ -1823,14 +1903,14 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 89,
+    "jobId": 95,
     "name": "parquet at NativeMethodAccessorImpl.java:0",
     "description": "P4_FILES_items_1",
-    "submissionTime": "2026-10-05T16:54:21.093GMT",
-    "completionTime": "2026-10-05T16:54:21.362GMT",
+    "submissionTime": "2026-10-25T21:02:00.613GMT",
+    "completionTime": "2026-10-25T21:02:01.076GMT",
     "stageIds": [
-      198,
-      199
+      216,
+      217
     ],
     "jobGroup": "P4_FILES_items_1",
     "jobTags": [],
@@ -1849,16 +1929,16 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 88,
+    "jobId": 94,
     "name": "count at <unknown>:0",
     "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:20.793GMT",
-    "completionTime": "2026-10-05T16:54:21.047GMT",
+    "submissionTime": "2026-10-25T21:02:00.333GMT",
+    "completionTime": "2026-10-25T21:02:00.570GMT",
     "stageIds": [
-      197,
-      194,
-      195,
-      196
+      215,
+      212,
+      213,
+      214
     ],
     "jobGroup": "P4_BENCHMARK",
     "jobTags": [],
@@ -1877,16 +1957,16 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 87,
+    "jobId": 93,
     "name": "count at <unknown>:0",
     "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:20.506GMT",
-    "completionTime": "2026-10-05T16:54:20.764GMT",
+    "submissionTime": "2026-10-25T21:02:00.063GMT",
+    "completionTime": "2026-10-25T21:02:00.307GMT",
     "stageIds": [
-      190,
-      191,
-      192,
-      193
+      208,
+      209,
+      210,
+      211
     ],
     "jobGroup": "P4_BENCHMARK",
     "jobTags": [],
@@ -1905,16 +1985,16 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 86,
+    "jobId": 92,
     "name": "count at <unknown>:0",
     "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:20.222GMT",
-    "completionTime": "2026-10-05T16:54:20.485GMT",
+    "submissionTime": "2026-10-25T21:01:59.810GMT",
+    "completionTime": "2026-10-25T21:02:00.034GMT",
     "stageIds": [
-      186,
-      187,
-      188,
-      189
+      204,
+      205,
+      206,
+      207
     ],
     "jobGroup": "P4_BENCHMARK",
     "jobTags": [],
@@ -1933,16 +2013,16 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 85,
+    "jobId": 91,
     "name": "count at <unknown>:0",
     "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:20.011GMT",
-    "completionTime": "2026-10-05T16:54:20.202GMT",
+    "submissionTime": "2026-10-25T21:01:59.586GMT",
+    "completionTime": "2026-10-25T21:01:59.788GMT",
     "stageIds": [
-      183,
-      184,
-      185,
-      182
+      201,
+      202,
+      203,
+      200
     ],
     "jobGroup": "P4_BENCHMARK",
     "jobTags": [],
@@ -1961,16 +2041,16 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 84,
+    "jobId": 90,
     "name": "count at <unknown>:0",
     "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:19.690GMT",
-    "completionTime": "2026-10-05T16:54:19.989GMT",
+    "submissionTime": "2026-10-25T21:01:59.296GMT",
+    "completionTime": "2026-10-25T21:01:59.567GMT",
     "stageIds": [
-      179,
-      180,
-      181,
-      178
+      197,
+      198,
+      199,
+      196
     ],
     "jobGroup": "P4_BENCHMARK",
     "jobTags": [],
@@ -1989,11 +2069,173 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 83,
-    "name": "first at /tmp/ipykernel_13575/880920770.py:7",
+    "jobId": 89,
+    "name": "first at /tmp/ipykernel_2702624/880920770.py:7",
     "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:19.515GMT",
-    "completionTime": "2026-10-05T16:54:19.641GMT",
+    "submissionTime": "2026-10-25T21:01:59.146GMT",
+    "completionTime": "2026-10-25T21:01:59.266GMT",
+    "stageIds": [
+      194,
+      195,
+      193
+    ],
+    "jobGroup": "P4_BENCHMARK",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 41,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 41,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 41,
+    "numActiveStages": 0,
+    "numCompletedStages": 3,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 88,
+    "name": "first at /tmp/ipykernel_2702624/880920770.py:7",
+    "description": "Synthetic partition benchmark",
+    "submissionTime": "2026-10-25T21:01:59.002GMT",
+    "completionTime": "2026-10-25T21:01:59.119GMT",
+    "stageIds": [
+      190,
+      191,
+      192
+    ],
+    "jobGroup": "P4_BENCHMARK",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 41,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 41,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 41,
+    "numActiveStages": 0,
+    "numCompletedStages": 3,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 87,
+    "name": "first at /tmp/ipykernel_2702624/880920770.py:7",
+    "description": "Synthetic partition benchmark",
+    "submissionTime": "2026-10-25T21:01:58.838GMT",
+    "completionTime": "2026-10-25T21:01:58.968GMT",
+    "stageIds": [
+      187,
+      188,
+      189
+    ],
+    "jobGroup": "P4_BENCHMARK",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 41,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 41,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 41,
+    "numActiveStages": 0,
+    "numCompletedStages": 3,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 86,
+    "name": "first at /tmp/ipykernel_2702624/880920770.py:7",
+    "description": "Synthetic partition benchmark",
+    "submissionTime": "2026-10-25T21:01:58.727GMT",
+    "completionTime": "2026-10-25T21:01:58.806GMT",
+    "stageIds": [
+      186,
+      184,
+      185
+    ],
+    "jobGroup": "P4_BENCHMARK",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 25,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 25,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 25,
+    "numActiveStages": 0,
+    "numCompletedStages": 3,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 85,
+    "name": "first at /tmp/ipykernel_2702624/880920770.py:7",
+    "description": "Synthetic partition benchmark",
+    "submissionTime": "2026-10-25T21:01:58.633GMT",
+    "completionTime": "2026-10-25T21:01:58.703GMT",
+    "stageIds": [
+      183,
+      181,
+      182
+    ],
+    "jobGroup": "P4_BENCHMARK",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 25,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 25,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 25,
+    "numActiveStages": 0,
+    "numCompletedStages": 3,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 84,
+    "name": "first at /tmp/ipykernel_2702624/880920770.py:7",
+    "description": "Synthetic partition benchmark",
+    "submissionTime": "2026-10-25T21:01:58.475GMT",
+    "completionTime": "2026-10-25T21:01:58.596GMT",
+    "stageIds": [
+      179,
+      180,
+      178
+    ],
+    "jobGroup": "P4_BENCHMARK",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 25,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 25,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 25,
+    "numActiveStages": 0,
+    "numCompletedStages": 3,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 83,
+    "name": "first at /tmp/ipykernel_2702624/880920770.py:7",
+    "description": "Synthetic partition benchmark",
+    "submissionTime": "2026-10-25T21:01:58.382GMT",
+    "completionTime": "2026-10-25T21:01:58.442GMT",
     "stageIds": [
       176,
       177,
@@ -2002,13 +2244,13 @@
     "jobGroup": "P4_BENCHMARK",
     "jobTags": [],
     "status": "SUCCEEDED",
-    "numTasks": 41,
+    "numTasks": 17,
     "numActiveTasks": 0,
-    "numCompletedTasks": 41,
+    "numCompletedTasks": 17,
     "numSkippedTasks": 0,
     "numFailedTasks": 0,
     "numKilledTasks": 0,
-    "numCompletedIndices": 41,
+    "numCompletedIndices": 17,
     "numActiveStages": 0,
     "numCompletedStages": 3,
     "numSkippedStages": 0,
@@ -2017,10 +2259,10 @@
   },
   {
     "jobId": 82,
-    "name": "first at /tmp/ipykernel_13575/880920770.py:7",
+    "name": "first at /tmp/ipykernel_2702624/880920770.py:7",
     "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:19.335GMT",
-    "completionTime": "2026-10-05T16:54:19.474GMT",
+    "submissionTime": "2026-10-25T21:01:58.243GMT",
+    "completionTime": "2026-10-25T21:01:58.356GMT",
     "stageIds": [
       172,
       173,
@@ -2029,13 +2271,13 @@
     "jobGroup": "P4_BENCHMARK",
     "jobTags": [],
     "status": "SUCCEEDED",
-    "numTasks": 41,
+    "numTasks": 17,
     "numActiveTasks": 0,
-    "numCompletedTasks": 41,
+    "numCompletedTasks": 17,
     "numSkippedTasks": 0,
     "numFailedTasks": 0,
     "numKilledTasks": 0,
-    "numCompletedIndices": 41,
+    "numCompletedIndices": 17,
     "numActiveStages": 0,
     "numCompletedStages": 3,
     "numSkippedStages": 0,
@@ -2044,10 +2286,10 @@
   },
   {
     "jobId": 81,
-    "name": "first at /tmp/ipykernel_13575/880920770.py:7",
+    "name": "first at /tmp/ipykernel_2702624/880920770.py:7",
     "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:19.122GMT",
-    "completionTime": "2026-10-05T16:54:19.303GMT",
+    "submissionTime": "2026-10-25T21:01:58.098GMT",
+    "completionTime": "2026-10-25T21:01:58.210GMT",
     "stageIds": [
       171,
       169,
@@ -2056,13 +2298,13 @@
     "jobGroup": "P4_BENCHMARK",
     "jobTags": [],
     "status": "SUCCEEDED",
-    "numTasks": 41,
+    "numTasks": 17,
     "numActiveTasks": 0,
-    "numCompletedTasks": 41,
+    "numCompletedTasks": 17,
     "numSkippedTasks": 0,
     "numFailedTasks": 0,
     "numKilledTasks": 0,
-    "numCompletedIndices": 41,
+    "numCompletedIndices": 17,
     "numActiveStages": 0,
     "numCompletedStages": 3,
     "numSkippedStages": 0,
@@ -2071,176 +2313,14 @@
   },
   {
     "jobId": 80,
-    "name": "first at /tmp/ipykernel_13575/880920770.py:7",
+    "name": "first at /tmp/ipykernel_2702624/880920770.py:7",
     "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:18.959GMT",
-    "completionTime": "2026-10-05T16:54:19.070GMT",
+    "submissionTime": "2026-10-25T21:01:58.014GMT",
+    "completionTime": "2026-10-25T21:01:58.061GMT",
     "stageIds": [
       168,
       166,
       167
-    ],
-    "jobGroup": "P4_BENCHMARK",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 25,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 25,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 25,
-    "numActiveStages": 0,
-    "numCompletedStages": 3,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 79,
-    "name": "first at /tmp/ipykernel_13575/880920770.py:7",
-    "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:18.773GMT",
-    "completionTime": "2026-10-05T16:54:18.873GMT",
-    "stageIds": [
-      165,
-      163,
-      164
-    ],
-    "jobGroup": "P4_BENCHMARK",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 25,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 25,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 25,
-    "numActiveStages": 0,
-    "numCompletedStages": 3,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 78,
-    "name": "first at /tmp/ipykernel_13575/880920770.py:7",
-    "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:18.532GMT",
-    "completionTime": "2026-10-05T16:54:18.715GMT",
-    "stageIds": [
-      161,
-      162,
-      160
-    ],
-    "jobGroup": "P4_BENCHMARK",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 25,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 25,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 25,
-    "numActiveStages": 0,
-    "numCompletedStages": 3,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 77,
-    "name": "first at /tmp/ipykernel_13575/880920770.py:7",
-    "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:18.403GMT",
-    "completionTime": "2026-10-05T16:54:18.477GMT",
-    "stageIds": [
-      157,
-      158,
-      159
-    ],
-    "jobGroup": "P4_BENCHMARK",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 17,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 17,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 17,
-    "numActiveStages": 0,
-    "numCompletedStages": 3,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 76,
-    "name": "first at /tmp/ipykernel_13575/880920770.py:7",
-    "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:18.288GMT",
-    "completionTime": "2026-10-05T16:54:18.361GMT",
-    "stageIds": [
-      154,
-      155,
-      156
-    ],
-    "jobGroup": "P4_BENCHMARK",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 17,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 17,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 17,
-    "numActiveStages": 0,
-    "numCompletedStages": 3,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 75,
-    "name": "first at /tmp/ipykernel_13575/880920770.py:7",
-    "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:18.064GMT",
-    "completionTime": "2026-10-05T16:54:18.231GMT",
-    "stageIds": [
-      153,
-      151,
-      152
-    ],
-    "jobGroup": "P4_BENCHMARK",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 17,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 17,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 17,
-    "numActiveStages": 0,
-    "numCompletedStages": 3,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 74,
-    "name": "first at /tmp/ipykernel_13575/880920770.py:7",
-    "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:17.942GMT",
-    "completionTime": "2026-10-05T16:54:18.009GMT",
-    "stageIds": [
-      150,
-      148,
-      149
     ],
     "jobGroup": "P4_BENCHMARK",
     "jobTags": [],
@@ -2259,11 +2339,221 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 73,
-    "name": "first at /tmp/ipykernel_13575/880920770.py:7",
+    "jobId": 79,
+    "name": "first at /tmp/ipykernel_2702624/880920770.py:7",
     "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:17.835GMT",
-    "completionTime": "2026-10-05T16:54:17.891GMT",
+    "submissionTime": "2026-10-25T21:01:57.916GMT",
+    "completionTime": "2026-10-25T21:01:57.970GMT",
+    "stageIds": [
+      165,
+      163,
+      164
+    ],
+    "jobGroup": "P4_BENCHMARK",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 13,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 13,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 13,
+    "numActiveStages": 0,
+    "numCompletedStages": 3,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 78,
+    "name": "first at /tmp/ipykernel_2702624/880920770.py:7",
+    "description": "Synthetic partition benchmark",
+    "submissionTime": "2026-10-25T21:01:57.826GMT",
+    "completionTime": "2026-10-25T21:01:57.878GMT",
+    "stageIds": [
+      161,
+      162,
+      160
+    ],
+    "jobGroup": "P4_BENCHMARK",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 13,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 13,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 13,
+    "numActiveStages": 0,
+    "numCompletedStages": 3,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 77,
+    "name": "first at /tmp/ipykernel_2702624/880920770.py:7",
+    "description": "Synthetic partition benchmark",
+    "submissionTime": "2026-10-25T21:01:57.735GMT",
+    "completionTime": "2026-10-25T21:01:57.784GMT",
+    "stageIds": [
+      157,
+      158,
+      159
+    ],
+    "jobGroup": "P4_BENCHMARK",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 11,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 11,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 11,
+    "numActiveStages": 0,
+    "numCompletedStages": 3,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 76,
+    "name": "first at /tmp/ipykernel_2702624/880920770.py:7",
+    "description": "Synthetic partition benchmark",
+    "submissionTime": "2026-10-25T21:01:57.618GMT",
+    "completionTime": "2026-10-25T21:01:57.682GMT",
+    "stageIds": [
+      154,
+      155,
+      156
+    ],
+    "jobGroup": "P4_BENCHMARK",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 11,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 11,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 11,
+    "numActiveStages": 0,
+    "numCompletedStages": 3,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 75,
+    "name": "first at /tmp/ipykernel_2702624/880920770.py:7",
+    "description": "Synthetic partition benchmark",
+    "submissionTime": "2026-10-25T21:01:57.504GMT",
+    "completionTime": "2026-10-25T21:01:57.590GMT",
+    "stageIds": [
+      153,
+      151,
+      152
+    ],
+    "jobGroup": "P4_BENCHMARK",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 11,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 11,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 11,
+    "numActiveStages": 0,
+    "numCompletedStages": 3,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 74,
+    "name": "first at /tmp/ipykernel_2702624/880920770.py:7",
+    "description": "Synthetic partition benchmark",
+    "submissionTime": "2026-10-25T21:01:57.439GMT",
+    "completionTime": "2026-10-25T21:01:57.460GMT",
+    "stageIds": [
+      150
+    ],
+    "jobGroup": "P4_BENCHMARK",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 73,
+    "name": "first at /tmp/ipykernel_2702624/880920770.py:7",
+    "description": "Synthetic partition benchmark",
+    "submissionTime": "2026-10-25T21:01:57.355GMT",
+    "completionTime": "2026-10-25T21:01:57.406GMT",
+    "stageIds": [
+      149
+    ],
+    "jobGroup": "P4_BENCHMARK",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 72,
+    "name": "first at /tmp/ipykernel_2702624/880920770.py:7",
+    "description": "Synthetic partition benchmark",
+    "submissionTime": "2026-10-25T21:01:57.274GMT",
+    "completionTime": "2026-10-25T21:01:57.330GMT",
+    "stageIds": [
+      148
+    ],
+    "jobGroup": "P4_BENCHMARK",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 71,
+    "name": "first at /tmp/ipykernel_2702624/880920770.py:7",
+    "description": "Synthetic partition benchmark",
+    "submissionTime": "2026-10-25T21:01:57.068GMT",
+    "completionTime": "2026-10-25T21:01:57.219GMT",
     "stageIds": [
       147,
       145,
@@ -2286,71 +2576,17 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 72,
-    "name": "first at /tmp/ipykernel_13575/880920770.py:7",
-    "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:17.699GMT",
-    "completionTime": "2026-10-05T16:54:17.787GMT",
+    "jobId": 70,
+    "name": "first at /tmp/ipykernel_2702624/1835429919.py:6",
+    "description": "P4_PERSIST",
+    "submissionTime": "2026-10-25T21:01:55.407GMT",
+    "completionTime": "2026-10-25T21:01:55.462GMT",
     "stageIds": [
       143,
       144,
       142
     ],
-    "jobGroup": "P4_BENCHMARK",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 13,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 13,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 13,
-    "numActiveStages": 0,
-    "numCompletedStages": 3,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 71,
-    "name": "first at /tmp/ipykernel_13575/880920770.py:7",
-    "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:17.580GMT",
-    "completionTime": "2026-10-05T16:54:17.650GMT",
-    "stageIds": [
-      139,
-      140,
-      141
-    ],
-    "jobGroup": "P4_BENCHMARK",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 11,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 11,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 11,
-    "numActiveStages": 0,
-    "numCompletedStages": 3,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 70,
-    "name": "first at /tmp/ipykernel_13575/880920770.py:7",
-    "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:17.482GMT",
-    "completionTime": "2026-10-05T16:54:17.532GMT",
-    "stageIds": [
-      136,
-      137,
-      138
-    ],
-    "jobGroup": "P4_BENCHMARK",
+    "jobGroup": "P4_PERSIST",
     "jobTags": [],
     "status": "SUCCEEDED",
     "numTasks": 11,
@@ -2368,16 +2604,16 @@
   },
   {
     "jobId": 69,
-    "name": "first at /tmp/ipykernel_13575/880920770.py:7",
-    "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:17.307GMT",
-    "completionTime": "2026-10-05T16:54:17.426GMT",
+    "name": "first at /tmp/ipykernel_2702624/1835429919.py:6",
+    "description": "P4_PERSIST",
+    "submissionTime": "2026-10-25T21:01:55.256GMT",
+    "completionTime": "2026-10-25T21:01:55.373GMT",
     "stageIds": [
-      135,
-      133,
-      134
+      139,
+      140,
+      141
     ],
-    "jobGroup": "P4_BENCHMARK",
+    "jobGroup": "P4_PERSIST",
     "jobTags": [],
     "status": "SUCCEEDED",
     "numTasks": 11,
@@ -2395,169 +2631,13 @@
   },
   {
     "jobId": 68,
-    "name": "first at /tmp/ipykernel_13575/880920770.py:7",
-    "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:17.203GMT",
-    "completionTime": "2026-10-05T16:54:17.226GMT",
-    "stageIds": [
-      132
-    ],
-    "jobGroup": "P4_BENCHMARK",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 1,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 1,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 1,
-    "numActiveStages": 0,
-    "numCompletedStages": 1,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 67,
-    "name": "first at /tmp/ipykernel_13575/880920770.py:7",
-    "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:17.132GMT",
-    "completionTime": "2026-10-05T16:54:17.155GMT",
-    "stageIds": [
-      131
-    ],
-    "jobGroup": "P4_BENCHMARK",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 1,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 1,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 1,
-    "numActiveStages": 0,
-    "numCompletedStages": 1,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 66,
-    "name": "first at /tmp/ipykernel_13575/880920770.py:7",
-    "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:17.002GMT",
-    "completionTime": "2026-10-05T16:54:17.084GMT",
-    "stageIds": [
-      130
-    ],
-    "jobGroup": "P4_BENCHMARK",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 1,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 1,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 1,
-    "numActiveStages": 0,
-    "numCompletedStages": 1,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 65,
-    "name": "first at /tmp/ipykernel_13575/880920770.py:7",
-    "description": "Synthetic partition benchmark",
-    "submissionTime": "2026-10-05T16:54:16.795GMT",
-    "completionTime": "2026-10-05T16:54:16.939GMT",
-    "stageIds": [
-      129,
-      127,
-      128
-    ],
-    "jobGroup": "P4_BENCHMARK",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 13,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 13,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 13,
-    "numActiveStages": 0,
-    "numCompletedStages": 3,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 64,
-    "name": "first at /tmp/ipykernel_13575/3716483327.py:6",
-    "description": "P4_PERSIST",
-    "submissionTime": "2026-10-05T16:50:41.336GMT",
-    "completionTime": "2026-10-05T16:50:41.404GMT",
-    "stageIds": [
-      125,
-      126,
-      124
-    ],
-    "jobGroup": "P4_PERSIST",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 11,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 11,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 11,
-    "numActiveStages": 0,
-    "numCompletedStages": 3,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 63,
-    "name": "first at /tmp/ipykernel_13575/3716483327.py:6",
-    "description": "P4_PERSIST",
-    "submissionTime": "2026-10-05T16:50:41.134GMT",
-    "completionTime": "2026-10-05T16:50:41.266GMT",
-    "stageIds": [
-      121,
-      122,
-      123
-    ],
-    "jobGroup": "P4_PERSIST",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 11,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 11,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 11,
-    "numActiveStages": 0,
-    "numCompletedStages": 3,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 62,
     "name": "count at <unknown>:0",
     "description": "P4_PERSIST",
-    "submissionTime": "2026-10-05T16:50:40.519GMT",
-    "completionTime": "2026-10-05T16:50:41.043GMT",
+    "submissionTime": "2026-10-25T21:01:54.788GMT",
+    "completionTime": "2026-10-25T21:01:55.211GMT",
     "stageIds": [
-      119,
-      120
+      137,
+      138
     ],
     "jobGroup": "P4_PERSIST",
     "jobTags": [],
@@ -2576,17 +2656,179 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 61,
+    "jobId": 67,
     "name": "$anonfun$withThreadLocalCaptured$1 at FutureTask.java:264",
     "description": "P4_PERSIST",
-    "submissionTime": "2026-10-05T16:50:40.450GMT",
-    "completionTime": "2026-10-05T16:50:40.461GMT",
+    "submissionTime": "2026-10-25T21:01:54.751GMT",
+    "completionTime": "2026-10-25T21:01:54.760GMT",
     "stageIds": [
-      118
+      136
     ],
     "jobGroup": "P4_PERSIST",
     "jobTags": [
-      "broadcast exchange (runId 7009ffcd-c801-4b43-8098-a2997101b015)"
+      "broadcast exchange (runId 0a623976-1ac0-4377-b498-686d6d33a3aa)"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 66,
+    "name": "$anonfun$withThreadLocalCaptured$1 at FutureTask.java:264",
+    "description": "P4_PERSIST",
+    "submissionTime": "2026-10-25T21:01:54.715GMT",
+    "completionTime": "2026-10-25T21:01:54.745GMT",
+    "stageIds": [
+      135
+    ],
+    "jobGroup": "P4_PERSIST",
+    "jobTags": [
+      "broadcast exchange (runId 84c3d676-29e0-441b-808a-b82916544fae)"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 65,
+    "name": "first at /tmp/ipykernel_2702624/1835429919.py:6",
+    "description": "P4_NOCACHE",
+    "submissionTime": "2026-10-25T21:01:54.521GMT",
+    "completionTime": "2026-10-25T21:01:54.642GMT",
+    "stageIds": [
+      132,
+      133,
+      134
+    ],
+    "jobGroup": "P4_NOCACHE",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 11,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 11,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 11,
+    "numActiveStages": 0,
+    "numCompletedStages": 3,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 64,
+    "name": "first at /tmp/ipykernel_2702624/1835429919.py:6",
+    "description": "P4_NOCACHE",
+    "submissionTime": "2026-10-25T21:01:54.459GMT",
+    "completionTime": "2026-10-25T21:01:54.477GMT",
+    "stageIds": [
+      131
+    ],
+    "jobGroup": "P4_NOCACHE",
+    "jobTags": [
+      "broadcast exchange (runId 8cbafaa8-d0ad-4acc-b2be-85104491dd6a)"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 63,
+    "name": "first at /tmp/ipykernel_2702624/1835429919.py:6",
+    "description": "P4_NOCACHE",
+    "submissionTime": "2026-10-25T21:01:54.431GMT",
+    "completionTime": "2026-10-25T21:01:54.453GMT",
+    "stageIds": [
+      130
+    ],
+    "jobGroup": "P4_NOCACHE",
+    "jobTags": [
+      "broadcast exchange (runId 27957f39-aa0c-46eb-9d10-c93b19fb403e)"
+    ],
+    "status": "SUCCEEDED",
+    "numTasks": 1,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 1,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 1,
+    "numActiveStages": 0,
+    "numCompletedStages": 1,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 62,
+    "name": "first at /tmp/ipykernel_2702624/1835429919.py:6",
+    "description": "P4_NOCACHE",
+    "submissionTime": "2026-10-25T21:01:54.220GMT",
+    "completionTime": "2026-10-25T21:01:54.373GMT",
+    "stageIds": [
+      129,
+      127,
+      128
+    ],
+    "jobGroup": "P4_NOCACHE",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 11,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 11,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 11,
+    "numActiveStages": 0,
+    "numCompletedStages": 3,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 61,
+    "name": "first at /tmp/ipykernel_2702624/1835429919.py:6",
+    "description": "P4_NOCACHE",
+    "submissionTime": "2026-10-25T21:01:54.146GMT",
+    "completionTime": "2026-10-25T21:01:54.154GMT",
+    "stageIds": [
+      126
+    ],
+    "jobGroup": "P4_NOCACHE",
+    "jobTags": [
+      "broadcast exchange (runId 2ae3c1a8-1f15-4c35-bf7c-163f6e75f56f)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -2604,16 +2846,16 @@
   },
   {
     "jobId": 60,
-    "name": "$anonfun$withThreadLocalCaptured$1 at FutureTask.java:264",
-    "description": "P4_PERSIST",
-    "submissionTime": "2026-10-05T16:50:40.432GMT",
-    "completionTime": "2026-10-05T16:50:40.467GMT",
+    "name": "first at /tmp/ipykernel_2702624/1835429919.py:6",
+    "description": "P4_NOCACHE",
+    "submissionTime": "2026-10-25T21:01:54.137GMT",
+    "completionTime": "2026-10-25T21:01:54.164GMT",
     "stageIds": [
-      117
+      125
     ],
-    "jobGroup": "P4_PERSIST",
+    "jobGroup": "P4_NOCACHE",
     "jobTags": [
-      "broadcast exchange (runId 4fcdae20-a1e1-40a9-8c87-46ca34228190)"
+      "broadcast exchange (runId 7d25f16d-f526-45e0-b744-62d315db15b7)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -2631,43 +2873,42 @@
   },
   {
     "jobId": 59,
-    "name": "first at /tmp/ipykernel_13575/3716483327.py:6",
-    "description": "P4_NOCACHE",
-    "submissionTime": "2026-10-05T16:50:40.148GMT",
-    "completionTime": "2026-10-05T16:50:40.315GMT",
+    "name": "count at <unknown>:0",
+    "description": "P4_BHJ",
+    "submissionTime": "2026-10-25T21:01:48.314GMT",
+    "completionTime": "2026-10-25T21:01:48.339GMT",
     "stageIds": [
-      114,
-      115,
-      116
+      123,
+      124
     ],
-    "jobGroup": "P4_NOCACHE",
+    "jobGroup": "P4_BHJ",
     "jobTags": [],
     "status": "SUCCEEDED",
-    "numTasks": 11,
+    "numTasks": 3,
     "numActiveTasks": 0,
-    "numCompletedTasks": 11,
+    "numCompletedTasks": 3,
     "numSkippedTasks": 0,
     "numFailedTasks": 0,
     "numKilledTasks": 0,
-    "numCompletedIndices": 11,
+    "numCompletedIndices": 3,
     "numActiveStages": 0,
-    "numCompletedStages": 3,
+    "numCompletedStages": 2,
     "numSkippedStages": 0,
     "numFailedStages": 0,
     "killedTasksSummary": {}
   },
   {
     "jobId": 58,
-    "name": "first at /tmp/ipykernel_13575/3716483327.py:6",
-    "description": "P4_NOCACHE",
-    "submissionTime": "2026-10-05T16:50:40.103GMT",
-    "completionTime": "2026-10-05T16:50:40.117GMT",
+    "name": "$anonfun$withThreadLocalCaptured$1 at FutureTask.java:264",
+    "description": "P4_BHJ",
+    "submissionTime": "2026-10-25T21:01:48.274GMT",
+    "completionTime": "2026-10-25T21:01:48.297GMT",
     "stageIds": [
-      113
+      122
     ],
-    "jobGroup": "P4_NOCACHE",
+    "jobGroup": "P4_BHJ",
     "jobTags": [
-      "broadcast exchange (runId a9fbe8e0-df6f-4ade-b838-036fa334e74c)"
+      "broadcast exchange (runId cdb7df1d-80ec-49dd-9e99-bc69f63800e3)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -2685,70 +2926,70 @@
   },
   {
     "jobId": 57,
-    "name": "first at /tmp/ipykernel_13575/3716483327.py:6",
-    "description": "P4_NOCACHE",
-    "submissionTime": "2026-10-05T16:50:40.055GMT",
-    "completionTime": "2026-10-05T16:50:40.080GMT",
+    "name": "count at <unknown>:0",
+    "description": "P4_BHJ",
+    "submissionTime": "2026-10-25T21:01:48.140GMT",
+    "completionTime": "2026-10-25T21:01:48.258GMT",
     "stageIds": [
-      112
+      121,
+      118,
+      119,
+      120
     ],
-    "jobGroup": "P4_NOCACHE",
-    "jobTags": [
-      "broadcast exchange (runId 6e64c66c-08d4-454c-8634-0d69f992f1fa)"
-    ],
+    "jobGroup": "P4_BHJ",
+    "jobTags": [],
     "status": "SUCCEEDED",
-    "numTasks": 1,
+    "numTasks": 12,
     "numActiveTasks": 0,
-    "numCompletedTasks": 1,
+    "numCompletedTasks": 12,
     "numSkippedTasks": 0,
     "numFailedTasks": 0,
     "numKilledTasks": 0,
-    "numCompletedIndices": 1,
+    "numCompletedIndices": 12,
     "numActiveStages": 0,
-    "numCompletedStages": 1,
+    "numCompletedStages": 4,
     "numSkippedStages": 0,
     "numFailedStages": 0,
     "killedTasksSummary": {}
   },
   {
     "jobId": 56,
-    "name": "first at /tmp/ipykernel_13575/3716483327.py:6",
-    "description": "P4_NOCACHE",
-    "submissionTime": "2026-10-05T16:50:39.781GMT",
-    "completionTime": "2026-10-05T16:50:39.957GMT",
+    "name": "count at <unknown>:0",
+    "description": "P4_BHJ",
+    "submissionTime": "2026-10-25T21:01:48.084GMT",
+    "completionTime": "2026-10-25T21:01:48.113GMT",
     "stageIds": [
-      111,
-      109,
-      110
+      117,
+      116
     ],
-    "jobGroup": "P4_NOCACHE",
+    "jobGroup": "P4_BHJ",
     "jobTags": [],
     "status": "SUCCEEDED",
-    "numTasks": 11,
+    "numTasks": 3,
     "numActiveTasks": 0,
-    "numCompletedTasks": 11,
+    "numCompletedTasks": 3,
     "numSkippedTasks": 0,
     "numFailedTasks": 0,
     "numKilledTasks": 0,
-    "numCompletedIndices": 11,
+    "numCompletedIndices": 3,
     "numActiveStages": 0,
-    "numCompletedStages": 3,
+    "numCompletedStages": 2,
     "numSkippedStages": 0,
     "numFailedStages": 0,
     "killedTasksSummary": {}
   },
   {
     "jobId": 55,
-    "name": "first at /tmp/ipykernel_13575/3716483327.py:6",
-    "description": "P4_NOCACHE",
-    "submissionTime": "2026-10-05T16:50:39.689GMT",
-    "completionTime": "2026-10-05T16:50:39.728GMT",
+    "name": "$anonfun$withThreadLocalCaptured$1 at FutureTask.java:264",
+    "description": "P4_BHJ",
+    "submissionTime": "2026-10-25T21:01:48.039GMT",
+    "completionTime": "2026-10-25T21:01:48.053GMT",
     "stageIds": [
-      108
+      115
     ],
-    "jobGroup": "P4_NOCACHE",
+    "jobGroup": "P4_BHJ",
     "jobTags": [
-      "broadcast exchange (runId b03ade27-8705-45ad-8ddf-a8b6e8a2de2f)"
+      "broadcast exchange (runId d3e93494-33c0-479c-836d-94a7d8f6319f)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -2766,27 +3007,28 @@
   },
   {
     "jobId": 54,
-    "name": "first at /tmp/ipykernel_13575/3716483327.py:6",
-    "description": "P4_NOCACHE",
-    "submissionTime": "2026-10-05T16:50:39.682GMT",
-    "completionTime": "2026-10-05T16:50:39.703GMT",
+    "name": "count at <unknown>:0",
+    "description": "P4_BHJ",
+    "submissionTime": "2026-10-25T21:01:47.897GMT",
+    "completionTime": "2026-10-25T21:01:48.019GMT",
     "stageIds": [
-      107
+      114,
+      111,
+      112,
+      113
     ],
-    "jobGroup": "P4_NOCACHE",
-    "jobTags": [
-      "broadcast exchange (runId 6e01928b-32b1-454b-b11a-950ae9c3e36c)"
-    ],
+    "jobGroup": "P4_BHJ",
+    "jobTags": [],
     "status": "SUCCEEDED",
-    "numTasks": 1,
+    "numTasks": 12,
     "numActiveTasks": 0,
-    "numCompletedTasks": 1,
+    "numCompletedTasks": 12,
     "numSkippedTasks": 0,
     "numFailedTasks": 0,
     "numKilledTasks": 0,
-    "numCompletedIndices": 1,
+    "numCompletedIndices": 12,
     "numActiveStages": 0,
-    "numCompletedStages": 1,
+    "numCompletedStages": 4,
     "numSkippedStages": 0,
     "numFailedStages": 0,
     "killedTasksSummary": {}
@@ -2795,11 +3037,11 @@
     "jobId": 53,
     "name": "count at <unknown>:0",
     "description": "P4_BHJ",
-    "submissionTime": "2026-10-05T16:44:38.124GMT",
-    "completionTime": "2026-10-05T16:44:38.166GMT",
+    "submissionTime": "2026-10-25T21:01:47.814GMT",
+    "completionTime": "2026-10-25T21:01:47.866GMT",
     "stageIds": [
-      105,
-      106
+      109,
+      110
     ],
     "jobGroup": "P4_BHJ",
     "jobTags": [],
@@ -2821,14 +3063,14 @@
     "jobId": 52,
     "name": "$anonfun$withThreadLocalCaptured$1 at FutureTask.java:264",
     "description": "P4_BHJ",
-    "submissionTime": "2026-10-05T16:44:38.063GMT",
-    "completionTime": "2026-10-05T16:44:38.081GMT",
+    "submissionTime": "2026-10-25T21:01:47.757GMT",
+    "completionTime": "2026-10-25T21:01:47.774GMT",
     "stageIds": [
-      104
+      108
     ],
     "jobGroup": "P4_BHJ",
     "jobTags": [
-      "broadcast exchange (runId 9706ba38-54d9-4fa1-8cc3-f037254762a0)"
+      "broadcast exchange (runId 0687b1aa-82a7-44ec-a48b-87a489ffe4ae)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -2848,13 +3090,13 @@
     "jobId": 51,
     "name": "count at <unknown>:0",
     "description": "P4_BHJ",
-    "submissionTime": "2026-10-05T16:44:37.886GMT",
-    "completionTime": "2026-10-05T16:44:38.031GMT",
+    "submissionTime": "2026-10-25T21:01:47.594GMT",
+    "completionTime": "2026-10-25T21:01:47.732GMT",
     "stageIds": [
-      102,
-      103,
-      100,
-      101
+      107,
+      104,
+      105,
+      106
     ],
     "jobGroup": "P4_BHJ",
     "jobTags": [],
@@ -2874,13 +3116,13 @@
   },
   {
     "jobId": 50,
-    "name": "count at NativeMethodAccessorImpl.java:0",
+    "name": "count at <unknown>:0",
     "description": "P4_BHJ",
-    "submissionTime": "2026-10-05T16:44:37.777GMT",
-    "completionTime": "2026-10-05T16:44:37.817GMT",
+    "submissionTime": "2026-10-25T21:01:47.531GMT",
+    "completionTime": "2026-10-25T21:01:47.554GMT",
     "stageIds": [
-      99,
-      98
+      102,
+      103
     ],
     "jobGroup": "P4_BHJ",
     "jobTags": [],
@@ -2900,16 +3142,42 @@
   },
   {
     "jobId": 49,
+    "name": "count at <unknown>:0",
+    "description": "P4_BHJ",
+    "submissionTime": "2026-10-25T21:01:47.456GMT",
+    "completionTime": "2026-10-25T21:01:47.498GMT",
+    "stageIds": [
+      100,
+      101
+    ],
+    "jobGroup": "P4_BHJ",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 3,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 3,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 3,
+    "numActiveStages": 0,
+    "numCompletedStages": 2,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 48,
     "name": "$anonfun$withThreadLocalCaptured$1 at FutureTask.java:264",
     "description": "P4_BHJ",
-    "submissionTime": "2026-10-05T16:44:37.709GMT",
-    "completionTime": "2026-10-05T16:44:37.741GMT",
+    "submissionTime": "2026-10-25T21:01:47.294GMT",
+    "completionTime": "2026-10-25T21:01:47.378GMT",
     "stageIds": [
-      97
+      99
     ],
     "jobGroup": "P4_BHJ",
     "jobTags": [
-      "broadcast exchange (runId 76b5895e-ccc7-4b44-91c8-659bf04b03c1)"
+      "broadcast exchange (runId f611a019-cec1-41c9-b735-889462d1387a)"
     ],
     "status": "SUCCEEDED",
     "numTasks": 1,
@@ -2921,34 +3189,6 @@
     "numCompletedIndices": 1,
     "numActiveStages": 0,
     "numCompletedStages": 1,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 48,
-    "name": "count at NativeMethodAccessorImpl.java:0",
-    "description": "P4_BHJ",
-    "submissionTime": "2026-10-05T16:44:37.499GMT",
-    "completionTime": "2026-10-05T16:44:37.673GMT",
-    "stageIds": [
-      96,
-      93,
-      94,
-      95
-    ],
-    "jobGroup": "P4_BHJ",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 12,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 12,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 12,
-    "numActiveStages": 0,
-    "numCompletedStages": 4,
     "numSkippedStages": 0,
     "numFailedStages": 0,
     "killedTasksSummary": {}
@@ -2956,174 +3196,14 @@
   {
     "jobId": 47,
     "name": "count at NativeMethodAccessorImpl.java:0",
-    "description": "P4_BHJ",
-    "submissionTime": "2026-10-05T16:44:37.400GMT",
-    "completionTime": "2026-10-05T16:44:37.444GMT",
-    "stageIds": [
-      91,
-      92
-    ],
-    "jobGroup": "P4_BHJ",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 3,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 3,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 3,
-    "numActiveStages": 0,
-    "numCompletedStages": 2,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 46,
-    "name": "$anonfun$withThreadLocalCaptured$1 at FutureTask.java:264",
-    "description": "P4_BHJ",
-    "submissionTime": "2026-10-05T16:44:37.338GMT",
-    "completionTime": "2026-10-05T16:44:37.361GMT",
-    "stageIds": [
-      90
-    ],
-    "jobGroup": "P4_BHJ",
-    "jobTags": [
-      "broadcast exchange (runId f6ea5cde-3a4a-41fb-b250-974f53e16f72)"
-    ],
-    "status": "SUCCEEDED",
-    "numTasks": 1,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 1,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 1,
-    "numActiveStages": 0,
-    "numCompletedStages": 1,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 45,
-    "name": "count at NativeMethodAccessorImpl.java:0",
-    "description": "P4_BHJ",
-    "submissionTime": "2026-10-05T16:44:37.152GMT",
-    "completionTime": "2026-10-05T16:44:37.318GMT",
-    "stageIds": [
-      88,
-      89,
-      86,
-      87
-    ],
-    "jobGroup": "P4_BHJ",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 12,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 12,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 12,
-    "numActiveStages": 0,
-    "numCompletedStages": 4,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 44,
-    "name": "count at NativeMethodAccessorImpl.java:0",
-    "description": "P4_BHJ",
-    "submissionTime": "2026-10-05T16:44:37.086GMT",
-    "completionTime": "2026-10-05T16:44:37.100GMT",
-    "stageIds": [
-      84,
-      85
-    ],
-    "jobGroup": "P4_BHJ",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 3,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 3,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 3,
-    "numActiveStages": 0,
-    "numCompletedStages": 2,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 43,
-    "name": "count at NativeMethodAccessorImpl.java:0",
-    "description": "P4_BHJ",
-    "submissionTime": "2026-10-05T16:44:36.976GMT",
-    "completionTime": "2026-10-05T16:44:37.051GMT",
-    "stageIds": [
-      82,
-      83
-    ],
-    "jobGroup": "P4_BHJ",
-    "jobTags": [],
-    "status": "SUCCEEDED",
-    "numTasks": 3,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 3,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 3,
-    "numActiveStages": 0,
-    "numCompletedStages": 2,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 42,
-    "name": "$anonfun$withThreadLocalCaptured$1 at FutureTask.java:264",
-    "description": "P4_BHJ",
-    "submissionTime": "2026-10-05T16:44:36.800GMT",
-    "completionTime": "2026-10-05T16:44:36.888GMT",
-    "stageIds": [
-      81
-    ],
-    "jobGroup": "P4_BHJ",
-    "jobTags": [
-      "broadcast exchange (runId 67f60281-b650-40f0-a939-1b5cec3944c9)"
-    ],
-    "status": "SUCCEEDED",
-    "numTasks": 1,
-    "numActiveTasks": 0,
-    "numCompletedTasks": 1,
-    "numSkippedTasks": 0,
-    "numFailedTasks": 0,
-    "numKilledTasks": 0,
-    "numCompletedIndices": 1,
-    "numActiveStages": 0,
-    "numCompletedStages": 1,
-    "numSkippedStages": 0,
-    "numFailedStages": 0,
-    "killedTasksSummary": {}
-  },
-  {
-    "jobId": 41,
-    "name": "count at NativeMethodAccessorImpl.java:0",
     "description": "P4_SMJ",
-    "submissionTime": "2026-10-05T16:44:36.481GMT",
-    "completionTime": "2026-10-05T16:44:36.753GMT",
+    "submissionTime": "2026-10-25T21:01:47.094GMT",
+    "completionTime": "2026-10-25T21:01:47.258GMT",
     "stageIds": [
-      78,
-      79,
-      80,
-      77
+      96,
+      97,
+      98,
+      95
     ],
     "jobGroup": "P4_SMJ",
     "jobTags": [],
@@ -3142,14 +3222,14 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 40,
+    "jobId": 46,
     "name": "showString at NativeMethodAccessorImpl.java:0",
     "description": "P4_GROUPBY",
-    "submissionTime": "2026-10-05T16:44:36.205GMT",
-    "completionTime": "2026-10-05T16:44:36.264GMT",
+    "submissionTime": "2026-10-25T21:01:46.836GMT",
+    "completionTime": "2026-10-25T21:01:46.890GMT",
     "stageIds": [
-      75,
-      76
+      93,
+      94
     ],
     "jobGroup": "P4_GROUPBY",
     "jobTags": [],
@@ -3168,14 +3248,14 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 39,
+    "jobId": 45,
     "name": "collect at /home/albakhtin/tiabd/АлбахтинИВ/Spark/lab_helpers.py:21",
     "description": "P4_GROUPBY",
-    "submissionTime": "2026-10-05T16:44:36.022GMT",
-    "completionTime": "2026-10-05T16:44:36.152GMT",
+    "submissionTime": "2026-10-25T21:01:46.682GMT",
+    "completionTime": "2026-10-25T21:01:46.794GMT",
     "stageIds": [
-      74,
-      73
+      91,
+      92
     ],
     "jobGroup": "P4_GROUPBY",
     "jobTags": [],
@@ -3194,15 +3274,15 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 38,
+    "jobId": 44,
     "name": "count at NativeMethodAccessorImpl.java:0",
     "description": "P4_COALESCE",
-    "submissionTime": "2026-10-05T16:44:35.736GMT",
-    "completionTime": "2026-10-05T16:44:35.905GMT",
+    "submissionTime": "2026-10-25T21:01:46.406GMT",
+    "completionTime": "2026-10-25T21:01:46.575GMT",
     "stageIds": [
-      70,
-      71,
-      72
+      88,
+      89,
+      90
     ],
     "jobGroup": "P4_COALESCE",
     "jobTags": [],
@@ -3221,16 +3301,16 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 37,
+    "jobId": 43,
     "name": "count at NativeMethodAccessorImpl.java:0",
     "description": "P4_REPARTITION",
-    "submissionTime": "2026-10-05T16:44:35.390GMT",
-    "completionTime": "2026-10-05T16:44:35.695GMT",
+    "submissionTime": "2026-10-25T21:01:46.042GMT",
+    "completionTime": "2026-10-25T21:01:46.358GMT",
     "stageIds": [
-      66,
-      67,
-      68,
-      69
+      84,
+      85,
+      86,
+      87
     ],
     "jobGroup": "P4_REPARTITION",
     "jobTags": [],
@@ -3249,16 +3329,16 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 36,
+    "jobId": 42,
     "name": "collect at /home/albakhtin/tiabd/АлбахтинИВ/Spark/lab_helpers.py:21",
     "description": "P4_LAZY",
-    "submissionTime": "2026-10-05T16:44:35.306GMT",
-    "completionTime": "2026-10-05T16:44:35.355GMT",
+    "submissionTime": "2026-10-25T21:01:45.979GMT",
+    "completionTime": "2026-10-25T21:01:46.010GMT",
     "stageIds": [
-      63,
-      64,
-      65,
-      62
+      81,
+      82,
+      83,
+      80
     ],
     "jobGroup": "P4_LAZY",
     "jobTags": [],
@@ -3277,15 +3357,15 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 35,
+    "jobId": 41,
     "name": "collect at /home/albakhtin/tiabd/АлбахтинИВ/Spark/lab_helpers.py:21",
     "description": "P4_LAZY",
-    "submissionTime": "2026-10-05T16:44:35.079GMT",
-    "completionTime": "2026-10-05T16:44:35.302GMT",
+    "submissionTime": "2026-10-25T21:01:45.786GMT",
+    "completionTime": "2026-10-25T21:01:45.974GMT",
     "stageIds": [
-      60,
-      61,
-      59
+      78,
+      79,
+      77
     ],
     "jobGroup": "P4_LAZY",
     "jobTags": [],
@@ -3304,17 +3384,17 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 34,
+    "jobId": 40,
     "name": "collect at /home/albakhtin/tiabd/АлбахтинИВ/Spark/lab_helpers.py:21",
     "description": "P4_LAZY",
-    "submissionTime": "2026-10-05T16:44:34.940GMT",
-    "completionTime": "2026-10-05T16:44:34.993GMT",
+    "submissionTime": "2026-10-25T21:01:45.678GMT",
+    "completionTime": "2026-10-25T21:01:45.716GMT",
     "stageIds": [
-      56,
-      57,
-      54,
-      58,
-      55
+      74,
+      75,
+      72,
+      76,
+      73
     ],
     "jobGroup": "P4_LAZY",
     "jobTags": [],
@@ -3333,16 +3413,16 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 33,
+    "jobId": 39,
     "name": "collect at /home/albakhtin/tiabd/АлбахтинИВ/Spark/lab_helpers.py:21",
     "description": "P4_LAZY",
-    "submissionTime": "2026-10-05T16:44:34.261GMT",
-    "completionTime": "2026-10-05T16:44:34.936GMT",
+    "submissionTime": "2026-10-25T21:01:45.263GMT",
+    "completionTime": "2026-10-25T21:01:45.674GMT",
     "stageIds": [
-      51,
-      52,
-      53,
-      50
+      70,
+      71,
+      68,
+      69
     ],
     "jobGroup": "P4_LAZY",
     "jobTags": [],
@@ -3361,16 +3441,16 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 32,
+    "jobId": 38,
     "name": "collect at /home/albakhtin/tiabd/АлбахтинИВ/Spark/lab_helpers.py:21",
     "description": "P4_LAZY",
-    "submissionTime": "2026-10-05T16:44:34.089GMT",
-    "completionTime": "2026-10-05T16:44:34.170GMT",
+    "submissionTime": "2026-10-25T21:01:45.116GMT",
+    "completionTime": "2026-10-25T21:01:45.183GMT",
     "stageIds": [
-      48,
-      49,
-      46,
-      47
+      66,
+      67,
+      64,
+      65
     ],
     "jobGroup": "P4_LAZY",
     "jobTags": [],
@@ -3389,15 +3469,15 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 31,
+    "jobId": 37,
     "name": "collect at /home/albakhtin/tiabd/АлбахтинИВ/Spark/lab_helpers.py:21",
     "description": "P4_LAZY",
-    "submissionTime": "2026-10-05T16:44:33.672GMT",
-    "completionTime": "2026-10-05T16:44:34.083GMT",
+    "submissionTime": "2026-10-25T21:01:44.796GMT",
+    "completionTime": "2026-10-25T21:01:45.111GMT",
     "stageIds": [
-      45,
-      43,
-      44
+      63,
+      61,
+      62
     ],
     "jobGroup": "P4_LAZY",
     "jobTags": [],
@@ -3416,15 +3496,15 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 30,
+    "jobId": 36,
     "name": "collect at /home/albakhtin/tiabd/АлбахтинИВ/Spark/lab_helpers.py:21",
     "description": "P4_LAZY",
-    "submissionTime": "2026-10-05T16:44:33.490GMT",
-    "completionTime": "2026-10-05T16:44:33.579GMT",
+    "submissionTime": "2026-10-25T21:01:44.696GMT",
+    "completionTime": "2026-10-25T21:01:44.738GMT",
     "stageIds": [
-      42,
-      40,
-      41
+      60,
+      58,
+      59
     ],
     "jobGroup": "P4_LAZY",
     "jobTags": [],
@@ -3443,14 +3523,14 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 29,
+    "jobId": 35,
     "name": "collect at /home/albakhtin/tiabd/АлбахтинИВ/Spark/lab_helpers.py:21",
     "description": "P4_LAZY",
-    "submissionTime": "2026-10-05T16:44:33.383GMT",
-    "completionTime": "2026-10-05T16:44:33.481GMT",
+    "submissionTime": "2026-10-25T21:01:44.595GMT",
+    "completionTime": "2026-10-25T21:01:44.689GMT",
     "stageIds": [
-      38,
-      39
+      56,
+      57
     ],
     "jobGroup": "P4_LAZY",
     "jobTags": [],
@@ -3469,14 +3549,14 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 28,
+    "jobId": 34,
     "name": "collect at /home/albakhtin/tiabd/АлбахтинИВ/Spark/lab_helpers.py:21",
     "description": "P4_LAZY",
-    "submissionTime": "2026-10-05T16:44:33.142GMT",
-    "completionTime": "2026-10-05T16:44:33.273GMT",
+    "submissionTime": "2026-10-25T21:01:44.428GMT",
+    "completionTime": "2026-10-25T21:01:44.498GMT",
     "stageIds": [
-      37,
-      36
+      54,
+      55
     ],
     "jobGroup": "P4_LAZY",
     "jobTags": [],
@@ -3495,14 +3575,14 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 27,
+    "jobId": 33,
     "name": "showString at NativeMethodAccessorImpl.java:0",
     "description": "P4_LAZY",
-    "submissionTime": "2026-10-05T16:44:32.893GMT",
-    "completionTime": "2026-10-05T16:44:33.088GMT",
+    "submissionTime": "2026-10-25T21:01:44.217GMT",
+    "completionTime": "2026-10-25T21:01:44.393GMT",
     "stageIds": [
-      34,
-      35
+      52,
+      53
     ],
     "jobGroup": "P4_LAZY",
     "jobTags": [],
@@ -3521,14 +3601,14 @@
     "killedTasksSummary": {}
   },
   {
-    "jobId": 26,
+    "jobId": 32,
     "name": "count at NativeMethodAccessorImpl.java:0",
     "description": "P4_LAZY",
-    "submissionTime": "2026-10-05T16:44:32.636GMT",
-    "completionTime": "2026-10-05T16:44:32.731GMT",
+    "submissionTime": "2026-10-25T21:01:44.080GMT",
+    "completionTime": "2026-10-25T21:01:44.122GMT",
     "stageIds": [
-      33,
-      32
+      51,
+      50
     ],
     "jobGroup": "P4_LAZY",
     "jobTags": [],
@@ -3547,11 +3627,173 @@
     "killedTasksSummary": {}
   },
   {
+    "jobId": 31,
+    "name": "count at NativeMethodAccessorImpl.java:0",
+    "description": "P4_BASELINE",
+    "submissionTime": "2026-10-25T21:01:43.896GMT",
+    "completionTime": "2026-10-25T21:01:44.034GMT",
+    "stageIds": [
+      48,
+      49,
+      46,
+      47
+    ],
+    "jobGroup": "P4_BASELINE",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 12,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 12,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 12,
+    "numActiveStages": 0,
+    "numCompletedStages": 4,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 30,
+    "name": "count at NativeMethodAccessorImpl.java:0",
+    "description": "P4_BASELINE",
+    "submissionTime": "2026-10-25T21:01:43.532GMT",
+    "completionTime": "2026-10-25T21:01:43.854GMT",
+    "stageIds": [
+      45,
+      42,
+      43,
+      44
+    ],
+    "jobGroup": "P4_BASELINE",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 12,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 12,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 12,
+    "numActiveStages": 0,
+    "numCompletedStages": 4,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 29,
+    "name": "count at NativeMethodAccessorImpl.java:0",
+    "description": "P4_BASELINE",
+    "submissionTime": "2026-10-25T21:01:43.369GMT",
+    "completionTime": "2026-10-25T21:01:43.380GMT",
+    "stageIds": [
+      40,
+      41
+    ],
+    "jobGroup": "P4_BASELINE",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 2,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 2,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 2,
+    "numActiveStages": 0,
+    "numCompletedStages": 2,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 28,
+    "name": "count at NativeMethodAccessorImpl.java:0",
+    "description": "P4_BASELINE",
+    "submissionTime": "2026-10-25T21:01:43.263GMT",
+    "completionTime": "2026-10-25T21:01:43.335GMT",
+    "stageIds": [
+      37,
+      38,
+      39
+    ],
+    "jobGroup": "P4_BASELINE",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 10,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 10,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 10,
+    "numActiveStages": 0,
+    "numCompletedStages": 3,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 27,
+    "name": "count at NativeMethodAccessorImpl.java:0",
+    "description": "P4_BASELINE",
+    "submissionTime": "2026-10-25T21:01:43.213GMT",
+    "completionTime": "2026-10-25T21:01:43.225GMT",
+    "stageIds": [
+      35,
+      36
+    ],
+    "jobGroup": "P4_BASELINE",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 2,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 2,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 2,
+    "numActiveStages": 0,
+    "numCompletedStages": 2,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
+    "jobId": 26,
+    "name": "count at NativeMethodAccessorImpl.java:0",
+    "description": "P4_BASELINE",
+    "submissionTime": "2026-10-25T21:01:42.948GMT",
+    "completionTime": "2026-10-25T21:01:43.189GMT",
+    "stageIds": [
+      33,
+      34,
+      32
+    ],
+    "jobGroup": "P4_BASELINE",
+    "jobTags": [],
+    "status": "SUCCEEDED",
+    "numTasks": 10,
+    "numActiveTasks": 0,
+    "numCompletedTasks": 10,
+    "numSkippedTasks": 0,
+    "numFailedTasks": 0,
+    "numKilledTasks": 0,
+    "numCompletedIndices": 10,
+    "numActiveStages": 0,
+    "numCompletedStages": 3,
+    "numSkippedStages": 0,
+    "numFailedStages": 0,
+    "killedTasksSummary": {}
+  },
+  {
     "jobId": 25,
     "name": "count at NativeMethodAccessorImpl.java:0",
     "description": "P4_BASELINE",
-    "submissionTime": "2026-10-05T16:44:31.883GMT",
-    "completionTime": "2026-10-05T16:44:31.904GMT",
+    "submissionTime": "2026-10-25T21:01:42.156GMT",
+    "completionTime": "2026-10-25T21:01:42.170GMT",
     "stageIds": [
       30,
       31
@@ -3575,8 +3817,8 @@
   {
     "jobId": 24,
     "name": "count at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:31.811GMT",
-    "completionTime": "2026-10-05T16:44:31.824GMT",
+    "submissionTime": "2026-10-25T21:01:42.086GMT",
+    "completionTime": "2026-10-25T21:01:42.102GMT",
     "stageIds": [
       28,
       29
@@ -3599,8 +3841,8 @@
   {
     "jobId": 23,
     "name": "count at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:31.734GMT",
-    "completionTime": "2026-10-05T16:44:31.746GMT",
+    "submissionTime": "2026-10-25T21:01:42.008GMT",
+    "completionTime": "2026-10-25T21:01:42.024GMT",
     "stageIds": [
       27,
       26
@@ -3623,8 +3865,8 @@
   {
     "jobId": 22,
     "name": "count at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:31.662GMT",
-    "completionTime": "2026-10-05T16:44:31.682GMT",
+    "submissionTime": "2026-10-25T21:01:41.930GMT",
+    "completionTime": "2026-10-25T21:01:41.947GMT",
     "stageIds": [
       24,
       25
@@ -3647,8 +3889,8 @@
   {
     "jobId": 21,
     "name": "count at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:31.568GMT",
-    "completionTime": "2026-10-05T16:44:31.600GMT",
+    "submissionTime": "2026-10-25T21:01:41.837GMT",
+    "completionTime": "2026-10-25T21:01:41.863GMT",
     "stageIds": [
       22,
       23
@@ -3671,8 +3913,8 @@
   {
     "jobId": 20,
     "name": "count at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:31.398GMT",
-    "completionTime": "2026-10-05T16:44:31.499GMT",
+    "submissionTime": "2026-10-25T21:01:41.674GMT",
+    "completionTime": "2026-10-25T21:01:41.774GMT",
     "stageIds": [
       20,
       21
@@ -3695,8 +3937,8 @@
   {
     "jobId": 19,
     "name": "parquet at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:31.280GMT",
-    "completionTime": "2026-10-05T16:44:31.293GMT",
+    "submissionTime": "2026-10-25T21:01:41.574GMT",
+    "completionTime": "2026-10-25T21:01:41.595GMT",
     "stageIds": [
       19
     ],
@@ -3718,8 +3960,8 @@
   {
     "jobId": 18,
     "name": "parquet at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:31.248GMT",
-    "completionTime": "2026-10-05T16:44:31.265GMT",
+    "submissionTime": "2026-10-25T21:01:41.547GMT",
+    "completionTime": "2026-10-25T21:01:41.559GMT",
     "stageIds": [
       18
     ],
@@ -3741,8 +3983,8 @@
   {
     "jobId": 17,
     "name": "parquet at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:31.218GMT",
-    "completionTime": "2026-10-05T16:44:31.232GMT",
+    "submissionTime": "2026-10-25T21:01:41.507GMT",
+    "completionTime": "2026-10-25T21:01:41.526GMT",
     "stageIds": [
       17
     ],
@@ -3764,8 +4006,8 @@
   {
     "jobId": 16,
     "name": "parquet at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:31.188GMT",
-    "completionTime": "2026-10-05T16:44:31.201GMT",
+    "submissionTime": "2026-10-25T21:01:41.475GMT",
+    "completionTime": "2026-10-25T21:01:41.489GMT",
     "stageIds": [
       16
     ],
@@ -3787,8 +4029,8 @@
   {
     "jobId": 15,
     "name": "parquet at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:31.147GMT",
-    "completionTime": "2026-10-05T16:44:31.171GMT",
+    "submissionTime": "2026-10-25T21:01:41.433GMT",
+    "completionTime": "2026-10-25T21:01:41.457GMT",
     "stageIds": [
       15
     ],
@@ -3810,8 +4052,8 @@
   {
     "jobId": 14,
     "name": "parquet at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:31.088GMT",
-    "completionTime": "2026-10-05T16:44:31.122GMT",
+    "submissionTime": "2026-10-25T21:01:41.360GMT",
+    "completionTime": "2026-10-25T21:01:41.395GMT",
     "stageIds": [
       14
     ],
@@ -3833,8 +4075,8 @@
   {
     "jobId": 13,
     "name": "csv at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:31.053GMT",
-    "completionTime": "2026-10-05T16:44:31.062GMT",
+    "submissionTime": "2026-10-25T21:01:41.315GMT",
+    "completionTime": "2026-10-25T21:01:41.329GMT",
     "stageIds": [
       13
     ],
@@ -3856,8 +4098,8 @@
   {
     "jobId": 12,
     "name": "csv at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:31.022GMT",
-    "completionTime": "2026-10-05T16:44:31.032GMT",
+    "submissionTime": "2026-10-25T21:01:41.290GMT",
+    "completionTime": "2026-10-25T21:01:41.297GMT",
     "stageIds": [
       12
     ],
@@ -3879,8 +4121,8 @@
   {
     "jobId": 11,
     "name": "parquet at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:30.924GMT",
-    "completionTime": "2026-10-05T16:44:30.982GMT",
+    "submissionTime": "2026-10-25T21:01:41.192GMT",
+    "completionTime": "2026-10-25T21:01:41.247GMT",
     "stageIds": [
       11
     ],
@@ -3902,8 +4144,8 @@
   {
     "jobId": 10,
     "name": "csv at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:30.880GMT",
-    "completionTime": "2026-10-05T16:44:30.894GMT",
+    "submissionTime": "2026-10-25T21:01:41.141GMT",
+    "completionTime": "2026-10-25T21:01:41.158GMT",
     "stageIds": [
       10
     ],
@@ -3925,8 +4167,8 @@
   {
     "jobId": 9,
     "name": "csv at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:30.850GMT",
-    "completionTime": "2026-10-05T16:44:30.861GMT",
+    "submissionTime": "2026-10-25T21:01:41.118GMT",
+    "completionTime": "2026-10-25T21:01:41.126GMT",
     "stageIds": [
       9
     ],
@@ -3948,8 +4190,8 @@
   {
     "jobId": 8,
     "name": "parquet at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:30.676GMT",
-    "completionTime": "2026-10-05T16:44:30.806GMT",
+    "submissionTime": "2026-10-25T21:01:40.928GMT",
+    "completionTime": "2026-10-25T21:01:41.045GMT",
     "stageIds": [
       8
     ],
@@ -3971,8 +4213,8 @@
   {
     "jobId": 7,
     "name": "csv at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:30.563GMT",
-    "completionTime": "2026-10-05T16:44:30.635GMT",
+    "submissionTime": "2026-10-25T21:01:40.815GMT",
+    "completionTime": "2026-10-25T21:01:40.884GMT",
     "stageIds": [
       7
     ],
@@ -3994,8 +4236,8 @@
   {
     "jobId": 6,
     "name": "csv at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:30.526GMT",
-    "completionTime": "2026-10-05T16:44:30.537GMT",
+    "submissionTime": "2026-10-25T21:01:40.789GMT",
+    "completionTime": "2026-10-25T21:01:40.797GMT",
     "stageIds": [
       6
     ],
@@ -4017,8 +4259,8 @@
   {
     "jobId": 5,
     "name": "parquet at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:30.017GMT",
-    "completionTime": "2026-10-05T16:44:30.449GMT",
+    "submissionTime": "2026-10-25T21:01:40.288GMT",
+    "completionTime": "2026-10-25T21:01:40.717GMT",
     "stageIds": [
       5
     ],
@@ -4040,8 +4282,8 @@
   {
     "jobId": 4,
     "name": "csv at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:29.610GMT",
-    "completionTime": "2026-10-05T16:44:29.990GMT",
+    "submissionTime": "2026-10-25T21:01:39.884GMT",
+    "completionTime": "2026-10-25T21:01:40.257GMT",
     "stageIds": [
       4
     ],
@@ -4063,8 +4305,8 @@
   {
     "jobId": 3,
     "name": "csv at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:29.574GMT",
-    "completionTime": "2026-10-05T16:44:29.583GMT",
+    "submissionTime": "2026-10-25T21:01:39.844GMT",
+    "completionTime": "2026-10-25T21:01:39.853GMT",
     "stageIds": [
       3
     ],
@@ -4086,8 +4328,8 @@
   {
     "jobId": 2,
     "name": "parquet at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:28.073GMT",
-    "completionTime": "2026-10-05T16:44:29.476GMT",
+    "submissionTime": "2026-10-25T21:01:38.539GMT",
+    "completionTime": "2026-10-25T21:01:39.793GMT",
     "stageIds": [
       2
     ],
@@ -4109,8 +4351,8 @@
   {
     "jobId": 1,
     "name": "csv at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:26.813GMT",
-    "completionTime": "2026-10-05T16:44:28.001GMT",
+    "submissionTime": "2026-10-25T21:01:37.539GMT",
+    "completionTime": "2026-10-25T21:01:38.472GMT",
     "stageIds": [
       1
     ],
@@ -4132,8 +4374,8 @@
   {
     "jobId": 0,
     "name": "csv at NativeMethodAccessorImpl.java:0",
-    "submissionTime": "2026-10-05T16:44:26.404GMT",
-    "completionTime": "2026-10-05T16:44:26.684GMT",
+    "submissionTime": "2026-10-25T21:01:37.226GMT",
+    "completionTime": "2026-10-25T21:01:37.445GMT",
     "stageIds": [
       0
     ],

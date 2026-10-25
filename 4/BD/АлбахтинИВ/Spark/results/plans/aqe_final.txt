@@ -28,47 +28,47 @@ Input [1]: [geolocation_state#197]
 Input [1]: [geolocation_state#197]
 Keys [1]: [geolocation_state#197]
 Functions [1]: [partial_count(1)]
-Aggregate Attributes [1]: [count#2307L]
-Results [2]: [geolocation_state#197, count#2308L]
+Aggregate Attributes [1]: [count#2382L]
+Results [2]: [geolocation_state#197, count#2383L]
 
 (4) Exchange
-Input [2]: [geolocation_state#197, count#2308L]
-Arguments: hashpartitioning(geolocation_state#197, 32), ENSURE_REQUIREMENTS, [plan_id=4076]
+Input [2]: [geolocation_state#197, count#2383L]
+Arguments: hashpartitioning(geolocation_state#197, 32), ENSURE_REQUIREMENTS, [plan_id=4470]
 
 (5) ShuffleQueryStage
-Output [2]: [geolocation_state#197, count#2308L]
+Output [2]: [geolocation_state#197, count#2383L]
 Arguments: 0
 
 (6) AQEShuffleRead
-Input [2]: [geolocation_state#197, count#2308L]
+Input [2]: [geolocation_state#197, count#2383L]
 Arguments: coalesced
 
 (7) HashAggregate [codegen id : 2]
-Input [2]: [geolocation_state#197, count#2308L]
+Input [2]: [geolocation_state#197, count#2383L]
 Keys [1]: [geolocation_state#197]
 Functions [1]: [count(1)]
-Aggregate Attributes [1]: [count(1)#2303L]
-Results [2]: [geolocation_state#197, count(1)#2303L AS count#2304L]
+Aggregate Attributes [1]: [count(1)#2378L]
+Results [2]: [geolocation_state#197, count(1)#2378L AS count#2379L]
 
 (8) HashAggregate
 Input [1]: [geolocation_state#197]
 Keys [1]: [geolocation_state#197]
 Functions [1]: [partial_count(1)]
-Aggregate Attributes [1]: [count#2307L]
-Results [2]: [geolocation_state#197, count#2308L]
+Aggregate Attributes [1]: [count#2382L]
+Results [2]: [geolocation_state#197, count#2383L]
 
 (9) Exchange
-Input [2]: [geolocation_state#197, count#2308L]
-Arguments: hashpartitioning(geolocation_state#197, 32), ENSURE_REQUIREMENTS, [plan_id=4062]
+Input [2]: [geolocation_state#197, count#2383L]
+Arguments: hashpartitioning(geolocation_state#197, 32), ENSURE_REQUIREMENTS, [plan_id=4456]
 
 (10) HashAggregate
-Input [2]: [geolocation_state#197, count#2308L]
+Input [2]: [geolocation_state#197, count#2383L]
 Keys [1]: [geolocation_state#197]
 Functions [1]: [count(1)]
-Aggregate Attributes [1]: [count(1)#2303L]
-Results [2]: [geolocation_state#197, count(1)#2303L AS count#2304L]
+Aggregate Attributes [1]: [count(1)#2378L]
+Results [2]: [geolocation_state#197, count(1)#2378L AS count#2379L]
 
 (11) AdaptiveSparkPlan
-Output [2]: [geolocation_state#197, count#2304L]
+Output [2]: [geolocation_state#197, count#2379L]
 Arguments: isFinalPlan=true
 

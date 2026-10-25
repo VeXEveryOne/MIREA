@@ -29,7 +29,7 @@ Input [3]: [seller_id#206, price#208, freight_value#209]
 Condition : ((isnotnull(price#208) AND (price#208 > 0.0)) AND isnotnull(seller_id#206))
 
 (4) Project [codegen id : 2]
-Output [2]: [seller_id#206, (price#208 + freight_value#209) AS gross#2312]
+Output [2]: [seller_id#206, (price#208 + freight_value#209) AS gross#2387]
 Input [3]: [seller_id#206, price#208, freight_value#209]
 
 (5) Scan parquet 
@@ -48,7 +48,7 @@ Condition : isnotnull(seller_id#235)
 
 (8) BroadcastExchange
 Input [2]: [seller_id#235, seller_state#238]
-Arguments: HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=4660]
+Arguments: HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=5054]
 
 (9) BroadcastHashJoin [codegen id : 2]
 Left keys [1]: [seller_id#206]
@@ -57,24 +57,24 @@ Join type: Inner
 Join condition: None
 
 (10) Project [codegen id : 2]
-Output [2]: [gross#2312, seller_state#238]
-Input [4]: [seller_id#206, gross#2312, seller_id#235, seller_state#238]
+Output [2]: [gross#2387, seller_state#238]
+Input [4]: [seller_id#206, gross#2387, seller_id#235, seller_state#238]
 
 (11) HashAggregate [codegen id : 2]
-Input [2]: [gross#2312, seller_state#238]
+Input [2]: [gross#2387, seller_state#238]
 Keys [1]: [seller_state#238]
-Functions [2]: [partial_count(1), partial_sum(gross#2312)]
-Aggregate Attributes [2]: [count#2378L, sum#2379]
-Results [3]: [seller_state#238, count#2380L, sum#2381]
+Functions [2]: [partial_count(1), partial_sum(gross#2387)]
+Aggregate Attributes [2]: [count#2453L, sum#2454]
+Results [3]: [seller_state#238, count#2455L, sum#2456]
 
 (12) Exchange
-Input [3]: [seller_state#238, count#2380L, sum#2381]
-Arguments: hashpartitioning(seller_state#238, 8), ENSURE_REQUIREMENTS, [plan_id=4666]
+Input [3]: [seller_state#238, count#2455L, sum#2456]
+Arguments: hashpartitioning(seller_state#238, 8), ENSURE_REQUIREMENTS, [plan_id=5060]
 
 (13) HashAggregate [codegen id : 3]
-Input [3]: [seller_state#238, count#2380L, sum#2381]
+Input [3]: [seller_state#238, count#2455L, sum#2456]
 Keys [1]: [seller_state#238]
-Functions [2]: [count(1), sum(gross#2312)]
-Aggregate Attributes [2]: [count(1)#2371L, sum(gross#2312)#2373]
-Results [3]: [seller_state#238, count(1)#2371L AS lines#2372L, round(sum(gross#2312)#2373, 2) AS gross#2374]
+Functions [2]: [count(1), sum(gross#2387)]
+Aggregate Attributes [2]: [count(1)#2446L, sum(gross#2387)#2448]
+Results [3]: [seller_state#238, count(1)#2446L AS lines#2447L, round(sum(gross#2387)#2448, 2) AS gross#2449]
 

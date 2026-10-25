@@ -1,0 +1,86 @@
+[
+  {
+    "checkpoint": "pr4_joins",
+    "application_id": "local-1792962095541",
+    "captures": [
+      {
+        "file": "screenshots/pr4/01_jobs.png",
+        "url": "http://10.0.2.15:4040/jobs/",
+        "full_viewport": true,
+        "focus_operator": null
+      },
+      {
+        "file": "screenshots/pr4/08_groupby_stages.png",
+        "url": "http://10.0.2.15:4040/stages/",
+        "full_viewport": true,
+        "focus_operator": null
+      },
+      {
+        "file": "screenshots/pr4/02_smj_plan.png",
+        "url": "http://10.0.2.15:4040/SQL/execution/?id=40",
+        "full_viewport": true,
+        "focus_operator": "SortMergeJoin"
+      },
+      {
+        "file": "screenshots/pr4/03_bhj_plan.png",
+        "url": "http://10.0.2.15:4040/SQL/execution/?id=41",
+        "full_viewport": true,
+        "focus_operator": "BroadcastHashJoin"
+      }
+    ]
+  },
+  {
+    "checkpoint": "pr4_storage",
+    "application_id": "local-1792962095541",
+    "captures": [
+      {
+        "file": "screenshots/pr4/04_storage.png",
+        "url": "http://10.0.2.15:4040/storage/rdd/?id=546",
+        "full_viewport": true,
+        "focus_operator": null
+      }
+    ]
+  },
+  {
+    "checkpoint": "pr4_variant_storage",
+    "application_id": "local-1792962095541",
+    "captures": [
+      {
+        "file": "screenshots/pr4/05_variant_storage.png",
+        "url": "http://10.0.2.15:4040/storage/rdd/?id=1025",
+        "full_viewport": true,
+        "focus_operator": null
+      },
+      {
+        "file": "screenshots/pr4/06_variant_plan.png",
+        "url": "http://10.0.2.15:4040/SQL/execution/?id=86",
+        "full_viewport": true,
+        "focus_operator": "BroadcastHashJoin"
+      },
+      {
+        "file": "screenshots/pr4/07_variant_stages.png",
+        "url": "http://10.0.2.15:4040/stages/",
+        "full_viewport": true,
+        "focus_operator": null
+      }
+    ]
+  },
+  {
+    "checkpoint": "pr4_completed",
+    "application_id": "local-1792962095541",
+    "captures": [
+      {
+        "file": "screenshots/pr4/11_completed_jobs.png",
+        "url": "http://10.0.2.15:4040/jobs/",
+        "full_viewport": true,
+        "focus_operator": null
+      },
+      {
+        "file": "screenshots/pr4/12_environment.png",
+        "url": "http://10.0.2.15:4040/environment/",
+        "full_viewport": true,
+        "focus_operator": null
+      }
+    ]
+  }
+]

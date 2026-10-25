@@ -29,7 +29,7 @@ Condition : isnotnull(product_id#205)
 
 (4) Exchange
 Input [7]: [order_id#203, order_item_id#204, product_id#205, seller_id#206, shipping_limit_date#207, price#208, freight_value#209]
-Arguments: hashpartitioning(product_id#205, 8), ENSURE_REQUIREMENTS, [plan_id=1194]
+Arguments: hashpartitioning(product_id#205, 8), ENSURE_REQUIREMENTS, [plan_id=1588]
 
 (5) Sort [codegen id : 2]
 Input [7]: [order_id#203, order_item_id#204, product_id#205, seller_id#206, shipping_limit_date#207, price#208, freight_value#209]
@@ -51,7 +51,7 @@ Condition : isnotnull(product_id#217)
 
 (9) Exchange
 Input [9]: [product_id#217, product_category_name#218, product_name_lenght#219, product_description_lenght#220, product_photos_qty#221, product_weight_g#222, product_length_cm#223, product_height_cm#224, product_width_cm#225]
-Arguments: hashpartitioning(product_id#217, 8), ENSURE_REQUIREMENTS, [plan_id=1203]
+Arguments: hashpartitioning(product_id#217, 8), ENSURE_REQUIREMENTS, [plan_id=1597]
 
 (10) Sort [codegen id : 4]
 Input [9]: [product_id#217, product_category_name#218, product_name_lenght#219, product_description_lenght#220, product_photos_qty#221, product_weight_g#222, product_length_cm#223, product_height_cm#224, product_width_cm#225]

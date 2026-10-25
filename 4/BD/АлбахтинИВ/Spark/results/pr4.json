@@ -4,13 +4,15 @@
     "java": "openjdk version \"17.0.20.1\" 2026-08-18",
     "spark": "3.5.7",
     "os": "Linux-5.15.0-198-generic-x86_64-with-glibc2.35",
-    "cpu": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           46 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  2\nOn-line CPU(s) list:                     0,1\nVendor ID:                               AuthenticAMD\nModel name:                              AMD Ryzen 7 9700X 8-Core Processor\nCPU family:                              26\nModel:                                   68\nThread(s) per core:                      1\nCore(s) per socket:                      2\nSocket(s):                               1\nStepping:                                0\nBogoMIPS:                                7599.98\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch ibpb vmmcall fsgsbase bmi1 avx2 bmi2 invpcid rdseed adx clflushopt sha_ni arat flush_l1d sme\nHypervisor vendor:                       KVM\nVirtualization type:                     full\nL1d cache:                               96 KiB (2 instances)\nL1i cache:                               64 KiB (2 instances)\nL2 cache:                                2 MiB (2 instances)\nL3 cache:                                64 MiB (2 instances)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0,1\nVulnerability Gather data sampling:      Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Not affected\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Retpolines; IBPB conditional; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected\n",
-    "memory": "               total        used        free      shared  buff/cache   available\nMem:           3.8Gi       1.1Gi       1.1Gi       163Mi       1.6Gi       2.3Gi\nSwap:             0B          0B          0B\n",
+    "cpu": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           46 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  2\nOn-line CPU(s) list:                     0,1\nVendor ID:                               AuthenticAMD\nModel name:                              AMD Ryzen 7 9700X 8-Core Processor\nCPU family:                              26\nModel:                                   68\nThread(s) per core:                      1\nCore(s) per socket:                      2\nSocket(s):                               1\nStepping:                                0\nBogoMIPS:                                7600.00\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch ibpb vmmcall fsgsbase bmi1 avx2 bmi2 invpcid rdseed adx clflushopt sha_ni arat flush_l1d sme\nHypervisor vendor:                       KVM\nVirtualization type:                     full\nL1d cache:                               96 KiB (2 instances)\nL1i cache:                               64 KiB (2 instances)\nL2 cache:                                2 MiB (2 instances)\nL3 cache:                                64 MiB (2 instances)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0,1\nVulnerability Gather data sampling:      Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Not affected\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Retpolines; IBPB conditional; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected\n",
+    "memory": "               total        used        free      shared  buff/cache   available\nMem:           3.8Gi       1.2Gi       1.3Gi       140Mi       1.3Gi       2.2Gi\nSwap:             0B          0B          0B\n",
     "master": "local[*]",
     "parallelism": 2,
     "shuffle_partitions": "8",
     "aqe": "false",
-    "ui": "http://10.0.2.15:4040"
+    "ui": "http://10.0.2.15:4040",
+    "driver_memory": "1536m",
+    "autobroadcast": "-1"
   },
   "source": {
     "source_mode": "reconstructed_from_practice2_olist_csv",
@@ -54,7 +56,7 @@
   },
   "metrics": {
     "baseline": {
-      "seconds": 0.055194763000031344,
+      "seconds": 0.042502808006247506,
       "jobs": [
         25
       ],
@@ -87,22 +89,22 @@
       ]
     },
     "repartition4": {
-      "seconds": 0.3282771149999917,
+      "seconds": 0.3393313780252356,
       "jobs": [
-        37
+        43
       ],
       "stages": [
-        66,
-        67,
-        68,
-        69
+        84,
+        85,
+        86,
+        87
       ],
       "tasks": 23,
       "shuffle_read": 176717,
       "shuffle_write": 176717,
       "stage_metrics": [
         {
-          "stageId": 69,
+          "stageId": 87,
           "numTasks": 1,
           "numCompleteTasks": 1,
           "inputBytes": 0,
@@ -111,7 +113,7 @@
           "shuffleWriteBytes": 0
         },
         {
-          "stageId": 68,
+          "stageId": 86,
           "numTasks": 4,
           "numCompleteTasks": 4,
           "inputBytes": 0,
@@ -120,7 +122,7 @@
           "shuffleWriteBytes": 236
         },
         {
-          "stageId": 67,
+          "stageId": 85,
           "numTasks": 16,
           "numCompleteTasks": 16,
           "inputBytes": 0,
@@ -129,7 +131,7 @@
           "shuffleWriteBytes": 21232
         },
         {
-          "stageId": 66,
+          "stageId": 84,
           "numTasks": 2,
           "numCompleteTasks": 2,
           "inputBytes": 34342,
@@ -140,21 +142,21 @@
       ]
     },
     "coalesce4": {
-      "seconds": 0.192939583999987,
+      "seconds": 0.19001309599843808,
       "jobs": [
-        38
+        44
       ],
       "stages": [
-        70,
-        71,
-        72
+        88,
+        89,
+        90
       ],
       "tasks": 7,
       "shuffle_read": 155485,
       "shuffle_write": 155485,
       "stage_metrics": [
         {
-          "stageId": 72,
+          "stageId": 90,
           "numTasks": 1,
           "numCompleteTasks": 1,
           "inputBytes": 0,
@@ -163,7 +165,7 @@
           "shuffleWriteBytes": 0
         },
         {
-          "stageId": 71,
+          "stageId": 89,
           "numTasks": 4,
           "numCompleteTasks": 4,
           "inputBytes": 0,
@@ -172,7 +174,7 @@
           "shuffleWriteBytes": 236
         },
         {
-          "stageId": 70,
+          "stageId": 88,
           "numTasks": 2,
           "numCompleteTasks": 2,
           "inputBytes": 34342,
@@ -183,20 +185,20 @@
       ]
     },
     "groupby": {
-      "seconds": 0.20747943400010627,
+      "seconds": 0.1828344019886572,
       "jobs": [
-        39
+        45
       ],
       "stages": [
-        73,
-        74
+        91,
+        92
       ],
       "tasks": 10,
       "shuffle_read": 269271,
       "shuffle_write": 269271,
       "stage_metrics": [
         {
-          "stageId": 74,
+          "stageId": 92,
           "numTasks": 8,
           "numCompleteTasks": 8,
           "inputBytes": 0,
@@ -205,7 +207,7 @@
           "shuffleWriteBytes": 0
         },
         {
-          "stageId": 73,
+          "stageId": 91,
           "numTasks": 2,
           "numCompleteTasks": 2,
           "inputBytes": 819626,
@@ -216,22 +218,22 @@
       ]
     },
     "smj": {
-      "seconds": 0.33832371500000136,
+      "seconds": 0.2429042930016294,
       "jobs": [
-        41
+        47
       ],
       "stages": [
-        77,
-        78,
-        79,
-        80
+        95,
+        96,
+        97,
+        98
       ],
       "tasks": 12,
       "shuffle_read": 3917308,
       "shuffle_write": 3917308,
       "stage_metrics": [
         {
-          "stageId": 80,
+          "stageId": 98,
           "numTasks": 1,
           "numCompleteTasks": 1,
           "inputBytes": 0,
@@ -240,7 +242,7 @@
           "shuffleWriteBytes": 0
         },
         {
-          "stageId": 79,
+          "stageId": 97,
           "numTasks": 8,
           "numCompleteTasks": 8,
           "inputBytes": 0,
@@ -249,7 +251,7 @@
           "shuffleWriteBytes": 472
         },
         {
-          "stageId": 78,
+          "stageId": 96,
           "numTasks": 1,
           "numCompleteTasks": 1,
           "inputBytes": 1141848,
@@ -258,7 +260,7 @@
           "shuffleWriteBytes": 1114450
         },
         {
-          "stageId": 77,
+          "stageId": 95,
           "numTasks": 2,
           "numCompleteTasks": 2,
           "inputBytes": 1687040,
@@ -269,22 +271,22 @@
       ]
     },
     "bhj": {
-      "seconds": 0.284069240000008,
+      "seconds": 0.22593405499355868,
       "jobs": [
-        42,
-        43
+        48,
+        49
       ],
       "stages": [
-        81,
-        82,
-        83
+        99,
+        100,
+        101
       ],
       "tasks": 4,
       "shuffle_read": 118,
       "shuffle_write": 118,
       "stage_metrics": [
         {
-          "stageId": 83,
+          "stageId": 101,
           "numTasks": 1,
           "numCompleteTasks": 1,
           "inputBytes": 0,
@@ -293,7 +295,7 @@
           "shuffleWriteBytes": 0
         },
         {
-          "stageId": 82,
+          "stageId": 100,
           "numTasks": 2,
           "numCompleteTasks": 2,
           "inputBytes": 1687040,
@@ -302,7 +304,7 @@
           "shuffleWriteBytes": 118
         },
         {
-          "stageId": 81,
+          "stageId": 99,
           "numTasks": 1,
           "numCompleteTasks": 1,
           "inputBytes": 1141848,
@@ -313,24 +315,24 @@
       ]
     },
     "persist_materialization": {
-      "seconds": 0.663197351000008,
+      "seconds": 0.5269359890080523,
       "jobs": [
-        60,
-        61,
-        62
+        66,
+        67,
+        68
       ],
       "stages": [
-        117,
-        118,
-        119,
-        120
+        135,
+        136,
+        137,
+        138
       ],
       "tasks": 5,
       "shuffle_read": 118,
       "shuffle_write": 118,
       "stage_metrics": [
         {
-          "stageId": 120,
+          "stageId": 138,
           "numTasks": 1,
           "numCompleteTasks": 1,
           "inputBytes": 0,
@@ -339,7 +341,7 @@
           "shuffleWriteBytes": 0
         },
         {
-          "stageId": 119,
+          "stageId": 137,
           "numTasks": 2,
           "numCompleteTasks": 2,
           "inputBytes": 6677415,
@@ -348,7 +350,7 @@
           "shuffleWriteBytes": 118
         },
         {
-          "stageId": 118,
+          "stageId": 136,
           "numTasks": 1,
           "numCompleteTasks": 1,
           "inputBytes": 131816,
@@ -357,7 +359,7 @@
           "shuffleWriteBytes": 0
         },
         {
-          "stageId": 117,
+          "stageId": 135,
           "numTasks": 1,
           "numCompleteTasks": 1,
           "inputBytes": 1141848,
@@ -368,21 +370,21 @@
       ]
     },
     "persist_repeat": {
-      "seconds": 0.21483621600009428,
+      "seconds": 0.14940963900880888,
       "jobs": [
-        63
+        69
       ],
       "stages": [
-        121,
-        122,
-        123
+        139,
+        140,
+        141
       ],
       "tasks": 11,
       "shuffle_read": 6445,
       "shuffle_write": 6445,
       "stage_metrics": [
         {
-          "stageId": 123,
+          "stageId": 141,
           "numTasks": 1,
           "numCompleteTasks": 1,
           "inputBytes": 0,
@@ -391,7 +393,7 @@
           "shuffleWriteBytes": 0
         },
         {
-          "stageId": 122,
+          "stageId": 140,
           "numTasks": 8,
           "numCompleteTasks": 8,
           "inputBytes": 0,
@@ -400,7 +402,7 @@
           "shuffleWriteBytes": 472
         },
         {
-          "stageId": 121,
+          "stageId": 139,
           "numTasks": 2,
           "numCompleteTasks": 2,
           "inputBytes": 8727795,
@@ -437,10 +439,10 @@
     "before": [],
     "after_transform": [],
     "after_action": [
-      26
+      32
     ],
     "rows": 1000163,
-    "seconds": 0.1422604260000071
+    "seconds": 0.0682418699725531
   },
   "state_top": [
     {
@@ -489,6 +491,14 @@
           "count": 40594
         },
         {
+          "pid": 1,
+          "count": 0
+        },
+        {
+          "pid": 2,
+          "count": 0
+        },
+        {
           "pid": 3,
           "count": 154470
         },
@@ -513,6 +523,10 @@
           "count": 1301
         },
         {
+          "pid": 9,
+          "count": 0
+        },
+        {
           "pid": 10,
           "count": 57859
         },
@@ -525,6 +539,10 @@
           "count": 38328
         },
         {
+          "pid": 13,
+          "count": 0
+        },
+        {
           "pid": 14,
           "count": 22286
         },
@@ -533,9 +551,9 @@
           "count": 27848
         }
       ],
-      "min": 1301,
+      "min": 0,
       "max": 466119,
-      "mean": 83346.91666666667
+      "mean": 62510.1875
     },
     "repartition4": {
       "partitions": 4,
@@ -622,44 +640,44 @@
     "rows": 112650,
     "runs": {
       "smj": [
-        0.21792677600001298,
-        0.2296854109999913,
-        0.21326704400007657
+        0.1776128570199944,
+        0.1531599269947037,
+        0.14379980898229405
       ],
       "bhj": [
-        0.12499758600006317,
-        0.14419666699996014,
-        0.1349928980000641
+        0.13414506299886853,
+        0.09413208201294765,
+        0.08230454399017617
       ]
     },
     "medians": {
-      "smj": 0.21792677600001298,
-      "bhj": 0.1349928980000641
+      "smj": 0.1531599269947037,
+      "bhj": 0.09413208201294765
     }
   },
   "cache": {
     "rows": 112650,
     "no_cache": [
       {
-        "seconds": 0.3434797709999202,
+        "seconds": 0.3134857699915301,
         "jobs": [
-          54,
-          55,
-          56
+          60,
+          61,
+          62
         ],
         "stages": [
-          107,
-          108,
-          109,
-          110,
-          111
+          125,
+          126,
+          127,
+          128,
+          129
         ],
         "tasks": 13,
         "shuffle_read": 6445,
         "shuffle_write": 6445,
         "stage_metrics": [
           {
-            "stageId": 111,
+            "stageId": 129,
             "numTasks": 1,
             "numCompleteTasks": 1,
             "inputBytes": 0,
@@ -668,7 +686,7 @@
             "shuffleWriteBytes": 0
           },
           {
-            "stageId": 110,
+            "stageId": 128,
             "numTasks": 8,
             "numCompleteTasks": 8,
             "inputBytes": 0,
@@ -677,7 +695,7 @@
             "shuffleWriteBytes": 472
           },
           {
-            "stageId": 109,
+            "stageId": 127,
             "numTasks": 2,
             "numCompleteTasks": 2,
             "inputBytes": 2461575,
@@ -686,19 +704,19 @@
             "shuffleWriteBytes": 5973
           },
           {
-            "stageId": 108,
+            "stageId": 126,
             "numTasks": 1,
             "numCompleteTasks": 1,
-            "inputBytes": 1141848,
+            "inputBytes": 131816,
             "outputBytes": 0,
             "shuffleReadBytes": 0,
             "shuffleWriteBytes": 0
           },
           {
-            "stageId": 107,
+            "stageId": 125,
             "numTasks": 1,
             "numCompleteTasks": 1,
-            "inputBytes": 131816,
+            "inputBytes": 1141848,
             "outputBytes": 0,
             "shuffleReadBytes": 0,
             "shuffleWriteBytes": 0
@@ -706,25 +724,25 @@
         ]
       },
       {
-        "seconds": 0.3213934949999384,
+        "seconds": 0.25310376900597475,
         "jobs": [
-          57,
-          58,
-          59
+          63,
+          64,
+          65
         ],
         "stages": [
-          112,
-          113,
-          114,
-          115,
-          116
+          130,
+          131,
+          132,
+          133,
+          134
         ],
         "tasks": 13,
         "shuffle_read": 2088,
         "shuffle_write": 2088,
         "stage_metrics": [
           {
-            "stageId": 116,
+            "stageId": 134,
             "numTasks": 1,
             "numCompleteTasks": 1,
             "inputBytes": 0,
@@ -733,7 +751,7 @@
             "shuffleWriteBytes": 0
           },
           {
-            "stageId": 115,
+            "stageId": 133,
             "numTasks": 8,
             "numCompleteTasks": 8,
             "inputBytes": 0,
@@ -742,7 +760,7 @@
             "shuffleWriteBytes": 470
           },
           {
-            "stageId": 114,
+            "stageId": 132,
             "numTasks": 2,
             "numCompleteTasks": 2,
             "inputBytes": 2461575,
@@ -751,7 +769,7 @@
             "shuffleWriteBytes": 1618
           },
           {
-            "stageId": 113,
+            "stageId": 131,
             "numTasks": 1,
             "numCompleteTasks": 1,
             "inputBytes": 131816,
@@ -760,7 +778,7 @@
             "shuffleWriteBytes": 0
           },
           {
-            "stageId": 112,
+            "stageId": 130,
             "numTasks": 1,
             "numCompleteTasks": 1,
             "inputBytes": 1141848,
@@ -772,24 +790,24 @@
       }
     ],
     "materialization": {
-      "seconds": 0.663197351000008,
+      "seconds": 0.5269359890080523,
       "jobs": [
-        60,
-        61,
-        62
+        66,
+        67,
+        68
       ],
       "stages": [
-        117,
-        118,
-        119,
-        120
+        135,
+        136,
+        137,
+        138
       ],
       "tasks": 5,
       "shuffle_read": 118,
       "shuffle_write": 118,
       "stage_metrics": [
         {
-          "stageId": 120,
+          "stageId": 138,
           "numTasks": 1,
           "numCompleteTasks": 1,
           "inputBytes": 0,
@@ -798,7 +816,7 @@
           "shuffleWriteBytes": 0
         },
         {
-          "stageId": 119,
+          "stageId": 137,
           "numTasks": 2,
           "numCompleteTasks": 2,
           "inputBytes": 6677415,
@@ -807,7 +825,7 @@
           "shuffleWriteBytes": 118
         },
         {
-          "stageId": 118,
+          "stageId": 136,
           "numTasks": 1,
           "numCompleteTasks": 1,
           "inputBytes": 131816,
@@ -816,7 +834,7 @@
           "shuffleWriteBytes": 0
         },
         {
-          "stageId": 117,
+          "stageId": 135,
           "numTasks": 1,
           "numCompleteTasks": 1,
           "inputBytes": 1141848,
@@ -828,21 +846,21 @@
     },
     "cached": [
       {
-        "seconds": 0.21483621600009428,
+        "seconds": 0.14940963900880888,
         "jobs": [
-          63
+          69
         ],
         "stages": [
-          121,
-          122,
-          123
+          139,
+          140,
+          141
         ],
         "tasks": 11,
         "shuffle_read": 6445,
         "shuffle_write": 6445,
         "stage_metrics": [
           {
-            "stageId": 123,
+            "stageId": 141,
             "numTasks": 1,
             "numCompleteTasks": 1,
             "inputBytes": 0,
@@ -851,7 +869,7 @@
             "shuffleWriteBytes": 0
           },
           {
-            "stageId": 122,
+            "stageId": 140,
             "numTasks": 8,
             "numCompleteTasks": 8,
             "inputBytes": 0,
@@ -860,7 +878,7 @@
             "shuffleWriteBytes": 472
           },
           {
-            "stageId": 121,
+            "stageId": 139,
             "numTasks": 2,
             "numCompleteTasks": 2,
             "inputBytes": 8727795,
@@ -871,21 +889,21 @@
         ]
       },
       {
-        "seconds": 0.1163638540001557,
+        "seconds": 0.0786903279949911,
         "jobs": [
-          64
+          70
         ],
         "stages": [
-          124,
-          125,
-          126
+          142,
+          143,
+          144
         ],
         "tasks": 11,
         "shuffle_read": 2088,
         "shuffle_write": 2088,
         "stage_metrics": [
           {
-            "stageId": 126,
+            "stageId": 144,
             "numTasks": 1,
             "numCompleteTasks": 1,
             "inputBytes": 0,
@@ -894,7 +912,7 @@
             "shuffleWriteBytes": 0
           },
           {
-            "stageId": 125,
+            "stageId": 143,
             "numTasks": 8,
             "numCompleteTasks": 8,
             "inputBytes": 0,
@@ -903,7 +921,7 @@
             "shuffleWriteBytes": 470
           },
           {
-            "stageId": 124,
+            "stageId": 142,
             "numTasks": 2,
             "numCompleteTasks": 2,
             "inputBytes": 8727795,
@@ -922,8 +940,8 @@
     ],
     "storage": [
       {
-        "id": 476,
-        "name": "*(3) Project [seller_id#206, product_id#205, order_id#203, order_item_id#204, shipping_limit_date#207, price#208, freight_value#209, product_category_name#218, seller_state#238, (price#208 + freight_value#209) AS gross_value#710]\n+- *(3) BroadcastHashJoin [seller_id#206], [seller_id#235], LeftOuter, BuildRight, false\n   :- *(3) Project [product_id#205, order_id#203, order_item_id#204, seller_id#206, shipping_limit_date#207, price#208, freight_value#209, product_category_name#218]\n   :  +- *(3) BroadcastHashJoin [product_id#205], [product_id#217], LeftOuter, BuildRight, false\n   :     :- *(3) ColumnarToRow\n   :     :  +- FileScan parquet [order_id#203,order_item_id#204,product_id#205,seller_id#206,shipping_limit_date#207,price#208,freight_value#209] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/home/albakhtin/tiabd/АлбахтинИВ/Spark/data/spark_input_parquet/o..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<order_id:string,order_item_id:int,product...",
+        "id": 546,
+        "name": "*(3) Project [seller_id#206, product_id#205, order_id#203, order_item_id#204, shipping_limit_date#207, price#208, freight_value#209, product_category_name#218, seller_state#238, (price#208 + freight_value#209) AS gross_value#785]\n+- *(3) BroadcastHashJoin [seller_id#206], [seller_id#235], LeftOuter, BuildRight, false\n   :- *(3) Project [product_id#205, order_id#203, order_item_id#204, seller_id#206, shipping_limit_date#207, price#208, freight_value#209, product_category_name#218]\n   :  +- *(3) BroadcastHashJoin [product_id#205], [product_id#217], LeftOuter, BuildRight, false\n   :     :- *(3) ColumnarToRow\n   :     :  +- FileScan parquet [order_id#203,order_item_id#204,product_id#205,seller_id#206,shipping_limit_date#207,price#208,freight_value#209] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/home/albakhtin/tiabd/АлбахтинИВ/Spark/data/spark_input_parquet/o..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<order_id:string,order_item_id:int,product...",
         "numPartitions": 2,
         "numCachedPartitions": 2,
         "storageLevel": "Disk Memory Serialized 1x Replicated",
@@ -931,19 +949,19 @@
         "diskUsed": 0,
         "dataDistribution": [
           {
-            "address": "10.0.2.15:40163",
+            "address": "10.0.2.15:41997",
             "memoryUsed": 8727795,
-            "memoryRemaining": 741407747,
+            "memoryRemaining": 742431265,
             "diskUsed": 0,
             "onHeapMemoryUsed": 8727795,
             "offHeapMemoryUsed": 0,
-            "onHeapMemoryRemaining": 741407747,
+            "onHeapMemoryRemaining": 742431265,
             "offHeapMemoryRemaining": 0
           }
         ],
         "partitions": [
           {
-            "blockName": "rdd_476_1",
+            "blockName": "rdd_546_1",
             "storageLevel": "Memory Serialized 1x Replicated",
             "memoryUsed": 3151074,
             "diskUsed": 0,
@@ -952,7 +970,7 @@
             ]
           },
           {
-            "blockName": "rdd_476_0",
+            "blockName": "rdd_546_0",
             "storageLevel": "Memory Serialized 1x Replicated",
             "memoryUsed": 5576721,
             "diskUsed": 0,
@@ -962,17 +980,21 @@
           }
         ]
       }
-    ]
+    ],
+    "after_unpersist": {
+      "is_cached": false,
+      "storage": []
+    }
   },
   "benchmark": [
     {
       "p": 1,
       "times": [
-        0.13344388300015453,
-        0.05495223499997337,
-        0.059042877000138105
+        0.09869962799712084,
+        0.07022893402609043,
+        0.050510408997070044
       ],
-      "median": 0.059042877000138105,
+      "median": 0.07022893402609043,
       "checksum": [
         1885618790.063052,
         1885618790.063052,
@@ -983,104 +1005,104 @@
     {
       "p": 2,
       "times": [
-        0.19455228199990415,
-        0.08966217800002596,
-        0.10353810600008728
+        0.12054276000708342,
+        0.08861396298743784,
+        0.08302843300043605
       ],
-      "median": 0.10353810600008728,
+      "median": 0.08861396298743784,
       "checksum": [
         1885618790.0630507,
         1885618790.0630507,
         1885618790.0630507
       ],
-      "speedup": 0.5702526275696828
+      "speedup": 0.7925267266970812
     },
     {
       "p": 4,
       "times": [
-        0.13158814600001278,
-        0.09018109499993443,
-        0.10163243700003477
+        0.09255835198564455,
+        0.07823761197505519,
+        0.08059796501765959
       ],
-      "median": 0.10163243700003477,
+      "median": 0.08059796501765959,
       "checksum": [
         1885618790.0630512,
         1885618790.0630512,
         1885618790.0630512
       ],
-      "speedup": 0.5809452055166
+      "speedup": 0.8713487246322257
     },
     {
       "p": 8,
       "times": [
-        0.21208750699997836,
-        0.11176324100006241,
-        0.10913225300009799
+        0.14336307501071133,
+        0.13876656498177908,
+        0.0784745079872664
       ],
-      "median": 0.11176324100006241,
+      "median": 0.13876656498177908,
       "checksum": [
         1885618790.0630512,
         1885618790.0630512,
         1885618790.0630512
       ],
-      "speedup": 0.5282852973108139
+      "speedup": 0.5060940582863885
     },
     {
       "p": 16,
       "times": [
-        0.22637310000004618,
-        0.13866313599987734,
-        0.17754050300004565
+        0.14992408498073928,
+        0.09387935898848809,
+        0.09810651099542156
       ],
-      "median": 0.17754050300004565,
+      "median": 0.09810651099542156,
       "checksum": [
         1885618790.0630512,
         1885618790.0630512,
         1885618790.0630512
       ],
-      "speedup": 0.33256004124378835
+      "speedup": 0.715843763207193
     },
     {
       "p": 32,
       "times": [
-        0.22032995399990796,
-        0.16111992800006192,
-        0.15855401399994662
+        0.16136933700181544,
+        0.13553735698224045,
+        0.13801017799414694
       ],
-      "median": 0.16111992800006192,
+      "median": 0.13801017799414694,
       "checksum": [
         1885618790.0630512,
         1885618790.0630512,
         1885618790.0630512
       ],
-      "speedup": 0.36645297532726934
+      "speedup": 0.5088677882081194
     }
   ],
   "shuffle_q": [
     {
       "q": 2,
       "groups": 27,
-      "seconds": 0.34120527000004586
+      "seconds": 0.29883613900165074
     },
     {
       "q": 4,
       "groups": 27,
-      "seconds": 0.21323536500017326
+      "seconds": 0.2214604360051453
     },
     {
       "q": 8,
       "groups": 27,
-      "seconds": 0.282081479999988
+      "seconds": 0.24436699101352133
     },
     {
       "q": 16,
       "groups": 27,
-      "seconds": 0.278198853000049
+      "seconds": 0.27139667799929157
     },
     {
       "q": 32,
       "groups": 27,
-      "seconds": 0.28126977399983843
+      "seconds": 0.2622285540273879
     }
   ],
   "small_files": [
@@ -1090,20 +1112,20 @@
       "total_mib": 6.456469535827637,
       "mean_kib": 6611.4248046875,
       "metrics": {
-        "seconds": 0.3131553250000252,
+        "seconds": 0.5224456729774829,
         "jobs": [
-          89
+          95
         ],
         "stages": [
-          198,
-          199
+          216,
+          217
         ],
         "tasks": 3,
         "shuffle_read": 10751186,
         "shuffle_write": 10751186,
         "stage_metrics": [
           {
-            "stageId": 199,
+            "stageId": 217,
             "numTasks": 1,
             "numCompleteTasks": 1,
             "inputBytes": 0,
@@ -1112,7 +1134,7 @@
             "shuffleWriteBytes": 0
           },
           {
-            "stageId": 198,
+            "stageId": 216,
             "numTasks": 2,
             "numCompleteTasks": 2,
             "inputBytes": 6677415,
@@ -1129,20 +1151,20 @@
       "total_mib": 7.464443206787109,
       "mean_kib": 1910.8974609375,
       "metrics": {
-        "seconds": 0.3151144229998408,
+        "seconds": 0.5558315539965406,
         "jobs": [
-          90
+          96
         ],
         "stages": [
-          200,
-          201
+          218,
+          219
         ],
         "tasks": 6,
         "shuffle_read": 12012709,
         "shuffle_write": 12012709,
         "stage_metrics": [
           {
-            "stageId": 201,
+            "stageId": 219,
             "numTasks": 4,
             "numCompleteTasks": 4,
             "inputBytes": 0,
@@ -1151,7 +1173,7 @@
             "shuffleWriteBytes": 0
           },
           {
-            "stageId": 200,
+            "stageId": 218,
             "numTasks": 2,
             "numCompleteTasks": 2,
             "inputBytes": 6677415,
@@ -1168,20 +1190,20 @@
       "total_mib": 8.756361961364746,
       "mean_kib": 560.4071655273438,
       "metrics": {
-        "seconds": 0.45948915700000725,
+        "seconds": 0.7877706900180783,
         "jobs": [
-          91
+          97
         ],
         "stages": [
-          202,
-          203
+          220,
+          221
         ],
         "tasks": 18,
         "shuffle_read": 12022984,
         "shuffle_write": 12022984,
         "stage_metrics": [
           {
-            "stageId": 203,
+            "stageId": 221,
             "numTasks": 16,
             "numCompleteTasks": 16,
             "inputBytes": 0,
@@ -1190,7 +1212,7 @@
             "shuffleWriteBytes": 0
           },
           {
-            "stageId": 202,
+            "stageId": 220,
             "numTasks": 2,
             "numCompleteTasks": 2,
             "inputBytes": 6677415,
@@ -1207,20 +1229,20 @@
       "total_mib": 10.30147933959961,
       "mean_kib": 164.82366943359375,
       "metrics": {
-        "seconds": 1.0146044079999683,
+        "seconds": 0.9863997979846317,
         "jobs": [
-          92
+          98
         ],
         "stages": [
-          204,
-          205
+          222,
+          223
         ],
         "tasks": 66,
         "shuffle_read": 12065531,
         "shuffle_write": 12065531,
         "stage_metrics": [
           {
-            "stageId": 205,
+            "stageId": 223,
             "numTasks": 64,
             "numCompleteTasks": 64,
             "inputBytes": 0,
@@ -1229,7 +1251,7 @@
             "shuffleWriteBytes": 0
           },
           {
-            "stageId": 204,
+            "stageId": 222,
             "numTasks": 2,
             "numCompleteTasks": 2,
             "inputBytes": 6677415,
@@ -1261,28 +1283,28 @@
       "before": [],
       "after_transform": [],
       "after_action": [
-        97
+        103
       ],
       "rows": 112650
     },
     "join_rows": 112650,
     "smj": {
-      "seconds": 0.19172874699984277,
+      "seconds": 0.16632000298704952,
       "jobs": [
-        98
+        104
       ],
       "stages": [
-        214,
-        215,
-        216,
-        217
+        232,
+        233,
+        234,
+        235
       ],
       "tasks": 12,
       "shuffle_read": 1369691,
       "shuffle_write": 1369691,
       "stage_metrics": [
         {
-          "stageId": 217,
+          "stageId": 235,
           "numTasks": 1,
           "numCompleteTasks": 1,
           "inputBytes": 0,
@@ -1291,7 +1313,7 @@
           "shuffleWriteBytes": 0
         },
         {
-          "stageId": 216,
+          "stageId": 234,
           "numTasks": 8,
           "numCompleteTasks": 8,
           "inputBytes": 0,
@@ -1300,42 +1322,42 @@
           "shuffleWriteBytes": 472
         },
         {
-          "stageId": 215,
-          "numTasks": 2,
-          "numCompleteTasks": 2,
-          "inputBytes": 964388,
-          "outputBytes": 0,
-          "shuffleReadBytes": 0,
-          "shuffleWriteBytes": 1262840
-        },
-        {
-          "stageId": 214,
+          "stageId": 233,
           "numTasks": 1,
           "numCompleteTasks": 1,
           "inputBytes": 131816,
           "outputBytes": 0,
           "shuffleReadBytes": 0,
           "shuffleWriteBytes": 106379
+        },
+        {
+          "stageId": 232,
+          "numTasks": 2,
+          "numCompleteTasks": 2,
+          "inputBytes": 964388,
+          "outputBytes": 0,
+          "shuffleReadBytes": 0,
+          "shuffleWriteBytes": 1262840
         }
       ]
     },
     "bhj": {
-      "seconds": 0.08772391100001187,
+      "seconds": 0.09229239900014363,
       "jobs": [
-        99,
-        100
+        105,
+        106
       ],
       "stages": [
-        218,
-        219,
-        220
+        236,
+        237,
+        238
       ],
       "tasks": 4,
       "shuffle_read": 118,
       "shuffle_write": 118,
       "stage_metrics": [
         {
-          "stageId": 220,
+          "stageId": 238,
           "numTasks": 1,
           "numCompleteTasks": 1,
           "inputBytes": 0,
@@ -1344,7 +1366,7 @@
           "shuffleWriteBytes": 0
         },
         {
-          "stageId": 219,
+          "stageId": 237,
           "numTasks": 2,
           "numCompleteTasks": 2,
           "inputBytes": 964388,
@@ -1353,7 +1375,7 @@
           "shuffleWriteBytes": 118
         },
         {
-          "stageId": 218,
+          "stageId": 236,
           "numTasks": 1,
           "numCompleteTasks": 1,
           "inputBytes": 131816,
@@ -1364,26 +1386,26 @@
       ]
     },
     "groupby": {
-      "seconds": 0.2077453179999793,
+      "seconds": 0.20214182301424444,
       "jobs": [
-        101,
-        102,
-        103
+        107,
+        108,
+        109
       ],
       "stages": [
-        221,
-        222,
-        223,
-        224,
-        225,
-        226
+        239,
+        240,
+        241,
+        242,
+        243,
+        244
       ],
       "tasks": 27,
       "shuffle_read": 5322,
       "shuffle_write": 3472,
       "stage_metrics": [
         {
-          "stageId": 226,
+          "stageId": 244,
           "numTasks": 8,
           "numCompleteTasks": 8,
           "inputBytes": 0,
@@ -1392,7 +1414,7 @@
           "shuffleWriteBytes": 0
         },
         {
-          "stageId": 225,
+          "stageId": 243,
           "numTasks": 8,
           "numCompleteTasks": 8,
           "inputBytes": 0,
@@ -1401,7 +1423,7 @@
           "shuffleWriteBytes": 1622
         },
         {
-          "stageId": 223,
+          "stageId": 241,
           "numTasks": 8,
           "numCompleteTasks": 8,
           "inputBytes": 0,
@@ -1410,7 +1432,7 @@
           "shuffleWriteBytes": 0
         },
         {
-          "stageId": 222,
+          "stageId": 240,
           "numTasks": 2,
           "numCompleteTasks": 2,
           "inputBytes": 1086721,
@@ -1419,7 +1441,7 @@
           "shuffleWriteBytes": 1850
         },
         {
-          "stageId": 221,
+          "stageId": 239,
           "numTasks": 1,
           "numCompleteTasks": 1,
           "inputBytes": 131816,
@@ -1598,51 +1620,101 @@
     },
     "cache": {
       "without": [
-        0.16733429099986097,
-        0.15067680500010283
+        0.17753744797664694,
+        0.12260773600428365
       ],
-      "materialization": 0.19778756999994584,
+      "materialization": 0.19765729698701762,
       "cached": [
-        0.1603314080000473,
-        0.07840816699990683
-      ]
+        0.11676288300077431,
+        0.163297984021483
+      ],
+      "checksums": [
+        15843553.239999592,
+        15843553.240000041,
+        15843553.239999592,
+        15843553.240000041
+      ],
+      "storage": [
+        {
+          "id": 1025,
+          "name": "*(2) Project [seller_id#206, price#208, freight_value#209, gross#2387, seller_zip_code_prefix#236, seller_city#237, seller_state#238]\n+- *(2) BroadcastHashJoin [seller_id#206], [seller_id#235], Inner, BuildRight, false\n   :- *(2) Project [seller_id#206, price#208, freight_value#209, (price#208 + freight_value#209) AS gross#2387]\n   :  +- *(2) Filter ((isnotnull(price#208) AND (price#208 > 0.0)) AND isnotnull(seller_id#206))\n   :     +- *(2) ColumnarToRow\n   :        +- FileScan parquet [seller_id#206,price#208,freight_value#209] Batched: true, DataFilters: [isnotnull(price#208), (price#208 > 0.0), isnotnull(seller_id#206)], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/home/albakhtin/tiabd/АлбахтинИВ/Spark/data/spark_input_parquet/o..., PartitionFilters: [], PushedFilters: [IsNotNull(price), GreaterThan(price,0.0), IsNotNull(seller_id)], ReadSchema: struct<seller_id:string,price:double,freight_value:double>\n   +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),fals...",
+          "numPartitions": 2,
+          "numCachedPartitions": 2,
+          "storageLevel": "Disk Memory Serialized 1x Replicated",
+          "memoryUsed": 2778587,
+          "diskUsed": 0,
+          "dataDistribution": [
+            {
+              "address": "10.0.2.15:41997",
+              "memoryUsed": 2778587,
+              "memoryRemaining": 734759707,
+              "diskUsed": 0,
+              "onHeapMemoryUsed": 2778587,
+              "offHeapMemoryUsed": 0,
+              "onHeapMemoryRemaining": 734759707,
+              "offHeapMemoryRemaining": 0
+            }
+          ],
+          "partitions": [
+            {
+              "blockName": "rdd_1025_1",
+              "storageLevel": "Memory Serialized 1x Replicated",
+              "memoryUsed": 1006060,
+              "diskUsed": 0,
+              "executors": [
+                "driver"
+              ]
+            },
+            {
+              "blockName": "rdd_1025_0",
+              "storageLevel": "Memory Serialized 1x Replicated",
+              "memoryUsed": 1772527,
+              "diskUsed": 0,
+              "executors": [
+                "driver"
+              ]
+            }
+          ]
+        }
+      ],
+      "after_unpersist": []
     },
     "benchmark": [
       {
         "p": 1,
         "times": [
-          0.11520049899991136,
-          0.07725457799983815,
-          0.07867929200006074
+          0.1470317489875015,
+          0.13269337400561199,
+          0.11678955401293933
         ],
-        "median": 0.07867929200006074
+        "median": 0.13269337400561199
       },
       {
         "p": 2,
         "times": [
-          0.13464394799984802,
-          0.12784733200010123,
-          0.1290721149998717
+          0.1429354000138119,
+          0.1387204859929625,
+          0.1271599400206469
         ],
-        "median": 0.1290721149998717
+        "median": 0.1387204859929625
       },
       {
         "p": 4,
         "times": [
-          0.1568166359998031,
-          0.13344879500004936,
-          0.125381126000093
+          0.12560606398619711,
+          0.12573854500078596,
+          0.14702542099985294
         ],
-        "median": 0.13344879500004936
+        "median": 0.12573854500078596
       },
       {
         "p": 8,
         "times": [
-          0.13339620399983687,
-          0.11445044400011284,
-          0.12932283999998617
+          0.14535661999252625,
+          0.2189026350097265,
+          0.14915432600537315
         ],
-        "median": 0.12932283999998617
+        "median": 0.14915432600537315
       }
     ],
     "files": [
@@ -1652,23 +1724,23 @@
         "total_mib": 0.0013036727905273438,
         "mean_kib": 1.3349609375,
         "metrics": {
-          "seconds": 0.1133840599998166,
+          "seconds": 0.15960440601338632,
           "jobs": [
-            152,
-            153
+            158,
+            159
           ],
           "stages": [
-            324,
-            325,
-            326,
-            327
+            342,
+            343,
+            344,
+            345
           ],
           "tasks": 12,
           "shuffle_read": 2800,
           "shuffle_write": 2800,
           "stage_metrics": [
             {
-              "stageId": 327,
+              "stageId": 345,
               "numTasks": 1,
               "numCompleteTasks": 1,
               "inputBytes": 0,
@@ -1677,7 +1749,7 @@
               "shuffleWriteBytes": 0
             },
             {
-              "stageId": 326,
+              "stageId": 344,
               "numTasks": 8,
               "numCompleteTasks": 8,
               "inputBytes": 0,
@@ -1686,7 +1758,7 @@
               "shuffleWriteBytes": 950
             },
             {
-              "stageId": 325,
+              "stageId": 343,
               "numTasks": 2,
               "numCompleteTasks": 2,
               "inputBytes": 1086721,
@@ -1695,7 +1767,7 @@
               "shuffleWriteBytes": 1850
             },
             {
-              "stageId": 324,
+              "stageId": 342,
               "numTasks": 1,
               "numCompleteTasks": 1,
               "inputBytes": 131816,
@@ -1712,23 +1784,23 @@
         "total_mib": 0.004070281982421875,
         "mean_kib": 1.0419921875,
         "metrics": {
-          "seconds": 0.13393151200011744,
+          "seconds": 0.16849635701510124,
           "jobs": [
-            154,
-            155
+            160,
+            161
           ],
           "stages": [
-            328,
-            329,
-            330,
-            331
+            346,
+            347,
+            348,
+            349
           ],
           "tasks": 15,
           "shuffle_read": 3534,
           "shuffle_write": 3534,
           "stage_metrics": [
             {
-              "stageId": 331,
+              "stageId": 349,
               "numTasks": 4,
               "numCompleteTasks": 4,
               "inputBytes": 0,
@@ -1737,7 +1809,7 @@
               "shuffleWriteBytes": 0
             },
             {
-              "stageId": 330,
+              "stageId": 348,
               "numTasks": 8,
               "numCompleteTasks": 8,
               "inputBytes": 0,
@@ -1746,7 +1818,7 @@
               "shuffleWriteBytes": 1684
             },
             {
-              "stageId": 329,
+              "stageId": 347,
               "numTasks": 2,
               "numCompleteTasks": 2,
               "inputBytes": 1086721,
@@ -1755,7 +1827,7 @@
               "shuffleWriteBytes": 1850
             },
             {
-              "stageId": 328,
+              "stageId": 346,
               "numTasks": 1,
               "numCompleteTasks": 1,
               "inputBytes": 131816,

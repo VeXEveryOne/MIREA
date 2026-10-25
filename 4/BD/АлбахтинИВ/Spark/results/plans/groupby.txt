@@ -21,25 +21,25 @@ Input [2]: [seller_id#206, price#208]
 Input [2]: [seller_id#206, price#208]
 Keys [1]: [seller_id#206]
 Functions [3]: [partial_count(1), partial_sum(price#208), partial_avg(price#208)]
-Aggregate Attributes [4]: [count#426L, sum#427, sum#428, count#429L]
-Results [5]: [seller_id#206, count#430L, sum#431, sum#432, count#433L]
+Aggregate Attributes [4]: [count#503L, sum#504, sum#505, count#506L]
+Results [5]: [seller_id#206, count#507L, sum#508, sum#509, count#510L]
 
 (4) Exchange
-Input [5]: [seller_id#206, count#430L, sum#431, sum#432, count#433L]
-Arguments: hashpartitioning(seller_id#206, 8), ENSURE_REQUIREMENTS, [plan_id=1082]
+Input [5]: [seller_id#206, count#507L, sum#508, sum#509, count#510L]
+Arguments: hashpartitioning(seller_id#206, 8), ENSURE_REQUIREMENTS, [plan_id=1476]
 
 (5) HashAggregate [codegen id : 2]
-Input [5]: [seller_id#206, count#430L, sum#431, sum#432, count#433L]
+Input [5]: [seller_id#206, count#507L, sum#508, sum#509, count#510L]
 Keys [1]: [seller_id#206]
 Functions [3]: [count(1), sum(price#208), avg(price#208)]
-Aggregate Attributes [3]: [count(1)#415L, sum(price#208)#417, avg(price#208)#419]
-Results [4]: [seller_id#206, count(1)#415L AS items#416L, round(sum(price#208)#417, 2) AS revenue#418, round(avg(price#208)#419, 2) AS avg_price#420]
+Aggregate Attributes [3]: [count(1)#493L, sum(price#208)#495, avg(price#208)#497]
+Results [4]: [seller_id#206, count(1)#493L AS items#494L, round(sum(price#208)#495, 2) AS revenue#496, round(avg(price#208)#497, 2) AS avg_price#498]
 
 (6) Exchange
-Input [4]: [seller_id#206, items#416L, revenue#418, avg_price#420]
-Arguments: rangepartitioning(revenue#418 DESC NULLS LAST, 8), ENSURE_REQUIREMENTS, [plan_id=1086]
+Input [4]: [seller_id#206, items#494L, revenue#496, avg_price#498]
+Arguments: rangepartitioning(revenue#496 DESC NULLS LAST, 8), ENSURE_REQUIREMENTS, [plan_id=1480]
 
 (7) Sort [codegen id : 3]
-Input [4]: [seller_id#206, items#416L, revenue#418, avg_price#420]
-Arguments: [revenue#418 DESC NULLS LAST], true, 0
+Input [4]: [seller_id#206, items#494L, revenue#496, avg_price#498]
+Arguments: [revenue#496 DESC NULLS LAST], true, 0
 

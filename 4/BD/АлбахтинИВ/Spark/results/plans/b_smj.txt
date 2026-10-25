@@ -29,15 +29,15 @@ Input [3]: [seller_id#206, price#208, freight_value#209]
 Condition : ((isnotnull(price#208) AND (price#208 > 0.0)) AND isnotnull(seller_id#206))
 
 (4) Project [codegen id : 1]
-Output [4]: [seller_id#206, price#208, freight_value#209, (price#208 + freight_value#209) AS gross#2312]
+Output [4]: [seller_id#206, price#208, freight_value#209, (price#208 + freight_value#209) AS gross#2387]
 Input [3]: [seller_id#206, price#208, freight_value#209]
 
 (5) Exchange
-Input [4]: [seller_id#206, price#208, freight_value#209, gross#2312]
-Arguments: hashpartitioning(seller_id#206, 8), ENSURE_REQUIREMENTS, [plan_id=4182]
+Input [4]: [seller_id#206, price#208, freight_value#209, gross#2387]
+Arguments: hashpartitioning(seller_id#206, 8), ENSURE_REQUIREMENTS, [plan_id=4576]
 
 (6) Sort [codegen id : 2]
-Input [4]: [seller_id#206, price#208, freight_value#209, gross#2312]
+Input [4]: [seller_id#206, price#208, freight_value#209, gross#2387]
 Arguments: [seller_id#206 ASC NULLS FIRST], false, 0
 
 (7) Scan parquet 
@@ -56,7 +56,7 @@ Condition : isnotnull(seller_id#235)
 
 (10) Exchange
 Input [4]: [seller_id#235, seller_zip_code_prefix#236, seller_city#237, seller_state#238]
-Arguments: hashpartitioning(seller_id#235, 8), ENSURE_REQUIREMENTS, [plan_id=4191]
+Arguments: hashpartitioning(seller_id#235, 8), ENSURE_REQUIREMENTS, [plan_id=4585]
 
 (11) Sort [codegen id : 4]
 Input [4]: [seller_id#235, seller_zip_code_prefix#236, seller_city#237, seller_state#238]
@@ -69,6 +69,6 @@ Join type: Inner
 Join condition: None
 
 (13) Project [codegen id : 5]
-Output [7]: [seller_id#206, price#208, freight_value#209, gross#2312, seller_zip_code_prefix#236, seller_city#237, seller_state#238]
-Input [8]: [seller_id#206, price#208, freight_value#209, gross#2312, seller_id#235, seller_zip_code_prefix#236, seller_city#237, seller_state#238]
+Output [7]: [seller_id#206, price#208, freight_value#209, gross#2387, seller_zip_code_prefix#236, seller_city#237, seller_state#238]
+Input [8]: [seller_id#206, price#208, freight_value#209, gross#2387, seller_id#235, seller_zip_code_prefix#236, seller_city#237, seller_state#238]
 
