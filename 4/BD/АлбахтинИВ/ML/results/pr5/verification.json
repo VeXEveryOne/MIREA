@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-10-25T21:44:14.469669+00:00",
+  "notebook_sha256": "b08655bb2370dd7ea19d980866bd8bf9c0c0fdcdb4767578dca9fef30c542f3f",
+  "checks": {
+    "test_confusion": {
+      "tp": 300,
+      "tn": 1864,
+      "fp": 221,
+      "fn": 82
+    },
+    "exact_trapezoid_pr_auc": 0.6866249597594398,
+    "exact_roc_auc": 0.9050146270418221,
+    "spark_auc_tolerance": 0.002,
+    "regression_test_rows": 1313,
+    "calories_test_rows": 3000,
+    "cluster_profile_rows": 12330,
+    "source_splits_and_targets": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-10-25T21:44:14.470080+00:00",
+  "notebook_sha256": "ac21b5dbbe4b7e0acd42f65dd5527bc2b2bf9e829532bc76812190dc16a1ea25",
+  "checks": {
+    "retained_rows": 44868,
+    "test_rows": 9246,
+    "disjoint_groups": {
+      "train": 28,
+      "valid": 10,
+      "test": 10
+    },
+    "test_metrics_recomputed": 4,
+    "train_medians_recomputed": true,
+    "google_colab": false
+  }
+}

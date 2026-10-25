@@ -1,0 +1,12 @@
+# Validated Ubuntu VM Python 3.10 environment for practices 5-7.
+pyspark==3.5.7
+numpy==2.2.6
+pandas==2.2.3
+scipy==1.15.3
+scikit-learn==1.7.2
+matplotlib==3.10.8
+joblib==1.6.0
+pyarrow==19.0.1
+nbclient==0.10.2
+nbformat==5.10.4
+ipykernel==7.3.0

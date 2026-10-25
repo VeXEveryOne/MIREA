@@ -1,0 +1,116 @@
+{
+  "calories.csv": {
+    "sha256": "2fa1f6ab63d1b835f1f849ee0825043e456fde84c177600577a7090916b9b7c4",
+    "bytes": 742286,
+    "columns": [
+      "User_ID",
+      "Gender",
+      "Age",
+      "Height",
+      "Weight",
+      "Duration",
+      "Heart_Rate",
+      "Body_Temp",
+      "Calories"
+    ],
+    "rows": 15000,
+    "source": "User supplied directory C:/Users/VeX/Downloads/5",
+    "license": "Not specified in supplied files; raw data remain local and in the teaching VM"
+  },
+  "Dry_Bean.csv": {
+    "sha256": "4c0dc65987b30c725a72e3076fe601e3cb3ea6cc2e203201d9d8e0bd57ed15e9",
+    "bytes": 2484758,
+    "columns": [
+      "Area",
+      "Perimeter",
+      "MajorAxisLength",
+      "MinorAxisLength",
+      "AspectRation",
+      "Eccentricity",
+      "ConvexArea",
+      "EquivDiameter",
+      "Extent",
+      "Solidity",
+      "roundness",
+      "Compactness",
+      "ShapeFactor1",
+      "ShapeFactor2",
+      "ShapeFactor3",
+      "ShapeFactor4",
+      "Class"
+    ],
+    "rows": 13611,
+    "source": "User supplied directory C:/Users/VeX/Downloads/5",
+    "license": "Not specified in supplied files; raw data remain local and in the teaching VM"
+  },
+  "online_shoppers_intention.csv": {
+    "sha256": "b3055ee355f59134d851d32641183cb4a8b45def7124d2f50442a042f358e0d9",
+    "bytes": 1072063,
+    "columns": [
+      "Administrative",
+      "Administrative_Duration",
+      "Informational",
+      "Informational_Duration",
+      "ProductRelated",
+      "ProductRelated_Duration",
+      "BounceRates",
+      "ExitRates",
+      "PageValues",
+      "SpecialDay",
+      "Month",
+      "OperatingSystems",
+      "Browser",
+      "Region",
+      "TrafficType",
+      "VisitorType",
+      "Weekend",
+      "Revenue"
+    ],
+    "rows": 12330,
+    "source": "UCI Machine Learning Repository dataset 468",
+    "license": "CC BY 4.0"
+  },
+  "podcast_dataset.csv": {
+    "sha256": "fe0a3b189eb61dbe0b1f48356a9444755ada29ba00aef3b43cae3dbf5c4de7f7",
+    "bytes": 4596919,
+    "columns": [
+      "Podcast_Name",
+      "Episode_Title",
+      "Episode_Length_minutes",
+      "Genre",
+      "Host_Popularity_percentage",
+      "Publication_Day",
+      "Publication_Time",
+      "Guest_Popularity_percentage",
+      "Number_of_Ads",
+      "Episode_Sentiment",
+      "Listening_Time_minutes"
+    ],
+    "rows": 52500,
+    "source": "User supplied directory C:/Users/VeX/Downloads/5",
+    "license": "Not specified in supplied files; raw data remain local and in the teaching VM"
+  },
+  "SeoulBikeData.csv": {
+    "sha256": "373339b71a8935d69e9af0abf26a70744632119862eeb3919efb389a7b749c60",
+    "bytes": 604166,
+    "columns": [
+      "Date",
+      "Rented Bike Count",
+      "Hour",
+      "Temperature(°C)",
+      "Humidity(%)",
+      "Wind speed (m/s)",
+      "Visibility (10m)",
+      "Dew point temperature(°C)",
+      "Solar Radiation (MJ/m2)",
+      "Rainfall(mm)",
+      "Snowfall (cm)",
+      "Seasons",
+      "Holiday",
+      "Functioning Day"
+    ],
+    "rows": 8760,
+    "source": "UCI Machine Learning Repository dataset 560",
+    "license": "CC BY 4.0"
+  }
+}

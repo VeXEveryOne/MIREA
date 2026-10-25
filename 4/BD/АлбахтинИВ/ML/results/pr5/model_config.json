@@ -1,0 +1,8 @@
+{
+  "seed": 42,
+  "classification_model": "Случайный лес",
+  "classification_threshold": 0.5515542833901663,
+  "regression_model": "Случайный лес",
+  "kmeans_k": 3,
+  "spark_version": "3.5.7"
+}

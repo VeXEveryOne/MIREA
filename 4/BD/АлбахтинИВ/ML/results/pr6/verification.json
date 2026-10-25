@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-10-25T21:44:14.469990+00:00",
+  "notebook_sha256": "11de89c09f88f4b09b36a49462c7b9f888b4bb5216f0667cce555d7c596007c3",
+  "checks": {
+    "full_rows": 13611,
+    "full_hierarchy_merges": 13610,
+    "silhouettes_recomputed": 3,
+    "fixed_sample_rows": 4000,
+    "class_excluded": true,
+    "roundtrip_equal": true
+  }
+}

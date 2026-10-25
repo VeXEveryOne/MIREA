@@ -1,0 +1,185 @@
+{
+  "rows": 15000,
+  "predictors": [
+    "Age",
+    "Height",
+    "Weight",
+    "Duration",
+    "Heart_Rate",
+    "Body_Temp",
+    "Gender"
+  ],
+  "target": "Calories",
+  "excluded": [
+    "User_ID"
+  ],
+  "split": {
+    "train": 9000,
+    "valid": 3000,
+    "test": 3000
+  },
+  "validation": [
+    {
+      "model": "LINEAR_0.01",
+      "fit_s": 0.3712168920028489,
+      "rmse": 11.498789477063355,
+      "mae": 8.415733446957132,
+      "r2": 0.9662451046291831,
+      "negative_share": 0.047
+    },
+    {
+      "model": "LINEAR_0.1",
+      "fit_s": 0.19903158702072687,
+      "rmse": 11.495830298417562,
+      "mae": 8.409048505718053,
+      "r2": 0.966262475833864,
+      "negative_share": 0.048
+    },
+    {
+      "model": "RF_8",
+      "fit_s": 1.7631713379814755,
+      "rmse": 5.960055705034889,
+      "mae": 3.8338539472173156,
+      "r2": 0.9909315480098577,
+      "negative_share": 0.0
+    },
+    {
+      "model": "RF_12",
+      "fit_s": 8.752392759022769,
+      "rmse": 4.1343117894552766,
+      "mae": 2.4785499394660166,
+      "r2": 0.9956364598920896,
+      "negative_share": 0.0
+    }
+  ],
+  "baseline_valid": {
+    "rmse": 62.64183235173373,
+    "mae": 53.19677637037015,
+    "r2": -0.001754786467376146,
+    "negative_share": 0.0
+  },
+  "selected_model": "RF_12",
+  "test": {
+    "rmse": 4.200949392953285,
+    "mae": 2.4144303418226065,
+    "r2": 0.9955885371796591,
+    "negative_share": 0.0
+  },
+  "baseline_test": {
+    "rmse": 63.25909577061658,
+    "mae": 53.65172333333293,
+    "r2": -0.0003078646128016338,
+    "negative_share": 0.0
+  },
+  "reload_max_error": 0.0,
+  "key_uniqueness": true,
+  "key_profile": {
+    "rows": 15000,
+    "distinct_keys": 15000,
+    "min": 10001159,
+    "max": 19999647,
+    "gender_by_split": [
+      {
+        "split": "train",
+        "Gender": "male",
+        "count": 4484
+      },
+      {
+        "split": "train",
+        "Gender": "female",
+        "count": 4516
+      },
+      {
+        "split": "valid",
+        "Gender": "female",
+        "count": 1528
+      },
+      {
+        "split": "valid",
+        "Gender": "male",
+        "count": 1472
+      },
+      {
+        "split": "test",
+        "Gender": "female",
+        "count": 1509
+      },
+      {
+        "split": "test",
+        "Gender": "male",
+        "count": 1491
+      }
+    ]
+  },
+  "forecast_moment": "End of workout; heart rate and temperature are available",
+  "nulls": {
+    "User_ID": 0,
+    "Gender": 0,
+    "Age": 0,
+    "Height": 0,
+    "Weight": 0,
+    "Duration": 0,
+    "Heart_Rate": 0,
+    "Body_Temp": 0,
+    "Calories": 0
+  },
+  "schema": {
+    "type": "struct",
+    "fields": [
+      {
+        "name": "User_ID",
+        "type": "long",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "Gender",
+        "type": "string",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "Age",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "Height",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "Weight",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "Duration",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "Heart_Rate",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "Body_Temp",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "Calories",
+        "type": "double",
+        "nullable": true,
+        "metadata": {}
+      }
+    ]
+  }
+}

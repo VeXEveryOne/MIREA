@@ -1,0 +1,1315 @@
+{
+  "environment": {
+    "python": "3.10.12",
+    "spark": "3.5.7",
+    "master": "local[*]",
+    "parallelism": 2,
+    "java": "openjdk version \"17.0.20.1\" 2026-08-18"
+  },
+  "sources": {
+    "calories.csv": {
+      "sha256": "2fa1f6ab63d1b835f1f849ee0825043e456fde84c177600577a7090916b9b7c4",
+      "bytes": 742286,
+      "columns": [
+        "User_ID",
+        "Gender",
+        "Age",
+        "Height",
+        "Weight",
+        "Duration",
+        "Heart_Rate",
+        "Body_Temp",
+        "Calories"
+      ],
+      "rows": 15000,
+      "source": "User supplied directory C:/Users/VeX/Downloads/5",
+      "license": "Not specified in supplied files; raw data remain local and in the teaching VM"
+    },
+    "Dry_Bean.csv": {
+      "sha256": "4c0dc65987b30c725a72e3076fe601e3cb3ea6cc2e203201d9d8e0bd57ed15e9",
+      "bytes": 2484758,
+      "columns": [
+        "Area",
+        "Perimeter",
+        "MajorAxisLength",
+        "MinorAxisLength",
+        "AspectRation",
+        "Eccentricity",
+        "ConvexArea",
+        "EquivDiameter",
+        "Extent",
+        "Solidity",
+        "roundness",
+        "Compactness",
+        "ShapeFactor1",
+        "ShapeFactor2",
+        "ShapeFactor3",
+        "ShapeFactor4",
+        "Class"
+      ],
+      "rows": 13611,
+      "source": "User supplied directory C:/Users/VeX/Downloads/5",
+      "license": "Not specified in supplied files; raw data remain local and in the teaching VM"
+    },
+    "online_shoppers_intention.csv": {
+      "sha256": "b3055ee355f59134d851d32641183cb4a8b45def7124d2f50442a042f358e0d9",
+      "bytes": 1072063,
+      "columns": [
+        "Administrative",
+        "Administrative_Duration",
+        "Informational",
+        "Informational_Duration",
+        "ProductRelated",
+        "ProductRelated_Duration",
+        "BounceRates",
+        "ExitRates",
+        "PageValues",
+        "SpecialDay",
+        "Month",
+        "OperatingSystems",
+        "Browser",
+        "Region",
+        "TrafficType",
+        "VisitorType",
+        "Weekend",
+        "Revenue"
+      ],
+      "rows": 12330,
+      "source": "UCI Machine Learning Repository dataset 468",
+      "license": "CC BY 4.0"
+    },
+    "podcast_dataset.csv": {
+      "sha256": "fe0a3b189eb61dbe0b1f48356a9444755ada29ba00aef3b43cae3dbf5c4de7f7",
+      "bytes": 4596919,
+      "columns": [
+        "Podcast_Name",
+        "Episode_Title",
+        "Episode_Length_minutes",
+        "Genre",
+        "Host_Popularity_percentage",
+        "Publication_Day",
+        "Publication_Time",
+        "Guest_Popularity_percentage",
+        "Number_of_Ads",
+        "Episode_Sentiment",
+        "Listening_Time_minutes"
+      ],
+      "rows": 52500,
+      "source": "User supplied directory C:/Users/VeX/Downloads/5",
+      "license": "Not specified in supplied files; raw data remain local and in the teaching VM"
+    },
+    "SeoulBikeData.csv": {
+      "sha256": "373339b71a8935d69e9af0abf26a70744632119862eeb3919efb389a7b749c60",
+      "bytes": 604166,
+      "columns": [
+        "Date",
+        "Rented Bike Count",
+        "Hour",
+        "Temperature(°C)",
+        "Humidity(%)",
+        "Wind speed (m/s)",
+        "Visibility (10m)",
+        "Dew point temperature(°C)",
+        "Solar Radiation (MJ/m2)",
+        "Rainfall(mm)",
+        "Snowfall (cm)",
+        "Seasons",
+        "Holiday",
+        "Functioning Day"
+      ],
+      "rows": 8760,
+      "source": "UCI Machine Learning Repository dataset 560",
+      "license": "CC BY 4.0"
+    }
+  },
+  "classification": {
+    "raw_rows": 12330,
+    "class_counts": [
+      {
+        "Revenue": false,
+        "count": 10422
+      },
+      {
+        "Revenue": true,
+        "count": 1908
+      }
+    ],
+    "split": [
+      {
+        "split": "valid",
+        "label": 0.0,
+        "count": 2084
+      },
+      {
+        "split": "test",
+        "label": 0.0,
+        "count": 2085
+      },
+      {
+        "split": "train",
+        "label": 0.0,
+        "count": 6253
+      },
+      {
+        "split": "valid",
+        "label": 1.0,
+        "count": 382
+      },
+      {
+        "split": "test",
+        "label": 1.0,
+        "count": 382
+      },
+      {
+        "split": "train",
+        "label": 1.0,
+        "count": 1144
+      }
+    ],
+    "validation": [
+      {
+        "model": "Логистическая регрессия",
+        "fit_s": 2.9206102750031278,
+        "accuracy": 0.8203568532035685,
+        "precision": 0.4528593508500773,
+        "recall": 0.7670157068062827,
+        "f1": 0.5694849368318756,
+        "tp": 293,
+        "fp": 354,
+        "fn": 89,
+        "tn": 1730,
+        "areaUnderROC": 0.8949908804051815,
+        "areaUnderPR": 0.6102102848560215
+      },
+      {
+        "model": "Случайный лес",
+        "fit_s": 2.898295279010199,
+        "accuracy": 0.8698296836982968,
+        "precision": 0.5509181969949917,
+        "recall": 0.8638743455497382,
+        "f1": 0.672782874617737,
+        "tp": 330,
+        "fp": 269,
+        "fn": 52,
+        "tn": 1815,
+        "areaUnderROC": 0.9283634472570867,
+        "areaUnderPR": 0.7211880397894631
+      }
+    ],
+    "selected_model": "Случайный лес",
+    "threshold": 0.5515542833901663,
+    "test": {
+      "accuracy": 0.8771787596270775,
+      "precision": 0.5758157389635317,
+      "recall": 0.7853403141361257,
+      "f1": 0.6644518272425249,
+      "tp": 300,
+      "fp": 221,
+      "fn": 82,
+      "tn": 1864,
+      "areaUnderROC": 0.9049970494808346,
+      "areaUnderPR": 0.6864531157212996
+    },
+    "baseline_valid": {
+      "accuracy": 0.8450932684509327,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 382,
+      "tn": 2084
+    },
+    "ablation_with": 0.7211886400622434,
+    "ablation_without": 0.3898312033840749,
+    "importance": [
+      {
+        "feature": "PageValues",
+        "importance": 0.4933896574711195
+      },
+      {
+        "feature": "log_ProductRelated_Duration",
+        "importance": 0.07977304068806601
+      },
+      {
+        "feature": "ExitRates",
+        "importance": 0.0718719924064529
+      },
+      {
+        "feature": "log_ProductRelated",
+        "importance": 0.05793693620825084
+      },
+      {
+        "feature": "BounceRates",
+        "importance": 0.053528864339399615
+      },
+      {
+        "feature": "log_Administrative",
+        "importance": 0.030330311193412618
+      },
+      {
+        "feature": "log_Administrative_Duration",
+        "importance": 0.028985937100005056
+      },
+      {
+        "feature": "Month_ohe_Nov",
+        "importance": 0.023304976638357098
+      },
+      {
+        "feature": "log_Informational_Duration",
+        "importance": 0.014792635084046893
+      },
+      {
+        "feature": "VisitorType_ohe_Returning_Visitor",
+        "importance": 0.011879362551569853
+      },
+      {
+        "feature": "VisitorType_ohe_New_Visitor",
+        "importance": 0.011782232072797204
+      },
+      {
+        "feature": "log_Informational",
+        "importance": 0.010202253728743237
+      },
+      {
+        "feature": "Month_ohe_May",
+        "importance": 0.008394359608686478
+      },
+      {
+        "feature": "SpecialDay",
+        "importance": 0.006850716377477572
+      },
+      {
+        "feature": "Month_ohe_Mar",
+        "importance": 0.006337329583264885
+      },
+      {
+        "feature": "TrafficType_ohe_2",
+        "importance": 0.005427212593746234
+      },
+      {
+        "feature": "Month_ohe_Sep",
+        "importance": 0.005284407122798474
+      },
+      {
+        "feature": "OperatingSystems_ohe_3",
+        "importance": 0.005243711610216275
+      },
+      {
+        "feature": "TrafficType_ohe_3",
+        "importance": 0.005214574967148065
+      },
+      {
+        "feature": "TrafficType_ohe_13",
+        "importance": 0.0037386070259619493
+      },
+      {
+        "feature": "TrafficType_ohe_8",
+        "importance": 0.0035803715872202123
+      },
+      {
+        "feature": "Month_ohe_Oct",
+        "importance": 0.003471905130010539
+      },
+      {
+        "feature": "Month_ohe_Dec",
+        "importance": 0.0030147200020835983
+      },
+      {
+        "feature": "TrafficType_ohe_1",
+        "importance": 0.0030117785596950886
+      },
+      {
+        "feature": "Region_ohe_1",
+        "importance": 0.0029618639995457803
+      },
+      {
+        "feature": "OperatingSystems_ohe_2",
+        "importance": 0.002795932844126252
+      },
+      {
+        "feature": "Weekend_ohe_false",
+        "importance": 0.00265796260774851
+      },
+      {
+        "feature": "TrafficType_ohe_5",
+        "importance": 0.0026211427914307204
+      },
+      {
+        "feature": "Weekend_ohe_true",
+        "importance": 0.0026189788601930788
+      },
+      {
+        "feature": "Month_ohe_Jul",
+        "importance": 0.0020941932234956532
+      },
+      {
+        "feature": "OperatingSystems_ohe_1",
+        "importance": 0.0020199911831791702
+      },
+      {
+        "feature": "Browser_ohe_2",
+        "importance": 0.0019560595830247617
+      },
+      {
+        "feature": "Region_ohe_4",
+        "importance": 0.0018835283956464184
+      },
+      {
+        "feature": "Region_ohe_3",
+        "importance": 0.0017562703689638834
+      },
+      {
+        "feature": "TrafficType_ohe_11",
+        "importance": 0.001636063895157034
+      },
+      {
+        "feature": "Region_ohe_2",
+        "importance": 0.0016320514981006333
+      },
+      {
+        "feature": "Region_ohe_6",
+        "importance": 0.001586449436024823
+      },
+      {
+        "feature": "Browser_ohe_4",
+        "importance": 0.0015112743318166232
+      },
+      {
+        "feature": "TrafficType_ohe_20",
+        "importance": 0.0014624522367573992
+      },
+      {
+        "feature": "TrafficType_ohe_4",
+        "importance": 0.0014269351211900693
+      },
+      {
+        "feature": "Browser_ohe_1",
+        "importance": 0.0014230988972015878
+      },
+      {
+        "feature": "Month_ohe_Aug",
+        "importance": 0.0013995436451101802
+      },
+      {
+        "feature": "TrafficType_ohe_6",
+        "importance": 0.00139855007324707
+      },
+      {
+        "feature": "Browser_ohe_5",
+        "importance": 0.001320182065018489
+      },
+      {
+        "feature": "OperatingSystems_ohe_4",
+        "importance": 0.001252701920107878
+      },
+      {
+        "feature": "Region_ohe_8",
+        "importance": 0.0012426369357722207
+      },
+      {
+        "feature": "Month_ohe_June",
+        "importance": 0.001227304932948252
+      },
+      {
+        "feature": "Browser_ohe_10",
+        "importance": 0.0012115665074657251
+      },
+      {
+        "feature": "Region_ohe_5",
+        "importance": 0.0011651014661685421
+      },
+      {
+        "feature": "Month_ohe_Feb",
+        "importance": 0.0010742988949010704
+      },
+      {
+        "feature": "Region_ohe_7",
+        "importance": 0.0009703089227888111
+      },
+      {
+        "feature": "Browser_ohe_3",
+        "importance": 0.0009442574844734127
+      },
+      {
+        "feature": "TrafficType_ohe_10",
+        "importance": 0.0009396492606295045
+      },
+      {
+        "feature": "Region_ohe_9",
+        "importance": 0.0009189097474318009
+      },
+      {
+        "feature": "Browser_ohe_6",
+        "importance": 0.0008886660119955375
+      },
+      {
+        "feature": "OperatingSystems_ohe_8",
+        "importance": 0.0006604910933617767
+      },
+      {
+        "feature": "VisitorType_ohe_Other",
+        "importance": 0.00042622120000640896
+      },
+      {
+        "feature": "TrafficType_ohe_16",
+        "importance": 0.0003765815129609043
+      },
+      {
+        "feature": "Browser_ohe_7",
+        "importance": 0.00031805656838324855
+      },
+      {
+        "feature": "TrafficType_ohe_7",
+        "importance": 0.000276103126707976
+      },
+      {
+        "feature": "Browser_ohe_8",
+        "importance": 0.0002411658679169848
+      },
+      {
+        "feature": "Browser_ohe_13",
+        "importance": 0.00016307287439516866
+      },
+      {
+        "feature": "OperatingSystems_ohe_6",
+        "importance": 6.509218094508143e-05
+      },
+      {
+        "feature": "TrafficType_ohe_15",
+        "importance": 6.320141494914086e-05
+      },
+      {
+        "feature": "OperatingSystems_ohe_5",
+        "importance": 3.346886160990116e-05
+      },
+      {
+        "feature": "TrafficType_ohe_18",
+        "importance": 1.8416726789341466e-05
+      },
+      {
+        "feature": "TrafficType_ohe_14",
+        "importance": 1.2039792757842053e-05
+      },
+      {
+        "feature": "TrafficType_ohe_17",
+        "importance": 2.6798702521008954e-07
+      },
+      {
+        "feature": "Month_ohe___unknown",
+        "importance": 0.0
+      },
+      {
+        "feature": "Month_ohe_invalidValues",
+        "importance": 0.0
+      },
+      {
+        "feature": "OperatingSystems_ohe_7",
+        "importance": 0.0
+      },
+      {
+        "feature": "OperatingSystems_ohe___unknown",
+        "importance": 0.0
+      },
+      {
+        "feature": "OperatingSystems_ohe_invalidValues",
+        "importance": 0.0
+      },
+      {
+        "feature": "Browser_ohe_11",
+        "importance": 0.0
+      },
+      {
+        "feature": "Browser_ohe_12",
+        "importance": 0.0
+      },
+      {
+        "feature": "Browser_ohe_9",
+        "importance": 0.0
+      },
+      {
+        "feature": "Browser_ohe___unknown",
+        "importance": 0.0
+      },
+      {
+        "feature": "Browser_ohe_invalidValues",
+        "importance": 0.0
+      },
+      {
+        "feature": "Region_ohe___unknown",
+        "importance": 0.0
+      },
+      {
+        "feature": "Region_ohe_invalidValues",
+        "importance": 0.0
+      },
+      {
+        "feature": "TrafficType_ohe_12",
+        "importance": 0.0
+      },
+      {
+        "feature": "TrafficType_ohe_19",
+        "importance": 0.0
+      },
+      {
+        "feature": "TrafficType_ohe_9",
+        "importance": 0.0
+      },
+      {
+        "feature": "TrafficType_ohe___unknown",
+        "importance": 0.0
+      },
+      {
+        "feature": "TrafficType_ohe_invalidValues",
+        "importance": 0.0
+      },
+      {
+        "feature": "VisitorType_ohe___unknown",
+        "importance": 0.0
+      },
+      {
+        "feature": "VisitorType_ohe_invalidValues",
+        "importance": 0.0
+      },
+      {
+        "feature": "Weekend_ohe___unknown",
+        "importance": 0.0
+      },
+      {
+        "feature": "Weekend_ohe_invalidValues",
+        "importance": 0.0
+      }
+    ],
+    "coefficients": [
+      {
+        "feature": "PageValues",
+        "coefficient": 1.0713852167623026
+      },
+      {
+        "feature": "Month_ohe_Nov",
+        "coefficient": 0.2440861575954742
+      },
+      {
+        "feature": "ExitRates",
+        "coefficient": -0.2241894003248318
+      },
+      {
+        "feature": "log_ProductRelated",
+        "coefficient": 0.17704379180281665
+      },
+      {
+        "feature": "log_ProductRelated_Duration",
+        "coefficient": 0.1597760440510194
+      },
+      {
+        "feature": "Month_ohe_May",
+        "coefficient": -0.1279093575959204
+      },
+      {
+        "feature": "Month_ohe_Mar",
+        "coefficient": -0.12084834393676282
+      },
+      {
+        "feature": "TrafficType_ohe_13",
+        "coefficient": -0.1185509247121538
+      },
+      {
+        "feature": "BounceRates",
+        "coefficient": -0.1149973322103585
+      },
+      {
+        "feature": "Browser_ohe_3",
+        "coefficient": -0.11140940118558267
+      },
+      {
+        "feature": "log_Administrative_Duration",
+        "coefficient": 0.09495606302916065
+      },
+      {
+        "feature": "TrafficType_ohe_8",
+        "coefficient": 0.08377095060254132
+      },
+      {
+        "feature": "log_Informational",
+        "coefficient": 0.08081719059021408
+      },
+      {
+        "feature": "Month_ohe_Feb",
+        "coefficient": -0.07964240156457011
+      },
+      {
+        "feature": "Month_ohe_Sep",
+        "coefficient": 0.0788249045509248
+      },
+      {
+        "feature": "Month_ohe_Dec",
+        "coefficient": -0.07692775695867068
+      },
+      {
+        "feature": "log_Administrative",
+        "coefficient": 0.0735141242559402
+      },
+      {
+        "feature": "TrafficType_ohe_3",
+        "coefficient": -0.0634810106979581
+      },
+      {
+        "feature": "Month_ohe_Jul",
+        "coefficient": 0.06280431233918862
+      },
+      {
+        "feature": "VisitorType_ohe_New_Visitor",
+        "coefficient": 0.0614213246524847
+      },
+      {
+        "feature": "TrafficType_ohe_15",
+        "coefficient": -0.06073827521046898
+      },
+      {
+        "feature": "TrafficType_ohe_5",
+        "coefficient": 0.06033544442293307
+      },
+      {
+        "feature": "TrafficType_ohe_20",
+        "coefficient": 0.05926071255733611
+      },
+      {
+        "feature": "TrafficType_ohe_2",
+        "coefficient": 0.05470532124562482
+      },
+      {
+        "feature": "SpecialDay",
+        "coefficient": -0.05424520322994884
+      },
+      {
+        "feature": "VisitorType_ohe_Returning_Visitor",
+        "coefficient": -0.05299755079868539
+      },
+      {
+        "feature": "Browser_ohe_5",
+        "coefficient": 0.04953751544926989
+      },
+      {
+        "feature": "TrafficType_ohe_11",
+        "coefficient": 0.043719321211453485
+      },
+      {
+        "feature": "TrafficType_ohe_16",
+        "coefficient": 0.042297624309863814
+      },
+      {
+        "feature": "Month_ohe_Aug",
+        "coefficient": 0.04073590970085941
+      },
+      {
+        "feature": "Browser_ohe_10",
+        "coefficient": 0.040151538993806864
+      },
+      {
+        "feature": "Region_ohe_5",
+        "coefficient": -0.03569156959199468
+      },
+      {
+        "feature": "Region_ohe_9",
+        "coefficient": -0.034833666744541976
+      },
+      {
+        "feature": "Weekend_ohe_false",
+        "coefficient": -0.03106253035959355
+      },
+      {
+        "feature": "Weekend_ohe_true",
+        "coefficient": 0.031062530359589873
+      },
+      {
+        "feature": "Region_ohe_7",
+        "coefficient": 0.028957848615199247
+      },
+      {
+        "feature": "VisitorType_ohe_Other",
+        "coefficient": -0.02841084692752072
+      },
+      {
+        "feature": "log_Informational_Duration",
+        "coefficient": 0.02674975142505388
+      },
+      {
+        "feature": "OperatingSystems_ohe_7",
+        "coefficient": -0.026217901091437942
+      },
+      {
+        "feature": "Month_ohe_June",
+        "coefficient": -0.02599253090848041
+      },
+      {
+        "feature": "OperatingSystems_ohe_3",
+        "coefficient": -0.025197333728455933
+      },
+      {
+        "feature": "Region_ohe_2",
+        "coefficient": 0.024995562529914073
+      },
+      {
+        "feature": "TrafficType_ohe_18",
+        "coefficient": -0.02439380109284139
+      },
+      {
+        "feature": "Browser_ohe_8",
+        "coefficient": -0.022768116566453552
+      },
+      {
+        "feature": "Browser_ohe_4",
+        "coefficient": 0.022629492514490954
+      },
+      {
+        "feature": "Region_ohe_3",
+        "coefficient": -0.02239453120964923
+      },
+      {
+        "feature": "OperatingSystems_ohe_8",
+        "coefficient": 0.02085575866905933
+      },
+      {
+        "feature": "TrafficType_ohe_19",
+        "coefficient": -0.018624076127543004
+      },
+      {
+        "feature": "TrafficType_ohe_7",
+        "coefficient": 0.01716958801529591
+      },
+      {
+        "feature": "Region_ohe_1",
+        "coefficient": 0.014868263171374243
+      },
+      {
+        "feature": "TrafficType_ohe_6",
+        "coefficient": -0.013780667177088316
+      },
+      {
+        "feature": "TrafficType_ohe_1",
+        "coefficient": -0.013185295531091117
+      },
+      {
+        "feature": "OperatingSystems_ohe_1",
+        "coefficient": 0.01225316293013592
+      },
+      {
+        "feature": "OperatingSystems_ohe_2",
+        "coefficient": 0.012240201437994633
+      },
+      {
+        "feature": "Browser_ohe_9",
+        "coefficient": -0.011660358756595641
+      },
+      {
+        "feature": "Browser_ohe_12",
+        "coefficient": 0.011587735763789044
+      },
+      {
+        "feature": "TrafficType_ohe_9",
+        "coefficient": -0.010203050779830072
+      },
+      {
+        "feature": "TrafficType_ohe_14",
+        "coefficient": 0.009780929536737598
+      },
+      {
+        "feature": "TrafficType_ohe_10",
+        "coefficient": 0.008784195233778666
+      },
+      {
+        "feature": "Browser_ohe_13",
+        "coefficient": -0.008759304072429497
+      },
+      {
+        "feature": "Browser_ohe_2",
+        "coefficient": -0.008506232861412335
+      },
+      {
+        "feature": "OperatingSystems_ohe_6",
+        "coefficient": -0.008427163287838376
+      },
+      {
+        "feature": "TrafficType_ohe_12",
+        "coefficient": -0.00822750443729913
+      },
+      {
+        "feature": "OperatingSystems_ohe_4",
+        "coefficient": -0.00801426213777495
+      },
+      {
+        "feature": "TrafficType_ohe_17",
+        "coefficient": -0.007718695015184853
+      },
+      {
+        "feature": "Browser_ohe_7",
+        "coefficient": -0.007650544888181916
+      },
+      {
+        "feature": "Browser_ohe_6",
+        "coefficient": -0.007056771313510418
+      },
+      {
+        "feature": "Month_ohe_Oct",
+        "coefficient": 0.006236057024777953
+      },
+      {
+        "feature": "Region_ohe_8",
+        "coefficient": -0.005055866856184244
+      },
+      {
+        "feature": "Browser_ohe_1",
+        "coefficient": -0.00439485390044507
+      },
+      {
+        "feature": "Region_ohe_6",
+        "coefficient": 0.003629429369462988
+      },
+      {
+        "feature": "Region_ohe_4",
+        "coefficient": 0.00017407747421685333
+      },
+      {
+        "feature": "TrafficType_ohe_4",
+        "coefficient": 0.00016024743590532795
+      },
+      {
+        "feature": "OperatingSystems_ohe_5",
+        "coefficient": -4.104359638019486e-05
+      },
+      {
+        "feature": "Browser_ohe_11",
+        "coefficient": -4.104359638019486e-05
+      },
+      {
+        "feature": "Month_ohe___unknown",
+        "coefficient": 0.0
+      },
+      {
+        "feature": "Month_ohe_invalidValues",
+        "coefficient": 0.0
+      },
+      {
+        "feature": "OperatingSystems_ohe___unknown",
+        "coefficient": 0.0
+      },
+      {
+        "feature": "OperatingSystems_ohe_invalidValues",
+        "coefficient": 0.0
+      },
+      {
+        "feature": "Browser_ohe___unknown",
+        "coefficient": 0.0
+      },
+      {
+        "feature": "Browser_ohe_invalidValues",
+        "coefficient": 0.0
+      },
+      {
+        "feature": "Region_ohe___unknown",
+        "coefficient": 0.0
+      },
+      {
+        "feature": "Region_ohe_invalidValues",
+        "coefficient": 0.0
+      },
+      {
+        "feature": "TrafficType_ohe___unknown",
+        "coefficient": 0.0
+      },
+      {
+        "feature": "TrafficType_ohe_invalidValues",
+        "coefficient": 0.0
+      },
+      {
+        "feature": "VisitorType_ohe___unknown",
+        "coefficient": 0.0
+      },
+      {
+        "feature": "VisitorType_ohe_invalidValues",
+        "coefficient": 0.0
+      },
+      {
+        "feature": "Weekend_ohe___unknown",
+        "coefficient": 0.0
+      },
+      {
+        "feature": "Weekend_ohe_invalidValues",
+        "coefficient": 0.0
+      }
+    ]
+  },
+  "regression": {
+    "raw_rows": 8760,
+    "working_rows": 8465,
+    "split": {
+      "train": {
+        "n": 5784,
+        "start": "2017-12-01",
+        "end": "2018-07-31"
+      },
+      "valid": {
+        "n": 1368,
+        "start": "2018-08-01",
+        "end": "2018-09-29"
+      },
+      "test": {
+        "n": 1313,
+        "start": "2018-10-01",
+        "end": "2018-11-30"
+      }
+    },
+    "validation": [
+      {
+        "model": "Случайный лес",
+        "fit_s": 14.272483672,
+        "rmse": 285.7345021107,
+        "mae": 196.8530924096,
+        "r2": 0.8006957175,
+        "negative_share": 0.0
+      },
+      {
+        "model": "Полиномиальная регрессия",
+        "fit_s": 0.453176128,
+        "rmse": 401.0830503906,
+        "mae": 296.0994684643,
+        "r2": 0.6073009227,
+        "negative_share": 0.0021929825
+      },
+      {
+        "model": "Линейная регрессия",
+        "fit_s": 0.451211736,
+        "rmse": 525.5962639561,
+        "mae": 421.224966701,
+        "r2": 0.3256337899,
+        "negative_share": 0.0036549708
+      },
+      {
+        "model": "Среднее по часу",
+        "fit_s": null,
+        "rmse": 559.1354365284,
+        "mae": 429.7274453423,
+        "r2": 0.2368229578,
+        "negative_share": 0.0
+      },
+      {
+        "model": "Среднее train",
+        "fit_s": null,
+        "rmse": 717.3608118955,
+        "mae": 539.6598208003,
+        "r2": -0.2562224745,
+        "negative_share": 0.0
+      }
+    ],
+    "selected_model": "Случайный лес",
+    "test": {
+      "rmse": 299.6597639857966,
+      "mae": 196.98995326070087,
+      "r2": 0.7149742070696499,
+      "negative_share": 0.0
+    },
+    "baseline_test": [
+      {
+        "name": "global",
+        "rmse": 597.6574420985249,
+        "mae": 463.52648151425336,
+        "r2": -0.13378827068209498,
+        "negative_share": 0.0
+      },
+      {
+        "name": "hour",
+        "rmse": 439.819962303237,
+        "mae": 323.6494897814073,
+        "r2": 0.3859875598000446,
+        "negative_share": 0.0
+      }
+    ]
+  },
+  "clustering": {
+    "rows": 12330,
+    "features": [
+      "Administrative",
+      "Administrative_Duration",
+      "Informational",
+      "Informational_Duration",
+      "ProductRelated",
+      "ProductRelated_Duration",
+      "BounceRates",
+      "ExitRates"
+    ],
+    "k_selection": [
+      {
+        "k": 2,
+        "silhouette": 0.32478860179846825,
+        "training_cost": 66703.7520782241,
+        "min_cluster": 6136
+      },
+      {
+        "k": 3,
+        "silhouette": 0.45271073637274034,
+        "training_cost": 42977.08332474953,
+        "min_cluster": 993
+      },
+      {
+        "k": 4,
+        "silhouette": 0.4278439745540176,
+        "training_cost": 27939.97228699669,
+        "min_cluster": 880
+      },
+      {
+        "k": 5,
+        "silhouette": 0.42296091648476575,
+        "training_cost": 25125.56187521827,
+        "min_cluster": 811
+      },
+      {
+        "k": 6,
+        "silhouette": 0.33944164903864066,
+        "training_cost": 21233.33434504674,
+        "min_cluster": 781
+      },
+      {
+        "k": 7,
+        "silhouette": 0.3213837545681573,
+        "training_cost": 20159.282455040753,
+        "min_cluster": 781
+      },
+      {
+        "k": 8,
+        "silhouette": 0.3328642046625289,
+        "training_cost": 17170.261458650293,
+        "min_cluster": 509
+      }
+    ],
+    "selected_k": 3,
+    "profiles": [
+      {
+        "cluster": 0,
+        "n": 2305,
+        "administrative": 5.129718004338395,
+        "informational": 2.5370932754880693,
+        "product_pages": 65.6767895878525,
+        "product_duration": 2599.67368115783,
+        "bounce_rate": 0.007408446990021688,
+        "exit_rate": 0.021909712356616064,
+        "purchase_share": 0.23904555314533624
+      },
+      {
+        "cluster": 1,
+        "n": 993,
+        "administrative": 0.030211480362537766,
+        "informational": 0.017119838872104734,
+        "product_pages": 2.284994964753273,
+        "product_duration": 32.815609265186325,
+        "bounce_rate": 0.17021390051157995,
+        "exit_rate": 0.18385809109768197,
+        "purchase_share": 0.004028197381671702
+      },
+      {
+        "cluster": 2,
+        "n": 9032,
+        "administrative": 1.8480956598759966,
+        "informational": 0.03808680248007086,
+        "product_pages": 26.305912311780336,
+        "product_duration": 963.9489766548378,
+        "bounce_rate": 0.009690084996014252,
+        "exit_rate": 0.0329954190676481,
+        "purchase_share": 0.14980070859167405
+      }
+    ],
+    "pca_explained_variance": [
+      0.5308051070698048,
+      0.21575654556631593
+    ]
+  },
+  "roundtrip_differences": {
+    "classification": 0,
+    "regression": 0,
+    "kmeans": 0
+  },
+  "independent": {
+    "rows": 15000,
+    "predictors": [
+      "Age",
+      "Height",
+      "Weight",
+      "Duration",
+      "Heart_Rate",
+      "Body_Temp",
+      "Gender"
+    ],
+    "target": "Calories",
+    "excluded": [
+      "User_ID"
+    ],
+    "split": {
+      "train": 9000,
+      "valid": 3000,
+      "test": 3000
+    },
+    "validation": [
+      {
+        "model": "LINEAR_0.01",
+        "fit_s": 0.3712168920028489,
+        "rmse": 11.498789477063355,
+        "mae": 8.415733446957132,
+        "r2": 0.9662451046291831,
+        "negative_share": 0.047
+      },
+      {
+        "model": "LINEAR_0.1",
+        "fit_s": 0.19903158702072687,
+        "rmse": 11.495830298417562,
+        "mae": 8.409048505718053,
+        "r2": 0.966262475833864,
+        "negative_share": 0.048
+      },
+      {
+        "model": "RF_8",
+        "fit_s": 1.7631713379814755,
+        "rmse": 5.960055705034889,
+        "mae": 3.8338539472173156,
+        "r2": 0.9909315480098577,
+        "negative_share": 0.0
+      },
+      {
+        "model": "RF_12",
+        "fit_s": 8.752392759022769,
+        "rmse": 4.1343117894552766,
+        "mae": 2.4785499394660166,
+        "r2": 0.9956364598920896,
+        "negative_share": 0.0
+      }
+    ],
+    "baseline_valid": {
+      "rmse": 62.64183235173373,
+      "mae": 53.19677637037015,
+      "r2": -0.001754786467376146,
+      "negative_share": 0.0
+    },
+    "selected_model": "RF_12",
+    "test": {
+      "rmse": 4.200949392953285,
+      "mae": 2.4144303418226065,
+      "r2": 0.9955885371796591,
+      "negative_share": 0.0
+    },
+    "baseline_test": {
+      "rmse": 63.25909577061658,
+      "mae": 53.65172333333293,
+      "r2": -0.0003078646128016338,
+      "negative_share": 0.0
+    },
+    "reload_max_error": 0.0,
+    "key_uniqueness": true,
+    "key_profile": {
+      "rows": 15000,
+      "distinct_keys": 15000,
+      "min": 10001159,
+      "max": 19999647,
+      "gender_by_split": [
+        {
+          "split": "train",
+          "Gender": "male",
+          "count": 4484
+        },
+        {
+          "split": "train",
+          "Gender": "female",
+          "count": 4516
+        },
+        {
+          "split": "valid",
+          "Gender": "female",
+          "count": 1528
+        },
+        {
+          "split": "valid",
+          "Gender": "male",
+          "count": 1472
+        },
+        {
+          "split": "test",
+          "Gender": "female",
+          "count": 1509
+        },
+        {
+          "split": "test",
+          "Gender": "male",
+          "count": 1491
+        }
+      ]
+    },
+    "forecast_moment": "End of workout; heart rate and temperature are available",
+    "nulls": {
+      "User_ID": 0,
+      "Gender": 0,
+      "Age": 0,
+      "Height": 0,
+      "Weight": 0,
+      "Duration": 0,
+      "Heart_Rate": 0,
+      "Body_Temp": 0,
+      "Calories": 0
+    },
+    "schema": {
+      "type": "struct",
+      "fields": [
+        {
+          "name": "User_ID",
+          "type": "long",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "Gender",
+          "type": "string",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "Age",
+          "type": "double",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "Height",
+          "type": "double",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "Weight",
+          "type": "double",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "Duration",
+          "type": "double",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "Heart_Rate",
+          "type": "double",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "Body_Temp",
+          "type": "double",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "Calories",
+          "type": "double",
+          "nullable": true,
+          "metadata": {}
+        }
+      ]
+    }
+  }
+}

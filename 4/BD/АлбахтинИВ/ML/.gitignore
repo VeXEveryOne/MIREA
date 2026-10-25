@@ -1,0 +1,9 @@
+data/*.csv
+work/
+models/
+results/pr5/shop_classifier/
+results/pr5/bike_regressor/
+results/pr5/shop_kmeans/
+spark-warehouse/
+metastore_db/
+derby.log
