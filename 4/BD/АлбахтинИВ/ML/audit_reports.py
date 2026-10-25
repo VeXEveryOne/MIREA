@@ -14,7 +14,7 @@ def effective(style,group,prop):
         style=style.base_style
 def plain(t):return re.sub(r'\s+','',t)
 results={}
-for number,expected_pages,figures,tables in [(5,20,8,10),(6,9,5,5),(7,8,3,6)]:
+for number,expected_pages,figures,tables in [(5,20,8,10),(6,9,5,5),(7,10,3,8)]:
     docx=BD/f'ТИАБД_ПР{number}_АлбахтинИВ.docx';pdf=docx.with_suffix('.pdf');doc=Document(docx)
     reader=PdfReader(pdf);texts=[p.extract_text() for p in reader.pages]
     assert len(texts)==expected_pages
@@ -61,6 +61,11 @@ for number,expected_pages,figures,tables in [(5,20,8,10),(6,9,5,5),(7,8,3,6)]:
     assert run['status']==verification['status']=='passed'
     assert digest(ROOT/f'Practice_{number}.ipynb')==run['notebook_sha256']==verification['notebook_sha256']
     results[str(number)]={'pages':len(texts),'figures':figures,'tables':tables,'toc':toc_checked,'teacher':'Приходько Н.А.','notebook_code_cells':run['code_cells'],'errors':run['errors'],'docx_sha256':digest(docx),'pdf_sha256':digest(pdf),'notebook_sha256':run['notebook_sha256'],'structure_status':'passed'}
+    if number==7:
+        cloud=json.loads((ROOT/'results/pr7/colab/verification.json').read_text(encoding='utf-8'))
+        assert cloud['status']=='passed' and cloud['calculation_cells_match_vm']==5
+        assert '3.13.16' in text and '1.6.1' in text and '7 Полный запуск в Google Colab' in text
+        results[str(number)]['google_colab']='passed'
 if 5 in [int(n) for n in results]:
     q=plain(''.join(PdfReader(BD/'ТИАБД_ПР5_АлбахтинИВ.pdf').pages[i].extract_text() for i in range(13,20)))
     answers=(BD/'ТИАБД_ПР5_Ответы.md').read_text(encoding='utf-8').split('## II')[0]

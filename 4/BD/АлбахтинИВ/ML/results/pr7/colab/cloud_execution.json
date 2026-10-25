@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "completed_utc": "2026-10-25T21:56:03.340806+00:00",
+  "google_colab": true,
+  "fresh_runtime": true,
+  "calculation_cells": 5,
+  "export_cell": 6,
+  "calculation_execution_counts": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "source_cell_sha256": [
+    "7e4689dbf926d9ce113fdfb274dcbc5eb34096fb4f6d2786b90811abf0789fbb",
+    "e9c547e32d874d5f986ed307a83f2da47da9ff98625723af39140997a8de692a",
+    "f123ba660847172d0adf6f99279f76949c8e65bc162a4391f9fdd516a94b9657",
+    "b82331dcb0f9aaa77b32f80ddb8183dd86ef74e5110feb913878c0de5f43fd1a",
+    "58d182ab01b852b70b17686253b5ba6a4f68238299f2677c53459d6e9f832526"
+  ],
+  "source_csv_sha256": "fe0a3b189eb61dbe0b1f48356a9444755ada29ba00aef3b43cae3dbf5c4de7f7",
+  "python": "3.13.16",
+  "sklearn": "1.6.1",
+  "numpy": "2.1.3",
+  "pandas": "2.2.3",
+  "matplotlib": "3.10.0",
+  "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+  "cpus": 2,
+  "memory_total_kib": 13286944,
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "test_rows": 9246,
+  "roundtrip_equal": true
+}

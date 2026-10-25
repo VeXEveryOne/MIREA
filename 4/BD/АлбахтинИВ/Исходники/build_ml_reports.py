@@ -3,6 +3,8 @@ from pathlib import Path
 from datetime import datetime,timedelta,timezone
 import hashlib,json,re,sys
 from docx.oxml.ns import qn
+from docx.oxml import OxmlElement
+from docx.opc.constants import RELATIONSHIP_TYPE as RT
 from build_pr3_report import PR3Report,add_toc
 
 PACK=Path(__file__).resolve().parents[1];BD=PACK.parent;LAB=PACK/'ML'
@@ -30,8 +32,16 @@ def run_record(d,k):
     d.p(f'Полный Run All из нового ядра завершён {end:%d.%m.%Y %H:%M:%S} МСК: {run["code_cells"]} кодовых ячеек подряд, ошибок 0, время {n(run["seconds"],2)} с. Файл execution.json содержит последовательность счётчиков и SHA256 выполненного блокнота; verification.json фиксирует отдельную проверку исходных строк, разбиений и выгруженных метрик.')
 
 def sources(d,k,more):
-    d.h('Источники')
-    for text in [f'1. Практическая работа №{k}. Предоставленная методичка, ml_labs/assignment.',*more]:d.p(text)
+    heading=d.h('Источники')
+    if k==7:heading.paragraph_format.page_break_before=True
+    for text in [f'1. Практическая работа №{k}. Предоставленная методичка, ml_labs/assignment.',*more]:
+        if isinstance(text,tuple):
+            label,url=text;p=d.p('');link=OxmlElement('w:hyperlink');link.set(qn('r:id'),d.doc.part.relate_to(url,RT.HYPERLINK,is_external=True))
+            run=OxmlElement('w:r');pr=OxmlElement('w:rPr');fonts=OxmlElement('w:rFonts')
+            for kind in ['ascii','hAnsi','eastAsia','cs']:fonts.set(qn('w:'+kind),'Times New Roman')
+            size=OxmlElement('w:sz');size.set(qn('w:val'),'28');color=OxmlElement('w:color');color.set(qn('w:val'),'000000')
+            pr.extend([fonts,size,color]);run.append(pr);node=OxmlElement('w:t');node.text=label;run.append(node);link.append(run);p._p.append(link)
+        else:d.p(text)
 
 def build5():
     r=load(5);c=r['classification'];b=r['regression'];cl=r['clustering'];own=r['independent']
@@ -150,7 +160,7 @@ def build7():
     run_record(d,7)
     d.h('2 Среда и данные')
     d.table('Паспорт выполнения',['Параметр','Значение'],[['Стенд','Ubuntu 22.04.5 LTS, TIABD-Albakhtin-IV'],['Ресурсы','2 vCPU, 4 ГБ RAM, CPU'],['Python / scikit-learn',r['environment']['python']+' / '+r['environment']['sklearn']],['Notebook','Practice_7.ipynb, последовательный Run All'],['Исходные данные','podcast_dataset.csv, 52 500 строк и 11 полей']], [6,10.5])
-    d.p('Измерения этого отчёта получены в указанной VM. Методичка предусматривает ColabNotebook: подготовленный .ipynb совместим с Colab, где исходный CSV следует загрузить в data/ либо рабочий каталог. Запуск VM подтверждён протоколом; результаты не выдаются за замеры облачного CPU или GPU.')
+    d.p('В разделах 2–6 приведены замеры учебной VM. Требование ColabNotebook выполнено отдельным полным запуском тех же пяти расчётных ячеек в новой CPU-среде Google Colab. Окружение, результаты и время облачного запуска приведены в разделе 7; времена разных стендов сохранены отдельно.')
     d.p('Набор предоставлен пользователем в Podcast Dataset.zip. Цель измеряется в минутах. Используются Episode_Length_minutes, Host_Popularity_percentage, Guest_Popularity_percentage, Number_of_Ads и категории Genre, Publication_Day, Publication_Time, Episode_Sentiment. Сценарий предполагает, что контентные метаданные известны к публикации. При позднем происхождении Episode_Sentiment его нужно исключить до прикладного применения.')
     d.table('Контроль качества',['Проверка','Результат'],[['Исходные строки',n(q['raw_rows'])],['Удалены точные дубликаты',n(q['exact_duplicates_removed'])],['Затем удалены строки без цели',n(q['unlabelled_rows_removed'])],['Осталось',n(q['used_rows'])],['Подкастов',q['podcast_groups']],['Неоднозначные пары названия и эпизода',n(q['inconsistent_episode_lengths'])]], [11,5.5])
     d.p('В исходном файле пропущено 5 395 значений цели, 5 246 длин эпизода и 5 258 значений популярности гостя. После удаления точных копий остаётся 5 132 строки без цели; их исключают, не заполняя ответы. Числовые предикторы заполняются медианами только train. Одинаковая пара Podcast_Name/Episode_Title имеет разные длины и не считается надёжным идентификатором наблюдения.')
@@ -180,15 +190,27 @@ def build7():
     d.table('Повторы обучения и прогноз test',['Модель','Fit 1 с','Fit 2 с','Fit 3 с','Медиана с','Predict с'],[[name,*[n(t,4) for t in x['fit_times']],n(x['fit_median'],4),n(x['predict_s'],4)] for name,x in [('Бэггинг',bag),('Бустинг',boost)]], [3.5,2.6,2.6,2.6,2.7,2.5])
     d.plot('training_time.png','Медианы трёх обучений на CPU',13)
     d.p(f'В данной серии бустинг обучался быстрее примерно в {n(bag["fit_median"]/boost["fit_median"],2)} раза. Это сравнение конкретных конфигураций: число и глубина деревьев, гистограммная реализация и параллелизм влияют на стоимость. Короткая серия с фиксированным порядком не является универсальным рейтингом алгоритмов.')
-    d.h('7 Сохранение и выводы')
+    d.h('7 Полный запуск в Google Colab')
+    cloud=load(7,'colab/cloud_execution.json');cr=load(7,'colab/summary.json');cv=load(7,'colab/verification.json')
+    assert cloud['status']==cv['status']=='passed' and cloud['google_colab']
+    assert cv['calculation_cells_match_vm']==5 and cv['same_split_as_vm']
+    exported=datetime.fromisoformat(cloud['completed_utc']).astimezone(timezone(timedelta(hours=3)))
+    d.p(f'В Google Colab выполнен Run All в новой среде: пять расчётных ячеек получили счётчики 1–5 и завершились без ошибок. Шестая вспомогательная ячейка проверила источник и экспортировала результаты; экспорт зафиксирован {exported:%d.%m.%Y %H:%M:%S} МСК. SHA256 каждой из пяти расчётных ячеек совпал с локальным блокнотом, SHA256 исходного CSV совпал с манифестом.')
+    d.table('Фактическая облачная среда',['Параметр','Значение'],[['Платформа','Google Colab CPU, новая среда Google Compute Engine'],['Python / scikit-learn',cloud['python']+' / '+cloud['sklearn']],['NumPy / pandas',cloud['numpy']+' / '+cloud['pandas']],['Matplotlib',cloud['matplotlib']],['CPU',cloud['cpu_model']+f'; {cloud["cpus"]} vCPU'],['Память',n(cloud['memory_total_kib']/1024**2,2)+' ГиБ']], [5.3,11.2])
+    d.table('Облачная проверка на том же test',['Модель','RMSE мин','MAE мин','R²','Fit с'],[[{'bagging':'Бэггинг','boosting':'Бустинг','mean':'Среднее','tree':'Дерево'}[x['algorithm']],n(x['rmse'],3),n(x['mae'],3),n(x['r2'],4),n(x['fit_median'],4)] for x in cr['test']], [4,3.1,3.1,3,3.3])
+    cb=next(x for x in cr['test'] if x['algorithm']=='bagging');cg=next(x for x in cr['test'] if x['algorithm']=='boosting')
+    d.p('В столбце Fit для ансамблей указана медиана трёх повторов, для базовых моделей — один fit. Облачные повторы бэггинга: '+', '.join(n(t,4) for t in cb['fit_times'])+' с; бустинга: '+', '.join(n(t,4) for t in cg['fit_times'])+' с. Внутри облачной серии бустинг быстрее примерно в '+n(cb['fit_median']/cg['fit_median'],2)+' раза. Различия абсолютных времён с VM отражают оборудование, нагрузку и версии среды.')
+    d.p(f'По сохранённым CSV отдельно пересчитаны все четыре набора test-метрик, проверены части и медианы train. Максимальная разность прогнозов Colab и VM равна {n(cv["max_prediction_difference_vs_vm"],12)}. Параметры и выбранные модели совпали; независимая проверка не заменяла облачные числа локальными.')
+    d.p('В results/pr7/colab сохранены облачные JSON, CSV и PNG, протокол, снимок интерфейса run_all.png и origin.json со ссылкой на выполненный блокнот Google. Подтверждение содержит состояние passed, google_colab=true, номера расчётных ячеек, версии и сведения CPU. Блокнот сохранён на Google Диске пользователя без изменения доступа.')
+    d.h('8 Сохранение и выводы')
     d.p('Обе выбранные Pipeline сохранены через joblib вместе с медианами и словарями категорий. Повторное чтение моделей воспроизвело прогноз с абсолютным допуском 10⁻¹². Экспортированы параметры valid, все test-прогнозы, таблицы метрик, групповой состав частей и временные повторы. Исходный CSV и бинарные модели остаются локально и в VM; исходники и доказательства запуска доступны в репозитории.')
     d.p('Бэггинг уменьшил ошибку одиночного дерева усреднением независимых моделей. Бустинг достиг близкого и немного меньшего RMSE с меньшим временем в этой серии. Достоверность сравнения обеспечивают общие данные, групповое разбиение и обучение подготовки только на train. Ограничения: неоднозначные идентификаторы эпизодов, пропуски, неизвестный временной паспорт части метаданных и отсутствие календарной даты для временной проверки.')
     d.p('Отдельный verify_results.py восстановил 44 868 оставшихся строк, проверил непересечение 28/10/10 подкастов, совпадение цели test с исходником, медианы train и все четыре набора регрессионных метрик. Уникальность набора во всей учебной группе проверяется по её реестру; в личном комплекте этот набор используется только для ПР7.')
     d.code('cd /home/albakhtin/tiabd/АлбахтинИВ/ML\n/home/albakhtin/tiabd/.venv/bin/python run_notebook.py 7\n/home/albakhtin/tiabd/.venv/bin/python verify_results.py')
     sources(d,7,['2. Podcast Dataset.zip, podcast_dataset.csv. Предоставленный набор; SHA256 в ML/source_manifest.json.',
         '3. scikit-learn. Ensemble methods. https://scikit-learn.org/stable/modules/ensemble.html',
-        '4. scikit-learn. GroupShuffleSplit. https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GroupShuffleSplit.html',
-        '5. Google Colaboratory. https://colab.research.google.com/'])
+        '4. scikit-learn. Grouped cross-validation. https://scikit-learn.org/stable/modules/cross_validation.html',
+        ('5. Выполненный блокнот ПР7 в Google Colab','https://colab.research.google.com/drive/1xheZXH5wrT_txLDwKjONROGvrcv8HXna')])
     d.save()
 
 if __name__=='__main__':

@@ -104,3 +104,34 @@ for number,detail in [(5,checked5),(6,checked6),(7,checked7)]:
     result={'status':'passed','verified_utc':datetime.now(timezone.utc).isoformat(),'notebook_sha256':read(number,'execution.json')['notebook_sha256'],'checks':detail}
     (ROOT/f'results/pr{number}/verification.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(number,json.dumps(result,ensure_ascii=False))
+
+cloud_dir=ROOT/'results/pr7/colab'
+if cloud_dir.exists():
+    cloud=json.loads((cloud_dir/'cloud_execution.json').read_text(encoding='utf-8'))
+    cloud_summary=json.loads((cloud_dir/'summary.json').read_text(encoding='utf-8'))
+    notebook=json.loads((ROOT/'Practice_7.ipynb').read_text(encoding='utf-8'))
+    code=[''.join(c['source']).strip() for c in notebook['cells'] if c['cell_type']=='code']
+    assert [hashlib.sha256(c.encode()).hexdigest() for c in code]==cloud['source_cell_sha256']
+    assert cloud['status']=='passed' and cloud['google_colab'] and cloud_summary['environment']['google_colab']
+    assert cloud['calculation_execution_counts']==[1,2,3,4,5] and cloud['export_cell']==6
+    assert cloud['source_csv_sha256']==manifest['podcast_dataset.csv']['sha256']
+    assert cloud_summary['split']==r['split']
+    cloud_split=pd.read_csv(cloud_dir/'split.csv');assert cloud_split.equals(split)
+    predictions=pd.read_csv(cloud_dir/'test_predictions.csv')
+    assert np.array_equal(predictions.row_index,p.row_index)
+    assert np.allclose(predictions.label,data.loc[predictions.row_index,'Listening_Time_minutes'])
+    max_difference=0.
+    for row in cloud_summary['test']:
+        name=row['algorithm'];metric_check(regression(predictions,name),row)
+        max_difference=max(max_difference,float(np.max(np.abs(predictions[name]-p[name]))))
+        if name in ['bagging','boosting']:
+            close(np.median(row['fit_times']),row['fit_median'])
+            best=min([v for v in cloud_summary['validation'] if v['algorithm']==name],key=lambda x:x['rmse'])
+            assert best['parameters']==row['parameters']
+    assert np.allclose(parts['train'][columns].median(),cloud_summary['numeric_train_medians'])
+    result={'status':'passed','verified_utc':datetime.now(timezone.utc).isoformat(),
+        'google_colab':True,'calculation_cells_match_vm':5,'source_csv_sha256':cloud['source_csv_sha256'],
+        'test_metrics_recomputed':4,'same_split_as_vm':True,'max_prediction_difference_vs_vm':max_difference,
+        'source_cell_sha256':cloud['source_cell_sha256']}
+    (cloud_dir/'verification.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    print('Colab',json.dumps(result,ensure_ascii=False))

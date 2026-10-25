@@ -1,0 +1,238 @@
+{
+  "environment": {
+    "python": "3.13.16",
+    "sklearn": "1.6.1",
+    "cpus": 2,
+    "google_colab": true
+  },
+  "source_sha256": "fe0a3b189eb61dbe0b1f48356a9444755ada29ba00aef3b43cae3dbf5c4de7f7",
+  "quality": {
+    "raw_rows": 52500,
+    "exact_duplicates_removed": 2500,
+    "unlabelled_rows_removed": 5132,
+    "used_rows": 44868,
+    "nulls_before": {
+      "Podcast_Name": 0,
+      "Episode_Title": 0,
+      "Episode_Length_minutes": 5246,
+      "Genre": 0,
+      "Host_Popularity_percentage": 0,
+      "Publication_Day": 0,
+      "Publication_Time": 0,
+      "Guest_Popularity_percentage": 5258,
+      "Number_of_Ads": 0,
+      "Episode_Sentiment": 0,
+      "Listening_Time_minutes": 5395
+    },
+    "podcast_groups": 48,
+    "inconsistent_episode_lengths": 4790
+  },
+  "predictors": [
+    "Episode_Length_minutes",
+    "Host_Popularity_percentage",
+    "Guest_Popularity_percentage",
+    "Number_of_Ads",
+    "Genre",
+    "Publication_Day",
+    "Publication_Time",
+    "Episode_Sentiment"
+  ],
+  "target": "Listening_Time_minutes",
+  "excluded": [
+    "Podcast_Name",
+    "Episode_Title"
+  ],
+  "split": {
+    "train": {
+      "rows": 26377,
+      "groups": [
+        "Athlete's Arena",
+        "Brain Boost",
+        "Business Briefs",
+        "Business Insights",
+        "Criminal Minds",
+        "Daily Digest",
+        "Detective Diaries",
+        "Digital Digest",
+        "Educational Nuggets",
+        "Finance Focus",
+        "Fitness First",
+        "Gadget Geek",
+        "Global News",
+        "Healthy Living",
+        "Home & Living",
+        "Humor Hub",
+        "Innovators",
+        "Lifestyle Lounge",
+        "Market Masters",
+        "Melody Mix",
+        "Money Matters",
+        "News Roundup",
+        "Sound Waves",
+        "Sports Weekly",
+        "Style Guide",
+        "True Crime Stories",
+        "Tune Time",
+        "World Watch"
+      ]
+    },
+    "valid": {
+      "rows": 9245,
+      "groups": [
+        "Crime Chronicles",
+        "Current Affairs",
+        "Funny Folks",
+        "Game Day",
+        "Mind & Body",
+        "Music Matters",
+        "Mystery Matters",
+        "Sports Central",
+        "Tech Talks",
+        "Wellness Wave"
+      ]
+    },
+    "test": {
+      "rows": 9246,
+      "groups": [
+        "Comedy Corner",
+        "Fashion Forward",
+        "Health Hour",
+        "Joke Junction",
+        "Laugh Line",
+        "Learning Lab",
+        "Life Lessons",
+        "Sport Spot",
+        "Study Sessions",
+        "Tech Trends"
+      ]
+    }
+  },
+  "validation": [
+    {
+      "algorithm": "bagging",
+      "parameters": {
+        "depth": 8,
+        "trees": 50
+      },
+      "fit_s": 5.647232292000012,
+      "rmse": 13.838067530298435,
+      "mae": 10.295330997677151,
+      "r2": 0.7482418433075059
+    },
+    {
+      "algorithm": "bagging",
+      "parameters": {
+        "depth": 12,
+        "trees": 80
+      },
+      "fit_s": 8.482972609,
+      "rmse": 13.893762617452618,
+      "mae": 10.321895993466601,
+      "r2": 0.7462112260242775
+    },
+    {
+      "algorithm": "boosting",
+      "parameters": {
+        "iterations": 100,
+        "learning_rate": 0.05,
+        "leaves": 15
+      },
+      "fit_s": 0.872991055,
+      "rmse": 13.764296453737877,
+      "mae": 10.25403539853092,
+      "r2": 0.7509189461710236
+    },
+    {
+      "algorithm": "boosting",
+      "parameters": {
+        "iterations": 200,
+        "learning_rate": 0.08,
+        "leaves": 31
+      },
+      "fit_s": 1.6184632970000052,
+      "rmse": 13.82521572366386,
+      "mae": 10.282056020101802,
+      "r2": 0.748709256068588
+    },
+    {
+      "algorithm": "mean",
+      "parameters": {},
+      "fit_s": 0.04871107399998209,
+      "rmse": 27.579815143724797,
+      "mae": 23.039964743679512,
+      "r2": -3.537002315190385e-05
+    },
+    {
+      "algorithm": "tree",
+      "parameters": {},
+      "fit_s": 0.2534933780000017,
+      "rmse": 15.228371230817299,
+      "mae": 11.249557870826456,
+      "r2": 0.6951125349166392
+    }
+  ],
+  "test": [
+    {
+      "algorithm": "bagging",
+      "parameters": {
+        "depth": 8,
+        "trees": 50
+      },
+      "fit_times": [
+        5.215365380999998,
+        4.149308248000011,
+        3.1878036700000223
+      ],
+      "fit_median": 4.149308248000011,
+      "predict_s": 0.12357524200001535,
+      "rmse": 13.652088963102559,
+      "mae": 10.170804690899535,
+      "r2": 0.7480992892418256
+    },
+    {
+      "algorithm": "boosting",
+      "parameters": {
+        "iterations": 100,
+        "learning_rate": 0.05,
+        "leaves": 15
+      },
+      "fit_times": [
+        0.841373214999976,
+        0.852213622999983,
+        0.8589057940000089
+      ],
+      "fit_median": 0.852213622999983,
+      "predict_s": 0.10353443500000026,
+      "rmse": 13.59485635095648,
+      "mae": 10.135548040800321,
+      "r2": 0.7502069104574002
+    },
+    {
+      "algorithm": "mean",
+      "parameters": {},
+      "fit_times": [],
+      "fit_median": 0.04871107399998209,
+      "predict_s": 0.017625635000001694,
+      "rmse": 27.21767489102896,
+      "mae": 22.732762807603418,
+      "r2": -0.001228533838825152
+    },
+    {
+      "algorithm": "tree",
+      "parameters": {},
+      "fit_times": [],
+      "fit_median": 0.2534933780000017,
+      "predict_s": 0.016735263000015266,
+      "rmse": 15.037415566585635,
+      "mae": 11.16940724386523,
+      "r2": 0.6943829514808912
+    }
+  ],
+  "numeric_train_medians": [
+    63.5,
+    60.49,
+    50.22,
+    1.0
+  ],
+  "roundtrip_equal": true
+}

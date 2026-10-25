@@ -1,5 +1,5 @@
 {
-  "verified_utc": "2026-10-25T21:49:37.590547+00:00",
+  "verified_utc": "2026-10-25T22:08:30.241939+00:00",
   "reports": {
     "5": {
       "pages": 20,
@@ -47,9 +47,9 @@
       "structure_status": "passed"
     },
     "7": {
-      "pages": 8,
+      "pages": 10,
       "figures": 3,
-      "tables": 6,
+      "tables": 8,
       "toc": {
         "1 Цель и задание": 3,
         "2 Среда и данные": 3,
@@ -57,16 +57,18 @@
         "4 Бэггинг и бустинг": 5,
         "5 Качество на test": 6,
         "6 Время обучения": 7,
-        "7 Сохранение и выводы": 7,
-        "Источники": 8
+        "7 Полный запуск в Google Colab": 7,
+        "8 Сохранение и выводы": 9,
+        "Источники": 10
       },
       "teacher": "Приходько Н.А.",
       "notebook_code_cells": 5,
       "errors": 0,
-      "docx_sha256": "7e24298991f598054454b041d6875bc89873d8190623f927dd6131ec9dfbea04",
-      "pdf_sha256": "5f761e28826ebe4d7dcc9df3168f77fb2f436a1aa77a0fd44ed9977ca2aee60b",
+      "docx_sha256": "ba8f0522cd9f3b3e43261a33ce96c733009b98b63a2aa870c2e13e44e2f19f6b",
+      "pdf_sha256": "96f6ca8f032bd988bec218e52f3c26d638b9a3e33f943bcb015b3aff0d623fc5",
       "notebook_sha256": "ac21b5dbbe4b7e0acd42f65dd5527bc2b2bf9e829532bc76812190dc16a1ea25",
-      "structure_status": "passed"
+      "structure_status": "passed",
+      "google_colab": "passed"
     }
   },
   "files": {
@@ -75,8 +77,8 @@
       "sha256": "218a4b762ec1a95541412897619df4d2fed959097c3f699184ca4cd1996ce242"
     },
     "АлбахтинИВ/ML/audit_reports.py": {
-      "bytes": 6279,
-      "sha256": "30618e54a4cc31860d03a45ecd3d86880cca5f5b68824af5094587d88adeb539"
+      "bytes": 6646,
+      "sha256": "3b2dcc00ffcfabc86cbc8ed4cee3919aa17503284482bb1124fca627040bd3bb"
     },
     "АлбахтинИВ/ML/build_notebooks.py": {
       "bytes": 1230,
@@ -85,6 +87,10 @@
     "АлбахтинИВ/ML/build_pr5_notebook.py": {
       "bytes": 9097,
       "sha256": "4b60d6a53df5526553a6d83ce9ba63e0662d5830d459211fb5a7b369bd48737d"
+    },
+    "АлбахтинИВ/ML/colab_export.py": {
+      "bytes": 1957,
+      "sha256": "081d6572cff76591408281858664b6990843f6d2d165060c0312e504d6a68157"
     },
     "АлбахтинИВ/ML/pr5_independent.py": {
       "bytes": 5609,
@@ -115,8 +121,8 @@
       "sha256": "e85f18216f8d9de63e0674b1c17f17c975066bd25f2b8b2814cc659213f5e9cb"
     },
     "АлбахтинИВ/ML/README.md": {
-      "bytes": 6727,
-      "sha256": "ef706117f8302cb137857e9f95c7ea767e3f4e39f1dabb9311e2cccce37435dd"
+      "bytes": 7783,
+      "sha256": "efcd102a68284d05863e2d525105ead77b8c5a9ce508486c4af4985c6ac26d31"
     },
     "АлбахтинИВ/ML/requirements-ml.txt": {
       "bytes": 241,
@@ -208,7 +214,7 @@
     },
     "АлбахтинИВ/ML/results/pr5/verification.json": {
       "bytes": 549,
-      "sha256": "f5e13ec14f34b220188ad2644245a29bb389fbcfc8809bb627004861ea8d47c6"
+      "sha256": "402ee97071de6d7f49583dd0b3490c200d4e943732be653da27e03213413d332"
     },
     "АлбахтинИВ/ML/results/pr6/assignments.csv": {
       "bytes": 522347,
@@ -272,11 +278,59 @@
     },
     "АлбахтинИВ/ML/results/pr6/verification.json": {
       "bytes": 367,
-      "sha256": "4dfec07eaaa56b4946beca62122a065638f9db9763e994b0425169fb66d16d6a"
+      "sha256": "cd9ea1cbc9969622dbc780961d95ce62c838156202ddd932695134d7d0594968"
     },
     "АлбахтинИВ/ML/results/pr6/ward_profiles.csv": {
       "bytes": 1707,
       "sha256": "9edc81ad6d205fefdb93efc80daa219360a112dd16fe7c3dbd4319d06d3196c0"
+    },
+    "АлбахтинИВ/ML/results/pr7/colab/cloud_execution.json": {
+      "bytes": 1039,
+      "sha256": "20dcc76ce8c61ca563b1736fbe6f6ca9f17837c93550632f170cf23eb8baae51"
+    },
+    "АлбахтинИВ/ML/results/pr7/colab/comparison.png": {
+      "bytes": 311986,
+      "sha256": "c6ba698f94a5e3a2e8c407a546d42bfebfbcb03f34b6943c1915b3e0cf3f9d24"
+    },
+    "АлбахтинИВ/ML/results/pr7/colab/data_split.png": {
+      "bytes": 44825,
+      "sha256": "7b9d356c46f85d3778c581ff9aaa4677a020960bd26482d56a8f5ce5bc4d7ec4"
+    },
+    "АлбахтинИВ/ML/results/pr7/colab/origin.json": {
+      "bytes": 410,
+      "sha256": "6efd61e899dc0bd6548e272ab15187d36c5e545b8165c7dca13113f63baa7f4e"
+    },
+    "АлбахтинИВ/ML/results/pr7/colab/run_all.png": {
+      "bytes": 113678,
+      "sha256": "171ce3c9db8d2bec0b1c89229548f92fc673e0e1a822beff0cbc85573cdacaaf"
+    },
+    "АлбахтинИВ/ML/results/pr7/colab/split.csv": {
+      "bytes": 518076,
+      "sha256": "db1500dafb6d4984ea62d39ee62233c03763378ac76103ee7f4ac46584e8605c"
+    },
+    "АлбахтинИВ/ML/results/pr7/colab/summary.json": {
+      "bytes": 5479,
+      "sha256": "18b4dd9c9d2c32469aa51ec21227654c965812f6bf890720d4fc9087bc4a6d56"
+    },
+    "АлбахтинИВ/ML/results/pr7/colab/test_metrics.csv": {
+      "bytes": 707,
+      "sha256": "a4181a1b0040df0aca000d3095d2d42feed95a8062b117e08ab72a117fd7ad7d"
+    },
+    "АлбахтинИВ/ML/results/pr7/colab/test_predictions.csv": {
+      "bytes": 830845,
+      "sha256": "b88799f93d5f6b1ae9d55c501ff69998c540cb1e6b341f6f7c0f64afd53cfaa3"
+    },
+    "АлбахтинИВ/ML/results/pr7/colab/training_time.png": {
+      "bytes": 26803,
+      "sha256": "6842e5a56121a23e1049f0f7de5e96a1d250f06de8e13ba33bd9b67e1ad3a6ca"
+    },
+    "АлбахтинИВ/ML/results/pr7/colab/validation.csv": {
+      "bytes": 727,
+      "sha256": "93059940c04bbde1fc2f44e52912a847aab8d2224df85df536f0712a7eec5e62"
+    },
+    "АлбахтинИВ/ML/results/pr7/colab/verification.json": {
+      "bytes": 721,
+      "sha256": "6b3809d707db7973f71d9bb21677d6f3f1ac3461c5b7b6e01ac295161823cddf"
     },
     "АлбахтинИВ/ML/results/pr7/comparison.png": {
       "bytes": 311986,
@@ -316,7 +370,7 @@
     },
     "АлбахтинИВ/ML/results/pr7/verification.json": {
       "bytes": 423,
-      "sha256": "31565257e908550ec70e5f487194beb7197d23f4432ec268172c1a6bac2f051b"
+      "sha256": "1c93af2856b429996e7782bfbc6e392c5d525a06c4dc043f2b19b150e91359fc"
     },
     "АлбахтинИВ/ML/run_notebook.py": {
       "bytes": 2268,
@@ -327,8 +381,8 @@
       "sha256": "8944830a29a45075047f8f422abe70aeffff8fc706299a23699b6caffb0c7b77"
     },
     "АлбахтинИВ/ML/verify_results.py": {
-      "bytes": 9318,
-      "sha256": "26569b9032e358ca6017c4f1d32675f617727210ea5fb2734523e0731de48ca3"
+      "bytes": 11583,
+      "sha256": "a730f9c4854fce61a2b5438ac8b49ba9be8cdd142167f376cf72c8ed463a8390"
     },
     "ml_labs/assignment/Практика №5.docx": {
       "bytes": 11028171,
@@ -367,12 +421,12 @@
       "sha256": "030f6d97c29c4e2eea4f9d372c4b71dd238b6ccbfac4a771440c1ba075dff02e"
     },
     "ТИАБД_ПР7_АлбахтинИВ.docx": {
-      "bytes": 501775,
-      "sha256": "7e24298991f598054454b041d6875bc89873d8190623f927dd6131ec9dfbea04"
+      "bytes": 503823,
+      "sha256": "ba8f0522cd9f3b3e43261a33ce96c733009b98b63a2aa870c2e13e44e2f19f6b"
     },
     "ТИАБД_ПР7_АлбахтинИВ.pdf": {
-      "bytes": 468676,
-      "sha256": "5f761e28826ebe4d7dcc9df3168f77fb2f436a1aa77a0fd44ed9977ca2aee60b"
+      "bytes": 492665,
+      "sha256": "96f6ca8f032bd988bec218e52f3c26d638b9a3e33f943bcb015b3aff0d623fc5"
     },
     "ТИАБД_ПР5_Ответы.md": {
       "bytes": 26774,
@@ -391,20 +445,20 @@
       "sha256": "39aee7391159b20072abd622823768ebacf011e1bc3978700fb91fc6c8d343ae"
     },
     "АлбахтинИВ/Исходники/build_ml_reports.py": {
-      "bytes": 46109,
-      "sha256": "5f450916c6a222f4f6b3829c6623314f93421dfa7dc9c7c453d36049af400596"
+      "bytes": 50643,
+      "sha256": "8279878b83706802845253efe01ce8f933c7a3bbc9c99dac59cb387d0e2e8b3d"
     },
     "АлбахтинИВ/README.md": {
-      "bytes": 13478,
-      "sha256": "e38dac72bfffc177ad69f14d0b0f488cca212dd5c26b915f3f9c1c7dc0ae8302"
+      "bytes": 13614,
+      "sha256": "e00e7f3d1593c8b725c49cf6e06bf818a59c40a6ef8e965dfd5741fef290173e"
     },
     "AGENTS.md": {
-      "bytes": 2361,
-      "sha256": "dc5304adf340e522ca094733c1574a87c772ed6edae3729dd45fdf8f28e601ae"
+      "bytes": 2733,
+      "sha256": "3414bc3257cb3cde619796161b027bf25438432435b6476b65b62f1674b22dc2"
     },
     "Материалы/ПР5-8_Проверка_соответствия.md": {
-      "bytes": 8730,
-      "sha256": "48792418c09b946340ee75ac069baaca3a108c485e1926e665e4e0757b60feb2"
+      "bytes": 9704,
+      "sha256": "3cfbf54295373363fa5f942718c92ffbd0df553d8b79ea2f2737599d6c2e094e"
     },
     "Методички/Технологии и инструментарий анализа больших данных_Лекции №5.pdf": {
       "bytes": 645242,

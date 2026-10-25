@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-10-25T22:06:18.213320+00:00",
+  "google_colab": true,
+  "calculation_cells_match_vm": 5,
+  "source_csv_sha256": "fe0a3b189eb61dbe0b1f48356a9444755ada29ba00aef3b43cae3dbf5c4de7f7",
+  "test_metrics_recomputed": 4,
+  "same_split_as_vm": true,
+  "max_prediction_difference_vs_vm": 0.0,
+  "source_cell_sha256": [
+    "7e4689dbf926d9ce113fdfb274dcbc5eb34096fb4f6d2786b90811abf0789fbb",
+    "e9c547e32d874d5f986ed307a83f2da47da9ff98625723af39140997a8de692a",
+    "f123ba660847172d0adf6f99279f76949c8e65bc162a4391f9fdd516a94b9657",
+    "b82331dcb0f9aaa77b32f80ddb8183dd86ef74e5110feb913878c0de5f43fd1a",
+    "58d182ab01b852b70b17686253b5ba6a4f68238299f2677c53459d6e9f832526"
+  ]
+}
