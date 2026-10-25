@@ -2,7 +2,7 @@
   {
     "sheetId": "context",
     "functions": 1,
-    "arrows": 17,
+    "arrows": 15,
     "fontSizeMin": 20,
     "svg": "Экспорт\\SVG\\01_Рисунок 01 — IDEF0 AS IS_ контекст ручной подготовки карточки.svg",
     "png": "Экспорт\\PNG\\01_Рисунок 01 — IDEF0 AS IS_ контекст ручной подготовки карточки.png",
@@ -48,16 +48,6 @@
         "size": 24
       },
       {
-        "id": "c_table",
-        "lines": 2,
-        "size": 26
-      },
-      {
-        "id": "c_values",
-        "lines": 2,
-        "size": 26
-      },
-      {
         "id": "c_card",
         "lines": 1,
         "size": 26
@@ -97,7 +87,7 @@
   {
     "sheetId": "decomposition",
     "functions": 6,
-    "arrows": 27,
+    "arrows": 21,
     "fontSizeMin": 20,
     "svg": "Экспорт\\SVG\\02_Рисунок 02 — IDEF0 AS IS_ ручная подготовка и повторный ввод.svg",
     "png": "Экспорт\\PNG\\02_Рисунок 02 — IDEF0 AS IS_ ручная подготовка и повторный ввод.png",
@@ -109,7 +99,7 @@
       },
       {
         "id": "d_data",
-        "lines": 3,
+        "lines": 4,
         "size": 24
       },
       {
@@ -143,23 +133,13 @@
         "size": 24
       },
       {
-        "id": "d_table",
-        "lines": 2,
-        "size": 24
-      },
-      {
-        "id": "d_values",
-        "lines": 2,
-        "size": 24
-      },
-      {
         "id": "d_card",
-        "lines": 1,
+        "lines": 2,
         "size": 24
       },
       {
         "id": "d_waste",
-        "lines": 2,
+        "lines": 3,
         "size": 24
       },
       {
@@ -211,36 +191,16 @@
         "id": "step56",
         "lines": 2,
         "size": 20
-      },
-      {
-        "id": "feedback_compat",
-        "lines": 2,
-        "size": 24
-      },
-      {
-        "id": "feedback_unavailable",
-        "lines": 2,
-        "size": 24
-      },
-      {
-        "id": "feedback_missing",
-        "lines": 2,
-        "size": 24
-      },
-      {
-        "id": "feedback_rejected",
-        "lines": 2,
-        "size": 24
       }
     ]
   },
   {
     "sheetId": "context",
     "functions": 1,
-    "arrows": 18,
+    "arrows": 16,
     "fontSizeMin": 20,
-    "svg": "Экспорт\\SVG\\06_Рисунок 06 — IDEF0 TO BE_ контекст управляемого процесса.svg",
-    "png": "Экспорт\\PNG\\06_Рисунок 06 — IDEF0 TO BE_ контекст управляемого процесса.png",
+    "svg": "Экспорт\\SVG\\06_IDEF0_TO_BE_Контекст_формирования_карточек_в_ИС.svg",
+    "png": "Экспорт\\PNG\\06_IDEF0_TO_BE_Контекст_формирования_карточек_в_ИС.png",
     "labels": [
       {
         "id": "c_request",
@@ -288,16 +248,6 @@
         "size": 24
       },
       {
-        "id": "c_version",
-        "lines": 2,
-        "size": 26
-      },
-      {
-        "id": "c_content",
-        "lines": 1,
-        "size": 26
-      },
-      {
         "id": "c_status",
         "lines": 2,
         "size": 26
@@ -337,7 +287,7 @@
   {
     "sheetId": "decomposition",
     "functions": 5,
-    "arrows": 24,
+    "arrows": 21,
     "fontSizeMin": 20,
     "svg": "Экспорт\\SVG\\07_Рисунок 07 — IDEF0 TO BE_ версионированная подготовка и публикация.svg",
     "png": "Экспорт\\PNG\\07_Рисунок 07 — IDEF0 TO BE_ версионированная подготовка и публикация.png",
@@ -349,12 +299,12 @@
       },
       {
         "id": "d_catalog",
-        "lines": 2,
+        "lines": 3,
         "size": 24
       },
       {
         "id": "d_offers",
-        "lines": 2,
+        "lines": 3,
         "size": 24
       },
       {
@@ -388,23 +338,13 @@
         "size": 24
       },
       {
-        "id": "d_version",
-        "lines": 2,
-        "size": 24
-      },
-      {
-        "id": "d_content",
-        "lines": 2,
-        "size": 24
-      },
-      {
         "id": "d_status",
-        "lines": 2,
+        "lines": 3,
         "size": 24
       },
       {
         "id": "d_audit",
-        "lines": 2,
+        "lines": 3,
         "size": 24
       },
       {
@@ -451,11 +391,6 @@
         "id": "step45",
         "lines": 1,
         "size": 20
-      },
-      {
-        "id": "feedback_correction",
-        "lines": 2,
-        "size": 24
       }
     ]
   }

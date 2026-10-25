@@ -3,13 +3,14 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {ROOT,MODEL_DIR,EXPORT_DIR,omniModule,runtimeModule} from './runtime.mjs';
 import {escape,font,wrap,measure,intersects} from './print_text.mts';
+import {route,attach as routeAttach,auditRoutes,hits,segments} from './route_print.mts';
 const {decodeProject,encodeProject}=await omniModule('src/persistence/project.ts');
 const {textModel}=await omniModule('src/notations/structured/document.ts');
 const {patchUnified}=await omniModule('src/language/unified.ts');
 const {buildUmlScene}=await omniModule('src/notations/uml/projection.ts');
 const {default:sharp}=await runtimeModule('sharp');
 const svgDir=path.join(ROOT,'Экспорт','SVG');await fs.mkdir(svgDir,{recursive:true});
-const registry=JSON.parse(await fs.readFile(path.join(MODEL_DIR,'Реестр_38_рисунков.json'),'utf8'));
+const registry=JSON.parse(await fs.readFile(path.join(MODEL_DIR,'Реестр_рисунков.json'),'utf8'));
 const audits:any[]=[];
 const isContainer=(node:any,nodes:any[])=>nodes.some(c=>c.parent===node.id||c.owner===node.elementId);
 async function save(id:string,nodes:any[],edges:any[],renderNode:(n:any)=>Promise<string>){
@@ -21,15 +22,16 @@ async function save(id:string,nodes:any[],edges:any[],renderNode:(n:any)=>Promis
  for(const e of edges){
   if(!e.label)continue;
   const lines=await wrap(e.label,260,22),w=Math.max(...await Promise.all(lines.map((l:string)=>measure(l,22))))+12,h=lines.length*25.3+8;
-  const original=e.labelBox??{x:e.points[0].x,y:e.points[0].y,width:0,height:0},cx=original.x+original.width/2,cy=original.y+original.height/2;
+  const longest=segments(e.points).sort((a,b)=>Math.hypot(b.b.x-b.a.x,b.b.y-b.a.y)-Math.hypot(a.b.x-a.a.x,a.b.y-a.a.y))[0],cx=(longest.a.x+longest.b.x)/2,cy=(longest.a.y+longest.b.y)/2-(longest.a.y===longest.b.y?h/2+12:0);
   let best:any=null,score=Infinity;
   for(let dx=-180;dx<=180;dx+=10)for(let dy=-180;dy<=180;dy+=10){
    const b={x:cx+dx-w/2,y:cy+dy-h/2,width:w,height:h};
    if(obstacles.some(o=>intersects(b,o,6)))continue;
+   if(edges.some(e=>segments(e.points).some(s=>hits(s.a,s.b,b,4))))continue;
    const cost=Math.hypot(dx,dy);if(cost<score){best=b;score=cost;}
   }
   if(!best)throw Error(`Label has no space: ${id}:${e.id}`);
-  obstacles.push(best);labels.push({...best,lines});
+  obstacles.push(best);labels.push({...best,lines});if(e.saveLabel)e.saveLabel({x:best.x+best.width/2,y:best.y+best.height});
  }
  const extents=[...nodes,...labels,...edges.flatMap(e=>e.points.map((p:any)=>({...p,width:0,height:0})))];
  const minX=Math.min(...extents.map(r=>r.x))-30,minY=Math.min(...extents.map(r=>r.y))-30;
@@ -61,9 +63,26 @@ await save('D01_function_tree',nodes,edges,async n=>{
  return `<rect x="${n.x}" y="${n.y}" width="${n.width}" height="${n.height}" fill="white" stroke="#111" stroke-width="2"/>`+centered(lines,n.x+n.width/2,n.y+n.height/2,24,true);
 });
 const uml=await decodeProject(await fs.readFile(path.join(MODEL_DIR,'РОП_UML_Структура.omni'),'utf8'));
-for(const id of ['D02_component','D21_deployment']){
+// Containment is the UML alternative to a deploy dependency: the schema is
+// visibly installed in PostgreSQL, as the application already is in the JREs.
+const removed=new Set(uml.model.elements.filter(e=>e.kind==='annotation'&&e.id==='annotation_f08dfe607a19').map(e=>e.id));
+for(const v of uml.model.elements.filter(e=>e.kind==='view'&&(removed.has(e.properties.element)||e.properties.element==='deployment_4c6a967d1fd8'))){removed.add(v.id);delete uml.layout.nodes[v.id];delete uml.layout.edges[v.id];}
+uml.model.elements=uml.model.elements.filter(e=>!removed.has(e.id));
+uml.layout.nodes['D21_deployment.dbView'].height=440;
+uml.layout.nodes['D21_deployment.postgresView'].height=235;
+uml.layout.nodes['D21_deployment.databaseSchemaView']={x:860,y:950,width:290,height:85};
+uml.model.elements.find(e=>e.id==='D21_deployment.databaseSchemaView').properties.parent='D21_deployment.postgresView';
+for(const id of ['D21_deployment']){
  const scene=buildUmlScene(uml,id),nodes=scene.nodes.map((n:any)=>({id:n.id,elementId:n.data.element.id,owner:n.data.element.properties.owner,parent:uml.model.elements.find((v:any)=>v.id===n.id)?.properties.parent,...n.position,width:n.width,height:n.height,kind:n.kind,label:n.label,headerHeight:130}));
- const edges=scene.edges.map((e:any)=>({id:e.id,points:e.data.geometry.points,label:e.data.geometry.label.lines.join(' '),labelBox:e.data.geometry.label,dashed:e.kind!=='communicationPath',arrow:e.kind!=='communicationPath'}));
+ const ports=new Map<string,any[]>(),plans=scene.edges.map((e:any)=>{
+  const a=nodes.find(n=>n.id===e.source),b=nodes.find(n=>n.id===e.target),dx=b.x+b.width/2-a.x-a.width/2,dy=b.y+b.height/2-a.y-a.height/2,vertical=Math.abs(dy)>Math.abs(dx);
+  const from={side:vertical?(dy>0?'bottom':'top'):(dx>0?'right':'left'),offset:.5},to={side:vertical?(dy>0?'top':'bottom'):(dx>0?'left':'right'),offset:.5};
+  const p={e,a,b,from,to};for(const [n,other,port] of [[a,b,from],[b,a,to]]){const key=n.id+port.side,list=ports.get(key)??[];list.push({n,other,port});ports.set(key,list);}return p;
+ });
+ for(const list of ports.values()){list.sort((a,b)=>a.other.x-b.other.x||a.other.y-b.other.y);list.forEach((item,i)=>item.port.offset=(i+1)/(list.length+1));}
+ const edges:any[]=[];
+ for(const {e,a,b,from,to} of plans){const points=route(routeAttach(a,from.side,from.offset),routeAttach(b,to.side,to.offset),nodes,edges.map(e=>e.points),{gap:22,pad:14,escape:28});uml.layout.edges[e.id]={bends:points.slice(1,-1)};edges.push({id:e.id,points,label:e.data.geometry.label.lines.join(' '),dashed:false,arrow:false,saveLabel:(label:any)=>uml.layout.edges[e.id].label=label});}
+ auditRoutes(id,edges,nodes);
  await save(id,nodes,edges,async n=>{
   const {x,y,width:w,height:h}=n,container=isContainer(n,nodes),lines=await wrap(n.label,w-24,24);
   let svg='';const cube=['node','device','executionEnvironment'].includes(n.kind);
@@ -80,29 +99,47 @@ for(const id of ['D02_component','D21_deployment']){
   return svg;
  });
 }
+uml.source=patchUnified(uml.source,textModel(uml.notation,uml.model));uml.draft=uml.source;
+await fs.writeFile(path.join(MODEL_DIR,'РОП_UML_Структура.omni'),await encodeProject(uml));
 const schemePath=path.join(MODEL_DIR,'РОП_Общие_схемы.omni');
 const scheme=await decodeProject(await fs.readFile(schemePath,'utf8'));
+const obsoleteNotes=new Set(scheme.model.elements.filter(e=>e.kind==='note').map(e=>e.id));
+for(const v of scheme.model.elements.filter(e=>e.kind==='view'&&obsoleteNotes.has(e.properties.element))){obsoleteNotes.add(v.id);delete scheme.layout.nodes[v.id];delete scheme.layout.edges[v.id];}
+scheme.model.elements=scheme.model.elements.filter(e=>!obsoleteNotes.has(e.id));
 const schemeIndex=new Map(scheme.model.elements.map((e:any)=>[e.id,e]));
 schemeIndex.get('bomPrefix').properties.literal='MR';
 schemeIndex.get('bomSeparator').properties.meaning='Разделитель префикса и порядкового номера';
 scheme.source=patchUnified(scheme.source,textModel(scheme.notation,scheme.model));scheme.draft=scheme.source;
 await fs.writeFile(schemePath,await encodeProject(scheme));
+const accessPositions:any={u:[30,300,270,130],a:[430,300,290,130],r:[850,250,440,230],ok:[1480,70,330,140],deny:[1480,530,330,140]};
+for(const [key,p] of Object.entries(accessPositions) as any)scheme.layout.nodes['D24_access.'+key+'_view']={x:p[0],y:p[1],width:p[2],height:p[3]};
 const schemeNodes=(id:string)=>scheme.model.elements.filter((e:any)=>e.kind==='view'&&e.properties.diagram===id&&scheme.layout.nodes[e.id]).map((v:any)=>({id:v.id,elementId:v.properties.element,...scheme.layout.nodes[v.id],element:schemeIndex.get(v.properties.element)}));
-const infrastructure=schemeNodes('D10_infrastructure');
 const anchor=(b:any,a:any)=>a.side==='left'?{x:b.x,y:b.y+b.height*a.offset}:a.side==='right'?{x:b.x+b.width,y:b.y+b.height*a.offset}:a.side==='top'?{x:b.x+b.width*a.offset,y:b.y}:{x:b.x+b.width*a.offset,y:b.y+b.height};
-const links=scheme.model.elements.filter((e:any)=>e.kind==='view'&&e.properties.diagram==='D10_infrastructure'&&scheme.layout.edges[e.id]).map((v:any)=>{
+for(const diagramId of ['D10_infrastructure','D24_access']){
+const infrastructure=schemeNodes(diagramId);
+const plans=scheme.model.elements.filter((e:any)=>e.kind==='view'&&e.properties.diagram===diagramId&&scheme.layout.edges[e.id]).map((v:any)=>{
  const edge=schemeIndex.get(v.properties.element),geo=scheme.layout.edges[v.id],from=infrastructure.find((n:any)=>n.elementId===edge.properties.from),to=infrastructure.find((n:any)=>n.elementId===edge.properties.to);
- const points=[anchor(from,geo.from),...geo.bends??[],anchor(to,geo.to)];
- const runs=points.slice(1).map((p:any,i:number)=>({a:points[i],b:p})).sort((a:any,b:any)=>Math.hypot(b.a.x-b.b.x,b.a.y-b.b.y)-Math.hypot(a.a.x-a.b.x,a.a.y-a.b.y));
- const run=runs[0];return {id:v.id,points,label:edge.label,arrow:edge.properties.kind==='directed',labelBox:{x:(run.a.x+run.b.x)/2,y:(run.a.y+run.b.y)/2-25,width:0,height:0}};
+ if(diagramId==='D24_access'&&edge.properties.from==='D24_access.r')geo.from={side:edge.properties.to==='D24_access.ok'?'top':'bottom',offset:.5};
+ return {v,edge,geo,from,to};
 });
-await save('D10_infrastructure',infrastructure,links,async n=>{
+const ports=new Map<string,any[]>();
+for(const p of plans)for(const [n,other,port] of [[p.from,p.to,p.geo.from],[p.to,p.from,p.geo.to]]){const key=n.id+port.side,list=ports.get(key)??[];list.push({n,other,port});ports.set(key,list);}
+for(const list of ports.values())if(list.length>1){list.sort((a,b)=>a.other.y-b.other.y||a.other.x-b.other.x);list.forEach((item,i)=>item.port.offset=(i+1)/(list.length+1));}
+const links:any[]=[];
+for(const {v,edge,geo,from,to} of plans){
+ const points=route(routeAttach(from,geo.from.side,geo.from.offset),routeAttach(to,geo.to.side,geo.to.offset),infrastructure,links.map(e=>e.points),{gap:20,pad:6,escape:16});
+ geo.bends=points.slice(1,-1);links.push({id:v.id,points,label:edge.label,arrow:edge.properties.kind==='directed'});
+}
+auditRoutes(diagramId,links,infrastructure);
+await save(diagramId,infrastructure,links,async n=>{
  const {x,y,width:w,height:h}=n,e=n.element,label=e.kind==='note'?e.properties.text:e.label,lines=await wrap(label,w-26,24);
  if(lines.length*27.6>h-16)throw Error(`Infrastructure text overflow ${n.id}`);
  let s=`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="white" stroke="#111" stroke-width="2"/>`;
+ if(e.properties.shape==='diamond')s=`<path d="M${x+w/2} ${y}L${x+w} ${y+h/2}L${x+w/2} ${y+h}L${x} ${y+h/2}Z" fill="white" stroke="#111" stroke-width="2"/>`;
  if(e.properties.shape==='cylinder')s=`<path d="M${x} ${y+13}a${w/2} 13 0 0 1 ${w} 0v${h-26}a${w/2} 13 0 0 1 -${w} 0Z" fill="white" stroke="#111" stroke-width="2"/><ellipse cx="${x+w/2}" cy="${y+13}" rx="${w/2}" ry="13" fill="white" stroke="#111" stroke-width="2"/>`;
  return s+centered(lines,x+w/2,y+h/2,24);
 });
+}
 const coding=schemeNodes('D04_coding');
 await save('D04_coding',coding,[],async n=>{
  const {x,y,width:w,height:h}=n,e=n.element;
@@ -113,5 +150,6 @@ await save('D04_coding',coding,[],async n=>{
   return `<path d="M${px} ${y+60}V${y+h-85}" stroke="#111"/>`+centered([p.properties.literal??p.properties.example],cx,y+105,36,true)+centered([p.label],cx,y+160,24);
  }).join('')+centered(['MR-000153 · версия хранится отдельно (version_no)'],x+w/2,y+h-35,26);
 });
+await fs.writeFile(schemePath,await encodeProject(scheme));
 await fs.writeFile(path.join(ROOT,'ПРОВЕРКА_печатных_структур.json'),JSON.stringify(audits,null,2)+'\n');
 console.log(JSON.stringify(audits,null,2));

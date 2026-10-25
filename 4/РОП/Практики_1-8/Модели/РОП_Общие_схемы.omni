@@ -70,23 +70,6 @@
         }
       },
       {
-        "id": "D04_coding.note",
-        "kind": "note",
-        "label": "Примечание",
-        "properties": {
-          "text": "При исчерпании диапазона миграция формата. Версия хранится отдельно как version_no."
-        }
-      },
-      {
-        "id": "D04_coding.noteView",
-        "kind": "view",
-        "label": "",
-        "properties": {
-          "diagram": "D04_coding",
-          "element": "D04_coding.note"
-        }
-      },
-      {
         "id": "D10_infrastructure",
         "kind": "diagram",
         "label": "Инфраструктурная схема",
@@ -385,23 +368,6 @@
         }
       },
       {
-        "id": "D10_infrastructure.note",
-        "kind": "note",
-        "label": "Примечание",
-        "properties": {
-          "text": "Ресурсы и число узлов — проектное предложение; нагрузочная проверка ещё не проводилась."
-        }
-      },
-      {
-        "id": "D10_infrastructure.noteView",
-        "kind": "view",
-        "label": "",
-        "properties": {
-          "diagram": "D10_infrastructure",
-          "element": "D10_infrastructure.note"
-        }
-      },
-      {
         "id": "D24_access",
         "kind": "diagram",
         "label": "Схема проверки доступа",
@@ -587,28 +553,11 @@
           "from": "D24_access.r_view",
           "to": "D24_access.deny_view"
         }
-      },
-      {
-        "id": "D24_access.note",
-        "kind": "note",
-        "label": "Примечание",
-        "properties": {
-          "text": "Учебная RBAC-модель. Сервисный worker использует отдельную техническую роль."
-        }
-      },
-      {
-        "id": "D24_access.noteView",
-        "kind": "view",
-        "label": "",
-        "properties": {
-          "diagram": "D24_access",
-          "element": "D24_access.note"
-        }
       }
     ]
   },
-  "source": "scheme ropSchemes \"Кодирование, инфраструктура и доступ РОП\"\ndiagram D04_coding \"Схема кодирования модельного ряда\" type=coding\ncodePattern bomCode \"Формат кода модельного ряда\" description=\"При исчерпании диапазона миграция формата. Версия хранится отдельно как version_no.\"\nsegment bomPrefix Префикс kind=literal literal=MR meaning=\"Тип объекта: конфигурация\\nПостоянный префикс\" order=0 owner=bomCode\nsegment bomSeparator Разделитель kind=literal literal=\"-\" meaning=\"Разделитель префикса и порядкового номера\" order=1 owner=bomCode\nsegment bomNumber \"Порядковый номер\" alphabet=digits example=000153 kind=counter meaning=\"Номер из sequence\\n000001–999999\" order=2 owner=bomCode width=6\nview bomCodeView \"\" diagram=D04_coding element=bomCode\nnote D04_coding.note Примечание text=\"При исчерпании диапазона миграция формата. Версия хранится отдельно как version_no.\"\nview D04_coding.noteView \"\" diagram=D04_coding element=D04_coding.note\ndiagram D10_infrastructure \"Инфраструктурная схема\" type=infrastructure\nblock D10_infrastructure.client \"Рабочие станции\\nБраузеры сотрудников\" role=client shape=rectangle technology=Браузер\nview D10_infrastructure.client_view \"\" diagram=D10_infrastructure element=D10_infrastructure.client\nblock D10_infrastructure.edge \"Шлюз / DMZ\\nNginx: HTTPS 443\\nTLS и маршрутизация\" role=gateway shape=rectangle technology=Nginx\nview D10_infrastructure.edge_view \"\" diagram=D10_infrastructure element=D10_infrastructure.edge\nblock D10_infrastructure.app \"Прикладной сервер\\nJRE 21: Spring Boot\\nAPI и worker публикаций\" role=application shape=rectangle technology=\"JRE / Spring Boot\" version=\"21 (JRE)\"\nview D10_infrastructure.app_view \"\" diagram=D10_infrastructure element=D10_infrastructure.app\nblock D10_infrastructure.db \"Сервер БД\\nPostgreSQL 18\\nДанные и очередь\" role=database shape=cylinder technology=PostgreSQL version=18\nview D10_infrastructure.db_view \"\" diagram=D10_infrastructure element=D10_infrastructure.db\nblock D10_infrastructure.media \"Файловое хранилище\\nИзображения по storage_key\" role=storage shape=cylinder\nview D10_infrastructure.media_view \"\" diagram=D10_infrastructure element=D10_infrastructure.media\nblock D10_infrastructure.ext \"Ozon и поставщики\\nИнтернет\" role=external shape=cloud\nview D10_infrastructure.ext_view \"\" diagram=D10_infrastructure element=D10_infrastructure.ext\nblock D10_infrastructure.backup \"Резервное хранилище\\nБД и изображения\\nОтдельные учётные данные\" role=storage shape=cylinder\nview D10_infrastructure.backup_view \"\" diagram=D10_infrastructure element=D10_infrastructure.backup\nlink D10_infrastructure.link1 \"HTTPS 443\" from=D10_infrastructure.client kind=directed port=443 protocol=HTTPS to=D10_infrastructure.edge\nview D10_infrastructure.link1_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link1 from=D10_infrastructure.client_view to=D10_infrastructure.edge_view\nlink D10_infrastructure.link2 \"HTTPS 8443\" from=D10_infrastructure.edge kind=directed port=8443 protocol=HTTPS to=D10_infrastructure.app\nview D10_infrastructure.link2_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link2 from=D10_infrastructure.edge_view to=D10_infrastructure.app_view\nlink D10_infrastructure.link3 \"TLS 5432\" from=D10_infrastructure.app kind=directed port=5432 protocol=TLS to=D10_infrastructure.db\nview D10_infrastructure.link3_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link3 from=D10_infrastructure.app_view to=D10_infrastructure.db_view\nlink D10_infrastructure.link4 \"HTTPS 443\" from=D10_infrastructure.app kind=directed port=443 protocol=HTTPS to=D10_infrastructure.ext\nview D10_infrastructure.link4_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link4 from=D10_infrastructure.app_view to=D10_infrastructure.ext_view\nlink D10_infrastructure.link5 \"копия БД\" from=D10_infrastructure.db kind=directed purpose=\"копия БД\" to=D10_infrastructure.backup\nview D10_infrastructure.link5_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link5 from=D10_infrastructure.db_view to=D10_infrastructure.backup_view\nlink D10_infrastructure.link6 HTTPS from=D10_infrastructure.app kind=directed protocol=HTTPS to=D10_infrastructure.media\nview D10_infrastructure.link6_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link6 from=D10_infrastructure.app_view to=D10_infrastructure.media_view\nlink D10_infrastructure.link7 \"копия файлов\" from=D10_infrastructure.media kind=directed purpose=\"копия файлов\" to=D10_infrastructure.backup\nview D10_infrastructure.link7_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link7 from=D10_infrastructure.media_view to=D10_infrastructure.backup_view\nnote D10_infrastructure.note Примечание text=\"Ресурсы и число узлов — проектное предложение; нагрузочная проверка ещё не проводилась.\"\nview D10_infrastructure.noteView \"\" diagram=D10_infrastructure element=D10_infrastructure.note\ndiagram D24_access \"Схема проверки доступа\" type=access\nblock D24_access.u \"Пользователь\\nи назначенные роли\" role=principal shape=rectangle\nview D24_access.u_view \"\" diagram=D24_access element=D24_access.u\nblock D24_access.a \"Аутентификация\\nи серверная сессия\" role=authentication shape=rectangle\nview D24_access.a_view \"\" diagram=D24_access element=D24_access.a\nblock D24_access.r \"Проверка RBAC\\nресурс + операция + условие\" policy=\"RBAC: ресурс + операция + условие\" role=authorization shape=diamond\nview D24_access.r_view \"\" diagram=D24_access element=D24_access.r\nblock D24_access.ok \"Разрешённое действие\\nв транзакции\" role=operation shape=rectangle\nview D24_access.ok_view \"\" diagram=D24_access element=D24_access.ok\nblock D24_access.deny \"Отказ в доступе\\nбез изменения данных\" role=deny shape=rectangle\nview D24_access.deny_view \"\" diagram=D24_access element=D24_access.deny\nlink D24_access.link1 HTTPS from=D24_access.u kind=directed protocol=HTTPS to=D24_access.a\nview D24_access.link1_view \"\" diagram=D24_access element=D24_access.link1 from=D24_access.u_view to=D24_access.a_view\nlink D24_access.link2 пользователь from=D24_access.a kind=directed purpose=пользователь to=D24_access.r\nview D24_access.link2_view \"\" diagram=D24_access element=D24_access.link2 from=D24_access.a_view to=D24_access.r_view\nlink D24_access.link3 Разрешено from=D24_access.r kind=directed purpose=Разрешено to=D24_access.ok\nview D24_access.link3_view \"\" diagram=D24_access element=D24_access.link3 from=D24_access.r_view to=D24_access.ok_view\nlink D24_access.link4 Запрещено from=D24_access.r kind=directed purpose=Запрещено to=D24_access.deny\nview D24_access.link4_view \"\" diagram=D24_access element=D24_access.link4 from=D24_access.r_view to=D24_access.deny_view\nnote D24_access.note Примечание text=\"Учебная RBAC-модель. Сервисный worker использует отдельную техническую роль.\"\nview D24_access.noteView \"\" diagram=D24_access element=D24_access.note\n",
-  "draft": "scheme ropSchemes \"Кодирование, инфраструктура и доступ РОП\"\ndiagram D04_coding \"Схема кодирования модельного ряда\" type=coding\ncodePattern bomCode \"Формат кода модельного ряда\" description=\"При исчерпании диапазона миграция формата. Версия хранится отдельно как version_no.\"\nsegment bomPrefix Префикс kind=literal literal=MR meaning=\"Тип объекта: конфигурация\\nПостоянный префикс\" order=0 owner=bomCode\nsegment bomSeparator Разделитель kind=literal literal=\"-\" meaning=\"Разделитель префикса и порядкового номера\" order=1 owner=bomCode\nsegment bomNumber \"Порядковый номер\" alphabet=digits example=000153 kind=counter meaning=\"Номер из sequence\\n000001–999999\" order=2 owner=bomCode width=6\nview bomCodeView \"\" diagram=D04_coding element=bomCode\nnote D04_coding.note Примечание text=\"При исчерпании диапазона миграция формата. Версия хранится отдельно как version_no.\"\nview D04_coding.noteView \"\" diagram=D04_coding element=D04_coding.note\ndiagram D10_infrastructure \"Инфраструктурная схема\" type=infrastructure\nblock D10_infrastructure.client \"Рабочие станции\\nБраузеры сотрудников\" role=client shape=rectangle technology=Браузер\nview D10_infrastructure.client_view \"\" diagram=D10_infrastructure element=D10_infrastructure.client\nblock D10_infrastructure.edge \"Шлюз / DMZ\\nNginx: HTTPS 443\\nTLS и маршрутизация\" role=gateway shape=rectangle technology=Nginx\nview D10_infrastructure.edge_view \"\" diagram=D10_infrastructure element=D10_infrastructure.edge\nblock D10_infrastructure.app \"Прикладной сервер\\nJRE 21: Spring Boot\\nAPI и worker публикаций\" role=application shape=rectangle technology=\"JRE / Spring Boot\" version=\"21 (JRE)\"\nview D10_infrastructure.app_view \"\" diagram=D10_infrastructure element=D10_infrastructure.app\nblock D10_infrastructure.db \"Сервер БД\\nPostgreSQL 18\\nДанные и очередь\" role=database shape=cylinder technology=PostgreSQL version=18\nview D10_infrastructure.db_view \"\" diagram=D10_infrastructure element=D10_infrastructure.db\nblock D10_infrastructure.media \"Файловое хранилище\\nИзображения по storage_key\" role=storage shape=cylinder\nview D10_infrastructure.media_view \"\" diagram=D10_infrastructure element=D10_infrastructure.media\nblock D10_infrastructure.ext \"Ozon и поставщики\\nИнтернет\" role=external shape=cloud\nview D10_infrastructure.ext_view \"\" diagram=D10_infrastructure element=D10_infrastructure.ext\nblock D10_infrastructure.backup \"Резервное хранилище\\nБД и изображения\\nОтдельные учётные данные\" role=storage shape=cylinder\nview D10_infrastructure.backup_view \"\" diagram=D10_infrastructure element=D10_infrastructure.backup\nlink D10_infrastructure.link1 \"HTTPS 443\" from=D10_infrastructure.client kind=directed port=443 protocol=HTTPS to=D10_infrastructure.edge\nview D10_infrastructure.link1_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link1 from=D10_infrastructure.client_view to=D10_infrastructure.edge_view\nlink D10_infrastructure.link2 \"HTTPS 8443\" from=D10_infrastructure.edge kind=directed port=8443 protocol=HTTPS to=D10_infrastructure.app\nview D10_infrastructure.link2_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link2 from=D10_infrastructure.edge_view to=D10_infrastructure.app_view\nlink D10_infrastructure.link3 \"TLS 5432\" from=D10_infrastructure.app kind=directed port=5432 protocol=TLS to=D10_infrastructure.db\nview D10_infrastructure.link3_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link3 from=D10_infrastructure.app_view to=D10_infrastructure.db_view\nlink D10_infrastructure.link4 \"HTTPS 443\" from=D10_infrastructure.app kind=directed port=443 protocol=HTTPS to=D10_infrastructure.ext\nview D10_infrastructure.link4_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link4 from=D10_infrastructure.app_view to=D10_infrastructure.ext_view\nlink D10_infrastructure.link5 \"копия БД\" from=D10_infrastructure.db kind=directed purpose=\"копия БД\" to=D10_infrastructure.backup\nview D10_infrastructure.link5_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link5 from=D10_infrastructure.db_view to=D10_infrastructure.backup_view\nlink D10_infrastructure.link6 HTTPS from=D10_infrastructure.app kind=directed protocol=HTTPS to=D10_infrastructure.media\nview D10_infrastructure.link6_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link6 from=D10_infrastructure.app_view to=D10_infrastructure.media_view\nlink D10_infrastructure.link7 \"копия файлов\" from=D10_infrastructure.media kind=directed purpose=\"копия файлов\" to=D10_infrastructure.backup\nview D10_infrastructure.link7_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link7 from=D10_infrastructure.media_view to=D10_infrastructure.backup_view\nnote D10_infrastructure.note Примечание text=\"Ресурсы и число узлов — проектное предложение; нагрузочная проверка ещё не проводилась.\"\nview D10_infrastructure.noteView \"\" diagram=D10_infrastructure element=D10_infrastructure.note\ndiagram D24_access \"Схема проверки доступа\" type=access\nblock D24_access.u \"Пользователь\\nи назначенные роли\" role=principal shape=rectangle\nview D24_access.u_view \"\" diagram=D24_access element=D24_access.u\nblock D24_access.a \"Аутентификация\\nи серверная сессия\" role=authentication shape=rectangle\nview D24_access.a_view \"\" diagram=D24_access element=D24_access.a\nblock D24_access.r \"Проверка RBAC\\nресурс + операция + условие\" policy=\"RBAC: ресурс + операция + условие\" role=authorization shape=diamond\nview D24_access.r_view \"\" diagram=D24_access element=D24_access.r\nblock D24_access.ok \"Разрешённое действие\\nв транзакции\" role=operation shape=rectangle\nview D24_access.ok_view \"\" diagram=D24_access element=D24_access.ok\nblock D24_access.deny \"Отказ в доступе\\nбез изменения данных\" role=deny shape=rectangle\nview D24_access.deny_view \"\" diagram=D24_access element=D24_access.deny\nlink D24_access.link1 HTTPS from=D24_access.u kind=directed protocol=HTTPS to=D24_access.a\nview D24_access.link1_view \"\" diagram=D24_access element=D24_access.link1 from=D24_access.u_view to=D24_access.a_view\nlink D24_access.link2 пользователь from=D24_access.a kind=directed purpose=пользователь to=D24_access.r\nview D24_access.link2_view \"\" diagram=D24_access element=D24_access.link2 from=D24_access.a_view to=D24_access.r_view\nlink D24_access.link3 Разрешено from=D24_access.r kind=directed purpose=Разрешено to=D24_access.ok\nview D24_access.link3_view \"\" diagram=D24_access element=D24_access.link3 from=D24_access.r_view to=D24_access.ok_view\nlink D24_access.link4 Запрещено from=D24_access.r kind=directed purpose=Запрещено to=D24_access.deny\nview D24_access.link4_view \"\" diagram=D24_access element=D24_access.link4 from=D24_access.r_view to=D24_access.deny_view\nnote D24_access.note Примечание text=\"Учебная RBAC-модель. Сервисный worker использует отдельную техническую роль.\"\nview D24_access.noteView \"\" diagram=D24_access element=D24_access.note\n",
+  "source": "scheme ropSchemes \"Кодирование, инфраструктура и доступ РОП\"\ndiagram D04_coding \"Схема кодирования модельного ряда\" type=coding\ncodePattern bomCode \"Формат кода модельного ряда\" description=\"При исчерпании диапазона миграция формата. Версия хранится отдельно как version_no.\"\nsegment bomPrefix Префикс kind=literal literal=MR meaning=\"Тип объекта: конфигурация\\nПостоянный префикс\" order=0 owner=bomCode\nsegment bomSeparator Разделитель kind=literal literal=\"-\" meaning=\"Разделитель префикса и порядкового номера\" order=1 owner=bomCode\nsegment bomNumber \"Порядковый номер\" alphabet=digits example=000153 kind=counter meaning=\"Номер из sequence\\n000001–999999\" order=2 owner=bomCode width=6\nview bomCodeView \"\" diagram=D04_coding element=bomCode\n\n\ndiagram D10_infrastructure \"Инфраструктурная схема\" type=infrastructure\nblock D10_infrastructure.client \"Рабочие станции\\nБраузеры сотрудников\" role=client shape=rectangle technology=Браузер\nview D10_infrastructure.client_view \"\" diagram=D10_infrastructure element=D10_infrastructure.client\nblock D10_infrastructure.edge \"Шлюз / DMZ\\nNginx: HTTPS 443\\nTLS и маршрутизация\" role=gateway shape=rectangle technology=Nginx\nview D10_infrastructure.edge_view \"\" diagram=D10_infrastructure element=D10_infrastructure.edge\nblock D10_infrastructure.app \"Прикладной сервер\\nJRE 21: Spring Boot\\nAPI и worker публикаций\" role=application shape=rectangle technology=\"JRE / Spring Boot\" version=\"21 (JRE)\"\nview D10_infrastructure.app_view \"\" diagram=D10_infrastructure element=D10_infrastructure.app\nblock D10_infrastructure.db \"Сервер БД\\nPostgreSQL 18\\nДанные и очередь\" role=database shape=cylinder technology=PostgreSQL version=18\nview D10_infrastructure.db_view \"\" diagram=D10_infrastructure element=D10_infrastructure.db\nblock D10_infrastructure.media \"Файловое хранилище\\nИзображения по storage_key\" role=storage shape=cylinder\nview D10_infrastructure.media_view \"\" diagram=D10_infrastructure element=D10_infrastructure.media\nblock D10_infrastructure.ext \"Ozon и поставщики\\nИнтернет\" role=external shape=cloud\nview D10_infrastructure.ext_view \"\" diagram=D10_infrastructure element=D10_infrastructure.ext\nblock D10_infrastructure.backup \"Резервное хранилище\\nБД и изображения\\nОтдельные учётные данные\" role=storage shape=cylinder\nview D10_infrastructure.backup_view \"\" diagram=D10_infrastructure element=D10_infrastructure.backup\nlink D10_infrastructure.link1 \"HTTPS 443\" from=D10_infrastructure.client kind=directed port=443 protocol=HTTPS to=D10_infrastructure.edge\nview D10_infrastructure.link1_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link1 from=D10_infrastructure.client_view to=D10_infrastructure.edge_view\nlink D10_infrastructure.link2 \"HTTPS 8443\" from=D10_infrastructure.edge kind=directed port=8443 protocol=HTTPS to=D10_infrastructure.app\nview D10_infrastructure.link2_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link2 from=D10_infrastructure.edge_view to=D10_infrastructure.app_view\nlink D10_infrastructure.link3 \"TLS 5432\" from=D10_infrastructure.app kind=directed port=5432 protocol=TLS to=D10_infrastructure.db\nview D10_infrastructure.link3_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link3 from=D10_infrastructure.app_view to=D10_infrastructure.db_view\nlink D10_infrastructure.link4 \"HTTPS 443\" from=D10_infrastructure.app kind=directed port=443 protocol=HTTPS to=D10_infrastructure.ext\nview D10_infrastructure.link4_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link4 from=D10_infrastructure.app_view to=D10_infrastructure.ext_view\nlink D10_infrastructure.link5 \"копия БД\" from=D10_infrastructure.db kind=directed purpose=\"копия БД\" to=D10_infrastructure.backup\nview D10_infrastructure.link5_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link5 from=D10_infrastructure.db_view to=D10_infrastructure.backup_view\nlink D10_infrastructure.link6 HTTPS from=D10_infrastructure.app kind=directed protocol=HTTPS to=D10_infrastructure.media\nview D10_infrastructure.link6_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link6 from=D10_infrastructure.app_view to=D10_infrastructure.media_view\nlink D10_infrastructure.link7 \"копия файлов\" from=D10_infrastructure.media kind=directed purpose=\"копия файлов\" to=D10_infrastructure.backup\nview D10_infrastructure.link7_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link7 from=D10_infrastructure.media_view to=D10_infrastructure.backup_view\n\n\ndiagram D24_access \"Схема проверки доступа\" type=access\nblock D24_access.u \"Пользователь\\nи назначенные роли\" role=principal shape=rectangle\nview D24_access.u_view \"\" diagram=D24_access element=D24_access.u\nblock D24_access.a \"Аутентификация\\nи серверная сессия\" role=authentication shape=rectangle\nview D24_access.a_view \"\" diagram=D24_access element=D24_access.a\nblock D24_access.r \"Проверка RBAC\\nресурс + операция + условие\" policy=\"RBAC: ресурс + операция + условие\" role=authorization shape=diamond\nview D24_access.r_view \"\" diagram=D24_access element=D24_access.r\nblock D24_access.ok \"Разрешённое действие\\nв транзакции\" role=operation shape=rectangle\nview D24_access.ok_view \"\" diagram=D24_access element=D24_access.ok\nblock D24_access.deny \"Отказ в доступе\\nбез изменения данных\" role=deny shape=rectangle\nview D24_access.deny_view \"\" diagram=D24_access element=D24_access.deny\nlink D24_access.link1 HTTPS from=D24_access.u kind=directed protocol=HTTPS to=D24_access.a\nview D24_access.link1_view \"\" diagram=D24_access element=D24_access.link1 from=D24_access.u_view to=D24_access.a_view\nlink D24_access.link2 пользователь from=D24_access.a kind=directed purpose=пользователь to=D24_access.r\nview D24_access.link2_view \"\" diagram=D24_access element=D24_access.link2 from=D24_access.a_view to=D24_access.r_view\nlink D24_access.link3 Разрешено from=D24_access.r kind=directed purpose=Разрешено to=D24_access.ok\nview D24_access.link3_view \"\" diagram=D24_access element=D24_access.link3 from=D24_access.r_view to=D24_access.ok_view\nlink D24_access.link4 Запрещено from=D24_access.r kind=directed purpose=Запрещено to=D24_access.deny\nview D24_access.link4_view \"\" diagram=D24_access element=D24_access.link4 from=D24_access.r_view to=D24_access.deny_view\n\n\n",
+  "draft": "scheme ropSchemes \"Кодирование, инфраструктура и доступ РОП\"\ndiagram D04_coding \"Схема кодирования модельного ряда\" type=coding\ncodePattern bomCode \"Формат кода модельного ряда\" description=\"При исчерпании диапазона миграция формата. Версия хранится отдельно как version_no.\"\nsegment bomPrefix Префикс kind=literal literal=MR meaning=\"Тип объекта: конфигурация\\nПостоянный префикс\" order=0 owner=bomCode\nsegment bomSeparator Разделитель kind=literal literal=\"-\" meaning=\"Разделитель префикса и порядкового номера\" order=1 owner=bomCode\nsegment bomNumber \"Порядковый номер\" alphabet=digits example=000153 kind=counter meaning=\"Номер из sequence\\n000001–999999\" order=2 owner=bomCode width=6\nview bomCodeView \"\" diagram=D04_coding element=bomCode\n\n\ndiagram D10_infrastructure \"Инфраструктурная схема\" type=infrastructure\nblock D10_infrastructure.client \"Рабочие станции\\nБраузеры сотрудников\" role=client shape=rectangle technology=Браузер\nview D10_infrastructure.client_view \"\" diagram=D10_infrastructure element=D10_infrastructure.client\nblock D10_infrastructure.edge \"Шлюз / DMZ\\nNginx: HTTPS 443\\nTLS и маршрутизация\" role=gateway shape=rectangle technology=Nginx\nview D10_infrastructure.edge_view \"\" diagram=D10_infrastructure element=D10_infrastructure.edge\nblock D10_infrastructure.app \"Прикладной сервер\\nJRE 21: Spring Boot\\nAPI и worker публикаций\" role=application shape=rectangle technology=\"JRE / Spring Boot\" version=\"21 (JRE)\"\nview D10_infrastructure.app_view \"\" diagram=D10_infrastructure element=D10_infrastructure.app\nblock D10_infrastructure.db \"Сервер БД\\nPostgreSQL 18\\nДанные и очередь\" role=database shape=cylinder technology=PostgreSQL version=18\nview D10_infrastructure.db_view \"\" diagram=D10_infrastructure element=D10_infrastructure.db\nblock D10_infrastructure.media \"Файловое хранилище\\nИзображения по storage_key\" role=storage shape=cylinder\nview D10_infrastructure.media_view \"\" diagram=D10_infrastructure element=D10_infrastructure.media\nblock D10_infrastructure.ext \"Ozon и поставщики\\nИнтернет\" role=external shape=cloud\nview D10_infrastructure.ext_view \"\" diagram=D10_infrastructure element=D10_infrastructure.ext\nblock D10_infrastructure.backup \"Резервное хранилище\\nБД и изображения\\nОтдельные учётные данные\" role=storage shape=cylinder\nview D10_infrastructure.backup_view \"\" diagram=D10_infrastructure element=D10_infrastructure.backup\nlink D10_infrastructure.link1 \"HTTPS 443\" from=D10_infrastructure.client kind=directed port=443 protocol=HTTPS to=D10_infrastructure.edge\nview D10_infrastructure.link1_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link1 from=D10_infrastructure.client_view to=D10_infrastructure.edge_view\nlink D10_infrastructure.link2 \"HTTPS 8443\" from=D10_infrastructure.edge kind=directed port=8443 protocol=HTTPS to=D10_infrastructure.app\nview D10_infrastructure.link2_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link2 from=D10_infrastructure.edge_view to=D10_infrastructure.app_view\nlink D10_infrastructure.link3 \"TLS 5432\" from=D10_infrastructure.app kind=directed port=5432 protocol=TLS to=D10_infrastructure.db\nview D10_infrastructure.link3_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link3 from=D10_infrastructure.app_view to=D10_infrastructure.db_view\nlink D10_infrastructure.link4 \"HTTPS 443\" from=D10_infrastructure.app kind=directed port=443 protocol=HTTPS to=D10_infrastructure.ext\nview D10_infrastructure.link4_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link4 from=D10_infrastructure.app_view to=D10_infrastructure.ext_view\nlink D10_infrastructure.link5 \"копия БД\" from=D10_infrastructure.db kind=directed purpose=\"копия БД\" to=D10_infrastructure.backup\nview D10_infrastructure.link5_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link5 from=D10_infrastructure.db_view to=D10_infrastructure.backup_view\nlink D10_infrastructure.link6 HTTPS from=D10_infrastructure.app kind=directed protocol=HTTPS to=D10_infrastructure.media\nview D10_infrastructure.link6_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link6 from=D10_infrastructure.app_view to=D10_infrastructure.media_view\nlink D10_infrastructure.link7 \"копия файлов\" from=D10_infrastructure.media kind=directed purpose=\"копия файлов\" to=D10_infrastructure.backup\nview D10_infrastructure.link7_view \"\" diagram=D10_infrastructure element=D10_infrastructure.link7 from=D10_infrastructure.media_view to=D10_infrastructure.backup_view\n\n\ndiagram D24_access \"Схема проверки доступа\" type=access\nblock D24_access.u \"Пользователь\\nи назначенные роли\" role=principal shape=rectangle\nview D24_access.u_view \"\" diagram=D24_access element=D24_access.u\nblock D24_access.a \"Аутентификация\\nи серверная сессия\" role=authentication shape=rectangle\nview D24_access.a_view \"\" diagram=D24_access element=D24_access.a\nblock D24_access.r \"Проверка RBAC\\nресурс + операция + условие\" policy=\"RBAC: ресурс + операция + условие\" role=authorization shape=diamond\nview D24_access.r_view \"\" diagram=D24_access element=D24_access.r\nblock D24_access.ok \"Разрешённое действие\\nв транзакции\" role=operation shape=rectangle\nview D24_access.ok_view \"\" diagram=D24_access element=D24_access.ok\nblock D24_access.deny \"Отказ в доступе\\nбез изменения данных\" role=deny shape=rectangle\nview D24_access.deny_view \"\" diagram=D24_access element=D24_access.deny\nlink D24_access.link1 HTTPS from=D24_access.u kind=directed protocol=HTTPS to=D24_access.a\nview D24_access.link1_view \"\" diagram=D24_access element=D24_access.link1 from=D24_access.u_view to=D24_access.a_view\nlink D24_access.link2 пользователь from=D24_access.a kind=directed purpose=пользователь to=D24_access.r\nview D24_access.link2_view \"\" diagram=D24_access element=D24_access.link2 from=D24_access.a_view to=D24_access.r_view\nlink D24_access.link3 Разрешено from=D24_access.r kind=directed purpose=Разрешено to=D24_access.ok\nview D24_access.link3_view \"\" diagram=D24_access element=D24_access.link3 from=D24_access.r_view to=D24_access.ok_view\nlink D24_access.link4 Запрещено from=D24_access.r kind=directed purpose=Запрещено to=D24_access.deny\nview D24_access.link4_view \"\" diagram=D24_access element=D24_access.link4 from=D24_access.r_view to=D24_access.deny_view\n\n\n",
   "layout": {
     "nodes": {
       "bomCodeView": {
@@ -639,12 +588,6 @@
             }
           }
         }
-      },
-      "D04_coding.noteView": {
-        "x": 50,
-        "y": 620,
-        "width": 850,
-        "height": 100
       },
       "D10_infrastructure.client_view": {
         "x": 30,
@@ -688,61 +631,40 @@
         "width": 300,
         "height": 160
       },
-      "D10_infrastructure.noteView": {
-        "x": 50,
-        "y": 1020,
-        "width": 850,
-        "height": 100
-      },
       "D24_access.u_view": {
-        "x": 25,
-        "y": 275,
+        "x": 30,
+        "y": 300,
         "width": 270,
-        "height": 110
+        "height": 130
       },
       "D24_access.a_view": {
-        "x": 370,
-        "y": 275,
+        "x": 430,
+        "y": 300,
         "width": 290,
-        "height": 110
+        "height": 130
       },
       "D24_access.r_view": {
-        "x": 770,
-        "y": 275,
-        "width": 300,
-        "height": 110
+        "x": 850,
+        "y": 250,
+        "width": 440,
+        "height": 230
       },
       "D24_access.ok_view": {
-        "x": 1120,
-        "y": 105,
-        "width": 285,
-        "height": 110
+        "x": 1480,
+        "y": 70,
+        "width": 330,
+        "height": 140
       },
       "D24_access.deny_view": {
-        "x": 1120,
-        "y": 470,
-        "width": 285,
-        "height": 110
-      },
-      "D24_access.noteView": {
-        "x": 50,
-        "y": 730,
-        "width": 850,
-        "height": 100
+        "x": 1480,
+        "y": 530,
+        "width": 330,
+        "height": 140
       }
     },
     "edges": {
       "D10_infrastructure.link1_view": {
-        "bends": [
-          {
-            "x": 350,
-            "y": 395
-          },
-          {
-            "x": 350,
-            "y": 395
-          }
-        ],
+        "bends": [],
         "from": {
           "side": "right",
           "offset": 0.5
@@ -755,12 +677,12 @@
       "D10_infrastructure.link2_view": {
         "bends": [
           {
-            "x": 747.5,
+            "x": 789,
             "y": 395
           },
           {
-            "x": 747.5,
-            "y": 250
+            "x": 789,
+            "y": 221.66666666666666
           }
         ],
         "from": {
@@ -769,20 +691,11 @@
         },
         "to": {
           "side": "left",
-          "offset": 0.5
+          "offset": 0.3333333333333333
         }
       },
       "D10_infrastructure.link3_view": {
-        "bends": [
-          {
-            "x": 960,
-            "y": 410
-          },
-          {
-            "x": 960,
-            "y": 410
-          }
-        ],
+        "bends": [],
         "from": {
           "side": "bottom",
           "offset": 0.5
@@ -795,11 +708,11 @@
       "D10_infrastructure.link4_view": {
         "bends": [
           {
-            "x": 1142.5,
+            "x": 1154,
             "y": 250
           },
           {
-            "x": 1142.5,
+            "x": 1154,
             "y": 237.5
           }
         ],
@@ -815,12 +728,12 @@
       "D10_infrastructure.link5_view": {
         "bends": [
           {
-            "x": 1142.5,
+            "x": 1154,
             "y": 565
           },
           {
-            "x": 1142.5,
-            "y": 765
+            "x": 1154,
+            "y": 738.3333333333334
           }
         ],
         "from": {
@@ -829,23 +742,23 @@
         },
         "to": {
           "side": "left",
-          "offset": 0.5
+          "offset": 0.3333333333333333
         }
       },
       "D10_infrastructure.link6_view": {
         "bends": [
           {
-            "x": 735,
-            "y": 285
+            "x": 769,
+            "y": 278.3333333333333
           },
           {
-            "x": 735,
+            "x": 769,
             "y": 845
           }
         ],
         "from": {
           "side": "left",
-          "offset": 0.7058823529411765
+          "offset": 0.6666666666666666
         },
         "to": {
           "side": "left",
@@ -855,12 +768,12 @@
       "D10_infrastructure.link7_view": {
         "bends": [
           {
-            "x": 1142.5,
+            "x": 1154,
             "y": 845
           },
           {
-            "x": 1142.5,
-            "y": 765
+            "x": 1154,
+            "y": 791.6666666666666
           }
         ],
         "from": {
@@ -869,20 +782,11 @@
         },
         "to": {
           "side": "left",
-          "offset": 0.5
+          "offset": 0.6666666666666666
         }
       },
       "D24_access.link1_view": {
-        "bends": [
-          {
-            "x": 332.5,
-            "y": 330
-          },
-          {
-            "x": 332.5,
-            "y": 330
-          }
-        ],
+        "bends": [],
         "from": {
           "side": "right",
           "offset": 0.5
@@ -893,16 +797,7 @@
         }
       },
       "D24_access.link2_view": {
-        "bends": [
-          {
-            "x": 715,
-            "y": 330
-          },
-          {
-            "x": 715,
-            "y": 330
-          }
-        ],
+        "bends": [],
         "from": {
           "side": "right",
           "offset": 0.5
@@ -915,16 +810,12 @@
       "D24_access.link3_view": {
         "bends": [
           {
-            "x": 1095,
-            "y": 330
-          },
-          {
-            "x": 1095,
-            "y": 160
+            "x": 1070,
+            "y": 140
           }
         ],
         "from": {
-          "side": "right",
+          "side": "top",
           "offset": 0.5
         },
         "to": {
@@ -935,16 +826,12 @@
       "D24_access.link4_view": {
         "bends": [
           {
-            "x": 1095,
-            "y": 330
-          },
-          {
-            "x": 1095,
-            "y": 525
+            "x": 1070,
+            "y": 600
           }
         ],
         "from": {
-          "side": "right",
+          "side": "bottom",
           "offset": 0.5
         },
         "to": {

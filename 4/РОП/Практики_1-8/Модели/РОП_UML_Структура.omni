@@ -26,7 +26,8 @@
         "label": "",
         "properties": {
           "diagram": "D02_component",
-          "element": "D02_component.ui"
+          "element": "D02_component.ui.part",
+          "parent": "D02_component.system.view"
         }
       },
       {
@@ -41,7 +42,8 @@
         "label": "",
         "properties": {
           "diagram": "D02_component",
-          "element": "D02_component.auth"
+          "element": "D02_component.auth.part",
+          "parent": "D02_component.system.view"
         }
       },
       {
@@ -56,7 +58,8 @@
         "label": "",
         "properties": {
           "diagram": "D02_component",
-          "element": "D02_component.model_line"
+          "element": "D02_component.model_line.part",
+          "parent": "D02_component.system.view"
         }
       },
       {
@@ -71,7 +74,8 @@
         "label": "",
         "properties": {
           "diagram": "D02_component",
-          "element": "D02_component.content"
+          "element": "D02_component.content.part",
+          "parent": "D02_component.system.view"
         }
       },
       {
@@ -86,7 +90,8 @@
         "label": "",
         "properties": {
           "diagram": "D02_component",
-          "element": "D02_component.pub"
+          "element": "D02_component.pub.part",
+          "parent": "D02_component.system.view"
         }
       },
       {
@@ -101,7 +106,8 @@
         "label": "",
         "properties": {
           "diagram": "D02_component",
-          "element": "D02_component.sup"
+          "element": "D02_component.sup.part",
+          "parent": "D02_component.system.view"
         }
       },
       {
@@ -116,7 +122,8 @@
         "label": "",
         "properties": {
           "diagram": "D02_component",
-          "element": "D02_component.db"
+          "element": "D02_component.db.part",
+          "parent": "D02_component.system.view"
         }
       },
       {
@@ -131,7 +138,8 @@
         "label": "",
         "properties": {
           "diagram": "D02_component",
-          "element": "D02_component.ext"
+          "element": "D02_component.ext.part",
+          "parent": "D02_component.system.view"
         }
       },
       {
@@ -146,7 +154,8 @@
         "label": "",
         "properties": {
           "diagram": "D02_component",
-          "element": "D02_component.oz"
+          "element": "D02_component.oz.part",
+          "parent": "D02_component.system.view"
         }
       },
       {
@@ -161,187 +170,8 @@
         "label": "",
         "properties": {
           "diagram": "D02_component",
-          "element": "D02_component.media"
-        }
-      },
-      {
-        "id": "D02_component.edge1",
-        "kind": "dependency",
-        "label": "HTTPS / JSON",
-        "properties": {
-          "from": "D02_component.ui",
-          "to": "D02_component.model_line"
-        }
-      },
-      {
-        "id": "view_b5420acb243f",
-        "kind": "view",
-        "label": "",
-        "properties": {
-          "diagram": "D02_component",
-          "element": "D02_component.edge1",
-          "from": "D02_component.uiView",
-          "to": "D02_component.bomView"
-        }
-      },
-      {
-        "id": "D02_component.edge2",
-        "kind": "dependency",
-        "label": "проверка роли",
-        "properties": {
-          "from": "D02_component.model_line",
-          "to": "D02_component.auth"
-        }
-      },
-      {
-        "id": "view_79273861f370",
-        "kind": "view",
-        "label": "",
-        "properties": {
-          "diagram": "D02_component",
-          "element": "D02_component.edge2",
-          "from": "D02_component.bomView",
-          "to": "D02_component.authView"
-        }
-      },
-      {
-        "id": "D02_component.edge3",
-        "kind": "dependency",
-        "label": "репозитории",
-        "properties": {
-          "from": "D02_component.model_line",
-          "to": "D02_component.db"
-        }
-      },
-      {
-        "id": "view_ca5576082fa0",
-        "kind": "view",
-        "label": "",
-        "properties": {
-          "diagram": "D02_component",
-          "element": "D02_component.edge3",
-          "from": "D02_component.bomView",
-          "to": "D02_component.dbView"
-        }
-      },
-      {
-        "id": "D02_component.edge4",
-        "kind": "dependency",
-        "label": "предложения",
-        "properties": {
-          "from": "D02_component.model_line",
-          "to": "D02_component.sup"
-        }
-      },
-      {
-        "id": "view_8fbcbd00f7aa",
-        "kind": "view",
-        "label": "",
-        "properties": {
-          "diagram": "D02_component",
-          "element": "D02_component.edge4",
-          "from": "D02_component.bomView",
-          "to": "D02_component.supView"
-        }
-      },
-      {
-        "id": "D02_component.edge5",
-        "kind": "dependency",
-        "label": "адаптер",
-        "properties": {
-          "from": "D02_component.sup",
-          "to": "D02_component.ext"
-        }
-      },
-      {
-        "id": "view_fb8c65d0f6ee",
-        "kind": "view",
-        "label": "",
-        "properties": {
-          "diagram": "D02_component",
-          "element": "D02_component.edge5",
-          "from": "D02_component.supView",
-          "to": "D02_component.extView"
-        }
-      },
-      {
-        "id": "D02_component.edge6",
-        "kind": "dependency",
-        "label": "версия модельного ряда",
-        "properties": {
-          "from": "D02_component.model_line",
-          "to": "D02_component.content"
-        }
-      },
-      {
-        "id": "view_c00462ee37ca",
-        "kind": "view",
-        "label": "",
-        "properties": {
-          "diagram": "D02_component",
-          "element": "D02_component.edge6",
-          "from": "D02_component.bomView",
-          "to": "D02_component.contentView"
-        }
-      },
-      {
-        "id": "D02_component.edge7",
-        "kind": "dependency",
-        "label": "версия карточки",
-        "properties": {
-          "from": "D02_component.content",
-          "to": "D02_component.pub"
-        }
-      },
-      {
-        "id": "view_9b89141a78db",
-        "kind": "view",
-        "label": "",
-        "properties": {
-          "diagram": "D02_component",
-          "element": "D02_component.edge7",
-          "from": "D02_component.contentView",
-          "to": "D02_component.pubView"
-        }
-      },
-      {
-        "id": "D02_component.edge8",
-        "kind": "dependency",
-        "label": "HTTPS / JSON",
-        "properties": {
-          "from": "D02_component.pub",
-          "to": "D02_component.oz"
-        }
-      },
-      {
-        "id": "view_d4e0dc14733a",
-        "kind": "view",
-        "label": "",
-        "properties": {
-          "diagram": "D02_component",
-          "element": "D02_component.edge8",
-          "from": "D02_component.pubView",
-          "to": "D02_component.ozView"
-        }
-      },
-      {
-        "id": "D02_component.edge9",
-        "kind": "dependency",
-        "label": "файлы",
-        "properties": {
-          "from": "D02_component.content",
-          "to": "D02_component.media"
-        }
-      },
-      {
-        "id": "view_13a8739e6f6c",
-        "kind": "view",
-        "label": "",
-        "properties": {
-          "diagram": "D02_component",
-          "element": "D02_component.edge9",
-          "from": "D02_component.contentView",
-          "to": "D02_component.mediaView"
+          "element": "D02_component.media.part",
+          "parent": "D02_component.system.view"
         }
       },
       {
@@ -1138,7 +968,8 @@
         "label": "",
         "properties": {
           "diagram": "D21_deployment",
-          "element": "D21_deployment.databaseSchema"
+          "element": "D21_deployment.databaseSchema",
+          "parent": "D21_deployment.postgresView"
         }
       },
       {
@@ -1148,17 +979,6 @@
         "properties": {
           "location": "D21_deployment.postgres",
           "artifact": "D21_deployment.databaseSchema"
-        }
-      },
-      {
-        "id": "view_dfda2da014ee",
-        "kind": "view",
-        "label": "",
-        "properties": {
-          "diagram": "D21_deployment",
-          "element": "deployment_4c6a967d1fd8",
-          "from": "D21_deployment.postgresView",
-          "to": "D21_deployment.databaseSchemaView"
         }
       },
       {
@@ -1243,139 +1063,1167 @@
         }
       },
       {
-        "id": "annotation_f08dfe607a19",
-        "kind": "annotation",
-        "label": "Ресурсы и число узлов — проектное предложение; нагрузочная проверка ещё не проводилась.",
+        "id": "D02_component.system",
+        "kind": "component",
+        "label": "Среда взаимодействия компонентов",
         "properties": {}
       },
       {
-        "id": "annotation_f08dfe607a19View",
+        "id": "D02_component.system.view",
         "kind": "view",
         "label": "",
         "properties": {
-          "diagram": "D21_deployment",
-          "element": "annotation_f08dfe607a19"
+          "diagram": "D02_component",
+          "element": "D02_component.system"
+        }
+      },
+      {
+        "id": "D02_component.ui.part",
+        "kind": "part",
+        "label": "Веб-интерфейс",
+        "properties": {
+          "owner": "D02_component.system",
+          "classifier": "D02_component.ui",
+          "lower": "1",
+          "upper": "1"
+        }
+      },
+      {
+        "id": "D02_component.auth.part",
+        "kind": "part",
+        "label": "Проверка прав и аудит",
+        "properties": {
+          "owner": "D02_component.system",
+          "classifier": "D02_component.auth",
+          "lower": "1",
+          "upper": "1"
+        }
+      },
+      {
+        "id": "D02_component.model_line.part",
+        "kind": "part",
+        "label": "Модельный ряд и правила",
+        "properties": {
+          "owner": "D02_component.system",
+          "classifier": "D02_component.model_line",
+          "lower": "1",
+          "upper": "1"
+        }
+      },
+      {
+        "id": "D02_component.content.part",
+        "kind": "part",
+        "label": "Расчёты и контент",
+        "properties": {
+          "owner": "D02_component.system",
+          "classifier": "D02_component.content",
+          "lower": "1",
+          "upper": "1"
+        }
+      },
+      {
+        "id": "D02_component.pub.part",
+        "kind": "part",
+        "label": "Публикации и очередь",
+        "properties": {
+          "owner": "D02_component.system",
+          "classifier": "D02_component.pub",
+          "lower": "1",
+          "upper": "1"
+        }
+      },
+      {
+        "id": "D02_component.sup.part",
+        "kind": "part",
+        "label": "Адаптеры поставщиков",
+        "properties": {
+          "owner": "D02_component.system",
+          "classifier": "D02_component.sup",
+          "lower": "1",
+          "upper": "1"
+        }
+      },
+      {
+        "id": "D02_component.db.part",
+        "kind": "part",
+        "label": "Репозитории PostgreSQL",
+        "properties": {
+          "owner": "D02_component.system",
+          "classifier": "D02_component.db",
+          "lower": "1",
+          "upper": "1"
+        }
+      },
+      {
+        "id": "D02_component.ext.part",
+        "kind": "part",
+        "label": "PC4Games и ITPartner",
+        "properties": {
+          "owner": "D02_component.system",
+          "classifier": "D02_component.ext",
+          "lower": "1",
+          "upper": "1"
+        }
+      },
+      {
+        "id": "D02_component.oz.part",
+        "kind": "part",
+        "label": "Ozon Seller",
+        "properties": {
+          "owner": "D02_component.system",
+          "classifier": "D02_component.oz",
+          "lower": "1",
+          "upper": "1"
+        }
+      },
+      {
+        "id": "D02_component.media.part",
+        "kind": "part",
+        "label": "Хранилище изображений",
+        "properties": {
+          "owner": "D02_component.system",
+          "classifier": "D02_component.media",
+          "lower": "1",
+          "upper": "1"
+        }
+      },
+      {
+        "id": "D02_component.edge1.interface",
+        "kind": "interface",
+        "label": "HTTPS / JSON",
+        "properties": {}
+      },
+      {
+        "id": "D02_component.ui.port0",
+        "kind": "port",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.ui",
+          "classifier": "D02_component.edge1.interface",
+          "conjugated": "true"
+        }
+      },
+      {
+        "id": "D02_component.ui.port0.use",
+        "kind": "interfaceUse",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.ui.port0",
+          "interface": "D02_component.edge1.interface",
+          "direction": "required"
+        }
+      },
+      {
+        "id": "D02_component.ui.port0.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.ui.port0",
+          "parent": "D02_component.uiView"
+        }
+      },
+      {
+        "id": "D02_component.model_line.port0",
+        "kind": "port",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.model_line",
+          "classifier": "D02_component.edge1.interface",
+          "conjugated": "false"
+        }
+      },
+      {
+        "id": "D02_component.model_line.port0.use",
+        "kind": "interfaceUse",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.model_line.port0",
+          "interface": "D02_component.edge1.interface",
+          "direction": "provided"
+        }
+      },
+      {
+        "id": "D02_component.model_line.port0.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.model_line.port0",
+          "parent": "D02_component.bomView"
+        }
+      },
+      {
+        "id": "D02_component.edge1",
+        "kind": "componentConnector",
+        "label": "HTTPS / JSON",
+        "properties": {
+          "owner": "D02_component.system",
+          "kind": "assembly"
+        }
+      },
+      {
+        "id": "D02_component.edge1.end0",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.edge1",
+          "part": "D02_component.ui.part",
+          "port": "D02_component.ui.port0",
+          "order": "0"
+        }
+      },
+      {
+        "id": "D02_component.edge1.end1",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.edge1",
+          "part": "D02_component.model_line.part",
+          "port": "D02_component.model_line.port0",
+          "order": "1"
+        }
+      },
+      {
+        "id": "D02_component.edge1.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.edge1",
+          "from": "D02_component.ui.port0.view",
+          "to": "D02_component.model_line.port0.view"
+        }
+      },
+      {
+        "id": "D02_component.edge2.interface",
+        "kind": "interface",
+        "label": "проверка роли",
+        "properties": {}
+      },
+      {
+        "id": "D02_component.model_line.port1",
+        "kind": "port",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.model_line",
+          "classifier": "D02_component.edge2.interface",
+          "conjugated": "true"
+        }
+      },
+      {
+        "id": "D02_component.model_line.port1.use",
+        "kind": "interfaceUse",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.model_line.port1",
+          "interface": "D02_component.edge2.interface",
+          "direction": "required"
+        }
+      },
+      {
+        "id": "D02_component.model_line.port1.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.model_line.port1",
+          "parent": "D02_component.bomView"
+        }
+      },
+      {
+        "id": "D02_component.auth.port1",
+        "kind": "port",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.auth",
+          "classifier": "D02_component.edge2.interface",
+          "conjugated": "false"
+        }
+      },
+      {
+        "id": "D02_component.auth.port1.use",
+        "kind": "interfaceUse",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.auth.port1",
+          "interface": "D02_component.edge2.interface",
+          "direction": "provided"
+        }
+      },
+      {
+        "id": "D02_component.auth.port1.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.auth.port1",
+          "parent": "D02_component.authView"
+        }
+      },
+      {
+        "id": "D02_component.edge2",
+        "kind": "componentConnector",
+        "label": "проверка роли",
+        "properties": {
+          "owner": "D02_component.system",
+          "kind": "assembly"
+        }
+      },
+      {
+        "id": "D02_component.edge2.end0",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.edge2",
+          "part": "D02_component.model_line.part",
+          "port": "D02_component.model_line.port1",
+          "order": "0"
+        }
+      },
+      {
+        "id": "D02_component.edge2.end1",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.edge2",
+          "part": "D02_component.auth.part",
+          "port": "D02_component.auth.port1",
+          "order": "1"
+        }
+      },
+      {
+        "id": "D02_component.edge2.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.edge2",
+          "from": "D02_component.model_line.port1.view",
+          "to": "D02_component.auth.port1.view"
+        }
+      },
+      {
+        "id": "D02_component.edge3.interface",
+        "kind": "interface",
+        "label": "репозитории",
+        "properties": {}
+      },
+      {
+        "id": "D02_component.model_line.port2",
+        "kind": "port",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.model_line",
+          "classifier": "D02_component.edge3.interface",
+          "conjugated": "true"
+        }
+      },
+      {
+        "id": "D02_component.model_line.port2.use",
+        "kind": "interfaceUse",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.model_line.port2",
+          "interface": "D02_component.edge3.interface",
+          "direction": "required"
+        }
+      },
+      {
+        "id": "D02_component.model_line.port2.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.model_line.port2",
+          "parent": "D02_component.bomView"
+        }
+      },
+      {
+        "id": "D02_component.db.port2",
+        "kind": "port",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.db",
+          "classifier": "D02_component.edge3.interface",
+          "conjugated": "false"
+        }
+      },
+      {
+        "id": "D02_component.db.port2.use",
+        "kind": "interfaceUse",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.db.port2",
+          "interface": "D02_component.edge3.interface",
+          "direction": "provided"
+        }
+      },
+      {
+        "id": "D02_component.db.port2.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.db.port2",
+          "parent": "D02_component.dbView"
+        }
+      },
+      {
+        "id": "D02_component.edge3",
+        "kind": "componentConnector",
+        "label": "репозитории",
+        "properties": {
+          "owner": "D02_component.system",
+          "kind": "assembly"
+        }
+      },
+      {
+        "id": "D02_component.edge3.end0",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.edge3",
+          "part": "D02_component.model_line.part",
+          "port": "D02_component.model_line.port2",
+          "order": "0"
+        }
+      },
+      {
+        "id": "D02_component.edge3.end1",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.edge3",
+          "part": "D02_component.db.part",
+          "port": "D02_component.db.port2",
+          "order": "1"
+        }
+      },
+      {
+        "id": "D02_component.edge3.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.edge3",
+          "from": "D02_component.model_line.port2.view",
+          "to": "D02_component.db.port2.view"
+        }
+      },
+      {
+        "id": "D02_component.edge4.interface",
+        "kind": "interface",
+        "label": "предложения",
+        "properties": {}
+      },
+      {
+        "id": "D02_component.model_line.port3",
+        "kind": "port",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.model_line",
+          "classifier": "D02_component.edge4.interface",
+          "conjugated": "true"
+        }
+      },
+      {
+        "id": "D02_component.model_line.port3.use",
+        "kind": "interfaceUse",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.model_line.port3",
+          "interface": "D02_component.edge4.interface",
+          "direction": "required"
+        }
+      },
+      {
+        "id": "D02_component.model_line.port3.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.model_line.port3",
+          "parent": "D02_component.bomView"
+        }
+      },
+      {
+        "id": "D02_component.sup.port3",
+        "kind": "port",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.sup",
+          "classifier": "D02_component.edge4.interface",
+          "conjugated": "false"
+        }
+      },
+      {
+        "id": "D02_component.sup.port3.use",
+        "kind": "interfaceUse",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.sup.port3",
+          "interface": "D02_component.edge4.interface",
+          "direction": "provided"
+        }
+      },
+      {
+        "id": "D02_component.sup.port3.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.sup.port3",
+          "parent": "D02_component.supView"
+        }
+      },
+      {
+        "id": "D02_component.edge4",
+        "kind": "componentConnector",
+        "label": "предложения",
+        "properties": {
+          "owner": "D02_component.system",
+          "kind": "assembly"
+        }
+      },
+      {
+        "id": "D02_component.edge4.end0",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.edge4",
+          "part": "D02_component.model_line.part",
+          "port": "D02_component.model_line.port3",
+          "order": "0"
+        }
+      },
+      {
+        "id": "D02_component.edge4.end1",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.edge4",
+          "part": "D02_component.sup.part",
+          "port": "D02_component.sup.port3",
+          "order": "1"
+        }
+      },
+      {
+        "id": "D02_component.edge4.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.edge4",
+          "from": "D02_component.model_line.port3.view",
+          "to": "D02_component.sup.port3.view"
+        }
+      },
+      {
+        "id": "D02_component.edge5.interface",
+        "kind": "interface",
+        "label": "адаптер",
+        "properties": {}
+      },
+      {
+        "id": "D02_component.sup.port4",
+        "kind": "port",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.sup",
+          "classifier": "D02_component.edge5.interface",
+          "conjugated": "true"
+        }
+      },
+      {
+        "id": "D02_component.sup.port4.use",
+        "kind": "interfaceUse",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.sup.port4",
+          "interface": "D02_component.edge5.interface",
+          "direction": "required"
+        }
+      },
+      {
+        "id": "D02_component.sup.port4.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.sup.port4",
+          "parent": "D02_component.supView"
+        }
+      },
+      {
+        "id": "D02_component.ext.port4",
+        "kind": "port",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.ext",
+          "classifier": "D02_component.edge5.interface",
+          "conjugated": "false"
+        }
+      },
+      {
+        "id": "D02_component.ext.port4.use",
+        "kind": "interfaceUse",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.ext.port4",
+          "interface": "D02_component.edge5.interface",
+          "direction": "provided"
+        }
+      },
+      {
+        "id": "D02_component.ext.port4.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.ext.port4",
+          "parent": "D02_component.extView"
+        }
+      },
+      {
+        "id": "D02_component.edge5",
+        "kind": "componentConnector",
+        "label": "адаптер",
+        "properties": {
+          "owner": "D02_component.system",
+          "kind": "assembly"
+        }
+      },
+      {
+        "id": "D02_component.edge5.end0",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.edge5",
+          "part": "D02_component.sup.part",
+          "port": "D02_component.sup.port4",
+          "order": "0"
+        }
+      },
+      {
+        "id": "D02_component.edge5.end1",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.edge5",
+          "part": "D02_component.ext.part",
+          "port": "D02_component.ext.port4",
+          "order": "1"
+        }
+      },
+      {
+        "id": "D02_component.edge5.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.edge5",
+          "from": "D02_component.sup.port4.view",
+          "to": "D02_component.ext.port4.view"
+        }
+      },
+      {
+        "id": "D02_component.edge6.interface",
+        "kind": "interface",
+        "label": "версия модельного ряда",
+        "properties": {}
+      },
+      {
+        "id": "D02_component.model_line.port5",
+        "kind": "port",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.model_line",
+          "classifier": "D02_component.edge6.interface",
+          "conjugated": "true"
+        }
+      },
+      {
+        "id": "D02_component.model_line.port5.use",
+        "kind": "interfaceUse",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.model_line.port5",
+          "interface": "D02_component.edge6.interface",
+          "direction": "required"
+        }
+      },
+      {
+        "id": "D02_component.model_line.port5.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.model_line.port5",
+          "parent": "D02_component.bomView"
+        }
+      },
+      {
+        "id": "D02_component.content.port5",
+        "kind": "port",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.content",
+          "classifier": "D02_component.edge6.interface",
+          "conjugated": "false"
+        }
+      },
+      {
+        "id": "D02_component.content.port5.use",
+        "kind": "interfaceUse",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.content.port5",
+          "interface": "D02_component.edge6.interface",
+          "direction": "provided"
+        }
+      },
+      {
+        "id": "D02_component.content.port5.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.content.port5",
+          "parent": "D02_component.contentView"
+        }
+      },
+      {
+        "id": "D02_component.edge6",
+        "kind": "componentConnector",
+        "label": "версия модельного ряда",
+        "properties": {
+          "owner": "D02_component.system",
+          "kind": "assembly"
+        }
+      },
+      {
+        "id": "D02_component.edge6.end0",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.edge6",
+          "part": "D02_component.model_line.part",
+          "port": "D02_component.model_line.port5",
+          "order": "0"
+        }
+      },
+      {
+        "id": "D02_component.edge6.end1",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.edge6",
+          "part": "D02_component.content.part",
+          "port": "D02_component.content.port5",
+          "order": "1"
+        }
+      },
+      {
+        "id": "D02_component.edge6.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.edge6",
+          "from": "D02_component.model_line.port5.view",
+          "to": "D02_component.content.port5.view"
+        }
+      },
+      {
+        "id": "D02_component.edge7.interface",
+        "kind": "interface",
+        "label": "версия карточки",
+        "properties": {}
+      },
+      {
+        "id": "D02_component.content.port6",
+        "kind": "port",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.content",
+          "classifier": "D02_component.edge7.interface",
+          "conjugated": "true"
+        }
+      },
+      {
+        "id": "D02_component.content.port6.use",
+        "kind": "interfaceUse",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.content.port6",
+          "interface": "D02_component.edge7.interface",
+          "direction": "required"
+        }
+      },
+      {
+        "id": "D02_component.content.port6.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.content.port6",
+          "parent": "D02_component.contentView"
+        }
+      },
+      {
+        "id": "D02_component.pub.port6",
+        "kind": "port",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.pub",
+          "classifier": "D02_component.edge7.interface",
+          "conjugated": "false"
+        }
+      },
+      {
+        "id": "D02_component.pub.port6.use",
+        "kind": "interfaceUse",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.pub.port6",
+          "interface": "D02_component.edge7.interface",
+          "direction": "provided"
+        }
+      },
+      {
+        "id": "D02_component.pub.port6.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.pub.port6",
+          "parent": "D02_component.pubView"
+        }
+      },
+      {
+        "id": "D02_component.edge7",
+        "kind": "componentConnector",
+        "label": "версия карточки",
+        "properties": {
+          "owner": "D02_component.system",
+          "kind": "assembly"
+        }
+      },
+      {
+        "id": "D02_component.edge7.end0",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.edge7",
+          "part": "D02_component.content.part",
+          "port": "D02_component.content.port6",
+          "order": "0"
+        }
+      },
+      {
+        "id": "D02_component.edge7.end1",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.edge7",
+          "part": "D02_component.pub.part",
+          "port": "D02_component.pub.port6",
+          "order": "1"
+        }
+      },
+      {
+        "id": "D02_component.edge7.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.edge7",
+          "from": "D02_component.content.port6.view",
+          "to": "D02_component.pub.port6.view"
+        }
+      },
+      {
+        "id": "D02_component.edge8.interface",
+        "kind": "interface",
+        "label": "HTTPS / JSON",
+        "properties": {}
+      },
+      {
+        "id": "D02_component.pub.port7",
+        "kind": "port",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.pub",
+          "classifier": "D02_component.edge8.interface",
+          "conjugated": "true"
+        }
+      },
+      {
+        "id": "D02_component.pub.port7.use",
+        "kind": "interfaceUse",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.pub.port7",
+          "interface": "D02_component.edge8.interface",
+          "direction": "required"
+        }
+      },
+      {
+        "id": "D02_component.pub.port7.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.pub.port7",
+          "parent": "D02_component.pubView"
+        }
+      },
+      {
+        "id": "D02_component.oz.port7",
+        "kind": "port",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.oz",
+          "classifier": "D02_component.edge8.interface",
+          "conjugated": "false"
+        }
+      },
+      {
+        "id": "D02_component.oz.port7.use",
+        "kind": "interfaceUse",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.oz.port7",
+          "interface": "D02_component.edge8.interface",
+          "direction": "provided"
+        }
+      },
+      {
+        "id": "D02_component.oz.port7.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.oz.port7",
+          "parent": "D02_component.ozView"
+        }
+      },
+      {
+        "id": "D02_component.edge8",
+        "kind": "componentConnector",
+        "label": "HTTPS / JSON",
+        "properties": {
+          "owner": "D02_component.system",
+          "kind": "assembly"
+        }
+      },
+      {
+        "id": "D02_component.edge8.end0",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.edge8",
+          "part": "D02_component.pub.part",
+          "port": "D02_component.pub.port7",
+          "order": "0"
+        }
+      },
+      {
+        "id": "D02_component.edge8.end1",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.edge8",
+          "part": "D02_component.oz.part",
+          "port": "D02_component.oz.port7",
+          "order": "1"
+        }
+      },
+      {
+        "id": "D02_component.edge8.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.edge8",
+          "from": "D02_component.pub.port7.view",
+          "to": "D02_component.oz.port7.view"
+        }
+      },
+      {
+        "id": "D02_component.edge9.interface",
+        "kind": "interface",
+        "label": "файлы",
+        "properties": {}
+      },
+      {
+        "id": "D02_component.content.port8",
+        "kind": "port",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.content",
+          "classifier": "D02_component.edge9.interface",
+          "conjugated": "true"
+        }
+      },
+      {
+        "id": "D02_component.content.port8.use",
+        "kind": "interfaceUse",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.content.port8",
+          "interface": "D02_component.edge9.interface",
+          "direction": "required"
+        }
+      },
+      {
+        "id": "D02_component.content.port8.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.content.port8",
+          "parent": "D02_component.contentView"
+        }
+      },
+      {
+        "id": "D02_component.media.port8",
+        "kind": "port",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.media",
+          "classifier": "D02_component.edge9.interface",
+          "conjugated": "false"
+        }
+      },
+      {
+        "id": "D02_component.media.port8.use",
+        "kind": "interfaceUse",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.media.port8",
+          "interface": "D02_component.edge9.interface",
+          "direction": "provided"
+        }
+      },
+      {
+        "id": "D02_component.media.port8.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.media.port8",
+          "parent": "D02_component.mediaView"
+        }
+      },
+      {
+        "id": "D02_component.edge9",
+        "kind": "componentConnector",
+        "label": "файлы",
+        "properties": {
+          "owner": "D02_component.system",
+          "kind": "assembly"
+        }
+      },
+      {
+        "id": "D02_component.edge9.end0",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.edge9",
+          "part": "D02_component.content.part",
+          "port": "D02_component.content.port8",
+          "order": "0"
+        }
+      },
+      {
+        "id": "D02_component.edge9.end1",
+        "kind": "componentEnd",
+        "label": "",
+        "properties": {
+          "owner": "D02_component.edge9",
+          "part": "D02_component.media.part",
+          "port": "D02_component.media.port8",
+          "order": "1"
+        }
+      },
+      {
+        "id": "D02_component.edge9.view",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "D02_component",
+          "element": "D02_component.edge9",
+          "from": "D02_component.content.port8.view",
+          "to": "D02_component.media.port8.view"
         }
       }
     ]
   },
-  "source": "uml ropUmlStructure \"РОП — компоненты, деятельность и развёртывание\"\ndiagram D02_component \"Диаграмма компонентов\" type=component\ncomponent D02_component.ui Веб-интерфейс\nview D02_component.uiView \"\" diagram=D02_component element=D02_component.ui\ncomponent D02_component.auth \"Проверка прав и аудит\"\nview D02_component.authView \"\" diagram=D02_component element=D02_component.auth\ncomponent D02_component.model_line \"Модельный ряд и правила\"\nview D02_component.bomView \"\" diagram=D02_component element=D02_component.model_line\ncomponent D02_component.content \"Расчёты и контент\"\nview D02_component.contentView \"\" diagram=D02_component element=D02_component.content\ncomponent D02_component.pub \"Публикации и очередь\"\nview D02_component.pubView \"\" diagram=D02_component element=D02_component.pub\ncomponent D02_component.sup \"Адаптеры поставщиков\"\nview D02_component.supView \"\" diagram=D02_component element=D02_component.sup\ncomponent D02_component.db \"Репозитории PostgreSQL\"\nview D02_component.dbView \"\" diagram=D02_component element=D02_component.db\ncomponent D02_component.ext \"PC4Games и ITPartner\"\nview D02_component.extView \"\" diagram=D02_component element=D02_component.ext\ncomponent D02_component.oz \"Ozon Seller\"\nview D02_component.ozView \"\" diagram=D02_component element=D02_component.oz\ncomponent D02_component.media \"Хранилище изображений\"\nview D02_component.mediaView \"\" diagram=D02_component element=D02_component.media\ndependency D02_component.edge1 \"HTTPS / JSON\" from=D02_component.ui to=D02_component.model_line\nview view_b5420acb243f \"\" diagram=D02_component element=D02_component.edge1 from=D02_component.uiView to=D02_component.bomView\ndependency D02_component.edge2 \"проверка роли\" from=D02_component.model_line to=D02_component.auth\nview view_79273861f370 \"\" diagram=D02_component element=D02_component.edge2 from=D02_component.bomView to=D02_component.authView\ndependency D02_component.edge3 репозитории from=D02_component.model_line to=D02_component.db\nview view_ca5576082fa0 \"\" diagram=D02_component element=D02_component.edge3 from=D02_component.bomView to=D02_component.dbView\ndependency D02_component.edge4 предложения from=D02_component.model_line to=D02_component.sup\nview view_8fbcbd00f7aa \"\" diagram=D02_component element=D02_component.edge4 from=D02_component.bomView to=D02_component.supView\ndependency D02_component.edge5 адаптер from=D02_component.sup to=D02_component.ext\nview view_fb8c65d0f6ee \"\" diagram=D02_component element=D02_component.edge5 from=D02_component.supView to=D02_component.extView\ndependency D02_component.edge6 \"версия модельного ряда\" from=D02_component.model_line to=D02_component.content\nview view_c00462ee37ca \"\" diagram=D02_component element=D02_component.edge6 from=D02_component.bomView to=D02_component.contentView\ndependency D02_component.edge7 \"версия карточки\" from=D02_component.content to=D02_component.pub\nview view_9b89141a78db \"\" diagram=D02_component element=D02_component.edge7 from=D02_component.contentView to=D02_component.pubView\ndependency D02_component.edge8 \"HTTPS / JSON\" from=D02_component.pub to=D02_component.oz\nview view_d4e0dc14733a \"\" diagram=D02_component element=D02_component.edge8 from=D02_component.pubView to=D02_component.ozView\ndependency D02_component.edge9 файлы from=D02_component.content to=D02_component.media\nview view_13a8739e6f6c \"\" diagram=D02_component element=D02_component.edge9 from=D02_component.contentView to=D02_component.mediaView\nannotation annotation_91f2d1882120 \"Модульный монолит. Репозитории и аудит используются всеми бизнес-модулями; повторяющиеся зависимости опущены для читаемости.\"\nview annotation_91f2d1882120View \"\" diagram=D02_component element=annotation_91f2d1882120\ndiagram D06_activity \"Деятельность по подготовке и публикации карточки\" activity=prepareCard type=activity\nactivity prepareCard \"Деятельность по подготовке и публикации карточки\"\ninitial D06_activity.a \"\" owner=prepareCard\nview D06_activity.aView \"\" diagram=D06_activity element=D06_activity.a\naction D06_activity.b \"Выбрать модельный ряд\\nсоздать новую версию\" owner=prepareCard\nview D06_activity.bView \"\" diagram=D06_activity element=D06_activity.b\naction D06_activity.c \"Изменить состав\\nи разрешить группы\" owner=prepareCard\nview D06_activity.cView \"\" diagram=D06_activity element=D06_activity.c\ndecision D06_activity.d \"Совместимо и\\nданные актуальны?\" owner=prepareCard\nview D06_activity.dView \"\" diagram=D06_activity element=D06_activity.d\naction D06_activity.e \"Рассчитать показатели\\nподготовить контент\" owner=prepareCard\nview D06_activity.eView \"\" diagram=D06_activity element=D06_activity.e\naction D06_activity.f \"Утвердить\\nи запустить публикацию\" owner=prepareCard\nview D06_activity.fView \"\" diagram=D06_activity element=D06_activity.f\naction D06_activity.g \"Зафиксировать успех\\nили ошибку и уведомить\" owner=prepareCard\nview D06_activity.gView \"\" diagram=D06_activity element=D06_activity.g\nactivityFinal D06_activity.z \"\" owner=prepareCard\nview D06_activity.zView \"\" diagram=D06_activity element=D06_activity.z\naction D06_activity.fix \"Показать конфликт\\nисправить данные\" owner=prepareCard\nview D06_activity.fixView \"\" diagram=D06_activity element=D06_activity.fix\nmerge D06_activity.mergeCorrections \"\" owner=prepareCard\nview D06_activity.mergeCorrectionsView \"\" diagram=D06_activity element=D06_activity.mergeCorrections\ncontrolFlow D06_activity.continueEditing \"\" from=D06_activity.mergeCorrections owner=prepareCard to=D06_activity.c\nview view_31c1c0441ecc \"\" diagram=D06_activity element=D06_activity.continueEditing from=D06_activity.mergeCorrectionsView to=D06_activity.cView\ncontrolFlow D06_activity.edge1 \"\" from=D06_activity.a owner=prepareCard to=D06_activity.b\nview view_5174eb41b61c \"\" diagram=D06_activity element=D06_activity.edge1 from=D06_activity.aView to=D06_activity.bView\ncontrolFlow D06_activity.edge2 \"\" from=D06_activity.b owner=prepareCard to=D06_activity.mergeCorrections\nview view_3064b0cb5fa4 \"\" diagram=D06_activity element=D06_activity.edge2 from=D06_activity.bView to=D06_activity.mergeCorrectionsView\ncontrolFlow D06_activity.edge3 \"\" from=D06_activity.c owner=prepareCard to=D06_activity.d\nview view_971da64e1d92 \"\" diagram=D06_activity element=D06_activity.edge3 from=D06_activity.cView to=D06_activity.dView\ncontrolFlow D06_activity.edge4 \"\" from=D06_activity.d guard=else owner=prepareCard to=D06_activity.fix\nview view_b213770194b9 \"\" diagram=D06_activity element=D06_activity.edge4 from=D06_activity.dView to=D06_activity.fixView\ncontrolFlow D06_activity.edge5 \"\" from=D06_activity.fix owner=prepareCard to=D06_activity.mergeCorrections\nview view_13552b8ef881 \"\" diagram=D06_activity element=D06_activity.edge5 from=D06_activity.fixView to=D06_activity.mergeCorrectionsView\ncontrolFlow D06_activity.edge6 \"\" from=D06_activity.d guard=\"Совместимо и данные актуальны\" owner=prepareCard to=D06_activity.e\nview view_7b55787df1c9 \"\" diagram=D06_activity element=D06_activity.edge6 from=D06_activity.dView to=D06_activity.eView\ncontrolFlow D06_activity.edge7 \"\" from=D06_activity.e owner=prepareCard to=D06_activity.f\nview view_bbd799c5b204 \"\" diagram=D06_activity element=D06_activity.edge7 from=D06_activity.eView to=D06_activity.fView\ncontrolFlow D06_activity.edge8 \"\" from=D06_activity.f owner=prepareCard to=D06_activity.g\nview view_1388ae266ce3 \"\" diagram=D06_activity element=D06_activity.edge8 from=D06_activity.fView to=D06_activity.gView\ncontrolFlow D06_activity.edge9 \"\" from=D06_activity.g owner=prepareCard to=D06_activity.z\nview view_9ea3a614b655 \"\" diagram=D06_activity element=D06_activity.edge9 from=D06_activity.gView to=D06_activity.zView\ndiagram D21_deployment \"Диаграмма развёртывания\" type=deployment\ndevice D21_deployment.client \"Рабочие станции\\nБраузеры сотрудников\"\nview D21_deployment.clientView \"\" diagram=D21_deployment element=D21_deployment.client\nnode D21_deployment.edge \"Шлюз / DMZ\\nNginx: HTTPS 443\\nTLS и маршрутизация\"\nview D21_deployment.edgeView \"\" diagram=D21_deployment element=D21_deployment.edge\nnode D21_deployment.app \"Прикладной сервер\\nJRE 21: Spring Boot\\nAPI и worker публикаций\"\nview D21_deployment.appView \"\" diagram=D21_deployment element=D21_deployment.app\nnode D21_deployment.db \"Сервер БД\\nPostgreSQL 18\\nДанные и очередь\"\nview D21_deployment.dbView \"\" diagram=D21_deployment element=D21_deployment.db\nnode D21_deployment.media \"Файловое хранилище\\nИзображения по storage_key\"\nview D21_deployment.mediaView \"\" diagram=D21_deployment element=D21_deployment.media\nnode D21_deployment.ext \"Ozon и поставщики\\nИнтернет\"\nview D21_deployment.extView \"\" diagram=D21_deployment element=D21_deployment.ext\nnode D21_deployment.backup \"Резервное хранилище\\nБД и изображения\\nОтдельные учётные данные\"\nview D21_deployment.backupView \"\" diagram=D21_deployment element=D21_deployment.backup\ncommunicationPath D21_deployment.edge1 \"\" from=D21_deployment.client port=443 protocol=HTTPS to=D21_deployment.edge\nview view_fcfd980b20bf \"\" diagram=D21_deployment element=D21_deployment.edge1 from=D21_deployment.clientView to=D21_deployment.edgeView\ncommunicationPath D21_deployment.edge2 \"\" from=D21_deployment.edge port=8443 protocol=HTTPS to=D21_deployment.app\nview view_9b50ac98dbed \"\" diagram=D21_deployment element=D21_deployment.edge2 from=D21_deployment.edgeView to=D21_deployment.appView\ncommunicationPath D21_deployment.edge3 \"\" from=D21_deployment.app port=5432 protocol=TLS to=D21_deployment.db\nview view_f5adeda91ca4 \"\" diagram=D21_deployment element=D21_deployment.edge3 from=D21_deployment.appView to=D21_deployment.dbView\ncommunicationPath D21_deployment.edge4 \"\" from=D21_deployment.app port=443 protocol=HTTPS to=D21_deployment.ext\nview view_e2d9515b0979 \"\" diagram=D21_deployment element=D21_deployment.edge4 from=D21_deployment.appView to=D21_deployment.extView\ncommunicationPath D21_deployment.edge5 \"копия БД\" from=D21_deployment.db to=D21_deployment.backup\nview view_0cb61ea2f49a \"\" diagram=D21_deployment element=D21_deployment.edge5 from=D21_deployment.dbView to=D21_deployment.backupView\ncommunicationPath D21_deployment.edge6 \"\" from=D21_deployment.app protocol=HTTPS to=D21_deployment.media\nview view_a2cc3163d377 \"\" diagram=D21_deployment element=D21_deployment.edge6 from=D21_deployment.appView to=D21_deployment.mediaView\ncommunicationPath D21_deployment.edge7 \"копия файлов\" from=D21_deployment.media to=D21_deployment.backup\nview view_6b32eaa2c339 \"\" diagram=D21_deployment element=D21_deployment.edge7 from=D21_deployment.mediaView to=D21_deployment.backupView\nexecutionEnvironment D21_deployment.apiRuntime \"JRE 21 · API\" owner=D21_deployment.app technology=Java version=21\nview D21_deployment.apiRuntimeView \"\" diagram=D21_deployment element=D21_deployment.apiRuntime parent=D21_deployment.appView\nexecutionEnvironment D21_deployment.workerRuntime \"JRE 21 · worker публикаций\" owner=D21_deployment.app technology=Java version=21\nview D21_deployment.workerRuntimeView \"\" diagram=D21_deployment element=D21_deployment.workerRuntime parent=D21_deployment.appView\nexecutionEnvironment D21_deployment.postgres PostgreSQL owner=D21_deployment.db technology=PostgreSQL version=18\nview D21_deployment.postgresView \"\" diagram=D21_deployment element=D21_deployment.postgres parent=D21_deployment.dbView\nartifact D21_deployment.applicationArtifact \"Приложение карточек\" description=\"Артефакт модульного монолита: API и worker используют общий пакет. Разделение сред уточняет исходный рисунок; физическая топология не проверялась.\"\nview D21_deployment.applicationArtifactapiRuntimeView \"\" diagram=D21_deployment element=D21_deployment.applicationArtifact parent=D21_deployment.apiRuntimeView\ndeployment D21_deployment.apiRuntimeDeploy \"\" artifact=D21_deployment.applicationArtifact location=D21_deployment.apiRuntime\nview D21_deployment.applicationArtifactworkerRuntimeView \"\" diagram=D21_deployment element=D21_deployment.applicationArtifact parent=D21_deployment.workerRuntimeView\ndeployment D21_deployment.workerRuntimeDeploy \"\" artifact=D21_deployment.applicationArtifact location=D21_deployment.workerRuntime\nartifact D21_deployment.databaseSchema \"Схема базы данных\" fileName=schema.sql\nview D21_deployment.databaseSchemaView \"\" diagram=D21_deployment element=D21_deployment.databaseSchema\ndeployment deployment_4c6a967d1fd8 \"\" artifact=D21_deployment.databaseSchema location=D21_deployment.postgres\nview view_dfda2da014ee \"\" diagram=D21_deployment element=deployment_4c6a967d1fd8 from=D21_deployment.postgresView to=D21_deployment.databaseSchemaView\nmanifestation manifestation_5e8e4db2426b \"\" from=D21_deployment.applicationArtifact to=D02_component.auth\nmanifestation manifestation_0ec8984b94a2 \"\" from=D21_deployment.applicationArtifact to=D02_component.model_line\nmanifestation manifestation_6afd10b9770b \"\" from=D21_deployment.applicationArtifact to=D02_component.content\nmanifestation manifestation_7675c7cec6eb \"\" from=D21_deployment.applicationArtifact to=D02_component.pub\nmanifestation manifestation_c6174776c2b5 \"\" from=D21_deployment.applicationArtifact to=D02_component.sup\nmanifestation manifestation_7e45888e7de0 \"\" from=D21_deployment.applicationArtifact to=D02_component.db\nmanifestation manifestation_9bffb80ff134 \"\" from=D21_deployment.applicationArtifact to=D02_component.ext\nmanifestation manifestation_8d6ff5b1512a \"\" from=D21_deployment.applicationArtifact to=D02_component.oz\nmanifestation manifestation_b9727433006e \"\" from=D21_deployment.applicationArtifact to=D02_component.media\nannotation annotation_f08dfe607a19 \"Ресурсы и число узлов — проектное предложение; нагрузочная проверка ещё не проводилась.\"\nview annotation_f08dfe607a19View \"\" diagram=D21_deployment element=annotation_f08dfe607a19\n",
-  "draft": "uml ropUmlStructure \"РОП — компоненты, деятельность и развёртывание\"\ndiagram D02_component \"Диаграмма компонентов\" type=component\ncomponent D02_component.ui Веб-интерфейс\nview D02_component.uiView \"\" diagram=D02_component element=D02_component.ui\ncomponent D02_component.auth \"Проверка прав и аудит\"\nview D02_component.authView \"\" diagram=D02_component element=D02_component.auth\ncomponent D02_component.model_line \"Модельный ряд и правила\"\nview D02_component.bomView \"\" diagram=D02_component element=D02_component.model_line\ncomponent D02_component.content \"Расчёты и контент\"\nview D02_component.contentView \"\" diagram=D02_component element=D02_component.content\ncomponent D02_component.pub \"Публикации и очередь\"\nview D02_component.pubView \"\" diagram=D02_component element=D02_component.pub\ncomponent D02_component.sup \"Адаптеры поставщиков\"\nview D02_component.supView \"\" diagram=D02_component element=D02_component.sup\ncomponent D02_component.db \"Репозитории PostgreSQL\"\nview D02_component.dbView \"\" diagram=D02_component element=D02_component.db\ncomponent D02_component.ext \"PC4Games и ITPartner\"\nview D02_component.extView \"\" diagram=D02_component element=D02_component.ext\ncomponent D02_component.oz \"Ozon Seller\"\nview D02_component.ozView \"\" diagram=D02_component element=D02_component.oz\ncomponent D02_component.media \"Хранилище изображений\"\nview D02_component.mediaView \"\" diagram=D02_component element=D02_component.media\ndependency D02_component.edge1 \"HTTPS / JSON\" from=D02_component.ui to=D02_component.model_line\nview view_b5420acb243f \"\" diagram=D02_component element=D02_component.edge1 from=D02_component.uiView to=D02_component.bomView\ndependency D02_component.edge2 \"проверка роли\" from=D02_component.model_line to=D02_component.auth\nview view_79273861f370 \"\" diagram=D02_component element=D02_component.edge2 from=D02_component.bomView to=D02_component.authView\ndependency D02_component.edge3 репозитории from=D02_component.model_line to=D02_component.db\nview view_ca5576082fa0 \"\" diagram=D02_component element=D02_component.edge3 from=D02_component.bomView to=D02_component.dbView\ndependency D02_component.edge4 предложения from=D02_component.model_line to=D02_component.sup\nview view_8fbcbd00f7aa \"\" diagram=D02_component element=D02_component.edge4 from=D02_component.bomView to=D02_component.supView\ndependency D02_component.edge5 адаптер from=D02_component.sup to=D02_component.ext\nview view_fb8c65d0f6ee \"\" diagram=D02_component element=D02_component.edge5 from=D02_component.supView to=D02_component.extView\ndependency D02_component.edge6 \"версия модельного ряда\" from=D02_component.model_line to=D02_component.content\nview view_c00462ee37ca \"\" diagram=D02_component element=D02_component.edge6 from=D02_component.bomView to=D02_component.contentView\ndependency D02_component.edge7 \"версия карточки\" from=D02_component.content to=D02_component.pub\nview view_9b89141a78db \"\" diagram=D02_component element=D02_component.edge7 from=D02_component.contentView to=D02_component.pubView\ndependency D02_component.edge8 \"HTTPS / JSON\" from=D02_component.pub to=D02_component.oz\nview view_d4e0dc14733a \"\" diagram=D02_component element=D02_component.edge8 from=D02_component.pubView to=D02_component.ozView\ndependency D02_component.edge9 файлы from=D02_component.content to=D02_component.media\nview view_13a8739e6f6c \"\" diagram=D02_component element=D02_component.edge9 from=D02_component.contentView to=D02_component.mediaView\nannotation annotation_91f2d1882120 \"Модульный монолит. Репозитории и аудит используются всеми бизнес-модулями; повторяющиеся зависимости опущены для читаемости.\"\nview annotation_91f2d1882120View \"\" diagram=D02_component element=annotation_91f2d1882120\ndiagram D06_activity \"Деятельность по подготовке и публикации карточки\" activity=prepareCard type=activity\nactivity prepareCard \"Деятельность по подготовке и публикации карточки\"\ninitial D06_activity.a \"\" owner=prepareCard\nview D06_activity.aView \"\" diagram=D06_activity element=D06_activity.a\naction D06_activity.b \"Выбрать модельный ряд\\nсоздать новую версию\" owner=prepareCard\nview D06_activity.bView \"\" diagram=D06_activity element=D06_activity.b\naction D06_activity.c \"Изменить состав\\nи разрешить группы\" owner=prepareCard\nview D06_activity.cView \"\" diagram=D06_activity element=D06_activity.c\ndecision D06_activity.d \"Совместимо и\\nданные актуальны?\" owner=prepareCard\nview D06_activity.dView \"\" diagram=D06_activity element=D06_activity.d\naction D06_activity.e \"Рассчитать показатели\\nподготовить контент\" owner=prepareCard\nview D06_activity.eView \"\" diagram=D06_activity element=D06_activity.e\naction D06_activity.f \"Утвердить\\nи запустить публикацию\" owner=prepareCard\nview D06_activity.fView \"\" diagram=D06_activity element=D06_activity.f\naction D06_activity.g \"Зафиксировать успех\\nили ошибку и уведомить\" owner=prepareCard\nview D06_activity.gView \"\" diagram=D06_activity element=D06_activity.g\nactivityFinal D06_activity.z \"\" owner=prepareCard\nview D06_activity.zView \"\" diagram=D06_activity element=D06_activity.z\naction D06_activity.fix \"Показать конфликт\\nисправить данные\" owner=prepareCard\nview D06_activity.fixView \"\" diagram=D06_activity element=D06_activity.fix\nmerge D06_activity.mergeCorrections \"\" owner=prepareCard\nview D06_activity.mergeCorrectionsView \"\" diagram=D06_activity element=D06_activity.mergeCorrections\ncontrolFlow D06_activity.continueEditing \"\" from=D06_activity.mergeCorrections owner=prepareCard to=D06_activity.c\nview view_31c1c0441ecc \"\" diagram=D06_activity element=D06_activity.continueEditing from=D06_activity.mergeCorrectionsView to=D06_activity.cView\ncontrolFlow D06_activity.edge1 \"\" from=D06_activity.a owner=prepareCard to=D06_activity.b\nview view_5174eb41b61c \"\" diagram=D06_activity element=D06_activity.edge1 from=D06_activity.aView to=D06_activity.bView\ncontrolFlow D06_activity.edge2 \"\" from=D06_activity.b owner=prepareCard to=D06_activity.mergeCorrections\nview view_3064b0cb5fa4 \"\" diagram=D06_activity element=D06_activity.edge2 from=D06_activity.bView to=D06_activity.mergeCorrectionsView\ncontrolFlow D06_activity.edge3 \"\" from=D06_activity.c owner=prepareCard to=D06_activity.d\nview view_971da64e1d92 \"\" diagram=D06_activity element=D06_activity.edge3 from=D06_activity.cView to=D06_activity.dView\ncontrolFlow D06_activity.edge4 \"\" from=D06_activity.d guard=else owner=prepareCard to=D06_activity.fix\nview view_b213770194b9 \"\" diagram=D06_activity element=D06_activity.edge4 from=D06_activity.dView to=D06_activity.fixView\ncontrolFlow D06_activity.edge5 \"\" from=D06_activity.fix owner=prepareCard to=D06_activity.mergeCorrections\nview view_13552b8ef881 \"\" diagram=D06_activity element=D06_activity.edge5 from=D06_activity.fixView to=D06_activity.mergeCorrectionsView\ncontrolFlow D06_activity.edge6 \"\" from=D06_activity.d guard=\"Совместимо и данные актуальны\" owner=prepareCard to=D06_activity.e\nview view_7b55787df1c9 \"\" diagram=D06_activity element=D06_activity.edge6 from=D06_activity.dView to=D06_activity.eView\ncontrolFlow D06_activity.edge7 \"\" from=D06_activity.e owner=prepareCard to=D06_activity.f\nview view_bbd799c5b204 \"\" diagram=D06_activity element=D06_activity.edge7 from=D06_activity.eView to=D06_activity.fView\ncontrolFlow D06_activity.edge8 \"\" from=D06_activity.f owner=prepareCard to=D06_activity.g\nview view_1388ae266ce3 \"\" diagram=D06_activity element=D06_activity.edge8 from=D06_activity.fView to=D06_activity.gView\ncontrolFlow D06_activity.edge9 \"\" from=D06_activity.g owner=prepareCard to=D06_activity.z\nview view_9ea3a614b655 \"\" diagram=D06_activity element=D06_activity.edge9 from=D06_activity.gView to=D06_activity.zView\ndiagram D21_deployment \"Диаграмма развёртывания\" type=deployment\ndevice D21_deployment.client \"Рабочие станции\\nБраузеры сотрудников\"\nview D21_deployment.clientView \"\" diagram=D21_deployment element=D21_deployment.client\nnode D21_deployment.edge \"Шлюз / DMZ\\nNginx: HTTPS 443\\nTLS и маршрутизация\"\nview D21_deployment.edgeView \"\" diagram=D21_deployment element=D21_deployment.edge\nnode D21_deployment.app \"Прикладной сервер\\nJRE 21: Spring Boot\\nAPI и worker публикаций\"\nview D21_deployment.appView \"\" diagram=D21_deployment element=D21_deployment.app\nnode D21_deployment.db \"Сервер БД\\nPostgreSQL 18\\nДанные и очередь\"\nview D21_deployment.dbView \"\" diagram=D21_deployment element=D21_deployment.db\nnode D21_deployment.media \"Файловое хранилище\\nИзображения по storage_key\"\nview D21_deployment.mediaView \"\" diagram=D21_deployment element=D21_deployment.media\nnode D21_deployment.ext \"Ozon и поставщики\\nИнтернет\"\nview D21_deployment.extView \"\" diagram=D21_deployment element=D21_deployment.ext\nnode D21_deployment.backup \"Резервное хранилище\\nБД и изображения\\nОтдельные учётные данные\"\nview D21_deployment.backupView \"\" diagram=D21_deployment element=D21_deployment.backup\ncommunicationPath D21_deployment.edge1 \"\" from=D21_deployment.client port=443 protocol=HTTPS to=D21_deployment.edge\nview view_fcfd980b20bf \"\" diagram=D21_deployment element=D21_deployment.edge1 from=D21_deployment.clientView to=D21_deployment.edgeView\ncommunicationPath D21_deployment.edge2 \"\" from=D21_deployment.edge port=8443 protocol=HTTPS to=D21_deployment.app\nview view_9b50ac98dbed \"\" diagram=D21_deployment element=D21_deployment.edge2 from=D21_deployment.edgeView to=D21_deployment.appView\ncommunicationPath D21_deployment.edge3 \"\" from=D21_deployment.app port=5432 protocol=TLS to=D21_deployment.db\nview view_f5adeda91ca4 \"\" diagram=D21_deployment element=D21_deployment.edge3 from=D21_deployment.appView to=D21_deployment.dbView\ncommunicationPath D21_deployment.edge4 \"\" from=D21_deployment.app port=443 protocol=HTTPS to=D21_deployment.ext\nview view_e2d9515b0979 \"\" diagram=D21_deployment element=D21_deployment.edge4 from=D21_deployment.appView to=D21_deployment.extView\ncommunicationPath D21_deployment.edge5 \"копия БД\" from=D21_deployment.db to=D21_deployment.backup\nview view_0cb61ea2f49a \"\" diagram=D21_deployment element=D21_deployment.edge5 from=D21_deployment.dbView to=D21_deployment.backupView\ncommunicationPath D21_deployment.edge6 \"\" from=D21_deployment.app protocol=HTTPS to=D21_deployment.media\nview view_a2cc3163d377 \"\" diagram=D21_deployment element=D21_deployment.edge6 from=D21_deployment.appView to=D21_deployment.mediaView\ncommunicationPath D21_deployment.edge7 \"копия файлов\" from=D21_deployment.media to=D21_deployment.backup\nview view_6b32eaa2c339 \"\" diagram=D21_deployment element=D21_deployment.edge7 from=D21_deployment.mediaView to=D21_deployment.backupView\nexecutionEnvironment D21_deployment.apiRuntime \"JRE 21 · API\" owner=D21_deployment.app technology=Java version=21\nview D21_deployment.apiRuntimeView \"\" diagram=D21_deployment element=D21_deployment.apiRuntime parent=D21_deployment.appView\nexecutionEnvironment D21_deployment.workerRuntime \"JRE 21 · worker публикаций\" owner=D21_deployment.app technology=Java version=21\nview D21_deployment.workerRuntimeView \"\" diagram=D21_deployment element=D21_deployment.workerRuntime parent=D21_deployment.appView\nexecutionEnvironment D21_deployment.postgres PostgreSQL owner=D21_deployment.db technology=PostgreSQL version=18\nview D21_deployment.postgresView \"\" diagram=D21_deployment element=D21_deployment.postgres parent=D21_deployment.dbView\nartifact D21_deployment.applicationArtifact \"Приложение карточек\" description=\"Артефакт модульного монолита: API и worker используют общий пакет. Разделение сред уточняет исходный рисунок; физическая топология не проверялась.\"\nview D21_deployment.applicationArtifactapiRuntimeView \"\" diagram=D21_deployment element=D21_deployment.applicationArtifact parent=D21_deployment.apiRuntimeView\ndeployment D21_deployment.apiRuntimeDeploy \"\" artifact=D21_deployment.applicationArtifact location=D21_deployment.apiRuntime\nview D21_deployment.applicationArtifactworkerRuntimeView \"\" diagram=D21_deployment element=D21_deployment.applicationArtifact parent=D21_deployment.workerRuntimeView\ndeployment D21_deployment.workerRuntimeDeploy \"\" artifact=D21_deployment.applicationArtifact location=D21_deployment.workerRuntime\nartifact D21_deployment.databaseSchema \"Схема базы данных\" fileName=schema.sql\nview D21_deployment.databaseSchemaView \"\" diagram=D21_deployment element=D21_deployment.databaseSchema\ndeployment deployment_4c6a967d1fd8 \"\" artifact=D21_deployment.databaseSchema location=D21_deployment.postgres\nview view_dfda2da014ee \"\" diagram=D21_deployment element=deployment_4c6a967d1fd8 from=D21_deployment.postgresView to=D21_deployment.databaseSchemaView\nmanifestation manifestation_5e8e4db2426b \"\" from=D21_deployment.applicationArtifact to=D02_component.auth\nmanifestation manifestation_0ec8984b94a2 \"\" from=D21_deployment.applicationArtifact to=D02_component.model_line\nmanifestation manifestation_6afd10b9770b \"\" from=D21_deployment.applicationArtifact to=D02_component.content\nmanifestation manifestation_7675c7cec6eb \"\" from=D21_deployment.applicationArtifact to=D02_component.pub\nmanifestation manifestation_c6174776c2b5 \"\" from=D21_deployment.applicationArtifact to=D02_component.sup\nmanifestation manifestation_7e45888e7de0 \"\" from=D21_deployment.applicationArtifact to=D02_component.db\nmanifestation manifestation_9bffb80ff134 \"\" from=D21_deployment.applicationArtifact to=D02_component.ext\nmanifestation manifestation_8d6ff5b1512a \"\" from=D21_deployment.applicationArtifact to=D02_component.oz\nmanifestation manifestation_b9727433006e \"\" from=D21_deployment.applicationArtifact to=D02_component.media\nannotation annotation_f08dfe607a19 \"Ресурсы и число узлов — проектное предложение; нагрузочная проверка ещё не проводилась.\"\nview annotation_f08dfe607a19View \"\" diagram=D21_deployment element=annotation_f08dfe607a19\n",
+  "source": "uml ropUmlStructure \"РОП — компоненты, деятельность и развёртывание\"\ndiagram D02_component \"Диаграмма компонентов\" type=component\ncomponent D02_component.ui Веб-интерфейс\nview D02_component.uiView \"\" diagram=D02_component element=D02_component.ui.part parent=D02_component.system.view\ncomponent D02_component.auth \"Проверка прав и аудит\"\nview D02_component.authView \"\" diagram=D02_component element=D02_component.auth.part parent=D02_component.system.view\ncomponent D02_component.model_line \"Модельный ряд и правила\"\nview D02_component.bomView \"\" diagram=D02_component element=D02_component.model_line.part parent=D02_component.system.view\ncomponent D02_component.content \"Расчёты и контент\"\nview D02_component.contentView \"\" diagram=D02_component element=D02_component.content.part parent=D02_component.system.view\ncomponent D02_component.pub \"Публикации и очередь\"\nview D02_component.pubView \"\" diagram=D02_component element=D02_component.pub.part parent=D02_component.system.view\ncomponent D02_component.sup \"Адаптеры поставщиков\"\nview D02_component.supView \"\" diagram=D02_component element=D02_component.sup.part parent=D02_component.system.view\ncomponent D02_component.db \"Репозитории PostgreSQL\"\nview D02_component.dbView \"\" diagram=D02_component element=D02_component.db.part parent=D02_component.system.view\ncomponent D02_component.ext \"PC4Games и ITPartner\"\nview D02_component.extView \"\" diagram=D02_component element=D02_component.ext.part parent=D02_component.system.view\ncomponent D02_component.oz \"Ozon Seller\"\nview D02_component.ozView \"\" diagram=D02_component element=D02_component.oz.part parent=D02_component.system.view\ncomponent D02_component.media \"Хранилище изображений\"\nview D02_component.mediaView \"\" diagram=D02_component element=D02_component.media.part parent=D02_component.system.view\ncomponentConnector D02_component.edge1 \"HTTPS / JSON\" kind=assembly owner=D02_component.system\n\ncomponentConnector D02_component.edge2 \"проверка роли\" kind=assembly owner=D02_component.system\n\ncomponentConnector D02_component.edge3 репозитории kind=assembly owner=D02_component.system\n\ncomponentConnector D02_component.edge4 предложения kind=assembly owner=D02_component.system\n\ncomponentConnector D02_component.edge5 адаптер kind=assembly owner=D02_component.system\n\ncomponentConnector D02_component.edge6 \"версия модельного ряда\" kind=assembly owner=D02_component.system\n\ncomponentConnector D02_component.edge7 \"версия карточки\" kind=assembly owner=D02_component.system\n\ncomponentConnector D02_component.edge8 \"HTTPS / JSON\" kind=assembly owner=D02_component.system\n\ncomponentConnector D02_component.edge9 файлы kind=assembly owner=D02_component.system\n\nannotation annotation_91f2d1882120 \"Модульный монолит. Репозитории и аудит используются всеми бизнес-модулями; повторяющиеся зависимости опущены для читаемости.\"\nview annotation_91f2d1882120View \"\" diagram=D02_component element=annotation_91f2d1882120\ndiagram D06_activity \"Деятельность по подготовке и публикации карточки\" activity=prepareCard type=activity\nactivity prepareCard \"Деятельность по подготовке и публикации карточки\"\ninitial D06_activity.a \"\" owner=prepareCard\nview D06_activity.aView \"\" diagram=D06_activity element=D06_activity.a\naction D06_activity.b \"Выбрать модельный ряд\\nсоздать новую версию\" owner=prepareCard\nview D06_activity.bView \"\" diagram=D06_activity element=D06_activity.b\naction D06_activity.c \"Изменить состав\\nи разрешить группы\" owner=prepareCard\nview D06_activity.cView \"\" diagram=D06_activity element=D06_activity.c\ndecision D06_activity.d \"Совместимо и\\nданные актуальны?\" owner=prepareCard\nview D06_activity.dView \"\" diagram=D06_activity element=D06_activity.d\naction D06_activity.e \"Рассчитать показатели\\nподготовить контент\" owner=prepareCard\nview D06_activity.eView \"\" diagram=D06_activity element=D06_activity.e\naction D06_activity.f \"Утвердить\\nи запустить публикацию\" owner=prepareCard\nview D06_activity.fView \"\" diagram=D06_activity element=D06_activity.f\naction D06_activity.g \"Зафиксировать успех\\nили ошибку и уведомить\" owner=prepareCard\nview D06_activity.gView \"\" diagram=D06_activity element=D06_activity.g\nactivityFinal D06_activity.z \"\" owner=prepareCard\nview D06_activity.zView \"\" diagram=D06_activity element=D06_activity.z\naction D06_activity.fix \"Показать конфликт\\nисправить данные\" owner=prepareCard\nview D06_activity.fixView \"\" diagram=D06_activity element=D06_activity.fix\nmerge D06_activity.mergeCorrections \"\" owner=prepareCard\nview D06_activity.mergeCorrectionsView \"\" diagram=D06_activity element=D06_activity.mergeCorrections\ncontrolFlow D06_activity.continueEditing \"\" from=D06_activity.mergeCorrections owner=prepareCard to=D06_activity.c\nview view_31c1c0441ecc \"\" diagram=D06_activity element=D06_activity.continueEditing from=D06_activity.mergeCorrectionsView to=D06_activity.cView\ncontrolFlow D06_activity.edge1 \"\" from=D06_activity.a owner=prepareCard to=D06_activity.b\nview view_5174eb41b61c \"\" diagram=D06_activity element=D06_activity.edge1 from=D06_activity.aView to=D06_activity.bView\ncontrolFlow D06_activity.edge2 \"\" from=D06_activity.b owner=prepareCard to=D06_activity.mergeCorrections\nview view_3064b0cb5fa4 \"\" diagram=D06_activity element=D06_activity.edge2 from=D06_activity.bView to=D06_activity.mergeCorrectionsView\ncontrolFlow D06_activity.edge3 \"\" from=D06_activity.c owner=prepareCard to=D06_activity.d\nview view_971da64e1d92 \"\" diagram=D06_activity element=D06_activity.edge3 from=D06_activity.cView to=D06_activity.dView\ncontrolFlow D06_activity.edge4 \"\" from=D06_activity.d guard=else owner=prepareCard to=D06_activity.fix\nview view_b213770194b9 \"\" diagram=D06_activity element=D06_activity.edge4 from=D06_activity.dView to=D06_activity.fixView\ncontrolFlow D06_activity.edge5 \"\" from=D06_activity.fix owner=prepareCard to=D06_activity.mergeCorrections\nview view_13552b8ef881 \"\" diagram=D06_activity element=D06_activity.edge5 from=D06_activity.fixView to=D06_activity.mergeCorrectionsView\ncontrolFlow D06_activity.edge6 \"\" from=D06_activity.d guard=\"Совместимо и данные актуальны\" owner=prepareCard to=D06_activity.e\nview view_7b55787df1c9 \"\" diagram=D06_activity element=D06_activity.edge6 from=D06_activity.dView to=D06_activity.eView\ncontrolFlow D06_activity.edge7 \"\" from=D06_activity.e owner=prepareCard to=D06_activity.f\nview view_bbd799c5b204 \"\" diagram=D06_activity element=D06_activity.edge7 from=D06_activity.eView to=D06_activity.fView\ncontrolFlow D06_activity.edge8 \"\" from=D06_activity.f owner=prepareCard to=D06_activity.g\nview view_1388ae266ce3 \"\" diagram=D06_activity element=D06_activity.edge8 from=D06_activity.fView to=D06_activity.gView\ncontrolFlow D06_activity.edge9 \"\" from=D06_activity.g owner=prepareCard to=D06_activity.z\nview view_9ea3a614b655 \"\" diagram=D06_activity element=D06_activity.edge9 from=D06_activity.gView to=D06_activity.zView\ndiagram D21_deployment \"Диаграмма развёртывания\" type=deployment\ndevice D21_deployment.client \"Рабочие станции\\nБраузеры сотрудников\"\nview D21_deployment.clientView \"\" diagram=D21_deployment element=D21_deployment.client\nnode D21_deployment.edge \"Шлюз / DMZ\\nNginx: HTTPS 443\\nTLS и маршрутизация\"\nview D21_deployment.edgeView \"\" diagram=D21_deployment element=D21_deployment.edge\nnode D21_deployment.app \"Прикладной сервер\\nJRE 21: Spring Boot\\nAPI и worker публикаций\"\nview D21_deployment.appView \"\" diagram=D21_deployment element=D21_deployment.app\nnode D21_deployment.db \"Сервер БД\\nPostgreSQL 18\\nДанные и очередь\"\nview D21_deployment.dbView \"\" diagram=D21_deployment element=D21_deployment.db\nnode D21_deployment.media \"Файловое хранилище\\nИзображения по storage_key\"\nview D21_deployment.mediaView \"\" diagram=D21_deployment element=D21_deployment.media\nnode D21_deployment.ext \"Ozon и поставщики\\nИнтернет\"\nview D21_deployment.extView \"\" diagram=D21_deployment element=D21_deployment.ext\nnode D21_deployment.backup \"Резервное хранилище\\nБД и изображения\\nОтдельные учётные данные\"\nview D21_deployment.backupView \"\" diagram=D21_deployment element=D21_deployment.backup\ncommunicationPath D21_deployment.edge1 \"\" from=D21_deployment.client port=443 protocol=HTTPS to=D21_deployment.edge\nview view_fcfd980b20bf \"\" diagram=D21_deployment element=D21_deployment.edge1 from=D21_deployment.clientView to=D21_deployment.edgeView\ncommunicationPath D21_deployment.edge2 \"\" from=D21_deployment.edge port=8443 protocol=HTTPS to=D21_deployment.app\nview view_9b50ac98dbed \"\" diagram=D21_deployment element=D21_deployment.edge2 from=D21_deployment.edgeView to=D21_deployment.appView\ncommunicationPath D21_deployment.edge3 \"\" from=D21_deployment.app port=5432 protocol=TLS to=D21_deployment.db\nview view_f5adeda91ca4 \"\" diagram=D21_deployment element=D21_deployment.edge3 from=D21_deployment.appView to=D21_deployment.dbView\ncommunicationPath D21_deployment.edge4 \"\" from=D21_deployment.app port=443 protocol=HTTPS to=D21_deployment.ext\nview view_e2d9515b0979 \"\" diagram=D21_deployment element=D21_deployment.edge4 from=D21_deployment.appView to=D21_deployment.extView\ncommunicationPath D21_deployment.edge5 \"копия БД\" from=D21_deployment.db to=D21_deployment.backup\nview view_0cb61ea2f49a \"\" diagram=D21_deployment element=D21_deployment.edge5 from=D21_deployment.dbView to=D21_deployment.backupView\ncommunicationPath D21_deployment.edge6 \"\" from=D21_deployment.app protocol=HTTPS to=D21_deployment.media\nview view_a2cc3163d377 \"\" diagram=D21_deployment element=D21_deployment.edge6 from=D21_deployment.appView to=D21_deployment.mediaView\ncommunicationPath D21_deployment.edge7 \"копия файлов\" from=D21_deployment.media to=D21_deployment.backup\nview view_6b32eaa2c339 \"\" diagram=D21_deployment element=D21_deployment.edge7 from=D21_deployment.mediaView to=D21_deployment.backupView\nexecutionEnvironment D21_deployment.apiRuntime \"JRE 21 · API\" owner=D21_deployment.app technology=Java version=21\nview D21_deployment.apiRuntimeView \"\" diagram=D21_deployment element=D21_deployment.apiRuntime parent=D21_deployment.appView\nexecutionEnvironment D21_deployment.workerRuntime \"JRE 21 · worker публикаций\" owner=D21_deployment.app technology=Java version=21\nview D21_deployment.workerRuntimeView \"\" diagram=D21_deployment element=D21_deployment.workerRuntime parent=D21_deployment.appView\nexecutionEnvironment D21_deployment.postgres PostgreSQL owner=D21_deployment.db technology=PostgreSQL version=18\nview D21_deployment.postgresView \"\" diagram=D21_deployment element=D21_deployment.postgres parent=D21_deployment.dbView\nartifact D21_deployment.applicationArtifact \"Приложение карточек\" description=\"Артефакт модульного монолита: API и worker используют общий пакет. Разделение сред уточняет исходный рисунок; физическая топология не проверялась.\"\nview D21_deployment.applicationArtifactapiRuntimeView \"\" diagram=D21_deployment element=D21_deployment.applicationArtifact parent=D21_deployment.apiRuntimeView\ndeployment D21_deployment.apiRuntimeDeploy \"\" artifact=D21_deployment.applicationArtifact location=D21_deployment.apiRuntime\nview D21_deployment.applicationArtifactworkerRuntimeView \"\" diagram=D21_deployment element=D21_deployment.applicationArtifact parent=D21_deployment.workerRuntimeView\ndeployment D21_deployment.workerRuntimeDeploy \"\" artifact=D21_deployment.applicationArtifact location=D21_deployment.workerRuntime\nartifact D21_deployment.databaseSchema \"Схема базы данных\" fileName=schema.sql\nview D21_deployment.databaseSchemaView \"\" diagram=D21_deployment element=D21_deployment.databaseSchema parent=D21_deployment.postgresView\ndeployment deployment_4c6a967d1fd8 \"\" artifact=D21_deployment.databaseSchema location=D21_deployment.postgres\n\nmanifestation manifestation_5e8e4db2426b \"\" from=D21_deployment.applicationArtifact to=D02_component.auth\nmanifestation manifestation_0ec8984b94a2 \"\" from=D21_deployment.applicationArtifact to=D02_component.model_line\nmanifestation manifestation_6afd10b9770b \"\" from=D21_deployment.applicationArtifact to=D02_component.content\nmanifestation manifestation_7675c7cec6eb \"\" from=D21_deployment.applicationArtifact to=D02_component.pub\nmanifestation manifestation_c6174776c2b5 \"\" from=D21_deployment.applicationArtifact to=D02_component.sup\nmanifestation manifestation_7e45888e7de0 \"\" from=D21_deployment.applicationArtifact to=D02_component.db\nmanifestation manifestation_9bffb80ff134 \"\" from=D21_deployment.applicationArtifact to=D02_component.ext\nmanifestation manifestation_8d6ff5b1512a \"\" from=D21_deployment.applicationArtifact to=D02_component.oz\nmanifestation manifestation_b9727433006e \"\" from=D21_deployment.applicationArtifact to=D02_component.media\n\n\ncomponent D02_component.system \"Среда взаимодействия компонентов\"\nview D02_component.system.view \"\" diagram=D02_component element=D02_component.system\npart D02_component.ui.part Веб-интерфейс classifier=D02_component.ui lower=1 owner=D02_component.system upper=1\npart D02_component.auth.part \"Проверка прав и аудит\" classifier=D02_component.auth lower=1 owner=D02_component.system upper=1\npart D02_component.model_line.part \"Модельный ряд и правила\" classifier=D02_component.model_line lower=1 owner=D02_component.system upper=1\npart D02_component.content.part \"Расчёты и контент\" classifier=D02_component.content lower=1 owner=D02_component.system upper=1\npart D02_component.pub.part \"Публикации и очередь\" classifier=D02_component.pub lower=1 owner=D02_component.system upper=1\npart D02_component.sup.part \"Адаптеры поставщиков\" classifier=D02_component.sup lower=1 owner=D02_component.system upper=1\npart D02_component.db.part \"Репозитории PostgreSQL\" classifier=D02_component.db lower=1 owner=D02_component.system upper=1\npart D02_component.ext.part \"PC4Games и ITPartner\" classifier=D02_component.ext lower=1 owner=D02_component.system upper=1\npart D02_component.oz.part \"Ozon Seller\" classifier=D02_component.oz lower=1 owner=D02_component.system upper=1\npart D02_component.media.part \"Хранилище изображений\" classifier=D02_component.media lower=1 owner=D02_component.system upper=1\ninterface D02_component.edge1.interface \"HTTPS / JSON\"\nport D02_component.ui.port0 \"\" classifier=D02_component.edge1.interface conjugated=true owner=D02_component.ui\ninterfaceUse D02_component.ui.port0.use \"\" direction=required interface=D02_component.edge1.interface owner=D02_component.ui.port0\nview D02_component.ui.port0.view \"\" diagram=D02_component element=D02_component.ui.port0 parent=D02_component.uiView\nport D02_component.model_line.port0 \"\" classifier=D02_component.edge1.interface conjugated=false owner=D02_component.model_line\ninterfaceUse D02_component.model_line.port0.use \"\" direction=provided interface=D02_component.edge1.interface owner=D02_component.model_line.port0\nview D02_component.model_line.port0.view \"\" diagram=D02_component element=D02_component.model_line.port0 parent=D02_component.bomView\ncomponentEnd D02_component.edge1.end0 \"\" order=0 owner=D02_component.edge1 part=D02_component.ui.part port=D02_component.ui.port0\ncomponentEnd D02_component.edge1.end1 \"\" order=1 owner=D02_component.edge1 part=D02_component.model_line.part port=D02_component.model_line.port0\nview D02_component.edge1.view \"\" diagram=D02_component element=D02_component.edge1 from=D02_component.ui.port0.view to=D02_component.model_line.port0.view\ninterface D02_component.edge2.interface \"проверка роли\"\nport D02_component.model_line.port1 \"\" classifier=D02_component.edge2.interface conjugated=true owner=D02_component.model_line\ninterfaceUse D02_component.model_line.port1.use \"\" direction=required interface=D02_component.edge2.interface owner=D02_component.model_line.port1\nview D02_component.model_line.port1.view \"\" diagram=D02_component element=D02_component.model_line.port1 parent=D02_component.bomView\nport D02_component.auth.port1 \"\" classifier=D02_component.edge2.interface conjugated=false owner=D02_component.auth\ninterfaceUse D02_component.auth.port1.use \"\" direction=provided interface=D02_component.edge2.interface owner=D02_component.auth.port1\nview D02_component.auth.port1.view \"\" diagram=D02_component element=D02_component.auth.port1 parent=D02_component.authView\ncomponentEnd D02_component.edge2.end0 \"\" order=0 owner=D02_component.edge2 part=D02_component.model_line.part port=D02_component.model_line.port1\ncomponentEnd D02_component.edge2.end1 \"\" order=1 owner=D02_component.edge2 part=D02_component.auth.part port=D02_component.auth.port1\nview D02_component.edge2.view \"\" diagram=D02_component element=D02_component.edge2 from=D02_component.model_line.port1.view to=D02_component.auth.port1.view\ninterface D02_component.edge3.interface репозитории\nport D02_component.model_line.port2 \"\" classifier=D02_component.edge3.interface conjugated=true owner=D02_component.model_line\ninterfaceUse D02_component.model_line.port2.use \"\" direction=required interface=D02_component.edge3.interface owner=D02_component.model_line.port2\nview D02_component.model_line.port2.view \"\" diagram=D02_component element=D02_component.model_line.port2 parent=D02_component.bomView\nport D02_component.db.port2 \"\" classifier=D02_component.edge3.interface conjugated=false owner=D02_component.db\ninterfaceUse D02_component.db.port2.use \"\" direction=provided interface=D02_component.edge3.interface owner=D02_component.db.port2\nview D02_component.db.port2.view \"\" diagram=D02_component element=D02_component.db.port2 parent=D02_component.dbView\ncomponentEnd D02_component.edge3.end0 \"\" order=0 owner=D02_component.edge3 part=D02_component.model_line.part port=D02_component.model_line.port2\ncomponentEnd D02_component.edge3.end1 \"\" order=1 owner=D02_component.edge3 part=D02_component.db.part port=D02_component.db.port2\nview D02_component.edge3.view \"\" diagram=D02_component element=D02_component.edge3 from=D02_component.model_line.port2.view to=D02_component.db.port2.view\ninterface D02_component.edge4.interface предложения\nport D02_component.model_line.port3 \"\" classifier=D02_component.edge4.interface conjugated=true owner=D02_component.model_line\ninterfaceUse D02_component.model_line.port3.use \"\" direction=required interface=D02_component.edge4.interface owner=D02_component.model_line.port3\nview D02_component.model_line.port3.view \"\" diagram=D02_component element=D02_component.model_line.port3 parent=D02_component.bomView\nport D02_component.sup.port3 \"\" classifier=D02_component.edge4.interface conjugated=false owner=D02_component.sup\ninterfaceUse D02_component.sup.port3.use \"\" direction=provided interface=D02_component.edge4.interface owner=D02_component.sup.port3\nview D02_component.sup.port3.view \"\" diagram=D02_component element=D02_component.sup.port3 parent=D02_component.supView\ncomponentEnd D02_component.edge4.end0 \"\" order=0 owner=D02_component.edge4 part=D02_component.model_line.part port=D02_component.model_line.port3\ncomponentEnd D02_component.edge4.end1 \"\" order=1 owner=D02_component.edge4 part=D02_component.sup.part port=D02_component.sup.port3\nview D02_component.edge4.view \"\" diagram=D02_component element=D02_component.edge4 from=D02_component.model_line.port3.view to=D02_component.sup.port3.view\ninterface D02_component.edge5.interface адаптер\nport D02_component.sup.port4 \"\" classifier=D02_component.edge5.interface conjugated=true owner=D02_component.sup\ninterfaceUse D02_component.sup.port4.use \"\" direction=required interface=D02_component.edge5.interface owner=D02_component.sup.port4\nview D02_component.sup.port4.view \"\" diagram=D02_component element=D02_component.sup.port4 parent=D02_component.supView\nport D02_component.ext.port4 \"\" classifier=D02_component.edge5.interface conjugated=false owner=D02_component.ext\ninterfaceUse D02_component.ext.port4.use \"\" direction=provided interface=D02_component.edge5.interface owner=D02_component.ext.port4\nview D02_component.ext.port4.view \"\" diagram=D02_component element=D02_component.ext.port4 parent=D02_component.extView\ncomponentEnd D02_component.edge5.end0 \"\" order=0 owner=D02_component.edge5 part=D02_component.sup.part port=D02_component.sup.port4\ncomponentEnd D02_component.edge5.end1 \"\" order=1 owner=D02_component.edge5 part=D02_component.ext.part port=D02_component.ext.port4\nview D02_component.edge5.view \"\" diagram=D02_component element=D02_component.edge5 from=D02_component.sup.port4.view to=D02_component.ext.port4.view\ninterface D02_component.edge6.interface \"версия модельного ряда\"\nport D02_component.model_line.port5 \"\" classifier=D02_component.edge6.interface conjugated=true owner=D02_component.model_line\ninterfaceUse D02_component.model_line.port5.use \"\" direction=required interface=D02_component.edge6.interface owner=D02_component.model_line.port5\nview D02_component.model_line.port5.view \"\" diagram=D02_component element=D02_component.model_line.port5 parent=D02_component.bomView\nport D02_component.content.port5 \"\" classifier=D02_component.edge6.interface conjugated=false owner=D02_component.content\ninterfaceUse D02_component.content.port5.use \"\" direction=provided interface=D02_component.edge6.interface owner=D02_component.content.port5\nview D02_component.content.port5.view \"\" diagram=D02_component element=D02_component.content.port5 parent=D02_component.contentView\ncomponentEnd D02_component.edge6.end0 \"\" order=0 owner=D02_component.edge6 part=D02_component.model_line.part port=D02_component.model_line.port5\ncomponentEnd D02_component.edge6.end1 \"\" order=1 owner=D02_component.edge6 part=D02_component.content.part port=D02_component.content.port5\nview D02_component.edge6.view \"\" diagram=D02_component element=D02_component.edge6 from=D02_component.model_line.port5.view to=D02_component.content.port5.view\ninterface D02_component.edge7.interface \"версия карточки\"\nport D02_component.content.port6 \"\" classifier=D02_component.edge7.interface conjugated=true owner=D02_component.content\ninterfaceUse D02_component.content.port6.use \"\" direction=required interface=D02_component.edge7.interface owner=D02_component.content.port6\nview D02_component.content.port6.view \"\" diagram=D02_component element=D02_component.content.port6 parent=D02_component.contentView\nport D02_component.pub.port6 \"\" classifier=D02_component.edge7.interface conjugated=false owner=D02_component.pub\ninterfaceUse D02_component.pub.port6.use \"\" direction=provided interface=D02_component.edge7.interface owner=D02_component.pub.port6\nview D02_component.pub.port6.view \"\" diagram=D02_component element=D02_component.pub.port6 parent=D02_component.pubView\ncomponentEnd D02_component.edge7.end0 \"\" order=0 owner=D02_component.edge7 part=D02_component.content.part port=D02_component.content.port6\ncomponentEnd D02_component.edge7.end1 \"\" order=1 owner=D02_component.edge7 part=D02_component.pub.part port=D02_component.pub.port6\nview D02_component.edge7.view \"\" diagram=D02_component element=D02_component.edge7 from=D02_component.content.port6.view to=D02_component.pub.port6.view\ninterface D02_component.edge8.interface \"HTTPS / JSON\"\nport D02_component.pub.port7 \"\" classifier=D02_component.edge8.interface conjugated=true owner=D02_component.pub\ninterfaceUse D02_component.pub.port7.use \"\" direction=required interface=D02_component.edge8.interface owner=D02_component.pub.port7\nview D02_component.pub.port7.view \"\" diagram=D02_component element=D02_component.pub.port7 parent=D02_component.pubView\nport D02_component.oz.port7 \"\" classifier=D02_component.edge8.interface conjugated=false owner=D02_component.oz\ninterfaceUse D02_component.oz.port7.use \"\" direction=provided interface=D02_component.edge8.interface owner=D02_component.oz.port7\nview D02_component.oz.port7.view \"\" diagram=D02_component element=D02_component.oz.port7 parent=D02_component.ozView\ncomponentEnd D02_component.edge8.end0 \"\" order=0 owner=D02_component.edge8 part=D02_component.pub.part port=D02_component.pub.port7\ncomponentEnd D02_component.edge8.end1 \"\" order=1 owner=D02_component.edge8 part=D02_component.oz.part port=D02_component.oz.port7\nview D02_component.edge8.view \"\" diagram=D02_component element=D02_component.edge8 from=D02_component.pub.port7.view to=D02_component.oz.port7.view\ninterface D02_component.edge9.interface файлы\nport D02_component.content.port8 \"\" classifier=D02_component.edge9.interface conjugated=true owner=D02_component.content\ninterfaceUse D02_component.content.port8.use \"\" direction=required interface=D02_component.edge9.interface owner=D02_component.content.port8\nview D02_component.content.port8.view \"\" diagram=D02_component element=D02_component.content.port8 parent=D02_component.contentView\nport D02_component.media.port8 \"\" classifier=D02_component.edge9.interface conjugated=false owner=D02_component.media\ninterfaceUse D02_component.media.port8.use \"\" direction=provided interface=D02_component.edge9.interface owner=D02_component.media.port8\nview D02_component.media.port8.view \"\" diagram=D02_component element=D02_component.media.port8 parent=D02_component.mediaView\ncomponentEnd D02_component.edge9.end0 \"\" order=0 owner=D02_component.edge9 part=D02_component.content.part port=D02_component.content.port8\ncomponentEnd D02_component.edge9.end1 \"\" order=1 owner=D02_component.edge9 part=D02_component.media.part port=D02_component.media.port8\nview D02_component.edge9.view \"\" diagram=D02_component element=D02_component.edge9 from=D02_component.content.port8.view to=D02_component.media.port8.view\n",
+  "draft": "uml ropUmlStructure \"РОП — компоненты, деятельность и развёртывание\"\ndiagram D02_component \"Диаграмма компонентов\" type=component\ncomponent D02_component.ui Веб-интерфейс\nview D02_component.uiView \"\" diagram=D02_component element=D02_component.ui.part parent=D02_component.system.view\ncomponent D02_component.auth \"Проверка прав и аудит\"\nview D02_component.authView \"\" diagram=D02_component element=D02_component.auth.part parent=D02_component.system.view\ncomponent D02_component.model_line \"Модельный ряд и правила\"\nview D02_component.bomView \"\" diagram=D02_component element=D02_component.model_line.part parent=D02_component.system.view\ncomponent D02_component.content \"Расчёты и контент\"\nview D02_component.contentView \"\" diagram=D02_component element=D02_component.content.part parent=D02_component.system.view\ncomponent D02_component.pub \"Публикации и очередь\"\nview D02_component.pubView \"\" diagram=D02_component element=D02_component.pub.part parent=D02_component.system.view\ncomponent D02_component.sup \"Адаптеры поставщиков\"\nview D02_component.supView \"\" diagram=D02_component element=D02_component.sup.part parent=D02_component.system.view\ncomponent D02_component.db \"Репозитории PostgreSQL\"\nview D02_component.dbView \"\" diagram=D02_component element=D02_component.db.part parent=D02_component.system.view\ncomponent D02_component.ext \"PC4Games и ITPartner\"\nview D02_component.extView \"\" diagram=D02_component element=D02_component.ext.part parent=D02_component.system.view\ncomponent D02_component.oz \"Ozon Seller\"\nview D02_component.ozView \"\" diagram=D02_component element=D02_component.oz.part parent=D02_component.system.view\ncomponent D02_component.media \"Хранилище изображений\"\nview D02_component.mediaView \"\" diagram=D02_component element=D02_component.media.part parent=D02_component.system.view\ncomponentConnector D02_component.edge1 \"HTTPS / JSON\" kind=assembly owner=D02_component.system\n\ncomponentConnector D02_component.edge2 \"проверка роли\" kind=assembly owner=D02_component.system\n\ncomponentConnector D02_component.edge3 репозитории kind=assembly owner=D02_component.system\n\ncomponentConnector D02_component.edge4 предложения kind=assembly owner=D02_component.system\n\ncomponentConnector D02_component.edge5 адаптер kind=assembly owner=D02_component.system\n\ncomponentConnector D02_component.edge6 \"версия модельного ряда\" kind=assembly owner=D02_component.system\n\ncomponentConnector D02_component.edge7 \"версия карточки\" kind=assembly owner=D02_component.system\n\ncomponentConnector D02_component.edge8 \"HTTPS / JSON\" kind=assembly owner=D02_component.system\n\ncomponentConnector D02_component.edge9 файлы kind=assembly owner=D02_component.system\n\nannotation annotation_91f2d1882120 \"Модульный монолит. Репозитории и аудит используются всеми бизнес-модулями; повторяющиеся зависимости опущены для читаемости.\"\nview annotation_91f2d1882120View \"\" diagram=D02_component element=annotation_91f2d1882120\ndiagram D06_activity \"Деятельность по подготовке и публикации карточки\" activity=prepareCard type=activity\nactivity prepareCard \"Деятельность по подготовке и публикации карточки\"\ninitial D06_activity.a \"\" owner=prepareCard\nview D06_activity.aView \"\" diagram=D06_activity element=D06_activity.a\naction D06_activity.b \"Выбрать модельный ряд\\nсоздать новую версию\" owner=prepareCard\nview D06_activity.bView \"\" diagram=D06_activity element=D06_activity.b\naction D06_activity.c \"Изменить состав\\nи разрешить группы\" owner=prepareCard\nview D06_activity.cView \"\" diagram=D06_activity element=D06_activity.c\ndecision D06_activity.d \"Совместимо и\\nданные актуальны?\" owner=prepareCard\nview D06_activity.dView \"\" diagram=D06_activity element=D06_activity.d\naction D06_activity.e \"Рассчитать показатели\\nподготовить контент\" owner=prepareCard\nview D06_activity.eView \"\" diagram=D06_activity element=D06_activity.e\naction D06_activity.f \"Утвердить\\nи запустить публикацию\" owner=prepareCard\nview D06_activity.fView \"\" diagram=D06_activity element=D06_activity.f\naction D06_activity.g \"Зафиксировать успех\\nили ошибку и уведомить\" owner=prepareCard\nview D06_activity.gView \"\" diagram=D06_activity element=D06_activity.g\nactivityFinal D06_activity.z \"\" owner=prepareCard\nview D06_activity.zView \"\" diagram=D06_activity element=D06_activity.z\naction D06_activity.fix \"Показать конфликт\\nисправить данные\" owner=prepareCard\nview D06_activity.fixView \"\" diagram=D06_activity element=D06_activity.fix\nmerge D06_activity.mergeCorrections \"\" owner=prepareCard\nview D06_activity.mergeCorrectionsView \"\" diagram=D06_activity element=D06_activity.mergeCorrections\ncontrolFlow D06_activity.continueEditing \"\" from=D06_activity.mergeCorrections owner=prepareCard to=D06_activity.c\nview view_31c1c0441ecc \"\" diagram=D06_activity element=D06_activity.continueEditing from=D06_activity.mergeCorrectionsView to=D06_activity.cView\ncontrolFlow D06_activity.edge1 \"\" from=D06_activity.a owner=prepareCard to=D06_activity.b\nview view_5174eb41b61c \"\" diagram=D06_activity element=D06_activity.edge1 from=D06_activity.aView to=D06_activity.bView\ncontrolFlow D06_activity.edge2 \"\" from=D06_activity.b owner=prepareCard to=D06_activity.mergeCorrections\nview view_3064b0cb5fa4 \"\" diagram=D06_activity element=D06_activity.edge2 from=D06_activity.bView to=D06_activity.mergeCorrectionsView\ncontrolFlow D06_activity.edge3 \"\" from=D06_activity.c owner=prepareCard to=D06_activity.d\nview view_971da64e1d92 \"\" diagram=D06_activity element=D06_activity.edge3 from=D06_activity.cView to=D06_activity.dView\ncontrolFlow D06_activity.edge4 \"\" from=D06_activity.d guard=else owner=prepareCard to=D06_activity.fix\nview view_b213770194b9 \"\" diagram=D06_activity element=D06_activity.edge4 from=D06_activity.dView to=D06_activity.fixView\ncontrolFlow D06_activity.edge5 \"\" from=D06_activity.fix owner=prepareCard to=D06_activity.mergeCorrections\nview view_13552b8ef881 \"\" diagram=D06_activity element=D06_activity.edge5 from=D06_activity.fixView to=D06_activity.mergeCorrectionsView\ncontrolFlow D06_activity.edge6 \"\" from=D06_activity.d guard=\"Совместимо и данные актуальны\" owner=prepareCard to=D06_activity.e\nview view_7b55787df1c9 \"\" diagram=D06_activity element=D06_activity.edge6 from=D06_activity.dView to=D06_activity.eView\ncontrolFlow D06_activity.edge7 \"\" from=D06_activity.e owner=prepareCard to=D06_activity.f\nview view_bbd799c5b204 \"\" diagram=D06_activity element=D06_activity.edge7 from=D06_activity.eView to=D06_activity.fView\ncontrolFlow D06_activity.edge8 \"\" from=D06_activity.f owner=prepareCard to=D06_activity.g\nview view_1388ae266ce3 \"\" diagram=D06_activity element=D06_activity.edge8 from=D06_activity.fView to=D06_activity.gView\ncontrolFlow D06_activity.edge9 \"\" from=D06_activity.g owner=prepareCard to=D06_activity.z\nview view_9ea3a614b655 \"\" diagram=D06_activity element=D06_activity.edge9 from=D06_activity.gView to=D06_activity.zView\ndiagram D21_deployment \"Диаграмма развёртывания\" type=deployment\ndevice D21_deployment.client \"Рабочие станции\\nБраузеры сотрудников\"\nview D21_deployment.clientView \"\" diagram=D21_deployment element=D21_deployment.client\nnode D21_deployment.edge \"Шлюз / DMZ\\nNginx: HTTPS 443\\nTLS и маршрутизация\"\nview D21_deployment.edgeView \"\" diagram=D21_deployment element=D21_deployment.edge\nnode D21_deployment.app \"Прикладной сервер\\nJRE 21: Spring Boot\\nAPI и worker публикаций\"\nview D21_deployment.appView \"\" diagram=D21_deployment element=D21_deployment.app\nnode D21_deployment.db \"Сервер БД\\nPostgreSQL 18\\nДанные и очередь\"\nview D21_deployment.dbView \"\" diagram=D21_deployment element=D21_deployment.db\nnode D21_deployment.media \"Файловое хранилище\\nИзображения по storage_key\"\nview D21_deployment.mediaView \"\" diagram=D21_deployment element=D21_deployment.media\nnode D21_deployment.ext \"Ozon и поставщики\\nИнтернет\"\nview D21_deployment.extView \"\" diagram=D21_deployment element=D21_deployment.ext\nnode D21_deployment.backup \"Резервное хранилище\\nБД и изображения\\nОтдельные учётные данные\"\nview D21_deployment.backupView \"\" diagram=D21_deployment element=D21_deployment.backup\ncommunicationPath D21_deployment.edge1 \"\" from=D21_deployment.client port=443 protocol=HTTPS to=D21_deployment.edge\nview view_fcfd980b20bf \"\" diagram=D21_deployment element=D21_deployment.edge1 from=D21_deployment.clientView to=D21_deployment.edgeView\ncommunicationPath D21_deployment.edge2 \"\" from=D21_deployment.edge port=8443 protocol=HTTPS to=D21_deployment.app\nview view_9b50ac98dbed \"\" diagram=D21_deployment element=D21_deployment.edge2 from=D21_deployment.edgeView to=D21_deployment.appView\ncommunicationPath D21_deployment.edge3 \"\" from=D21_deployment.app port=5432 protocol=TLS to=D21_deployment.db\nview view_f5adeda91ca4 \"\" diagram=D21_deployment element=D21_deployment.edge3 from=D21_deployment.appView to=D21_deployment.dbView\ncommunicationPath D21_deployment.edge4 \"\" from=D21_deployment.app port=443 protocol=HTTPS to=D21_deployment.ext\nview view_e2d9515b0979 \"\" diagram=D21_deployment element=D21_deployment.edge4 from=D21_deployment.appView to=D21_deployment.extView\ncommunicationPath D21_deployment.edge5 \"копия БД\" from=D21_deployment.db to=D21_deployment.backup\nview view_0cb61ea2f49a \"\" diagram=D21_deployment element=D21_deployment.edge5 from=D21_deployment.dbView to=D21_deployment.backupView\ncommunicationPath D21_deployment.edge6 \"\" from=D21_deployment.app protocol=HTTPS to=D21_deployment.media\nview view_a2cc3163d377 \"\" diagram=D21_deployment element=D21_deployment.edge6 from=D21_deployment.appView to=D21_deployment.mediaView\ncommunicationPath D21_deployment.edge7 \"копия файлов\" from=D21_deployment.media to=D21_deployment.backup\nview view_6b32eaa2c339 \"\" diagram=D21_deployment element=D21_deployment.edge7 from=D21_deployment.mediaView to=D21_deployment.backupView\nexecutionEnvironment D21_deployment.apiRuntime \"JRE 21 · API\" owner=D21_deployment.app technology=Java version=21\nview D21_deployment.apiRuntimeView \"\" diagram=D21_deployment element=D21_deployment.apiRuntime parent=D21_deployment.appView\nexecutionEnvironment D21_deployment.workerRuntime \"JRE 21 · worker публикаций\" owner=D21_deployment.app technology=Java version=21\nview D21_deployment.workerRuntimeView \"\" diagram=D21_deployment element=D21_deployment.workerRuntime parent=D21_deployment.appView\nexecutionEnvironment D21_deployment.postgres PostgreSQL owner=D21_deployment.db technology=PostgreSQL version=18\nview D21_deployment.postgresView \"\" diagram=D21_deployment element=D21_deployment.postgres parent=D21_deployment.dbView\nartifact D21_deployment.applicationArtifact \"Приложение карточек\" description=\"Артефакт модульного монолита: API и worker используют общий пакет. Разделение сред уточняет исходный рисунок; физическая топология не проверялась.\"\nview D21_deployment.applicationArtifactapiRuntimeView \"\" diagram=D21_deployment element=D21_deployment.applicationArtifact parent=D21_deployment.apiRuntimeView\ndeployment D21_deployment.apiRuntimeDeploy \"\" artifact=D21_deployment.applicationArtifact location=D21_deployment.apiRuntime\nview D21_deployment.applicationArtifactworkerRuntimeView \"\" diagram=D21_deployment element=D21_deployment.applicationArtifact parent=D21_deployment.workerRuntimeView\ndeployment D21_deployment.workerRuntimeDeploy \"\" artifact=D21_deployment.applicationArtifact location=D21_deployment.workerRuntime\nartifact D21_deployment.databaseSchema \"Схема базы данных\" fileName=schema.sql\nview D21_deployment.databaseSchemaView \"\" diagram=D21_deployment element=D21_deployment.databaseSchema parent=D21_deployment.postgresView\ndeployment deployment_4c6a967d1fd8 \"\" artifact=D21_deployment.databaseSchema location=D21_deployment.postgres\n\nmanifestation manifestation_5e8e4db2426b \"\" from=D21_deployment.applicationArtifact to=D02_component.auth\nmanifestation manifestation_0ec8984b94a2 \"\" from=D21_deployment.applicationArtifact to=D02_component.model_line\nmanifestation manifestation_6afd10b9770b \"\" from=D21_deployment.applicationArtifact to=D02_component.content\nmanifestation manifestation_7675c7cec6eb \"\" from=D21_deployment.applicationArtifact to=D02_component.pub\nmanifestation manifestation_c6174776c2b5 \"\" from=D21_deployment.applicationArtifact to=D02_component.sup\nmanifestation manifestation_7e45888e7de0 \"\" from=D21_deployment.applicationArtifact to=D02_component.db\nmanifestation manifestation_9bffb80ff134 \"\" from=D21_deployment.applicationArtifact to=D02_component.ext\nmanifestation manifestation_8d6ff5b1512a \"\" from=D21_deployment.applicationArtifact to=D02_component.oz\nmanifestation manifestation_b9727433006e \"\" from=D21_deployment.applicationArtifact to=D02_component.media\n\n\ncomponent D02_component.system \"Среда взаимодействия компонентов\"\nview D02_component.system.view \"\" diagram=D02_component element=D02_component.system\npart D02_component.ui.part Веб-интерфейс classifier=D02_component.ui lower=1 owner=D02_component.system upper=1\npart D02_component.auth.part \"Проверка прав и аудит\" classifier=D02_component.auth lower=1 owner=D02_component.system upper=1\npart D02_component.model_line.part \"Модельный ряд и правила\" classifier=D02_component.model_line lower=1 owner=D02_component.system upper=1\npart D02_component.content.part \"Расчёты и контент\" classifier=D02_component.content lower=1 owner=D02_component.system upper=1\npart D02_component.pub.part \"Публикации и очередь\" classifier=D02_component.pub lower=1 owner=D02_component.system upper=1\npart D02_component.sup.part \"Адаптеры поставщиков\" classifier=D02_component.sup lower=1 owner=D02_component.system upper=1\npart D02_component.db.part \"Репозитории PostgreSQL\" classifier=D02_component.db lower=1 owner=D02_component.system upper=1\npart D02_component.ext.part \"PC4Games и ITPartner\" classifier=D02_component.ext lower=1 owner=D02_component.system upper=1\npart D02_component.oz.part \"Ozon Seller\" classifier=D02_component.oz lower=1 owner=D02_component.system upper=1\npart D02_component.media.part \"Хранилище изображений\" classifier=D02_component.media lower=1 owner=D02_component.system upper=1\ninterface D02_component.edge1.interface \"HTTPS / JSON\"\nport D02_component.ui.port0 \"\" classifier=D02_component.edge1.interface conjugated=true owner=D02_component.ui\ninterfaceUse D02_component.ui.port0.use \"\" direction=required interface=D02_component.edge1.interface owner=D02_component.ui.port0\nview D02_component.ui.port0.view \"\" diagram=D02_component element=D02_component.ui.port0 parent=D02_component.uiView\nport D02_component.model_line.port0 \"\" classifier=D02_component.edge1.interface conjugated=false owner=D02_component.model_line\ninterfaceUse D02_component.model_line.port0.use \"\" direction=provided interface=D02_component.edge1.interface owner=D02_component.model_line.port0\nview D02_component.model_line.port0.view \"\" diagram=D02_component element=D02_component.model_line.port0 parent=D02_component.bomView\ncomponentEnd D02_component.edge1.end0 \"\" order=0 owner=D02_component.edge1 part=D02_component.ui.part port=D02_component.ui.port0\ncomponentEnd D02_component.edge1.end1 \"\" order=1 owner=D02_component.edge1 part=D02_component.model_line.part port=D02_component.model_line.port0\nview D02_component.edge1.view \"\" diagram=D02_component element=D02_component.edge1 from=D02_component.ui.port0.view to=D02_component.model_line.port0.view\ninterface D02_component.edge2.interface \"проверка роли\"\nport D02_component.model_line.port1 \"\" classifier=D02_component.edge2.interface conjugated=true owner=D02_component.model_line\ninterfaceUse D02_component.model_line.port1.use \"\" direction=required interface=D02_component.edge2.interface owner=D02_component.model_line.port1\nview D02_component.model_line.port1.view \"\" diagram=D02_component element=D02_component.model_line.port1 parent=D02_component.bomView\nport D02_component.auth.port1 \"\" classifier=D02_component.edge2.interface conjugated=false owner=D02_component.auth\ninterfaceUse D02_component.auth.port1.use \"\" direction=provided interface=D02_component.edge2.interface owner=D02_component.auth.port1\nview D02_component.auth.port1.view \"\" diagram=D02_component element=D02_component.auth.port1 parent=D02_component.authView\ncomponentEnd D02_component.edge2.end0 \"\" order=0 owner=D02_component.edge2 part=D02_component.model_line.part port=D02_component.model_line.port1\ncomponentEnd D02_component.edge2.end1 \"\" order=1 owner=D02_component.edge2 part=D02_component.auth.part port=D02_component.auth.port1\nview D02_component.edge2.view \"\" diagram=D02_component element=D02_component.edge2 from=D02_component.model_line.port1.view to=D02_component.auth.port1.view\ninterface D02_component.edge3.interface репозитории\nport D02_component.model_line.port2 \"\" classifier=D02_component.edge3.interface conjugated=true owner=D02_component.model_line\ninterfaceUse D02_component.model_line.port2.use \"\" direction=required interface=D02_component.edge3.interface owner=D02_component.model_line.port2\nview D02_component.model_line.port2.view \"\" diagram=D02_component element=D02_component.model_line.port2 parent=D02_component.bomView\nport D02_component.db.port2 \"\" classifier=D02_component.edge3.interface conjugated=false owner=D02_component.db\ninterfaceUse D02_component.db.port2.use \"\" direction=provided interface=D02_component.edge3.interface owner=D02_component.db.port2\nview D02_component.db.port2.view \"\" diagram=D02_component element=D02_component.db.port2 parent=D02_component.dbView\ncomponentEnd D02_component.edge3.end0 \"\" order=0 owner=D02_component.edge3 part=D02_component.model_line.part port=D02_component.model_line.port2\ncomponentEnd D02_component.edge3.end1 \"\" order=1 owner=D02_component.edge3 part=D02_component.db.part port=D02_component.db.port2\nview D02_component.edge3.view \"\" diagram=D02_component element=D02_component.edge3 from=D02_component.model_line.port2.view to=D02_component.db.port2.view\ninterface D02_component.edge4.interface предложения\nport D02_component.model_line.port3 \"\" classifier=D02_component.edge4.interface conjugated=true owner=D02_component.model_line\ninterfaceUse D02_component.model_line.port3.use \"\" direction=required interface=D02_component.edge4.interface owner=D02_component.model_line.port3\nview D02_component.model_line.port3.view \"\" diagram=D02_component element=D02_component.model_line.port3 parent=D02_component.bomView\nport D02_component.sup.port3 \"\" classifier=D02_component.edge4.interface conjugated=false owner=D02_component.sup\ninterfaceUse D02_component.sup.port3.use \"\" direction=provided interface=D02_component.edge4.interface owner=D02_component.sup.port3\nview D02_component.sup.port3.view \"\" diagram=D02_component element=D02_component.sup.port3 parent=D02_component.supView\ncomponentEnd D02_component.edge4.end0 \"\" order=0 owner=D02_component.edge4 part=D02_component.model_line.part port=D02_component.model_line.port3\ncomponentEnd D02_component.edge4.end1 \"\" order=1 owner=D02_component.edge4 part=D02_component.sup.part port=D02_component.sup.port3\nview D02_component.edge4.view \"\" diagram=D02_component element=D02_component.edge4 from=D02_component.model_line.port3.view to=D02_component.sup.port3.view\ninterface D02_component.edge5.interface адаптер\nport D02_component.sup.port4 \"\" classifier=D02_component.edge5.interface conjugated=true owner=D02_component.sup\ninterfaceUse D02_component.sup.port4.use \"\" direction=required interface=D02_component.edge5.interface owner=D02_component.sup.port4\nview D02_component.sup.port4.view \"\" diagram=D02_component element=D02_component.sup.port4 parent=D02_component.supView\nport D02_component.ext.port4 \"\" classifier=D02_component.edge5.interface conjugated=false owner=D02_component.ext\ninterfaceUse D02_component.ext.port4.use \"\" direction=provided interface=D02_component.edge5.interface owner=D02_component.ext.port4\nview D02_component.ext.port4.view \"\" diagram=D02_component element=D02_component.ext.port4 parent=D02_component.extView\ncomponentEnd D02_component.edge5.end0 \"\" order=0 owner=D02_component.edge5 part=D02_component.sup.part port=D02_component.sup.port4\ncomponentEnd D02_component.edge5.end1 \"\" order=1 owner=D02_component.edge5 part=D02_component.ext.part port=D02_component.ext.port4\nview D02_component.edge5.view \"\" diagram=D02_component element=D02_component.edge5 from=D02_component.sup.port4.view to=D02_component.ext.port4.view\ninterface D02_component.edge6.interface \"версия модельного ряда\"\nport D02_component.model_line.port5 \"\" classifier=D02_component.edge6.interface conjugated=true owner=D02_component.model_line\ninterfaceUse D02_component.model_line.port5.use \"\" direction=required interface=D02_component.edge6.interface owner=D02_component.model_line.port5\nview D02_component.model_line.port5.view \"\" diagram=D02_component element=D02_component.model_line.port5 parent=D02_component.bomView\nport D02_component.content.port5 \"\" classifier=D02_component.edge6.interface conjugated=false owner=D02_component.content\ninterfaceUse D02_component.content.port5.use \"\" direction=provided interface=D02_component.edge6.interface owner=D02_component.content.port5\nview D02_component.content.port5.view \"\" diagram=D02_component element=D02_component.content.port5 parent=D02_component.contentView\ncomponentEnd D02_component.edge6.end0 \"\" order=0 owner=D02_component.edge6 part=D02_component.model_line.part port=D02_component.model_line.port5\ncomponentEnd D02_component.edge6.end1 \"\" order=1 owner=D02_component.edge6 part=D02_component.content.part port=D02_component.content.port5\nview D02_component.edge6.view \"\" diagram=D02_component element=D02_component.edge6 from=D02_component.model_line.port5.view to=D02_component.content.port5.view\ninterface D02_component.edge7.interface \"версия карточки\"\nport D02_component.content.port6 \"\" classifier=D02_component.edge7.interface conjugated=true owner=D02_component.content\ninterfaceUse D02_component.content.port6.use \"\" direction=required interface=D02_component.edge7.interface owner=D02_component.content.port6\nview D02_component.content.port6.view \"\" diagram=D02_component element=D02_component.content.port6 parent=D02_component.contentView\nport D02_component.pub.port6 \"\" classifier=D02_component.edge7.interface conjugated=false owner=D02_component.pub\ninterfaceUse D02_component.pub.port6.use \"\" direction=provided interface=D02_component.edge7.interface owner=D02_component.pub.port6\nview D02_component.pub.port6.view \"\" diagram=D02_component element=D02_component.pub.port6 parent=D02_component.pubView\ncomponentEnd D02_component.edge7.end0 \"\" order=0 owner=D02_component.edge7 part=D02_component.content.part port=D02_component.content.port6\ncomponentEnd D02_component.edge7.end1 \"\" order=1 owner=D02_component.edge7 part=D02_component.pub.part port=D02_component.pub.port6\nview D02_component.edge7.view \"\" diagram=D02_component element=D02_component.edge7 from=D02_component.content.port6.view to=D02_component.pub.port6.view\ninterface D02_component.edge8.interface \"HTTPS / JSON\"\nport D02_component.pub.port7 \"\" classifier=D02_component.edge8.interface conjugated=true owner=D02_component.pub\ninterfaceUse D02_component.pub.port7.use \"\" direction=required interface=D02_component.edge8.interface owner=D02_component.pub.port7\nview D02_component.pub.port7.view \"\" diagram=D02_component element=D02_component.pub.port7 parent=D02_component.pubView\nport D02_component.oz.port7 \"\" classifier=D02_component.edge8.interface conjugated=false owner=D02_component.oz\ninterfaceUse D02_component.oz.port7.use \"\" direction=provided interface=D02_component.edge8.interface owner=D02_component.oz.port7\nview D02_component.oz.port7.view \"\" diagram=D02_component element=D02_component.oz.port7 parent=D02_component.ozView\ncomponentEnd D02_component.edge8.end0 \"\" order=0 owner=D02_component.edge8 part=D02_component.pub.part port=D02_component.pub.port7\ncomponentEnd D02_component.edge8.end1 \"\" order=1 owner=D02_component.edge8 part=D02_component.oz.part port=D02_component.oz.port7\nview D02_component.edge8.view \"\" diagram=D02_component element=D02_component.edge8 from=D02_component.pub.port7.view to=D02_component.oz.port7.view\ninterface D02_component.edge9.interface файлы\nport D02_component.content.port8 \"\" classifier=D02_component.edge9.interface conjugated=true owner=D02_component.content\ninterfaceUse D02_component.content.port8.use \"\" direction=required interface=D02_component.edge9.interface owner=D02_component.content.port8\nview D02_component.content.port8.view \"\" diagram=D02_component element=D02_component.content.port8 parent=D02_component.contentView\nport D02_component.media.port8 \"\" classifier=D02_component.edge9.interface conjugated=false owner=D02_component.media\ninterfaceUse D02_component.media.port8.use \"\" direction=provided interface=D02_component.edge9.interface owner=D02_component.media.port8\nview D02_component.media.port8.view \"\" diagram=D02_component element=D02_component.media.port8 parent=D02_component.mediaView\ncomponentEnd D02_component.edge9.end0 \"\" order=0 owner=D02_component.edge9 part=D02_component.content.part port=D02_component.content.port8\ncomponentEnd D02_component.edge9.end1 \"\" order=1 owner=D02_component.edge9 part=D02_component.media.part port=D02_component.media.port8\nview D02_component.edge9.view \"\" diagram=D02_component element=D02_component.edge9 from=D02_component.content.port8.view to=D02_component.media.port8.view\n",
   "layout": {
     "nodes": {
       "D02_component.uiView": {
-        "x": 30,
-        "y": 280,
-        "width": 270,
-        "height": 115
+        "x": 110,
+        "y": 120,
+        "width": 370,
+        "height": 165
       },
       "D02_component.authView": {
-        "x": 385,
-        "y": 35,
-        "width": 280,
-        "height": 110
+        "x": 680,
+        "y": 120,
+        "width": 370,
+        "height": 165
       },
       "D02_component.bomView": {
-        "x": 385,
-        "y": 235,
-        "width": 280,
-        "height": 110
+        "x": 110,
+        "y": 490,
+        "width": 370,
+        "height": 165
       },
       "D02_component.contentView": {
-        "x": 385,
-        "y": 480,
-        "width": 280,
-        "height": 110
+        "x": 110,
+        "y": 860,
+        "width": 370,
+        "height": 165
       },
       "D02_component.pubView": {
-        "x": 800,
-        "y": 480,
-        "width": 280,
-        "height": 110
+        "x": 680,
+        "y": 860,
+        "width": 370,
+        "height": 165
       },
       "D02_component.supView": {
-        "x": 800,
-        "y": 235,
-        "width": 280,
-        "height": 110
+        "x": 680,
+        "y": 490,
+        "width": 370,
+        "height": 165
       },
       "D02_component.dbView": {
-        "x": 780,
-        "y": 35,
-        "width": 310,
-        "height": 110
+        "x": 1250,
+        "y": 120,
+        "width": 370,
+        "height": 165
       },
       "D02_component.extView": {
-        "x": 1160,
-        "y": 235,
-        "width": 290,
-        "height": 110
+        "x": 1250,
+        "y": 490,
+        "width": 370,
+        "height": 165
       },
       "D02_component.ozView": {
-        "x": 1160,
-        "y": 480,
-        "width": 290,
-        "height": 110
+        "x": 1250,
+        "y": 860,
+        "width": 370,
+        "height": 165
       },
       "D02_component.mediaView": {
-        "x": 785,
-        "y": 700,
-        "width": 310,
-        "height": 110
-      },
-      "view_b5420acb243f": {
-        "x": 580,
-        "y": 440,
-        "width": 210,
-        "height": 140
-      },
-      "view_79273861f370": {
-        "x": 830,
-        "y": 440,
-        "width": 210,
-        "height": 140
-      },
-      "view_ca5576082fa0": {
-        "x": 80,
-        "y": 620,
-        "width": 210,
-        "height": 140
-      },
-      "view_8fbcbd00f7aa": {
-        "x": 330,
-        "y": 620,
-        "width": 210,
-        "height": 140
-      },
-      "view_fb8c65d0f6ee": {
-        "x": 580,
-        "y": 620,
-        "width": 210,
-        "height": 140
-      },
-      "view_c00462ee37ca": {
-        "x": 830,
-        "y": 620,
-        "width": 210,
-        "height": 140
-      },
-      "view_9b89141a78db": {
-        "x": 80,
-        "y": 800,
-        "width": 210,
-        "height": 140
-      },
-      "view_d4e0dc14733a": {
-        "x": 330,
-        "y": 800,
-        "width": 210,
-        "height": 140
-      },
-      "view_13a8739e6f6c": {
-        "x": 580,
-        "y": 800,
-        "width": 210,
-        "height": 140
+        "x": 110,
+        "y": 1230,
+        "width": 370,
+        "height": 165
       },
       "annotation_91f2d1882120View": {
         "x": 30,
@@ -1390,15 +2238,15 @@
         "height": 40
       },
       "D06_activity.bView": {
-        "x": 460,
+        "x": 390,
         "y": 90,
-        "width": 340,
+        "width": 480,
         "height": 90
       },
       "D06_activity.cView": {
-        "x": 460,
+        "x": 390,
         "y": 230,
-        "width": 340,
+        "width": 480,
         "height": 90
       },
       "D06_activity.dView": {
@@ -1408,21 +2256,21 @@
         "height": 150
       },
       "D06_activity.eView": {
-        "x": 460,
+        "x": 390,
         "y": 610,
-        "width": 340,
+        "width": 480,
         "height": 100
       },
       "D06_activity.fView": {
-        "x": 460,
+        "x": 390,
         "y": 780,
-        "width": 340,
+        "width": 480,
         "height": 95
       },
       "D06_activity.gView": {
-        "x": 460,
+        "x": 390,
         "y": 950,
-        "width": 340,
+        "width": 480,
         "height": 95
       },
       "D06_activity.zView": {
@@ -1525,7 +2373,7 @@
         "x": 810,
         "y": 650,
         "width": 400,
-        "height": 360
+        "height": 440
       },
       "D21_deployment.mediaView": {
         "x": 1320,
@@ -1603,7 +2451,7 @@
         "x": 840,
         "y": 820,
         "width": 335,
-        "height": 150
+        "height": 235
       },
       "D21_deployment.applicationArtifactapiRuntimeView": {
         "x": 860,
@@ -1618,159 +2466,192 @@
         "height": 85
       },
       "D21_deployment.databaseSchemaView": {
-        "x": 1260,
+        "x": 860,
         "y": 950,
-        "width": 300,
-        "height": 100
+        "width": 290,
+        "height": 85
       },
-      "view_dfda2da014ee": {
-        "x": 80,
-        "y": 980,
-        "width": 210,
-        "height": 140
-      },
-      "annotation_f08dfe607a19View": {
+      "D02_component.system.view": {
         "x": 30,
-        "y": 1180,
-        "width": 1100,
-        "height": 95
+        "y": 30,
+        "width": 1670,
+        "height": 1440
+      },
+      "D02_component.ui.port0.view": {
+        "x": 285,
+        "y": 275,
+        "width": 20,
+        "height": 20
+      },
+      "D02_component.model_line.port0.view": {
+        "x": 285,
+        "y": 480,
+        "width": 20,
+        "height": 20
+      },
+      "D02_component.edge1.view": {
+        "x": 50,
+        "y": 50,
+        "width": 500,
+        "height": 300
+      },
+      "D02_component.model_line.port1.view": {
+        "x": 470,
+        "y": 529.5,
+        "width": 20,
+        "height": 20
+      },
+      "D02_component.auth.port1.view": {
+        "x": 670,
+        "y": 159.5,
+        "width": 20,
+        "height": 20
+      },
+      "D02_component.edge2.view": {
+        "x": 50,
+        "y": 50,
+        "width": 500,
+        "height": 300
+      },
+      "D02_component.model_line.port2.view": {
+        "x": 470,
+        "y": 570.75,
+        "width": 20,
+        "height": 20
+      },
+      "D02_component.db.port2.view": {
+        "x": 1240,
+        "y": 159.5,
+        "width": 20,
+        "height": 20
+      },
+      "D02_component.edge3.view": {
+        "x": 50,
+        "y": 50,
+        "width": 500,
+        "height": 300
+      },
+      "D02_component.model_line.port3.view": {
+        "x": 470,
+        "y": 612,
+        "width": 20,
+        "height": 20
+      },
+      "D02_component.sup.port3.view": {
+        "x": 670,
+        "y": 529.5,
+        "width": 20,
+        "height": 20
+      },
+      "D02_component.edge4.view": {
+        "x": 50,
+        "y": 50,
+        "width": 500,
+        "height": 300
+      },
+      "D02_component.sup.port4.view": {
+        "x": 1040,
+        "y": 529.5,
+        "width": 20,
+        "height": 20
+      },
+      "D02_component.ext.port4.view": {
+        "x": 1240,
+        "y": 529.5,
+        "width": 20,
+        "height": 20
+      },
+      "D02_component.edge5.view": {
+        "x": 50,
+        "y": 50,
+        "width": 500,
+        "height": 300
+      },
+      "D02_component.model_line.port5.view": {
+        "x": 285,
+        "y": 645,
+        "width": 20,
+        "height": 20
+      },
+      "D02_component.content.port5.view": {
+        "x": 285,
+        "y": 850,
+        "width": 20,
+        "height": 20
+      },
+      "D02_component.edge6.view": {
+        "x": 50,
+        "y": 50,
+        "width": 500,
+        "height": 300
+      },
+      "D02_component.content.port6.view": {
+        "x": 470,
+        "y": 899.5,
+        "width": 20,
+        "height": 20
+      },
+      "D02_component.pub.port6.view": {
+        "x": 670,
+        "y": 899.5,
+        "width": 20,
+        "height": 20
+      },
+      "D02_component.edge7.view": {
+        "x": 50,
+        "y": 50,
+        "width": 500,
+        "height": 300
+      },
+      "D02_component.pub.port7.view": {
+        "x": 1040,
+        "y": 899.5,
+        "width": 20,
+        "height": 20
+      },
+      "D02_component.oz.port7.view": {
+        "x": 1240,
+        "y": 899.5,
+        "width": 20,
+        "height": 20
+      },
+      "D02_component.edge8.view": {
+        "x": 50,
+        "y": 50,
+        "width": 500,
+        "height": 300
+      },
+      "D02_component.content.port8.view": {
+        "x": 285,
+        "y": 1015,
+        "width": 20,
+        "height": 20
+      },
+      "D02_component.media.port8.view": {
+        "x": 285,
+        "y": 1220,
+        "width": 20,
+        "height": 20
+      },
+      "D02_component.edge9.view": {
+        "x": 50,
+        "y": 50,
+        "width": 500,
+        "height": 300
       }
     },
     "edges": {
-      "view_b5420acb243f": {
-        "bends": [
-          {
-            "x": 342.5,
-            "y": 337.5
-          },
-          {
-            "x": 342.5,
-            "y": 290
-          }
-        ]
-      },
-      "view_79273861f370": {
-        "bends": [
-          {
-            "x": 525,
-            "y": 190
-          },
-          {
-            "x": 525,
-            "y": 190
-          }
-        ]
-      },
-      "view_ca5576082fa0": {
-        "bends": [
-          {
-            "x": 722.5,
-            "y": 290
-          },
-          {
-            "x": 722.5,
-            "y": 90
-          }
-        ]
-      },
-      "view_8fbcbd00f7aa": {
-        "bends": [
-          {
-            "x": 732.5,
-            "y": 290
-          },
-          {
-            "x": 732.5,
-            "y": 290
-          }
-        ]
-      },
-      "view_fb8c65d0f6ee": {
-        "bends": [
-          {
-            "x": 1120,
-            "y": 290
-          },
-          {
-            "x": 1120,
-            "y": 290
-          }
-        ]
-      },
-      "view_c00462ee37ca": {
-        "bends": [
-          {
-            "x": 525,
-            "y": 412.5
-          },
-          {
-            "x": 525,
-            "y": 412.5
-          }
-        ]
-      },
-      "view_9b89141a78db": {
-        "bends": [
-          {
-            "x": 732.5,
-            "y": 535
-          },
-          {
-            "x": 732.5,
-            "y": 535
-          }
-        ]
-      },
-      "view_d4e0dc14733a": {
-        "bends": [
-          {
-            "x": 1120,
-            "y": 535
-          },
-          {
-            "x": 1120,
-            "y": 535
-          }
-        ]
-      },
-      "view_13a8739e6f6c": {
-        "bends": [
-          {
-            "x": 725,
-            "y": 535
-          },
-          {
-            "x": 725,
-            "y": 755
-          }
-        ]
+      "view_31c1c0441ecc": {
+        "bends": []
       },
       "view_5174eb41b61c": {
-        "bends": [
-          {
-            "x": 630,
-            "y": 72.5
-          },
-          {
-            "x": 630,
-            "y": 72.5
-          }
-        ]
+        "bends": []
       },
       "view_3064b0cb5fa4": {
         "bends": []
       },
       "view_971da64e1d92": {
-        "bends": [
-          {
-            "x": 630,
-            "y": 350
-          },
-          {
-            "x": 630,
-            "y": 350
-          }
-        ]
+        "bends": []
       },
       "view_b213770194b9": {
         "label": {
@@ -1805,64 +2686,217 @@
           "x": 700,
           "y": 540
         },
-        "bends": [
-          {
-            "x": 630,
-            "y": 570
-          },
-          {
-            "x": 630,
-            "y": 570
-          }
-        ]
+        "bends": []
       },
       "view_bbd799c5b204": {
-        "bends": [
-          {
-            "x": 630,
-            "y": 745
-          },
-          {
-            "x": 630,
-            "y": 745
-          }
-        ]
+        "bends": []
       },
       "view_1388ae266ce3": {
-        "bends": [
-          {
-            "x": 630,
-            "y": 912.5
-          },
-          {
-            "x": 630,
-            "y": 912.5
-          }
-        ]
+        "bends": []
       },
       "view_9ea3a614b655": {
-        "bends": [
-          {
-            "x": 630,
-            "y": 1077.5
-          },
-          {
-            "x": 630,
-            "y": 1077.5
-          }
-        ]
+        "bends": []
       },
       "view_fcfd980b20bf": {
         "label": {
-          "x": 360,
-          "y": 245
-        }
+          "x": 346,
+          "y": 173
+        },
+        "bends": [
+          {
+            "x": 382,
+            "y": 265
+          },
+          {
+            "x": 382,
+            "y": 275
+          }
+        ]
       },
       "view_9b50ac98dbed": {
         "label": {
-          "x": 740,
-          "y": 250
-        }
+          "x": 770,
+          "y": 223
+        },
+        "bends": []
+      },
+      "view_f5adeda91ca4": {
+        "label": {
+          "x": 1010,
+          "y": 582.65
+        },
+        "bends": [
+          {
+            "x": 1080,
+            "y": 622
+          },
+          {
+            "x": 1010,
+            "y": 622
+          }
+        ]
+      },
+      "view_e2d9515b0979": {
+        "label": {
+          "x": 1701,
+          "y": 263
+        },
+        "bends": [
+          {
+            "x": 1782,
+            "y": 275
+          },
+          {
+            "x": 1782,
+            "y": 240
+          }
+        ]
+      },
+      "view_0cb61ea2f49a": {
+        "label": {
+          "x": 1496,
+          "y": 908
+        },
+        "bends": [
+          {
+            "x": 1782,
+            "y": 870
+          },
+          {
+            "x": 1782,
+            "y": 745
+          }
+        ]
+      },
+      "view_a2cc3163d377": {
+        "label": {
+          "x": 1420,
+          "y": 610
+        },
+        "bends": [
+          {
+            "x": 1360,
+            "y": 622
+          },
+          {
+            "x": 1480,
+            "y": 622
+          }
+        ]
+      },
+      "view_6b32eaa2c339": {
+        "label": {
+          "x": 1730,
+          "y": 670.5
+        },
+        "bends": [
+          {
+            "x": 1760,
+            "y": 742.5
+          },
+          {
+            "x": 1760,
+            "y": 810
+          }
+        ]
+      },
+      "D02_component.edge1.view": {
+        "label": {
+          "x": 189.5,
+          "y": 406.5
+        },
+        "bends": []
+      },
+      "D02_component.edge2.view": {
+        "label": {
+          "x": 433.5,
+          "y": 373.5
+        },
+        "bends": [
+          {
+            "x": 540,
+            "y": 539.5
+          },
+          {
+            "x": 540,
+            "y": 169.5
+          }
+        ]
+      },
+      "D02_component.edge3.view": {
+        "label": {
+          "x": 887.5,
+          "y": 412
+        },
+        "bends": [
+          {
+            "x": 585,
+            "y": 580.75
+          },
+          {
+            "x": 585,
+            "y": 350
+          },
+          {
+            "x": 1190,
+            "y": 350
+          },
+          {
+            "x": 1190,
+            "y": 169.5
+          }
+        ]
+      },
+      "D02_component.edge4.view": {
+        "label": {
+          "x": 574.5,
+          "y": 684
+        },
+        "bends": [
+          {
+            "x": 615,
+            "y": 622
+          },
+          {
+            "x": 615,
+            "y": 539.5
+          }
+        ]
+      },
+      "D02_component.edge5.view": {
+        "label": {
+          "x": 1150,
+          "y": 515.5
+        },
+        "bends": []
+      },
+      "D02_component.edge6.view": {
+        "label": {
+          "x": 164,
+          "y": 790.5
+        },
+        "bends": []
+      },
+      "D02_component.edge7.view": {
+        "label": {
+          "x": 580,
+          "y": 845.5
+        },
+        "bends": []
+      },
+      "D02_component.edge8.view": {
+        "label": {
+          "x": 1150,
+          "y": 885.5
+        },
+        "bends": []
+      },
+      "D02_component.edge9.view": {
+        "label": {
+          "x": 229.5,
+          "y": 1146.5
+        },
+        "bends": []
       }
     }
   }

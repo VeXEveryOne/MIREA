@@ -21,13 +21,18 @@ function distanceToRoute(x:number,y:number,points:any[]){
   best=Math.min(best,Math.hypot(x-a.x-t*dx,y-a.y-t*dy));
  }return best;
 }
-export async function placeLabels(doc:any){
+function lineIntersectsBox(a:any,b:any,r:any){
+ if(a.x===b.x)return a.x>r.x-3&&a.x<r.x+r.width+3&&Math.max(a.y,b.y)>r.y-3&&Math.min(a.y,b.y)<r.y+r.height+3;
+ if(a.y===b.y)return a.y>r.y-3&&a.y<r.y+r.height+3&&Math.max(a.x,b.x)>r.x-3&&Math.min(a.x,b.x)<r.x+r.width+3;
+ return false;
+}
+export async function placeLabels(doc:any,options:any={}){
  // Native label anchors are mutable separately from the flows. Reject all
  // box/label collisions instead of masking block titles with enlarged labels.
  for(const sheetId of ['context','decomposition']){
   const local=sheetModel(doc.model,sheetId),frame=doc.layout.frames[sheetId];
   const obstacles=local.nodes.filter((n:any)=>n.kind==='function').map((n:any)=>({...doc.layout.positions[n.id],...doc.layout.sizes[n.id],id:n.id}));
-  const edges=local.edges.filter((e:any)=>!e.properties.branchOf);
+  const edges=local.edges.filter((e:any)=>!e.properties.branchOf),routes=local.edges.map((e:any)=>arrowPoints(doc,e.id));
   const labels=[];
   for(const e of edges){
    const style=doc.layout.textStyles[e.id],lines=await wrap(displayLabel(doc,e),style.width-12,style.fontSize);
@@ -40,12 +45,14 @@ export async function placeLabels(doc:any){
    const {e,width,height}=label,original=doc.layout.arrows[e.id].label,points=arrowPoints(doc,e.id);
    let best:any=null,bestScore=Infinity;
    const candidates=[original];
-   for(let dx=-360;dx<=360;dx+=20)for(let dy=-340;dy<=340;dy+=20)candidates.push({x:original.x+dx,y:original.y+dy});
+   for(let dx=-(options.avoidRoutes?800:360);dx<=(options.avoidRoutes?800:360);dx+=20)for(let dy=-(options.avoidRoutes?800:340);dy<=(options.avoidRoutes?800:340);dy+=20)candidates.push({x:original.x+dx,y:original.y+dy});
    for(const p of candidates){
     const box={x:p.x-width/2,y:p.y-height,width,height};
     if(box.x<5||box.x+width>frame.width-5||box.y<12||box.y+height>frame.height-8||obstacles.some((o:any)=>intersects(box,o)))continue;
+    if(options.avoidRoutes&&routes.some((points,j)=>local.edges[j].id!==e.id&&points.slice(1).some((q:any,i:number)=>lineIntersectsBox(points[i],q,box))))continue;
     const routeDistance=distanceToRoute(p.x,p.y-height/2,points);
-    const score=Math.hypot(p.x-original.x,p.y-original.y)+routeDistance*2;
+    const ownCut=options.avoidRoutes&&points.slice(1).some((q:any,i:number)=>lineIntersectsBox(points[i],q,box));
+    const score=Math.hypot(p.x-original.x,p.y-original.y)+routeDistance*(options.avoidRoutes?4:2)+(ownCut?180:0);
     if(score<bestScore){bestScore=score;best={box,point:p};}
    }
    if(!best)throw Error(`No non-overlapping label position for ${sheetId}:${e.id}`);

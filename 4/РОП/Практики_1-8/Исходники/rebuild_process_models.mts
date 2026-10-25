@@ -616,7 +616,7 @@ await fs.writeFile(manifestPath, JSON.stringify(manifest, null, 2), "utf8");
 
 const digest = (value: string | Buffer) =>
   createHash("sha256").update(value).digest("hex");
-const registryPath = path.join(canonical, "Реестр_38_рисунков.json");
+const registryPath = path.join(canonical, "Реестр_рисунков.json");
 const registry = JSON.parse(await fs.readFile(registryPath, "utf8"));
 for (const item of registry.figures) {
   const fileName = path.basename(item.file ?? "");

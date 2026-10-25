@@ -3,52 +3,19 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {ROOT,MODEL_DIR,EXPORT_DIR,runtimeModule,omniModule} from './runtime.mjs';
 import {escape,font,wrap,measure,intersects} from './print_text.mts';
+import {route,auditRoutes,hits,segments as routeSegments} from './route_print.mts';
 const {decodeProject,encodeProject}=await omniModule('src/persistence/project.ts');
 const {validateBpmnData}=await omniModule('src/notations/bpmn/validation.ts');
+const {patchUnified}=await omniModule('src/language/unified.ts');
+const {bpmnTextModel}=await omniModule('src/notations/bpmn/text.ts');
 const {default:sharp}=await runtimeModule('sharp');
 const svgDir=path.join(ROOT,'Экспорт','SVG');await fs.mkdir(svgDir,{recursive:true});
 const audit:any[]=[];
-function port(point:any,b:any){
- const sides=[{side:'left',distance:Math.abs(point.x-b.x)},{side:'right',distance:Math.abs(point.x-b.x-b.width)},{side:'top',distance:Math.abs(point.y-b.y)},{side:'bottom',distance:Math.abs(point.y-b.y-b.height)}];
- sides.sort((a,b)=>a.distance-b.distance);return {side:sides[0].side,offset:sides[0].side==='left'||sides[0].side==='right'?(point.y-b.y)/b.height:(point.x-b.x)/b.width};
-}
 function attach(b:any,p:any){
  if(p.side==='left')return {x:b.x,y:b.y+b.height*p.offset,nx:-1,ny:0};
  if(p.side==='right')return {x:b.x+b.width,y:b.y+b.height*p.offset,nx:1,ny:0};
  if(p.side==='top')return {x:b.x+b.width*p.offset,y:b.y,nx:0,ny:-1};
  return {x:b.x+b.width*p.offset,y:b.y+b.height,nx:0,ny:1};
-}
-function segmentHits(a:any,b:any,r:any){
- const inset=.01;
- if(Math.abs(a.x-b.x)<inset)return a.x>r.x+inset&&a.x<r.x+r.width-inset&&Math.max(a.y,b.y)>r.y+inset&&Math.min(a.y,b.y)<r.y+r.height-inset;
- if(Math.abs(a.y-b.y)<inset)return a.y>r.y+inset&&a.y<r.y+r.height-inset&&Math.max(a.x,b.x)>r.x+inset&&Math.min(a.x,b.x)<r.x+r.width-inset;
- throw Error('Expected orthogonal BPMN segment');
-}
-function orthogonal(a:any,b:any,boxes:any[]){
- const pad=12,escape=26,start={x:a.x+a.nx*escape,y:a.y+a.ny*escape},end={x:b.x+b.nx*escape,y:b.y+b.ny*escape};
- const obstacles=boxes.map(r=>({x:r.x-pad,y:r.y-pad,width:r.width+pad*2,height:r.height+pad*2}));
- const xs=[...new Set([start.x,end.x,...obstacles.flatMap(r=>[r.x-1,r.x+r.width+1])])].sort((a,b)=>a-b);
- const ys=[...new Set([start.y,end.y,...obstacles.flatMap(r=>[r.y-1,r.y+r.height+1])])].sort((a,b)=>a-b);
- const key=(x:number,y:number,dir:number)=>`${x},${y},${dir}`,sx=xs.indexOf(start.x),sy=ys.indexOf(start.y),ex=xs.indexOf(end.x),ey=ys.indexOf(end.y);
- const queue:any[]=[{x:sx,y:sy,dir:a.nx?0:1,cost:0}],scores=new Map<string,number>(),previous=new Map<string,string>();
- scores.set(key(sx,sy,a.nx?0:1),0);let terminal:string|undefined;
- while(queue.length){
-  queue.sort((a,b)=>b.cost-a.cost);const cur=queue.pop(),ck=key(cur.x,cur.y,cur.dir);
-  if(cur.cost!==scores.get(ck))continue;
-  if(cur.x===ex&&cur.y===ey){terminal=ck;break;}
-  for(const [dx,dy,dir] of [[1,0,0],[-1,0,0],[0,1,1],[0,-1,1]]){
-   const x=cur.x+dx,y=cur.y+dy;if(x<0||x>=xs.length||y<0||y>=ys.length)continue;
-   const p={x:xs[cur.x],y:ys[cur.y]},q={x:xs[x],y:ys[y]};
-   if(obstacles.some(r=>segmentHits(p,q,r)))continue;
-   const nk=key(x,y,dir),cost=cur.cost+Math.hypot(q.x-p.x,q.y-p.y)+(dir===cur.dir?0:35);
-   if(cost<(scores.get(nk)??Infinity)){scores.set(nk,cost);previous.set(nk,ck);queue.push({x,y,dir,cost});}
-  }
- }
- if(!terminal)throw Error('No obstacle-free BPMN route');
- const points:any[]=[];
- for(let k:string|undefined=terminal;k;k=previous.get(k)){const [x,y]=k.split(',').map(Number);points.unshift({x:xs[x],y:ys[y]});}
- points.unshift({x:a.x,y:a.y});points.push({x:b.x,y:b.y});
- return points.filter((p,i)=>i===0||i===points.length-1||!((points[i-1].x===p.x&&p.x===points[i+1].x)||(points[i-1].y===p.y&&p.y===points[i+1].y)));
 }
 for(const [file,planes] of [
  ['ПР1_BPMN_AS_IS.omni',[['Plane_Main',3],['Plane_Preparation',4]]],
@@ -61,9 +28,26 @@ for(const [file,planes] of [
   const ref='object:'+serial++,object={type,properties};all[ref]=object;doc.layout.objects[ref]=object;return {ref};
  };
  for(const [planeId,number] of planes){
+  const plane=props('id:'+planeId);
+  if(planeId==='Plane_Publication'&&!plane.planeElement.some((r:any)=>all[r.ref].type==='bpmndi:BPMNShape'&&all[r.ref].properties.bpmnElement.ref==='id:Ucoms')){
+   const boxes=plane.planeElement.map((r:any)=>all[r.ref]).filter((o:any)=>o.type==='bpmndi:BPMNShape').map((o:any)=>props(o.properties.bounds));
+   const x=Math.min(...boxes.map((b:any)=>b.x))-110,y=Math.min(...boxes.map((b:any)=>b.y))-100,right=Math.max(...boxes.map((b:any)=>b.x+b.width))+70,bottom=Math.max(...boxes.map((b:any)=>b.y+b.height))+130;
+   plane.planeElement.unshift(add('bpmndi:BPMNShape',{id:'Pool_Publication_di',bpmnElement:{ref:'id:Ucoms'},isHorizontal:true,bounds:add('dc:Bounds',{x,y,width:right-x,height:bottom-y})}));
+  }
   const elements=props('id:'+planeId).planeElement.map((r:any)=>all[r.ref]);
   const shapes=elements.filter((o:any)=>o.type==='bpmndi:BPMNShape').map((o:any)=>({di:o.properties,b:props(o.properties.bounds),model:all[o.properties.bpmnElement.ref]}));
   const edges=elements.filter((o:any)=>o.type==='bpmndi:BPMNEdge').map((o:any)=>({di:o.properties,points:o.properties.waypoint.map(props),model:all[o.properties.bpmnElement.ref]}));
+  const leaves=shapes.filter((s:any)=>!['bpmn:Lane','bpmn:Participant'].includes(s.model.type));
+  for(const merge of leaves.filter((s:any)=>s.model.properties.id.startsWith('Merge_'))){
+   const target=leaves.find((s:any)=>s.model.properties.id===merge.model.properties.id.slice(6));
+   if(leaves.some((s:any)=>s!==merge&&intersects(merge.b,s.b,12))){
+    const moved={...target.b,x:target.b.x+160},gate={...merge.b,x:merge.b.x+160};
+    if(!leaves.some((s:any)=>s!==target&&s!==merge&&(intersects(moved,s.b,12)||intersects(gate,s.b,12)))){Object.assign(target.b,moved);Object.assign(merge.b,gate);continue;}
+    const candidates=[{x:target.b.x+target.b.width+60,y:target.b.y+target.b.height/2-25},{x:target.b.x+target.b.width/2-25,y:target.b.y+target.b.height+20},{x:target.b.x+target.b.width/2-25,y:target.b.y-75}];
+    const b=candidates.find(b=>!leaves.some((s:any)=>s!==merge&&intersects({...b,width:50,height:50},s.b,12)));
+    if(!b)throw Error('No merge space '+merge.model.properties.id);Object.assign(merge.b,b);
+   }
+  }
   const old=new Map(shapes.map((s:any)=>[s.model.properties.id,{...s.b}]));
   for(const s of shapes){
    if(s.model.type.endsWith('Task')||s.model.type==='bpmn:SubProcess'){
@@ -83,21 +67,39 @@ for(const [file,planes] of [
    if(lanes.length&&containing.length!==1)throw Error(`Ambiguous lane: ${file}:${node.model.properties.id}`);
    if(containing.length)containing[0].model.properties.flowNodeRef.push(node.di.bpmnElement);
   }
+  // Assign every independent connection its own attachment before routing.
+  const ports=new Map<any,any[]>();
   for(const e of edges){
-   const source=shapes.find((s:any)=>s.model.properties.id===e.model.properties.sourceRef.ref.slice(3)),target=shapes.find((s:any)=>s.model.properties.id===e.model.properties.targetRef.ref.slice(3));
-   if(!source||!target)throw Error('Flow endpoint missing in DI');
-   const a=attach(source.b,port(e.points[0],old.get(source.model.properties.id))),b=attach(target.b,port(e.points.at(-1),old.get(target.model.properties.id)));
-   const candidate=e.points.map((p:any)=>({...p})),first=candidate[0],last=candidate.at(-1);
-   if(candidate.length>2){if(candidate[1].x===first.x)candidate[1].x=a.x;else candidate[1].y=a.y;if(candidate.at(-2).x===last.x)candidate.at(-2).x=b.x;else candidate.at(-2).y=b.y;}
-   candidate[0]={x:a.x,y:a.y};candidate[candidate.length-1]={x:b.x,y:b.y};
-   const blockers=shapes.filter((s:any)=>!['bpmn:Lane','bpmn:Participant'].includes(s.model.type)&&s!==source&&s!==target).map((s:any)=>s.b);
-   const diagonal=candidate.some((p:any,i:number)=>i&&Math.abs(p.x-candidate[i-1].x)>.01&&Math.abs(p.y-candidate[i-1].y)>.01);
-   const collision=diagonal||candidate.some((p:any,i:number)=>i&&blockers.some((r:any)=>segmentHits(candidate[i-1],p,r)));
-   e.points=collision?orthogonal(a,b,shapes.filter((s:any)=>!['bpmn:Lane','bpmn:Participant'].includes(s.model.type)).map((s:any)=>s.b)):candidate;
-   e.di.waypoint=e.points.map((p:any,i:number)=>{
-    const ref=e.di.waypoint[i];if(ref){Object.assign(props(ref),p);return ref;}return add('dc:Point',p);
-   });
+   e.source=shapes.find((s:any)=>s.model.properties.id===e.model.properties.sourceRef.ref.slice(3));
+   e.target=shapes.find((s:any)=>s.model.properties.id===e.model.properties.targetRef.ref.slice(3));
+   for(const [node,other,end] of [[e.source,e.target,'from'],[e.target,e.source,'to']]){
+    if(!node||!other)throw Error('Flow endpoint missing in DI');
+    const dx=other.b.x+other.b.width/2-node.b.x-node.b.width/2,dy=other.b.y+other.b.height/2-node.b.y-node.b.height/2;
+    const vertical=e.model.type==='bpmn:MessageFlow'||Math.abs(dx)<90;
+    const side=vertical?(dy>0?'bottom':'top'):(dx>0?'right':'left');
+    const items=ports.get(node)??[];items.push({e,end,other,side,dx,dy});ports.set(node,items);
+   }
   }
+  for(const [node,items] of ports){
+   if(node.model.type.includes('Gateway')||node.model.type.endsWith('Event')){
+    const available=new Set(['left','right','top','bottom']);
+    items.sort((a,b)=>Number(b.e.source===node)-Number(a.e.source===node));
+    for(const item of items){const ranked=[...available].sort((a,b)=>{const av={left:-item.dx,right:item.dx,top:-item.dy,bottom:item.dy}[a],bv={left:-item.dx,right:item.dx,top:-item.dy,bottom:item.dy}[b];return bv-av;});if(!ranked.length)throw Error('Too many event/gateway ports');item.side=ranked[0];available.delete(item.side);item.e[item.end]=attach(node.b,{side:item.side,offset:.5});}
+   }else for(const side of ['left','right','top','bottom']){
+    const list=items.filter(i=>i.side===side).sort((a,b)=>side==='left'||side==='right'?a.other.b.y-b.other.b.y||a.other.b.x-b.other.b.x:a.other.b.x-b.other.b.x||a.other.b.y-b.other.b.y);
+    list.forEach((item,j)=>item.e[item.end]=attach(node.b,{side,offset:(j+1)/(list.length+1)}));
+   }
+  }
+  const used:any[]=[],ordered=[...edges].sort((a,b)=>Number(a.model.type==='bpmn:MessageFlow')-Number(b.model.type==='bpmn:MessageFlow')||Math.hypot(a.from.x-a.to.x,a.from.y-a.to.y)-Math.hypot(b.from.x-b.to.x,b.from.y-b.to.y));
+  for(const e of ordered){
+   const pool=e.model.type==='bpmn:SequenceFlow'?shapes.find((s:any)=>s.model.type==='bpmn:Participant'&&s.model.properties.processRef&&e.source.b.x>=s.b.x&&e.source.b.x<=s.b.x+s.b.width):undefined;
+   const bounds=pool?{x:pool.b.x+70,y:pool.b.y+8,width:pool.b.width-78,height:pool.b.height-16}:undefined;
+   try{e.points=route(e.from,e.to,leaves.map(s=>s.b),used,{gap:14,pad:5,escape:18,bounds});}
+   catch(error){throw Error(`${file}:${planeId}:${e.model.properties.id}: ${error}`);}
+   used.push(e.points);
+   e.di.waypoint=e.points.map((p:any,i:number)=>{const ref=e.di.waypoint[i];if(ref){Object.assign(props(ref),p);return ref;}return add('dc:Point',p);});
+  }
+  const routing=auditRoutes(file+':'+planeId,edges.map(e=>({id:e.model.properties.id,points:e.points})),leaves.map(s=>s.b));
   const labels:any[]=[],obstacles:any[]=shapes.flatMap((s:any)=>{
    if(!['bpmn:Lane','bpmn:Participant'].includes(s.model.type))return [s.b];
    return s.model.type==='bpmn:Lane'||s.model.properties.processRef?[
@@ -124,7 +126,7 @@ for(const [file,planes] of [
    const width=l.item.model.type==='bpmn:MessageFlow'?320:220,lines=await wrap(l.value,width,22);
    const actual=Math.max(...await Promise.all(lines.map((v:string)=>measure(v,22))))+12,h=lines.length*25.3+8;
    const shape=l.item.b;
-   const parent=shape?shapes.filter((s:any)=>['bpmn:Lane','bpmn:Participant'].includes(s.model.type)&&shape.x>=s.b.x&&shape.y>=s.b.y&&shape.x+shape.width<=s.b.x+s.b.width&&shape.y+shape.height<=s.b.y+s.b.height).sort((a:any,b:any)=>a.b.width*a.b.height-b.b.width*b.b.height)[0]:undefined;
+   const parent=shape?shapes.filter((s:any)=>['bpmn:Lane','bpmn:Participant'].includes(s.model.type)&&shape.x>=s.b.x&&shape.y>=s.b.y&&shape.x+shape.width<=s.b.x+s.b.width&&shape.y+shape.height<=s.b.y+s.b.height).sort((a:any,b:any)=>a.b.width*a.b.height-b.b.width*b.b.height)[0]:(l.item.model.type==='bpmn:SequenceFlow'?shapes.find(s=>s.model.type==='bpmn:Participant'&&s.model.properties.processRef&&l.item.source.b.x>=s.b.x&&l.item.source.b.x<=s.b.x+s.b.width):undefined);
    const segments=l.item.points?.slice(1).map((p:any,i:number)=>({a:l.item.points[i],b:p})).sort((a:any,b:any)=>Math.hypot(b.a.x-b.b.x,b.a.y-b.b.y)-Math.hypot(a.a.x-a.b.x,a.a.y-a.b.y));
    const segment=segments?.[0];
    const cx=shape?shape.x+shape.width/2:(segment.a.x+segment.b.x)/2+(segment.a.x===segment.b.x?actual/2+14:0);
@@ -134,6 +136,7 @@ for(const [file,planes] of [
     const b={x:cx+dx-actual/2,y:cy+dy-h/2,width:actual,height:h};
     if(parent&&(b.x<parent.b.x+70||b.y<parent.b.y+7||b.x+b.width>parent.b.x+parent.b.width-7||b.y+b.height>parent.b.y+parent.b.height-7))continue;
     if(obstacles.some(o=>intersects(b,o,5)))continue;
+    if(edges.some(e=>routeSegments(e.points).some(s=>hits(s.a,s.b,b,4))))continue;
     const candidate=Math.hypot(dx,dy);
     if(candidate<score){chosen=b;score=candidate;}
    }
@@ -188,7 +191,7 @@ for(const [file,planes] of [
   if(matches.length!==1)throw Error(`Expected one export for ${prefix}`);
   const png=path.join(EXPORT_DIR,matches[0]),svg=path.join(svgDir,matches[0].replace('.png','.svg'));
   await fs.writeFile(svg,out.join(''));await sharp(Buffer.from(out.join(''))).resize({width:4200}).png().toFile(png);
-  audit.push({file,planeId,shapes:shapes.length,flows:edges.length,fontSizeMin:22,labels:labels.length,png:path.relative(ROOT,png)});
+  audit.push({file,planeId,shapes:shapes.length,flows:edges.length,fontSizeMin:22,labels:labels.length,routing,png:path.relative(ROOT,png)});
  }
  // Replacing an editable route leaves its old DI points unowned. Remove only
  // records unreachable from Definitions; the native format rejects orphans.
@@ -198,6 +201,7 @@ for(const [file,planes] of [
  visit(doc.model.root);
  for(const ref of Object.keys(doc.layout.objects))if(!reached.has(ref))delete doc.layout.objects[ref];
  const errors=validateBpmnData(doc).filter((d:any)=>d.severity==='error');if(errors.length)throw Error(JSON.stringify(errors));
+ doc.source=patchUnified(doc.source,bpmnTextModel(doc));doc.draft=doc.source;
  await fs.writeFile(filePath,await encodeProject(doc));
 }
 await fs.writeFile(path.join(ROOT,'ПРОВЕРКА_печатных_BPMN.json'),JSON.stringify(audit,null,2)+'\n');

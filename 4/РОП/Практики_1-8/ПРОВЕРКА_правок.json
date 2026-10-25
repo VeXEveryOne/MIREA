@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-21",
+  "status": "pass",
+  "idef0": [
+    {
+      "file": "ПР1_IDEF0_AS_IS.omni",
+      "functions": 6,
+      "consecutiveOutputs": true
+    },
+    {
+      "file": "ПР2_IDEF0_TO_BE.omni",
+      "functions": 5,
+      "consecutiveOutputs": true
+    }
+  ],
+  "bpmn": [
+    {
+      "file": "ПР1_BPMN_AS_IS.omni",
+      "explicitMerges": 4,
+      "poolsOnEverySheet": true
+    },
+    {
+      "file": "ПР2_BPMN_TO_BE.omni",
+      "explicitMerges": 3,
+      "poolsOnEverySheet": true
+    }
+  ],
+  "logicalModel": {
+    "entities": 29,
+    "attributes": 185,
+    "relations": 47,
+    "sqlForeignKeys": 46,
+    "allEntitiesConnected": true,
+    "language": "ru",
+    "sheets": 2,
+    "imagesPerSheet": 1
+  },
+  "components": {
+    "assemblyConnectors": 9,
+    "ports": 18
+  },
+  "notesRemoved": [
+    "D10_infrastructure",
+    "D24_access"
+  ]
+}

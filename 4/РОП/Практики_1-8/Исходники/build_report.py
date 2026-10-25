@@ -59,9 +59,11 @@ def field(p,code,cached):
  instr=OxmlElement('w:instrText');instr.set(qn('xml:space'),'preserve');instr.text=' '+code+' ';r._r.append(instr)
  sep=OxmlElement('w:fldChar');sep.set(qn('w:fldCharType'),'separate');r._r.append(sep)
  p.add_run(str(cached));end=OxmlElement('w:fldChar');end.set(qn('w:fldCharType'),'end');p.add_run()._r.append(end)
-def setup_section(s,land=False):
+def setup_section(s,land=False,paper='A4'):
  s.orientation=WD_ORIENT.LANDSCAPE if land else WD_ORIENT.PORTRAIT;s.page_width=Cm(29.7 if land else 21);s.page_height=Cm(21 if land else 29.7)
  s.left_margin=Cm(3);s.right_margin=Cm(1.5);s.top_margin=Cm(2);s.bottom_margin=Cm(2);s.header_distance=Cm(.8);s.footer_distance=Cm(1)
+ if paper=='A3':s.page_width=Cm(42);s.page_height=Cm(29.7)
+ if paper=='A2':s.page_width=Cm(59.4);s.page_height=Cm(42)
  s.different_first_page_header_footer=False
  for pg in s._sectPr.findall(qn('w:pgNumType')):s._sectPr.remove(pg)
  for hdr in [s.header,s.first_page_header,s.footer,s.first_page_footer]:
@@ -74,10 +76,11 @@ doc.sections[0].different_first_page_header_footer=True
 doc.core_properties.author='Албахтин И.В.';doc.core_properties.title='РОП Практические занятия 1–8 ООО Юкомс'
 setting=OxmlElement('w:updateFields');setting.set(qn('w:val'),'true');doc.settings.element.append(setting)
 current=False
-def page(land=False,force=False):
- global current
- if land!=current:
-  setup_section(doc.add_section(WD_SECTION_START.NEW_PAGE),land);current=land
+current_paper='A4'
+def page(land=False,force=False,paper='A4'):
+ global current,current_paper
+ if land!=current or paper!=current_paper:
+  setup_section(doc.add_section(WD_SECTION_START.NEW_PAGE),land,paper);current=land;current_paper=paper
  elif force:doc.add_page_break()
 def para(text):return doc.add_paragraph(text,'Body Text')
 def in_sentence(title):
@@ -146,8 +149,10 @@ for bi,b in enumerate(blocks):
   md+=['\n*Таблица '+str(table)+' – '+b['title']+'*\n','| '+' | '.join(heads)+' |','| '+' | '.join('---' for x in heads)+' |']
   md+=['| '+' | '.join(str(x).replace('\n','<br>').replace('|','/') for x in row)+' |' for row in rows];md+=['']
  elif b['type']=='fig':
-  figure+=1;land=b.get('landscape',False);same_page_orientation=land==current
-  if not same_page_orientation:page(land)
+  figure+=1;land=b.get('landscape',False)
+  paper='A2' if b.get('id') in ('D03_logical_1','D20_physical_1') else 'A3' if b.get('id') in ('Plane_Main','Plane_Preparation','Plane_Publication','D02_component') else 'A4'
+  same_page_orientation=land==current and paper==current_paper
+  if not same_page_orientation:page(land,paper=paper)
   had_heading=bool(pending)
   for hi,heading in enumerate(pending):
    hp=doc.add_paragraph(heading['text'],'Heading '+str(heading['level']))
@@ -160,6 +165,8 @@ for bi,b in enumerate(blocks):
    image=Image.open(image_path);wmax=25.2 if land else 16.5
    if land and len(paths)>1:hmax=12 if had_heading and part_index==0 else 14.2
    else:hmax=(12.0 if had_heading and part_index==0 else 14.2) if land else (18 if had_heading and part_index==0 else 19)
+   if paper=='A3':wmax=37.5;hmax=21.5 if had_heading else 23
+   if paper=='A2':wmax=54.9;hmax=33 if had_heading else 35.3
    iw,ih=image.size;w=min(wmax,hmax*iw/ih)
    pp=doc.add_paragraph();pp.alignment=WD_ALIGN_PARAGRAPH.CENTER;pf=pp.paragraph_format;pf.first_line_indent=0;pf.space_after=0;pf.space_before=0;pf.line_spacing=1;pf.keep_with_next=True
    if part_index:pf.page_break_before=True
@@ -169,7 +176,7 @@ for bi,b in enumerate(blocks):
     cp.add_run('Рисунок ');field(cp,'SEQ Figure \\* ARABIC',figure);cp.add_run(' – '+b['title']+(f' (часть 1 из {len(paths)})' if len(paths)>1 else ''))
    else:
     cp.add_run(f'Продолжение рисунка {figure} – {b["title"]} (часть {part_index+1} из {len(paths)})')
-  md+=['\n![Рисунок '+str(figure)+' — '+b['title']+']('+str(Path(b['path']).relative_to(ROOT) if Path(b['path']).is_relative_to(ROOT) else Path(b['path']))+')\n']
+  md+=['\n![Рисунок '+str(figure)+' — '+b['title']+']('+(Path(b['path']).relative_to(ROOT) if Path(b['path']).is_relative_to(ROOT) else Path(b['path'])).as_posix()+')\n']
 output=ROOT/(REPORT_NAME+'.docx');doc.save(output)
 (ROOT/(REPORT_NAME+'.md')).write_text('\n'.join(md),encoding='utf-8')
 (TMP/'artifact.md').write_text(f'''# Контракт титульного листа

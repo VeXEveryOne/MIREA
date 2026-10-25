@@ -293,6 +293,18 @@
             },
             {
               "ref": "id:P12"
+            },
+            {
+              "ref": "id:Merge_Offers"
+            },
+            {
+              "ref": "id:Merge_Offers_out"
+            },
+            {
+              "ref": "id:Merge_Fix"
+            },
+            {
+              "ref": "id:Merge_Fix_out"
             }
           ]
         }
@@ -401,6 +413,12 @@
             },
             {
               "ref": "id:Q12"
+            },
+            {
+              "ref": "id:Merge_Send"
+            },
+            {
+              "ref": "id:Merge_Send_out"
             }
           ]
         }
@@ -664,10 +682,7 @@
           "name": "Импортировать предложения,\nсопоставить SKU и разрешить слоты",
           "incoming": [
             {
-              "ref": "id:P2"
-            },
-            {
-              "ref": "id:P6"
+              "ref": "id:Merge_Offers_out"
             }
           ],
           "outgoing": [
@@ -721,10 +736,7 @@
           "name": "Исправить состав\nили сопоставление",
           "incoming": [
             {
-              "ref": "id:P5"
-            },
-            {
-              "ref": "id:P11"
+              "ref": "id:Merge_Fix_out"
             }
           ],
           "outgoing": [
@@ -840,7 +852,7 @@
             "ref": "id:Version"
           },
           "targetRef": {
-            "ref": "id:Offers"
+            "ref": "id:Merge_Offers"
           }
         }
       },
@@ -882,7 +894,7 @@
             "ref": "id:Valid"
           },
           "targetRef": {
-            "ref": "id:Fix"
+            "ref": "id:Merge_Fix"
           }
         }
       },
@@ -895,7 +907,7 @@
             "ref": "id:Fix"
           },
           "targetRef": {
-            "ref": "id:Offers"
+            "ref": "id:Merge_Offers"
           }
         }
       },
@@ -966,7 +978,7 @@
             "ref": "id:Complete"
           },
           "targetRef": {
-            "ref": "id:Fix"
+            "ref": "id:Merge_Fix"
           }
         }
       },
@@ -1023,10 +1035,7 @@
           "name": "Сверить статус и отправить\nтолько отсутствующую операцию",
           "incoming": [
             {
-              "ref": "id:Q2"
-            },
-            {
-              "ref": "id:Q10"
+              "ref": "id:Merge_Send_out"
             }
           ],
           "outgoing": [
@@ -1214,7 +1223,7 @@
             "ref": "id:Save"
           },
           "targetRef": {
-            "ref": "id:Send"
+            "ref": "id:Merge_Send"
           }
         }
       },
@@ -1327,7 +1336,7 @@
             "ref": "id:Increment"
           },
           "targetRef": {
-            "ref": "id:Send"
+            "ref": "id:Merge_Send"
           }
         }
       },
@@ -1374,6 +1383,9 @@
             },
             {
               "ref": "id:Fix"
+            },
+            {
+              "ref": "id:Merge_Fix"
             }
           ]
         }
@@ -1404,6 +1416,9 @@
             },
             {
               "ref": "id:PDone"
+            },
+            {
+              "ref": "id:Merge_Offers"
             }
           ]
         }
@@ -1480,6 +1495,108 @@
         "type": "bpmn:FormalExpression",
         "properties": {
           "body": "PT1M"
+        }
+      },
+      "id:Merge_Offers": {
+        "type": "bpmn:ExclusiveGateway",
+        "properties": {
+          "id": "Merge_Offers",
+          "name": "",
+          "gatewayDirection": "Converging",
+          "incoming": [
+            {
+              "ref": "id:P2"
+            },
+            {
+              "ref": "id:P6"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:Merge_Offers_out"
+            }
+          ]
+        }
+      },
+      "id:Merge_Offers_out": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Merge_Offers_out",
+          "name": "",
+          "sourceRef": {
+            "ref": "id:Merge_Offers"
+          },
+          "targetRef": {
+            "ref": "id:Offers"
+          }
+        }
+      },
+      "id:Merge_Fix": {
+        "type": "bpmn:ExclusiveGateway",
+        "properties": {
+          "id": "Merge_Fix",
+          "name": "",
+          "gatewayDirection": "Converging",
+          "incoming": [
+            {
+              "ref": "id:P5"
+            },
+            {
+              "ref": "id:P11"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:Merge_Fix_out"
+            }
+          ]
+        }
+      },
+      "id:Merge_Fix_out": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Merge_Fix_out",
+          "name": "",
+          "sourceRef": {
+            "ref": "id:Merge_Fix"
+          },
+          "targetRef": {
+            "ref": "id:Fix"
+          }
+        }
+      },
+      "id:Merge_Send": {
+        "type": "bpmn:ExclusiveGateway",
+        "properties": {
+          "id": "Merge_Send",
+          "name": "",
+          "gatewayDirection": "Converging",
+          "incoming": [
+            {
+              "ref": "id:Q2"
+            },
+            {
+              "ref": "id:Q10"
+            }
+          ],
+          "outgoing": [
+            {
+              "ref": "id:Merge_Send_out"
+            }
+          ]
+        }
+      },
+      "id:Merge_Send_out": {
+        "type": "bpmn:SequenceFlow",
+        "properties": {
+          "id": "Merge_Send_out",
+          "name": "",
+          "sourceRef": {
+            "ref": "id:Merge_Send"
+          },
+          "targetRef": {
+            "ref": "id:Send"
+          }
         }
       }
     }
@@ -1596,6 +1713,9 @@
           },
           "planeElement": [
             {
+              "ref": "id:Pool_Plane_Preparation"
+            },
+            {
               "ref": "id:P_Technical_di"
             },
             {
@@ -1672,6 +1792,18 @@
             },
             {
               "ref": "id:P_P12_di"
+            },
+            {
+              "ref": "id:Merge_Offers_Plane_Preparation_di"
+            },
+            {
+              "ref": "id:Merge_Offers_out_Plane_Preparation_di"
+            },
+            {
+              "ref": "id:Merge_Fix_Plane_Preparation_di"
+            },
+            {
+              "ref": "id:Merge_Fix_out_Plane_Preparation_di"
             }
           ]
         }
@@ -1684,6 +1816,9 @@
             "ref": "id:Publish"
           },
           "planeElement": [
+            {
+              "ref": "object:227"
+            },
             {
               "ref": "id:Q_QStart_di"
             },
@@ -1755,6 +1890,12 @@
             },
             {
               "ref": "id:Q_Q12_di"
+            },
+            {
+              "ref": "id:Merge_Send_Plane_Publication_di"
+            },
+            {
+              "ref": "id:Merge_Send_out_Plane_Publication_di"
             }
           ]
         }
@@ -2093,6 +2234,12 @@
             },
             {
               "ref": "object:53"
+            },
+            {
+              "ref": "object:205"
+            },
+            {
+              "ref": "object:206"
             }
           ],
           "label": {
@@ -2113,6 +2260,12 @@
             },
             {
               "ref": "object:56"
+            },
+            {
+              "ref": "object:207"
+            },
+            {
+              "ref": "object:208"
             }
           ],
           "label": {
@@ -2316,6 +2469,12 @@
             },
             {
               "ref": "object:77"
+            },
+            {
+              "ref": "object:209"
+            },
+            {
+              "ref": "object:210"
             }
           ]
         }
@@ -2333,6 +2492,9 @@
             },
             {
               "ref": "object:79"
+            },
+            {
+              "ref": "object:211"
             }
           ]
         }
@@ -2384,6 +2546,12 @@
             },
             {
               "ref": "object:85"
+            },
+            {
+              "ref": "object:213"
+            },
+            {
+              "ref": "object:214"
             }
           ],
           "label": {
@@ -2413,6 +2581,12 @@
             },
             {
               "ref": "object:91"
+            },
+            {
+              "ref": "object:215"
+            },
+            {
+              "ref": "object:232"
             }
           ],
           "label": {
@@ -2473,6 +2647,9 @@
             },
             {
               "ref": "object:100"
+            },
+            {
+              "ref": "object:231"
             }
           ]
         }
@@ -2493,6 +2670,9 @@
             },
             {
               "ref": "object:103"
+            },
+            {
+              "ref": "object:230"
             }
           ]
         }
@@ -2516,6 +2696,9 @@
             },
             {
               "ref": "object:107"
+            },
+            {
+              "ref": "object:216"
             }
           ],
           "label": {
@@ -2798,6 +2981,12 @@
             },
             {
               "ref": "object:143"
+            },
+            {
+              "ref": "object:218"
+            },
+            {
+              "ref": "object:219"
             }
           ],
           "label": {
@@ -2818,6 +3007,12 @@
             },
             {
               "ref": "object:146"
+            },
+            {
+              "ref": "object:220"
+            },
+            {
+              "ref": "object:221"
             }
           ]
         }
@@ -2875,6 +3070,12 @@
             },
             {
               "ref": "object:154"
+            },
+            {
+              "ref": "object:222"
+            },
+            {
+              "ref": "object:223"
             }
           ]
         }
@@ -2892,6 +3093,9 @@
             },
             {
               "ref": "object:156"
+            },
+            {
+              "ref": "object:224"
             }
           ],
           "label": {
@@ -2915,6 +3119,9 @@
             },
             {
               "ref": "object:160"
+            },
+            {
+              "ref": "object:233"
             }
           ],
           "label": {
@@ -2948,43 +3155,43 @@
       "object:10": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 20,
+          "x": 33,
           "y": 270,
-          "width": 1640,
+          "width": 2706,
           "height": 330
         }
       },
       "object:11": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 350,
+          "x": 577.5,
           "y": 20,
-          "width": 420,
+          "width": 693,
           "height": 60
         }
       },
       "object:12": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 950,
+          "x": 1567.5,
           "y": 20,
-          "width": 420,
+          "width": 693,
           "height": 60
         }
       },
       "object:13": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 20,
+          "x": 33,
           "y": 820,
-          "width": 1640,
+          "width": 2706,
           "height": 60
         }
       },
       "object:14": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 102,
+          "x": 168.29999999999998,
           "y": 393,
           "width": 44,
           "height": 44
@@ -3001,7 +3208,7 @@
       "object:16": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 230,
+          "x": 379.5,
           "y": 355,
           "width": 220,
           "height": 120
@@ -3010,7 +3217,7 @@
       "object:17": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 530,
+          "x": 874.5,
           "y": 355,
           "width": 230,
           "height": 120
@@ -3019,7 +3226,7 @@
       "object:18": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 850,
+          "x": 1402.5,
           "y": 355,
           "width": 245,
           "height": 120
@@ -3028,7 +3235,7 @@
       "object:19": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1180,
+          "x": 1947,
           "y": 344,
           "width": 250,
           "height": 142
@@ -3037,7 +3244,7 @@
       "object:20": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1550,
+          "x": 2557.5,
           "y": 393,
           "width": 44,
           "height": 44
@@ -3054,98 +3261,98 @@
       "object:22": {
         "type": "dc:Point",
         "properties": {
-          "x": 146,
+          "x": 212.29999999999998,
           "y": 415
         }
       },
       "object:23": {
         "type": "dc:Point",
         "properties": {
-          "x": 230,
+          "x": 379.5,
           "y": 415
         }
       },
       "object:24": {
         "type": "dc:Point",
         "properties": {
-          "x": 450,
+          "x": 599.5,
           "y": 415
         }
       },
       "object:25": {
         "type": "dc:Point",
         "properties": {
-          "x": 530,
+          "x": 874.5,
           "y": 415
         }
       },
       "object:26": {
         "type": "dc:Point",
         "properties": {
-          "x": 760,
+          "x": 1104.5,
           "y": 415
         }
       },
       "object:27": {
         "type": "dc:Point",
         "properties": {
-          "x": 850,
+          "x": 1402.5,
           "y": 415
         }
       },
       "object:28": {
         "type": "dc:Point",
         "properties": {
-          "x": 1095,
+          "x": 1647.5,
           "y": 415
         }
       },
       "object:29": {
         "type": "dc:Point",
         "properties": {
-          "x": 1180,
+          "x": 1947,
           "y": 415
         }
       },
       "object:30": {
         "type": "dc:Point",
         "properties": {
-          "x": 1430,
+          "x": 2197,
           "y": 415
         }
       },
       "object:31": {
         "type": "dc:Point",
         "properties": {
-          "x": 1550,
+          "x": 2557.5,
           "y": 415
         }
       },
       "object:32": {
         "type": "dc:Point",
         "properties": {
-          "x": 570,
+          "x": 920.5,
           "y": 355
         }
       },
       "object:33": {
         "type": "dc:Point",
         "properties": {
-          "x": 570,
-          "y": 180
+          "x": 920.5,
+          "y": 98
         }
       },
       "object:34": {
         "type": "dc:Point",
         "properties": {
-          "x": 430,
-          "y": 180
+          "x": 808.5,
+          "y": 98
         }
       },
       "object:35": {
         "type": "dc:Point",
         "properties": {
-          "x": 430,
+          "x": 808.5,
           "y": 80
         }
       },
@@ -3160,28 +3367,28 @@
       "object:37": {
         "type": "dc:Point",
         "properties": {
-          "x": 700,
+          "x": 1039.5,
           "y": 80
         }
       },
       "object:38": {
         "type": "dc:Point",
         "properties": {
-          "x": 700,
-          "y": 130
+          "x": 1039.5,
+          "y": 337
         }
       },
       "object:39": {
         "type": "dc:Point",
         "properties": {
-          "x": 620,
-          "y": 130
+          "x": 966.5,
+          "y": 337
         }
       },
       "object:40": {
         "type": "dc:Point",
         "properties": {
-          "x": 620,
+          "x": 966.5,
           "y": 355
         }
       },
@@ -3196,28 +3403,28 @@
       "object:42": {
         "type": "dc:Point",
         "properties": {
-          "x": 680,
+          "x": 1012.5,
           "y": 355
         }
       },
       "object:43": {
         "type": "dc:Point",
         "properties": {
-          "x": 680,
-          "y": 290
+          "x": 1012.5,
+          "y": 98
         }
       },
       "object:44": {
         "type": "dc:Point",
         "properties": {
-          "x": 1030,
-          "y": 290
+          "x": 1798.5,
+          "y": 98
         }
       },
       "object:45": {
         "type": "dc:Point",
         "properties": {
-          "x": 1030,
+          "x": 1798.5,
           "y": 80
         }
       },
@@ -3232,28 +3439,28 @@
       "object:47": {
         "type": "dc:Point",
         "properties": {
-          "x": 1300,
+          "x": 2029.5,
           "y": 80
         }
       },
       "object:48": {
         "type": "dc:Point",
         "properties": {
-          "x": 1300,
-          "y": 250
+          "x": 2029.5,
+          "y": 337
         }
       },
       "object:49": {
         "type": "dc:Point",
         "properties": {
-          "x": 725,
-          "y": 250
+          "x": 1058.5,
+          "y": 337
         }
       },
       "object:50": {
         "type": "dc:Point",
         "properties": {
-          "x": 725,
+          "x": 1058.5,
           "y": 355
         }
       },
@@ -3268,15 +3475,15 @@
       "object:52": {
         "type": "dc:Point",
         "properties": {
-          "x": 1240,
+          "x": 2030.3333333333333,
           "y": 486
         }
       },
       "object:53": {
         "type": "dc:Point",
         "properties": {
-          "x": 1240,
-          "y": 820
+          "x": 2030.3333333333333,
+          "y": 802
         }
       },
       "object:54": {
@@ -3290,15 +3497,15 @@
       "object:55": {
         "type": "dc:Point",
         "properties": {
-          "x": 1370,
+          "x": 1837,
           "y": 820
         }
       },
       "object:56": {
         "type": "dc:Point",
         "properties": {
-          "x": 1370,
-          "y": 486
+          "x": 1837,
+          "y": 504
         }
       },
       "object:57": {
@@ -3312,34 +3519,34 @@
       "object:58": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 20,
+          "x": 33,
           "y": 20,
-          "width": 1710,
+          "width": 2821.5,
           "height": 230
         }
       },
       "object:59": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 20,
+          "x": 33,
           "y": 250,
-          "width": 1710,
+          "width": 2821.5,
           "height": 500
         }
       },
       "object:60": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 20,
+          "x": 33,
           "y": 750,
-          "width": 1710,
+          "width": 2821.5,
           "height": 200
         }
       },
       "object:61": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 102,
+          "x": 168.29999999999998,
           "y": 95,
           "width": 44,
           "height": 44
@@ -3356,7 +3563,7 @@
       "object:63": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 210,
+          "x": 346.5,
           "y": 65,
           "width": 250,
           "height": 100
@@ -3365,7 +3572,7 @@
       "object:64": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 725,
+          "x": 1196.25,
           "y": 65,
           "width": 235,
           "height": 100
@@ -3374,7 +3581,7 @@
       "object:65": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 210,
+          "x": 346.5,
           "y": 339,
           "width": 250,
           "height": 142
@@ -3383,7 +3590,7 @@
       "object:66": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 520,
+          "x": 858,
           "y": 339,
           "width": 250,
           "height": 142
@@ -3392,7 +3599,7 @@
       "object:67": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 825,
+          "x": 1361.25,
           "y": 383,
           "width": 54,
           "height": 54
@@ -3409,7 +3616,7 @@
       "object:69": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 990,
+          "x": 1633.5,
           "y": 352,
           "width": 265,
           "height": 116
@@ -3418,7 +3625,7 @@
       "object:70": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 990,
+          "x": 1633.5,
           "y": 805,
           "width": 265,
           "height": 110
@@ -3427,7 +3634,7 @@
       "object:71": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1350,
+          "x": 2227.5,
           "y": 527,
           "width": 265,
           "height": 116
@@ -3436,7 +3643,7 @@
       "object:72": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1445,
+          "x": 2384.25,
           "y": 360,
           "width": 54,
           "height": 54
@@ -3453,7 +3660,7 @@
       "object:74": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1635,
+          "x": 2697.75,
           "y": 365,
           "width": 44,
           "height": 44
@@ -3470,71 +3677,71 @@
       "object:76": {
         "type": "dc:Point",
         "properties": {
-          "x": 146,
+          "x": 212.29999999999998,
           "y": 117
         }
       },
       "object:77": {
         "type": "dc:Point",
         "properties": {
-          "x": 210,
+          "x": 328.5,
           "y": 117
         }
       },
       "object:78": {
         "type": "dc:Point",
         "properties": {
-          "x": 335,
-          "y": 165
+          "x": 346.5,
+          "y": 131.66666666666666
         }
       },
       "object:79": {
         "type": "dc:Point",
         "properties": {
-          "x": 335,
-          "y": 339
+          "x": 285.5,
+          "y": 131.66666666666666
         }
       },
       "object:80": {
         "type": "dc:Point",
         "properties": {
-          "x": 460,
+          "x": 596.5,
           "y": 410
         }
       },
       "object:81": {
         "type": "dc:Point",
         "properties": {
-          "x": 520,
+          "x": 858,
           "y": 410
         }
       },
       "object:82": {
         "type": "dc:Point",
         "properties": {
-          "x": 770,
+          "x": 1108,
           "y": 410
         }
       },
       "object:83": {
         "type": "dc:Point",
         "properties": {
-          "x": 825,
+          "x": 1361.25,
           "y": 410
         }
       },
       "object:84": {
         "type": "dc:Point",
         "properties": {
-          "x": 852,
+          "x": 1388.25,
           "y": 383
         }
       },
       "object:85": {
         "type": "dc:Point",
         "properties": {
-          "x": 852,
-          "y": 165
+          "x": 1388.25,
+          "y": 171
         }
       },
       "object:86": {
@@ -3548,36 +3755,36 @@
       "object:87": {
         "type": "dc:Point",
         "properties": {
-          "x": 725,
-          "y": 115
+          "x": 1196.25,
+          "y": 131.66666666666666
         }
       },
       "object:88": {
         "type": "dc:Point",
         "properties": {
-          "x": 630,
-          "y": 115
+          "x": 1166.25,
+          "y": 131.66666666666666
         }
       },
       "object:89": {
         "type": "dc:Point",
         "properties": {
-          "x": 630,
-          "y": 285
+          "x": 1166.25,
+          "y": 333
         }
       },
       "object:90": {
         "type": "dc:Point",
         "properties": {
-          "x": 385,
-          "y": 285
+          "x": 254.5,
+          "y": 333
         }
       },
       "object:91": {
         "type": "dc:Point",
         "properties": {
-          "x": 385,
-          "y": 339
+          "x": 254.5,
+          "y": 453
         }
       },
       "object:92": {
@@ -3591,14 +3798,14 @@
       "object:93": {
         "type": "dc:Point",
         "properties": {
-          "x": 879,
+          "x": 1415.25,
           "y": 410
         }
       },
       "object:94": {
         "type": "dc:Point",
         "properties": {
-          "x": 990,
+          "x": 1633.5,
           "y": 410
         }
       },
@@ -3613,85 +3820,85 @@
       "object:96": {
         "type": "dc:Point",
         "properties": {
-          "x": 1122,
+          "x": 1766,
           "y": 468
         }
       },
       "object:97": {
         "type": "dc:Point",
         "properties": {
-          "x": 1122,
+          "x": 1766,
           "y": 805
         }
       },
       "object:98": {
         "type": "dc:Point",
         "properties": {
-          "x": 1255,
+          "x": 1898.5,
           "y": 860
         }
       },
       "object:99": {
         "type": "dc:Point",
         "properties": {
-          "x": 1482,
+          "x": 2209.5,
           "y": 860
         }
       },
       "object:100": {
         "type": "dc:Point",
         "properties": {
-          "x": 1482,
-          "y": 643
+          "x": 2209.5,
+          "y": 585
         }
       },
       "object:101": {
         "type": "dc:Point",
         "properties": {
-          "x": 1482,
+          "x": 2360,
           "y": 527
         }
       },
       "object:102": {
         "type": "dc:Point",
         "properties": {
-          "x": 1472,
-          "y": 527
+          "x": 2360,
+          "y": 432
         }
       },
       "object:103": {
         "type": "dc:Point",
         "properties": {
-          "x": 1472,
-          "y": 414
+          "x": 2411.25,
+          "y": 432
         }
       },
       "object:104": {
         "type": "dc:Point",
         "properties": {
-          "x": 1445,
+          "x": 2384.25,
           "y": 387
         }
       },
       "object:105": {
         "type": "dc:Point",
         "properties": {
-          "x": 1305,
+          "x": 2195.5,
           "y": 387
         }
       },
       "object:106": {
         "type": "dc:Point",
         "properties": {
-          "x": 1305,
-          "y": 115
+          "x": 2195.5,
+          "y": 59
         }
       },
       "object:107": {
         "type": "dc:Point",
         "properties": {
-          "x": 960,
-          "y": 115
+          "x": 1135.25,
+          "y": 59
         }
       },
       "object:108": {
@@ -3705,14 +3912,14 @@
       "object:109": {
         "type": "dc:Point",
         "properties": {
-          "x": 1499,
+          "x": 2438.25,
           "y": 387
         }
       },
       "object:110": {
         "type": "dc:Point",
         "properties": {
-          "x": 1635,
+          "x": 2697.75,
           "y": 387
         }
       },
@@ -3727,7 +3934,7 @@
       "object:112": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 30,
+          "x": 49.5,
           "y": 90,
           "width": 44,
           "height": 44
@@ -3744,7 +3951,7 @@
       "object:114": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 150,
+          "x": 247.5,
           "y": 54.5,
           "width": 240,
           "height": 116
@@ -3753,7 +3960,7 @@
       "object:115": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 450,
+          "x": 742.5,
           "y": 54.5,
           "width": 300,
           "height": 116
@@ -3762,7 +3969,7 @@
       "object:116": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 810,
+          "x": 1336.5,
           "y": 54.5,
           "width": 240,
           "height": 116
@@ -3771,7 +3978,7 @@
       "object:117": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1110,
+          "x": 1831.5,
           "y": 86,
           "width": 54,
           "height": 54
@@ -3788,7 +3995,7 @@
       "object:119": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1240,
+          "x": 2046,
           "y": 60,
           "width": 270,
           "height": 105
@@ -3797,7 +4004,7 @@
       "object:120": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1585,
+          "x": 2615.25,
           "y": 90,
           "width": 44,
           "height": 44
@@ -3814,7 +4021,7 @@
       "object:122": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1110,
+          "x": 1831.5,
           "y": 350,
           "width": 54,
           "height": 54
@@ -3831,7 +4038,7 @@
       "object:124": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 835,
+          "x": 1377.75,
           "y": 350,
           "width": 54,
           "height": 54
@@ -3848,7 +4055,7 @@
       "object:126": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 450,
+          "x": 742.5,
           "y": 325,
           "width": 265,
           "height": 105
@@ -3857,7 +4064,7 @@
       "object:127": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1235,
+          "x": 2037.75,
           "y": 504.5,
           "width": 270,
           "height": 116
@@ -3866,7 +4073,7 @@
       "object:128": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1590,
+          "x": 2623.5,
           "y": 540,
           "width": 44,
           "height": 44
@@ -3883,98 +4090,98 @@
       "object:130": {
         "type": "dc:Point",
         "properties": {
-          "x": 74,
+          "x": 93.5,
           "y": 112
         }
       },
       "object:131": {
         "type": "dc:Point",
         "properties": {
-          "x": 124,
+          "x": 229.5,
           "y": 112
         }
       },
       "object:132": {
         "type": "dc:Point",
         "properties": {
-          "x": 124,
-          "y": 111.94761904761904
+          "x": 229.5,
+          "y": 112.5
         }
       },
       "object:133": {
         "type": "dc:Point",
         "properties": {
-          "x": 150,
-          "y": 111.94761904761904
+          "x": 247.5,
+          "y": 112.5
         }
       },
       "object:134": {
         "type": "dc:Point",
         "properties": {
-          "x": 390,
-          "y": 111.94761904761904
+          "x": 487.5,
+          "y": 112.5
         }
       },
       "object:135": {
         "type": "dc:Point",
         "properties": {
-          "x": 450,
-          "y": 111.94761904761904
+          "x": 656.5,
+          "y": 112.5
         }
       },
       "object:136": {
         "type": "dc:Point",
         "properties": {
-          "x": 750,
-          "y": 111.94761904761904
+          "x": 1042.5,
+          "y": 112.5
         }
       },
       "object:137": {
         "type": "dc:Point",
         "properties": {
-          "x": 810,
-          "y": 111.94761904761904
+          "x": 1336.5,
+          "y": 112.5
         }
       },
       "object:138": {
         "type": "dc:Point",
         "properties": {
-          "x": 1050,
-          "y": 111.94761904761904
+          "x": 1576.5,
+          "y": 112.5
         }
       },
       "object:139": {
         "type": "dc:Point",
         "properties": {
-          "x": 1084,
-          "y": 111.94761904761904
+          "x": 1813.5,
+          "y": 112.5
         }
       },
       "object:140": {
         "type": "dc:Point",
         "properties": {
-          "x": 1084,
-          "y": 112
+          "x": 1813.5,
+          "y": 113
         }
       },
       "object:141": {
         "type": "dc:Point",
         "properties": {
-          "x": 1110,
-          "y": 112
+          "x": 1831.5,
+          "y": 113
         }
       },
       "object:142": {
         "type": "dc:Point",
         "properties": {
-          "x": 1164,
+          "x": 1885.5,
           "y": 113
         }
       },
       "object:143": {
         "type": "dc:Point",
         "properties": {
-          "x": 1240,
+          "x": 2028,
           "y": 113
         }
       },
@@ -3989,28 +4196,28 @@
       "object:145": {
         "type": "dc:Point",
         "properties": {
-          "x": 1510,
-          "y": 112
+          "x": 2316,
+          "y": 112.5
         }
       },
       "object:146": {
         "type": "dc:Point",
         "properties": {
-          "x": 1585,
-          "y": 112
+          "x": 2597.25,
+          "y": 112.5
         }
       },
       "object:147": {
         "type": "dc:Point",
         "properties": {
-          "x": 1137,
+          "x": 1858.5,
           "y": 140
         }
       },
       "object:148": {
         "type": "dc:Point",
         "properties": {
-          "x": 1137,
+          "x": 1858.5,
           "y": 350
         }
       },
@@ -4025,14 +4232,14 @@
       "object:150": {
         "type": "dc:Point",
         "properties": {
-          "x": 1110,
+          "x": 1831.5,
           "y": 377
         }
       },
       "object:151": {
         "type": "dc:Point",
         "properties": {
-          "x": 889,
+          "x": 1431.75,
           "y": 377
         }
       },
@@ -4047,29 +4254,29 @@
       "object:153": {
         "type": "dc:Point",
         "properties": {
-          "x": 835,
+          "x": 1377.75,
           "y": 377
         }
       },
       "object:154": {
         "type": "dc:Point",
         "properties": {
-          "x": 715,
+          "x": 1025.5,
           "y": 377
         }
       },
       "object:155": {
         "type": "dc:Point",
         "properties": {
-          "x": 585,
-          "y": 325
+          "x": 742.5,
+          "y": 377.5
         }
       },
       "object:156": {
         "type": "dc:Point",
         "properties": {
-          "x": 585,
-          "y": 170.5
+          "x": 681.5,
+          "y": 377.5
         }
       },
       "object:157": {
@@ -4083,22 +4290,22 @@
       "object:158": {
         "type": "dc:Point",
         "properties": {
-          "x": 1164,
+          "x": 1885.5,
           "y": 377
         }
       },
       "object:159": {
         "type": "dc:Point",
         "properties": {
-          "x": 1365,
+          "x": 2019.75,
           "y": 377
         }
       },
       "object:160": {
         "type": "dc:Point",
         "properties": {
-          "x": 1365,
-          "y": 504.5
+          "x": 2019.75,
+          "y": 562.5
         }
       },
       "object:161": {
@@ -4112,36 +4319,36 @@
       "object:162": {
         "type": "dc:Point",
         "properties": {
-          "x": 1505,
-          "y": 561.947619047619
+          "x": 2307.75,
+          "y": 562.5
         }
       },
       "object:163": {
         "type": "dc:Point",
         "properties": {
-          "x": 1564,
-          "y": 561.947619047619
+          "x": 2605.5,
+          "y": 562.5
         }
       },
       "object:164": {
         "type": "dc:Point",
         "properties": {
-          "x": 1564,
+          "x": 2605.5,
           "y": 562
         }
       },
       "object:165": {
         "type": "dc:Point",
         "properties": {
-          "x": 1590,
+          "x": 2623.5,
           "y": 562
         }
       },
       "object:167": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 96.5,
-          "y": 481.00000000000006,
+          "x": 112.79999999999998,
+          "y": 451,
           "width": 215,
           "height": 83.9
         }
@@ -4149,7 +4356,7 @@
       "object:168": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1479.5,
+          "x": 2497,
           "y": 451,
           "width": 165,
           "height": 83.9
@@ -4158,8 +4365,8 @@
       "object:169": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 584,
-          "y": 230.85,
+          "x": 1044.5,
+          "y": 209.85,
           "width": 227,
           "height": 33.3
         }
@@ -4167,8 +4374,8 @@
       "object:170": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 634,
-          "y": 185.85,
+          "x": 1053.5,
+          "y": 161.85,
           "width": 243,
           "height": 33.3
         }
@@ -4176,8 +4383,8 @@
       "object:171": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 741.5,
-          "y": 284.70000000000005,
+          "x": 1292,
+          "y": 52.699999999999996,
           "width": 227,
           "height": 33.3
         }
@@ -4185,8 +4392,8 @@
       "object:172": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 891,
-          "y": 204.7,
+          "x": 1422.5,
+          "y": 291.70000000000005,
           "width": 243,
           "height": 33.3
         }
@@ -4194,8 +4401,8 @@
       "object:173": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1254,
-          "y": 623.7,
+          "x": 1332.6666666666665,
+          "y": 731.4000000000001,
           "width": 300,
           "height": 58.6
         }
@@ -4203,8 +4410,8 @@
       "object:174": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1384,
-          "y": 693.7,
+          "x": 2041,
+          "y": 632.7,
           "width": 254,
           "height": 58.6
         }
@@ -4212,7 +4419,7 @@
       "object:175": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 90.5,
+          "x": 146.79999999999998,
           "y": 153,
           "width": 87,
           "height": 33.3
@@ -4221,8 +4428,8 @@
       "object:176": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 744.5,
-          "y": 293.70000000000005,
+          "x": 1280.75,
+          "y": 443.70000000000005,
           "width": 215,
           "height": 33.3
         }
@@ -4230,7 +4437,7 @@
       "object:177": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1388,
+          "x": 2327.25,
           "y": 310.70000000000005,
           "width": 168,
           "height": 33.3
@@ -4239,7 +4446,7 @@
       "object:178": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1555,
+          "x": 2637.75,
           "y": 423,
           "width": 164,
           "height": 58.6
@@ -4248,8 +4455,8 @@
       "object:179": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 866,
-          "y": 207.35,
+          "x": 1237.75,
+          "y": 175.7,
           "width": 48,
           "height": 33.3
         }
@@ -4257,8 +4464,8 @@
       "object:180": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 417,
-          "y": 184.39999999999998,
+          "x": 619.875,
+          "y": 262.4,
           "width": 181,
           "height": 58.6
         }
@@ -4266,7 +4473,7 @@
       "object:181": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 915.5,
+          "x": 1505.375,
           "y": 364.70000000000005,
           "width": 38,
           "height": 33.3
@@ -4275,8 +4482,8 @@
       "object:182": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1108.5,
-          "y": 69.69999999999999,
+          "x": 1641.375,
+          "y": 63.699999999999996,
           "width": 48,
           "height": 33.3
         }
@@ -4284,8 +4491,8 @@
       "object:183": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1548,
-          "y": 351.70000000000005,
+          "x": 2549,
+          "y": 341.70000000000005,
           "width": 38,
           "height": 33.3
         }
@@ -4293,7 +4500,7 @@
       "object:184": {
         "type": "dc:Bounds",
         "properties": {
-          "x": -14.5,
+          "x": 15,
           "y": 148,
           "width": 133,
           "height": 58.6
@@ -4302,7 +4509,7 @@
       "object:185": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1070.5,
+          "x": 1792,
           "y": 11.400000000000002,
           "width": 133,
           "height": 58.6
@@ -4311,7 +4518,7 @@
       "object:186": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1528,
+          "x": 2558.25,
           "y": 148,
           "width": 158,
           "height": 58.6
@@ -4320,7 +4527,7 @@
       "object:187": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1030.5,
+          "x": 1632,
           "y": 275.4,
           "width": 213,
           "height": 58.6
@@ -4329,7 +4536,7 @@
       "object:188": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 763,
+          "x": 1305.75,
           "y": 418,
           "width": 198,
           "height": 33.3
@@ -4338,7 +4545,7 @@
       "object:189": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1521,
+          "x": 2544.5,
           "y": 598,
           "width": 182,
           "height": 83.9
@@ -4347,8 +4554,8 @@
       "object:190": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1183,
-          "y": 77.69999999999999,
+          "x": 1937.75,
+          "y": 67.69999999999999,
           "width": 38,
           "height": 33.3
         }
@@ -4356,8 +4563,8 @@
       "object:191": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1151,
-          "y": 183.05,
+          "x": 1872.5,
+          "y": 203.05,
           "width": 142,
           "height": 83.9
         }
@@ -4365,7 +4572,7 @@
       "object:192": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 980.5,
+          "x": 1582.625,
           "y": 331.70000000000005,
           "width": 38,
           "height": 33.3
@@ -4374,8 +4581,8 @@
       "object:193": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 599,
-          "y": 218.45,
+          "x": 695.5,
+          "y": 228.2,
           "width": 163,
           "height": 58.6
         }
@@ -4383,14 +4590,388 @@
       "object:194": {
         "type": "dc:Bounds",
         "properties": {
-          "x": 1240.5,
-          "y": 341.70000000000005,
+          "x": 2033.75,
+          "y": 453.1,
           "width": 48,
           "height": 33.3
+        }
+      },
+      "object:195": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 260.5,
+          "y": 385,
+          "width": 50,
+          "height": 50
+        }
+      },
+      "id:Merge_Offers_Plane_Preparation_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Merge_Offers_Plane_Preparation_di",
+          "bpmnElement": {
+            "ref": "id:Merge_Offers"
+          },
+          "bounds": {
+            "ref": "object:195"
+          }
+        }
+      },
+      "object:196": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 310.5,
+          "y": 410
+        }
+      },
+      "object:197": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 346.5,
+          "y": 410
+        }
+      },
+      "id:Merge_Offers_out_Plane_Preparation_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Merge_Offers_out_Plane_Preparation_di",
+          "bpmnElement": {
+            "ref": "id:Merge_Offers_out"
+          },
+          "waypoint": [
+            {
+              "ref": "object:196"
+            },
+            {
+              "ref": "object:197"
+            }
+          ]
+        }
+      },
+      "object:198": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 1110.25,
+          "y": 90,
+          "width": 50,
+          "height": 50
+        }
+      },
+      "id:Merge_Fix_Plane_Preparation_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Merge_Fix_Plane_Preparation_di",
+          "bpmnElement": {
+            "ref": "id:Merge_Fix"
+          },
+          "bounds": {
+            "ref": "object:198"
+          }
+        }
+      },
+      "object:199": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1160.25,
+          "y": 115
+        }
+      },
+      "object:200": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1178.25,
+          "y": 115
+        }
+      },
+      "id:Merge_Fix_out_Plane_Preparation_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Merge_Fix_out_Plane_Preparation_di",
+          "bpmnElement": {
+            "ref": "id:Merge_Fix_out"
+          },
+          "waypoint": [
+            {
+              "ref": "object:199"
+            },
+            {
+              "ref": "object:200"
+            },
+            {
+              "ref": "object:228"
+            },
+            {
+              "ref": "object:229"
+            }
+          ]
+        }
+      },
+      "object:201": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": 656.5,
+          "y": 87.5,
+          "width": 50,
+          "height": 50
+        }
+      },
+      "id:Merge_Send_Plane_Publication_di": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Merge_Send_Plane_Publication_di",
+          "bpmnElement": {
+            "ref": "id:Merge_Send"
+          },
+          "bounds": {
+            "ref": "object:201"
+          }
+        }
+      },
+      "object:202": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 706.5,
+          "y": 112.5
+        }
+      },
+      "object:203": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 742.5,
+          "y": 112.5
+        }
+      },
+      "id:Merge_Send_out_Plane_Publication_di": {
+        "type": "bpmndi:BPMNEdge",
+        "properties": {
+          "id": "Merge_Send_out_Plane_Publication_di",
+          "bpmnElement": {
+            "ref": "id:Merge_Send_out"
+          },
+          "waypoint": [
+            {
+              "ref": "object:202"
+            },
+            {
+              "ref": "object:203"
+            }
+          ]
+        }
+      },
+      "object:204": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": -37,
+          "y": 20,
+          "width": 2891.5,
+          "height": 930
+        }
+      },
+      "id:Pool_Plane_Preparation": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Pool_Plane_Preparation",
+          "bpmnElement": {
+            "ref": "id:Ucoms"
+          },
+          "isHorizontal": true,
+          "bounds": {
+            "ref": "object:204"
+          }
+        }
+      },
+      "object:205": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 935,
+          "y": 802
+        }
+      },
+      "object:206": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 935,
+          "y": 820
+        }
+      },
+      "object:207": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2113.6666666666665,
+          "y": 504
+        }
+      },
+      "object:208": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2113.6666666666665,
+          "y": 486
+        }
+      },
+      "object:209": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 328.5,
+          "y": 98.33333333333333
+        }
+      },
+      "object:210": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 346.5,
+          "y": 98.33333333333333
+        }
+      },
+      "object:211": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 285.5,
+          "y": 385
+        }
+      },
+      "object:213": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1135.25,
+          "y": 171
+        }
+      },
+      "object:214": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1135.25,
+          "y": 140
+        }
+      },
+      "object:215": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 285.5,
+          "y": 453
+        }
+      },
+      "object:216": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1135.25,
+          "y": 90
+        }
+      },
+      "object:218": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2028,
+          "y": 112.5
+        }
+      },
+      "object:219": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2046,
+          "y": 112.5
+        }
+      },
+      "object:220": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2597.25,
+          "y": 112
+        }
+      },
+      "object:221": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2615.25,
+          "y": 112
+        }
+      },
+      "object:222": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1025.5,
+          "y": 377.5
+        }
+      },
+      "object:223": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1007.5,
+          "y": 377.5
+        }
+      },
+      "object:224": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 681.5,
+          "y": 137.5
+        }
+      },
+      "object:226": {
+        "type": "dc:Bounds",
+        "properties": {
+          "x": -60.5,
+          "y": -45.5,
+          "width": 2798,
+          "height": 796
+        }
+      },
+      "object:227": {
+        "type": "bpmndi:BPMNShape",
+        "properties": {
+          "id": "Pool_Publication_di",
+          "bpmnElement": {
+            "ref": "id:Ucoms"
+          },
+          "isHorizontal": true,
+          "bounds": {
+            "ref": "object:226"
+          }
+        }
+      },
+      "object:228": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1178.25,
+          "y": 98.33333333333333
+        }
+      },
+      "object:229": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 1196.25,
+          "y": 98.33333333333333
+        }
+      },
+      "object:230": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2411.25,
+          "y": 414
+        }
+      },
+      "object:231": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2227.5,
+          "y": 585
+        }
+      },
+      "object:232": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 285.5,
+          "y": 435
+        }
+      },
+      "object:233": {
+        "type": "dc:Point",
+        "properties": {
+          "x": 2037.75,
+          "y": 562.5
         }
       }
     }
   },
-  "source": "bpmn Collaboration \"TO BE: управляемая подготовка и публикация\"\npool Ucoms \"ООО «Юкомс»\"\npool PC4Games PC4Games\npool ITPartner ITPartner\npool Ozon Ozon\nevent Start \"Запрос на создание\\nили изменение карточки\" in=Ucoms position=start\nprocess Init \"Создать запрос\\nи черновую версию\" in=Ucoms type=user\nprocess Prepare \"Подготовить и проверить\\nверсию карточки\" in=Ucoms type=subprocess\nprocess Approve \"Утвердить конкретную\\nверсию карточки\" in=Ucoms type=user\nprocess Publish \"Опубликовать, сверить\\nи зафиксировать результат\" in=Ucoms type=subprocess\nevent Finish \"Статус, аудит\\nи уведомление сохранены\" in=Ucoms position=end\nlane Technical \"Технический специалист\" in=Prepare\nlane System \"Информационная система\" in=Prepare\nlane Designer Дизайнер in=Prepare\nevent PStart Начало in=Prepare position=start\nprocess Version \"Выбрать состав\\nчерновой версии\" in=Prepare type=user\nprocess Fix \"Исправить состав\\nили сопоставление\" in=Prepare type=user\nprocess Offers \"Импортировать предложения,\\nсопоставить SKU и разрешить слоты\" in=Prepare type=service\nprocess Validate \"Проверить совместимость,\\nактуальность и полноту\" in=Prepare type=rule\ngateway Valid \"Проверка успешна?\" in=Prepare type=exclusive\nprocess Calc \"Рассчитать цену и массу,\\nсохранить единый снимок\" in=Prepare type=service\nprocess Media \"Подтвердить шаблон\\nи изображения\" in=Prepare type=user\nprocess Content \"Сформировать контент\\nиз проверенного снимка\" in=Prepare type=service\ngateway Complete \"Версия готова?\" in=Prepare type=exclusive\nevent PDone \"Версия готова\\nк утверждению\" in=Prepare position=end\nevent QStart \"Публикация разрешена\" in=Publish position=start\nprocess Save \"Поставить версию в очередь\\nи сохранить ключ операции\" in=Publish type=service\nprocess Send \"Сверить статус и отправить\\nтолько отсутствующую операцию\" in=Publish type=service\nprocess Result \"Ожидать итоговый статус;\\nсверить потерянный ответ\" in=Publish type=service\ngateway Outcome \"Публикация успешна?\" in=Publish type=exclusive\nprocess Success \"Сохранить внешний ID,\\nстатус и аудит\" in=Publish type=service\nevent QDone \"Опубликовано\\nи уведомлено\" in=Publish position=end\ngateway Retry \"Временный сбой\\nи повтор допустим?\" in=Publish type=exclusive\nevent Wait \"Задержка повтора\" definition=timer in=Publish position=catch timeDuration=PT1M\nprocess Increment \"Увеличить счётчик\\nповторов\" in=Publish type=service\nprocess Error \"Сохранить ошибку или UNCERTAIN,\\nаудит и уведомление\" in=Publish type=service\nevent QFail \"Публикация приостановлена;\\nнужна проверка\" in=Publish position=end\nflow F1 \"\" from=Start to=Init\nflow F2 \"\" from=Init to=Prepare\nflow F3 \"\" from=Prepare to=Approve\nflow F4 \"\" from=Approve to=Publish\nflow F5 \"\" from=Publish to=Finish\nflow M1 \"Запрос предложений\" from=Prepare to=PC4Games type=message\nflow M2 \"Цены, остатки и время\" from=PC4Games to=Prepare type=message\nflow M3 \"Запрос предложений\" from=Prepare to=ITPartner type=message\nflow M4 \"Цены, остатки и время\" from=ITPartner to=Prepare type=message\nflow M5 \"Версия карточки или запрос статуса\" from=Publish to=Ozon type=message\nflow M6 \"ID операции и итоговый результат\" from=Ozon to=Publish type=message\nflow P1 \"\" from=PStart to=Version\nflow P2 \"\" from=Version to=Offers\nflow P3 \"\" from=Offers to=Validate\nflow P4 \"\" from=Validate to=Valid\nflow P5 Нет condition=\"valid = false\" from=Valid to=Fix\nflow P6 \"Контролируемое исправление\" from=Fix to=Offers\nflow P7 Да condition=\"valid = true\" from=Valid to=Calc\nflow P8 \"\" from=Calc to=Media\nflow P9 \"\" from=Media to=Content\nflow P10 \"\" from=Content to=Complete\nflow P11 Нет condition=\"complete = false\" from=Complete to=Fix\nflow P12 Да condition=\"complete = true\" from=Complete to=PDone\nflow Q1 \"\" from=QStart to=Save\nflow Q2 \"\" from=Save to=Send\nflow Q3 \"\" from=Send to=Result\nflow Q4 \"\" from=Result to=Outcome\nflow Q5 Да condition=\"result = success\" from=Outcome to=Success\nflow Q6 \"\" from=Success to=QDone\nflow Q7 \"Ошибка или неизвестный результат\" condition=\"result != success\" from=Outcome to=Retry\nflow Q8 Да condition=\"result = retryable_failure and current_version = true and retries < 3\" from=Retry to=Wait\nflow Q9 \"\" from=Wait to=Increment\nflow Q10 \"Сверить перед повтором\" from=Increment to=Send\nflow Q11 Нет condition=\"result != retryable_failure or current_version = false or retries >= 3\" from=Retry to=Error\nflow Q12 \"\" from=Error to=QFail\n",
-  "draft": "bpmn Collaboration \"TO BE: управляемая подготовка и публикация\"\npool Ucoms \"ООО «Юкомс»\"\npool PC4Games PC4Games\npool ITPartner ITPartner\npool Ozon Ozon\nevent Start \"Запрос на создание\\nили изменение карточки\" in=Ucoms position=start\nprocess Init \"Создать запрос\\nи черновую версию\" in=Ucoms type=user\nprocess Prepare \"Подготовить и проверить\\nверсию карточки\" in=Ucoms type=subprocess\nprocess Approve \"Утвердить конкретную\\nверсию карточки\" in=Ucoms type=user\nprocess Publish \"Опубликовать, сверить\\nи зафиксировать результат\" in=Ucoms type=subprocess\nevent Finish \"Статус, аудит\\nи уведомление сохранены\" in=Ucoms position=end\nlane Technical \"Технический специалист\" in=Prepare\nlane System \"Информационная система\" in=Prepare\nlane Designer Дизайнер in=Prepare\nevent PStart Начало in=Prepare position=start\nprocess Version \"Выбрать состав\\nчерновой версии\" in=Prepare type=user\nprocess Fix \"Исправить состав\\nили сопоставление\" in=Prepare type=user\nprocess Offers \"Импортировать предложения,\\nсопоставить SKU и разрешить слоты\" in=Prepare type=service\nprocess Validate \"Проверить совместимость,\\nактуальность и полноту\" in=Prepare type=rule\ngateway Valid \"Проверка успешна?\" in=Prepare type=exclusive\nprocess Calc \"Рассчитать цену и массу,\\nсохранить единый снимок\" in=Prepare type=service\nprocess Media \"Подтвердить шаблон\\nи изображения\" in=Prepare type=user\nprocess Content \"Сформировать контент\\nиз проверенного снимка\" in=Prepare type=service\ngateway Complete \"Версия готова?\" in=Prepare type=exclusive\nevent PDone \"Версия готова\\nк утверждению\" in=Prepare position=end\nevent QStart \"Публикация разрешена\" in=Publish position=start\nprocess Save \"Поставить версию в очередь\\nи сохранить ключ операции\" in=Publish type=service\nprocess Send \"Сверить статус и отправить\\nтолько отсутствующую операцию\" in=Publish type=service\nprocess Result \"Ожидать итоговый статус;\\nсверить потерянный ответ\" in=Publish type=service\ngateway Outcome \"Публикация успешна?\" in=Publish type=exclusive\nprocess Success \"Сохранить внешний ID,\\nстатус и аудит\" in=Publish type=service\nevent QDone \"Опубликовано\\nи уведомлено\" in=Publish position=end\ngateway Retry \"Временный сбой\\nи повтор допустим?\" in=Publish type=exclusive\nevent Wait \"Задержка повтора\" definition=timer in=Publish position=catch timeDuration=PT1M\nprocess Increment \"Увеличить счётчик\\nповторов\" in=Publish type=service\nprocess Error \"Сохранить ошибку или UNCERTAIN,\\nаудит и уведомление\" in=Publish type=service\nevent QFail \"Публикация приостановлена;\\nнужна проверка\" in=Publish position=end\nflow F1 \"\" from=Start to=Init\nflow F2 \"\" from=Init to=Prepare\nflow F3 \"\" from=Prepare to=Approve\nflow F4 \"\" from=Approve to=Publish\nflow F5 \"\" from=Publish to=Finish\nflow M1 \"Запрос предложений\" from=Prepare to=PC4Games type=message\nflow M2 \"Цены, остатки и время\" from=PC4Games to=Prepare type=message\nflow M3 \"Запрос предложений\" from=Prepare to=ITPartner type=message\nflow M4 \"Цены, остатки и время\" from=ITPartner to=Prepare type=message\nflow M5 \"Версия карточки или запрос статуса\" from=Publish to=Ozon type=message\nflow M6 \"ID операции и итоговый результат\" from=Ozon to=Publish type=message\nflow P1 \"\" from=PStart to=Version\nflow P2 \"\" from=Version to=Offers\nflow P3 \"\" from=Offers to=Validate\nflow P4 \"\" from=Validate to=Valid\nflow P5 Нет condition=\"valid = false\" from=Valid to=Fix\nflow P6 \"Контролируемое исправление\" from=Fix to=Offers\nflow P7 Да condition=\"valid = true\" from=Valid to=Calc\nflow P8 \"\" from=Calc to=Media\nflow P9 \"\" from=Media to=Content\nflow P10 \"\" from=Content to=Complete\nflow P11 Нет condition=\"complete = false\" from=Complete to=Fix\nflow P12 Да condition=\"complete = true\" from=Complete to=PDone\nflow Q1 \"\" from=QStart to=Save\nflow Q2 \"\" from=Save to=Send\nflow Q3 \"\" from=Send to=Result\nflow Q4 \"\" from=Result to=Outcome\nflow Q5 Да condition=\"result = success\" from=Outcome to=Success\nflow Q6 \"\" from=Success to=QDone\nflow Q7 \"Ошибка или неизвестный результат\" condition=\"result != success\" from=Outcome to=Retry\nflow Q8 Да condition=\"result = retryable_failure and current_version = true and retries < 3\" from=Retry to=Wait\nflow Q9 \"\" from=Wait to=Increment\nflow Q10 \"Сверить перед повтором\" from=Increment to=Send\nflow Q11 Нет condition=\"result != retryable_failure or current_version = false or retries >= 3\" from=Retry to=Error\nflow Q12 \"\" from=Error to=QFail\n"
+  "source": "bpmn Collaboration \"TO BE: управляемая подготовка и публикация\"\npool Ucoms \"ООО «Юкомс»\"\npool PC4Games PC4Games\npool ITPartner ITPartner\npool Ozon Ozon\nevent Start \"Запрос на создание\\nили изменение карточки\" in=Ucoms position=start\nprocess Init \"Создать запрос\\nи черновую версию\" in=Ucoms type=user\nprocess Prepare \"Подготовить и проверить\\nверсию карточки\" in=Ucoms type=subprocess\nprocess Approve \"Утвердить конкретную\\nверсию карточки\" in=Ucoms type=user\nprocess Publish \"Опубликовать, сверить\\nи зафиксировать результат\" in=Ucoms type=subprocess\nevent Finish \"Статус, аудит\\nи уведомление сохранены\" in=Ucoms position=end\nlane Technical \"Технический специалист\" in=Prepare\nlane System \"Информационная система\" in=Prepare\nlane Designer Дизайнер in=Prepare\nevent PStart Начало in=Technical position=start\nprocess Version \"Выбрать состав\\nчерновой версии\" in=Technical type=user\nprocess Fix \"Исправить состав\\nили сопоставление\" in=Technical type=user\nprocess Offers \"Импортировать предложения,\\nсопоставить SKU и разрешить слоты\" in=System type=service\nprocess Validate \"Проверить совместимость,\\nактуальность и полноту\" in=System type=rule\ngateway Valid \"Проверка успешна?\" in=System type=exclusive\nprocess Calc \"Рассчитать цену и массу,\\nсохранить единый снимок\" in=System type=service\nprocess Media \"Подтвердить шаблон\\nи изображения\" in=Designer type=user\nprocess Content \"Сформировать контент\\nиз проверенного снимка\" in=System type=service\ngateway Complete \"Версия готова?\" in=System type=exclusive\nevent PDone \"Версия готова\\nк утверждению\" in=System position=end\nevent QStart \"Публикация разрешена\" in=Publish position=start\nprocess Save \"Поставить версию в очередь\\nи сохранить ключ операции\" in=Publish type=service\nprocess Send \"Сверить статус и отправить\\nтолько отсутствующую операцию\" in=Publish type=service\nprocess Result \"Ожидать итоговый статус;\\nсверить потерянный ответ\" in=Publish type=service\ngateway Outcome \"Публикация успешна?\" in=Publish type=exclusive\nprocess Success \"Сохранить внешний ID,\\nстатус и аудит\" in=Publish type=service\nevent QDone \"Опубликовано\\nи уведомлено\" in=Publish position=end\ngateway Retry \"Временный сбой\\nи повтор допустим?\" in=Publish type=exclusive\nevent Wait \"Задержка повтора\" definition=timer in=Publish position=catch timeDuration=PT1M\nprocess Increment \"Увеличить счётчик\\nповторов\" in=Publish type=service\nprocess Error \"Сохранить ошибку или UNCERTAIN,\\nаудит и уведомление\" in=Publish type=service\nevent QFail \"Публикация приостановлена;\\nнужна проверка\" in=Publish position=end\nflow F1 \"\" from=Start to=Init\nflow F2 \"\" from=Init to=Prepare\nflow F3 \"\" from=Prepare to=Approve\nflow F4 \"\" from=Approve to=Publish\nflow F5 \"\" from=Publish to=Finish\nflow M1 \"Запрос предложений\" from=Prepare to=PC4Games type=message\nflow M2 \"Цены, остатки и время\" from=PC4Games to=Prepare type=message\nflow M3 \"Запрос предложений\" from=Prepare to=ITPartner type=message\nflow M4 \"Цены, остатки и время\" from=ITPartner to=Prepare type=message\nflow M5 \"Версия карточки или запрос статуса\" from=Publish to=Ozon type=message\nflow M6 \"ID операции и итоговый результат\" from=Ozon to=Publish type=message\nflow P1 \"\" from=PStart to=Version\nflow P2 \"\" from=Version to=Merge_Offers\nflow P3 \"\" from=Offers to=Validate\nflow P4 \"\" from=Validate to=Valid\nflow P5 Нет condition=\"valid = false\" from=Valid to=Merge_Fix\nflow P6 \"Контролируемое исправление\" from=Fix to=Merge_Offers\nflow P7 Да condition=\"valid = true\" from=Valid to=Calc\nflow P8 \"\" from=Calc to=Media\nflow P9 \"\" from=Media to=Content\nflow P10 \"\" from=Content to=Complete\nflow P11 Нет condition=\"complete = false\" from=Complete to=Merge_Fix\nflow P12 Да condition=\"complete = true\" from=Complete to=PDone\nflow Q1 \"\" from=QStart to=Save\nflow Q2 \"\" from=Save to=Merge_Send\nflow Q3 \"\" from=Send to=Result\nflow Q4 \"\" from=Result to=Outcome\nflow Q5 Да condition=\"result = success\" from=Outcome to=Success\nflow Q6 \"\" from=Success to=QDone\nflow Q7 \"Ошибка или неизвестный результат\" condition=\"result != success\" from=Outcome to=Retry\nflow Q8 Да condition=\"result = retryable_failure and current_version = true and retries < 3\" from=Retry to=Wait\nflow Q9 \"\" from=Wait to=Increment\nflow Q10 \"Сверить перед повтором\" from=Increment to=Merge_Send\nflow Q11 Нет condition=\"result != retryable_failure or current_version = false or retries >= 3\" from=Retry to=Error\nflow Q12 \"\" from=Error to=QFail\ngateway Merge_Offers \"\" in=System type=exclusive\ngateway Merge_Fix \"\" in=Technical type=exclusive\ngateway Merge_Send \"\" in=Publish type=exclusive\nflow Merge_Offers_out \"\" from=Merge_Offers to=Offers\nflow Merge_Fix_out \"\" from=Merge_Fix to=Fix\nflow Merge_Send_out \"\" from=Merge_Send to=Send\n",
+  "draft": "bpmn Collaboration \"TO BE: управляемая подготовка и публикация\"\npool Ucoms \"ООО «Юкомс»\"\npool PC4Games PC4Games\npool ITPartner ITPartner\npool Ozon Ozon\nevent Start \"Запрос на создание\\nили изменение карточки\" in=Ucoms position=start\nprocess Init \"Создать запрос\\nи черновую версию\" in=Ucoms type=user\nprocess Prepare \"Подготовить и проверить\\nверсию карточки\" in=Ucoms type=subprocess\nprocess Approve \"Утвердить конкретную\\nверсию карточки\" in=Ucoms type=user\nprocess Publish \"Опубликовать, сверить\\nи зафиксировать результат\" in=Ucoms type=subprocess\nevent Finish \"Статус, аудит\\nи уведомление сохранены\" in=Ucoms position=end\nlane Technical \"Технический специалист\" in=Prepare\nlane System \"Информационная система\" in=Prepare\nlane Designer Дизайнер in=Prepare\nevent PStart Начало in=Technical position=start\nprocess Version \"Выбрать состав\\nчерновой версии\" in=Technical type=user\nprocess Fix \"Исправить состав\\nили сопоставление\" in=Technical type=user\nprocess Offers \"Импортировать предложения,\\nсопоставить SKU и разрешить слоты\" in=System type=service\nprocess Validate \"Проверить совместимость,\\nактуальность и полноту\" in=System type=rule\ngateway Valid \"Проверка успешна?\" in=System type=exclusive\nprocess Calc \"Рассчитать цену и массу,\\nсохранить единый снимок\" in=System type=service\nprocess Media \"Подтвердить шаблон\\nи изображения\" in=Designer type=user\nprocess Content \"Сформировать контент\\nиз проверенного снимка\" in=System type=service\ngateway Complete \"Версия готова?\" in=System type=exclusive\nevent PDone \"Версия готова\\nк утверждению\" in=System position=end\nevent QStart \"Публикация разрешена\" in=Publish position=start\nprocess Save \"Поставить версию в очередь\\nи сохранить ключ операции\" in=Publish type=service\nprocess Send \"Сверить статус и отправить\\nтолько отсутствующую операцию\" in=Publish type=service\nprocess Result \"Ожидать итоговый статус;\\nсверить потерянный ответ\" in=Publish type=service\ngateway Outcome \"Публикация успешна?\" in=Publish type=exclusive\nprocess Success \"Сохранить внешний ID,\\nстатус и аудит\" in=Publish type=service\nevent QDone \"Опубликовано\\nи уведомлено\" in=Publish position=end\ngateway Retry \"Временный сбой\\nи повтор допустим?\" in=Publish type=exclusive\nevent Wait \"Задержка повтора\" definition=timer in=Publish position=catch timeDuration=PT1M\nprocess Increment \"Увеличить счётчик\\nповторов\" in=Publish type=service\nprocess Error \"Сохранить ошибку или UNCERTAIN,\\nаудит и уведомление\" in=Publish type=service\nevent QFail \"Публикация приостановлена;\\nнужна проверка\" in=Publish position=end\nflow F1 \"\" from=Start to=Init\nflow F2 \"\" from=Init to=Prepare\nflow F3 \"\" from=Prepare to=Approve\nflow F4 \"\" from=Approve to=Publish\nflow F5 \"\" from=Publish to=Finish\nflow M1 \"Запрос предложений\" from=Prepare to=PC4Games type=message\nflow M2 \"Цены, остатки и время\" from=PC4Games to=Prepare type=message\nflow M3 \"Запрос предложений\" from=Prepare to=ITPartner type=message\nflow M4 \"Цены, остатки и время\" from=ITPartner to=Prepare type=message\nflow M5 \"Версия карточки или запрос статуса\" from=Publish to=Ozon type=message\nflow M6 \"ID операции и итоговый результат\" from=Ozon to=Publish type=message\nflow P1 \"\" from=PStart to=Version\nflow P2 \"\" from=Version to=Merge_Offers\nflow P3 \"\" from=Offers to=Validate\nflow P4 \"\" from=Validate to=Valid\nflow P5 Нет condition=\"valid = false\" from=Valid to=Merge_Fix\nflow P6 \"Контролируемое исправление\" from=Fix to=Merge_Offers\nflow P7 Да condition=\"valid = true\" from=Valid to=Calc\nflow P8 \"\" from=Calc to=Media\nflow P9 \"\" from=Media to=Content\nflow P10 \"\" from=Content to=Complete\nflow P11 Нет condition=\"complete = false\" from=Complete to=Merge_Fix\nflow P12 Да condition=\"complete = true\" from=Complete to=PDone\nflow Q1 \"\" from=QStart to=Save\nflow Q2 \"\" from=Save to=Merge_Send\nflow Q3 \"\" from=Send to=Result\nflow Q4 \"\" from=Result to=Outcome\nflow Q5 Да condition=\"result = success\" from=Outcome to=Success\nflow Q6 \"\" from=Success to=QDone\nflow Q7 \"Ошибка или неизвестный результат\" condition=\"result != success\" from=Outcome to=Retry\nflow Q8 Да condition=\"result = retryable_failure and current_version = true and retries < 3\" from=Retry to=Wait\nflow Q9 \"\" from=Wait to=Increment\nflow Q10 \"Сверить перед повтором\" from=Increment to=Merge_Send\nflow Q11 Нет condition=\"result != retryable_failure or current_version = false or retries >= 3\" from=Retry to=Error\nflow Q12 \"\" from=Error to=QFail\ngateway Merge_Offers \"\" in=System type=exclusive\ngateway Merge_Fix \"\" in=Technical type=exclusive\ngateway Merge_Send \"\" in=Publish type=exclusive\nflow Merge_Offers_out \"\" from=Merge_Offers to=Offers\nflow Merge_Fix_out \"\" from=Merge_Fix to=Fix\nflow Merge_Send_out \"\" from=Merge_Send to=Send\n"
 }

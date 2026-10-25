@@ -1,6 +1,6 @@
 {
-  "pdf_pages": 120,
-  "figures": 38,
+  "pdf_pages": 105,
+  "figures": 30,
   "tables_in_report": 66,
   "FR": 22,
   "NFR": 12,
@@ -27,9 +27,8 @@
     "decimal example",
     "FR/NFR identifiers preserved",
     "DOCX/PDF captions and chapters",
-    "38 current PNG exports and hashes",
+    "30 current PNG exports and hashes",
     "PPTX ZIP structure and slide counts",
-    "obsolete terminology and service text scan",
-    "rendered all report pages and slides; inspected layouts"
+    "obsolete terminology and service text scan"
   ]
 }

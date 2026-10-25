@@ -69,7 +69,7 @@ canonical = [item for item in model_check if item["kind"] == "canonical"]
 assert len(canonical) == 4 and all(not item["diagnostics"] for item in canonical)
 assert len(model_check) == 12 and all(not item['diagnostics'] for item in model_check)
 
-registry = json.loads((MODEL_DIR / 'Реестр_38_рисунков.json').read_text('utf-8'))
+registry = json.loads((MODEL_DIR / 'Реестр_рисунков.json').read_text('utf-8'))
 for entry in [item for figure in registry['figures']
               for item in ({'file': figure['file'], 'sha256': figure['modelSha256']}, figure['export']['png'])] + list(registry['exportReports'].values()):
     relative = Path(entry['file'])

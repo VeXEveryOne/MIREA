@@ -1,10 +1,28 @@
 {
-  "idef0": {
-    "AS_IS": [],
-    "TO_BE": []
-  },
-  "bpmn": {
-    "AS_IS": [],
-    "TO_BE": []
-  }
+  "date": "2026-10-21",
+  "status": "pass",
+  "idef0": [
+    {
+      "file": "ПР1_IDEF0_AS_IS.omni",
+      "functions": 6,
+      "consecutiveOutputs": true
+    },
+    {
+      "file": "ПР2_IDEF0_TO_BE.omni",
+      "functions": 5,
+      "consecutiveOutputs": true
+    }
+  ],
+  "bpmn": [
+    {
+      "file": "ПР1_BPMN_AS_IS.omni",
+      "explicitMerges": 4,
+      "poolsOnEverySheet": true
+    },
+    {
+      "file": "ПР2_BPMN_TO_BE.omni",
+      "explicitMerges": 3,
+      "poolsOnEverySheet": true
+    }
+  ]
 }

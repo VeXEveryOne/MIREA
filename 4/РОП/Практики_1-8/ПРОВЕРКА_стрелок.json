@@ -1,0 +1,311 @@
+{
+  "date": "2026-10-26",
+  "status": "pass",
+  "svgViews": 34,
+  "views": [
+    {
+      "file": "Экспорт\\SVG\\01_Рисунок 01 — IDEF0 AS IS_ контекст ручной подготовки карточки.svg",
+      "connections": 15,
+      "directedPaths": 15,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\02_Рисунок 02 — IDEF0 AS IS_ ручная подготовка и повторный ввод.svg",
+      "connections": 21,
+      "directedPaths": 21,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": true
+    },
+    {
+      "file": "Экспорт\\SVG\\03_Рисунок 03 — BPMN AS IS_ ручная публикация и возврат отклонённой карточки.svg",
+      "connections": 15,
+      "directedPaths": 15,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\04_Рисунок 04 — BPMN AS IS_ подготовка данных в разрозненных инструментах.svg",
+      "connections": 19,
+      "directedPaths": 19,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\06_IDEF0_TO_BE_Контекст_формирования_карточек_в_ИС.svg",
+      "connections": 16,
+      "directedPaths": 16,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\07_Рисунок 07 — IDEF0 TO BE_ версионированная подготовка и публикация.svg",
+      "connections": 21,
+      "directedPaths": 21,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": true
+    },
+    {
+      "file": "Экспорт\\SVG\\08_Рисунок 08 — BPMN TO BE_ целевой процесс подготовки и публикации.svg",
+      "connections": 11,
+      "directedPaths": 11,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\09_Рисунок 09 — BPMN TO BE_ автоматизированная подготовка версии карточки.svg",
+      "connections": 14,
+      "directedPaths": 14,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\10_Рисунок 10 — BPMN TO BE_ очередь, сверка статуса и обработка результата.svg",
+      "connections": 13,
+      "directedPaths": 13,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\11_Рисунок 11 — Дерево функций.svg",
+      "connections": 20,
+      "directedPaths": 0,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": true
+    },
+    {
+      "file": "Экспорт\\SVG\\12_Рисунок 12 — Диаграмма компонентов.svg",
+      "connections": 9,
+      "directedPaths": 0,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\13_Логическая_модель_данных.svg",
+      "connections": 47,
+      "directedPaths": 0,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\18_Рисунок 18 — Схема кодирования модельного ряда.svg",
+      "connections": 0,
+      "directedPaths": 0,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\25_Рисунок 25 — Деятельность по подготовке и публикации карточки.svg",
+      "connections": 10,
+      "directedPaths": 10,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\26_Схема_алгоритма_расчёта_цены_и_массы.svg",
+      "connections": 8,
+      "directedPaths": 8,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\27_Схема_алгоритма_выбора_предложения.svg",
+      "connections": 8,
+      "directedPaths": 8,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\28_Схема_алгоритма_массовой_замены.svg",
+      "connections": 12,
+      "directedPaths": 12,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\29_Рисунок 29 — Инфраструктурная схема.svg",
+      "connections": 7,
+      "directedPaths": 7,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\30_Логическая_модель_данных_и_целостность.svg",
+      "connections": 47,
+      "directedPaths": 0,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\35_Рисунок 35 — Диаграмма развёртывания.svg",
+      "connections": 7,
+      "directedPaths": 0,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\36_Рисунок 36 — Последовательность обновления предложений.svg",
+      "connections": 15,
+      "directedPaths": 15,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\36_Рисунок 36 — Последовательность обновления предложений_часть_1.svg",
+      "connections": 5,
+      "directedPaths": 5,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\36_Рисунок 36 — Последовательность обновления предложений_часть_2.svg",
+      "connections": 4,
+      "directedPaths": 4,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\36_Рисунок 36 — Последовательность обновления предложений_часть_3.svg",
+      "connections": 4,
+      "directedPaths": 4,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\36_Рисунок 36 — Последовательность обновления предложений_часть_4.svg",
+      "connections": 2,
+      "directedPaths": 2,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\37_Рисунок 37 — Последовательность публикации версии карточки.svg",
+      "connections": 21,
+      "directedPaths": 21,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\37_Рисунок 37 — Последовательность публикации версии карточки_часть_1.svg",
+      "connections": 6,
+      "directedPaths": 6,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\37_Рисунок 37 — Последовательность публикации версии карточки_часть_2.svg",
+      "connections": 3,
+      "directedPaths": 3,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\37_Рисунок 37 — Последовательность публикации версии карточки_часть_3.svg",
+      "connections": 2,
+      "directedPaths": 2,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\37_Рисунок 37 — Последовательность публикации версии карточки_часть_4.svg",
+      "connections": 3,
+      "directedPaths": 3,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\37_Рисунок 37 — Последовательность публикации версии карточки_часть_5.svg",
+      "connections": 2,
+      "directedPaths": 2,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\37_Рисунок 37 — Последовательность публикации версии карточки_часть_6.svg",
+      "connections": 3,
+      "directedPaths": 3,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\37_Рисунок 37 — Последовательность публикации версии карточки_часть_7.svg",
+      "connections": 2,
+      "directedPaths": 2,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    },
+    {
+      "file": "Экспорт\\SVG\\38_Рисунок 38 — Схема проверки доступа.svg",
+      "connections": 4,
+      "directedPaths": 4,
+      "independentOverlaps": 0,
+      "falseJunctions": 0,
+      "intentionalBranching": false
+    }
+  ],
+  "bpmn": [
+    {
+      "file": "ПР1_BPMN_AS_IS.omni",
+      "plane": "Plane_Main",
+      "connections": 15,
+      "allEndpointsOnElements": true
+    },
+    {
+      "file": "ПР1_BPMN_AS_IS.omni",
+      "plane": "Plane_Preparation",
+      "connections": 19,
+      "allEndpointsOnElements": true
+    },
+    {
+      "file": "ПР2_BPMN_TO_BE.omni",
+      "plane": "Plane_Main",
+      "connections": 11,
+      "allEndpointsOnElements": true
+    },
+    {
+      "file": "ПР2_BPMN_TO_BE.omni",
+      "plane": "Plane_Preparation",
+      "connections": 14,
+      "allEndpointsOnElements": true
+    },
+    {
+      "file": "ПР2_BPMN_TO_BE.omni",
+      "plane": "Plane_Publication",
+      "connections": 13,
+      "allEndpointsOnElements": true
+    }
+  ]
+}

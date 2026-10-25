@@ -4,11 +4,17 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {ROOT,MODEL_DIR,EXPORT_DIR,omniModule,runtimeModule} from './runtime.mjs';
 import {escape,font,wrap,measure} from './print_text.mts';
-const {decodeProject}=await omniModule('src/persistence/project.ts');
+const {decodeProject,encodeProject}=await omniModule('src/persistence/project.ts');
+const {patchUnified}=await omniModule('src/language/unified.ts');
+const {textModel}=await omniModule('src/notations/structured/document.ts');
 const {default:sharp}=await runtimeModule('sharp');
 const doc=await decodeProject(await fs.readFile(path.join(MODEL_DIR,'РОП_UML_Последовательности.omni'),'utf8'));
+const deleted=new Set(doc.model.elements.filter(e=>e.kind==='annotation').map(e=>e.id));
+for(const v of doc.model.elements.filter(e=>e.kind==='view'&&deleted.has(e.properties.element))){deleted.add(v.id);delete doc.layout.nodes[v.id];delete doc.layout.edges[v.id];}
+doc.model.elements=doc.model.elements.filter(e=>!deleted.has(e.id));
+doc.source=patchUnified(doc.source,textModel(doc.notation,doc.model));doc.draft=doc.source;await fs.writeFile(path.join(MODEL_DIR,'РОП_UML_Последовательности.omni'),await encodeProject(doc));
 const els=doc.model.elements,index=new Map(els.map((e:any)=>[e.id,e]));
-const registry=JSON.parse(await fs.readFile(path.join(MODEL_DIR,'Реестр_38_рисунков.json'),'utf8'));
+const registry=JSON.parse(await fs.readFile(path.join(MODEL_DIR,'Реестр_рисунков.json'),'utf8'));
 const out=path.join(EXPORT_DIR,'sequence_parts');await fs.mkdir(out,{recursive:true});
 const audits:any[]=[];
 function text(x:number,y:number,lines:string[],size=26,anchor='middle'){
@@ -43,7 +49,8 @@ for(const sheet of els.filter((e:any)=>e.kind==='diagram')){
   group.push(row);height+=extra;last=key;
  }if(group.length)groups.push(group);
  const parts:any[]=[];const emitted:any[]=[];
- for(const [pi,rows] of groups.entries()){
+ for(const [pi,rows] of [...groups,prepared].entries()){
+  const isFull=pi===groups.length;
   let y=startY,lastKey='',body='',frames:any[]=[],active:any[]=[],previous:any[]=[];
   for(const row of rows){const key=row.chain.map((c:any)=>c.operand.id).join('/');
    if(key!==lastKey){
@@ -66,7 +73,7 @@ for(const sheet of els.filter((e:any)=>e.kind==='diagram')){
    body+=`<rect x="${row.self?cx-6:cx-mw/2}" y="${y-26}" width="${mw}" height="${row.lines.length*31}" fill="white"/>`+text(cx,y,row.lines,26,row.self?'start':'middle');
    body+=`<path d="${d}" fill="none" stroke="#111" stroke-width="1.8" ${reply?'stroke-dasharray="8 5"':''} marker-end="url(#${open?'open':'call'})"/>`;
    y+=row.lines.length*31+30+(row.self?35:0);
-   emitted.push({id:row.m.id,sequence:+row.m.properties.sequence,from:endpoint(row.m,'send'),to:endpoint(row.m,'receive'),sort:row.m.properties.sort,context:row.chain.map((c:any)=>({fragment:c.fragment.id,operator:c.fragment.properties.operator,operand:c.operand.id,guard:c.operand.properties.guard}))});
+   if(!isFull)emitted.push({id:row.m.id,sequence:+row.m.properties.sequence,from:endpoint(row.m,'send'),to:endpoint(row.m,'receive'),sort:row.m.properties.sort,context:row.chain.map((c:any)=>({fragment:c.fragment.id,operator:c.fragment.properties.operator,operand:c.operand.id,guard:c.operand.properties.guard}))});
   }
   for(const f of active)f.bottom=y-10;
   const H=y+25;let background='';
@@ -76,10 +83,10 @@ for(const sheet of els.filter((e:any)=>e.kind==='diagram')){
   }
   for(const f of frames)background+=`<rect x="${24+f.depth*22}" y="${f.top}" width="${W-48-f.depth*44}" height="${f.bottom-f.top}" fill="none" stroke="#111" stroke-width="1.4"/>`;
   const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${defs}<rect width="100%" height="100%" fill="white"/>${background}${body}</svg>`;
-  const item=registry.figures.find((f:any)=>f.diagramId===sheet.id),name=path.basename(item.export.png.file).replace('.png',`_часть_${pi+1}`);
+  const item=registry.figures.find((f:any)=>f.diagramId===sheet.id),name=path.basename(item.export.png.file).replace('.png',isFull?'':`_часть_${pi+1}`);
   await fs.writeFile(path.join(ROOT,'Экспорт','SVG',name+'.svg'),svg);
-  await sharp(Buffer.from(svg)).resize({width:4200}).png().toFile(path.join(out,name+'.png'));
-  parts.push({file:'Экспорт/PNG/sequence_parts/'+name+'.png',first:+rows[0].m.properties.sequence,last:+rows.at(-1).m.properties.sequence});
+  await sharp(Buffer.from(svg)).resize({width:4200}).png().toFile(path.join(isFull?EXPORT_DIR:out,name+'.png'));
+  if(!isFull)parts.push({file:'Экспорт/PNG/sequence_parts/'+name+'.png',first:+rows[0].m.properties.sequence,last:+rows.at(-1).m.properties.sequence});
  }
  if(new Set(emitted.map(e=>e.id)).size!==messages.length)throw Error('Lost sequence messages');
  audits.push({sheet:sheet.id,messages:emitted,parts});

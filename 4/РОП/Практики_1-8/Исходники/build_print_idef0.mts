@@ -37,7 +37,7 @@ function compact(doc:any,toBe:boolean){
  else branch(doc,'d_rules_A4','d_rules','A4','control');
  if(toBe){
   // Separate independent outputs: no accidental visual fork from equal offsets.
-  for(const [id,offset] of [['d_version',.28],['step34',.65],['feedback_correction',.14],['d_content',.28],['step45',.65]] as const)layout.arrows[id].fromOffset=offset;
+  for(const [id,offset] of [['d_version',.28],['step34',.65],['feedback_correction',.14],['d_content',.28],['step45',.65]] as const)if(layout.arrows[id])layout.arrows[id].fromOffset=offset;
  }
  const roles=['input','control','output','mechanism'];
  const contextEdges=doc.model.edges.filter((e:any)=>e.id.startsWith('c_'));
@@ -86,14 +86,14 @@ function compact(doc:any,toBe:boolean){
     if(toBe&&id==='d_offers')y=725;
     layout.positions[boundary]={x:0,y};
     const mx=toBe?450:fn.x-30;
-    route(id,fn.y===y?[]:[{x:mx,y},{x:mx,y:fn.y}],{x:toBe?230:(id==='d_request'?95:240),y:y-24},id==='d_request'?(toBe?400:190):400,id==='d_request'?20:24);
+    route(id,fn.y===y?[]:[{x:mx,y},{x:mx,y:fn.y}],{x:toBe?230:(id==='d_request'?95:240),y:y-24},id==='d_request'?(toBe?300:190):300,id==='d_request'?20:24);
    }else{
     let y=fn.y,x=fn.x+36;
-    if(toBe){y=[285,385,730,850][i];x=fn.x+36;}
+    if(toBe){y=[285,385,730,850][i];x=fn.x+36+i*36;}
     else if(id==='d_card'){y=675;x=2050;}
     else if(id==='d_waste'){y=1000;x=2075;}
     layout.positions[boundary]={x:2100,y};
-    route(id,y===fn.y?[]:[{x,y:fn.y},{x,y}],{x:toBe?1810:(id==='d_table'?1390:id==='d_values'?1710:1790),y:y-20},toBe?475:500,24);
+    route(id,y===fn.y?[]:[{x,y:fn.y},{x,y}],{x:toBe?1810:(id==='d_table'?1390:id==='d_values'?1710:1790),y:y-20},toBe?300:280,24);
    }
   }
  }
@@ -124,7 +124,7 @@ const audit:any[]=[];await fs.mkdir(EXPORT_DIR,{recursive:true});
 const svgDir=path.join(ROOT,'Экспорт','SVG');await fs.mkdir(svgDir,{recursive:true});
 for(const [file,toBe,numbers] of [['ПР1_IDEF0_AS_IS.omni',false,[1,2]],['ПР2_IDEF0_TO_BE.omni',true,[6,7]]] as const){
  const filePath=path.join(MODEL_DIR,file);let doc=structuredClone(compact(await decodeProject(await fs.readFile(filePath,'utf8')),toBe));
- await placeLabels(doc);doc=structuredClone(doc);
+ await placeLabels(doc,{avoidRoutes:true});doc=structuredClone(doc);
  doc.source=patchUnified(doc.source,doc.model);doc.draft=doc.source;
  const diagnostics=validateIdef0Complete(doc.model);if(diagnostics.length)throw Error(JSON.stringify(diagnostics));
  // Encoding validates persisted appearance/layout properties, not only semantics.

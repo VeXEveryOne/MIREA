@@ -1,17 +1,30 @@
-// Read-only print projection of native flowchart and UML activity semantics.
+// Native flowchart and UML activity geometry, shared with print exports.
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {ROOT,MODEL_DIR,EXPORT_DIR,omniModule,runtimeModule} from './runtime.mjs';
 import {escape,font,wrap,measure,intersects} from './print_text.mts';
-const {decodeProject}=await omniModule('src/persistence/project.ts');
+import {route,auditRoutes,shared,segments,hits} from './route_print.mts';
+const {decodeProject,encodeProject}=await omniModule('src/persistence/project.ts');
 const {structuredRoute,routeHitsBox}=await omniModule('src/notations/structured/geometry.ts');
+const {patchUnified}=await omniModule('src/language/unified.ts');
+const {textModel}=await omniModule('src/notations/structured/document.ts');
 const {default:sharp}=await runtimeModule('sharp');
-const registry=JSON.parse(await fs.readFile(path.join(MODEL_DIR,'Реестр_38_рисунков.json'),'utf8'));
+const registry=JSON.parse(await fs.readFile(path.join(MODEL_DIR,'Реестр_рисунков.json'),'utf8'));
 const audits:any[]=[];
 const center=(n:any)=>({x:n.x+n.width/2,y:n.y+n.height/2});
 const anchor=(n:any,a:any)=>a.side==='left'?{x:n.x,y:n.y+n.height*a.offset}:a.side==='right'?{x:n.x+n.width,y:n.y+n.height*a.offset}:a.side==='top'?{x:n.x+n.width*a.offset,y:n.y}:{x:n.x+n.width*a.offset,y:n.y+n.height};
 for(const file of ['РОП_Алгоритмы.omni','РОП_UML_Структура.omni']){
  const doc=await decodeProject(await fs.readFile(path.join(MODEL_DIR,file),'utf8'));
+ if(file.includes('Алгоритмы')&&!doc.model.elements.some(e=>e.id==='D09_algorithm_replace.return')){
+  const id='D09_algorithm_replace.return',view=id+'_view';
+  doc.model.elements.push({id,kind:'connector',label:'А',properties:{owner:'D09_algorithm_replace.algorithm',code:'А'}},{id:view,kind:'view',label:'',properties:{diagram:'D09_algorithm_replace',element:id}});
+  doc.layout.nodes[view]={x:170,y:352.5,width:50,height:50};
+  for(const suffix of ['flow8','flow9']){const e=doc.model.elements.find(e=>e.id==='D09_algorithm_replace.'+suffix),v=doc.model.elements.find(v=>v.kind==='view'&&v.properties.element===e.id);e.properties.to=id;v.properties.to=view;doc.layout.edges[v.id]={from:{side:suffix==='flow8'?'left':'top',offset:.5},to:{side:suffix==='flow8'?'left':'bottom',offset:.5}};}
+  const e={id:id+'Flow',kind:'flow',label:'',properties:{from:id,to:'D09_algorithm_replace.b'}};
+  doc.model.elements.push(e,{id:e.id+'_view',kind:'view',label:'',properties:{diagram:'D09_algorithm_replace',element:e.id,from:view,to:'D09_algorithm_replace.b_view'}});
+  doc.layout.edges[e.id+'_view']={from:{side:'right',offset:.5},to:{side:'left',offset:.5}};
+ }
+ if(file.includes('Алгоритмы')){doc.layout.nodes['D09_algorithm_replace.return_view'].x=165;doc.layout.edges['D09_algorithm_replace.flow8_view']={from:{side:'left',offset:.5},to:{side:'left',offset:.5},bends:[{x:-40,y:1140},{x:-40,y:377.5}]};}
  const index=new Map(doc.model.elements.map((e:any)=>[e.id,e]));
  for(const sheet of doc.model.elements.filter((e:any)=>e.kind==='diagram'&&(file.includes('Алгоритмы')||e.id==='D06_activity'))){
   const views=doc.model.elements.filter((e:any)=>e.kind==='view'&&e.properties.diagram===sheet.id);
@@ -19,21 +32,29 @@ for(const file of ['РОП_Алгоритмы.omni','РОП_UML_Структур
   // Widen only print boxes around their original centres and reserve measured
   // line height; native document geometry and semantic content remain untouched.
   for(const n of nodes){
-   if(['initial','activityFinal','decision','merge','start','end'].includes(n.element.kind))continue;
+   if(['initial','activityFinal','decision','merge','start','end','connector'].includes(n.element.kind))continue;
    const width=Math.max(n.width,n.width>=390?480:n.width>=340?400:n.width);
    n.x-=(width-n.width)/2;n.width=width;
    const lines=await wrap(n.element.label,width-36,28);n.height=Math.max(n.height,lines.length*32.2+16);
   }
+  if(file.includes('Алгоритмы')){
+   const centres=nodes.filter(n=>n.x+n.width/2>570&&n.x+n.width/2<710).map(n=>n.x+n.width/2).sort((a,b)=>a-b),axis=centres[Math.floor(centres.length/2)];
+   for(const n of nodes)if(Math.abs(n.x+n.width/2-axis)<40)n.x=axis-n.width/2;
+   const decisions=nodes.filter(n=>n.element.kind==='decision');
+   for(const n of nodes.filter(n=>['input','output'].includes(n.element.kind)&&n.x+n.width<380)){
+    const d=decisions.find(d=>Math.abs(d.y+d.height/2-n.y-n.height/2)<35);if(d)n.y=d.y+d.height/2-n.height/2;
+   }
+  }
   const edges=views.filter((v:any)=>['flow','controlFlow'].includes(index.get(v.properties.element)?.kind));
-  let body='';const labels:any[]=[],printPoints:any[]=[];
+  let body='';const labels:any[]=[],printPoints:any[]=[],routes:any[]=[];
   for(const [i,v] of edges.entries()){
    const e=index.get(v.properties.element),a=nodes.find(n=>n.id===v.properties.from),b=nodes.find(n=>n.id===v.properties.to);
    if(!a||!b)throw Error('Missing endpoint '+v.id);
    const g=doc.layout.edges[v.id]??{};
    const horizontal=!(a.y+a.height<=b.y||b.y+b.height<=a.y);
    const backwards=b.y<a.y;
-   const from=(backwards?g.from:undefined)??{side:horizontal?(a.x<b.x?'right':'left'):backwards?'top':'bottom',offset:.5};
-   const to=(backwards?g.to:undefined)??{side:horizontal?(a.x<b.x?'left':'right'):backwards?(a.x<b.x?'left':'right'):'top',offset:.5};
+   const from=g.from??{side:horizontal?(a.x<b.x?'right':'left'):backwards?'top':'bottom',offset:.5};
+   const to=g.to??{side:horizontal?(a.x<b.x?'left':'right'):backwards?(a.x<b.x?'left':'right'):'top',offset:.5};
    const start=anchor(a,from),end=anchor(b,to),manual=[start,...g.bends??[],end];
    const orthogonal=manual.slice(1).every((p:any,j:number)=>p.x===manual[j].x||p.y===manual[j].y);
    // Short forward links must not use the router's fixed escape distance: it
@@ -42,10 +63,15 @@ for(const file of ['РОП_Алгоритмы.omni','РОП_UML_Структур
    const simple=start.x===end.x||start.y===end.y?[start,end]:horizontal?
     [start,{x:midX,y:start.y},{x:midX,y:end.y},end]:
     [start,{x:start.x,y:midY},{x:end.x,y:midY},end];
-   const points=!backwards&&!routeHitsBox(simple,nodes)?simple:
-    backwards&&orthogonal&&!routeHitsBox(manual,nodes)?manual:
-    structuredRoute(start,end,from.side,to.side,nodes,i);
-   if(routeHitsBox(points,nodes))throw Error('Route intersects node '+v.id+' '+JSON.stringify({points,boxes:nodes.filter(n=>routeHitsBox(points,[n])).map(n=>({id:n.id,x:n.x,y:n.y,width:n.width,height:n.height}))}));
+   const endpoint=(p:any,side:string)=>({...p,nx:side==='left'?-1:side==='right'?1:0,ny:side==='top'?-1:side==='bottom'?1:0});
+   const conflict=(pts:any[])=>routeHitsBox(pts,nodes)||segments(pts).some(s=>routes.some(r=>segments(r.points).some(t=>shared(s.a,s.b,t.a,t.b,16)>.01)));
+   let points;
+   const candidate=!backwards?simple:manual;
+   if((!backwards||orthogonal)&&!conflict(candidate))points=candidate;
+   else points=route(endpoint(start,from.side),endpoint(end,to.side),nodes,routes.map(r=>r.points),{gap:16,pad:4,escape:18});
+   routes.push({id:v.id,points});
+   if(file.includes('Алгоритмы'))doc.layout.edges[v.id]={from,to,bends:points.slice(1,-1)};
+   else doc.layout.edges[v.id]={...g,bends:points.slice(1,-1)};
    printPoints.push(...points);
    const d=points.map((p:any,j:number)=>`${j?'L':'M'}${p.x} ${p.y}`).join('');
    body+=`<path d="${d}" fill="none" stroke="white" stroke-width="7"/><path d="${d}" fill="none" stroke="#111" stroke-width="2" marker-end="url(#arrow)"/>`;
@@ -57,13 +83,14 @@ for(const file of ['РОП_Алгоритмы.omni','РОП_UML_Структур
     const candidates:any[]=[];
     for(let dx=-180;dx<=180;dx+=10)for(let dy=-100;dy<=100;dy+=10)candidates.push({x:cx+dx-w/2,y:cy+dy-h/2,cost:Math.hypot(dx,dy)});
     candidates.sort((a,b)=>a.cost-b.cost);
-    const box=candidates.find(p=>p.x>=0&&p.y>=0&&![...nodes,...labels].some(n=>intersects({...p,width:w,height:h},n,3)));
+    const box=candidates.find(p=>p.x>=0&&p.y>=0&&![...nodes,...labels].some(n=>intersects({...p,width:w,height:h},n,3))&&!routes.some(r=>segments(r.points).some(s=>hits(s.a,s.b,{...p,width:w,height:h},3))));
     if(!box)throw Error('Label has no space '+v.id);
     labels.push({...box,width:w,height:h,label});
    }
   }
   for(const n of nodes){
    const {x,y,width:w,height:h}=n,k=n.element.kind,c=center(n);
+   if(k==='connector'){body+=`<circle cx="${c.x}" cy="${c.y}" r="${w/2}" fill="white" stroke="#111" stroke-width="2"/><text x="${c.x}" y="${c.y+9}" text-anchor="middle" font-family="${font}" font-size="26">${escape(n.element.label)}</text>`;continue;}
    if(['initial','activityFinal'].includes(k)){
     body+=`<circle cx="${c.x}" cy="${c.y}" r="${w/2}" fill="${k==='initial'?'#111':'white'}" stroke="#111" stroke-width="2"/>`+(k==='activityFinal'?`<circle cx="${c.x}" cy="${c.y}" r="${w/2-6}" fill="#111"/>`:'');continue;
    }
@@ -85,8 +112,11 @@ for(const file of ['РОП_Алгоритмы.omni','РОП_UML_Структур
   const f=registry.figures.find((f:any)=>f.diagramId===sheet.id),name=(await fs.readdir(EXPORT_DIR)).find(n=>n.startsWith(String(f.figure).padStart(2,'0')+'_')&&n.endsWith('.png')&&!n.includes('_часть'))!;
   await fs.writeFile(path.join(ROOT,'Экспорт','SVG',name.replace('.png','.svg')),svg);
   await sharp(Buffer.from(svg)).resize({width:4200}).png().toFile(path.join(EXPORT_DIR,name));
-  audits.push({sheet:sheet.id,file:name,nodes:nodes.length,edges:edges.length});
+  for(const n of nodes)doc.layout.nodes[n.id]={x:n.x,y:n.y,width:n.width,height:n.height};
+  audits.push({sheet:sheet.id,file:name,nodes:nodes.length,edges:edges.length,routing:auditRoutes(sheet.id,routes,nodes)});
  }
+ doc.source=patchUnified(doc.source,textModel(doc.notation,doc.model));doc.draft=doc.source;
+ await fs.writeFile(path.join(MODEL_DIR,file),await encodeProject(doc));
 }
 await fs.writeFile(path.join(MODEL_DIR,'ПРОВЕРКА_алгоритмов_печать.json'),JSON.stringify(audits,null,2)+'\n');
 console.log(JSON.stringify(audits));

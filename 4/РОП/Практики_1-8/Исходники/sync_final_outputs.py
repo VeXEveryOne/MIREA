@@ -13,7 +13,7 @@ def file_hash(path: Path) -> str:
 
 
 def update_registry() -> None:
-    registry_path = MODEL_DIR / 'Реестр_38_рисунков.json'
+    registry_path = MODEL_DIR / 'Реестр_рисунков.json'
     registry = json.loads(registry_path.read_text('utf-8'))
     report_path = EXPORT_DIR / 'Отчёт_экспорта.json'
     report = json.loads(report_path.read_text('utf-8'))
@@ -51,12 +51,12 @@ def update_registry() -> None:
         figure.pop('report', None)  # obsolete migration receipts are archived, not current inputs
     registry['count'] = len(registry['figures'])
     report['files'] = all_files
-    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', 'utf-8')
+    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', 'utf-8', newline='\n')
     registry['exportReports'] = {'png': {'file': report_path.relative_to(ROOT).as_posix(),
                                        'sha256': file_hash(report_path)}}
     registry.pop('pdfHashes', None)
     registry['reviewedAt'] = date.today().isoformat()
-    registry_path.write_text(json.dumps(registry, ensure_ascii=False, indent=2) + '\n', 'utf-8')
+    registry_path.write_text(json.dumps(registry, ensure_ascii=False, indent=2) + '\n', 'utf-8', newline='\n')
 
 
 def update_checksums() -> None:
@@ -67,10 +67,10 @@ def update_checksums() -> None:
                    and '__pycache__' not in path.parts
                    and path.suffix != '.pyc')
     manifest = {path.relative_to(ROOT).as_posix(): file_hash(path) for path in files}
-    (ROOT / 'SHA256.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', 'utf-8')
+    (ROOT / 'SHA256.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', 'utf-8', newline='\n')
 
 
 if __name__ == '__main__':
     update_registry()
     update_checksums()
-    print('Обновлены реестр 38 рисунков и контрольные суммы единого комплекта.')
+    print('Обновлены реестр рисунков и контрольные суммы единого комплекта.')

@@ -1,0 +1,564 @@
+{
+  "generatedAt": "2026-10-04T13:53:35+03:00",
+  "count": 30,
+  "figures": [
+    {
+      "figure": 1,
+      "sha256": "e5a0f2944826b5e93c7e0cd1275008350fba623c8375ac63e0143df6e600cda2",
+      "file": "Модели/ПР1_IDEF0_AS_IS.omni",
+      "diagramId": "context",
+      "title": "Рисунок 01 — IDEF0 AS IS: контекст ручной подготовки карточки",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/01_Рисунок 01 — IDEF0 AS IS_ контекст ручной подготовки карточки.png",
+          "sha256": "b6905dc2933fadd99b3df96734b8c3df36a0112664f18004d8c69d9058512023"
+        },
+        "warnings": []
+      },
+      "modelSha256": "e5a0f2944826b5e93c7e0cd1275008350fba623c8375ac63e0143df6e600cda2",
+      "reportFigure": 1
+    },
+    {
+      "figure": 2,
+      "sha256": "e5a0f2944826b5e93c7e0cd1275008350fba623c8375ac63e0143df6e600cda2",
+      "file": "Модели/ПР1_IDEF0_AS_IS.omni",
+      "diagramId": "decomposition",
+      "title": "Рисунок 02 — IDEF0 AS IS: ручная подготовка и повторный ввод",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/02_Рисунок 02 — IDEF0 AS IS_ ручная подготовка и повторный ввод.png",
+          "sha256": "c0ebca32dfeeac056069596d0978300b1de1f7f210181c5f4469fd6bc7f18ffd"
+        },
+        "warnings": []
+      },
+      "modelSha256": "e5a0f2944826b5e93c7e0cd1275008350fba623c8375ac63e0143df6e600cda2",
+      "reportFigure": 2
+    },
+    {
+      "figure": 3,
+      "sha256": "3061ed0390ecf1f212c7f3af35d159c39e8f6b7cfa9f45ecadb3f3ccb87c9f46",
+      "file": "Модели/ПР1_BPMN_AS_IS.omni",
+      "diagramId": "Plane_Main",
+      "title": "Рисунок 03 — BPMN AS IS: ручная публикация и возврат отклонённой карточки",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/03_Рисунок 03 — BPMN AS IS_ ручная публикация и возврат отклонённой карточки.png",
+          "sha256": "4b5414ef818383bffbba1f3e1d64b60911910c5b7528594a0338cb678e59459b"
+        },
+        "warnings": []
+      },
+      "modelSha256": "3061ed0390ecf1f212c7f3af35d159c39e8f6b7cfa9f45ecadb3f3ccb87c9f46",
+      "reportFigure": 3
+    },
+    {
+      "figure": 4,
+      "sha256": "3061ed0390ecf1f212c7f3af35d159c39e8f6b7cfa9f45ecadb3f3ccb87c9f46",
+      "file": "Модели/ПР1_BPMN_AS_IS.omni",
+      "diagramId": "Plane_Preparation",
+      "title": "Рисунок 04 — BPMN AS IS: подготовка данных в разрозненных инструментах",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/04_Рисунок 04 — BPMN AS IS_ подготовка данных в разрозненных инструментах.png",
+          "sha256": "656cf725fb256bc9f89c3510592ba47eb3d685151914ff509086c45b44aaf144"
+        },
+        "warnings": []
+      },
+      "modelSha256": "3061ed0390ecf1f212c7f3af35d159c39e8f6b7cfa9f45ecadb3f3ccb87c9f46",
+      "reportFigure": 4
+    },
+    {
+      "figure": 5,
+      "sha256": "7b1349eb9f2f01dd669936acc49a61ac427f79d4a09cee4d5d9dfdeef1996893",
+      "sourceTable": "Оценки применимости аналогов",
+      "sourceRow": [
+        "Средняя оценка",
+        "2.1",
+        "3.7",
+        "3.7",
+        "3.1",
+        "5.0"
+      ],
+      "file": "Модели/РОП_Сравнение.omni",
+      "diagramId": "D00_comparison",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/05_Рисунок 05 — Сравнение аналогов.png",
+          "sha256": "039d2443afc6aab3fc4bed9b118767ef26e75d5d9a90dab2b06c469160907674"
+        },
+        "warnings": []
+      },
+      "title": "Рисунок 05 — Сравнение аналогов",
+      "modelSha256": "7b1349eb9f2f01dd669936acc49a61ac427f79d4a09cee4d5d9dfdeef1996893",
+      "reportFigure": 5
+    },
+    {
+      "figure": 6,
+      "sha256": "72bef83c94fb0d5e9274ebf98a4d514ecff31f1eaf04743c68bdffb0f3dafa28",
+      "file": "Модели/ПР2_IDEF0_TO_BE.omni",
+      "diagramId": "context",
+      "title": "Рисунок 06 — IDEF0 TO BE: контекст формирования и актуализации карточек в ИС",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/06_IDEF0_TO_BE_Контекст_формирования_карточек_в_ИС.png",
+          "sha256": "68610ce230fffb46c9b46e87781972c9223298541c7e8c60f1b19e28518562e7"
+        },
+        "warnings": []
+      },
+      "modelSha256": "72bef83c94fb0d5e9274ebf98a4d514ecff31f1eaf04743c68bdffb0f3dafa28",
+      "reportFigure": 6
+    },
+    {
+      "figure": 7,
+      "sha256": "72bef83c94fb0d5e9274ebf98a4d514ecff31f1eaf04743c68bdffb0f3dafa28",
+      "file": "Модели/ПР2_IDEF0_TO_BE.omni",
+      "diagramId": "decomposition",
+      "title": "Рисунок 07 — IDEF0 TO BE: версионированная подготовка и публикация",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/07_Рисунок 07 — IDEF0 TO BE_ версионированная подготовка и публикация.png",
+          "sha256": "f96dbff376d1497785a9b1d7e71fbb764317dfddee4c092256eff252e82080cf"
+        },
+        "warnings": []
+      },
+      "modelSha256": "72bef83c94fb0d5e9274ebf98a4d514ecff31f1eaf04743c68bdffb0f3dafa28",
+      "reportFigure": 7
+    },
+    {
+      "figure": 8,
+      "sha256": "96894ce767ffa9b507e7a8ea81e0237a4199ffc68db93d31e6eae2cea8d374fa",
+      "file": "Модели/ПР2_BPMN_TO_BE.omni",
+      "diagramId": "Plane_Main",
+      "title": "Рисунок 08 — BPMN TO BE: целевой процесс подготовки и публикации",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/08_Рисунок 08 — BPMN TO BE_ целевой процесс подготовки и публикации.png",
+          "sha256": "a0dada5c64028d235bed101ba167fcaf1ac6f23d882874e17b7ac027f7d07fa1"
+        },
+        "warnings": []
+      },
+      "modelSha256": "96894ce767ffa9b507e7a8ea81e0237a4199ffc68db93d31e6eae2cea8d374fa",
+      "reportFigure": 8
+    },
+    {
+      "figure": 9,
+      "sha256": "96894ce767ffa9b507e7a8ea81e0237a4199ffc68db93d31e6eae2cea8d374fa",
+      "file": "Модели/ПР2_BPMN_TO_BE.omni",
+      "diagramId": "Plane_Preparation",
+      "title": "Рисунок 09 — BPMN TO BE: автоматизированная подготовка версии карточки",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/09_Рисунок 09 — BPMN TO BE_ автоматизированная подготовка версии карточки.png",
+          "sha256": "0be2d53398eb692c2a4ce66db35c549f1d4a208b902cd499db3cbfeef8819b8b"
+        },
+        "warnings": []
+      },
+      "modelSha256": "96894ce767ffa9b507e7a8ea81e0237a4199ffc68db93d31e6eae2cea8d374fa",
+      "reportFigure": 9
+    },
+    {
+      "figure": 10,
+      "sha256": "96894ce767ffa9b507e7a8ea81e0237a4199ffc68db93d31e6eae2cea8d374fa",
+      "file": "Модели/ПР2_BPMN_TO_BE.omni",
+      "diagramId": "Plane_Publication",
+      "title": "Рисунок 10 — BPMN TO BE: очередь, сверка статуса и обработка результата",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/10_Рисунок 10 — BPMN TO BE_ очередь, сверка статуса и обработка результата.png",
+          "sha256": "d3fade2e70b1a6a1437408fc62e756c41f90c727dcb219916f140775cc0d9adb"
+        },
+        "warnings": []
+      },
+      "modelSha256": "96894ce767ffa9b507e7a8ea81e0237a4199ffc68db93d31e6eae2cea8d374fa",
+      "reportFigure": 10
+    },
+    {
+      "figure": 11,
+      "sha256": "492ec605830d0df71c13196f0543835903014739828f3f4ad44f860045b2b3e3",
+      "file": "Модели/РОП_Дерево_функций.omni",
+      "diagramId": "D01_function_tree",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/11_Рисунок 11 — Дерево функций.png",
+          "sha256": "dabfc5adde3a1c9720a1e7bb481c75406ebd4ecbbf46459459b960fc228d7bf0"
+        },
+        "warnings": []
+      },
+      "title": "Рисунок 11 — Дерево функций",
+      "modelSha256": "492ec605830d0df71c13196f0543835903014739828f3f4ad44f860045b2b3e3",
+      "reportFigure": 11
+    },
+    {
+      "figure": 12,
+      "sha256": "37faa76d11fa2302aaeac08e34d7c5396082e6a9672ab2ebc3ae1e7aa434360b",
+      "diagramId": "D02_component",
+      "sourceNodes": 10,
+      "sourceEdges": 9,
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/12_Рисунок 12 — Диаграмма компонентов.png",
+          "sha256": "712b202ca71814a691d9918e0860c5eb77285cb64a9561d49767bd9f2ba5477f"
+        },
+        "warnings": []
+      },
+      "file": "Модели/РОП_UML_Структура.omni",
+      "title": "Рисунок 12 — Диаграмма компонентов",
+      "modelSha256": "37faa76d11fa2302aaeac08e34d7c5396082e6a9672ab2ebc3ae1e7aa434360b",
+      "reportFigure": 12
+    },
+    {
+      "figure": 13,
+      "file": "Модели/РОП_ERD.omni",
+      "diagramId": "D03_logical_1",
+      "elements": 12,
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/13_Логическая_модель_данных.png",
+          "sha256": "298ceca442214b36ee8d625e8b0e517fd18aefcf5b8cc11abbca81fea984d8c3"
+        },
+        "warnings": []
+      },
+      "title": "Рисунок 13 — Логическая модель данных",
+      "sha256": "d01b7e8d9f1ad122ebae3cc316832d4ac09f3bd31bb3eb1a8b35899f4c67dd30",
+      "modelSha256": "d01b7e8d9f1ad122ebae3cc316832d4ac09f3bd31bb3eb1a8b35899f4c67dd30",
+      "reportFigure": 13
+    },
+    {
+      "figure": 18,
+      "sha256": "d1fefcdada272db7fb440b222faf51c61825ba6c26245f233e5f1e6c76050533",
+      "diagramId": "D04_coding",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/18_Рисунок 18 — Схема кодирования модельного ряда.png",
+          "sha256": "f43f3e8603f9bd3e78a2a4a1522694e58b77f10af71bd3168fa1d27cd5d73422"
+        },
+        "warnings": []
+      },
+      "file": "Модели/РОП_Общие_схемы.omni",
+      "title": "Рисунок 14 — Схема кодирования модельного ряда",
+      "modelSha256": "d1fefcdada272db7fb440b222faf51c61825ba6c26245f233e5f1e6c76050533",
+      "reportFigure": 14
+    },
+    {
+      "figure": 19,
+      "diagramId": "D05_wireframe_01",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/19_Рисунок 19 — Экран Список карточек.png",
+          "sha256": "56a2e010ce7add2e9b245ae5242aa6781b6fd50c5fb3a62d167bb2fd9e930a6d"
+        },
+        "warnings": []
+      },
+      "file": "Модели/РОП_Каркасы.omni",
+      "title": "Рисунок 15 — Экран Список карточек",
+      "sha256": "c8cbf4b5da2742452cf49c498636a169b426485a4afe4d8b9f96202d76d36940",
+      "modelSha256": "c8cbf4b5da2742452cf49c498636a169b426485a4afe4d8b9f96202d76d36940",
+      "reportFigure": 15
+    },
+    {
+      "figure": 20,
+      "diagramId": "D05_wireframe_02",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/20_Рисунок 20 — Экран Редактор версии модельного ряда.png",
+          "sha256": "88de39433d5a09563f3285b4c327875b744404d0924646470b06adc80482e686"
+        },
+        "warnings": []
+      },
+      "file": "Модели/РОП_Каркасы.omni",
+      "title": "Рисунок 16 — Экран Редактор версии модельного ряда",
+      "sha256": "c8cbf4b5da2742452cf49c498636a169b426485a4afe4d8b9f96202d76d36940",
+      "modelSha256": "c8cbf4b5da2742452cf49c498636a169b426485a4afe4d8b9f96202d76d36940",
+      "reportFigure": 16
+    },
+    {
+      "figure": 21,
+      "diagramId": "D05_wireframe_03",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/21_Рисунок 21 — Экран Предложения и сопоставления.png",
+          "sha256": "80d33e760fc0d9599cb9ca9e39ffab05795f58669d994a4628598094381653af"
+        },
+        "warnings": []
+      },
+      "file": "Модели/РОП_Каркасы.omni",
+      "title": "Рисунок 17 — Экран Предложения и сопоставления",
+      "sha256": "c8cbf4b5da2742452cf49c498636a169b426485a4afe4d8b9f96202d76d36940",
+      "modelSha256": "c8cbf4b5da2742452cf49c498636a169b426485a4afe4d8b9f96202d76d36940",
+      "reportFigure": 17
+    },
+    {
+      "figure": 22,
+      "diagramId": "D05_wireframe_04",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/22_Рисунок 22 — Экран Массовая замена.png",
+          "sha256": "a75ccae6a3bbc45d1190027f6dd75812b598ab33af56ae4e158a6669a41b0f23"
+        },
+        "warnings": []
+      },
+      "file": "Модели/РОП_Каркасы.omni",
+      "title": "Рисунок 18 — Экран Массовая замена",
+      "sha256": "c8cbf4b5da2742452cf49c498636a169b426485a4afe4d8b9f96202d76d36940",
+      "modelSha256": "c8cbf4b5da2742452cf49c498636a169b426485a4afe4d8b9f96202d76d36940",
+      "reportFigure": 18
+    },
+    {
+      "figure": 23,
+      "diagramId": "D05_wireframe_05",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/23_Рисунок 23 — Экран Карточка и публикация.png",
+          "sha256": "cf1db89fd35cd37e4b79f2c8fc735e003ba1e3714d8992624aae8132b4bdb97a"
+        },
+        "warnings": []
+      },
+      "file": "Модели/РОП_Каркасы.omni",
+      "title": "Рисунок 19 — Экран Карточка и публикация",
+      "sha256": "c8cbf4b5da2742452cf49c498636a169b426485a4afe4d8b9f96202d76d36940",
+      "modelSha256": "c8cbf4b5da2742452cf49c498636a169b426485a4afe4d8b9f96202d76d36940",
+      "reportFigure": 19
+    },
+    {
+      "figure": 24,
+      "diagramId": "D05_wireframe_06",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/24_Рисунок 24 — Экран Журнал публикаций и уведомления.png",
+          "sha256": "c4c96d6fd8c2fee0775b0b42364b75391a80a74f04dc25aeb174a0f02564f679"
+        },
+        "warnings": []
+      },
+      "file": "Модели/РОП_Каркасы.omni",
+      "title": "Рисунок 20 — Экран Журнал публикаций и уведомления",
+      "sha256": "c8cbf4b5da2742452cf49c498636a169b426485a4afe4d8b9f96202d76d36940",
+      "modelSha256": "c8cbf4b5da2742452cf49c498636a169b426485a4afe4d8b9f96202d76d36940",
+      "reportFigure": 20
+    },
+    {
+      "figure": 25,
+      "sha256": "37faa76d11fa2302aaeac08e34d7c5396082e6a9672ab2ebc3ae1e7aa434360b",
+      "diagramId": "D06_activity",
+      "sourceNodes": 9,
+      "sourceEdges": 9,
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/25_Рисунок 25 — Деятельность по подготовке и публикации карточки.png",
+          "sha256": "098f75799ae908a46cd64073cee52355ed72926b510594b809da70ccb25a56c8"
+        },
+        "warnings": []
+      },
+      "file": "Модели/РОП_UML_Структура.omni",
+      "title": "Рисунок 21 — Деятельность по подготовке и публикации карточки",
+      "modelSha256": "37faa76d11fa2302aaeac08e34d7c5396082e6a9672ab2ebc3ae1e7aa434360b",
+      "reportFigure": 21
+    },
+    {
+      "figure": 26,
+      "sha256": "c0ee0c40a3bea7bccfdda26a66278a86157c458f298fff3a550747c8ddf78ffb",
+      "file": "Модели/РОП_Алгоритмы.omni",
+      "diagramId": "D07_algorithm_price",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/26_Схема_алгоритма_расчёта_цены_и_массы.png",
+          "sha256": "8981b7060f60fe61d45d72109243775b1727c9ec7e761eef07b81fd42348bb97"
+        },
+        "warnings": []
+      },
+      "title": "Рисунок 22 — Схема алгоритма расчёта цены и массы",
+      "modelSha256": "c0ee0c40a3bea7bccfdda26a66278a86157c458f298fff3a550747c8ddf78ffb",
+      "reportFigure": 22
+    },
+    {
+      "figure": 27,
+      "sha256": "c0ee0c40a3bea7bccfdda26a66278a86157c458f298fff3a550747c8ddf78ffb",
+      "file": "Модели/РОП_Алгоритмы.omni",
+      "diagramId": "D08_algorithm_offer",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/27_Схема_алгоритма_выбора_предложения.png",
+          "sha256": "30b081ee5c16c11d50f1214dca39571e36aca4473cf5ae72d7e06771f490b858"
+        },
+        "warnings": []
+      },
+      "title": "Рисунок 23 — Схема алгоритма выбора предложения для слота",
+      "modelSha256": "c0ee0c40a3bea7bccfdda26a66278a86157c458f298fff3a550747c8ddf78ffb",
+      "reportFigure": 23
+    },
+    {
+      "figure": 28,
+      "sha256": "c0ee0c40a3bea7bccfdda26a66278a86157c458f298fff3a550747c8ddf78ffb",
+      "file": "Модели/РОП_Алгоритмы.omni",
+      "diagramId": "D09_algorithm_replace",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/28_Схема_алгоритма_массовой_замены.png",
+          "sha256": "7072e7fab14fa02806342f7d0586d59c0d41b72fa7be97ccfc61be4b52e91276"
+        },
+        "warnings": []
+      },
+      "title": "Рисунок 24 — Схема алгоритма массовой замены",
+      "modelSha256": "c0ee0c40a3bea7bccfdda26a66278a86157c458f298fff3a550747c8ddf78ffb",
+      "reportFigure": 24
+    },
+    {
+      "figure": 29,
+      "sha256": "d1fefcdada272db7fb440b222faf51c61825ba6c26245f233e5f1e6c76050533",
+      "diagramId": "D10_infrastructure",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/29_Рисунок 29 — Инфраструктурная схема.png",
+          "sha256": "c29128f0180efe27d3b8e95195a05871d17d0decffb7d938d561f52edc592d47"
+        },
+        "warnings": []
+      },
+      "file": "Модели/РОП_Общие_схемы.omni",
+      "title": "Рисунок 25 — Инфраструктурная схема",
+      "modelSha256": "d1fefcdada272db7fb440b222faf51c61825ba6c26245f233e5f1e6c76050533",
+      "reportFigure": 25
+    },
+    {
+      "figure": 30,
+      "file": "Модели/РОП_ERD.omni",
+      "diagramId": "D20_physical_1",
+      "elements": 12,
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/30_Логическая_модель_данных_и_целостность.png",
+          "sha256": "298ceca442214b36ee8d625e8b0e517fd18aefcf5b8cc11abbca81fea984d8c3"
+        },
+        "warnings": []
+      },
+      "title": "Рисунок 26 — Логическая модель данных и целостность",
+      "sha256": "d01b7e8d9f1ad122ebae3cc316832d4ac09f3bd31bb3eb1a8b35899f4c67dd30",
+      "modelSha256": "d01b7e8d9f1ad122ebae3cc316832d4ac09f3bd31bb3eb1a8b35899f4c67dd30",
+      "reportFigure": 26
+    },
+    {
+      "figure": 35,
+      "sha256": "37faa76d11fa2302aaeac08e34d7c5396082e6a9672ab2ebc3ae1e7aa434360b",
+      "diagramId": "D21_deployment",
+      "sourceNodes": 7,
+      "sourceEdges": 7,
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/35_Рисунок 35 — Диаграмма развёртывания.png",
+          "sha256": "366541ef80ad3c7226e2bb9c653ddc89917500adcae4ef9132d0e1aaf18fecf0"
+        },
+        "warnings": []
+      },
+      "file": "Модели/РОП_UML_Структура.omni",
+      "title": "Рисунок 27 — Диаграмма развёртывания",
+      "modelSha256": "37faa76d11fa2302aaeac08e34d7c5396082e6a9672ab2ebc3ae1e7aa434360b",
+      "reportFigure": 27
+    },
+    {
+      "figure": 36,
+      "sha256": "ecc9d066f0445414508ac4039e87a324feeb9fcf6dc78ad41b62605e8bad3c3c",
+      "diagramId": "D22_sequence_suppliers",
+      "sourceNodes": 6,
+      "sourceEdges": 12,
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/36_Рисунок 36 — Последовательность обновления предложений.png",
+          "sha256": "2fe3777c5dcfbfd9c2b9a66dfbd77da7a4ff24df762f6092da849c62352836c8",
+          "parts": [
+            {
+              "file": "Экспорт/PNG/sequence_parts/36_Рисунок 36 — Последовательность обновления предложений_часть_1.png",
+              "sha256": "c9c565a1be0a01da4f92c4f05896fcf92199f2fb13f873f6add9475b2ede8621"
+            },
+            {
+              "file": "Экспорт/PNG/sequence_parts/36_Рисунок 36 — Последовательность обновления предложений_часть_2.png",
+              "sha256": "7625a5683b46d9c1577ca0580014c26ab150c61ffdd97419eb3580f93f0a96a0"
+            },
+            {
+              "file": "Экспорт/PNG/sequence_parts/36_Рисунок 36 — Последовательность обновления предложений_часть_3.png",
+              "sha256": "efc65048db9c534f1c0acd4a794eae4b449221091b380bdadff05cb9070dd465"
+            },
+            {
+              "file": "Экспорт/PNG/sequence_parts/36_Рисунок 36 — Последовательность обновления предложений_часть_4.png",
+              "sha256": "4823e256d471e0f7f36cb93f9ff895904a6db25a2d9152d33d5090b6069f06e7"
+            }
+          ]
+        },
+        "warnings": []
+      },
+      "file": "Модели/РОП_UML_Последовательности.omni",
+      "title": "Рисунок 28 — Последовательность обновления предложений",
+      "modelSha256": "ecc9d066f0445414508ac4039e87a324feeb9fcf6dc78ad41b62605e8bad3c3c",
+      "reportFigure": 28
+    },
+    {
+      "figure": 37,
+      "sha256": "ecc9d066f0445414508ac4039e87a324feeb9fcf6dc78ad41b62605e8bad3c3c",
+      "diagramId": "D23_sequence_ozon",
+      "sourceNodes": 5,
+      "sourceEdges": 12,
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/37_Рисунок 37 — Последовательность публикации версии карточки.png",
+          "sha256": "743082f630c6c9cb73d198d414bd8228f862927fa75790e5ac9d59ec8a6f61cc",
+          "parts": [
+            {
+              "file": "Экспорт/PNG/sequence_parts/37_Рисунок 37 — Последовательность публикации версии карточки_часть_1.png",
+              "sha256": "69cfbcda29283a1c10425e9b4794335cd0a29545a032bc452b16b1cf3cdac49d"
+            },
+            {
+              "file": "Экспорт/PNG/sequence_parts/37_Рисунок 37 — Последовательность публикации версии карточки_часть_2.png",
+              "sha256": "05c0fece22b6dfa702dda66368f5bd25166f41b023ef750ab884bde9ffbb7100"
+            },
+            {
+              "file": "Экспорт/PNG/sequence_parts/37_Рисунок 37 — Последовательность публикации версии карточки_часть_3.png",
+              "sha256": "cb184284fab94299b511c0d2d5d961a339aa95bf0128f32e14524f767fd32b54"
+            },
+            {
+              "file": "Экспорт/PNG/sequence_parts/37_Рисунок 37 — Последовательность публикации версии карточки_часть_4.png",
+              "sha256": "52a6ed0362985b3810fdb71ae6466b0fa82c01f321df55cc12933030a738b9fd"
+            },
+            {
+              "file": "Экспорт/PNG/sequence_parts/37_Рисунок 37 — Последовательность публикации версии карточки_часть_5.png",
+              "sha256": "78bfa4038226633d64ae1ef921e83cdbfa9301ed647190039db45b040d7da03a"
+            },
+            {
+              "file": "Экспорт/PNG/sequence_parts/37_Рисунок 37 — Последовательность публикации версии карточки_часть_6.png",
+              "sha256": "20c627487c49b5cb838f5d0c8db03293f515f2a13036ddbc45f3ef9f654ac32f"
+            },
+            {
+              "file": "Экспорт/PNG/sequence_parts/37_Рисунок 37 — Последовательность публикации версии карточки_часть_7.png",
+              "sha256": "5fea0d8e5dcada2097f7bb1e55e73f93b52f9f7557e7b19fa19d634920239b03"
+            }
+          ]
+        },
+        "warnings": []
+      },
+      "file": "Модели/РОП_UML_Последовательности.omni",
+      "title": "Рисунок 29 — Последовательность публикации версии карточки",
+      "modelSha256": "ecc9d066f0445414508ac4039e87a324feeb9fcf6dc78ad41b62605e8bad3c3c",
+      "reportFigure": 29
+    },
+    {
+      "figure": 38,
+      "sha256": "d1fefcdada272db7fb440b222faf51c61825ba6c26245f233e5f1e6c76050533",
+      "diagramId": "D24_access",
+      "export": {
+        "png": {
+          "file": "Экспорт/PNG/38_Рисунок 38 — Схема проверки доступа.png",
+          "sha256": "7b4fdfa0c3a0febebd0cf380516ef7b4aa476e8dc26976b9ce5f5c995565687b"
+        },
+        "warnings": []
+      },
+      "file": "Модели/РОП_Общие_схемы.omni",
+      "title": "Рисунок 30 — Схема проверки доступа",
+      "modelSha256": "d1fefcdada272db7fb440b222faf51c61825ba6c26245f233e5f1e6c76050533",
+      "reportFigure": 30
+    }
+  ],
+  "note": "Реестр связывает реальные модели и листы. manualReview не подтверждается декодированием или сборкой; изображения и ручную приёмку записывать после выполнения.",
+  "reviewedAt": "2026-10-26",
+  "exportReports": {
+    "png": {
+      "file": "Экспорт/PNG/Отчёт_экспорта.json",
+      "sha256": "391c36876722342643187dd17c909dc612e9b6ef14ca6d616edac070f2adfac0"
+    }
+  },
+  "numbering": "figure is a stable export ID; reportFigure is the sequential caption in the report"
+}

@@ -2,19 +2,33 @@
   {
     "file": "ПР1_BPMN_AS_IS.omni",
     "planeId": "Plane_Main",
-    "shapes": 12,
-    "flows": 14,
+    "shapes": 13,
+    "flows": 15,
     "fontSizeMin": 22,
     "labels": 12,
+    "routing": {
+      "id": "ПР1_BPMN_AS_IS.omni:Plane_Main",
+      "connections": 15,
+      "overlaps": 0,
+      "oppositeOverlaps": 0,
+      "nodeIntersections": 0
+    },
     "png": "Экспорт\\PNG\\03_Рисунок 03 — BPMN AS IS_ ручная публикация и возврат отклонённой карточки.png"
   },
   {
     "file": "ПР1_BPMN_AS_IS.omni",
     "planeId": "Plane_Preparation",
-    "shapes": 18,
-    "flows": 16,
+    "shapes": 22,
+    "flows": 19,
     "fontSizeMin": 22,
     "labels": 14,
+    "routing": {
+      "id": "ПР1_BPMN_AS_IS.omni:Plane_Preparation",
+      "connections": 19,
+      "overlaps": 0,
+      "oppositeOverlaps": 0,
+      "nodeIntersections": 0
+    },
     "png": "Экспорт\\PNG\\04_Рисунок 04 — BPMN AS IS_ подготовка данных в разрозненных инструментах.png"
   },
   {
@@ -24,24 +38,45 @@
     "flows": 11,
     "fontSizeMin": 22,
     "labels": 8,
+    "routing": {
+      "id": "ПР2_BPMN_TO_BE.omni:Plane_Main",
+      "connections": 11,
+      "overlaps": 0,
+      "oppositeOverlaps": 0,
+      "nodeIntersections": 0
+    },
     "png": "Экспорт\\PNG\\08_Рисунок 08 — BPMN TO BE_ целевой процесс подготовки и публикации.png"
   },
   {
     "file": "ПР2_BPMN_TO_BE.omni",
     "planeId": "Plane_Preparation",
-    "shapes": 14,
-    "flows": 12,
+    "shapes": 17,
+    "flows": 14,
     "fontSizeMin": 22,
     "labels": 9,
+    "routing": {
+      "id": "ПР2_BPMN_TO_BE.omni:Plane_Preparation",
+      "connections": 14,
+      "overlaps": 0,
+      "oppositeOverlaps": 0,
+      "nodeIntersections": 0
+    },
     "png": "Экспорт\\PNG\\09_Рисунок 09 — BPMN TO BE_ автоматизированная подготовка версии карточки.png"
   },
   {
     "file": "ПР2_BPMN_TO_BE.omni",
     "planeId": "Plane_Publication",
-    "shapes": 12,
-    "flows": 12,
+    "shapes": 14,
+    "flows": 13,
     "fontSizeMin": 22,
     "labels": 11,
+    "routing": {
+      "id": "ПР2_BPMN_TO_BE.omni:Plane_Publication",
+      "connections": 13,
+      "overlaps": 0,
+      "oppositeOverlaps": 0,
+      "nodeIntersections": 0
+    },
     "png": "Экспорт\\PNG\\10_Рисунок 10 — BPMN TO BE_ очередь, сверка статуса и обработка результата.png"
   }
 ]

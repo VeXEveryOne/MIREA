@@ -44,9 +44,9 @@ function flow(title,items,description){
 }
 function sequence(title,people,steps,note){
  let s=slide(title,note),xs=people.map((_,i)=>105+i*1070/(people.length-1));
- people.forEach((label,i)=>{let sh=s.shapes.add({geometry:'rect',position:{left:xs[i]-82,top:145,width:164,height:72},fill:'#FFFFFF',line:{fill:'#333333',width:1.4}});sh.text=visible(label);sh.text.style={typeface:'Arial',fontSize:23,alignment:'center',verticalAlignment:'middle'};s.shapes.add({geometry:'line',position:{left:xs[i],top:217,width:0,height:380},line:{fill:'#888888',width:1}});});
- steps.forEach(([a,b,label],i)=>{let y=263+i*65;let x=Math.min(xs[a],xs[b]);s.shapes.add({geometry:a<b?'rightArrow':'leftArrow',position:{left:x,top:y,width:Math.abs(xs[b]-xs[a]),height:11},fill:'#333333',line:{fill:'none',width:0}});text(s,label,x+10,y-36,Math.abs(xs[b]-xs[a])-12,38,22);});
- text(s,note,62,638,1150,65,22);return s;
+ people.forEach((label,i)=>{let sh=s.shapes.add({geometry:'rect',position:{left:xs[i]-82,top:145,width:164,height:72},fill:'#FFFFFF',line:{fill:'#333333',width:1.4}});sh.text=visible(label);sh.text.style={typeface:'Arial',fontSize:23,alignment:'center',verticalAlignment:'middle'};s.shapes.add({geometry:'line',position:{left:xs[i],top:217,width:0,height:380},line:{fill:'#888888',width:1,style:'dashed'}});});
+ steps.forEach(([a,b,label],i)=>{const y=263+i*65,x=Math.min(xs[a],xs[b]),reply=a>b; s.shapes.add({geometry:'connector',kind:'straight',position:{left:x,top:y,width:Math.abs(xs[b]-xs[a]),height:0},line:{fill:'#111111',width:1.8,style:reply?'dashed':'solid'},[reply?'head':'tail']:{type:reply?'arrow':'triangle',width:'med',length:'med'}});text(s,label,x+10,y-36,Math.abs(xs[b]-xs[a])-12,38,22);});
+ return s;
 }
 function twoColumns(title,leftTitle,leftLines,rightTitle,rightLines,notes=''){
  let s=slide(title,notes);text(s,leftTitle,70,145,520,55,28,true);text(s,rightTitle,690,145,520,55,28,true);
@@ -56,10 +56,12 @@ function twoColumns(title,leftTitle,leftLines,rightTitle,rightLines,notes=''){
 }
 const exported=(await fs.readdir(exportDir)).filter(name=>/^\d{2}_.*\.png$/i.test(name)).sort();
 function figure(number){const prefix=String(number).padStart(2,'0')+'_';const name=exported.find(value=>value.startsWith(prefix));if(!name)throw new Error('Не найден рисунок '+number);return exportDir+'/'+name;}
-const registry=JSON.parse(await fs.readFile(root+'/Модели/Реестр_38_рисунков.json','utf8'));
+const registry=JSON.parse(await fs.readFile(root+'/Модели/Реестр_рисунков.json','utf8'));
 function figureByDiagram(id){const item=registry.figures.find(value=>value.diagramId===id);if(!item)throw new Error('Нет диаграммы '+id);return figure(item.figure);}
 const firstNumber=Number(process.argv[2]||1),lastNumber=Number(process.argv[3]||8);
+const selected=process.argv[4]?new Set(process.argv[4].split(',').map(Number)):null;
 for(num=firstNumber;num<=lastNumber;num++){
+ if(selected&&!selected.has(num))continue;
  deck=Presentation.create({slideSize:{width:1280,height:720}});
  if(num===1){
  cover(1,'Анализ текущего процесса','AS IS показывает ручную работу, повторный ввод и позднее обнаружение ошибок.');
@@ -122,7 +124,7 @@ for(num=firstNumber;num<=lastNumber;num++){
   ['Аудит','Разрозненная история','Журнал и уведомления'],
   ['Ошибки','Неуправляемые циклы','Бизнес-возврат и повторы'],
  ],[260,430,470],'',20,505,145);
- await picture('IDEF0 TO BE: контекст управляемого процесса',figure(6));
+ await picture('IDEF0 TO BE: формирование карточек в ИС',figure(6));
  await picture('IDEF0 TO BE: пять целевых функций',figure(7));
  await picture('BPMN TO BE: общий процесс',figure(8));
  await picture('BPMN TO BE: подготовка',figure(9));
@@ -132,11 +134,11 @@ for(num=firstNumber;num<=lastNumber;num++){
  bullets('Результаты практики 2',['Запрос сразу создаёт черновую версию модельного ряда.','Правила проверяют совместимость, актуальность и полноту до публикации.','Менеджер утверждает конкретную неизменяемую версию.','Worker сверяет неизвестный результат перед ограниченным повтором.','PostgreSQL, хранилище, адаптеры и аудит поддерживают целевой процесс.']);
  }else if(num===3){
  cover(3,'Логическая модель данных','29 сущностей обеспечивают BOM, предложения, версии карточек и историю.');
- flow('Основная цепочка данных',['Модельный\nряд','Версия\nмодельного ряда','Версия\nкарточки','Публикация'],'Публикация относится к неизменяемому снимку. Новая версия модельного ряда не перезаписывает историю.');
+ await picture('Логическая модель данных',figureByDiagram('D03_logical_1'));
  table('Выбор содержимого слота',[['Объект','Что хранит','Ключевое условие'],['bom_slot','Точная модель либо группа','Выбран ровно один вариант'],['slot_selection','Компонент и offer_id','Разрешение до расчёта'],['supplier_offer','Цена, остаток и дата','Неизменяемый снимок'],['card_version','Контент и показатели','Одна версия BOM']],[330,450,380]);
  flow('Код конфигурации',['Префикс MR','Номер 000153','Версия 3'],'Префикс и номер образуют MR-000153. Номер версии хранится отдельно. UNIQUE защищает от повторов.');
  table('Статусы карточки',[['Код','Смысл'],['DRAFT / REVIEW','Черновик / проверка'],['READY','Готова к публикации'],['PUBLISHED','Подтверждена площадкой'],['STALE','Нужна актуализация'],['PUBLISH_ERROR','Ошибка внешней операции']],[360,800]);
- bullets('Ключи и отношения',['M:N для ролей пользователей и изображений карточки разрешены таблицами связей.','FK сохраняют принадлежность слотов, версий и предложений.','Групповые слоты обязательно превращаются в конкретные компоненты.','Все 185 атрибутов раскрыты в словаре и физической модели.']);
+ bullets('Ключи и отношения',['M:N для ролей пользователей и изображений карточки разрешены таблицами связей.','Внешние ключи сохраняют принадлежность слотов, версий и предложений.','Групповые слоты обязательно превращаются в конкретные компоненты.','Все 185 атрибутов и 47 связей представлены в единой логической модели.']);
  }else if(num===4){
  cover(4,'Интерфейсы и сценарии','Шесть каркасных экранов покрывают путь от запроса до результата публикации.');
  await picture('Редактор версии BOM',figureByDiagram('D05_wireframe_02'));
@@ -147,10 +149,10 @@ for(num=firstNumber;num<=lastNumber;num++){
  }else if(num===5){
  cover(5,'Математическое обеспечение','Цена, масса и выбор предложений рассчитываются для конкретной версии BOM.');
  table('Учебный расчёт',[['Показатель','Значение'],['Комплектующие','77 500 ₽'],['Сборка и упаковка','1 200 + 300 ₽'],['Себестоимость','79 000 ₽'],['Наценка и шаг цены','25% и 100 ₽'],['Итоговая цена / масса','98 800 ₽ / 10,250 кг']],[620,540]);
- bullets('Формулы',['C = стоимость комплектующих + сборка + упаковка','P = ceil(C × (1 + m) / s) × s','W = масса корпуса + масса слотов + упаковка','Комиссия, налоги и доставка в учебный расчёт не включены.']);
- flow('Выбор предложения',['Разрешить\nгруппу','Проверить\nсовместимость','Отсеять\nустаревшие','Выбрать\nпо приоритету'],'Далее учитываются цена, дата и ID. Закреплённый SKU ограничивает множество кандидатов.');
- flow('Массовая замена',['Предпросмотр','Подтверждение','Проверка\nверсий','Новая версия\nи пересчёт'],'Одна транзакция на модельный ряд. Конфликт откатывает только её изменение. Карточки изменённых рядов становятся STALE.');
- bullets('Граничные случаи',['Пустой состав и неизвестная масса блокируют готовность.','При отсутствии наблюдений показатель выводится как «нет данных».','Возраст предложения не должен быть отрицательным или превышать TTL.','Производительность пакета 1000 BOM пока является целевым требованием.']);
+ table('Масса системы с упаковкой',[['Обозначение','Смысл'],['W = wcase + Σ qᵢwᵢ + wpack','Масса системы с упаковкой, кг'],['wcase','Масса корпуса, кг'],['qᵢ и wᵢ','Количество и масса единицы компонента'],['wpack','Масса упаковки, кг'],['Σ qᵢwᵢ','Масса слотов без повторного учёта корпуса']],[530,630]);
+ await picture('Схема алгоритма расчёта цены и массы',figureByDiagram('D07_algorithm_price'));
+ await picture('Схема алгоритма выбора предложения',figureByDiagram('D08_algorithm_offer'));
+ await picture('Схема алгоритма массовой замены',figureByDiagram('D09_algorithm_replace'));
  }else if(num===6){
  cover(6,'Инфраструктура и программный стек','Закрытый серверный сегмент хранит данные, изображения и очередь публикаций.');
  await picture('Инфраструктурная схема',figureByDiagram('D10_infrastructure'));
@@ -159,9 +161,9 @@ for(num=firstNumber;num<=lastNumber;num++){
  table('Среды разработки Java',[['Среда','Особенность','Вывод'],['IntelliJ IDEA','Интегрированная Java-навигация','Основной вариант'],['VS Code','Java через расширения','Допустимая альтернатива'],['Eclipse','Плагинная Java-экосистема','Допустимая альтернатива']],[320,520,320],'Официальные источники: jetbrains.com/idea; code.visualstudio.com/docs/languages/java; eclipseide.org.');
  bullets('Границы проектного решения',['Конфигурация 4 vCPU и 8 ГБ для приложения — начальная гипотеза.','99,5% доступности нельзя подтвердить одной инфраструктурной схемой.','Ежедневные копии БД и файлов должны проходить восстановление.','Выбор СУБД основан на функциях проекта, без заявления о лидерстве по скорости.']);
  }else if(num===7){
- cover(7,'Физическая модель и развёртывание','29 таблиц и 185 атрибутов детализируют логическую модель для PostgreSQL.');
+ cover(7,'Логическая модель и развёртывание','29 сущностей, 185 атрибутов и все связи представлены в одной логической модели.');
  table('Основные типы данных',[['Данные','Тип','Ограничение'],['Идентификатор','bigint IDENTITY','PK'],['Цена','numeric(14,2)','Положительное значение'],['Масса','numeric(8,3)','Положительное значение'],['Время','timestamptz','Единая временная шкала'],['Правила и снимки','jsonb','Схема проверяется сервисом']],[380,360,420]);
- flow('Физические связи',['bom','bom_version','bom_slot','slot_selection'],'FOREIGN KEY сохраняют структуру. Принадлежность выбранного компонента и версии проверяется в транзакции.');
+ await picture('Логическая модель данных и целостность',figureByDiagram('D20_physical_1'));
  table('Ограничения целостности',[['Правило','Средство'],['Уникальный код и версия','UNIQUE'],['Одна альтернатива слота','CHECK'],['Одно активное задание версии','Частичный уникальный индекс'],['Новая версия при изменении','Сервисный инвариант'],['Согласованные объекты публикации','Проверка FK и бизнес-инвариантов']],[600,560]);
  await picture('Размещение программных артефактов',figureByDiagram('D21_deployment'));
  bullets('Проверка перед реализацией',['Запустить миграции в отдельной PostgreSQL и проверить ограничения.','Разделить роли приложения, worker и миграций.','Проверить согласованное восстановление БД и файлов.','DDL-заготовка не считается развёрнутой и испытанной системой.']);
