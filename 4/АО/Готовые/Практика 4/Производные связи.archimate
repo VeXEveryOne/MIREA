@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:archimate="http://www.archimatetool.com/archimate" name="5ПР - Производные связи" id="id-06c135fde1734ec99554013725c2ff3f" version="5.0.0">
+  <folder name="Strategy" id="id-4cd5b3a7ae0c4e4aaa1a59db87092d9d" type="strategy"/>
+  <folder name="Business" id="id-d475209dcb2e4a42aaaeb20ce02c1c6a" type="business">
+    <element xsi:type="archimate:BusinessActor" name="Business Actor" id="id-6145f334cdc8496184b7e104f5928c5d"/>
+    <element xsi:type="archimate:BusinessRole" name="Business Role" id="id-cd41d31d99d14209a57bfc2619cffe22"/>
+    <element xsi:type="archimate:BusinessService" name="Business Service" id="id-075208096de64263b360d9662e4dd4d3"/>
+    <element xsi:type="archimate:BusinessService" name="Business Service (copy)" id="id-6dbcf69d0a6c4df8ace611d7e809578e"/>
+    <element xsi:type="archimate:BusinessService" name="Business Service (copy)" id="id-e801c1b8020a42e6a5c4a071b4b61b6b"/>
+    <element xsi:type="archimate:BusinessProcess" name="Business Process" id="id-ca72b98f9dbe406f8d5a2cfdbfe32f9b"/>
+    <element xsi:type="archimate:BusinessProcess" name="Business Process" id="id-00286b722b7b4928be2941575cd98ee8"/>
+    <element xsi:type="archimate:BusinessProcess" name="Business Process" id="id-1c7fc41084a1411ba41da3400596845e"/>
+    <element xsi:type="archimate:BusinessProcess" name="Business Process" id="id-e6043ea7a5dd4180bd502a6375ef4e68"/>
+    <element xsi:type="archimate:BusinessProcess" id="id-c52baa6b23f54ed19ec6133261ccc190"/>
+  </folder>
+  <folder name="Application" id="id-09e3de19083547069eccc130dc9df329" type="application">
+    <element xsi:type="archimate:ApplicationService" name="Application Service" id="id-a086d98abe6947d2a2ebdd7dd13abdfd"/>
+    <element xsi:type="archimate:ApplicationService" name="Application Service" id="id-3816e06ebf2d4e95ae3c2f51175deb3c"/>
+    <element xsi:type="archimate:ApplicationService" name="Application Service" id="id-044070f325604c0caf3c695901447533"/>
+    <element xsi:type="archimate:ApplicationService" name="Application Service" id="id-00b0e539cb7a4c278ed5d72c1a980097"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Application Component" id="id-8264f3e127e34929a3ac6ffc6d2fd50a"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Application Component" id="id-b5102149431948669cc942bb8ae57ccc"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Application Component" id="id-d493080dd08b4f9baa1c9886a95f8789"/>
+  </folder>
+  <folder name="Technology &amp; Physical" id="id-8063d92ab1774e39a2ce7b227eaee379" type="technology"/>
+  <folder name="Motivation" id="id-92192fcaea944f5e8493ad981d3e7870" type="motivation"/>
+  <folder name="Implementation &amp; Migration" id="id-66d2bf2736ca42fda422920e21e1534a" type="implementation_migration"/>
+  <folder name="Other" id="id-407334d7eb8e4f98bfca44cf1f6643e1" type="other"/>
+  <folder name="Relations" id="id-0c764582241c484a8aa866e1a5cc727e" type="relations">
+    <element xsi:type="archimate:CompositionRelationship" id="id-f783ee696a0d4001adc7e09731b813d8" source="id-c52baa6b23f54ed19ec6133261ccc190" target="id-ca72b98f9dbe406f8d5a2cfdbfe32f9b"/>
+    <element xsi:type="archimate:CompositionRelationship" id="id-9bdccc2255464637a6e3db59dc5ce6f5" source="id-c52baa6b23f54ed19ec6133261ccc190" target="id-00286b722b7b4928be2941575cd98ee8"/>
+    <element xsi:type="archimate:CompositionRelationship" id="id-aa5610988af64842a921ab50b4f640a2" source="id-c52baa6b23f54ed19ec6133261ccc190" target="id-1c7fc41084a1411ba41da3400596845e"/>
+    <element xsi:type="archimate:CompositionRelationship" id="id-30b2bde2a82a49f6bc47af2b8cd39458" source="id-c52baa6b23f54ed19ec6133261ccc190" target="id-e6043ea7a5dd4180bd502a6375ef4e68"/>
+    <element xsi:type="archimate:ServingRelationship" id="id-9286ff2e7a814a41844dbd6918610a9a" source="id-044070f325604c0caf3c695901447533" target="id-e6043ea7a5dd4180bd502a6375ef4e68"/>
+    <element xsi:type="archimate:ServingRelationship" id="id-e93960da3825404d88947ec24d54366a" source="id-3816e06ebf2d4e95ae3c2f51175deb3c" target="id-00286b722b7b4928be2941575cd98ee8"/>
+    <element xsi:type="archimate:ServingRelationship" id="id-2adf304ab58c4883b9794fab2462c695" source="id-a086d98abe6947d2a2ebdd7dd13abdfd" target="id-ca72b98f9dbe406f8d5a2cfdbfe32f9b"/>
+    <element xsi:type="archimate:ServingRelationship" id="id-39c2adc2f5244a9fa095dfdeaf7cadee" source="id-6dbcf69d0a6c4df8ace611d7e809578e" target="id-cd41d31d99d14209a57bfc2619cffe22"/>
+    <element xsi:type="archimate:ServingRelationship" id="id-6404238a5f084cbca211f0e8cd7d7e42" source="id-e801c1b8020a42e6a5c4a071b4b61b6b" target="id-cd41d31d99d14209a57bfc2619cffe22"/>
+    <element xsi:type="archimate:ServingRelationship" id="id-e0635f0f948f4ab3848bb152812003b7" source="id-075208096de64263b360d9662e4dd4d3" target="id-cd41d31d99d14209a57bfc2619cffe22"/>
+    <element xsi:type="archimate:RealizationRelationship" id="id-293e6fef724b4d75919ef38e4d2c9e3a" source="id-ca72b98f9dbe406f8d5a2cfdbfe32f9b" target="id-075208096de64263b360d9662e4dd4d3"/>
+    <element xsi:type="archimate:RealizationRelationship" id="id-7b7f2d9a917740549cc32879d11ea66e" source="id-00286b722b7b4928be2941575cd98ee8" target="id-6dbcf69d0a6c4df8ace611d7e809578e"/>
+    <element xsi:type="archimate:RealizationRelationship" id="id-aae056a018d64dd394dad72575c48faf" source="id-e6043ea7a5dd4180bd502a6375ef4e68" target="id-e801c1b8020a42e6a5c4a071b4b61b6b"/>
+    <element xsi:type="archimate:ServingRelationship" id="id-f482fdf86716467caf7fd820429a000b" source="id-044070f325604c0caf3c695901447533" target="id-e801c1b8020a42e6a5c4a071b4b61b6b"/>
+    <element xsi:type="archimate:RealizationRelationship" id="id-abbaee0eb95d4ad7a4ee7abddfdb9e16" source="id-d493080dd08b4f9baa1c9886a95f8789" target="id-044070f325604c0caf3c695901447533"/>
+    <element xsi:type="archimate:RealizationRelationship" id="id-32e0768f32174284940c3159730f01b9" source="id-b5102149431948669cc942bb8ae57ccc" target="id-3816e06ebf2d4e95ae3c2f51175deb3c"/>
+    <element xsi:type="archimate:RealizationRelationship" id="id-5e020e05462d4683a4d4b812d5a1cb58" source="id-8264f3e127e34929a3ac6ffc6d2fd50a" target="id-a086d98abe6947d2a2ebdd7dd13abdfd"/>
+    <element xsi:type="archimate:AssociationRelationship" id="id-c03669636cc94107965590dde1d5fc82" source="id-6145f334cdc8496184b7e104f5928c5d" target="id-cd41d31d99d14209a57bfc2619cffe22"/>
+    <element xsi:type="archimate:ServingRelationship" id="id-d49129f6a092421d99f5e93146ed23df" source="id-a086d98abe6947d2a2ebdd7dd13abdfd" target="id-075208096de64263b360d9662e4dd4d3"/>
+    <element xsi:type="archimate:ServingRelationship" id="id-e828c079a3df4e7cbd972b73c5adebef" source="id-3816e06ebf2d4e95ae3c2f51175deb3c" target="id-6dbcf69d0a6c4df8ace611d7e809578e"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="id-13e81e0d469a47c9801b2c17656b064d" source="id-ca72b98f9dbe406f8d5a2cfdbfe32f9b" target="id-00286b722b7b4928be2941575cd98ee8"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="id-3d2d292645894b94b04b459d58ad0cdc" source="id-00286b722b7b4928be2941575cd98ee8" target="id-1c7fc41084a1411ba41da3400596845e"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="id-dd550e0c40694624953eae7e9a2940dc" source="id-1c7fc41084a1411ba41da3400596845e" target="id-e6043ea7a5dd4180bd502a6375ef4e68"/>
+  </folder>
+  <folder name="Views" id="id-69404d004d4b4edd9e37156f09f7779c" type="diagrams">
+    <element xsi:type="archimate:ArchimateDiagramModel" name="Производные связи" id="id-8dcc14714e76476a849f6bfde158475e">
+      <child xsi:type="archimate:DiagramObject" id="id-80e2207384724b9ba0a0d7a21ad6a58b" archimateElement="id-6145f334cdc8496184b7e104f5928c5d">
+        <bounds x="167" y="12" width="120" height="23"/>
+        <feature name="labelExpression" value="Клиент"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-ddd7a34ee53e4a1c89645c03c65b9f2a" source="id-80e2207384724b9ba0a0d7a21ad6a58b" target="id-9b3bad82e18b4f49be74201de9b7abcc" archimateRelationship="id-c03669636cc94107965590dde1d5fc82">
+          <feature name="labelExpression" value="Связано"/>
+        </sourceConnection>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-9b3bad82e18b4f49be74201de9b7abcc" targetConnections="id-a195bc9941d34001a0c4fd67838a855b id-c71af2a9e4054ed68ae918768c14e3d6 id-92f11f10d9f642cfa8245a141363f067 id-ddd7a34ee53e4a1c89645c03c65b9f2a" archimateElement="id-cd41d31d99d14209a57bfc2619cffe22">
+        <bounds x="420" y="12" width="141" height="23"/>
+        <feature name="labelExpression" value="Страхователь"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-29c968aa688545109c55ffb2865779d5" targetConnections="id-ffa746aa913d462fa85d54195d03a1dc" archimateElement="id-075208096de64263b360d9662e4dd4d3">
+        <bounds x="48" y="117" width="168" height="61"/>
+        <feature name="labelExpression" value="Сервис регистрации претензий (Бизнес-сервис)"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-92f11f10d9f642cfa8245a141363f067" source="id-29c968aa688545109c55ffb2865779d5" target="id-9b3bad82e18b4f49be74201de9b7abcc" archimateRelationship="id-e0635f0f948f4ab3848bb152812003b7">
+          <feature name="labelExpression" value="Сервис обслуживает/&#xA;бизнес-роль &#xA;обслуживается"/>
+        </sourceConnection>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-3883c863ebdc426eacaa9bad6a4becd4" targetConnections="id-3f030bb73aad485db2cccf908e5e9bc2" archimateElement="id-6dbcf69d0a6c4df8ace611d7e809578e">
+        <bounds x="408" y="122" width="205" height="58"/>
+        <feature name="labelExpression" value="Сервис информирования клиентов (Бизнес-сервис)"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-a195bc9941d34001a0c4fd67838a855b" source="id-3883c863ebdc426eacaa9bad6a4becd4" target="id-9b3bad82e18b4f49be74201de9b7abcc" archimateRelationship="id-39c2adc2f5244a9fa095dfdeaf7cadee">
+          <feature name="labelExpression" value="Сервис обслуживает/&#xA;бизнес-роль &#xA;обслуживается"/>
+        </sourceConnection>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-498a63aefdd142f19219a97b1d88d92d" targetConnections="id-13b62fc15ff442579d9dd1c41ae7d9c6 id-e1e5188c970e4114af05a683cc7f1c6e" archimateElement="id-e801c1b8020a42e6a5c4a071b4b61b6b">
+        <bounds x="823" y="123" width="169" height="55"/>
+        <feature name="labelExpression" value="Сервис оплаты претензий (Бизнес-сервис)"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-c71af2a9e4054ed68ae918768c14e3d6" source="id-498a63aefdd142f19219a97b1d88d92d" target="id-9b3bad82e18b4f49be74201de9b7abcc" archimateRelationship="id-6404238a5f084cbca211f0e8cd7d7e42">
+          <feature name="labelExpression" value="Сервис обслуживает/&#xA;бизнес-роль обслуживается"/>
+        </sourceConnection>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-04302ceae2d74b65900b91492e0d4b1b" targetConnections="id-a891f247a0ca4cd28b6ecfb362390a2f" archimateElement="id-a086d98abe6947d2a2ebdd7dd13abdfd">
+        <bounds x="76" y="515" width="168" height="66"/>
+        <feature name="labelExpression" value="Сервис администрирования клиентов (Сервис приложений)"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-59ee163ce5614cec878acb354c2f0835" source="id-04302ceae2d74b65900b91492e0d4b1b" target="id-71eebfbab406402ab419bff8204f1b80" archimateRelationship="id-2adf304ab58c4883b9794fab2462c695">
+          <feature name="labelExpression" value="Сервис приложений &#xA;обслуживает/&#xA;бизнес-процесс &#xA;обслуживается"/>
+        </sourceConnection>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-f7151e97cb0e48fca4a3a2a81b8d0279" targetConnections="id-d98829f2e61a4025b5054e268d0550fa" archimateElement="id-3816e06ebf2d4e95ae3c2f51175deb3c">
+        <bounds x="324" y="515" width="193" height="66"/>
+        <feature name="labelExpression" value="Сервис администрирования претензий (Сервис приложений)"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-531f2f1c02cf4c8bb8be487a037a2a57" source="id-f7151e97cb0e48fca4a3a2a81b8d0279" target="id-e7284ea9516f4082a11e8346ce200178" archimateRelationship="id-e93960da3825404d88947ec24d54366a">
+          <feature name="labelExpression" value="Сервис приложений &#xA;обслуживает/&#xA;бизнес-процесс &#xA;обслуживается"/>
+        </sourceConnection>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-ea20754e44ff4f2c98fbd7640859f2de" targetConnections="id-285579830a984ef28a1f22a787f55f14" archimateElement="id-044070f325604c0caf3c695901447533">
+        <bounds x="817" y="515" width="156" height="66"/>
+        <feature name="labelExpression" value="Сервис платежей (Сервис приложений)"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-346279b3a10641bb98e9c8240f891fb9" source="id-ea20754e44ff4f2c98fbd7640859f2de" target="id-996912f817074730b6b35080a6188124" archimateRelationship="id-9286ff2e7a814a41844dbd6918610a9a">
+          <feature name="labelExpression" value="Сервис приложений &#xA;обслуживает/&#xA;бизнес-процесс &#xA;обслуживается&#xA;"/>
+        </sourceConnection>
+        <sourceConnection xsi:type="archimate:Connection" id="id-e1e5188c970e4114af05a683cc7f1c6e" source="id-ea20754e44ff4f2c98fbd7640859f2de" target="id-498a63aefdd142f19219a97b1d88d92d" archimateRelationship="id-f482fdf86716467caf7fd820429a000b">
+          <feature name="labelExpression" value="Сервис приложений &#xA;обслуживает&#xA;/бизнес-сервис&#xA;обслуживается"/>
+          <bendpoint startX="149" startY="3" endX="137" endY="401"/>
+          <bendpoint startX="149" startY="-201" endX="137" endY="197"/>
+          <bendpoint startX="149" startY="-393" endX="137" endY="5"/>
+        </sourceConnection>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-e26231e5343040ca8694463bc34e5e46" archimateElement="id-8264f3e127e34929a3ac6ffc6d2fd50a">
+        <bounds x="88" y="635" width="120" height="55"/>
+        <feature name="labelExpression" value="CRM система (Компонент приложений)"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-a891f247a0ca4cd28b6ecfb362390a2f" source="id-e26231e5343040ca8694463bc34e5e46" target="id-04302ceae2d74b65900b91492e0d4b1b" archimateRelationship="id-5e020e05462d4683a4d4b812d5a1cb58">
+          <feature name="labelExpression" value="Компонент реализует/&#xA;сервис реализуется"/>
+        </sourceConnection>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-088008a8a2bf43cebcba973dfcf2c7de" archimateElement="id-b5102149431948669cc942bb8ae57ccc">
+        <bounds x="312" y="635" width="193" height="55"/>
+        <feature name="labelExpression" value="Администрирование правил (Компонент приложений)"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-d98829f2e61a4025b5054e268d0550fa" source="id-088008a8a2bf43cebcba973dfcf2c7de" target="id-f7151e97cb0e48fca4a3a2a81b8d0279" archimateRelationship="id-32e0768f32174284940c3159730f01b9">
+          <feature name="labelExpression" value="Компонент реализует/&#xA;сервис реализуется"/>
+        </sourceConnection>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-a032b486307044dabf22e96090449690" archimateElement="id-d493080dd08b4f9baa1c9886a95f8789">
+        <bounds x="823" y="635" width="120" height="55"/>
+        <feature name="labelExpression" value="Финансы (Компонент приложений)"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-285579830a984ef28a1f22a787f55f14" source="id-a032b486307044dabf22e96090449690" target="id-ea20754e44ff4f2c98fbd7640859f2de" archimateRelationship="id-abbaee0eb95d4ad7a4ee7abddfdb9e16">
+          <feature name="labelExpression" value="Компонент реализует/&#xA;сервис реализуется"/>
+        </sourceConnection>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-e358ec852e3749bdad47c9791fe33db9" archimateElement="id-c52baa6b23f54ed19ec6133261ccc190">
+        <bounds x="60" y="299" width="913" height="109"/>
+        <feature name="labelExpression" value="Обработать претензию (Бизнес-процесс)"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-8779041239f44d25a17aee8e765a2c6a" source="id-e358ec852e3749bdad47c9791fe33db9" target="id-71eebfbab406402ab419bff8204f1b80" archimateRelationship="id-f783ee696a0d4001adc7e09731b813d8"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-a0f3b7f02c4541bf83c7f3e1c611e30b" source="id-e358ec852e3749bdad47c9791fe33db9" target="id-e7284ea9516f4082a11e8346ce200178" archimateRelationship="id-9bdccc2255464637a6e3db59dc5ce6f5"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-66f280ad262c412d8070569838341707" source="id-e358ec852e3749bdad47c9791fe33db9" target="id-668eb1ae0c0e430b82ea6a778fb388c2" archimateRelationship="id-aa5610988af64842a921ab50b4f640a2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-4ce0eff7fa404e0ca11afdabdcf1e6c8" source="id-e358ec852e3749bdad47c9791fe33db9" target="id-996912f817074730b6b35080a6188124" archimateRelationship="id-30b2bde2a82a49f6bc47af2b8cd39458"/>
+        <child xsi:type="archimate:DiagramObject" id="id-71eebfbab406402ab419bff8204f1b80" targetConnections="id-8779041239f44d25a17aee8e765a2c6a id-59ee163ce5614cec878acb354c2f0835" archimateElement="id-ca72b98f9dbe406f8d5a2cfdbfe32f9b">
+          <bounds x="24" y="36" width="157" height="55"/>
+          <feature name="labelExpression" value="Зарегестрировать (Бизнес-процесс)"/>
+          <sourceConnection xsi:type="archimate:Connection" id="id-ffa746aa913d462fa85d54195d03a1dc" source="id-71eebfbab406402ab419bff8204f1b80" target="id-29c968aa688545109c55ffb2865779d5" archimateRelationship="id-293e6fef724b4d75919ef38e4d2c9e3a">
+            <feature name="labelExpression" value="Бизнес-процесс&#xA;реализует/&#xA;бизнес-сервис &#xA;реализуется"/>
+          </sourceConnection>
+          <sourceConnection xsi:type="archimate:Connection" id="id-072e83eef0c0485caac4050e10ef56c4" source="id-71eebfbab406402ab419bff8204f1b80" target="id-e7284ea9516f4082a11e8346ce200178" archimateRelationship="id-13e81e0d469a47c9801b2c17656b064d">
+            <feature name="labelExpression" value="БП запускает/&#xA;БП запускается"/>
+          </sourceConnection>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="id-e7284ea9516f4082a11e8346ce200178" targetConnections="id-a0f3b7f02c4541bf83c7f3e1c611e30b id-531f2f1c02cf4c8bb8be487a037a2a57 id-072e83eef0c0485caac4050e10ef56c4" archimateElement="id-00286b722b7b4928be2941575cd98ee8">
+          <bounds x="300" y="36" width="120" height="55"/>
+          <feature name="labelExpression" value="Принять (Бизнес-процесс)"/>
+          <sourceConnection xsi:type="archimate:Connection" id="id-3f030bb73aad485db2cccf908e5e9bc2" source="id-e7284ea9516f4082a11e8346ce200178" target="id-3883c863ebdc426eacaa9bad6a4becd4" archimateRelationship="id-7b7f2d9a917740549cc32879d11ea66e">
+            <feature name="labelExpression" value="Бизнес-процесс&#xA;реализует/&#xA;бизнес-сервис &#xA;реализуется"/>
+          </sourceConnection>
+          <sourceConnection xsi:type="archimate:Connection" id="id-cddd0b7aa0b64c36a407b9a81a9baf44" source="id-e7284ea9516f4082a11e8346ce200178" target="id-668eb1ae0c0e430b82ea6a778fb388c2" archimateRelationship="id-3d2d292645894b94b04b459d58ad0cdc">
+            <feature name="labelExpression" value="БП запускает/&#xA;БП запускается"/>
+          </sourceConnection>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="id-668eb1ae0c0e430b82ea6a778fb388c2" targetConnections="id-66f280ad262c412d8070569838341707 id-cddd0b7aa0b64c36a407b9a81a9baf44" archimateElement="id-1c7fc41084a1411ba41da3400596845e">
+          <bounds x="540" y="36" width="120" height="55"/>
+          <feature name="labelExpression" value="Оценить (Бизнес-процесс)"/>
+          <sourceConnection xsi:type="archimate:Connection" id="id-648a8ed80f6b41898bda380e57106b21" source="id-668eb1ae0c0e430b82ea6a778fb388c2" target="id-996912f817074730b6b35080a6188124" archimateRelationship="id-dd550e0c40694624953eae7e9a2940dc">
+            <feature name="labelExpression" value="БП запускает/&#xA;БП запускается"/>
+          </sourceConnection>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="id-996912f817074730b6b35080a6188124" targetConnections="id-4ce0eff7fa404e0ca11afdabdcf1e6c8 id-346279b3a10641bb98e9c8240f891fb9 id-648a8ed80f6b41898bda380e57106b21" archimateElement="id-e6043ea7a5dd4180bd502a6375ef4e68">
+          <bounds x="781" y="36" width="120" height="55"/>
+          <feature name="labelExpression" value="Оплатить (Бизнес-процесс)"/>
+          <sourceConnection xsi:type="archimate:Connection" id="id-13b62fc15ff442579d9dd1c41ae7d9c6" source="id-996912f817074730b6b35080a6188124" target="id-498a63aefdd142f19219a97b1d88d92d" archimateRelationship="id-aae056a018d64dd394dad72575c48faf">
+            <feature name="labelExpression" value="Бизнес-процесс&#xA;реализует/&#xA;бизнес-сервис &#xA;реализуется"/>
+          </sourceConnection>
+        </child>
+      </child>
+    </element>
+  </folder>
+</archimate:model>
