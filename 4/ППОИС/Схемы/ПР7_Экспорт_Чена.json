@@ -1,5 +1,5 @@
 {
-  "output": "D:/GitHub/MIREA/.cache/ppois-revision-20261008/chen",
+  "output": "D:/GitHub/MIREA/.cache/ppois-review-20261029/chen-export-complete",
   "options": {
     "format": "png",
     "background": "white",
@@ -12,67 +12,72 @@
   },
   "jobs": [
     {
-      "file": "ПР7_Модель_данных.omni",
+      "file": "D:\\GitHub\\MIREA\\.cache\\ppois-review-20261029\\models\\ПР7_Модель_данных.omni",
+      "diagramId": "conceptual_overview",
+      "title": "ПР7_Чен_обзор"
+    },
+    {
+      "file": "D:\\GitHub\\MIREA\\.cache\\ppois-review-20261029\\models\\ПР7_Модель_данных.omni",
       "diagramId": "conceptual_card_1",
       "title": "ПР7_Чен_card_1"
     },
     {
-      "file": "ПР7_Модель_данных.omni",
+      "file": "D:\\GitHub\\MIREA\\.cache\\ppois-review-20261029\\models\\ПР7_Модель_данных.omni",
       "diagramId": "conceptual_card_revision_1",
       "title": "ПР7_Чен_card_revision_1"
     },
     {
-      "file": "ПР7_Модель_данных.omni",
+      "file": "D:\\GitHub\\MIREA\\.cache\\ppois-review-20261029\\models\\ПР7_Модель_данных.omni",
       "diagramId": "conceptual_card_revision_2",
       "title": "ПР7_Чен_card_revision_2"
     },
     {
-      "file": "ПР7_Модель_данных.omni",
+      "file": "D:\\GitHub\\MIREA\\.cache\\ppois-review-20261029\\models\\ПР7_Модель_данных.omni",
       "diagramId": "conceptual_component_1",
       "title": "ПР7_Чен_component_1"
     },
     {
-      "file": "ПР7_Модель_данных.omni",
+      "file": "D:\\GitHub\\MIREA\\.cache\\ppois-review-20261029\\models\\ПР7_Модель_данных.omni",
       "diagramId": "conceptual_component_group_1",
       "title": "ПР7_Чен_component_group_1"
     },
     {
-      "file": "ПР7_Модель_данных.omni",
+      "file": "D:\\GitHub\\MIREA\\.cache\\ppois-review-20261029\\models\\ПР7_Модель_данных.omni",
       "diagramId": "conceptual_configuration_1",
       "title": "ПР7_Чен_configuration_1"
     },
     {
-      "file": "ПР7_Модель_данных.omni",
+      "file": "D:\\GitHub\\MIREA\\.cache\\ppois-review-20261029\\models\\ПР7_Модель_данных.omni",
       "diagramId": "conceptual_image_1",
       "title": "ПР7_Чен_image_1"
     },
     {
-      "file": "ПР7_Модель_данных.omni",
+      "file": "D:\\GitHub\\MIREA\\.cache\\ppois-review-20261029\\models\\ПР7_Модель_данных.omni",
       "diagramId": "conceptual_model_range_slot_1",
       "title": "ПР7_Чен_model_range_slot_1"
     },
     {
-      "file": "ПР7_Модель_данных.omni",
+      "file": "D:\\GitHub\\MIREA\\.cache\\ppois-review-20261029\\models\\ПР7_Модель_данных.omni",
       "diagramId": "conceptual_model_range_version_1",
       "title": "ПР7_Чен_model_range_version_1"
     },
     {
-      "file": "ПР7_Модель_данных.omni",
+      "file": "D:\\GitHub\\MIREA\\.cache\\ppois-review-20261029\\models\\ПР7_Модель_данных.omni",
       "diagramId": "conceptual_offer_1",
       "title": "ПР7_Чен_offer_1"
     },
     {
-      "file": "ПР7_Модель_данных.omni",
+      "file": "D:\\GitHub\\MIREA\\.cache\\ppois-review-20261029\\models\\ПР7_Модель_данных.omni",
       "diagramId": "conceptual_publication_attempt_1",
       "title": "ПР7_Чен_publication_attempt_1"
     },
     {
-      "file": "ПР7_Модель_данных.omni",
+      "file": "D:\\GitHub\\MIREA\\.cache\\ppois-review-20261029\\models\\ПР7_Модель_данных.omni",
       "diagramId": "conceptual_revision_image_1",
       "title": "ПР7_Чен_revision_image_1"
     },
     {
-      "file": "ПР7_Модель_данных.omni",
+      "file": "D:\\GitHub\\MIREA\\.cache\\ppois-review-20261029\\models\\ПР7_Модель_данных.omni",
       "diagramId": "conceptual_supplier_1",
       "title": "ПР7_Чен_supplier_1"
     }

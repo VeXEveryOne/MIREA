@@ -61,13 +61,16 @@ for(const [sheet,id] of [['classes_range','dep_ModelRangeController_Offer'],
 document.layout.edges.v_classes_range_slot_offer={bends:[{x:260,y:1240},{x:1340,y:1240}]};
 // An actor can have several presentations: each association stays close to
 // the use case instead of sharing a long, apparently joined vertical line.
-const positions:any={system:[320,10,1150,1420],manager:[40,80,190,150],specialist:[40,550,190,150],
-  suppliers:[1570,80,190,150],designer:[1570,530,190,150],admin:[1570,1120,190,150],ozon:[1570,900,190,150]};
+// Ozon participates through its publication view; remove the old unlinked copy.
+document.model.elements=document.model.elements.filter((e:any)=>e.id!=='v_use_ozon');
+delete document.layout.nodes.v_use_ozon;
+const positions:any={system:[320,10,1150,1550],manager:[40,80,190,150],specialist:[40,550,190,150],
+  suppliers:[1570,80,190,150],designer:[1570,570,190,150],admin:[1570,1120,190,150]};
 for(let i=1;i<=10;i++) positions['UC'+String(i).padStart(2,'0')]=[i<=5?420:1000,90+((i-1)%5)*250,380,150];
 for(const [id,[x,y,width,height]] of Object.entries(positions) as any)
   document.layout.nodes['v_use_'+id]={x,y,width,height};
-for(const [actor,suffix,rect] of [['manager','publish',[40,1110,190,150]],['manager','supply',[1570,285,190,150]],
-  ['ozon','publish',[40,1310,190,150]]]) {
+for(const [actor,suffix,rect] of [['manager','publish',[40,1110,190,150]],['manager','supply',[1570,315,190,150]],
+  ['ozon','publish',[40,1370,190,150]]]) {
   const id=`v_use_${actor}_${suffix}`;
   if(!document.model.elements.some((e:any)=>e.id===id))
     document.model.elements.push({id,kind:'view',label:'',properties:{diagram:'use',element:actor}});
@@ -76,14 +79,14 @@ for(const [actor,suffix,rect] of [['manager','publish',[40,1110,190,150]],['mana
 for(const [relation,from,to,bends] of [
   ['manager_UC01','v_use_manager','v_use_UC01',[]],
   ['manager_UC05','v_use_manager_publish','v_use_UC05',[]],
-  ['manager_UC06','v_use_manager_supply','v_use_UC06',[{x:1510,y:355},{x:1510,y:200}]],
+  ['manager_UC06','v_use_manager_supply','v_use_UC06',[{x:1510,y:385},{x:1510,y:200}]],
   ['specialist_UC02','v_use_specialist','v_use_UC02',[{x:290,y:620},{x:290,y:415}]],
   ['specialist_UC03','v_use_specialist','v_use_UC03',[]],
   ['specialist_UC04','v_use_specialist','v_use_UC04',[{x:270,y:650},{x:270,y:915}]],
-  ['ozon_UC05','v_use_ozon_publish','v_use_UC05',[{x:280,y:1390},{x:280,y:1200}]],
+  ['ozon_UC05','v_use_ozon_publish','v_use_UC05',[{x:280,y:1450},{x:280,y:1200}]],
   ['suppliers_UC06','v_use_suppliers','v_use_UC06',[]],
-  ['designer_UC07','v_use_designer','v_use_UC07',[{x:1510,y:580},{x:1510,y:415}]],
-  ['designer_UC09','v_use_designer','v_use_UC09',[{x:1535,y:660},{x:1535,y:915}]],
+  ['designer_UC07','v_use_designer','v_use_UC07',[{x:1510,y:620},{x:1510,y:415}]],
+  ['designer_UC09','v_use_designer','v_use_UC09',[{x:1535,y:700},{x:1535,y:915}]],
   ['admin_UC10','v_use_admin','v_use_UC10',[]],
   ['UC02_UC03','v_use_UC02','v_use_UC03',[]],
   ['UC04_UC03','v_use_UC04','v_use_UC03',[]],

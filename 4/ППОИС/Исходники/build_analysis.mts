@@ -62,18 +62,18 @@ function line(route:string,arrow=false,dashed=false) {
   return `<path d="${route}" fill="none" stroke="white" stroke-width="8"/><path d="${route}" fill="none" stroke="#111" stroke-width="2.2" ${dashed?'stroke-dasharray="10 6"':''} ${arrow?'marker-end="url(#reply)"':''}/>`;
 }
 async function useCases() {
-  let body=`<rect x="320" y="10" width="1150" height="1450" fill="white" stroke="#111" stroke-width="2"/>`;
+  let body=`<rect x="320" y="10" width="1150" height="1550" fill="white" stroke="#111" stroke-width="2"/>`;
   body+=text(895,52,['ИС формирования и актуализации карточек ООО «Юкомс»'],29);
   const routeSpecs:any[]=[
     ['manager_UC01','M170 140 H275 V165 H420'],['manager_UC05','M170 1170 H275 V1165 H420'],
-    ['manager_UC06','M1630 345 H1490 V200 H1360'],
+    ['manager_UC06','M1630 380 H1490 V200 H1360'],
     ['specialist_UC02','M170 600 H290 V415 H420'],
     ['specialist_UC03','M135 620 H250 V665 H420'],['specialist_UC04','M135 635 H270 V915 H420'],
     ['suppliers_UC06','M1630 140 H1510 V165 H1380'],
-    ['designer_UC07','M1630 590 H1510 V415 H1380'],
-    ['designer_UC09','M1665 615 H1535 V915 H1380'],
+    ['designer_UC07','M1630 630 H1510 V415 H1380'],
+    ['designer_UC09','M1665 655 H1535 V915 H1380'],
     ['admin_UC10','M1630 1180 H1510 V1165 H1380'],
-    ['ozon_UC05','M170 1370 H280 V1200 H441'],
+    ['ozon_UC05','M170 1430 H280 V1200 H441'],
     ['UC02_UC03','M610 490 V590',true,725,555],
     ['UC04_UC03','M610 840 V740',true,725,805],
     ['UC05_UC08','M800 1165 H900 V665 H1000',true,940,1000],
@@ -90,14 +90,20 @@ async function useCases() {
     body+=`<ellipse cx="${x+190}" cy="${y+75}" rx="190" ry="75" fill="white" stroke="#111" stroke-width="2"/>`;
     body+=text(x+190,y+75-(lines.length-1)*16+9,lines,28);
   }
-  for(const [id,x,y] of [['manager',135,90],['manager',135,1120],['manager',1665,295],
-    ['specialist',135,550],['suppliers',1665,90],['designer',1665,540],
-    ['admin',1665,1130],['ozon',135,1320]] as any[]) {
+  const actorBoxes:any[]=[];
+  for(const [id,x,y] of [['manager',135,90],['manager',135,1120],['manager',1665,330],
+    ['specialist',135,550],['suppliers',1665,90],['designer',1665,580],
+    ['admin',1665,1130],['ozon',135,1380]] as any[]) {
+    const labels=await wrap(index.get(id).label,260,29);
+    const box={id,x:x-130,y:y-4,width:260,height:175+(labels.length-1)*33};
+    if(actorBoxes.some(b=>box.x<b.x+b.width&&box.x+box.width>b.x&&box.y<b.y+b.height+20&&box.y+box.height+20>b.y))
+      throw Error('Use-case actor labels overlap: '+id);
+    actorBoxes.push(box);
     body+=`<circle cx="${x}" cy="${y+10}" r="14" fill="white" stroke="#111" stroke-width="2"/><path d="M${x} ${y+24} V${y+90} M${x-35} ${y+50} H${x+35} M${x} ${y+90} L${x-32} ${y+124} M${x} ${y+90} L${x+32} ${y+124}" stroke="#111" stroke-width="2" fill="none"/>`;
-    body+=text(x,y+163,await wrap(index.get(id).label,260,29),29);
+    body+=text(x,y+163,labels,29);
   }
-  body+=text(895,1538,['Сплошная линия — участие актора; пунктирная стрелка — включаемый вариант.'],26);
-  await save('ПР3_01_Варианты_использования',1800,1580,body);
+  body+=text(895,1638,['Сплошная линия — участие актора; пунктирная стрелка — включаемый вариант.'],26);
+  await save('ПР3_01_Варианты_использования',1800,1680,body);
 }
 async function analysisClasses() {
   const sheets=[['classes_range','ПР3_02_Классы_анализа_1'],['classes_publish','ПР3_02_Классы_анализа_2']];

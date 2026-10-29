@@ -13,6 +13,7 @@ import re
 from docx import Document
 from docx.oxml.ns import qn
 from docx.table import Table
+from pypdf import PdfReader
 
 from build_report_7 import (CHECKS, DIAGRAMS, DATABASE, ORDER, ROOT,
                             SUBJECT, TEST_NAMES, digest, display, load_inputs,
@@ -124,22 +125,28 @@ def verify():
     check('all 22 database test results and descriptions',
           rows('Фактические результаты проверок') == expected_tests)
 
-    figure_paths = [DIAGRAMS / s['file'] for s in models['conceptualSheets']]
+    overview = models['conceptualOverview']
+    check('overview contains all twelve entities and thirteen catalog relationships',
+          set(overview['entities']) == set(ORDER)
+          and set(overview['relationships']) == {k['conname'] for k in evidence['key_catalog'] if k['contype'] == 'f'})
+    figure_paths = [DIAGRAMS / overview['file']]
+    figure_paths += [DIAGRAMS / s['file'] for s in models['conceptualSheets']]
     figure_paths += [DIAGRAMS / f'ПР7_{kind}_{group}.png'
                      for kind in ('Логическая', 'Физическая')
                      for group in ('catalog', 'model_range', 'cards', 'publication')]
     package_image_hashes = {sha256(rel.target_part.blob).hexdigest()
                             for rel in document.part.rels.values()
                             if rel.reltype.endswith('/image')}
-    check('all 21 required current diagram images embedded',
-          len(figure_paths) == 21 and all(digest(p) in package_image_hashes for p in figure_paths))
+    check('all 22 required current diagram images embedded',
+          len(figure_paths) == 22 and all(digest(p) in package_image_hashes for p in figure_paths))
     qa_path = ROOT / '.cache/ppois5-10/report-evidence/practice7-final-qa.json'
     qa = json.loads(qa_path.read_text(encoding='utf-8'))
     # Layout verification is reported separately, never inferred from content.
     check('latest separate formatting and visual audit passed',
           qa['status'] == 'passed' and qa['docx_sha256'] == digest(path)
           and qa['pdf_sha256'] == digest(path.with_suffix('.pdf'))
-          and len(qa['pages']) == 60 and all(p['manually_viewed'] for p in qa['pages']))
+          and len(qa['pages']) == len(PdfReader(path.with_suffix('.pdf')).pages)
+          and all(p['manually_viewed'] for p in qa['pages']))
     result = {'status': 'passed' if all(c['passed'] for c in checks) else 'failed',
               'verified_at': datetime.now(timezone.utc).isoformat(),
               'report_sha256': digest(path), 'pdf_sha256': digest(path.with_suffix('.pdf')),

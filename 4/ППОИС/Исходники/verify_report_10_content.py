@@ -15,6 +15,7 @@ import re
 from docx import Document
 from docx.oxml.ns import qn
 from docx.table import Table
+from pypdf import PdfReader
 
 from build_report_10 import (CLIENT, FUNCTION_NOTES, MODELS, PROOF, ROOT,
                              ROUTE_NOTES, SCHEMES, SUBJECT, digest,
@@ -93,6 +94,13 @@ def inspect_content(document, contract, proof, models, figures):
               digest(SUBJECT / figure['source']) in image_hashes)
         expected = compact(f"Рисунок {figure['number']} – {figure['title']}")
         check('caption of figure ' + str(figure['number']), expected in captions)
+    full_screens = {'ПР10_Экран_входа.jpg', 'ПР10_Экран_инженера.jpg', 'ПР10_Результат_расчёта.jpg',
+                    'ПР10_История_ревизий.jpg', 'ПР10_Экран_администратора.jpg'}
+    check('all five screenshots use full source frames',
+          {Path(item['source']).name for item in figures if item['source'].endswith('.jpg')} == full_screens)
+    check('no screenshot uses nonzero Word crop',
+          all(all(int(value) == 0 for value in rect.attrib.values())
+              for rect in document.element.xpath('//a:srcRect')))
 
     text = compact('\n'.join(p.text for p in document.paragraphs))
     for heading in ['Задание 1 Дерево функций и доступ пользователей',
@@ -120,7 +128,8 @@ def verify():
     checks.append({'name': 'current separate formatting audit and complete visual review',
                    'passed': qa['status'] == 'passed' and qa['docx_sha256'] == digest(path)
                    and qa['pdf_sha256'] == digest(path.with_suffix('.pdf'))
-                   and len(qa['pages']) == 27 and all(p['manually_viewed'] for p in qa['pages'])})
+                   and len(qa['pages']) == len(PdfReader(path.with_suffix('.pdf')).pages)
+                   and all(p['manually_viewed'] for p in qa['pages'])})
     result = {'status': 'passed' if all(c['passed'] for c in checks) else 'failed',
               'verified_at': datetime.now(timezone.utc).isoformat(),
               'docx_sha256': digest(path), 'pdf_sha256': digest(path.with_suffix('.pdf')),

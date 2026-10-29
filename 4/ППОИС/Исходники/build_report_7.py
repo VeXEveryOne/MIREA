@@ -132,8 +132,13 @@ def load_inputs():
     if {t['name'] for t in evidence['tests']} != set(TEST_NAMES):
         raise ValueError('Test description registry must be reconciled')
     native = json.loads((Path(manifest['output']) / 'Отчёт_экспорта.json').read_text(encoding='utf-8'))
-    if native['cancelled'] or len(native['items']) != len(audit['conceptualSheets']):
+    if native['cancelled'] or len(native['items']) != len(audit['conceptualSheets']) + 1:
         raise ValueError('Incomplete Chen export')
+    overview = audit['conceptualOverview']
+    if (set(overview['entities']) != set(ORDER)
+            or set(overview['relationships']) != {k['conname'] for k in evidence['key_catalog'] if k['contype'] == 'f'}
+            or overview['entityIntersections'] or overview['labelIntersections']):
+        raise ValueError('Incomplete or overlapping conceptual overview')
     for item in native['items']:
         if item['status'] != 'completed' or len(item['files']) != 1:
             raise ValueError('Failed Chen sheet: ' + item['diagramId'])
@@ -264,7 +269,7 @@ def build():
     r.paragraph('Предложение рассматривается как отдельное наблюдение, а не как текущая цена, перезаписываемая в строке компонента. Новое наблюдение получает новый идентификатор. После использования состава в ревизии его позиции, выбранные наблюдения и характеристики компонентов защищены триггерами от обновления. Для изменения расчётных параметров создаётся новая ревизия.')
     r.heading('1.2 Нотация и зависимые сущности', 2)
     r.paragraph('Для концептуальной модели используются прямоугольники сущностей, овалы атрибутов и ромбы связей Чена [2]. Двойной прямоугольник обозначает зависимую сущность, двойной ромб — идентифицирующую связь. Сплошное подчёркивание обозначает первичный ключ сильной сущности, пунктирное — локальный дискриминатор слабой. Применено бинарное расширение min–max: 1, 0..1 и 0..N. Метка у конца связи показывает число объектов этого конца для одного объекта противоположного конца.')
-    r.paragraph('Внешние ключи концептуально представлены связями и не дублируются как отдельные овалы. Все их поля и обязательность включены в логическую и физическую модели. Тринадцать листов Чена являются согласованными представлениями одной модели, а не отдельными базами. Атрибуты ревизии карточки разделены между двумя листами; повторённые владельцы и связи сохраняют тот же смысл.')
+    r.paragraph('Внешние ключи концептуально представлены связями и не дублируются как отдельные овалы. Все их поля и обязательность включены в логическую и физическую модели. Общий обзор и тринадцать листов с атрибутами являются согласованными представлениями одной модели. Атрибуты ревизии карточки разделены между двумя листами; повторённые владельцы и связи сохраняют тот же смысл.')
     r.table('Зависимые сущности и их идентификация', ['Сущность', 'Владелец и полный ключ', 'Локальная идентификация'], [
         ['model_range_version', 'configuration; PK(configuration_id, version_no)', 'Номер версии внутри конфигурации.'],
         ['model_range_slot', 'model_range_version; PK(configuration_id, version_no, line_no)', 'Номер позиции внутри версии.'],
@@ -274,6 +279,13 @@ def build():
     ], [4.7, 6.3, 5.5])
     r.page(True)
     r.heading('1.3 Диаграммы Чена', 2)
+    r.figure('Общая концептуальная модель связей', DIAGRAMS / audit['conceptualOverview']['file'],
+             max_height=12.5,
+             lead='На рисунке 1 показаны все двенадцать сущностей и тринадцать связей единой модели. '
+                  'Двойные контуры выделяют зависимые сущности и идентифицирующие связи. '
+                  'Атрибуты раскрыты на следующих листах; связи позиции с группой и точным компонентом '
+                  'альтернативны и подчиняются ограничению XOR.')
+    r.page(True, new_page=True)
     conceptual_by_table = {t: [s for s in audit['conceptualSheets'] if s['entity'] == t] for t in ORDER}
     # Two compact strong-entity views share a page; crowded/weak views retain
     # a full page and are never shrunk to make room for another model.

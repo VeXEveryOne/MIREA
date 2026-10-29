@@ -145,6 +145,41 @@
     "publication_attempt",
     "revision_image"
   ],
+  "conceptualOverview": {
+    "sheet": "conceptual_overview",
+    "file": "ПР7_Чен_обзор.png",
+    "entities": [
+      "component_group",
+      "component",
+      "supplier",
+      "offer",
+      "model_range_slot",
+      "model_range_version",
+      "configuration",
+      "card_revision",
+      "card",
+      "revision_image",
+      "image",
+      "publication_attempt"
+    ],
+    "relationships": [
+      "card_revision_card_id_fkey",
+      "model_range_slot_configuration_id_version_no_fkey",
+      "model_range_version_configuration_id_fkey",
+      "publication_attempt_card_id_revision_no_fkey",
+      "revision_image_card_id_revision_no_fkey",
+      "revision_image_image_id_fkey",
+      "card_revision_configuration_id_version_no_fkey",
+      "component_group_id_fkey",
+      "model_range_slot_group_id_fkey",
+      "model_range_slot_offer_id_fkey",
+      "model_range_slot_requested_component_id_fkey",
+      "offer_component_id_fkey",
+      "offer_supplier_id_fkey"
+    ],
+    "entityIntersections": 0,
+    "labelIntersections": 0
+  },
   "conceptualSheets": [
     {
       "sheet": "conceptual_card_1",

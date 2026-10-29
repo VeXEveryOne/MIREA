@@ -216,6 +216,19 @@ def font(run, size=14, bold=False, italic=False):
         run._r.get_or_add_rPr().get_or_add_rFonts().set(qn('w:'+kind), 'Times New Roman')
 
 
+def keep_short_sources_together(document):
+    """Keep the short PPOIS3 bibliography with its heading when it wraps."""
+    paragraphs = document.paragraphs
+    heading = next(i for i, p in enumerate(paragraphs)
+                   if p.text.casefold() == 'список использованных источников')
+    block = [p for p in paragraphs[heading:] if p.text.strip()]
+    if len(block) != 4:
+        raise ValueError('Reconcile the PPOIS3 source list before grouping it')
+    for i, paragraph in enumerate(block):
+        paragraph.paragraph_format.keep_with_next = i < len(block) - 1
+        paragraph.paragraph_format.keep_together = True
+
+
 def format_existing(path: Path, working: Path, figures: Path | None = None):
     """Normalize only the report body; keep first-page XML and unrelated parts."""
     from docx.text.paragraph import Paragraph
@@ -647,7 +660,7 @@ def main():
             report=Document(args.output/name)
             for shape,file,height in zip(list(report.inline_shapes)[1:],
                 ['ПР3_01_Варианты_использования.png','ПР3_02_Классы_анализа_1.png','ПР3_02_Классы_анализа_2.png',*ANALYSIS_PARTS],
-                [14.5,14.3,14.3,12.3,14.3,12.3,14.3,12.9]):
+                [14.3,14.3,14.3,12.3,14.3,12.3,14.3,12.9]):
                 with Image.open(args.figures/file) as image:
                     width=min(25.2,height*image.width/image.height)
                     shape.width=Cm(width);shape.height=int(Cm(width)*image.height/image.width)
@@ -677,6 +690,7 @@ def main():
                             p.paragraph_format.space_before=Pt(0);p.paragraph_format.space_after=Pt(0)
                             p.alignment=WD_ALIGN_PARAGRAPH.LEFT
                             for run in p.runs:font(run,12)
+            keep_short_sources_together(report)
             report.save(args.output/name)
             log[name]['only_document_xml_changed']=False
     name='ППОИС_4_АлбахтинИВ.docx'

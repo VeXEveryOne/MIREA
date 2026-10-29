@@ -9,6 +9,7 @@ const {erdEngine}=await omniModule('src/notations/erd/document.ts');
 const {encodeProject,decodeProject}=await omniModule('src/persistence/project.ts');
 const {routeHitsBox}=await omniModule('src/notations/structured/geometry.ts');
 const {routeAroundFunctions,parallelFlowPenalty}=await omniModule('src/notations/idef0/route.ts');
+const {chenDiamond}=await omniModule('src/notations/erd/chen.ts');
 const {default:sharp}=await runtimeModule('sharp');
 const subject=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const output=process.env.PPOIS_MODEL_OUTPUT??path.join(subject,'Схемы');
@@ -132,6 +133,74 @@ for(const table of Object.keys(evidence.counts)){
       relationships:parents.map(r=>r.conname),entityViews,attributeViews,edgeViews});
   }
 }
+// A complete relationship map precedes the attribute detail sheets in print.
+// Its views refer to the same twelve entities and thirteen SQL-backed relations.
+const overviewSheet='conceptual_overview';
+add('diagram',overviewSheet,'Общая концептуальная модель',{type:'conceptual'});
+const overviewPositions:Record<string,number[]>={
+  component_group:[40,40],component:[40,360],supplier:[40,680],offer:[640,680],
+  model_range_slot:[640,360],model_range_version:[1240,360],configuration:[1840,360],
+  card_revision:[1240,900],card:[1840,900],revision_image:[640,900],
+  image:[40,900],publication_attempt:[1840,680],
+};
+const overviewBoxes=Object.entries(overviewPositions).map(([table,[x,y]])=>({table,x,y,width:360,height:105}));
+for(const n of overviewBoxes){
+  const id='v_'+overviewSheet+'_'+n.table;
+  add('view',id,'',{diagram:overviewSheet,element:n.table});
+  rects[id]={x:n.x,y:n.y,width:n.width,height:n.height};
+}
+const overviewEdges:any[]=[],labelBoxes:any[]=[],overviewPorts=new Map<string,number>();
+const overlaps=(a:any,b:any)=>a.x<b.x+b.width+12&&a.x+a.width+12>b.x&&a.y<b.y+b.height+12&&a.y+a.height+12>b.y;
+for(const r of [...relations].sort((a,b)=>Number(b.identifying)-Number(a.identifying))){
+  const a=overviewBoxes.find(n=>n.table===r.parent_table)!,b=overviewBoxes.find(n=>n.table===r.table_name)!;
+  const horizontal=Math.abs(a.x-b.x)>Math.abs(a.y-b.y),
+    preferredFrom=horizontal?(a.x<b.x?'right':'left'):(a.y<b.y?'bottom':'top');
+  let choice:any;
+  for(const from of [preferredFrom,...['right','bottom','left','top'].filter(s=>s!==preferredFrom)]){
+    const to=r.conname==='model_range_slot_group_id_fkey'?'top':
+      from==='right'?'left':from==='left'?'right':from==='top'?'bottom':'top';
+    const anchor=(n:any,side:string)=>{
+      const used=overviewPorts.get(n.table+':'+side)??0,offset=.25+used*.16;
+      return {point:side==='left'||side==='right'?{x:n.x+(side==='right'?n.width:0),y:n.y+n.height*offset}:
+        {x:n.x+n.width*offset,y:n.y+(side==='bottom'?n.height:0)},offset};
+    };
+    const start=anchor(a,from),end=anchor(b,to),vectors:any={left:[-1,0],right:[1,0],top:[0,-1],bottom:[0,1]};
+    for(const stub of [38,60,90]){
+      const extend=(p:any,s:string)=>({x:p.x+vectors[s][0]*stub,y:p.y+vectors[s][1]*stub});
+      const obstacles=[...overviewBoxes,...labelBoxes];
+      const route=routeAroundFunctions(extend(start.point,from),extend(end.point,to),obstacles,
+        {x:0,y:0,width:2240,height:1045},16,overviewEdges.map(e=>e.points),true);
+      if(!route)continue;
+      const points=[start.point,...route,end.point];
+      if(routeHitsBox(points,obstacles))continue;
+      let diamond:any;
+      for(let i=1;i<points.length&&!diamond;i++)for(const fraction of [.5,.3,.7]){
+        const p=points[i-1],q=points[i],candidate=chenDiamond(points,relationLabels[r.conname],
+          {x:p.x+(q.x-p.x)*fraction,y:p.y+(q.y-p.y)*fraction});
+        const box={x:candidate.x-candidate.width/2,y:candidate.y-candidate.height/2,width:candidate.width,height:candidate.height};
+        // Native export uses the entity bounds; keep diamonds inside them too.
+        if(box.x>=40&&box.y>=40&&box.x+box.width<=2200&&box.y+box.height<=1005
+            &&!obstacles.some(o=>overlaps(box,o))
+            &&!overviewEdges.some(e=>routeHitsBox(e.points,[box]))){diamond={...candidate,box};break;}
+      }
+      if(!diamond)continue;
+      const score=points.slice(1).reduce((s,p,i)=>s+Math.abs(p.x-points[i].x)+Math.abs(p.y-points[i].y),0);
+      if(!choice||score<choice.score)choice={points,from,to,start,end,diamond,score};
+    }
+    if(choice)break;
+  }
+  if(!choice)throw Error('Cannot lay out conceptual overview: '+r.conname);
+  const id='v_'+overviewSheet+'_'+r.id;
+  add('view',id,'',{diagram:overviewSheet,element:r.id,from:'v_'+overviewSheet+'_'+r.parent_table,to:'v_'+overviewSheet+'_'+r.table_name});
+  routes[id]={bends:choice.points.slice(1,-1),from:{side:choice.from,offset:choice.start.offset},
+    to:{side:choice.to,offset:choice.end.offset},label:{x:choice.diamond.x,y:choice.diamond.y}};
+  overviewPorts.set(a.table+':'+choice.from,(overviewPorts.get(a.table+':'+choice.from)??0)+1);
+  overviewPorts.set(b.table+':'+choice.to,(overviewPorts.get(b.table+':'+choice.to)??0)+1);
+  overviewEdges.push({relation:r.conname,points:choice.points});labelBoxes.push(choice.diamond.box);
+}
+const conceptualOverview={sheet:overviewSheet,file:'ПР7_Чен_обзор.png',
+  entities:overviewBoxes.map(n=>n.table),relationships:overviewEdges.map(e=>e.relation),
+  entityIntersections:0,labelIntersections:0};
 function separateRoute(start:any,end:any,from:string,to:string,boxes:any[],lanes:any[][]){
   const vectors:Record<string,any>={left:{x:-1,y:0},right:{x:1,y:0},top:{x:0,y:-1},bottom:{x:0,y:1}};
   const frame={x:0,y:0,width:2190,height:Math.max(...boxes.map(n=>n.y+n.height))+140};
@@ -274,11 +343,11 @@ if(relations.some(r=>!conceptualSheets.some(s=>s.relationships.includes(r.connam
 const exportDirectory=process.env.PPOIS_CHEN_EXPORT_OUTPUT??path.resolve(subject,'../../.cache/ppois5-10/chen-native-export');
 await fs.writeFile(path.join(output,'ПР7_Экспорт_Чена.json'),JSON.stringify({output:exportDirectory,
   options:{format:'png',background:'white',targetWidth:4200,title:false,legend:false,monochrome:true,font:'Arial',margin:20},
-  jobs:conceptualSheets.map(s=>({file:path.join(output,'ПР7_Модель_данных.omni'),diagramId:s.sheet,title:s.file.slice(0,-4)}))},null,2)+'\n');
+  jobs:[conceptualOverview,...conceptualSheets].map(s=>({file:path.join(output,'ПР7_Модель_данных.omni'),diagramId:s.sheet,title:s.file.slice(0,-4)}))},null,2)+'\n');
 await fs.writeFile(path.join(output,'ПР7_Проверка_модели.json'),JSON.stringify({database:evidence.database,entities:12,
   attributes:expected.length,foreignKeys:relations.length,diagnostics,source_sha256:evidence.source_sha256,
   logicalAttributeCoverage:[...coverage].sort(),conceptualAttributeCoverage:[...conceptualCoverage].sort(),
   weakEntities:model.elements.filter((e:any)=>e.kind==='entity'&&e.properties.weak==='true').map((e:any)=>e.id),
-  conceptualSheets,sheets:audit},null,2)+'\n');
+  conceptualOverview,conceptualSheets,sheets:audit},null,2)+'\n');
 console.log(JSON.stringify({entities:12,attributes:expected.length,foreignKeys:relations.length,
-  sheets:sheets.length+conceptualSheets.length,conceptualSheets:conceptualSheets.length,diagnostics:diagnostics.length}));
+  sheets:1+sheets.length+conceptualSheets.length,conceptualSheets:1+conceptualSheets.length,diagnostics:diagnostics.length}));
