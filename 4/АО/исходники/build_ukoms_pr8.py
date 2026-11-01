@@ -36,6 +36,60 @@ ROUTES = {
     "card_contains_pictures": [(1650, 1160), (1070, 1160)],
 }
 
+RELATION_LABELS = {
+    'CompositionRelationship': 'Состоит из',
+    'AggregationRelationship': 'Объединяет',
+    'AssignmentRelationship': 'Выполняет',
+    'TriggeringRelationship': 'Запускает',
+    'AccessRelationship': 'Записывает',
+    'RealizationRelationship': 'Реализует',
+    'ServingRelationship': 'Обслуживает',
+}
+
+
+def label_relationships(root: ET.Element) -> None:
+    """Label all lines from whole to part and from provider to consumer."""
+    role_ids = {uid('concept', k) for k in ('manager', 'designer', 'lead', 'developer')}
+    for rel in root.findall('.//element'):
+        kind = rel.get(f'{{{XSI}}}type', '').split(':')[-1]
+        if kind not in RELATION_LABELS:
+            continue
+        label = RELATION_LABELS[kind]
+        if kind == 'AssignmentRelationship' and rel.get('target') in role_ids:
+            label = 'Исполняет роль'
+        if rel.get('id') == uid('relation', 'team_agreement'):
+            label = 'Выполняет совместно'
+        if rel.get('id') == uid('relation', 'channel_service'):
+            label = 'Предоставляет сервис'
+        if kind == 'AccessRelationship':
+            rel.set('accessType', '1' if rel.get('id') == uid('relation', 'publish_product') else '0')
+            label = 'Читает' if rel.get('accessType') == '1' else 'Записывает'
+        rel.set('name', label)
+
+
+def space_labels(root: ET.Element) -> None:
+    """Leave enough space for the captions between the existing 28 blocks."""
+    sx, sy = 1.35, 1.30
+    nodes = {n.get('id'): n for n in root.findall('.//child') if n.find('bounds') is not None}
+    old_centers = {k: center(n) for k, n in nodes.items()}
+    for node in nodes.values():
+        bounds = node.find('bounds')
+        bounds.set('x', str(round(int(bounds.get('x', '0')) * sx)))
+        bounds.set('y', str(round(int(bounds.get('y', '0')) * sy)))
+    new_centers = {k: center(n) for k, n in nodes.items()}
+    for conn in root.findall('.//sourceConnection'):
+        conn.set('textPosition', '1')
+        source, target = conn.get('source'), conn.get('target')
+        old_source = old_centers[source]
+        new_source, new_target = new_centers[source], new_centers[target]
+        for point in conn.findall('bendpoint'):
+            px = round((old_source[0] + int(point.get('startX', '0'))) * sx)
+            py = round((old_source[1] + int(point.get('startY', '0'))) * sy)
+            point.set('startX', str(px - new_source[0]))
+            point.set('startY', str(py - new_source[1]))
+            point.set('endX', str(px - new_target[0]))
+            point.set('endY', str(py - new_target[1]))
+
 
 def center(node: ET.Element) -> tuple[int, int]:
     bounds = node.find("bounds")
@@ -108,6 +162,8 @@ def main() -> None:
                 "endX": str(px - tx), "endY": str(py - ty),
             })
 
+    label_relationships(root)
+    space_labels(root)
     write(root, PR8)
 
 

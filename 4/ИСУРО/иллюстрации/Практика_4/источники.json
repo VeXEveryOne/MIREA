@@ -1,0 +1,212 @@
+[
+  {
+    "number": 1,
+    "file": "01_workshop_warehouse.jpg",
+    "caption": "Настройка цеховой кладовой",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "e884e3d5f5a489e947dfb6f925160f150086849236ec5b2d94d19c3384e9cac4"
+  },
+  {
+    "number": 2,
+    "file": "02_order_main.jpg",
+    "caption": "Основные реквизиты заказа материалов",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "974a1994cb3f698bdba681b3b2dbe646e8a0c44899c84e03fa6829892329d5a6"
+  },
+  {
+    "number": 3,
+    "file": "03_order_materials.jpg",
+    "caption": "Материал и количество в заказе",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "df547e39ab895a62e41babdc5f8bc058629fe793e423b66c1a87dbba715d68fe"
+  },
+  {
+    "number": 4,
+    "file": "04_transfer_main.jpg",
+    "caption": "Документ передачи материалов в кладовую",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "10df94e1457dd5610939f1a9cb866d560756c163704a9f8fb7ddbd6ed0d6b0bf"
+  },
+  {
+    "number": 5,
+    "file": "05_transfer_materials.jpg",
+    "caption": "Передаваемая сосновая доска",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "b8eb66f77e598e8ca0b54f86020f947df115a2263d2e46b165d134a3d922087d"
+  },
+  {
+    "number": 6,
+    "file": "06_transfer_postings_before_cost.jpg",
+    "caption": "Проводка передачи до расчета себестоимости",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "d4aad5806c14019f590d3ca68759925b0ccd6ac29ddf090c56961eba6f6315f7"
+  },
+  {
+    "number": 7,
+    "file": "08_production_main.jpg",
+    "caption": "Основные реквизиты производства без заказа",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "9eaaf3b4b3e07bd338d6fc75870d8d36bdbbcb85d58ad06cf3316fe5d4c60423"
+  },
+  {
+    "number": 8,
+    "file": "09_production_output.jpg",
+    "caption": "Выпуск одной полки на склад",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "82af93b54b7db1c010de6b90faafba3b5d46621e8bd9086a05b5c03122dc7c3a"
+  },
+  {
+    "number": 9,
+    "file": "07_production_materials.jpg",
+    "caption": "Материал, использованный для изготовления полки",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "98b0543732eb441bfaab467b173263b241ce02e42865357e526d2168934776af"
+  },
+  {
+    "number": 10,
+    "file": "10_production_postings_before_cost.jpg",
+    "caption": "Проводка выпуска готовой продукции",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "5b5b0fe7a6f0c3fbed5f6e86fd935e339124cbd60e08391a32991ca8c3b603ff"
+  },
+  {
+    "number": 11,
+    "file": "11_hiring_main.jpg",
+    "caption": "Проведенный прием сотрудника на работу",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "b0559a2c725176a8fd0e480fd22e95c4663d5c330865e096b332e0b1472dd29a"
+  },
+  {
+    "number": 12,
+    "file": "12_hiring_salary.jpg",
+    "caption": "Назначенная сотруднику оплата по окладу",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "a3d127f4b3a73115a424f739a9e2d54d019cdabe494599ff1fe7b4cc25cf9e36"
+  },
+  {
+    "number": 13,
+    "file": "13_payroll_accrual.jpg",
+    "caption": "Начисление зарплаты и взносов за январь 2026 года",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "cb3de983c4f63436ead8658c3d9017acef8a0ad9d6830e963182c83b18e570a8"
+  },
+  {
+    "number": 14,
+    "file": "14_payroll_reflection.jpg",
+    "caption": "Начисления и взносы в финансовом учете",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "e7f2b66a0a979aa9facead0ac334f8daa519259443a8daae81ea391b3ec45026"
+  },
+  {
+    "number": 15,
+    "file": "15_payroll_postings.jpg",
+    "caption": "Проверенные проводки зарплаты и взносов",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "52b969b0e37de673d6f3239b01349c03ed8d51b2e00fdfec456e23b4f53c95ce"
+  },
+  {
+    "number": 16,
+    "file": "16_cost_calculation.jpg",
+    "caption": "Расчет себестоимости до завершения закрытия месяца",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "5677c5704eac1cafc21cee54ac6980db5dad6bf49d85ba345077e20af25c7629"
+  },
+  {
+    "number": 17,
+    "file": "18_transfer_postings_cost.jpg",
+    "caption": "Стоимость материала после расчета себестоимости",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "5cc7f58c8afd551cf197fa0fe5ef8f907826a565bdd685808fe95d1b90d4803b"
+  },
+  {
+    "number": 18,
+    "file": "17_production_postings_cost.jpg",
+    "caption": "Итоговая стоимость выпуска одной полки",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "238bff3aa2993d553ba9b11efa9c2f3ef555a92178d858f9bec2a5073ef78393"
+  },
+  {
+    "number": 19,
+    "file": "20_communication_distribution_setup.jpg",
+    "caption": "Настройка распределения услуг связи по выручке",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "2f7651e30418dd57a0834dfa8e0868303a064095abc15753dfcfd944d87a384f"
+  },
+  {
+    "number": 20,
+    "file": "22_vat_documents_control.jpg",
+    "caption": "Контроль оформления всех счетов-фактур января",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "844b74cc69de86472f3080b3d015ea2e02ad311214022f1f8ab906ea85bf4b4a"
+  },
+  {
+    "number": 21,
+    "file": "23_january_closed.jpg",
+    "caption": "Успешное окончательное закрытие января 2026 года",
+    "source": "Учебная база 1С:ERP, edu.1cfresh.com, приложение 1513564",
+    "organization": "ООО «Мебель-Комплект» – Албахтин",
+    "accounting_period": "2026-01",
+    "kind": "unaltered browser screenshot",
+    "sha256": "48b807e6891604f7fd2fcebc4c49ccea99699ce2188c045ee1e85ed1c1ee6a85"
+  }
+]
