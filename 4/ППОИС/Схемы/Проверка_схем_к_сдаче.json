@@ -1,0 +1,307 @@
+{
+  "revision": "2026-11-01",
+  "source": "Исходники/submission_model.json",
+  "relational": {
+    "entities": 12,
+    "attributes": 71,
+    "relationships": 13,
+    "positions": {
+      "component_group": {
+        "x": 55,
+        "y": 45,
+        "w": 510,
+        "h": 171,
+        "side": 0
+      },
+      "component": {
+        "x": 55,
+        "y": 254,
+        "w": 510,
+        "h": 287,
+        "side": 0
+      },
+      "supplier": {
+        "x": 55,
+        "y": 579,
+        "w": 510,
+        "h": 142,
+        "side": 0
+      },
+      "offer": {
+        "x": 55,
+        "y": 759,
+        "w": 510,
+        "h": 229,
+        "side": 0
+      },
+      "image": {
+        "x": 55,
+        "y": 1026,
+        "w": 510,
+        "h": 200,
+        "side": 0
+      },
+      "publication_attempt": {
+        "x": 55,
+        "y": 1264,
+        "w": 510,
+        "h": 316,
+        "side": 0
+      },
+      "configuration": {
+        "x": 705,
+        "y": 45,
+        "w": 535,
+        "h": 142,
+        "side": 1
+      },
+      "model_range_version": {
+        "x": 705,
+        "y": 225,
+        "w": 535,
+        "h": 171,
+        "side": 1
+      },
+      "model_range_slot": {
+        "x": 705,
+        "y": 434,
+        "w": 535,
+        "h": 258,
+        "side": 1
+      },
+      "card": {
+        "x": 705,
+        "y": 730,
+        "w": 535,
+        "h": 142,
+        "side": 1
+      },
+      "card_revision": {
+        "x": 705,
+        "y": 910,
+        "w": 535,
+        "h": 490,
+        "side": 1
+      },
+      "revision_image": {
+        "x": 705,
+        "y": 1438,
+        "w": 535,
+        "h": 171,
+        "side": 1
+      }
+    }
+  },
+  "emitted": [
+    {
+      "name": "ПР3_Анализ_состава",
+      "width": 1580,
+      "height": 880,
+      "labels": 9,
+      "sha256": "38ecd3f3bbc58c4a9461c64366e9906e89dcfc5f185dd27eff49e86baefea307"
+    },
+    {
+      "name": "ПР3_Анализ_карточки",
+      "width": 2180,
+      "height": 1090,
+      "labels": 19,
+      "sha256": "735231d72de119e045fd82a8df9a90e4d57bc8077d63337571ea260164083810"
+    },
+    {
+      "name": "ПР3_Варианты_ролей",
+      "width": 2070,
+      "height": 1140,
+      "labels": 21,
+      "sha256": "bc7e8937396f2bdbf97c62f8190ede80a4da0c40a47660e52963540cf51fe1b7"
+    },
+    {
+      "name": "ПР3_Последовательность_range",
+      "width": 1600,
+      "height": 960,
+      "labels": 13,
+      "sha256": "44fce5bcec809fc4b96fc14f0b30f1f9d51e541891089e5e294ade99ae194242"
+    },
+    {
+      "name": "ПР3_Последовательность_approval",
+      "width": 1600,
+      "height": 960,
+      "labels": 13,
+      "sha256": "b4eda74ff10279b7b1f6b1f54eb2e721e7f54517cb2fdd740cfe710e91ba36b0"
+    },
+    {
+      "name": "ПР3_Кооперация_утверждения",
+      "width": 1630,
+      "height": 970,
+      "labels": 11,
+      "sha256": "f40a5225535abd9e7030fbe1c0382b10d3b75ac60f963181c9bbaaf95c7781c4"
+    },
+    {
+      "name": "ПР4_Классы_Состав",
+      "width": 1840,
+      "height": 920,
+      "labels": 36,
+      "sha256": "288d07579960132961494fe3ae3759e20efadbbb128fbe8b420728f84438bd9b"
+    },
+    {
+      "name": "ПР4_Классы_Каталог",
+      "width": 1380,
+      "height": 1100,
+      "labels": 35,
+      "sha256": "fff709c172ff71e849969ba5c2799ba48d6aa8be2f59afb7320f0c6910796d14"
+    },
+    {
+      "name": "ПР4_Классы_Карточки",
+      "width": 1940,
+      "height": 1030,
+      "labels": 53,
+      "sha256": "152ad30e80a174867537e8dec2fab0f0f8bd4adbcc6addeb89a7ec352c24094d"
+    },
+    {
+      "name": "ПР4_Классы_Сервисы",
+      "width": 1580,
+      "height": 1030,
+      "labels": 23,
+      "sha256": "9895ec53b1908ae041cd834d171d385704f113ee8cc361c3a400188e1eeb89e4"
+    },
+    {
+      "name": "ПР4_Деятельность_роли",
+      "width": 1740,
+      "height": 1110,
+      "labels": 13,
+      "sha256": "da3031010ba0a944dd6ae6df14e62c03638f47a3897e5e08222fa7c7aab17f4c"
+    },
+    {
+      "name": "ПР4_Состояния_ревизии",
+      "width": 1690,
+      "height": 1110,
+      "labels": 20,
+      "sha256": "57edeb1794dd6c594d0ced37f92f9cc6b0c56f2885efcf3aae999b5d1d867883"
+    },
+    {
+      "name": "ПР10_Диалог_manager",
+      "width": 1320,
+      "height": 1090,
+      "labels": 12,
+      "sha256": "b0083f8d2d8ba1090b3d30c04d1e0cb3b9d18968e3a5ddb91857941563708a31"
+    },
+    {
+      "name": "ПР10_Диалог_director",
+      "width": 1320,
+      "height": 905,
+      "labels": 10,
+      "sha256": "e55e2dbab723ace1a92f48af44a81a14681350de2a8cf135d43077f514d0e6d8"
+    },
+    {
+      "name": "ПР10_Диалог_developer",
+      "width": 1320,
+      "height": 1090,
+      "labels": 12,
+      "sha256": "2694c1ae7c295111092a0795d0f61eab51b41b429ae061c3050fa0c72800d689"
+    },
+    {
+      "name": "ПР10_Диалог_designer",
+      "width": 1320,
+      "height": 1090,
+      "labels": 12,
+      "sha256": "8c594fb8cfba3f8298ab34201077a87196fab26e82d6f2aaeb3842999ff318ef"
+    },
+    {
+      "name": "ПР10_Дерево_функций",
+      "width": 1780,
+      "height": 1130,
+      "labels": 12,
+      "sha256": "8525aa74c9de2bc13747946440a5c50347f3891f6335b94d951c278166c5e8ca"
+    },
+    {
+      "name": "ПР10_Структурная_схема",
+      "width": 1540,
+      "height": 820,
+      "labels": 8,
+      "sha256": "573077d207982d1331986f23e76f374ff66e90052c21579622766a89408f3298"
+    },
+    {
+      "name": "ПР5_Компоненты",
+      "width": 1780,
+      "height": 1030,
+      "labels": 14,
+      "sha256": "7018e90f9df02358571f133af9fcf56010385d95dd51b4e88d46c11c0699ea53"
+    },
+    {
+      "name": "ПР7_Логическая_полная",
+      "width": 1320,
+      "height": 1699,
+      "labels": 84,
+      "sha256": "a2bffcbf2cfd34eab05f33b814b0cb299c1b7cc76548d1a53bb60be08335fe6e"
+    },
+    {
+      "name": "ПР7_Физическая_полная",
+      "width": 1320,
+      "height": 1699,
+      "labels": 84,
+      "sha256": "892aa8d26e3e8ce554815e756878ec1e307f645341d47d5f2e90301b7e8ac13d"
+    },
+    {
+      "name": "ПР6_Гант_этапы_задачи",
+      "width": 2240,
+      "height": 1230,
+      "labels": 59,
+      "sha256": "93d55486c541b121bf486dc4c7e2af6c41b03d6e2b1364d089be5acdbbf4db45"
+    },
+    {
+      "name": "ПР8_Роль_developer_каталог",
+      "width": 1500,
+      "height": 1000,
+      "labels": 42,
+      "sha256": "1687671c04407c02ff868a26eba0d0df6196623636346e477d5007bdce93ff45"
+    },
+    {
+      "name": "ПР8_Роль_developer_состав",
+      "width": 1500,
+      "height": 1000,
+      "labels": 44,
+      "sha256": "aadf72b814ebc7562b29917c329085e3c478a604baccb80d91dd5d6544865331"
+    },
+    {
+      "name": "ПР8_Роль_manager_карточка",
+      "width": 1500,
+      "height": 1200,
+      "labels": 24,
+      "sha256": "2864e35198fc36257c3e9d3bd4de9f42339b19b7b7209e591dfc815529feaf30"
+    },
+    {
+      "name": "ПР8_Роль_manager_расчёт",
+      "width": 1500,
+      "height": 1000,
+      "labels": 25,
+      "sha256": "6d3f7139e7fd1a24f6044047334cb9710abae5a7e0147ee094170ddf82ae053e"
+    },
+    {
+      "name": "ПР8_Роль_designer_изображения",
+      "width": 1500,
+      "height": 1000,
+      "labels": 24,
+      "sha256": "2333082ded324719f5ef8c2d56a8700a1c636ce85422deadc596f9fc1e0e5f39"
+    },
+    {
+      "name": "ПР8_Роль_director_согласование",
+      "width": 1500,
+      "height": 1000,
+      "labels": 26,
+      "sha256": "3b32593c5c4abadb0dd2b13b99c3026fa5c44bf9cca81bcd86fd38f7411143c0"
+    },
+    {
+      "name": "ПР8_Роль_manager_публикации",
+      "width": 1500,
+      "height": 1000,
+      "labels": 22,
+      "sha256": "381e2de16a50f369796e1930618c8d5a6d9c262f66b68c760d5f407019e46c61"
+    },
+    {
+      "name": "ПР8_Карточка_заполненная",
+      "width": 1500,
+      "height": 1370,
+      "labels": 30,
+      "sha256": "ffdee715175d9692a6e89ac0e4e8517342419f46adf1c6e9830710e751cc873e"
+    }
+  ]
+}

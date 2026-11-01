@@ -1,0 +1,86 @@
+{
+  "revision": "2026-11-01",
+  "roles": [
+    {"id":"manager","name":"Менеджер","tasks":["Зарегистрировать карточку","Рассчитать цену и массу","Сохранить ревизию","Опубликовать карточку"]},
+    {"id":"director","name":"Генеральный директор","tasks":["Просмотреть сводку карточек","Проверить цену и состав","Утвердить готовую ревизию"]},
+    {"id":"developer","name":"Разработчик","tasks":["Просмотреть каталог и предложения","Сформировать состав","Проверить совместимость","Сохранить версию состава"]},
+    {"id":"designer","name":"Дизайнер","tasks":["Открыть задание по карточке","Выбрать изображение","Назначить порядок изображений","Просмотреть результат оформления"]}
+  ],
+  "analysis": [
+    {"id":"range","title":"Формирование состава","actor":"Разработчик","boundary":"Форма состава","control":"Управление составом","entities":["Конфигурация","Версия состава","Позиция состава","Компонент","Предложение"]},
+    {"id":"card","title":"Подготовка и утверждение карточки","rows":[["Менеджер","Форма карточки","Подготовка карточки","Карточка"],["Дизайнер","Форма изображений","Управление контентом","Изображение"],["Генеральный директор","Форма согласования","Проверка готовности","Ревизия карточки"],["Менеджер","Форма публикации","Публикация","Попытка публикации"]]}
+  ],
+  "sequences": [
+    {"id":"range","title":"Сохранение версии состава","participants":["Разработчик","Форма состава","Управление составом","Версия состава"],"messages":[[0,1,"Ввести позиции",false],[1,2,"Проверить состав",false],[2,3,"Получить позиции",false],[3,2,"Позиции и предложения",true],[2,2,"Проверить совместимость",false],[2,3,"Сохранить новую версию",false],[3,2,"Номер версии",true],[2,1,"Результат проверки",true],[1,0,"Показать версию или ошибки",true]]},
+    {"id":"approval","title":"Утверждение ревизии карточки","participants":["Генеральный директор","Форма согласования","Проверка готовности","Ревизия карточки"],"messages":[[0,1,"Выбрать ревизию",false],[1,2,"Запросить проверку",false],[2,3,"Получить содержание и изображения",false],[3,2,"Данные ревизии",true],[2,2,"Проверить обязательные данные",false],[2,3,"Установить READY при готовности",false],[3,2,"Состояние ревизии",true],[2,1,"Результат или замечания",true],[1,0,"Показать результат",true]]}
+  ],
+  "classes": [
+    {"id":"Configuration","name":"Конфигурация","attributes":["- id: UUID","- code: String","- name: String"],"operations":["+ createVersion(): ModelRangeVersion"],"group":"range"},
+    {"id":"ModelRangeVersion","name":"Версия состава","attributes":["- configurationId: UUID","- number: Integer","- state: VersionState","- createdAt: DateTime"],"operations":["+ addSlot(slot: ModelRangeSlot): void","+ check(): CheckResult","+ freeze(): void"],"group":"range"},
+    {"id":"ModelRangeSlot","name":"Позиция состава","attributes":["- lineNo: Integer","- quantity: Integer","- groupId: UUID [0..1]","- componentId: UUID [0..1]","- offerId: UUID [0..1]"],"operations":["+ selectOffer(offer: Offer): void"],"group":"range"},
+    {"id":"Component","name":"Компонент","attributes":["- id: UUID","- sku: String","- massKg: Decimal","- socket: String [0..1]","- memoryType: String [0..1]","- powerW: Integer [0..1]"],"operations":["+ matches(group: ComponentGroup): Boolean"],"group":"range"},
+    {"id":"Offer","name":"Предложение","attributes":["- id: UUID","- unitPrice: Decimal","- stock: Integer","- observedAt: DateTime"],"operations":["+ isAvailable(qty: Integer): Boolean","+ isFresh(now: DateTime): Boolean"],"group":"range"},
+    {"id":"Supplier","name":"Поставщик","attributes":["- id: UUID","- code: String","- name: String"],"operations":["+ getOffers(): List<Offer>"],"group":"range"},
+    {"id":"ComponentGroup","name":"Группа компонентов","attributes":["- id: UUID","- code: String","- roleCode: ComponentRole"],"operations":["+ accepts(item: Component): Boolean"],"group":"range"},
+    {"id":"Card","name":"Карточка","attributes":["- id: UUID","- sellerCode: String","- name: String"],"operations":["+ createRevision(): CardRevision"],"group":"card"},
+    {"id":"CardRevision","name":"Ревизия карточки","attributes":["- revisionNo: Integer","- title: String","- description: String","- state: RevisionState","- assemblyRub: Decimal","- packagingRub: Decimal","- logisticsRub: Decimal","- markupRate: Decimal","- commissionRate: Decimal","- roundStepRub: Decimal","- packagingMassKg: Decimal"],"operations":["+ calculate(): CalculationResult","+ checkReadiness(): CheckResult","+ approve(): void","+ markStale(): void"],"group":"card"},
+    {"id":"Image","name":"Изображение","attributes":["- id: UUID","- uri: String","- sha256: String","- widthPx: Integer","- heightPx: Integer"],"operations":["+ validate(): CheckResult"],"group":"card"},
+    {"id":"PublicationAttempt","name":"Попытка публикации","attributes":["- attemptNo: Integer","- state: PublicationState","- externalTaskId: String [0..1]","- errorCode: String [0..1]"],"operations":["+ recordResult(result: ExternalResult): void"],"group":"card"},
+    {"id":"RevisionImage","name":"Изображение ревизии","attributes":["- ordinal: Integer"],"operations":["+ setOrder(value: Integer): void"],"group":"card"},
+    {"id":"ModelRangeService","name":"Управление составом","attributes":["- repository: ModelRangeRepository"],"operations":["+ check(slots: List): CheckResult","+ saveVersion(slots: List): ModelRangeVersion"],"group":"service"},
+    {"id":"CardService","name":"Подготовка карточки","attributes":["- repository: CardRepository"],"operations":["+ createRevision(data: CardData): CardRevision","+ assignImage(image: Image): void","+ approve(revision: CardRevision): CheckResult","+ publish(revision: CardRevision): PublicationAttempt"],"group":"service"},
+    {"id":"CalculationService","name":"Расчёт показателей","attributes":["- freshnessHours: Integer = 24"],"operations":["+ selectOffers(slots: List): List","+ calculate(slots: List, policy: PricingPolicy): CalculationResult"],"group":"service"},
+    {"id":"MarketplaceGateway","name":"Шлюз площадки","attributes":["- baseUrl: String","- credentialRef: String"],"operations":["+ send(revision: CardRevision): ExternalResult","+ getResult(taskId: String): ExternalResult"],"group":"service"}
+  ],
+  "class_descriptions": {
+    "Configuration":"Компьютерная конфигурация с постоянным кодом, объединяющая последовательные версии состава.",
+    "ModelRangeVersion":"Конкретная версия состава: её номер, состояние, время создания и позиции.",
+    "ModelRangeSlot":"Позиция спецификации: группа либо точный компонент, количество и выбранное предложение.",
+    "Component":"Модель комплектующего с SKU, массой, сокетом, типом памяти и мощностью.",
+    "Offer":"Наблюдение цены и остатка компонента у поставщика в зафиксированный момент времени.",
+    "Supplier":"Источник предложений с уникальным кодом и наименованием.",
+    "ComponentGroup":"Группа взаимозаменяемых компонентов по функциональному назначению.",
+    "Card":"Товарная карточка с постоянным кодом продавца и историей ревизий.",
+    "CardRevision":"Содержание и параметры расчёта карточки для одной версии состава; объект согласования.",
+    "Image":"Местоположение, контрольная сумма и размеры изображения.",
+    "PublicationAttempt":"Отдельная попытка отправки ревизии с состоянием и внешним результатом.",
+    "RevisionImage":"Связь ревизии с изображением и порядковый номер его отображения.",
+    "ModelRangeService":"Координация проверки состава и сохранения новой версии.",
+    "CardService":"Создание ревизии, назначение изображений, согласование и публикация.",
+    "CalculationService":"Выбор предложений и расчёт себестоимости, цены и массы.",
+    "MarketplaceGateway":"Передача подготовленной ревизии площадке и получение результата обработки."
+  },
+  "class_relations": [
+    ["Configuration","ModelRangeVersion","1","0..*","composition"],
+    ["ModelRangeVersion","ModelRangeSlot","1","1..*","composition"],
+    ["ModelRangeSlot","ComponentGroup","0..*","0..1","association"],
+    ["ModelRangeSlot","Component","0..*","0..1","association"],
+    ["ModelRangeSlot","Offer","0..*","0..1","association"],
+    ["ComponentGroup","Component","1","0..*","association"],
+    ["Component","Offer","1","0..*","association"],
+    ["Supplier","Offer","1","0..*","association"],
+    ["Card","CardRevision","1","0..*","composition"],
+    ["CardRevision","RevisionImage","1","0..*","composition"],
+    ["RevisionImage","Image","0..*","1","association"],
+    ["CardRevision","PublicationAttempt","1","0..*","composition"],
+    ["ModelRangeService","CalculationService","","","dependency"],
+    ["CardService","CalculationService","","","dependency"],
+    ["CardService","MarketplaceGateway","","","dependency"]
+  ],
+  "activity": [
+    ["manager","Зарегистрировать задание"],
+    ["developer","Подобрать и проверить состав"],
+    ["manager","Рассчитать цену и массу"],
+    ["designer","Подготовить изображения"],
+    ["manager","Собрать ревизию карточки"],
+    ["director","Проверить и утвердить ревизию"],
+    ["manager","Передать карточку на публикацию"]
+  ],
+  "states": [
+    {"id":"draft","label":"Черновик","database":"DRAFT","actions":["entry / открыть черновик","do / редактировать содержание","exit / проверить заполнение"]},
+    {"id":"check","label":"Проверка готовности","actions":["entry / загрузить состав и изображения","do / проверить цену и обязательные поля","exit / сохранить результат проверки"]},
+    {"id":"ready","label":"Готова","database":"READY","actions":["entry / зафиксировать утверждение","do / ожидать передачи на публикацию","exit / проверить актуальность состава"]},
+    {"id":"stale","label":"Требует актуализации","database":"STALE","actions":["entry / отметить изменение исходных данных","do / ожидать новой ревизии"]}
+  ],
+  "card_example": {"seller_code":"UK-AM5-001","classification":"C1-1-1-1-2-2","title":"Офисный компьютер Юкомс AM5 — Ryzen 5 7600, 32 ГБ DDR5, SSD 1 ТБ","purpose":"Офисная","case":"Башенный ATX","platform":"AM5","cpu":"AMD Ryzen 5 7600","board":"B650, DDR5","ram":"32 ГБ DDR5 (2 × 16 ГБ)","ssd":"1 ТБ M.2","gpu":"Встроенная графика процессора","psu":"650 Вт","price_rub":"76 400,00","mass_kg":"7,820","description":"Компьютер для офисных приложений, работы с документами, браузером и видеосвязи. Платформа AM5, двухканальная память DDR5, твердотельный накопитель M.2. Комплект: системный блок и кабель питания. Монитор и периферия приобретаются отдельно.","image":"UK-AM5-001-01.png","status":"Готова к публикации","configuration":"AM5-OFFICE / версия 1","revision":"1"}
+}

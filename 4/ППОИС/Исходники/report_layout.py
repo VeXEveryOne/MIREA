@@ -284,7 +284,7 @@ class Report:
     def figure(self, title, path, max_height=18, width=None, lead=None):
         self.figure_count += 1
         number = self.figure_count
-        self.paragraph(lead or f'На рисунке {number} представлен {title[0].lower() + title[1:]}.', keep=True)
+        self.paragraph(lead or f'Результат представлен на рисунке {number}.', keep=True)
         image = Image.open(path)
         iw, ih = image.size
         maximum = width or (25.2 if self.landscape else 16.5)

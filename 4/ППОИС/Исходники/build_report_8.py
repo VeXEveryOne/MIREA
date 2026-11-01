@@ -213,4 +213,5 @@ def build():
 
 
 if __name__ == '__main__':
-    build()
+    from build_submission_reports import build8
+    build8()

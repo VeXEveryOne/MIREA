@@ -326,13 +326,11 @@ def build():
                               if c['column_name'] not in next(k['columns'] for k in keys if k['table_name'] == t and k['contype'] == 'p'))]
         for t in ORDER], [4.4, 12.1])
     r.paragraph('Перечень зависимостей основан на указанных бизнес-правилах; равенство значений в нескольких тестовых строках не считается новой функциональной зависимостью. Статусы ревизии и попытки публикации разделены: изменение внешнего результата не переписывает содержание карточки.')
-    r.heading('2.2 Логические диаграммы Crow’s Foot', 2)
-    r.paragraph('В Crow’s Foot кружок означает необязательность, черта — единичность, развилка — множество. PK обозначает первичный ключ, FK — внешний, UQ — уникальное ограничение; несколько меток у полей одного ключа не означают отдельную уникальность каждого поля. На повторённых справочных блоках показаны только ключи; полный набор атрибутов дан на основном листе и в таблицах.')
-    for i, (group, title) in enumerate([('catalog', 'каталога и предложений'), ('model_range', 'конфигурации и состава'),
-                                      ('cards', 'карточки и расчёта'), ('publication', 'изображений и публикации')]):
-        r.page(True, new_page=True)
-        r.figure('Логическая модель ' + title, DIAGRAMS / f'ПР7_Логическая_{group}.png', max_height=13.6,
-                 lead=f'На рисунке {r.figure_count+1} показана логическая модель {title}.')
+    r.heading('2.2 Логическая диаграмма Crow’s Foot', 2)
+    r.paragraph('В Crow’s Foot кружок означает необязательность, черта — единичность, развилка — множество. PK обозначает первичный ключ, FK — внешний; несколько меток у полей составного ключа не означают отдельную уникальность каждого поля. Все двенадцать таблиц и 71 атрибут представлены на одном рисунке.')
+    r.page(False, new_page=True)
+    r.figure('Единая логическая модель данных в нотации Crow’s Foot', DIAGRAMS / 'ПР7_Логическая_полная.png', max_height=22,
+             lead=f'На рисунке {r.figure_count+1} показана полная логическая модель без разделения по подсистемам.')
     r.page(False)
     r.heading('2.3 Ключи и ограничения', 2)
     r.paragraph('Обозначения K01–K32 ниже являются локальными ссылками отчёта на ключевые ограничения каталога PostgreSQL. PK — первичный, UQ — уникальный ключ, FK — ссылка. Ограничение на комбинацию полей применяется совместно: метка возле одного поля означает участие в ключе, а не самостоятельную уникальность. NO ACTION используется для изменения и удаления ссылочных ключей [3].')
@@ -355,13 +353,10 @@ def build():
     r.table('Поля физической модели', ['Наименование сущности', 'Название поля', 'Тип данных', 'Обязательно', 'Ограничения'],
             [[c['table_name'], c['column_name'], physical_type(c), 'Да' if c['is_nullable'] == 'NO' else 'Нет', constraints(c)]
              for t in ORDER for c in columns(t)], [5, 6.2, 3.1, 3.1, 7.8], center=(3,))
-    for i, (group, title) in enumerate([('catalog', 'каталога и предложений'), ('model_range', 'конфигурации и состава'),
-                                      ('cards', 'карточки и расчёта'), ('publication', 'изображений и публикации')]):
-        r.page(True, new_page=True)
-        if i == 0:
-            r.heading('2.6 Физические диаграммы', 2)
-        r.figure('Физическая модель ' + title, DIAGRAMS / f'ПР7_Физическая_{group}.png', max_height=13.6,
-                 lead=f'На рисунке {r.figure_count+1} показана физическая модель {title}.')
+    r.page(False, new_page=True)
+    r.heading('2.6 Физическая диаграмма', 2)
+    r.figure('Единая физическая модель данных PostgreSQL', DIAGRAMS / 'ПР7_Физическая_полная.png', max_height=21.5,
+             lead=f'На рисунке {r.figure_count+1} показаны все таблицы, поля, типы и обязательность значений. NN означает NOT NULL.')
     r.page(False)
     r.heading('2.7 Межтабличные инварианты и границы SQL', 2)
     r.paragraph('В CHECK проверяется только текущая строка. Соответствие выбранного предложения группе или точному компоненту проверяется триггером guard_model_range_slot. Этот же триггер запрещает вставку, удаление и изменение позиций версии, на которую уже ссылается ревизия, включая перенос позиции в другую версию. guard_revision_snapshot разрешает менять только state ревизии; guard_used_catalog запрещает обновление предложения и компонента, используемых ревизией.')
@@ -479,13 +474,13 @@ def build():
         'Song I. Y., Evans M., Park E. K. A Comparative Analysis of Entity-Relationship Diagrams. Journal of Computer and Software Engineering. 1995. Vol. 3, No. 4. P. 427–459. https://cci.drexel.edu/faculty/song/publications/p_Jcse-erd.PDF (дата обращения: 05.10.2026).',
         'PostgreSQL Global Development Group. PostgreSQL 18 Documentation. Constraints. https://www.postgresql.org/docs/18/ddl-constraints.html (дата обращения: 05.10.2026).',
         'PostgreSQL Global Development Group. PostgreSQL 18 Documentation. GRANT. https://www.postgresql.org/docs/18/sql-grant.html (дата обращения: 05.10.2026).',
-        'Материалы выполнения практики: База_данных/schema.sql, privileges.sql, queries.sql, Результаты_проверки.json; Исходники/seed_database.py, verify_database.py, build_database_models.mts; Схемы/ПР7_Модель_данных.omni.',
+        'Материалы выполнения практики: База_данных/schema.sql, privileges.sql, queries.sql, Результаты_проверки.json; Исходники/seed_database.py, verify_database.py, build_database_models.mts, build_submission_diagrams.mjs; Схемы/ПР7_Модель_данных.omni и SVG логической и физической моделей.',
     ], new_page=True)
     path = r.save()
     coverage = {
         'database': evidence['database'], 'source_sha256': evidence['source_sha256'],
         'model_sha256': digest(DIAGRAMS / 'ПР7_Модель_данных.omni'),
-        'chen_sheets': len(ordered_sheets), 'logical_sheets': 4, 'physical_sheets': 4,
+        'chen_sheets': len(ordered_sheets), 'logical_sheets': 1, 'physical_sheets': 1,
         'logical_attributes': len(evidence['columns']), 'physical_fields': len(evidence['columns']),
         'fixture_records': sum(evidence['counts'].values()), 'fixture_tables': ORDER,
         'ddl_excerpts': len(patterns), 'dcl_statements': len(blocks),
