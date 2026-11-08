@@ -16,7 +16,6 @@ try {
   await page.evaluate(()=>document.fonts.ready);
   await page.pdf({path:pdf,format:'A4',printBackground:false,
     margin:{top:'20mm',bottom:'20mm',left:'30mm',right:'15mm'},
-    displayHeaderFooter:true,headerTemplate:'<span></span>',
-    footerTemplate:'<div style="font:12pt Times New Roman;width:100%;text-align:center;color:black"><span class="pageNumber"></span></div>'});
+    displayHeaderFooter:false});
   console.log(JSON.stringify({browser:await browser.version(),pdf}));
 } finally {await browser.close();}

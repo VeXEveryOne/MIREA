@@ -23,8 +23,8 @@ def n(value, digits=0):
 
 def cover(doc):
     for p in doc.paragraphs:
-        if p.text == 'Кафедра прикладной математики':
-            p.text = 'Кафедра квантовых информационных технологий, практической и прикладной информатики (ККИТПиПИ)'
+        if p.text.startswith('Кафедра '):
+            p.text = 'Кафедра прикладной математики'
             spacing(p, A.CENTER, 0, 1, after=3)
             for run in p.runs:
                 font(run, 14, bold=True)

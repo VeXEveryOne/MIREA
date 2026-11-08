@@ -1,0 +1,139 @@
+{
+  "status": "passed",
+  "prepared_on": "2026-11-08",
+  "student": "Албахтин И.В.",
+  "group": "ИНБО-12-23",
+  "execution_date_moscow": "2026-11-08",
+  "run_all": {
+    "status": "passed",
+    "fresh_kernel": true,
+    "run_all": true,
+    "started_utc": "2026-11-08T13:38:13.201276+00:00",
+    "completed_utc": "2026-11-08T13:39:02.333074+00:00",
+    "seconds": 49.131800321000014,
+    "code_cells": 10,
+    "execution_counts": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "errors": 0,
+    "notebook_sha256": "1a1c92a9f322a63373bc0d784faff009a95490d77ec1ddebe23e8f5f0bda0be5"
+  },
+  "independent_checks": {
+    "source_rows": 15000,
+    "tasks_on_own_dataset": 3,
+    "split_rows": {
+      "train": 9000,
+      "valid": 3000,
+      "test": 3000
+    },
+    "test_regression_rows": 3000,
+    "test_classification_rows": 3000,
+    "classification_valid_models_recomputed": 4,
+    "threshold_grid_recomputed": 17,
+    "silhouettes_recomputed": 7,
+    "silhouette_sample_rows": 2000,
+    "cluster_profile_rows": 15000,
+    "train_only_scaler_verified": true,
+    "all_source_keys_and_targets_match": true,
+    "model_reload_max_difference": {
+      "regression": 0.0,
+      "classification": 0.0,
+      "clustering": 0.0
+    }
+  },
+  "own_dataset": "Calories, 15000 rows",
+  "tasks": [
+    "regression",
+    "classification",
+    "clustering"
+  ],
+  "demonstration_code_excluded": true,
+  "submitted_to_moodle": false,
+  "checked_utc": "2026-11-08T13:55:57.211868+00:00",
+  "pdf_pages": 15,
+  "pdf_body_pages": 13,
+  "title_page": 1,
+  "contents_page": 2,
+  "contents": [
+    {
+      "heading": "Практическая работа 5",
+      "page": 3
+    },
+    {
+      "heading": "1 Данные и контроль качества",
+      "page": 4
+    },
+    {
+      "heading": "2 Разбиение и исследование train",
+      "page": 5
+    },
+    {
+      "heading": "3 Полные пайплайны подготовки",
+      "page": 6
+    },
+    {
+      "heading": "4 Регрессия расхода энергии",
+      "page": 7
+    },
+    {
+      "heading": "5 Классификация тренировок",
+      "page": 9
+    },
+    {
+      "heading": "6 Кластеризация без целевой переменной",
+      "page": 11
+    },
+    {
+      "heading": "7 Проекция и интерпретация групп",
+      "page": 12
+    },
+    {
+      "heading": "8 Сохранение моделей и проверка загрузки",
+      "page": 13
+    },
+    {
+      "heading": "9 Результаты и ограничения",
+      "page": 14
+    },
+    {
+      "heading": "Источники",
+      "page": 15
+    }
+  ],
+  "toc_targets_verified": true,
+  "continuous_page_numbers_verified": true,
+  "teacher": "Приходько Н.А.",
+  "department": "Кафедра прикладной математики",
+  "code_cells": 10,
+  "errors": 0,
+  "pdf_all_pages_visually_reviewed": true,
+  "pdf_a4_margins_verified": true,
+  "pdf_characters_outside_text_area": 0,
+  "pdf_screenshot_pixels_identical_to_original_pngs": true,
+  "embedded_images": 4,
+  "export": {
+    "tool": "scripts/export_notebook_pdf.py; nbconvert 7.17.1, Chrome, pypdf",
+    "code_execution": false,
+    "complete_code_and_outputs": true
+  },
+  "artifacts": {
+    "Practice_5.ipynb": {
+      "bytes": 878559,
+      "sha256": "1a1c92a9f322a63373bc0d784faff009a95490d77ec1ddebe23e8f5f0bda0be5"
+    },
+    "Practice_5.pdf": {
+      "bytes": 2426414,
+      "sha256": "0d3aea7b624bc86ae2bd29ad2bb6ef0252b624e2e5e088b0107b7bf59e64b876"
+    }
+  },
+  "notebook_code_matches_practice5_source": true
+}

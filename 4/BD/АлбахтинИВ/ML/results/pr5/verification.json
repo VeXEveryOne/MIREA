@@ -1,20 +1,28 @@
 {
   "status": "passed",
-  "verified_utc": "2026-10-25T22:06:18.204146+00:00",
-  "notebook_sha256": "b08655bb2370dd7ea19d980866bd8bf9c0c0fdcdb4767578dca9fef30c542f3f",
+  "verified_utc": "2026-11-08T13:54:41.437519+00:00",
+  "notebook_sha256": "1a1c92a9f322a63373bc0d784faff009a95490d77ec1ddebe23e8f5f0bda0be5",
   "checks": {
-    "test_confusion": {
-      "tp": 300,
-      "tn": 1864,
-      "fp": 221,
-      "fn": 82
+    "source_rows": 15000,
+    "tasks_on_own_dataset": 3,
+    "split_rows": {
+      "train": 9000,
+      "valid": 3000,
+      "test": 3000
     },
-    "exact_trapezoid_pr_auc": 0.6866249597594398,
-    "exact_roc_auc": 0.9050146270418221,
-    "spark_auc_tolerance": 0.002,
-    "regression_test_rows": 1313,
-    "calories_test_rows": 3000,
-    "cluster_profile_rows": 12330,
-    "source_splits_and_targets": true
+    "test_regression_rows": 3000,
+    "test_classification_rows": 3000,
+    "classification_valid_models_recomputed": 4,
+    "threshold_grid_recomputed": 17,
+    "silhouettes_recomputed": 7,
+    "silhouette_sample_rows": 2000,
+    "cluster_profile_rows": 15000,
+    "train_only_scaler_verified": true,
+    "all_source_keys_and_targets_match": true,
+    "model_reload_max_difference": {
+      "regression": 0.0,
+      "classification": 0.0,
+      "clustering": 0.0
+    }
   }
 }

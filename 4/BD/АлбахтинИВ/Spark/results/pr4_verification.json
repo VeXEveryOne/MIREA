@@ -70,11 +70,13 @@
   "a4_margins_verified": true,
   "source_limitation": "ecommerce.sqlite reconstructed from prior Olist CSV; all five PR4 tables match methodological counts",
   "sha256": {
-    "ТИАБД_ПР4_АлбахтинИВ.docx": "d62ba4e5423b4984c48546fb96d7183293c073d6ecf34e98aa4fd873350d10e6",
-    "ТИАБД_ПР4_АлбахтинИВ.pdf": "25e92ef95be573ea352278ba33339fa706a89be7d353a17e54559738f89d664a",
+    "ТИАБД_ПР4_АлбахтинИВ.docx": "21ae1d26e3adf13255befd9e5dfbb7b51d9489983bf7e7d4719b5e7ccc93d05a",
+    "ТИАБД_ПР4_АлбахтинИВ.pdf": "fa67350c032e579e75b93e91222daef86ad29856764d8845cb8eed589f26918d",
     "ТИАБД_ПР4_Ответы.md": "e260c9c02096c712fb5a13bdd66d51acbc2b2e38b723868eff89fb4facf8e5ed",
-    "АлбахтинИВ/Spark/Practice_4.ipynb": "3d3c7a87f88ae3899da626990f9126a0fec12c973c050686838d2e49649db360"
+    "АлбахтинИВ/Spark/Practice_4.ipynb": "3d3c7a87f88ae3899da626990f9126a0fec12c973c050686838d2e49649db360",
+    "АлбахтинИВ/Spark/Practice_4.pdf": "d034355f03363f1c46e547d0685dd62583dfb4985c6e88d4bcfb7dcf9f066729"
   },
   "original_executed_notebook_sha256": "aa7ccc72d10e262be2eb01ca4979774e253b218a6ebda3684b60b02daad13943",
-  "direct_notebook_pdf_submission": "pr4_submission.json"
+  "direct_notebook_pdf_submission": "pr4_submission.json",
+  "department": "Кафедра прикладной математики"
 }

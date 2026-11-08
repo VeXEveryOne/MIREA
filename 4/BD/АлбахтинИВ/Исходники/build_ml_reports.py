@@ -44,70 +44,9 @@ def sources(d,k,more):
         else:d.p(text)
 
 def build5():
-    r=load(5);c=r['classification'];b=r['regression'];cl=r['clustering'];own=r['independent']
-    d=MLReport(5);d.h('1 Цель и задание')
-    d.p('Цель — построить полные воспроизводимые цепочки Spark MLlib для классификации, регрессии и кластеризации. Учебная часть повторяет все практические блоки методички на Online Shoppers и Seoul Bike. Самостоятельная часть решает регрессию Calories с двумя семействами моделей, подбором на valid, базовым решением и итоговым test.')
-    run_record(d,5)
-    d.h('2 Среда и исходные данные')
-    d.table('Среда выполнения',['Параметр','Значение'],[
-        ['Стенд','TIABD-Albakhtin-IV, Ubuntu 22.04.5 LTS'],['Ресурсы','2 vCPU, 4 ГБ RAM'],
-        ['Python / Spark',r['environment']['python']+' / '+r['environment']['spark']],['Java','OpenJDK 17.0.20.1'],
-        ['Spark','local[*], 2 параллельные задачи; shuffle.partitions=4; driver 1536m']], [5,11.5])
-    d.p('В контрольных выводах методички использован Spark 4.1.2. Здесь применяется установленный Spark 3.5.7 с совместимым Python 3.10.12. Метрики получены реальным запуском и не заменены числами примера. Local[*] выполняет модель распределённых вычислений на одном узле и не измеряет сеть физического кластера.')
-    d.table('Данные и назначение',['Набор','Строк','Поля','Задача'],[
-        ['Online Shoppers','12 330','18','Покупка и сегментация сессий'],['Seoul Bike','8 760','14','Часовой прокат'],['Calories','15 000','9','Расход энергии после тренировки']], [4.2,2.1,1.8,8.4])
-    d.p('Публичные Online Shoppers и Seoul Bike получены из UCI с лицензией CC BY 4.0. Calories взят из предоставленного каталога. Точные SHA256, размеры и схемы записаны в source_manifest.json. CSV читаются с явными Spark-схемами, режимом FAILFAST и проверками количества строк и NULL. Seoul Bike декодируется как ISO-8859-1; исходные заголовки сопоставляются по позиции с именами явной схемы.')
-    d.h('3 Классификация Online Shoppers')
-    d.p('Цель Revenue отражает покупку. В исходных данных 10 422 отрицательных и 1 908 положительных сессий, доля покупок 15,47%. Источник описывает сессии разных пользователей. Стабильный row_id задаётся порядком исходного CSV; внутри каждого класса строки сортируются по SHA256(row_id:42), после чего выделяются 60%, 20% и остаток. Части не пересекаются.')
-    split={(x['split'],int(x['label'])):x['count'] for x in c['split']}
-    d.table('Стратифицированное разбиение',['Часть','Нет покупки','Покупка','Всего'],[[name,n(split[(name,0)]),n(split[(name,1)]),n(split[(name,0)]+split[(name,1)])] for name in ['train','valid','test']], [4.5,4,4,4])
-    d.p('Счётчики страниц и длительности преобразованы log1p. Browser, Region, TrafficType, ОС и Weekend кодируются как категории вместе с Month и VisitorType. StringIndexer и OneHotEncoder обучаются только на train. Для LR добавлено масштабирование без центрирования, для RF оно не требуется. Веса N/(2Nc) вычисляются по train и усиливают штраф за редкий положительный класс.')
-    d.code('Pipeline([SQLTransformer(...), StringIndexer(...),\n          OneHotEncoder(...), VectorAssembler(...),\n          StandardScaler(...), LogisticRegression(...)])\n# RF: тот же набор исходных полей без StandardScaler')
-    d.p('LR: maxIter=100, regParam=0,05, L2. RF: 80 деревьев, maxDepth=8, maxBins=64, featureSubsetStrategy=sqrt, seed=42. Выбор семейства выполнен по PR-AUC на одной valid. Порог затем выбран по максимуму F1 только на valid.')
-    d.table('Классификаторы на valid при пороге 0,5',['Модель','PR-AUC','ROC-AUC','Precision','Recall','F1'],[[x['model'],*[n(x[k],4) for k in ['areaUnderPR','areaUnderROC','precision','recall','f1']]] for x in c['validation']], [4.4,2.4,2.4,2.5,2.4,2.4])
-    d.plot('classification_pr.png','Кривые precision–recall на valid')
-    t=c['test'];d.p(f'Выбран {c["selected_model"].lower()}, порог {n(c["threshold"],6)}. На test: PR-AUC {n(t["areaUnderPR"],4)}, ROC-AUC {n(t["areaUnderROC"],4)}, accuracy {n(t["accuracy"],4)}, precision {n(t["precision"],4)}, recall {n(t["recall"],4)}, F1 {n(t["f1"],4)}. Матрица: TN={t["tn"]}, FP={t["fp"]}, FN={t["fn"]}, TP={t["tp"]}. Найдено {t["tp"]} из 382 покупок; {t["fp"]} отрицательных сессий получили положительное решение.')
-    d.plot('classification_confusion.png','Матрица ошибок на закрытом до выбора модели test',12)
-    d.p(f'Абляция PageValues на той же valid: PR-AUC RF с признаком {n(c["ablation_with"],4)}, без него {n(c["ablation_without"],4)}. Разница показывает его прогностический вклад, но не доказывает доступность к моменту раннего прогноза. Для ранней сессии признак требует временного паспорта. Важности RF не являются причинными эффектами; коэффициенты LR относятся к преобразованным и масштабированным координатам.')
-    d.plot('feature_importance.png','Наибольшие важности признаков случайного леса')
-    d.table('Наибольшие коэффициенты LR',['Признак','Коэффициент'],[[x['feature'],n(x['coefficient'],4)] for x in c['coefficients'][:5]], [12,4.5])
-    d.h('4 Регрессия Seoul Bike')
-    d.p('Цель — Rented Bike Count, число поездок в час. Из основной регрессии исключены 295 часов Functioning Day=No: модель оценивает спрос работающей системы. Для закрытой системы применяется отдельное правило нулевого проката. Строки сортируются по дате и часу. Train заканчивается июлем, valid содержит август–сентябрь, test — октябрь–ноябрь; фактические границы учитывают отсутствие рабочих часов.')
-    d.table('Хронологическое разбиение',['Часть','Строк','Начало','Конец'],[[name,n(x['n']),x['start'],x['end']] for name,x in b['split'].items()], [3,2.5,5.5,5.5])
-    d.p('Час и месяц представлены sin/cos; используются погодные и календарные признаки. Словари и масштабы обучаются на train. day_index включён только в RF согласно методичке; его перенос на следующий год требует отдельной проверки. Полиномиальная ветвь расширяет пять исходных непрерывных/циклических полей до степени 2. Сравниваются LR, полиномиальная регрессия и RF, а также тренировочное глобальное и часовое средние.')
-    d.table('Регрессоры и базовые правила на valid',['Модель','RMSE','MAE','R²'],[[x['model'],n(x['rmse'],3),n(x['mae'],3),n(x['r2'],4)] for x in b['validation']], [7.5,3,3,3])
-    d.p(f'По минимальному RMSE выбран {b["selected_model"].lower()}. Test: RMSE {n(b["test"]["rmse"],3)}, MAE {n(b["test"]["mae"],3)} поездки/час, R² {n(b["test"]["r2"],4)}. Для глобального среднего RMSE {n(b["baseline_test"][0]["rmse"],3)}, для среднего по часу {n(b["baseline_test"][1]["rmse"],3)}. Выбранная модель превосходит оба правила на этом временном интервале; вывод не распространяется автоматически на следующий год.')
-    d.plot('regression_scatter.png','Фактический и прогнозный часовой прокат на test')
-    d.plot('regression_week.png','Прокат и прогноз в первую доступную неделю test')
-    d.h('5 Кластеризация сессий')
-    d.p('Используются восемь поведенческих признаков: шесть log1p-счётчиков/длительностей и BounceRates, ExitRates. Revenue и PageValues исключены. StandardScaler с центрированием обучен на полном неразмеченном наборе: задача описательная. KMeans обучается на всех 12 330 сессиях; силуэт вычисляется в том же стандартизованном пространстве на фиксированных 4 000 строках. Перебраны k от 2 до 8.')
-    d.table('Выбор k',['k','Силуэт','Training cost','Минимальная группа'],[[x['k'],n(x['silhouette'],4),n(x['training_cost'],2),n(x['min_cluster'])] for x in cl['k_selection']], [2,4,5,5.5])
-    d.p(f'Выбрано k={cl["selected_k"]} по максимуму силуэта. Убывание trainingCost само по себе недостаточно: оно поощряет увеличение числа групп. Покупки используются только после обучения для описания профилей, а номера кластеров не имеют постоянного бизнес-смысла.')
-    d.table('Профили полученных групп',['Группа','Сессий','Страниц товара','Bounce rate','Доля покупок'],[[x['cluster'],n(x['n']),n(x['product_pages'],2),n(x['bounce_rate'],4),n(x['purchase_share'],4)] for x in cl['profiles']], [2,3,4,3.5,4])
-    d.plot('clusters_pca.png','PCA двух компонент для отображения сегментов')
-    d.p(f'Первые две компоненты объясняют {n(sum(cl["pca_explained_variance"])*100,2)}% дисперсии. Проекция служит иллюстрацией и не доказывает разделимость в восьмимерном пространстве. Профили выделяют короткие отказы, продолжительные сессии с несколькими видами страниц и основной промежуточный сегмент.')
-    d.h('6 Самостоятельная регрессия Calories')
-    d.p('Задача — оценить расход энергии после завершения тренировки, когда уже известны Duration, Heart_Rate и Body_Temp. Дополнительно используются Age, Height, Weight и Gender. User_ID исключён из признаков. Это оценка по итогам тренировки, а не прогноз до её начала. Происхождение измерений не позволяет делать медицинские или причинные выводы.')
-    key=own['key_profile'];d.p(f'Все {n(key["rows"])} ключей User_ID уникальны, диапазон {key["min"]}–{key["max"]}; NULL отсутствуют. Повторных наблюдений одного ключа нет, поэтому выбрано разбиение независимых объектов. Глобальная сортировка по SHA256(User_ID:42) даёт train=9 000, valid=3 000 и test=3 000. Пересечения исключены; ключи в экспорте test заменены хэшами.')
-    d.plot('calories_train_distribution.png','Распределения шести числовых признаков, цели и Gender на train')
-    d.p('Явная схема: User_ID — Long, Gender — String, остальные семь полей — Double. StringIndexer, OneHotEncoder и StandardScaler обучаются внутри Pipeline только на train. LR сравнивается при regParam=0,01 и 0,1; RF содержит 80 деревьев с maxDepth=8 или 12 и minInstancesPerNode=3. Baseline — одно среднее Calories по train. Подбор минимизирует RMSE на valid.')
-    d.table('Самостоятельные модели на valid',['Модель','RMSE ккал','MAE ккал','R²'],[[x['model'],n(x['rmse'],3),n(x['mae'],3),n(x['r2'],4)] for x in own['validation']]+[['Среднее train',n(own['baseline_valid']['rmse'],3),n(own['baseline_valid']['mae'],3),n(own['baseline_valid']['r2'],4)]], [6,3.5,3.5,3.5])
-    d.p(f'Выбран {own["selected_model"]}. На итоговых 3 000 объектах RMSE {n(own["test"]["rmse"],3)} ккал, MAE {n(own["test"]["mae"],3)} ккал, R² {n(own["test"]["r2"],4)}; RMSE среднего {n(own["baseline_test"]["rmse"],3)} ккал. Высокая точность относится к данному файлу и выбранному разбиению, а не к клинической достоверности измерений.')
-    d.plot('calories_test.png','Calories на test и распределение ошибок')
-    d.h('7 Сохранение и выводы')
-    d.p('Сохранены полные PipelineModel для классификации, Seoul Bike, KMeans и Calories, включая обученную подготовку. После load предсказания первых трёх цепочек совпали через exceptAll, максимальная разность Calories равна 0. Порог, k, seed и версия записаны в model_config.json. В конце освобождён кэш и вызван spark.stop(). Модели находятся в models/pr5 на VM; крупные бинарные модели и исходные пользовательские CSV исключены из Git.')
-    d.p('Результаты показывают пользу контроля дисбаланса, временного разбиения и простых базовых правил. Для Online Shoppers цена высокого recall выражается в ложных срабатываниях; PageValues требует проверки доступности. Часовой baseline существенно сильнее глобального среднего, но RF улучшил временной test. Сегменты описывают поведение без использования Revenue. Самостоятельная регрессия воспроизводит весь цикл без ручной подмены переменных.')
-    d.p('Отдельный verify_results.py восстановил состав test по исходным ключам и датам, пересчитал матрицу ошибок, регрессионные метрики, базовые правила и доли покупок кластеров. ROC/PR-AUC дополнительно сопоставлены с точным локальным расчётом с допуском 0,002 из-за биннинга Spark. Объёмы относятся к учебным наборам; перенос на большие данные требует контроля памяти driver и распределённой инфраструктуры.')
-    d.code('cd /home/albakhtin/tiabd/АлбахтинИВ/ML\n/home/albakhtin/tiabd/.venv/bin/python run_notebook.py 5\n/home/albakhtin/tiabd/.venv/bin/python verify_results.py')
-    text=(BD/'ТИАБД_ПР5_Ответы.md').read_text(encoding='utf-8').split('## II')[0]
-    blocks=re.findall(r'(?ms)^(\d+)\. \*\*(.*?)\*\*\s*\n(.*?)(?=^\d+\. \*\*|\Z)',text);assert len(blocks)==24
-    d.questions([f'{i}. {q}' for i,q,_ in blocks],[re.sub(r'\s+',' ',a.strip()).replace('`','') for _,_,a in blocks])
-    sources(d,5,['2. UCI Online Shoppers Purchasing Intention, DOI 10.24432/C5F88Q. https://archive.ics.uci.edu/dataset/468/online+shoppers+purchasing+intention+dataset',
-        '3. UCI Seoul Bike Sharing Demand, DOI 10.24432/C5F62R. https://archive.ics.uci.edu/dataset/560/seoul+bike+sharing+demand',
-        '4. Apache Spark 3.5.7. Classification and regression. https://spark.apache.org/docs/3.5.7/ml-classification-regression.html',
-        '5. Apache Spark 3.5.7. ML Pipelines. https://spark.apache.org/docs/3.5.7/ml-pipeline.html',
-        '6. Calories. Предоставленный файл calories.csv; паспорт и SHA256 в ML/source_manifest.json.'])
-    d.save()
+    from build_pr5_report import build
+    build()
+
 
 def build6():
     r=load(6);d=MLReport(6);d.h('1 Цель и задание')

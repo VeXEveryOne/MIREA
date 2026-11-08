@@ -14,7 +14,7 @@
   "only_first_markdown_and_appendix_changed": true,
   "html_code_blocks_match_notebook": true,
   "html_output_blocks": 44,
-  "pdf_pages": 60,
+  "pdf_pages": 62,
   "pdf_all_input_prompts_present": true,
   "pdf_all_pages_visually_reviewed": true,
   "pdf_page_render_long_edge_px": 1500,
@@ -73,21 +73,84 @@
     }
   ],
   "export": {
-    "source": "Practice_4.ipynb",
-    "tool": "nbconvert 7.17.1 basic HTML + Playwright 1.62.1",
-    "browser": "Chrome 156.0.8078.81",
-    "code_execution": false
+    "tool": "scripts/export_notebook_pdf.py; nbconvert 7.17.1, Chrome, pypdf",
+    "code_execution": false,
+    "complete_code_and_outputs": true
   },
   "submission_format": "Upload Practice_4.ipynb and its direct PDF export Practice_4.pdf",
   "submitted_to_moodle": false,
   "artifacts": {
     "Practice_4.ipynb": {
-      "sha256": "3d3c7a87f88ae3899da626990f9126a0fec12c973c050686838d2e49649db360",
-      "bytes": 1232736
+      "bytes": 1232736,
+      "sha256": "3d3c7a87f88ae3899da626990f9126a0fec12c973c050686838d2e49649db360"
     },
     "Practice_4.pdf": {
-      "sha256": "8a1d84a040c008b8020291a35fb3b9758c94d44285857be7d971e455971dd9bd",
-      "bytes": 1059196
+      "bytes": 6688173,
+      "sha256": "d034355f03363f1c46e547d0685dd62583dfb4985c6e88d4bcfb7dcf9f066729"
     }
-  }
+  },
+  "checked_utc": "2026-11-08T13:55:57.211868+00:00",
+  "pdf_body_pages": 60,
+  "title_page": 1,
+  "contents_page": 2,
+  "contents": [
+    {
+      "heading": "Практическая работа 4",
+      "page": 3
+    },
+    {
+      "heading": "1 Подготовка Parquet",
+      "page": 5
+    },
+    {
+      "heading": "2 Lazy evaluation",
+      "page": 5
+    },
+    {
+      "heading": "3 Партиции и перекос",
+      "page": 6
+    },
+    {
+      "heading": "4 GroupBy и physical plan",
+      "page": 10
+    },
+    {
+      "heading": "5 Sort Merge Join и Broadcast Hash Join",
+      "page": 13
+    },
+    {
+      "heading": "6 Persist и повторные действия",
+      "page": 17
+    },
+    {
+      "heading": "7 Benchmark",
+      "page": 24
+    },
+    {
+      "heading": "8 Маленькие файлы",
+      "page": 26
+    },
+    {
+      "heading": "9 Самостоятельный вариант B",
+      "page": 31
+    },
+    {
+      "heading": "10 Журнал Spark UI и завершение",
+      "page": 50
+    },
+    {
+      "heading": "Выводы и ограничения",
+      "page": 50
+    },
+    {
+      "heading": "Приложение Сохранённые снимки Spark UI",
+      "page": 51
+    }
+  ],
+  "toc_targets_verified": true,
+  "continuous_page_numbers_verified": true,
+  "teacher": "Приходько Н.А.",
+  "department": "Кафедра прикладной математики",
+  "embedded_images": 12,
+  "body_pixels_unchanged_outside_renumbered_footer": true
 }
