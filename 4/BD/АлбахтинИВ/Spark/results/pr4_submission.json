@@ -1,0 +1,93 @@
+{
+  "status": "passed",
+  "prepared_on": "2026-11-08",
+  "student": "Албахтин И.В.",
+  "group": "ИНБО-12-23",
+  "execution_date_moscow": "2026-10-26",
+  "run_all_completed_utc": "2026-10-25T21:02:19.429604+00:00",
+  "fresh_kernel_run_all": true,
+  "code_cells": 12,
+  "errors": 0,
+  "original_executed_notebook_sha256": "aa7ccc72d10e262be2eb01ca4979774e253b218a6ebda3684b60b02daad13943",
+  "code_cells_and_outputs_sha256": "6aac5cc2589446d2177f97b22d7af4387fd2950b642e4eea0b3624badca87f0f",
+  "all_code_cells_and_outputs_identical_to_executed_notebook": true,
+  "only_first_markdown_and_appendix_changed": true,
+  "html_code_blocks_match_notebook": true,
+  "html_output_blocks": 44,
+  "pdf_pages": 60,
+  "pdf_all_input_prompts_present": true,
+  "pdf_all_pages_visually_reviewed": true,
+  "pdf_page_render_long_edge_px": 1500,
+  "pdf_a4_margins_verified": true,
+  "pdf_characters_outside_text_area": 0,
+  "embedded_screenshots": 12,
+  "pdf_screenshot_pixels_identical_to_original_pngs": true,
+  "screenshots": [
+    {
+      "file": "screenshots/pr4/12_environment.png",
+      "sha256": "6632c00082d684422194e4756e1d643ba04ebd46a60376a63fc988ba3c23f470"
+    },
+    {
+      "file": "screenshots/pr4/01_jobs.png",
+      "sha256": "92ddbbc47f42ec6f0f22998d6fb22d3cad978da8804cb2303e5a93fd01fe771b"
+    },
+    {
+      "file": "screenshots/pr4/09_partitions.png",
+      "sha256": "0a73fe93a3e6a717a24125d77fbbe98037ba31c331dcbbfd762340475f0ec70a"
+    },
+    {
+      "file": "screenshots/pr4/08_groupby_stages.png",
+      "sha256": "fa7f727b61b6153671efbc1ab9e82f07040aebc1f2e99284fa94f78efd101cb9"
+    },
+    {
+      "file": "screenshots/pr4/02_smj_plan.png",
+      "sha256": "acb1d8ea2b17dd00263855c479c83e5fa9a802b93a5c7b0dbaa938599aec04b0"
+    },
+    {
+      "file": "screenshots/pr4/03_bhj_plan.png",
+      "sha256": "907ccb5d4df852b63229448cc550ed56a88be89b8b69f03af2ee66d6e6e0d22d"
+    },
+    {
+      "file": "screenshots/pr4/04_storage.png",
+      "sha256": "1a35ad5549fc283d22b2e664ead1e4e4c2228fbeb9f368e884d3219c9d7ac6bf"
+    },
+    {
+      "file": "screenshots/pr4/10_benchmark.png",
+      "sha256": "3a579661fae72d9733648b2b30a8eedcac496661fad392905913dc8b14ab8dec"
+    },
+    {
+      "file": "screenshots/pr4/05_variant_storage.png",
+      "sha256": "d39f5ca55b98a22ee18d528bdc396ef56dfe976eb7fe1f8cfd5ed4e27ca1523d"
+    },
+    {
+      "file": "screenshots/pr4/06_variant_plan.png",
+      "sha256": "61d5b7c9e098e2eb0d83e8db3cd4ec0ac6131952d91981cc17af78174ae33aa2"
+    },
+    {
+      "file": "screenshots/pr4/07_variant_stages.png",
+      "sha256": "d35aaf68051f5d2586d64034279828139ac577cc364ff831107436cc4b0983fb"
+    },
+    {
+      "file": "screenshots/pr4/11_completed_jobs.png",
+      "sha256": "180b71f243a501aa3e6109339389a28175050da81cc08547567a0c10af653170"
+    }
+  ],
+  "export": {
+    "source": "Practice_4.ipynb",
+    "tool": "nbconvert 7.17.1 basic HTML + Playwright 1.62.1",
+    "browser": "Chrome 156.0.8078.81",
+    "code_execution": false
+  },
+  "submission_format": "Upload Practice_4.ipynb and its direct PDF export Practice_4.pdf",
+  "submitted_to_moodle": false,
+  "artifacts": {
+    "Practice_4.ipynb": {
+      "sha256": "3d3c7a87f88ae3899da626990f9126a0fec12c973c050686838d2e49649db360",
+      "bytes": 1232736
+    },
+    "Practice_4.pdf": {
+      "sha256": "8a1d84a040c008b8020291a35fb3b9758c94d44285857be7d971e455971dd9bd",
+      "bytes": 1059196
+    }
+  }
+}

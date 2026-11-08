@@ -23,5 +23,15 @@
     12
   ],
   "errors": 0,
-  "notebook_sha256": "aa7ccc72d10e262be2eb01ca4979774e253b218a6ebda3684b60b02daad13943"
+  "notebook_sha256": "3d3c7a87f88ae3899da626990f9126a0fec12c973c050686838d2e49649db360",
+  "executed_notebook_sha256": "aa7ccc72d10e262be2eb01ca4979774e253b218a6ebda3684b60b02daad13943",
+  "post_execution_edit": {
+    "date": "2026-11-08",
+    "scope": "Markdown identity/date and attachments containing the already-captured Spark UI screenshots only",
+    "code_cells_and_outputs_unchanged": true,
+    "code_cells_and_outputs_sha256": "6aac5cc2589446d2177f97b22d7af4387fd2950b642e4eea0b3624badca87f0f",
+    "original_executed_notebook_available_in_git": true,
+    "new_execution_performed": false,
+    "verification": "pr4_submission.json"
+  }
 }

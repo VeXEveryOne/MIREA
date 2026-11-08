@@ -30,7 +30,17 @@
       12
     ],
     "errors": 0,
-    "notebook_sha256": "aa7ccc72d10e262be2eb01ca4979774e253b218a6ebda3684b60b02daad13943"
+    "notebook_sha256": "3d3c7a87f88ae3899da626990f9126a0fec12c973c050686838d2e49649db360",
+    "executed_notebook_sha256": "aa7ccc72d10e262be2eb01ca4979774e253b218a6ebda3684b60b02daad13943",
+    "post_execution_edit": {
+      "date": "2026-11-08",
+      "scope": "Markdown identity/date and attachments containing the already-captured Spark UI screenshots only",
+      "code_cells_and_outputs_unchanged": true,
+      "code_cells_and_outputs_sha256": "6aac5cc2589446d2177f97b22d7af4387fd2950b642e4eea0b3624badca87f0f",
+      "original_executed_notebook_available_in_git": true,
+      "new_execution_performed": false,
+      "verification": "pr4_submission.json"
+    }
   },
   "independent_data_verification": {
     "status": "passed",
@@ -63,6 +73,8 @@
     "ТИАБД_ПР4_АлбахтинИВ.docx": "d62ba4e5423b4984c48546fb96d7183293c073d6ecf34e98aa4fd873350d10e6",
     "ТИАБД_ПР4_АлбахтинИВ.pdf": "25e92ef95be573ea352278ba33339fa706a89be7d353a17e54559738f89d664a",
     "ТИАБД_ПР4_Ответы.md": "e260c9c02096c712fb5a13bdd66d51acbc2b2e38b723868eff89fb4facf8e5ed",
-    "АлбахтинИВ/Spark/Practice_4.ipynb": "aa7ccc72d10e262be2eb01ca4979774e253b218a6ebda3684b60b02daad13943"
-  }
+    "АлбахтинИВ/Spark/Practice_4.ipynb": "3d3c7a87f88ae3899da626990f9126a0fec12c973c050686838d2e49649db360"
+  },
+  "original_executed_notebook_sha256": "aa7ccc72d10e262be2eb01ca4979774e253b218a6ebda3684b60b02daad13943",
+  "direct_notebook_pdf_submission": "pr4_submission.json"
 }

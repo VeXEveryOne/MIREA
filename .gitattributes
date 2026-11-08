@@ -10,6 +10,11 @@
 # Execution records verify the notebook bytes; keep them stable on Windows.
 4/BD/АлбахтинИВ/Spark/Practice_3.ipynb text eol=lf
 4/BD/АлбахтинИВ/Spark/Practice_4.ipynb text eol=lf
+4/BD/АлбахтинИВ/Spark/export_pr4.py text eol=lf
+4/BD/АлбахтинИВ/Spark/print_notebook.mjs text eol=lf
+4/BD/АлбахтинИВ/Spark/results/pr4_execution.json text eol=lf
+4/BD/АлбахтинИВ/Spark/results/pr4_verification.json text eol=lf
+4/BD/АлбахтинИВ/Spark/results/pr4_submission.json text eol=lf
 4/BD/ТИАБД_ПР4_Ответы.md text eol=lf
 4/BD/АлбахтинИВ/ML/** text eol=lf
 4/BD/АлбахтинИВ/ML/results/**/*.png binary
