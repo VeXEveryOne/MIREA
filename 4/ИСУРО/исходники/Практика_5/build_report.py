@@ -1,6 +1,7 @@
 """Build the canonical practice 5 report from verified UI evidence."""
 from pathlib import Path
 import json
+import re
 from docx import Document
 from docx.shared import Cm, Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH as A
@@ -59,6 +60,7 @@ field=OxmlElement('w:fldSimple'); field.set(qn('w:instr'),'PAGE')
 fp._p.append(field)
 for name in ('Footer','Header'):
     style(name, A.CENTER, 0, 1).font.size=Pt(12)
+fp.style=doc.styles['Footer']
 
 def p(text): return doc.add_paragraph(text,'Основной текст отчёта')
 def h(text): return doc.add_paragraph(text,'Heading 1')
@@ -72,10 +74,11 @@ def fig(file,title):
     figures.append({'number':num,'file':file,'caption':title,'width_cm':16.5})
 
 content=json.loads((Path(__file__).parent/'содержание.json').read_text(encoding='utf-8'))
+figure_numbers={item['file']:i+1 for i,item in enumerate(item for section in content for item in section['items'] if isinstance(item,dict))}
 for section in content:
     h(section['title'])
     for item in section['items']:
-        if isinstance(item,str): p(item)
+        if isinstance(item,str): p(re.sub(r'\{fig:([^}]+)\}',lambda m:str(figure_numbers[m.group(1)]),item))
         else: fig(item['file'],item['caption'])
 doc.core_properties.author='Албахтин И. В.'
 doc.core_properties.title='Учёт основных средств Практическая работа 5'
