@@ -1,0 +1,2202 @@
+{
+  "notation": "SCHEME",
+  "formatVersion": 1,
+  "profile": "NS-SCHEME-1",
+  "model": {
+    "id": "revision_lifecycle",
+    "label": "Жизненный цикл ревизии карточки",
+    "elements": [
+      {
+        "id": "states",
+        "kind": "diagram",
+        "label": "Состояния ревизии",
+        "properties": {
+          "type": "general"
+        }
+      },
+      {
+        "id": "initial",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "ellipse",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_initial",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "initial"
+        }
+      },
+      {
+        "id": "draft",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_draft",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "draft"
+        }
+      },
+      {
+        "id": "draft_corner0",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "ellipse",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_draft_corner0",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "draft_corner0"
+        }
+      },
+      {
+        "id": "draft_corner1",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "ellipse",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_draft_corner1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "draft_corner1"
+        }
+      },
+      {
+        "id": "draft_corner2",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "ellipse",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_draft_corner2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "draft_corner2"
+        }
+      },
+      {
+        "id": "draft_corner3",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "ellipse",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_draft_corner3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "draft_corner3"
+        }
+      },
+      {
+        "id": "draft_mask_h",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_draft_mask_h",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "draft_mask_h"
+        }
+      },
+      {
+        "id": "draft_mask_v",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_draft_mask_v",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "draft_mask_v"
+        }
+      },
+      {
+        "id": "draft_top",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_draft_top",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "draft_top"
+        }
+      },
+      {
+        "id": "draft_bottom",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_draft_bottom",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "draft_bottom"
+        }
+      },
+      {
+        "id": "draft_left",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_draft_left",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "draft_left"
+        }
+      },
+      {
+        "id": "draft_right",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_draft_right",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "draft_right"
+        }
+      },
+      {
+        "id": "draft_divider",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_draft_divider",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "draft_divider"
+        }
+      },
+      {
+        "id": "draft_name",
+        "kind": "label",
+        "label": "Черновик (DRAFT)",
+        "properties": {
+          "text": "Черновик (DRAFT)"
+        }
+      },
+      {
+        "id": "v_draft_name",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "draft_name"
+        }
+      },
+      {
+        "id": "draft_action0",
+        "kind": "label",
+        "label": "entry / включить редактирование",
+        "properties": {
+          "text": "entry / включить редактирование"
+        }
+      },
+      {
+        "id": "v_draft_action0",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "draft_action0"
+        }
+      },
+      {
+        "id": "draft_action1",
+        "kind": "label",
+        "label": "do / проверять заполнение",
+        "properties": {
+          "text": "do / проверять заполнение"
+        }
+      },
+      {
+        "id": "v_draft_action1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "draft_action1"
+        }
+      },
+      {
+        "id": "draft_action2",
+        "kind": "label",
+        "label": "exit / сохранить данные",
+        "properties": {
+          "text": "exit / сохранить данные"
+        }
+      },
+      {
+        "id": "v_draft_action2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "draft_action2"
+        }
+      },
+      {
+        "id": "checking",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_checking",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "checking"
+        }
+      },
+      {
+        "id": "checking_corner0",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "ellipse",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_checking_corner0",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "checking_corner0"
+        }
+      },
+      {
+        "id": "checking_corner1",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "ellipse",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_checking_corner1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "checking_corner1"
+        }
+      },
+      {
+        "id": "checking_corner2",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "ellipse",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_checking_corner2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "checking_corner2"
+        }
+      },
+      {
+        "id": "checking_corner3",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "ellipse",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_checking_corner3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "checking_corner3"
+        }
+      },
+      {
+        "id": "checking_mask_h",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_checking_mask_h",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "checking_mask_h"
+        }
+      },
+      {
+        "id": "checking_mask_v",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_checking_mask_v",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "checking_mask_v"
+        }
+      },
+      {
+        "id": "checking_top",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_checking_top",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "checking_top"
+        }
+      },
+      {
+        "id": "checking_bottom",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_checking_bottom",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "checking_bottom"
+        }
+      },
+      {
+        "id": "checking_left",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_checking_left",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "checking_left"
+        }
+      },
+      {
+        "id": "checking_right",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_checking_right",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "checking_right"
+        }
+      },
+      {
+        "id": "checking_divider",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_checking_divider",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "checking_divider"
+        }
+      },
+      {
+        "id": "checking_name",
+        "kind": "label",
+        "label": "Проверка готовности",
+        "properties": {
+          "text": "Проверка готовности"
+        }
+      },
+      {
+        "id": "v_checking_name",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "checking_name"
+        }
+      },
+      {
+        "id": "checking_action0",
+        "kind": "label",
+        "label": "entry / загрузить данные ревизии",
+        "properties": {
+          "text": "entry / загрузить данные ревизии"
+        }
+      },
+      {
+        "id": "v_checking_action0",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "checking_action0"
+        }
+      },
+      {
+        "id": "checking_action1",
+        "kind": "label",
+        "label": "do / проверить состав и полноту",
+        "properties": {
+          "text": "do / проверить состав и полноту"
+        }
+      },
+      {
+        "id": "v_checking_action1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "checking_action1"
+        }
+      },
+      {
+        "id": "checking_action2",
+        "kind": "label",
+        "label": "exit / сохранить результат",
+        "properties": {
+          "text": "exit / сохранить результат"
+        }
+      },
+      {
+        "id": "v_checking_action2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "checking_action2"
+        }
+      },
+      {
+        "id": "ready",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_ready",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "ready"
+        }
+      },
+      {
+        "id": "ready_corner0",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "ellipse",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_ready_corner0",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "ready_corner0"
+        }
+      },
+      {
+        "id": "ready_corner1",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "ellipse",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_ready_corner1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "ready_corner1"
+        }
+      },
+      {
+        "id": "ready_corner2",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "ellipse",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_ready_corner2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "ready_corner2"
+        }
+      },
+      {
+        "id": "ready_corner3",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "ellipse",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_ready_corner3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "ready_corner3"
+        }
+      },
+      {
+        "id": "ready_mask_h",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_ready_mask_h",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "ready_mask_h"
+        }
+      },
+      {
+        "id": "ready_mask_v",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_ready_mask_v",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "ready_mask_v"
+        }
+      },
+      {
+        "id": "ready_top",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_ready_top",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "ready_top"
+        }
+      },
+      {
+        "id": "ready_bottom",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_ready_bottom",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "ready_bottom"
+        }
+      },
+      {
+        "id": "ready_left",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_ready_left",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "ready_left"
+        }
+      },
+      {
+        "id": "ready_right",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_ready_right",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "ready_right"
+        }
+      },
+      {
+        "id": "ready_divider",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_ready_divider",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "ready_divider"
+        }
+      },
+      {
+        "id": "ready_name",
+        "kind": "label",
+        "label": "Готова (READY)",
+        "properties": {
+          "text": "Готова (READY)"
+        }
+      },
+      {
+        "id": "v_ready_name",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "ready_name"
+        }
+      },
+      {
+        "id": "ready_action0",
+        "kind": "label",
+        "label": "entry / зафиксировать утверждение",
+        "properties": {
+          "text": "entry / зафиксировать утверждение"
+        }
+      },
+      {
+        "id": "v_ready_action0",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "ready_action0"
+        }
+      },
+      {
+        "id": "ready_action1",
+        "kind": "label",
+        "label": "do / отслеживать публикацию",
+        "properties": {
+          "text": "do / отслеживать публикацию"
+        }
+      },
+      {
+        "id": "v_ready_action1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "ready_action1"
+        }
+      },
+      {
+        "id": "ready_action2",
+        "kind": "label",
+        "label": "exit / снять готовность",
+        "properties": {
+          "text": "exit / снять готовность"
+        }
+      },
+      {
+        "id": "v_ready_action2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "ready_action2"
+        }
+      },
+      {
+        "id": "stale",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_stale",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "stale"
+        }
+      },
+      {
+        "id": "stale_corner0",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "ellipse",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_stale_corner0",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "stale_corner0"
+        }
+      },
+      {
+        "id": "stale_corner1",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "ellipse",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_stale_corner1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "stale_corner1"
+        }
+      },
+      {
+        "id": "stale_corner2",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "ellipse",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_stale_corner2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "stale_corner2"
+        }
+      },
+      {
+        "id": "stale_corner3",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "ellipse",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_stale_corner3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "stale_corner3"
+        }
+      },
+      {
+        "id": "stale_mask_h",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_stale_mask_h",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "stale_mask_h"
+        }
+      },
+      {
+        "id": "stale_mask_v",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_stale_mask_v",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "stale_mask_v"
+        }
+      },
+      {
+        "id": "stale_top",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_stale_top",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "stale_top"
+        }
+      },
+      {
+        "id": "stale_bottom",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_stale_bottom",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "stale_bottom"
+        }
+      },
+      {
+        "id": "stale_left",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_stale_left",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "stale_left"
+        }
+      },
+      {
+        "id": "stale_right",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_stale_right",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "stale_right"
+        }
+      },
+      {
+        "id": "stale_divider",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_stale_divider",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "stale_divider"
+        }
+      },
+      {
+        "id": "stale_name",
+        "kind": "label",
+        "label": "Устарела (STALE)",
+        "properties": {
+          "text": "Устарела (STALE)"
+        }
+      },
+      {
+        "id": "v_stale_name",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "stale_name"
+        }
+      },
+      {
+        "id": "stale_action0",
+        "kind": "label",
+        "label": "entry / отметить устаревание",
+        "properties": {
+          "text": "entry / отметить устаревание"
+        }
+      },
+      {
+        "id": "v_stale_action0",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "stale_action0"
+        }
+      },
+      {
+        "id": "stale_action1",
+        "kind": "label",
+        "label": "do / показывать причину",
+        "properties": {
+          "text": "do / показывать причину"
+        }
+      },
+      {
+        "id": "v_stale_action1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "stale_action1"
+        }
+      },
+      {
+        "id": "t1",
+        "kind": "link",
+        "label": "создать",
+        "properties": {
+          "from": "initial",
+          "to": "draft",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_t1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "t1",
+          "from": "v_initial",
+          "to": "v_draft"
+        }
+      },
+      {
+        "id": "t2",
+        "kind": "link",
+        "label": "запросить\nутверждение",
+        "properties": {
+          "from": "draft",
+          "to": "checking",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_t2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "t2",
+          "from": "v_draft",
+          "to": "v_checking"
+        }
+      },
+      {
+        "id": "t3",
+        "kind": "link",
+        "label": "[ошибок нет] /\nутвердить",
+        "properties": {
+          "from": "checking",
+          "to": "ready",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_t3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "t3",
+          "from": "v_checking",
+          "to": "v_ready"
+        }
+      },
+      {
+        "id": "t4",
+        "kind": "link",
+        "label": "[есть ошибки] / вернуть замечания",
+        "properties": {
+          "from": "checking",
+          "to": "draft",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_t4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "t4",
+          "from": "v_checking",
+          "to": "v_draft"
+        }
+      },
+      {
+        "id": "t5",
+        "kind": "link",
+        "label": "изменился состав /\nснять утверждение",
+        "properties": {
+          "from": "ready",
+          "to": "stale",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_t5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "states",
+          "element": "t5",
+          "from": "v_ready",
+          "to": "v_stale"
+        }
+      }
+    ]
+  },
+  "source": "scheme revision_lifecycle \"Жизненный цикл ревизии карточки\"\ndiagram states \"Состояния ревизии\" type=general\nblock initial \"\" role=generic shape=ellipse\nview v_initial \"\" diagram=states element=initial\nblock draft \"\" role=generic shape=rectangle\nview v_draft \"\" diagram=states element=draft\nblock draft_corner0 \"\" role=generic shape=ellipse\nview v_draft_corner0 \"\" diagram=states element=draft_corner0\nblock draft_corner1 \"\" role=generic shape=ellipse\nview v_draft_corner1 \"\" diagram=states element=draft_corner1\nblock draft_corner2 \"\" role=generic shape=ellipse\nview v_draft_corner2 \"\" diagram=states element=draft_corner2\nblock draft_corner3 \"\" role=generic shape=ellipse\nview v_draft_corner3 \"\" diagram=states element=draft_corner3\nblock draft_mask_h \"\" role=generic shape=rectangle\nview v_draft_mask_h \"\" diagram=states element=draft_mask_h\nblock draft_mask_v \"\" role=generic shape=rectangle\nview v_draft_mask_v \"\" diagram=states element=draft_mask_v\nblock draft_top \"\" role=generic shape=rectangle\nview v_draft_top \"\" diagram=states element=draft_top\nblock draft_bottom \"\" role=generic shape=rectangle\nview v_draft_bottom \"\" diagram=states element=draft_bottom\nblock draft_left \"\" role=generic shape=rectangle\nview v_draft_left \"\" diagram=states element=draft_left\nblock draft_right \"\" role=generic shape=rectangle\nview v_draft_right \"\" diagram=states element=draft_right\nblock draft_divider \"\" role=generic shape=rectangle\nview v_draft_divider \"\" diagram=states element=draft_divider\nlabel draft_name \"Черновик (DRAFT)\" text=\"Черновик (DRAFT)\"\nview v_draft_name \"\" diagram=states element=draft_name\nlabel draft_action0 \"entry / включить редактирование\" text=\"entry / включить редактирование\"\nview v_draft_action0 \"\" diagram=states element=draft_action0\nlabel draft_action1 \"do / проверять заполнение\" text=\"do / проверять заполнение\"\nview v_draft_action1 \"\" diagram=states element=draft_action1\nlabel draft_action2 \"exit / сохранить данные\" text=\"exit / сохранить данные\"\nview v_draft_action2 \"\" diagram=states element=draft_action2\nblock checking \"\" role=generic shape=rectangle\nview v_checking \"\" diagram=states element=checking\nblock checking_corner0 \"\" role=generic shape=ellipse\nview v_checking_corner0 \"\" diagram=states element=checking_corner0\nblock checking_corner1 \"\" role=generic shape=ellipse\nview v_checking_corner1 \"\" diagram=states element=checking_corner1\nblock checking_corner2 \"\" role=generic shape=ellipse\nview v_checking_corner2 \"\" diagram=states element=checking_corner2\nblock checking_corner3 \"\" role=generic shape=ellipse\nview v_checking_corner3 \"\" diagram=states element=checking_corner3\nblock checking_mask_h \"\" role=generic shape=rectangle\nview v_checking_mask_h \"\" diagram=states element=checking_mask_h\nblock checking_mask_v \"\" role=generic shape=rectangle\nview v_checking_mask_v \"\" diagram=states element=checking_mask_v\nblock checking_top \"\" role=generic shape=rectangle\nview v_checking_top \"\" diagram=states element=checking_top\nblock checking_bottom \"\" role=generic shape=rectangle\nview v_checking_bottom \"\" diagram=states element=checking_bottom\nblock checking_left \"\" role=generic shape=rectangle\nview v_checking_left \"\" diagram=states element=checking_left\nblock checking_right \"\" role=generic shape=rectangle\nview v_checking_right \"\" diagram=states element=checking_right\nblock checking_divider \"\" role=generic shape=rectangle\nview v_checking_divider \"\" diagram=states element=checking_divider\nlabel checking_name \"Проверка готовности\" text=\"Проверка готовности\"\nview v_checking_name \"\" diagram=states element=checking_name\nlabel checking_action0 \"entry / загрузить данные ревизии\" text=\"entry / загрузить данные ревизии\"\nview v_checking_action0 \"\" diagram=states element=checking_action0\nlabel checking_action1 \"do / проверить состав и полноту\" text=\"do / проверить состав и полноту\"\nview v_checking_action1 \"\" diagram=states element=checking_action1\nlabel checking_action2 \"exit / сохранить результат\" text=\"exit / сохранить результат\"\nview v_checking_action2 \"\" diagram=states element=checking_action2\nblock ready \"\" role=generic shape=rectangle\nview v_ready \"\" diagram=states element=ready\nblock ready_corner0 \"\" role=generic shape=ellipse\nview v_ready_corner0 \"\" diagram=states element=ready_corner0\nblock ready_corner1 \"\" role=generic shape=ellipse\nview v_ready_corner1 \"\" diagram=states element=ready_corner1\nblock ready_corner2 \"\" role=generic shape=ellipse\nview v_ready_corner2 \"\" diagram=states element=ready_corner2\nblock ready_corner3 \"\" role=generic shape=ellipse\nview v_ready_corner3 \"\" diagram=states element=ready_corner3\nblock ready_mask_h \"\" role=generic shape=rectangle\nview v_ready_mask_h \"\" diagram=states element=ready_mask_h\nblock ready_mask_v \"\" role=generic shape=rectangle\nview v_ready_mask_v \"\" diagram=states element=ready_mask_v\nblock ready_top \"\" role=generic shape=rectangle\nview v_ready_top \"\" diagram=states element=ready_top\nblock ready_bottom \"\" role=generic shape=rectangle\nview v_ready_bottom \"\" diagram=states element=ready_bottom\nblock ready_left \"\" role=generic shape=rectangle\nview v_ready_left \"\" diagram=states element=ready_left\nblock ready_right \"\" role=generic shape=rectangle\nview v_ready_right \"\" diagram=states element=ready_right\nblock ready_divider \"\" role=generic shape=rectangle\nview v_ready_divider \"\" diagram=states element=ready_divider\nlabel ready_name \"Готова (READY)\" text=\"Готова (READY)\"\nview v_ready_name \"\" diagram=states element=ready_name\nlabel ready_action0 \"entry / зафиксировать утверждение\" text=\"entry / зафиксировать утверждение\"\nview v_ready_action0 \"\" diagram=states element=ready_action0\nlabel ready_action1 \"do / отслеживать публикацию\" text=\"do / отслеживать публикацию\"\nview v_ready_action1 \"\" diagram=states element=ready_action1\nlabel ready_action2 \"exit / снять готовность\" text=\"exit / снять готовность\"\nview v_ready_action2 \"\" diagram=states element=ready_action2\nblock stale \"\" role=generic shape=rectangle\nview v_stale \"\" diagram=states element=stale\nblock stale_corner0 \"\" role=generic shape=ellipse\nview v_stale_corner0 \"\" diagram=states element=stale_corner0\nblock stale_corner1 \"\" role=generic shape=ellipse\nview v_stale_corner1 \"\" diagram=states element=stale_corner1\nblock stale_corner2 \"\" role=generic shape=ellipse\nview v_stale_corner2 \"\" diagram=states element=stale_corner2\nblock stale_corner3 \"\" role=generic shape=ellipse\nview v_stale_corner3 \"\" diagram=states element=stale_corner3\nblock stale_mask_h \"\" role=generic shape=rectangle\nview v_stale_mask_h \"\" diagram=states element=stale_mask_h\nblock stale_mask_v \"\" role=generic shape=rectangle\nview v_stale_mask_v \"\" diagram=states element=stale_mask_v\nblock stale_top \"\" role=generic shape=rectangle\nview v_stale_top \"\" diagram=states element=stale_top\nblock stale_bottom \"\" role=generic shape=rectangle\nview v_stale_bottom \"\" diagram=states element=stale_bottom\nblock stale_left \"\" role=generic shape=rectangle\nview v_stale_left \"\" diagram=states element=stale_left\nblock stale_right \"\" role=generic shape=rectangle\nview v_stale_right \"\" diagram=states element=stale_right\nblock stale_divider \"\" role=generic shape=rectangle\nview v_stale_divider \"\" diagram=states element=stale_divider\nlabel stale_name \"Устарела (STALE)\" text=\"Устарела (STALE)\"\nview v_stale_name \"\" diagram=states element=stale_name\nlabel stale_action0 \"entry / отметить устаревание\" text=\"entry / отметить устаревание\"\nview v_stale_action0 \"\" diagram=states element=stale_action0\nlabel stale_action1 \"do / показывать причину\" text=\"do / показывать причину\"\nview v_stale_action1 \"\" diagram=states element=stale_action1\nlink t1 создать from=initial kind=directed to=draft\nview v_t1 \"\" diagram=states element=t1 from=v_initial to=v_draft\nlink t2 \"запросить\\nутверждение\" from=draft kind=directed to=checking\nview v_t2 \"\" diagram=states element=t2 from=v_draft to=v_checking\nlink t3 \"[ошибок нет] /\\nутвердить\" from=checking kind=directed to=ready\nview v_t3 \"\" diagram=states element=t3 from=v_checking to=v_ready\nlink t4 \"[есть ошибки] / вернуть замечания\" from=checking kind=directed to=draft\nview v_t4 \"\" diagram=states element=t4 from=v_checking to=v_draft\nlink t5 \"изменился состав /\\nснять утверждение\" from=ready kind=directed to=stale\nview v_t5 \"\" diagram=states element=t5 from=v_ready to=v_stale\n",
+  "draft": "scheme revision_lifecycle \"Жизненный цикл ревизии карточки\"\ndiagram states \"Состояния ревизии\" type=general\nblock initial \"\" role=generic shape=ellipse\nview v_initial \"\" diagram=states element=initial\nblock draft \"\" role=generic shape=rectangle\nview v_draft \"\" diagram=states element=draft\nblock draft_corner0 \"\" role=generic shape=ellipse\nview v_draft_corner0 \"\" diagram=states element=draft_corner0\nblock draft_corner1 \"\" role=generic shape=ellipse\nview v_draft_corner1 \"\" diagram=states element=draft_corner1\nblock draft_corner2 \"\" role=generic shape=ellipse\nview v_draft_corner2 \"\" diagram=states element=draft_corner2\nblock draft_corner3 \"\" role=generic shape=ellipse\nview v_draft_corner3 \"\" diagram=states element=draft_corner3\nblock draft_mask_h \"\" role=generic shape=rectangle\nview v_draft_mask_h \"\" diagram=states element=draft_mask_h\nblock draft_mask_v \"\" role=generic shape=rectangle\nview v_draft_mask_v \"\" diagram=states element=draft_mask_v\nblock draft_top \"\" role=generic shape=rectangle\nview v_draft_top \"\" diagram=states element=draft_top\nblock draft_bottom \"\" role=generic shape=rectangle\nview v_draft_bottom \"\" diagram=states element=draft_bottom\nblock draft_left \"\" role=generic shape=rectangle\nview v_draft_left \"\" diagram=states element=draft_left\nblock draft_right \"\" role=generic shape=rectangle\nview v_draft_right \"\" diagram=states element=draft_right\nblock draft_divider \"\" role=generic shape=rectangle\nview v_draft_divider \"\" diagram=states element=draft_divider\nlabel draft_name \"Черновик (DRAFT)\" text=\"Черновик (DRAFT)\"\nview v_draft_name \"\" diagram=states element=draft_name\nlabel draft_action0 \"entry / включить редактирование\" text=\"entry / включить редактирование\"\nview v_draft_action0 \"\" diagram=states element=draft_action0\nlabel draft_action1 \"do / проверять заполнение\" text=\"do / проверять заполнение\"\nview v_draft_action1 \"\" diagram=states element=draft_action1\nlabel draft_action2 \"exit / сохранить данные\" text=\"exit / сохранить данные\"\nview v_draft_action2 \"\" diagram=states element=draft_action2\nblock checking \"\" role=generic shape=rectangle\nview v_checking \"\" diagram=states element=checking\nblock checking_corner0 \"\" role=generic shape=ellipse\nview v_checking_corner0 \"\" diagram=states element=checking_corner0\nblock checking_corner1 \"\" role=generic shape=ellipse\nview v_checking_corner1 \"\" diagram=states element=checking_corner1\nblock checking_corner2 \"\" role=generic shape=ellipse\nview v_checking_corner2 \"\" diagram=states element=checking_corner2\nblock checking_corner3 \"\" role=generic shape=ellipse\nview v_checking_corner3 \"\" diagram=states element=checking_corner3\nblock checking_mask_h \"\" role=generic shape=rectangle\nview v_checking_mask_h \"\" diagram=states element=checking_mask_h\nblock checking_mask_v \"\" role=generic shape=rectangle\nview v_checking_mask_v \"\" diagram=states element=checking_mask_v\nblock checking_top \"\" role=generic shape=rectangle\nview v_checking_top \"\" diagram=states element=checking_top\nblock checking_bottom \"\" role=generic shape=rectangle\nview v_checking_bottom \"\" diagram=states element=checking_bottom\nblock checking_left \"\" role=generic shape=rectangle\nview v_checking_left \"\" diagram=states element=checking_left\nblock checking_right \"\" role=generic shape=rectangle\nview v_checking_right \"\" diagram=states element=checking_right\nblock checking_divider \"\" role=generic shape=rectangle\nview v_checking_divider \"\" diagram=states element=checking_divider\nlabel checking_name \"Проверка готовности\" text=\"Проверка готовности\"\nview v_checking_name \"\" diagram=states element=checking_name\nlabel checking_action0 \"entry / загрузить данные ревизии\" text=\"entry / загрузить данные ревизии\"\nview v_checking_action0 \"\" diagram=states element=checking_action0\nlabel checking_action1 \"do / проверить состав и полноту\" text=\"do / проверить состав и полноту\"\nview v_checking_action1 \"\" diagram=states element=checking_action1\nlabel checking_action2 \"exit / сохранить результат\" text=\"exit / сохранить результат\"\nview v_checking_action2 \"\" diagram=states element=checking_action2\nblock ready \"\" role=generic shape=rectangle\nview v_ready \"\" diagram=states element=ready\nblock ready_corner0 \"\" role=generic shape=ellipse\nview v_ready_corner0 \"\" diagram=states element=ready_corner0\nblock ready_corner1 \"\" role=generic shape=ellipse\nview v_ready_corner1 \"\" diagram=states element=ready_corner1\nblock ready_corner2 \"\" role=generic shape=ellipse\nview v_ready_corner2 \"\" diagram=states element=ready_corner2\nblock ready_corner3 \"\" role=generic shape=ellipse\nview v_ready_corner3 \"\" diagram=states element=ready_corner3\nblock ready_mask_h \"\" role=generic shape=rectangle\nview v_ready_mask_h \"\" diagram=states element=ready_mask_h\nblock ready_mask_v \"\" role=generic shape=rectangle\nview v_ready_mask_v \"\" diagram=states element=ready_mask_v\nblock ready_top \"\" role=generic shape=rectangle\nview v_ready_top \"\" diagram=states element=ready_top\nblock ready_bottom \"\" role=generic shape=rectangle\nview v_ready_bottom \"\" diagram=states element=ready_bottom\nblock ready_left \"\" role=generic shape=rectangle\nview v_ready_left \"\" diagram=states element=ready_left\nblock ready_right \"\" role=generic shape=rectangle\nview v_ready_right \"\" diagram=states element=ready_right\nblock ready_divider \"\" role=generic shape=rectangle\nview v_ready_divider \"\" diagram=states element=ready_divider\nlabel ready_name \"Готова (READY)\" text=\"Готова (READY)\"\nview v_ready_name \"\" diagram=states element=ready_name\nlabel ready_action0 \"entry / зафиксировать утверждение\" text=\"entry / зафиксировать утверждение\"\nview v_ready_action0 \"\" diagram=states element=ready_action0\nlabel ready_action1 \"do / отслеживать публикацию\" text=\"do / отслеживать публикацию\"\nview v_ready_action1 \"\" diagram=states element=ready_action1\nlabel ready_action2 \"exit / снять готовность\" text=\"exit / снять готовность\"\nview v_ready_action2 \"\" diagram=states element=ready_action2\nblock stale \"\" role=generic shape=rectangle\nview v_stale \"\" diagram=states element=stale\nblock stale_corner0 \"\" role=generic shape=ellipse\nview v_stale_corner0 \"\" diagram=states element=stale_corner0\nblock stale_corner1 \"\" role=generic shape=ellipse\nview v_stale_corner1 \"\" diagram=states element=stale_corner1\nblock stale_corner2 \"\" role=generic shape=ellipse\nview v_stale_corner2 \"\" diagram=states element=stale_corner2\nblock stale_corner3 \"\" role=generic shape=ellipse\nview v_stale_corner3 \"\" diagram=states element=stale_corner3\nblock stale_mask_h \"\" role=generic shape=rectangle\nview v_stale_mask_h \"\" diagram=states element=stale_mask_h\nblock stale_mask_v \"\" role=generic shape=rectangle\nview v_stale_mask_v \"\" diagram=states element=stale_mask_v\nblock stale_top \"\" role=generic shape=rectangle\nview v_stale_top \"\" diagram=states element=stale_top\nblock stale_bottom \"\" role=generic shape=rectangle\nview v_stale_bottom \"\" diagram=states element=stale_bottom\nblock stale_left \"\" role=generic shape=rectangle\nview v_stale_left \"\" diagram=states element=stale_left\nblock stale_right \"\" role=generic shape=rectangle\nview v_stale_right \"\" diagram=states element=stale_right\nblock stale_divider \"\" role=generic shape=rectangle\nview v_stale_divider \"\" diagram=states element=stale_divider\nlabel stale_name \"Устарела (STALE)\" text=\"Устарела (STALE)\"\nview v_stale_name \"\" diagram=states element=stale_name\nlabel stale_action0 \"entry / отметить устаревание\" text=\"entry / отметить устаревание\"\nview v_stale_action0 \"\" diagram=states element=stale_action0\nlabel stale_action1 \"do / показывать причину\" text=\"do / показывать причину\"\nview v_stale_action1 \"\" diagram=states element=stale_action1\nlink t1 создать from=initial kind=directed to=draft\nview v_t1 \"\" diagram=states element=t1 from=v_initial to=v_draft\nlink t2 \"запросить\\nутверждение\" from=draft kind=directed to=checking\nview v_t2 \"\" diagram=states element=t2 from=v_draft to=v_checking\nlink t3 \"[ошибок нет] /\\nутвердить\" from=checking kind=directed to=ready\nview v_t3 \"\" diagram=states element=t3 from=v_checking to=v_ready\nlink t4 \"[есть ошибки] / вернуть замечания\" from=checking kind=directed to=draft\nview v_t4 \"\" diagram=states element=t4 from=v_checking to=v_draft\nlink t5 \"изменился состав /\\nснять утверждение\" from=ready kind=directed to=stale\nview v_t5 \"\" diagram=states element=t5 from=v_ready to=v_stale\n",
+  "layout": {
+    "nodes": {
+      "v_initial": {
+        "x": 10,
+        "y": 187,
+        "width": 26,
+        "height": 26,
+        "z": 0,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_draft": {
+        "x": 110,
+        "y": 100,
+        "width": 380,
+        "height": 200,
+        "z": 0,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#ffffff",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_draft_corner0": {
+        "x": 109.75510204081633,
+        "y": 99.75510204081633,
+        "width": 24.489795918367346,
+        "height": 24.489795918367346,
+        "z": 1,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_draft_corner1": {
+        "x": 465.7551020408163,
+        "y": 99.75510204081633,
+        "width": 24.489795918367346,
+        "height": 24.489795918367346,
+        "z": 1,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_draft_corner2": {
+        "x": 109.75510204081633,
+        "y": 275.7551020408163,
+        "width": 24.489795918367346,
+        "height": 24.489795918367346,
+        "z": 1,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_draft_corner3": {
+        "x": 465.7551020408163,
+        "y": 275.7551020408163,
+        "width": 24.489795918367346,
+        "height": 24.489795918367346,
+        "z": 1,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_draft_mask_h": {
+        "x": 118.36734693877551,
+        "y": 97.44897959183673,
+        "width": 363.265306122449,
+        "height": 205.10204081632654,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#ffffff",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_draft_mask_v": {
+        "x": 105.61224489795919,
+        "y": 110.20408163265306,
+        "width": 388.7755102040816,
+        "height": 179.59183673469389,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#ffffff",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_draft_top": {
+        "x": 118.36734693877551,
+        "y": 99.98673469387755,
+        "width": 363.265306122449,
+        "height": 1.326530612244898,
+        "z": 3,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_draft_bottom": {
+        "x": 118.36734693877551,
+        "y": 298.68673469387755,
+        "width": 363.265306122449,
+        "height": 1.326530612244898,
+        "z": 3,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_draft_left": {
+        "x": 109.98673469387755,
+        "y": 110.20408163265306,
+        "width": 1.326530612244898,
+        "height": 179.59183673469389,
+        "z": 3,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_draft_right": {
+        "x": 488.68673469387755,
+        "y": 110.20408163265306,
+        "width": 1.326530612244898,
+        "height": 179.59183673469389,
+        "z": 3,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_draft_divider": {
+        "x": 106.12244897959184,
+        "y": 148.98673469387754,
+        "width": 387.7551020408163,
+        "height": 1.326530612244898,
+        "z": 3,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_draft_name": {
+        "x": 120,
+        "y": 102,
+        "width": 360,
+        "height": 46,
+        "z": 8,
+        "style": {
+          "color": "#000000",
+          "fontSize": 22
+        }
+      },
+      "v_draft_action0": {
+        "x": 115,
+        "y": 157,
+        "width": 370,
+        "height": 42,
+        "z": 8,
+        "style": {
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_draft_action1": {
+        "x": 115,
+        "y": 199,
+        "width": 370,
+        "height": 42,
+        "z": 8,
+        "style": {
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_draft_action2": {
+        "x": 115,
+        "y": 241,
+        "width": 370,
+        "height": 42,
+        "z": 8,
+        "style": {
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_checking": {
+        "x": 690,
+        "y": 100,
+        "width": 380,
+        "height": 200,
+        "z": 0,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#ffffff",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_checking_corner0": {
+        "x": 689.7551020408164,
+        "y": 99.75510204081633,
+        "width": 24.489795918367346,
+        "height": 24.489795918367346,
+        "z": 1,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_checking_corner1": {
+        "x": 1045.7551020408164,
+        "y": 99.75510204081633,
+        "width": 24.489795918367346,
+        "height": 24.489795918367346,
+        "z": 1,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_checking_corner2": {
+        "x": 689.7551020408164,
+        "y": 275.7551020408163,
+        "width": 24.489795918367346,
+        "height": 24.489795918367346,
+        "z": 1,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_checking_corner3": {
+        "x": 1045.7551020408164,
+        "y": 275.7551020408163,
+        "width": 24.489795918367346,
+        "height": 24.489795918367346,
+        "z": 1,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_checking_mask_h": {
+        "x": 698.3673469387755,
+        "y": 97.44897959183673,
+        "width": 363.265306122449,
+        "height": 205.10204081632654,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#ffffff",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_checking_mask_v": {
+        "x": 685.6122448979592,
+        "y": 110.20408163265306,
+        "width": 388.7755102040816,
+        "height": 179.59183673469389,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#ffffff",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_checking_top": {
+        "x": 698.3673469387755,
+        "y": 99.98673469387755,
+        "width": 363.265306122449,
+        "height": 1.326530612244898,
+        "z": 3,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_checking_bottom": {
+        "x": 698.3673469387755,
+        "y": 298.68673469387755,
+        "width": 363.265306122449,
+        "height": 1.326530612244898,
+        "z": 3,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_checking_left": {
+        "x": 689.9867346938776,
+        "y": 110.20408163265306,
+        "width": 1.326530612244898,
+        "height": 179.59183673469389,
+        "z": 3,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_checking_right": {
+        "x": 1068.6867346938775,
+        "y": 110.20408163265306,
+        "width": 1.326530612244898,
+        "height": 179.59183673469389,
+        "z": 3,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_checking_divider": {
+        "x": 686.1224489795918,
+        "y": 148.98673469387754,
+        "width": 387.7551020408163,
+        "height": 1.326530612244898,
+        "z": 3,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_checking_name": {
+        "x": 700,
+        "y": 102,
+        "width": 360,
+        "height": 46,
+        "z": 8,
+        "style": {
+          "color": "#000000",
+          "fontSize": 22
+        }
+      },
+      "v_checking_action0": {
+        "x": 695,
+        "y": 157,
+        "width": 370,
+        "height": 42,
+        "z": 8,
+        "style": {
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_checking_action1": {
+        "x": 695,
+        "y": 199,
+        "width": 370,
+        "height": 42,
+        "z": 8,
+        "style": {
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_checking_action2": {
+        "x": 695,
+        "y": 241,
+        "width": 370,
+        "height": 42,
+        "z": 8,
+        "style": {
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_ready": {
+        "x": 690,
+        "y": 470,
+        "width": 380,
+        "height": 200,
+        "z": 0,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#ffffff",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_ready_corner0": {
+        "x": 689.7551020408164,
+        "y": 469.7551020408163,
+        "width": 24.489795918367346,
+        "height": 24.489795918367346,
+        "z": 1,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_ready_corner1": {
+        "x": 1045.7551020408164,
+        "y": 469.7551020408163,
+        "width": 24.489795918367346,
+        "height": 24.489795918367346,
+        "z": 1,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_ready_corner2": {
+        "x": 689.7551020408164,
+        "y": 645.7551020408164,
+        "width": 24.489795918367346,
+        "height": 24.489795918367346,
+        "z": 1,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_ready_corner3": {
+        "x": 1045.7551020408164,
+        "y": 645.7551020408164,
+        "width": 24.489795918367346,
+        "height": 24.489795918367346,
+        "z": 1,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_ready_mask_h": {
+        "x": 698.3673469387755,
+        "y": 467.44897959183675,
+        "width": 363.265306122449,
+        "height": 205.10204081632654,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#ffffff",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_ready_mask_v": {
+        "x": 685.6122448979592,
+        "y": 480.2040816326531,
+        "width": 388.7755102040816,
+        "height": 179.59183673469389,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#ffffff",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_ready_top": {
+        "x": 698.3673469387755,
+        "y": 469.98673469387757,
+        "width": 363.265306122449,
+        "height": 1.326530612244898,
+        "z": 3,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_ready_bottom": {
+        "x": 698.3673469387755,
+        "y": 668.6867346938776,
+        "width": 363.265306122449,
+        "height": 1.326530612244898,
+        "z": 3,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_ready_left": {
+        "x": 689.9867346938776,
+        "y": 480.2040816326531,
+        "width": 1.326530612244898,
+        "height": 179.59183673469389,
+        "z": 3,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_ready_right": {
+        "x": 1068.6867346938775,
+        "y": 480.2040816326531,
+        "width": 1.326530612244898,
+        "height": 179.59183673469389,
+        "z": 3,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_ready_divider": {
+        "x": 686.1224489795918,
+        "y": 518.9867346938776,
+        "width": 387.7551020408163,
+        "height": 1.326530612244898,
+        "z": 3,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_ready_name": {
+        "x": 700,
+        "y": 472,
+        "width": 360,
+        "height": 46,
+        "z": 8,
+        "style": {
+          "color": "#000000",
+          "fontSize": 22
+        }
+      },
+      "v_ready_action0": {
+        "x": 695,
+        "y": 527,
+        "width": 370,
+        "height": 42,
+        "z": 8,
+        "style": {
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_ready_action1": {
+        "x": 695,
+        "y": 569,
+        "width": 370,
+        "height": 42,
+        "z": 8,
+        "style": {
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_ready_action2": {
+        "x": 695,
+        "y": 611,
+        "width": 370,
+        "height": 42,
+        "z": 8,
+        "style": {
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_stale": {
+        "x": 110,
+        "y": 470,
+        "width": 380,
+        "height": 200,
+        "z": 0,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#ffffff",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_stale_corner0": {
+        "x": 109.75510204081633,
+        "y": 469.7551020408163,
+        "width": 24.489795918367346,
+        "height": 24.489795918367346,
+        "z": 1,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_stale_corner1": {
+        "x": 465.7551020408163,
+        "y": 469.7551020408163,
+        "width": 24.489795918367346,
+        "height": 24.489795918367346,
+        "z": 1,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_stale_corner2": {
+        "x": 109.75510204081633,
+        "y": 645.7551020408164,
+        "width": 24.489795918367346,
+        "height": 24.489795918367346,
+        "z": 1,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_stale_corner3": {
+        "x": 465.7551020408163,
+        "y": 645.7551020408164,
+        "width": 24.489795918367346,
+        "height": 24.489795918367346,
+        "z": 1,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_stale_mask_h": {
+        "x": 118.36734693877551,
+        "y": 467.44897959183675,
+        "width": 363.265306122449,
+        "height": 205.10204081632654,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#ffffff",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_stale_mask_v": {
+        "x": 105.61224489795919,
+        "y": 480.2040816326531,
+        "width": 388.7755102040816,
+        "height": 179.59183673469389,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#ffffff",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_stale_top": {
+        "x": 118.36734693877551,
+        "y": 469.98673469387757,
+        "width": 363.265306122449,
+        "height": 1.326530612244898,
+        "z": 3,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_stale_bottom": {
+        "x": 118.36734693877551,
+        "y": 668.6867346938776,
+        "width": 363.265306122449,
+        "height": 1.326530612244898,
+        "z": 3,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_stale_left": {
+        "x": 109.98673469387755,
+        "y": 480.2040816326531,
+        "width": 1.326530612244898,
+        "height": 179.59183673469389,
+        "z": 3,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_stale_right": {
+        "x": 488.68673469387755,
+        "y": 480.2040816326531,
+        "width": 1.326530612244898,
+        "height": 179.59183673469389,
+        "z": 3,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_stale_divider": {
+        "x": 106.12244897959184,
+        "y": 518.9867346938776,
+        "width": 387.7551020408163,
+        "height": 1.326530612244898,
+        "z": 3,
+        "style": {
+          "fill": "#000000",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 19,
+          "lineWidth": 0.1
+        }
+      },
+      "v_stale_name": {
+        "x": 120,
+        "y": 472,
+        "width": 360,
+        "height": 46,
+        "z": 8,
+        "style": {
+          "color": "#000000",
+          "fontSize": 22
+        }
+      },
+      "v_stale_action0": {
+        "x": 115,
+        "y": 527,
+        "width": 370,
+        "height": 42,
+        "z": 8,
+        "style": {
+          "color": "#000000",
+          "fontSize": 19
+        }
+      },
+      "v_stale_action1": {
+        "x": 115,
+        "y": 569,
+        "width": 370,
+        "height": 42,
+        "z": 8,
+        "style": {
+          "color": "#000000",
+          "fontSize": 19
+        }
+      }
+    },
+    "edges": {
+      "v_t1": {
+        "label": {
+          "x": 63,
+          "y": 175
+        },
+        "from": {
+          "side": "right",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "color": "#000000",
+          "fontSize": 18
+        }
+      },
+      "v_t2": {
+        "label": {
+          "x": 590,
+          "y": 173
+        },
+        "from": {
+          "side": "right",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "color": "#000000",
+          "fontSize": 18
+        }
+      },
+      "v_t3": {
+        "label": {
+          "x": 880,
+          "y": 382
+        },
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "color": "#000000",
+          "fontSize": 18
+        }
+      },
+      "v_t4": {
+        "bends": [
+          {
+            "x": 880,
+            "y": 35
+          },
+          {
+            "x": 300,
+            "y": 35
+          }
+        ],
+        "label": {
+          "x": 590,
+          "y": 25
+        },
+        "from": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "color": "#000000",
+          "fontSize": 18
+        }
+      },
+      "v_t5": {
+        "label": {
+          "x": 590,
+          "y": 543
+        },
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "right",
+          "offset": 0.5
+        },
+        "style": {
+          "color": "#000000",
+          "fontSize": 18
+        }
+      }
+    },
+    "diagrams": {
+      "states": {}
+    }
+  }
+}

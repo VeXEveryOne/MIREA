@@ -1,0 +1,5490 @@
+{
+  "notation": "SCHEME",
+  "formatVersion": 1,
+  "profile": "NS-SCHEME-1",
+  "model": {
+    "id": "pr10_client",
+    "label": "Функции и диалоги клиентской части",
+    "elements": [
+      {
+        "id": "functions",
+        "kind": "diagram",
+        "label": "Дерево основных и служебных функций",
+        "properties": {
+          "type": "general"
+        }
+      },
+      {
+        "id": "root",
+        "kind": "block",
+        "label": "Функции клиентской части",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_root",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "root"
+        }
+      },
+      {
+        "id": "main",
+        "kind": "block",
+        "label": "Основные функции",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_main",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "main"
+        }
+      },
+      {
+        "id": "service",
+        "kind": "block",
+        "label": "Служебные функции",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_service",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "service"
+        }
+      },
+      {
+        "id": "link_0",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "root",
+          "to": "main",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_0",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_0",
+          "from": "v_root",
+          "to": "v_main"
+        }
+      },
+      {
+        "id": "link_1",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "root",
+          "to": "service",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_1",
+          "from": "v_root",
+          "to": "v_service"
+        }
+      },
+      {
+        "id": "role_manager",
+        "kind": "block",
+        "label": "Менеджер маркетплейса",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_role_manager",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "role_manager"
+        }
+      },
+      {
+        "id": "link_2",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "main",
+          "to": "role_manager",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_2",
+          "from": "v_main",
+          "to": "v_role_manager"
+        }
+      },
+      {
+        "id": "function_manager_register",
+        "kind": "block",
+        "label": "Зарегистрировать карточку",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_function_manager_register",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "function_manager_register"
+        }
+      },
+      {
+        "id": "link_3",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_manager",
+          "to": "function_manager_register",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_3",
+          "from": "v_role_manager",
+          "to": "v_function_manager_register"
+        }
+      },
+      {
+        "id": "function_manager_calculate",
+        "kind": "block",
+        "label": "Рассчитать цену и массу",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_function_manager_calculate",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "function_manager_calculate"
+        }
+      },
+      {
+        "id": "link_4",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_manager",
+          "to": "function_manager_calculate",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_4",
+          "from": "v_role_manager",
+          "to": "v_function_manager_calculate"
+        }
+      },
+      {
+        "id": "function_manager_revision",
+        "kind": "block",
+        "label": "Сохранить ревизию",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_function_manager_revision",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "function_manager_revision"
+        }
+      },
+      {
+        "id": "link_5",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_manager",
+          "to": "function_manager_revision",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_5",
+          "from": "v_role_manager",
+          "to": "v_function_manager_revision"
+        }
+      },
+      {
+        "id": "function_manager_publish",
+        "kind": "block",
+        "label": "Опубликовать карточку",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_function_manager_publish",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "function_manager_publish"
+        }
+      },
+      {
+        "id": "link_6",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_manager",
+          "to": "function_manager_publish",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_6",
+          "from": "v_role_manager",
+          "to": "v_function_manager_publish"
+        }
+      },
+      {
+        "id": "role_designer",
+        "kind": "block",
+        "label": "Дизайнер",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_role_designer",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "role_designer"
+        }
+      },
+      {
+        "id": "link_7",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "main",
+          "to": "role_designer",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_7",
+          "from": "v_main",
+          "to": "v_role_designer"
+        }
+      },
+      {
+        "id": "function_designer_assignment",
+        "kind": "block",
+        "label": "Открыть задание по карточке",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_function_designer_assignment",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "function_designer_assignment"
+        }
+      },
+      {
+        "id": "link_8",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_designer",
+          "to": "function_designer_assignment",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_8",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_8",
+          "from": "v_role_designer",
+          "to": "v_function_designer_assignment"
+        }
+      },
+      {
+        "id": "function_designer_image",
+        "kind": "block",
+        "label": "Выбрать изображение",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_function_designer_image",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "function_designer_image"
+        }
+      },
+      {
+        "id": "link_9",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_designer",
+          "to": "function_designer_image",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_9",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_9",
+          "from": "v_role_designer",
+          "to": "v_function_designer_image"
+        }
+      },
+      {
+        "id": "function_designer_order",
+        "kind": "block",
+        "label": "Назначить порядок изображений",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_function_designer_order",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "function_designer_order"
+        }
+      },
+      {
+        "id": "link_10",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_designer",
+          "to": "function_designer_order",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_10",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_10",
+          "from": "v_role_designer",
+          "to": "v_function_designer_order"
+        }
+      },
+      {
+        "id": "function_designer_preview",
+        "kind": "block",
+        "label": "Просмотреть результат оформления",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_function_designer_preview",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "function_designer_preview"
+        }
+      },
+      {
+        "id": "link_11",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_designer",
+          "to": "function_designer_preview",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_11",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_11",
+          "from": "v_role_designer",
+          "to": "v_function_designer_preview"
+        }
+      },
+      {
+        "id": "role_developer",
+        "kind": "block",
+        "label": "Разработчик",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_role_developer",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "role_developer"
+        }
+      },
+      {
+        "id": "link_12",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "main",
+          "to": "role_developer",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_12",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_12",
+          "from": "v_main",
+          "to": "v_role_developer"
+        }
+      },
+      {
+        "id": "function_developer_catalog",
+        "kind": "block",
+        "label": "Просмотреть каталог и предложения",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_function_developer_catalog",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "function_developer_catalog"
+        }
+      },
+      {
+        "id": "link_13",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_developer",
+          "to": "function_developer_catalog",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_13",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_13",
+          "from": "v_role_developer",
+          "to": "v_function_developer_catalog"
+        }
+      },
+      {
+        "id": "function_developer_compose",
+        "kind": "block",
+        "label": "Сформировать состав",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_function_developer_compose",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "function_developer_compose"
+        }
+      },
+      {
+        "id": "link_14",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_developer",
+          "to": "function_developer_compose",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_14",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_14",
+          "from": "v_role_developer",
+          "to": "v_function_developer_compose"
+        }
+      },
+      {
+        "id": "function_developer_check",
+        "kind": "block",
+        "label": "Проверить совместимость",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_function_developer_check",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "function_developer_check"
+        }
+      },
+      {
+        "id": "link_15",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_developer",
+          "to": "function_developer_check",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_15",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_15",
+          "from": "v_role_developer",
+          "to": "v_function_developer_check"
+        }
+      },
+      {
+        "id": "function_developer_version",
+        "kind": "block",
+        "label": "Сохранить версию состава",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_function_developer_version",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "function_developer_version"
+        }
+      },
+      {
+        "id": "link_16",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_developer",
+          "to": "function_developer_version",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_16",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_16",
+          "from": "v_role_developer",
+          "to": "v_function_developer_version"
+        }
+      },
+      {
+        "id": "role_director",
+        "kind": "block",
+        "label": "Генеральный директор",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_role_director",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "role_director"
+        }
+      },
+      {
+        "id": "link_17",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "main",
+          "to": "role_director",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_17",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_17",
+          "from": "v_main",
+          "to": "v_role_director"
+        }
+      },
+      {
+        "id": "function_director_summary",
+        "kind": "block",
+        "label": "Просмотреть сводку карточек",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_function_director_summary",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "function_director_summary"
+        }
+      },
+      {
+        "id": "link_18",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_director",
+          "to": "function_director_summary",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_18",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_18",
+          "from": "v_role_director",
+          "to": "v_function_director_summary"
+        }
+      },
+      {
+        "id": "function_director_inspect",
+        "kind": "block",
+        "label": "Проверить цену и состав",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_function_director_inspect",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "function_director_inspect"
+        }
+      },
+      {
+        "id": "link_19",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_director",
+          "to": "function_director_inspect",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_19",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_19",
+          "from": "v_role_director",
+          "to": "v_function_director_inspect"
+        }
+      },
+      {
+        "id": "function_director_approve",
+        "kind": "block",
+        "label": "Утвердить готовую ревизию",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_function_director_approve",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "function_director_approve"
+        }
+      },
+      {
+        "id": "link_20",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "role_director",
+          "to": "function_director_approve",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_20",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_20",
+          "from": "v_role_director",
+          "to": "v_function_director_approve"
+        }
+      },
+      {
+        "id": "service_0",
+        "kind": "block",
+        "label": "Вход и выход",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_service_0",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "service_0"
+        }
+      },
+      {
+        "id": "link_21",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "service",
+          "to": "service_0",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_21",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_21",
+          "from": "v_service",
+          "to": "v_service_0"
+        }
+      },
+      {
+        "id": "service_1",
+        "kind": "block",
+        "label": "Проверка прав",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_service_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "service_1"
+        }
+      },
+      {
+        "id": "link_22",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "service",
+          "to": "service_1",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_22",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_22",
+          "from": "v_service",
+          "to": "v_service_1"
+        }
+      },
+      {
+        "id": "service_2",
+        "kind": "block",
+        "label": "Проверка ввода",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_service_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "service_2"
+        }
+      },
+      {
+        "id": "link_23",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "service",
+          "to": "service_2",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_23",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_23",
+          "from": "v_service",
+          "to": "v_service_2"
+        }
+      },
+      {
+        "id": "service_3",
+        "kind": "block",
+        "label": "Справка и навигация",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_service_3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "service_3"
+        }
+      },
+      {
+        "id": "link_24",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "service",
+          "to": "service_3",
+          "kind": "association"
+        }
+      },
+      {
+        "id": "v_link_24",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "functions",
+          "element": "link_24",
+          "from": "v_service",
+          "to": "v_service_3"
+        }
+      },
+      {
+        "id": "dialog_manager",
+        "kind": "diagram",
+        "label": "Сценарий диалога — менеджер маркетплейса",
+        "properties": {
+          "type": "general"
+        }
+      },
+      {
+        "id": "login_manager",
+        "kind": "block",
+        "label": "Вход в систему\nЛогин и пароль",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_login_manager",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "login_manager"
+        }
+      },
+      {
+        "id": "menu_manager",
+        "kind": "block",
+        "label": "Главное меню\nМенеджер маркетплейса\nВыбор задачи",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_menu_manager",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "menu_manager"
+        }
+      },
+      {
+        "id": "link_25",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "login_manager",
+          "to": "menu_manager",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_25",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "link_25",
+          "from": "v_login_manager",
+          "to": "v_menu_manager"
+        }
+      },
+      {
+        "id": "dialog_manager_register",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_manager_register",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "dialog_manager_register"
+        }
+      },
+      {
+        "id": "dialog_manager_register_title",
+        "kind": "label",
+        "label": "1. Зарегистрировать карточку",
+        "properties": {
+          "text": "1. Зарегистрировать карточку"
+        }
+      },
+      {
+        "id": "v_dialog_manager_register_title",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "dialog_manager_register_title"
+        }
+      },
+      {
+        "id": "dialog_manager_register_rule",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_manager_register_rule",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "dialog_manager_register_rule"
+        }
+      },
+      {
+        "id": "dialog_manager_register_body",
+        "kind": "label",
+        "label": "1. Ввести код продавца и заголовок.\n2. Заполнить описание карточки.\n3. Подтвердить создание.\nРезультат: Черновик карточки.\nОтказ: Код занят / поля не заполнены.",
+        "properties": {
+          "text": "1. Ввести код продавца и заголовок.\n2. Заполнить описание карточки.\n3. Подтвердить создание.\nРезультат: Черновик карточки.\nОтказ: Код занят / поля не заполнены."
+        }
+      },
+      {
+        "id": "v_dialog_manager_register_body",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "dialog_manager_register_body"
+        }
+      },
+      {
+        "id": "link_26",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "menu_manager",
+          "to": "dialog_manager_register",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_26",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "link_26",
+          "from": "v_menu_manager",
+          "to": "v_dialog_manager_register"
+        }
+      },
+      {
+        "id": "dialog_manager_calculate",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_manager_calculate",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "dialog_manager_calculate"
+        }
+      },
+      {
+        "id": "dialog_manager_calculate_title",
+        "kind": "label",
+        "label": "2. Рассчитать цену и массу",
+        "properties": {
+          "text": "2. Рассчитать цену и массу"
+        }
+      },
+      {
+        "id": "v_dialog_manager_calculate_title",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "dialog_manager_calculate_title"
+        }
+      },
+      {
+        "id": "dialog_manager_calculate_rule",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_manager_calculate_rule",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "dialog_manager_calculate_rule"
+        }
+      },
+      {
+        "id": "dialog_manager_calculate_body",
+        "kind": "label",
+        "label": "1. Выбрать версию состава.\n2. Задать затраты, наценку и комиссию.\n3. Нажать «Рассчитать».\nРезультат: Цена, себестоимость и масса.\nОтказ: Ошибки состава / параметров.",
+        "properties": {
+          "text": "1. Выбрать версию состава.\n2. Задать затраты, наценку и комиссию.\n3. Нажать «Рассчитать».\nРезультат: Цена, себестоимость и масса.\nОтказ: Ошибки состава / параметров."
+        }
+      },
+      {
+        "id": "v_dialog_manager_calculate_body",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "dialog_manager_calculate_body"
+        }
+      },
+      {
+        "id": "link_27",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "menu_manager",
+          "to": "dialog_manager_calculate",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_27",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "link_27",
+          "from": "v_menu_manager",
+          "to": "v_dialog_manager_calculate"
+        }
+      },
+      {
+        "id": "dialog_manager_revision",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_manager_revision",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "dialog_manager_revision"
+        }
+      },
+      {
+        "id": "dialog_manager_revision_title",
+        "kind": "label",
+        "label": "3. Сохранить ревизию",
+        "properties": {
+          "text": "3. Сохранить ревизию"
+        }
+      },
+      {
+        "id": "v_dialog_manager_revision_title",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "dialog_manager_revision_title"
+        }
+      },
+      {
+        "id": "dialog_manager_revision_rule",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_manager_revision_rule",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "dialog_manager_revision_rule"
+        }
+      },
+      {
+        "id": "dialog_manager_revision_body",
+        "kind": "label",
+        "label": "1. Выбрать карточку и состав.\n2. Проверить содержание и расчёт.\n3. Нажать «Сохранить ревизию».\nРезультат: Новая ревизия DRAFT.\nОтказ: Неполные данные карточки.",
+        "properties": {
+          "text": "1. Выбрать карточку и состав.\n2. Проверить содержание и расчёт.\n3. Нажать «Сохранить ревизию».\nРезультат: Новая ревизия DRAFT.\nОтказ: Неполные данные карточки."
+        }
+      },
+      {
+        "id": "v_dialog_manager_revision_body",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "dialog_manager_revision_body"
+        }
+      },
+      {
+        "id": "link_28",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "menu_manager",
+          "to": "dialog_manager_revision",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_28",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "link_28",
+          "from": "v_menu_manager",
+          "to": "v_dialog_manager_revision"
+        }
+      },
+      {
+        "id": "dialog_manager_publish",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_manager_publish",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "dialog_manager_publish"
+        }
+      },
+      {
+        "id": "dialog_manager_publish_title",
+        "kind": "label",
+        "label": "4. Опубликовать карточку",
+        "properties": {
+          "text": "4. Опубликовать карточку"
+        }
+      },
+      {
+        "id": "v_dialog_manager_publish_title",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "dialog_manager_publish_title"
+        }
+      },
+      {
+        "id": "dialog_manager_publish_rule",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_manager_publish_rule",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "dialog_manager_publish_rule"
+        }
+      },
+      {
+        "id": "dialog_manager_publish_body",
+        "kind": "label",
+        "label": "1. Выбрать утверждённую ревизию READY.\n2. Подтвердить передачу на публикацию.\n3. Открыть результат попытки.\nРезультат: Состояние попытки публикации.\nОтказ: Ревизия не готова / ошибка отправки.",
+        "properties": {
+          "text": "1. Выбрать утверждённую ревизию READY.\n2. Подтвердить передачу на публикацию.\n3. Открыть результат попытки.\nРезультат: Состояние попытки публикации.\nОтказ: Ревизия не готова / ошибка отправки."
+        }
+      },
+      {
+        "id": "v_dialog_manager_publish_body",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "dialog_manager_publish_body"
+        }
+      },
+      {
+        "id": "link_29",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "menu_manager",
+          "to": "dialog_manager_publish",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_29",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_manager",
+          "element": "link_29",
+          "from": "v_menu_manager",
+          "to": "v_dialog_manager_publish"
+        }
+      },
+      {
+        "id": "dialog_designer",
+        "kind": "diagram",
+        "label": "Сценарий диалога — дизайнер",
+        "properties": {
+          "type": "general"
+        }
+      },
+      {
+        "id": "login_designer",
+        "kind": "block",
+        "label": "Вход в систему\nЛогин и пароль",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_login_designer",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "login_designer"
+        }
+      },
+      {
+        "id": "menu_designer",
+        "kind": "block",
+        "label": "Главное меню\nДизайнер\nВыбор задачи",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_menu_designer",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "menu_designer"
+        }
+      },
+      {
+        "id": "link_30",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "login_designer",
+          "to": "menu_designer",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_30",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "link_30",
+          "from": "v_login_designer",
+          "to": "v_menu_designer"
+        }
+      },
+      {
+        "id": "dialog_designer_assignment",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_designer_assignment",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "dialog_designer_assignment"
+        }
+      },
+      {
+        "id": "dialog_designer_assignment_title",
+        "kind": "label",
+        "label": "1. Открыть задание по карточке",
+        "properties": {
+          "text": "1. Открыть задание по карточке"
+        }
+      },
+      {
+        "id": "v_dialog_designer_assignment_title",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "dialog_designer_assignment_title"
+        }
+      },
+      {
+        "id": "dialog_designer_assignment_rule",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_designer_assignment_rule",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "dialog_designer_assignment_rule"
+        }
+      },
+      {
+        "id": "dialog_designer_assignment_body",
+        "kind": "label",
+        "label": "1. Выбрать карточку и ревизию.\n2. Открыть описание и изображения.\n3. Просмотреть задание.\nРезультат: Содержание выбранной ревизии.\nОтказ: Карточка не выбрана.",
+        "properties": {
+          "text": "1. Выбрать карточку и ревизию.\n2. Открыть описание и изображения.\n3. Просмотреть задание.\nРезультат: Содержание выбранной ревизии.\nОтказ: Карточка не выбрана."
+        }
+      },
+      {
+        "id": "v_dialog_designer_assignment_body",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "dialog_designer_assignment_body"
+        }
+      },
+      {
+        "id": "link_31",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "menu_designer",
+          "to": "dialog_designer_assignment",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_31",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "link_31",
+          "from": "v_menu_designer",
+          "to": "v_dialog_designer_assignment"
+        }
+      },
+      {
+        "id": "dialog_designer_image",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_designer_image",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "dialog_designer_image"
+        }
+      },
+      {
+        "id": "dialog_designer_image_title",
+        "kind": "label",
+        "label": "2. Выбрать изображение",
+        "properties": {
+          "text": "2. Выбрать изображение"
+        }
+      },
+      {
+        "id": "v_dialog_designer_image_title",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "dialog_designer_image_title"
+        }
+      },
+      {
+        "id": "dialog_designer_image_rule",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_designer_image_rule",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "dialog_designer_image_rule"
+        }
+      },
+      {
+        "id": "dialog_designer_image_body",
+        "kind": "label",
+        "label": "1. Открыть список изображений.\n2. Выбрать файл.\n3. Просмотреть изображение.\nРезультат: Предварительный просмотр.\nОтказ: Изображение недоступно.",
+        "properties": {
+          "text": "1. Открыть список изображений.\n2. Выбрать файл.\n3. Просмотреть изображение.\nРезультат: Предварительный просмотр.\nОтказ: Изображение недоступно."
+        }
+      },
+      {
+        "id": "v_dialog_designer_image_body",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "dialog_designer_image_body"
+        }
+      },
+      {
+        "id": "link_32",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "menu_designer",
+          "to": "dialog_designer_image",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_32",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "link_32",
+          "from": "v_menu_designer",
+          "to": "v_dialog_designer_image"
+        }
+      },
+      {
+        "id": "dialog_designer_order",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_designer_order",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "dialog_designer_order"
+        }
+      },
+      {
+        "id": "dialog_designer_order_title",
+        "kind": "label",
+        "label": "3. Назначить порядок изображений",
+        "properties": {
+          "text": "3. Назначить порядок изображений"
+        }
+      },
+      {
+        "id": "v_dialog_designer_order_title",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "dialog_designer_order_title"
+        }
+      },
+      {
+        "id": "dialog_designer_order_rule",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_designer_order_rule",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "dialog_designer_order_rule"
+        }
+      },
+      {
+        "id": "dialog_designer_order_body",
+        "kind": "label",
+        "label": "1. Выбрать изображение ревизии.\n2. Ввести порядковый номер.\n3. Нажать «Сохранить порядок».\nРезультат: Сохранённый порядок показа.\nОтказ: Номер занят / номер меньше 1.",
+        "properties": {
+          "text": "1. Выбрать изображение ревизии.\n2. Ввести порядковый номер.\n3. Нажать «Сохранить порядок».\nРезультат: Сохранённый порядок показа.\nОтказ: Номер занят / номер меньше 1."
+        }
+      },
+      {
+        "id": "v_dialog_designer_order_body",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "dialog_designer_order_body"
+        }
+      },
+      {
+        "id": "link_33",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "menu_designer",
+          "to": "dialog_designer_order",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_33",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "link_33",
+          "from": "v_menu_designer",
+          "to": "v_dialog_designer_order"
+        }
+      },
+      {
+        "id": "dialog_designer_preview",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_designer_preview",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "dialog_designer_preview"
+        }
+      },
+      {
+        "id": "dialog_designer_preview_title",
+        "kind": "label",
+        "label": "4. Просмотреть результат оформления",
+        "properties": {
+          "text": "4. Просмотреть результат оформления"
+        }
+      },
+      {
+        "id": "v_dialog_designer_preview_title",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "dialog_designer_preview_title"
+        }
+      },
+      {
+        "id": "dialog_designer_preview_rule",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_designer_preview_rule",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "dialog_designer_preview_rule"
+        }
+      },
+      {
+        "id": "dialog_designer_preview_body",
+        "kind": "label",
+        "label": "1. Выбрать ревизию карточки.\n2. Открыть предварительный просмотр.\n3. Проверить текст и изображения.\nРезультат: Карточка в заданном оформлении.\nОтказ: Не выбрана ревизия карточки.",
+        "properties": {
+          "text": "1. Выбрать ревизию карточки.\n2. Открыть предварительный просмотр.\n3. Проверить текст и изображения.\nРезультат: Карточка в заданном оформлении.\nОтказ: Не выбрана ревизия карточки."
+        }
+      },
+      {
+        "id": "v_dialog_designer_preview_body",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "dialog_designer_preview_body"
+        }
+      },
+      {
+        "id": "link_34",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "menu_designer",
+          "to": "dialog_designer_preview",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_34",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_designer",
+          "element": "link_34",
+          "from": "v_menu_designer",
+          "to": "v_dialog_designer_preview"
+        }
+      },
+      {
+        "id": "dialog_developer",
+        "kind": "diagram",
+        "label": "Сценарий диалога — разработчик",
+        "properties": {
+          "type": "general"
+        }
+      },
+      {
+        "id": "login_developer",
+        "kind": "block",
+        "label": "Вход в систему\nЛогин и пароль",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_login_developer",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "login_developer"
+        }
+      },
+      {
+        "id": "menu_developer",
+        "kind": "block",
+        "label": "Главное меню\nРазработчик\nВыбор задачи",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_menu_developer",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "menu_developer"
+        }
+      },
+      {
+        "id": "link_35",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "login_developer",
+          "to": "menu_developer",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_35",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "link_35",
+          "from": "v_login_developer",
+          "to": "v_menu_developer"
+        }
+      },
+      {
+        "id": "dialog_developer_catalog",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_developer_catalog",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "dialog_developer_catalog"
+        }
+      },
+      {
+        "id": "dialog_developer_catalog_title",
+        "kind": "label",
+        "label": "1. Просмотреть каталог и предложения",
+        "properties": {
+          "text": "1. Просмотреть каталог и предложения"
+        }
+      },
+      {
+        "id": "v_dialog_developer_catalog_title",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "dialog_developer_catalog_title"
+        }
+      },
+      {
+        "id": "dialog_developer_catalog_rule",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_developer_catalog_rule",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "dialog_developer_catalog_rule"
+        }
+      },
+      {
+        "id": "dialog_developer_catalog_body",
+        "kind": "label",
+        "label": "1. Выбрать группу и поставщика.\n2. Просмотреть цены и остатки.\n3. Выбрать компонент для состава.\nРезультат: Выбранный компонент / предложение.\nОтказ: Нет подходящего предложения.",
+        "properties": {
+          "text": "1. Выбрать группу и поставщика.\n2. Просмотреть цены и остатки.\n3. Выбрать компонент для состава.\nРезультат: Выбранный компонент / предложение.\nОтказ: Нет подходящего предложения."
+        }
+      },
+      {
+        "id": "v_dialog_developer_catalog_body",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "dialog_developer_catalog_body"
+        }
+      },
+      {
+        "id": "link_36",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "menu_developer",
+          "to": "dialog_developer_catalog",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_36",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "link_36",
+          "from": "v_menu_developer",
+          "to": "v_dialog_developer_catalog"
+        }
+      },
+      {
+        "id": "dialog_developer_compose",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_developer_compose",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "dialog_developer_compose"
+        }
+      },
+      {
+        "id": "dialog_developer_compose_title",
+        "kind": "label",
+        "label": "2. Сформировать состав",
+        "properties": {
+          "text": "2. Сформировать состав"
+        }
+      },
+      {
+        "id": "v_dialog_developer_compose_title",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "dialog_developer_compose_title"
+        }
+      },
+      {
+        "id": "dialog_developer_compose_rule",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_developer_compose_rule",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "dialog_developer_compose_rule"
+        }
+      },
+      {
+        "id": "dialog_developer_compose_body",
+        "kind": "label",
+        "label": "1. Выбрать конфигурацию.\n2. Добавить позиции и количества.\n3. Указать предложения.\nРезультат: Рабочий состав конфигурации.\nОтказ: Неверное количество / пустая позиция.",
+        "properties": {
+          "text": "1. Выбрать конфигурацию.\n2. Добавить позиции и количества.\n3. Указать предложения.\nРезультат: Рабочий состав конфигурации.\nОтказ: Неверное количество / пустая позиция."
+        }
+      },
+      {
+        "id": "v_dialog_developer_compose_body",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "dialog_developer_compose_body"
+        }
+      },
+      {
+        "id": "link_37",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "menu_developer",
+          "to": "dialog_developer_compose",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_37",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "link_37",
+          "from": "v_menu_developer",
+          "to": "v_dialog_developer_compose"
+        }
+      },
+      {
+        "id": "dialog_developer_check",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_developer_check",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "dialog_developer_check"
+        }
+      },
+      {
+        "id": "dialog_developer_check_title",
+        "kind": "label",
+        "label": "3. Проверить совместимость",
+        "properties": {
+          "text": "3. Проверить совместимость"
+        }
+      },
+      {
+        "id": "v_dialog_developer_check_title",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "dialog_developer_check_title"
+        }
+      },
+      {
+        "id": "dialog_developer_check_rule",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_developer_check_rule",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "dialog_developer_check_rule"
+        }
+      },
+      {
+        "id": "dialog_developer_check_body",
+        "kind": "label",
+        "label": "1. Открыть выбранный состав.\n2. Нажать «Проверить состав».\n3. Просмотреть результат проверки.\nРезультат: Совместимость подтверждена.\nОтказ: Перечень несовместимых позиций.",
+        "properties": {
+          "text": "1. Открыть выбранный состав.\n2. Нажать «Проверить состав».\n3. Просмотреть результат проверки.\nРезультат: Совместимость подтверждена.\nОтказ: Перечень несовместимых позиций."
+        }
+      },
+      {
+        "id": "v_dialog_developer_check_body",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "dialog_developer_check_body"
+        }
+      },
+      {
+        "id": "link_38",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "menu_developer",
+          "to": "dialog_developer_check",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_38",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "link_38",
+          "from": "v_menu_developer",
+          "to": "v_dialog_developer_check"
+        }
+      },
+      {
+        "id": "dialog_developer_version",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_developer_version",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "dialog_developer_version"
+        }
+      },
+      {
+        "id": "dialog_developer_version_title",
+        "kind": "label",
+        "label": "4. Сохранить версию состава",
+        "properties": {
+          "text": "4. Сохранить версию состава"
+        }
+      },
+      {
+        "id": "v_dialog_developer_version_title",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "dialog_developer_version_title"
+        }
+      },
+      {
+        "id": "dialog_developer_version_rule",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_developer_version_rule",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "dialog_developer_version_rule"
+        }
+      },
+      {
+        "id": "dialog_developer_version_body",
+        "kind": "label",
+        "label": "1. Выбрать проверенный состав.\n2. Подтвердить сохранение.\n3. Просмотреть номер новой версии.\nРезультат: Новая версия состава.\nОтказ: Состав не прошёл проверку.",
+        "properties": {
+          "text": "1. Выбрать проверенный состав.\n2. Подтвердить сохранение.\n3. Просмотреть номер новой версии.\nРезультат: Новая версия состава.\nОтказ: Состав не прошёл проверку."
+        }
+      },
+      {
+        "id": "v_dialog_developer_version_body",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "dialog_developer_version_body"
+        }
+      },
+      {
+        "id": "link_39",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "menu_developer",
+          "to": "dialog_developer_version",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_39",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_developer",
+          "element": "link_39",
+          "from": "v_menu_developer",
+          "to": "v_dialog_developer_version"
+        }
+      },
+      {
+        "id": "dialog_director",
+        "kind": "diagram",
+        "label": "Сценарий диалога — генеральный директор",
+        "properties": {
+          "type": "general"
+        }
+      },
+      {
+        "id": "login_director",
+        "kind": "block",
+        "label": "Вход в систему\nЛогин и пароль",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_login_director",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_director",
+          "element": "login_director"
+        }
+      },
+      {
+        "id": "menu_director",
+        "kind": "block",
+        "label": "Главное меню\nГенеральный директор\nВыбор задачи",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_menu_director",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_director",
+          "element": "menu_director"
+        }
+      },
+      {
+        "id": "link_40",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "login_director",
+          "to": "menu_director",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_40",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_director",
+          "element": "link_40",
+          "from": "v_login_director",
+          "to": "v_menu_director"
+        }
+      },
+      {
+        "id": "dialog_director_summary",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_director_summary",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_director",
+          "element": "dialog_director_summary"
+        }
+      },
+      {
+        "id": "dialog_director_summary_title",
+        "kind": "label",
+        "label": "1. Просмотреть сводку карточек",
+        "properties": {
+          "text": "1. Просмотреть сводку карточек"
+        }
+      },
+      {
+        "id": "v_dialog_director_summary_title",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_director",
+          "element": "dialog_director_summary_title"
+        }
+      },
+      {
+        "id": "dialog_director_summary_rule",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_director_summary_rule",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_director",
+          "element": "dialog_director_summary_rule"
+        }
+      },
+      {
+        "id": "dialog_director_summary_body",
+        "kind": "label",
+        "label": "1. Открыть список карточек.\n2. Задать фильтр по состоянию.\n3. Выбрать карточку из результата.\nРезультат: Сводка по выбранному состоянию.\nОтказ: Нет карточек по фильтру.",
+        "properties": {
+          "text": "1. Открыть список карточек.\n2. Задать фильтр по состоянию.\n3. Выбрать карточку из результата.\nРезультат: Сводка по выбранному состоянию.\nОтказ: Нет карточек по фильтру."
+        }
+      },
+      {
+        "id": "v_dialog_director_summary_body",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_director",
+          "element": "dialog_director_summary_body"
+        }
+      },
+      {
+        "id": "link_41",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "menu_director",
+          "to": "dialog_director_summary",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_41",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_director",
+          "element": "link_41",
+          "from": "v_menu_director",
+          "to": "v_dialog_director_summary"
+        }
+      },
+      {
+        "id": "dialog_director_inspect",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_director_inspect",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_director",
+          "element": "dialog_director_inspect"
+        }
+      },
+      {
+        "id": "dialog_director_inspect_title",
+        "kind": "label",
+        "label": "2. Проверить цену и состав",
+        "properties": {
+          "text": "2. Проверить цену и состав"
+        }
+      },
+      {
+        "id": "v_dialog_director_inspect_title",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_director",
+          "element": "dialog_director_inspect_title"
+        }
+      },
+      {
+        "id": "dialog_director_inspect_rule",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_director_inspect_rule",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_director",
+          "element": "dialog_director_inspect_rule"
+        }
+      },
+      {
+        "id": "dialog_director_inspect_body",
+        "kind": "label",
+        "label": "1. Выбрать карточку и ревизию.\n2. Открыть состав и расчёт.\n3. Проверить цену и готовность.\nРезультат: Состав и показатели ревизии.\nОтказ: Недостаточно данных для проверки.",
+        "properties": {
+          "text": "1. Выбрать карточку и ревизию.\n2. Открыть состав и расчёт.\n3. Проверить цену и готовность.\nРезультат: Состав и показатели ревизии.\nОтказ: Недостаточно данных для проверки."
+        }
+      },
+      {
+        "id": "v_dialog_director_inspect_body",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_director",
+          "element": "dialog_director_inspect_body"
+        }
+      },
+      {
+        "id": "link_42",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "menu_director",
+          "to": "dialog_director_inspect",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_42",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_director",
+          "element": "link_42",
+          "from": "v_menu_director",
+          "to": "v_dialog_director_inspect"
+        }
+      },
+      {
+        "id": "dialog_director_approve",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_director_approve",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_director",
+          "element": "dialog_director_approve"
+        }
+      },
+      {
+        "id": "dialog_director_approve_title",
+        "kind": "label",
+        "label": "3. Утвердить готовую ревизию",
+        "properties": {
+          "text": "3. Утвердить готовую ревизию"
+        }
+      },
+      {
+        "id": "v_dialog_director_approve_title",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_director",
+          "element": "dialog_director_approve_title"
+        }
+      },
+      {
+        "id": "dialog_director_approve_rule",
+        "kind": "block",
+        "label": "",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_dialog_director_approve_rule",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_director",
+          "element": "dialog_director_approve_rule"
+        }
+      },
+      {
+        "id": "dialog_director_approve_body",
+        "kind": "label",
+        "label": "1. Открыть ревизию DRAFT.\n2. Проверить содержание и изображения.\n3. Утвердить или вернуть на доработку.\nРезультат: READY после успешной проверки.\nОтказ: Ревизия остаётся DRAFT.",
+        "properties": {
+          "text": "1. Открыть ревизию DRAFT.\n2. Проверить содержание и изображения.\n3. Утвердить или вернуть на доработку.\nРезультат: READY после успешной проверки.\nОтказ: Ревизия остаётся DRAFT."
+        }
+      },
+      {
+        "id": "v_dialog_director_approve_body",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_director",
+          "element": "dialog_director_approve_body"
+        }
+      },
+      {
+        "id": "link_43",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "menu_director",
+          "to": "dialog_director_approve",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_43",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "dialog_director",
+          "element": "link_43",
+          "from": "v_menu_director",
+          "to": "v_dialog_director_approve"
+        }
+      },
+      {
+        "id": "structure",
+        "kind": "diagram",
+        "label": "Структурная схема клиентской части",
+        "properties": {
+          "type": "general"
+        }
+      },
+      {
+        "id": "client_title",
+        "kind": "label",
+        "label": "Клиентская часть",
+        "properties": {
+          "text": "Клиентская часть"
+        }
+      },
+      {
+        "id": "v_client_title",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "client_title"
+        }
+      },
+      {
+        "id": "visual_title",
+        "kind": "label",
+        "label": "Визуальные модули",
+        "properties": {
+          "text": "Визуальные модули"
+        }
+      },
+      {
+        "id": "v_visual_title",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "visual_title"
+        }
+      },
+      {
+        "id": "logic_title",
+        "kind": "label",
+        "label": "Невизуальные модули",
+        "properties": {
+          "text": "Невизуальные модули"
+        }
+      },
+      {
+        "id": "v_logic_title",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "logic_title"
+        }
+      },
+      {
+        "id": "auth",
+        "kind": "block",
+        "label": "Форма входа",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_auth",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "auth"
+        }
+      },
+      {
+        "id": "navigation",
+        "kind": "block",
+        "label": "Главное меню и навигация",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_navigation",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "navigation"
+        }
+      },
+      {
+        "id": "forms",
+        "kind": "block",
+        "label": "Представления ролей:\nменеджер маркетплейса;\nдизайнер; разработчик;\nгенеральный директор",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_forms",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "forms"
+        }
+      },
+      {
+        "id": "session",
+        "kind": "block",
+        "label": "Сеанс и проверка прав",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_session",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "session"
+        }
+      },
+      {
+        "id": "validation",
+        "kind": "block",
+        "label": "Проверка ввода\nи сообщения об ошибках",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_validation",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "validation"
+        }
+      },
+      {
+        "id": "commands",
+        "kind": "block",
+        "label": "Обработчики команд\nи обновление представлений",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_commands",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "commands"
+        }
+      },
+      {
+        "id": "application",
+        "kind": "block",
+        "label": "Прикладной сервис:\nсостав, расчёт, карточки,\nизображения и публикация",
+        "properties": {
+          "shape": "rectangle",
+          "role": "generic"
+        }
+      },
+      {
+        "id": "v_application",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "application"
+        }
+      },
+      {
+        "id": "link_44",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "auth",
+          "to": "session",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_44",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "link_44",
+          "from": "v_auth",
+          "to": "v_session"
+        }
+      },
+      {
+        "id": "link_45",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "auth",
+          "to": "navigation",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_45",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "link_45",
+          "from": "v_auth",
+          "to": "v_navigation"
+        }
+      },
+      {
+        "id": "link_46",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "navigation",
+          "to": "forms",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_46",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "link_46",
+          "from": "v_navigation",
+          "to": "v_forms"
+        }
+      },
+      {
+        "id": "link_47",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "forms",
+          "to": "validation",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_47",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "link_47",
+          "from": "v_forms",
+          "to": "v_validation"
+        }
+      },
+      {
+        "id": "link_48",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "validation",
+          "to": "commands",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_48",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "link_48",
+          "from": "v_validation",
+          "to": "v_commands"
+        }
+      },
+      {
+        "id": "link_49",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "commands",
+          "to": "application",
+          "kind": "bidirectional"
+        }
+      },
+      {
+        "id": "v_link_49",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "link_49",
+          "from": "v_commands",
+          "to": "v_application"
+        }
+      },
+      {
+        "id": "link_50",
+        "kind": "link",
+        "label": "",
+        "properties": {
+          "from": "commands",
+          "to": "forms",
+          "kind": "directed"
+        }
+      },
+      {
+        "id": "v_link_50",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "link_50",
+          "from": "v_commands",
+          "to": "v_forms"
+        }
+      },
+      {
+        "id": "result_label",
+        "kind": "label",
+        "label": "Результаты",
+        "properties": {
+          "text": "Результаты"
+        }
+      },
+      {
+        "id": "v_result_label",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "structure",
+          "element": "result_label"
+        }
+      }
+    ]
+  },
+  "source": "scheme pr10_client \"Функции и диалоги клиентской части\"\ndiagram functions \"Дерево основных и служебных функций\" type=general\nblock root \"Функции клиентской части\" role=generic shape=rectangle\nview v_root \"\" diagram=functions element=root\nblock main \"Основные функции\" role=generic shape=rectangle\nview v_main \"\" diagram=functions element=main\nblock service \"Служебные функции\" role=generic shape=rectangle\nview v_service \"\" diagram=functions element=service\nlink link_0 \"\" from=root kind=association to=main\nview v_link_0 \"\" diagram=functions element=link_0 from=v_root to=v_main\nlink link_1 \"\" from=root kind=association to=service\nview v_link_1 \"\" diagram=functions element=link_1 from=v_root to=v_service\nblock role_manager \"Менеджер маркетплейса\" role=generic shape=rectangle\nview v_role_manager \"\" diagram=functions element=role_manager\nlink link_2 \"\" from=main kind=association to=role_manager\nview v_link_2 \"\" diagram=functions element=link_2 from=v_main to=v_role_manager\nblock function_manager_register \"Зарегистрировать карточку\" role=generic shape=rectangle\nview v_function_manager_register \"\" diagram=functions element=function_manager_register\nlink link_3 \"\" from=role_manager kind=association to=function_manager_register\nview v_link_3 \"\" diagram=functions element=link_3 from=v_role_manager to=v_function_manager_register\nblock function_manager_calculate \"Рассчитать цену и массу\" role=generic shape=rectangle\nview v_function_manager_calculate \"\" diagram=functions element=function_manager_calculate\nlink link_4 \"\" from=role_manager kind=association to=function_manager_calculate\nview v_link_4 \"\" diagram=functions element=link_4 from=v_role_manager to=v_function_manager_calculate\nblock function_manager_revision \"Сохранить ревизию\" role=generic shape=rectangle\nview v_function_manager_revision \"\" diagram=functions element=function_manager_revision\nlink link_5 \"\" from=role_manager kind=association to=function_manager_revision\nview v_link_5 \"\" diagram=functions element=link_5 from=v_role_manager to=v_function_manager_revision\nblock function_manager_publish \"Опубликовать карточку\" role=generic shape=rectangle\nview v_function_manager_publish \"\" diagram=functions element=function_manager_publish\nlink link_6 \"\" from=role_manager kind=association to=function_manager_publish\nview v_link_6 \"\" diagram=functions element=link_6 from=v_role_manager to=v_function_manager_publish\nblock role_designer Дизайнер role=generic shape=rectangle\nview v_role_designer \"\" diagram=functions element=role_designer\nlink link_7 \"\" from=main kind=association to=role_designer\nview v_link_7 \"\" diagram=functions element=link_7 from=v_main to=v_role_designer\nblock function_designer_assignment \"Открыть задание по карточке\" role=generic shape=rectangle\nview v_function_designer_assignment \"\" diagram=functions element=function_designer_assignment\nlink link_8 \"\" from=role_designer kind=association to=function_designer_assignment\nview v_link_8 \"\" diagram=functions element=link_8 from=v_role_designer to=v_function_designer_assignment\nblock function_designer_image \"Выбрать изображение\" role=generic shape=rectangle\nview v_function_designer_image \"\" diagram=functions element=function_designer_image\nlink link_9 \"\" from=role_designer kind=association to=function_designer_image\nview v_link_9 \"\" diagram=functions element=link_9 from=v_role_designer to=v_function_designer_image\nblock function_designer_order \"Назначить порядок изображений\" role=generic shape=rectangle\nview v_function_designer_order \"\" diagram=functions element=function_designer_order\nlink link_10 \"\" from=role_designer kind=association to=function_designer_order\nview v_link_10 \"\" diagram=functions element=link_10 from=v_role_designer to=v_function_designer_order\nblock function_designer_preview \"Просмотреть результат оформления\" role=generic shape=rectangle\nview v_function_designer_preview \"\" diagram=functions element=function_designer_preview\nlink link_11 \"\" from=role_designer kind=association to=function_designer_preview\nview v_link_11 \"\" diagram=functions element=link_11 from=v_role_designer to=v_function_designer_preview\nblock role_developer Разработчик role=generic shape=rectangle\nview v_role_developer \"\" diagram=functions element=role_developer\nlink link_12 \"\" from=main kind=association to=role_developer\nview v_link_12 \"\" diagram=functions element=link_12 from=v_main to=v_role_developer\nblock function_developer_catalog \"Просмотреть каталог и предложения\" role=generic shape=rectangle\nview v_function_developer_catalog \"\" diagram=functions element=function_developer_catalog\nlink link_13 \"\" from=role_developer kind=association to=function_developer_catalog\nview v_link_13 \"\" diagram=functions element=link_13 from=v_role_developer to=v_function_developer_catalog\nblock function_developer_compose \"Сформировать состав\" role=generic shape=rectangle\nview v_function_developer_compose \"\" diagram=functions element=function_developer_compose\nlink link_14 \"\" from=role_developer kind=association to=function_developer_compose\nview v_link_14 \"\" diagram=functions element=link_14 from=v_role_developer to=v_function_developer_compose\nblock function_developer_check \"Проверить совместимость\" role=generic shape=rectangle\nview v_function_developer_check \"\" diagram=functions element=function_developer_check\nlink link_15 \"\" from=role_developer kind=association to=function_developer_check\nview v_link_15 \"\" diagram=functions element=link_15 from=v_role_developer to=v_function_developer_check\nblock function_developer_version \"Сохранить версию состава\" role=generic shape=rectangle\nview v_function_developer_version \"\" diagram=functions element=function_developer_version\nlink link_16 \"\" from=role_developer kind=association to=function_developer_version\nview v_link_16 \"\" diagram=functions element=link_16 from=v_role_developer to=v_function_developer_version\nblock role_director \"Генеральный директор\" role=generic shape=rectangle\nview v_role_director \"\" diagram=functions element=role_director\nlink link_17 \"\" from=main kind=association to=role_director\nview v_link_17 \"\" diagram=functions element=link_17 from=v_main to=v_role_director\nblock function_director_summary \"Просмотреть сводку карточек\" role=generic shape=rectangle\nview v_function_director_summary \"\" diagram=functions element=function_director_summary\nlink link_18 \"\" from=role_director kind=association to=function_director_summary\nview v_link_18 \"\" diagram=functions element=link_18 from=v_role_director to=v_function_director_summary\nblock function_director_inspect \"Проверить цену и состав\" role=generic shape=rectangle\nview v_function_director_inspect \"\" diagram=functions element=function_director_inspect\nlink link_19 \"\" from=role_director kind=association to=function_director_inspect\nview v_link_19 \"\" diagram=functions element=link_19 from=v_role_director to=v_function_director_inspect\nblock function_director_approve \"Утвердить готовую ревизию\" role=generic shape=rectangle\nview v_function_director_approve \"\" diagram=functions element=function_director_approve\nlink link_20 \"\" from=role_director kind=association to=function_director_approve\nview v_link_20 \"\" diagram=functions element=link_20 from=v_role_director to=v_function_director_approve\nblock service_0 \"Вход и выход\" role=generic shape=rectangle\nview v_service_0 \"\" diagram=functions element=service_0\nlink link_21 \"\" from=service kind=association to=service_0\nview v_link_21 \"\" diagram=functions element=link_21 from=v_service to=v_service_0\nblock service_1 \"Проверка прав\" role=generic shape=rectangle\nview v_service_1 \"\" diagram=functions element=service_1\nlink link_22 \"\" from=service kind=association to=service_1\nview v_link_22 \"\" diagram=functions element=link_22 from=v_service to=v_service_1\nblock service_2 \"Проверка ввода\" role=generic shape=rectangle\nview v_service_2 \"\" diagram=functions element=service_2\nlink link_23 \"\" from=service kind=association to=service_2\nview v_link_23 \"\" diagram=functions element=link_23 from=v_service to=v_service_2\nblock service_3 \"Справка и навигация\" role=generic shape=rectangle\nview v_service_3 \"\" diagram=functions element=service_3\nlink link_24 \"\" from=service kind=association to=service_3\nview v_link_24 \"\" diagram=functions element=link_24 from=v_service to=v_service_3\ndiagram dialog_manager \"Сценарий диалога — менеджер маркетплейса\" type=general\nblock login_manager \"Вход в систему\\nЛогин и пароль\" role=generic shape=rectangle\nview v_login_manager \"\" diagram=dialog_manager element=login_manager\nblock menu_manager \"Главное меню\\nМенеджер маркетплейса\\nВыбор задачи\" role=generic shape=rectangle\nview v_menu_manager \"\" diagram=dialog_manager element=menu_manager\nlink link_25 \"\" from=login_manager kind=directed to=menu_manager\nview v_link_25 \"\" diagram=dialog_manager element=link_25 from=v_login_manager to=v_menu_manager\nblock dialog_manager_register \"\" role=generic shape=rectangle\nview v_dialog_manager_register \"\" diagram=dialog_manager element=dialog_manager_register\nlabel dialog_manager_register_title \"1. Зарегистрировать карточку\" text=\"1. Зарегистрировать карточку\"\nview v_dialog_manager_register_title \"\" diagram=dialog_manager element=dialog_manager_register_title\nblock dialog_manager_register_rule \"\" role=generic shape=rectangle\nview v_dialog_manager_register_rule \"\" diagram=dialog_manager element=dialog_manager_register_rule\nlabel dialog_manager_register_body \"1. Ввести код продавца и заголовок.\\n2. Заполнить описание карточки.\\n3. Подтвердить создание.\\nРезультат: Черновик карточки.\\nОтказ: Код занят / поля не заполнены.\" text=\"1. Ввести код продавца и заголовок.\\n2. Заполнить описание карточки.\\n3. Подтвердить создание.\\nРезультат: Черновик карточки.\\nОтказ: Код занят / поля не заполнены.\"\nview v_dialog_manager_register_body \"\" diagram=dialog_manager element=dialog_manager_register_body\nlink link_26 \"\" from=menu_manager kind=directed to=dialog_manager_register\nview v_link_26 \"\" diagram=dialog_manager element=link_26 from=v_menu_manager to=v_dialog_manager_register\nblock dialog_manager_calculate \"\" role=generic shape=rectangle\nview v_dialog_manager_calculate \"\" diagram=dialog_manager element=dialog_manager_calculate\nlabel dialog_manager_calculate_title \"2. Рассчитать цену и массу\" text=\"2. Рассчитать цену и массу\"\nview v_dialog_manager_calculate_title \"\" diagram=dialog_manager element=dialog_manager_calculate_title\nblock dialog_manager_calculate_rule \"\" role=generic shape=rectangle\nview v_dialog_manager_calculate_rule \"\" diagram=dialog_manager element=dialog_manager_calculate_rule\nlabel dialog_manager_calculate_body \"1. Выбрать версию состава.\\n2. Задать затраты, наценку и комиссию.\\n3. Нажать «Рассчитать».\\nРезультат: Цена, себестоимость и масса.\\nОтказ: Ошибки состава / параметров.\" text=\"1. Выбрать версию состава.\\n2. Задать затраты, наценку и комиссию.\\n3. Нажать «Рассчитать».\\nРезультат: Цена, себестоимость и масса.\\nОтказ: Ошибки состава / параметров.\"\nview v_dialog_manager_calculate_body \"\" diagram=dialog_manager element=dialog_manager_calculate_body\nlink link_27 \"\" from=menu_manager kind=directed to=dialog_manager_calculate\nview v_link_27 \"\" diagram=dialog_manager element=link_27 from=v_menu_manager to=v_dialog_manager_calculate\nblock dialog_manager_revision \"\" role=generic shape=rectangle\nview v_dialog_manager_revision \"\" diagram=dialog_manager element=dialog_manager_revision\nlabel dialog_manager_revision_title \"3. Сохранить ревизию\" text=\"3. Сохранить ревизию\"\nview v_dialog_manager_revision_title \"\" diagram=dialog_manager element=dialog_manager_revision_title\nblock dialog_manager_revision_rule \"\" role=generic shape=rectangle\nview v_dialog_manager_revision_rule \"\" diagram=dialog_manager element=dialog_manager_revision_rule\nlabel dialog_manager_revision_body \"1. Выбрать карточку и состав.\\n2. Проверить содержание и расчёт.\\n3. Нажать «Сохранить ревизию».\\nРезультат: Новая ревизия DRAFT.\\nОтказ: Неполные данные карточки.\" text=\"1. Выбрать карточку и состав.\\n2. Проверить содержание и расчёт.\\n3. Нажать «Сохранить ревизию».\\nРезультат: Новая ревизия DRAFT.\\nОтказ: Неполные данные карточки.\"\nview v_dialog_manager_revision_body \"\" diagram=dialog_manager element=dialog_manager_revision_body\nlink link_28 \"\" from=menu_manager kind=directed to=dialog_manager_revision\nview v_link_28 \"\" diagram=dialog_manager element=link_28 from=v_menu_manager to=v_dialog_manager_revision\nblock dialog_manager_publish \"\" role=generic shape=rectangle\nview v_dialog_manager_publish \"\" diagram=dialog_manager element=dialog_manager_publish\nlabel dialog_manager_publish_title \"4. Опубликовать карточку\" text=\"4. Опубликовать карточку\"\nview v_dialog_manager_publish_title \"\" diagram=dialog_manager element=dialog_manager_publish_title\nblock dialog_manager_publish_rule \"\" role=generic shape=rectangle\nview v_dialog_manager_publish_rule \"\" diagram=dialog_manager element=dialog_manager_publish_rule\nlabel dialog_manager_publish_body \"1. Выбрать утверждённую ревизию READY.\\n2. Подтвердить передачу на публикацию.\\n3. Открыть результат попытки.\\nРезультат: Состояние попытки публикации.\\nОтказ: Ревизия не готова / ошибка отправки.\" text=\"1. Выбрать утверждённую ревизию READY.\\n2. Подтвердить передачу на публикацию.\\n3. Открыть результат попытки.\\nРезультат: Состояние попытки публикации.\\nОтказ: Ревизия не готова / ошибка отправки.\"\nview v_dialog_manager_publish_body \"\" diagram=dialog_manager element=dialog_manager_publish_body\nlink link_29 \"\" from=menu_manager kind=directed to=dialog_manager_publish\nview v_link_29 \"\" diagram=dialog_manager element=link_29 from=v_menu_manager to=v_dialog_manager_publish\ndiagram dialog_designer \"Сценарий диалога — дизайнер\" type=general\nblock login_designer \"Вход в систему\\nЛогин и пароль\" role=generic shape=rectangle\nview v_login_designer \"\" diagram=dialog_designer element=login_designer\nblock menu_designer \"Главное меню\\nДизайнер\\nВыбор задачи\" role=generic shape=rectangle\nview v_menu_designer \"\" diagram=dialog_designer element=menu_designer\nlink link_30 \"\" from=login_designer kind=directed to=menu_designer\nview v_link_30 \"\" diagram=dialog_designer element=link_30 from=v_login_designer to=v_menu_designer\nblock dialog_designer_assignment \"\" role=generic shape=rectangle\nview v_dialog_designer_assignment \"\" diagram=dialog_designer element=dialog_designer_assignment\nlabel dialog_designer_assignment_title \"1. Открыть задание по карточке\" text=\"1. Открыть задание по карточке\"\nview v_dialog_designer_assignment_title \"\" diagram=dialog_designer element=dialog_designer_assignment_title\nblock dialog_designer_assignment_rule \"\" role=generic shape=rectangle\nview v_dialog_designer_assignment_rule \"\" diagram=dialog_designer element=dialog_designer_assignment_rule\nlabel dialog_designer_assignment_body \"1. Выбрать карточку и ревизию.\\n2. Открыть описание и изображения.\\n3. Просмотреть задание.\\nРезультат: Содержание выбранной ревизии.\\nОтказ: Карточка не выбрана.\" text=\"1. Выбрать карточку и ревизию.\\n2. Открыть описание и изображения.\\n3. Просмотреть задание.\\nРезультат: Содержание выбранной ревизии.\\nОтказ: Карточка не выбрана.\"\nview v_dialog_designer_assignment_body \"\" diagram=dialog_designer element=dialog_designer_assignment_body\nlink link_31 \"\" from=menu_designer kind=directed to=dialog_designer_assignment\nview v_link_31 \"\" diagram=dialog_designer element=link_31 from=v_menu_designer to=v_dialog_designer_assignment\nblock dialog_designer_image \"\" role=generic shape=rectangle\nview v_dialog_designer_image \"\" diagram=dialog_designer element=dialog_designer_image\nlabel dialog_designer_image_title \"2. Выбрать изображение\" text=\"2. Выбрать изображение\"\nview v_dialog_designer_image_title \"\" diagram=dialog_designer element=dialog_designer_image_title\nblock dialog_designer_image_rule \"\" role=generic shape=rectangle\nview v_dialog_designer_image_rule \"\" diagram=dialog_designer element=dialog_designer_image_rule\nlabel dialog_designer_image_body \"1. Открыть список изображений.\\n2. Выбрать файл.\\n3. Просмотреть изображение.\\nРезультат: Предварительный просмотр.\\nОтказ: Изображение недоступно.\" text=\"1. Открыть список изображений.\\n2. Выбрать файл.\\n3. Просмотреть изображение.\\nРезультат: Предварительный просмотр.\\nОтказ: Изображение недоступно.\"\nview v_dialog_designer_image_body \"\" diagram=dialog_designer element=dialog_designer_image_body\nlink link_32 \"\" from=menu_designer kind=directed to=dialog_designer_image\nview v_link_32 \"\" diagram=dialog_designer element=link_32 from=v_menu_designer to=v_dialog_designer_image\nblock dialog_designer_order \"\" role=generic shape=rectangle\nview v_dialog_designer_order \"\" diagram=dialog_designer element=dialog_designer_order\nlabel dialog_designer_order_title \"3. Назначить порядок изображений\" text=\"3. Назначить порядок изображений\"\nview v_dialog_designer_order_title \"\" diagram=dialog_designer element=dialog_designer_order_title\nblock dialog_designer_order_rule \"\" role=generic shape=rectangle\nview v_dialog_designer_order_rule \"\" diagram=dialog_designer element=dialog_designer_order_rule\nlabel dialog_designer_order_body \"1. Выбрать изображение ревизии.\\n2. Ввести порядковый номер.\\n3. Нажать «Сохранить порядок».\\nРезультат: Сохранённый порядок показа.\\nОтказ: Номер занят / номер меньше 1.\" text=\"1. Выбрать изображение ревизии.\\n2. Ввести порядковый номер.\\n3. Нажать «Сохранить порядок».\\nРезультат: Сохранённый порядок показа.\\nОтказ: Номер занят / номер меньше 1.\"\nview v_dialog_designer_order_body \"\" diagram=dialog_designer element=dialog_designer_order_body\nlink link_33 \"\" from=menu_designer kind=directed to=dialog_designer_order\nview v_link_33 \"\" diagram=dialog_designer element=link_33 from=v_menu_designer to=v_dialog_designer_order\nblock dialog_designer_preview \"\" role=generic shape=rectangle\nview v_dialog_designer_preview \"\" diagram=dialog_designer element=dialog_designer_preview\nlabel dialog_designer_preview_title \"4. Просмотреть результат оформления\" text=\"4. Просмотреть результат оформления\"\nview v_dialog_designer_preview_title \"\" diagram=dialog_designer element=dialog_designer_preview_title\nblock dialog_designer_preview_rule \"\" role=generic shape=rectangle\nview v_dialog_designer_preview_rule \"\" diagram=dialog_designer element=dialog_designer_preview_rule\nlabel dialog_designer_preview_body \"1. Выбрать ревизию карточки.\\n2. Открыть предварительный просмотр.\\n3. Проверить текст и изображения.\\nРезультат: Карточка в заданном оформлении.\\nОтказ: Не выбрана ревизия карточки.\" text=\"1. Выбрать ревизию карточки.\\n2. Открыть предварительный просмотр.\\n3. Проверить текст и изображения.\\nРезультат: Карточка в заданном оформлении.\\nОтказ: Не выбрана ревизия карточки.\"\nview v_dialog_designer_preview_body \"\" diagram=dialog_designer element=dialog_designer_preview_body\nlink link_34 \"\" from=menu_designer kind=directed to=dialog_designer_preview\nview v_link_34 \"\" diagram=dialog_designer element=link_34 from=v_menu_designer to=v_dialog_designer_preview\ndiagram dialog_developer \"Сценарий диалога — разработчик\" type=general\nblock login_developer \"Вход в систему\\nЛогин и пароль\" role=generic shape=rectangle\nview v_login_developer \"\" diagram=dialog_developer element=login_developer\nblock menu_developer \"Главное меню\\nРазработчик\\nВыбор задачи\" role=generic shape=rectangle\nview v_menu_developer \"\" diagram=dialog_developer element=menu_developer\nlink link_35 \"\" from=login_developer kind=directed to=menu_developer\nview v_link_35 \"\" diagram=dialog_developer element=link_35 from=v_login_developer to=v_menu_developer\nblock dialog_developer_catalog \"\" role=generic shape=rectangle\nview v_dialog_developer_catalog \"\" diagram=dialog_developer element=dialog_developer_catalog\nlabel dialog_developer_catalog_title \"1. Просмотреть каталог и предложения\" text=\"1. Просмотреть каталог и предложения\"\nview v_dialog_developer_catalog_title \"\" diagram=dialog_developer element=dialog_developer_catalog_title\nblock dialog_developer_catalog_rule \"\" role=generic shape=rectangle\nview v_dialog_developer_catalog_rule \"\" diagram=dialog_developer element=dialog_developer_catalog_rule\nlabel dialog_developer_catalog_body \"1. Выбрать группу и поставщика.\\n2. Просмотреть цены и остатки.\\n3. Выбрать компонент для состава.\\nРезультат: Выбранный компонент / предложение.\\nОтказ: Нет подходящего предложения.\" text=\"1. Выбрать группу и поставщика.\\n2. Просмотреть цены и остатки.\\n3. Выбрать компонент для состава.\\nРезультат: Выбранный компонент / предложение.\\nОтказ: Нет подходящего предложения.\"\nview v_dialog_developer_catalog_body \"\" diagram=dialog_developer element=dialog_developer_catalog_body\nlink link_36 \"\" from=menu_developer kind=directed to=dialog_developer_catalog\nview v_link_36 \"\" diagram=dialog_developer element=link_36 from=v_menu_developer to=v_dialog_developer_catalog\nblock dialog_developer_compose \"\" role=generic shape=rectangle\nview v_dialog_developer_compose \"\" diagram=dialog_developer element=dialog_developer_compose\nlabel dialog_developer_compose_title \"2. Сформировать состав\" text=\"2. Сформировать состав\"\nview v_dialog_developer_compose_title \"\" diagram=dialog_developer element=dialog_developer_compose_title\nblock dialog_developer_compose_rule \"\" role=generic shape=rectangle\nview v_dialog_developer_compose_rule \"\" diagram=dialog_developer element=dialog_developer_compose_rule\nlabel dialog_developer_compose_body \"1. Выбрать конфигурацию.\\n2. Добавить позиции и количества.\\n3. Указать предложения.\\nРезультат: Рабочий состав конфигурации.\\nОтказ: Неверное количество / пустая позиция.\" text=\"1. Выбрать конфигурацию.\\n2. Добавить позиции и количества.\\n3. Указать предложения.\\nРезультат: Рабочий состав конфигурации.\\nОтказ: Неверное количество / пустая позиция.\"\nview v_dialog_developer_compose_body \"\" diagram=dialog_developer element=dialog_developer_compose_body\nlink link_37 \"\" from=menu_developer kind=directed to=dialog_developer_compose\nview v_link_37 \"\" diagram=dialog_developer element=link_37 from=v_menu_developer to=v_dialog_developer_compose\nblock dialog_developer_check \"\" role=generic shape=rectangle\nview v_dialog_developer_check \"\" diagram=dialog_developer element=dialog_developer_check\nlabel dialog_developer_check_title \"3. Проверить совместимость\" text=\"3. Проверить совместимость\"\nview v_dialog_developer_check_title \"\" diagram=dialog_developer element=dialog_developer_check_title\nblock dialog_developer_check_rule \"\" role=generic shape=rectangle\nview v_dialog_developer_check_rule \"\" diagram=dialog_developer element=dialog_developer_check_rule\nlabel dialog_developer_check_body \"1. Открыть выбранный состав.\\n2. Нажать «Проверить состав».\\n3. Просмотреть результат проверки.\\nРезультат: Совместимость подтверждена.\\nОтказ: Перечень несовместимых позиций.\" text=\"1. Открыть выбранный состав.\\n2. Нажать «Проверить состав».\\n3. Просмотреть результат проверки.\\nРезультат: Совместимость подтверждена.\\nОтказ: Перечень несовместимых позиций.\"\nview v_dialog_developer_check_body \"\" diagram=dialog_developer element=dialog_developer_check_body\nlink link_38 \"\" from=menu_developer kind=directed to=dialog_developer_check\nview v_link_38 \"\" diagram=dialog_developer element=link_38 from=v_menu_developer to=v_dialog_developer_check\nblock dialog_developer_version \"\" role=generic shape=rectangle\nview v_dialog_developer_version \"\" diagram=dialog_developer element=dialog_developer_version\nlabel dialog_developer_version_title \"4. Сохранить версию состава\" text=\"4. Сохранить версию состава\"\nview v_dialog_developer_version_title \"\" diagram=dialog_developer element=dialog_developer_version_title\nblock dialog_developer_version_rule \"\" role=generic shape=rectangle\nview v_dialog_developer_version_rule \"\" diagram=dialog_developer element=dialog_developer_version_rule\nlabel dialog_developer_version_body \"1. Выбрать проверенный состав.\\n2. Подтвердить сохранение.\\n3. Просмотреть номер новой версии.\\nРезультат: Новая версия состава.\\nОтказ: Состав не прошёл проверку.\" text=\"1. Выбрать проверенный состав.\\n2. Подтвердить сохранение.\\n3. Просмотреть номер новой версии.\\nРезультат: Новая версия состава.\\nОтказ: Состав не прошёл проверку.\"\nview v_dialog_developer_version_body \"\" diagram=dialog_developer element=dialog_developer_version_body\nlink link_39 \"\" from=menu_developer kind=directed to=dialog_developer_version\nview v_link_39 \"\" diagram=dialog_developer element=link_39 from=v_menu_developer to=v_dialog_developer_version\ndiagram dialog_director \"Сценарий диалога — генеральный директор\" type=general\nblock login_director \"Вход в систему\\nЛогин и пароль\" role=generic shape=rectangle\nview v_login_director \"\" diagram=dialog_director element=login_director\nblock menu_director \"Главное меню\\nГенеральный директор\\nВыбор задачи\" role=generic shape=rectangle\nview v_menu_director \"\" diagram=dialog_director element=menu_director\nlink link_40 \"\" from=login_director kind=directed to=menu_director\nview v_link_40 \"\" diagram=dialog_director element=link_40 from=v_login_director to=v_menu_director\nblock dialog_director_summary \"\" role=generic shape=rectangle\nview v_dialog_director_summary \"\" diagram=dialog_director element=dialog_director_summary\nlabel dialog_director_summary_title \"1. Просмотреть сводку карточек\" text=\"1. Просмотреть сводку карточек\"\nview v_dialog_director_summary_title \"\" diagram=dialog_director element=dialog_director_summary_title\nblock dialog_director_summary_rule \"\" role=generic shape=rectangle\nview v_dialog_director_summary_rule \"\" diagram=dialog_director element=dialog_director_summary_rule\nlabel dialog_director_summary_body \"1. Открыть список карточек.\\n2. Задать фильтр по состоянию.\\n3. Выбрать карточку из результата.\\nРезультат: Сводка по выбранному состоянию.\\nОтказ: Нет карточек по фильтру.\" text=\"1. Открыть список карточек.\\n2. Задать фильтр по состоянию.\\n3. Выбрать карточку из результата.\\nРезультат: Сводка по выбранному состоянию.\\nОтказ: Нет карточек по фильтру.\"\nview v_dialog_director_summary_body \"\" diagram=dialog_director element=dialog_director_summary_body\nlink link_41 \"\" from=menu_director kind=directed to=dialog_director_summary\nview v_link_41 \"\" diagram=dialog_director element=link_41 from=v_menu_director to=v_dialog_director_summary\nblock dialog_director_inspect \"\" role=generic shape=rectangle\nview v_dialog_director_inspect \"\" diagram=dialog_director element=dialog_director_inspect\nlabel dialog_director_inspect_title \"2. Проверить цену и состав\" text=\"2. Проверить цену и состав\"\nview v_dialog_director_inspect_title \"\" diagram=dialog_director element=dialog_director_inspect_title\nblock dialog_director_inspect_rule \"\" role=generic shape=rectangle\nview v_dialog_director_inspect_rule \"\" diagram=dialog_director element=dialog_director_inspect_rule\nlabel dialog_director_inspect_body \"1. Выбрать карточку и ревизию.\\n2. Открыть состав и расчёт.\\n3. Проверить цену и готовность.\\nРезультат: Состав и показатели ревизии.\\nОтказ: Недостаточно данных для проверки.\" text=\"1. Выбрать карточку и ревизию.\\n2. Открыть состав и расчёт.\\n3. Проверить цену и готовность.\\nРезультат: Состав и показатели ревизии.\\nОтказ: Недостаточно данных для проверки.\"\nview v_dialog_director_inspect_body \"\" diagram=dialog_director element=dialog_director_inspect_body\nlink link_42 \"\" from=menu_director kind=directed to=dialog_director_inspect\nview v_link_42 \"\" diagram=dialog_director element=link_42 from=v_menu_director to=v_dialog_director_inspect\nblock dialog_director_approve \"\" role=generic shape=rectangle\nview v_dialog_director_approve \"\" diagram=dialog_director element=dialog_director_approve\nlabel dialog_director_approve_title \"3. Утвердить готовую ревизию\" text=\"3. Утвердить готовую ревизию\"\nview v_dialog_director_approve_title \"\" diagram=dialog_director element=dialog_director_approve_title\nblock dialog_director_approve_rule \"\" role=generic shape=rectangle\nview v_dialog_director_approve_rule \"\" diagram=dialog_director element=dialog_director_approve_rule\nlabel dialog_director_approve_body \"1. Открыть ревизию DRAFT.\\n2. Проверить содержание и изображения.\\n3. Утвердить или вернуть на доработку.\\nРезультат: READY после успешной проверки.\\nОтказ: Ревизия остаётся DRAFT.\" text=\"1. Открыть ревизию DRAFT.\\n2. Проверить содержание и изображения.\\n3. Утвердить или вернуть на доработку.\\nРезультат: READY после успешной проверки.\\nОтказ: Ревизия остаётся DRAFT.\"\nview v_dialog_director_approve_body \"\" diagram=dialog_director element=dialog_director_approve_body\nlink link_43 \"\" from=menu_director kind=directed to=dialog_director_approve\nview v_link_43 \"\" diagram=dialog_director element=link_43 from=v_menu_director to=v_dialog_director_approve\ndiagram structure \"Структурная схема клиентской части\" type=general\nlabel client_title \"Клиентская часть\" text=\"Клиентская часть\"\nview v_client_title \"\" diagram=structure element=client_title\nlabel visual_title \"Визуальные модули\" text=\"Визуальные модули\"\nview v_visual_title \"\" diagram=structure element=visual_title\nlabel logic_title \"Невизуальные модули\" text=\"Невизуальные модули\"\nview v_logic_title \"\" diagram=structure element=logic_title\nblock auth \"Форма входа\" role=generic shape=rectangle\nview v_auth \"\" diagram=structure element=auth\nblock navigation \"Главное меню и навигация\" role=generic shape=rectangle\nview v_navigation \"\" diagram=structure element=navigation\nblock forms \"Представления ролей:\\nменеджер маркетплейса;\\nдизайнер; разработчик;\\nгенеральный директор\" role=generic shape=rectangle\nview v_forms \"\" diagram=structure element=forms\nblock session \"Сеанс и проверка прав\" role=generic shape=rectangle\nview v_session \"\" diagram=structure element=session\nblock validation \"Проверка ввода\\nи сообщения об ошибках\" role=generic shape=rectangle\nview v_validation \"\" diagram=structure element=validation\nblock commands \"Обработчики команд\\nи обновление представлений\" role=generic shape=rectangle\nview v_commands \"\" diagram=structure element=commands\nblock application \"Прикладной сервис:\\nсостав, расчёт, карточки,\\nизображения и публикация\" role=generic shape=rectangle\nview v_application \"\" diagram=structure element=application\nlink link_44 \"\" from=auth kind=directed to=session\nview v_link_44 \"\" diagram=structure element=link_44 from=v_auth to=v_session\nlink link_45 \"\" from=auth kind=directed to=navigation\nview v_link_45 \"\" diagram=structure element=link_45 from=v_auth to=v_navigation\nlink link_46 \"\" from=navigation kind=directed to=forms\nview v_link_46 \"\" diagram=structure element=link_46 from=v_navigation to=v_forms\nlink link_47 \"\" from=forms kind=directed to=validation\nview v_link_47 \"\" diagram=structure element=link_47 from=v_forms to=v_validation\nlink link_48 \"\" from=validation kind=directed to=commands\nview v_link_48 \"\" diagram=structure element=link_48 from=v_validation to=v_commands\nlink link_49 \"\" from=commands kind=bidirectional to=application\nview v_link_49 \"\" diagram=structure element=link_49 from=v_commands to=v_application\nlink link_50 \"\" from=commands kind=directed to=forms\nview v_link_50 \"\" diagram=structure element=link_50 from=v_commands to=v_forms\nlabel result_label Результаты text=Результаты\nview v_result_label \"\" diagram=structure element=result_label\n",
+  "draft": "scheme pr10_client \"Функции и диалоги клиентской части\"\ndiagram functions \"Дерево основных и служебных функций\" type=general\nblock root \"Функции клиентской части\" role=generic shape=rectangle\nview v_root \"\" diagram=functions element=root\nblock main \"Основные функции\" role=generic shape=rectangle\nview v_main \"\" diagram=functions element=main\nblock service \"Служебные функции\" role=generic shape=rectangle\nview v_service \"\" diagram=functions element=service\nlink link_0 \"\" from=root kind=association to=main\nview v_link_0 \"\" diagram=functions element=link_0 from=v_root to=v_main\nlink link_1 \"\" from=root kind=association to=service\nview v_link_1 \"\" diagram=functions element=link_1 from=v_root to=v_service\nblock role_manager \"Менеджер маркетплейса\" role=generic shape=rectangle\nview v_role_manager \"\" diagram=functions element=role_manager\nlink link_2 \"\" from=main kind=association to=role_manager\nview v_link_2 \"\" diagram=functions element=link_2 from=v_main to=v_role_manager\nblock function_manager_register \"Зарегистрировать карточку\" role=generic shape=rectangle\nview v_function_manager_register \"\" diagram=functions element=function_manager_register\nlink link_3 \"\" from=role_manager kind=association to=function_manager_register\nview v_link_3 \"\" diagram=functions element=link_3 from=v_role_manager to=v_function_manager_register\nblock function_manager_calculate \"Рассчитать цену и массу\" role=generic shape=rectangle\nview v_function_manager_calculate \"\" diagram=functions element=function_manager_calculate\nlink link_4 \"\" from=role_manager kind=association to=function_manager_calculate\nview v_link_4 \"\" diagram=functions element=link_4 from=v_role_manager to=v_function_manager_calculate\nblock function_manager_revision \"Сохранить ревизию\" role=generic shape=rectangle\nview v_function_manager_revision \"\" diagram=functions element=function_manager_revision\nlink link_5 \"\" from=role_manager kind=association to=function_manager_revision\nview v_link_5 \"\" diagram=functions element=link_5 from=v_role_manager to=v_function_manager_revision\nblock function_manager_publish \"Опубликовать карточку\" role=generic shape=rectangle\nview v_function_manager_publish \"\" diagram=functions element=function_manager_publish\nlink link_6 \"\" from=role_manager kind=association to=function_manager_publish\nview v_link_6 \"\" diagram=functions element=link_6 from=v_role_manager to=v_function_manager_publish\nblock role_designer Дизайнер role=generic shape=rectangle\nview v_role_designer \"\" diagram=functions element=role_designer\nlink link_7 \"\" from=main kind=association to=role_designer\nview v_link_7 \"\" diagram=functions element=link_7 from=v_main to=v_role_designer\nblock function_designer_assignment \"Открыть задание по карточке\" role=generic shape=rectangle\nview v_function_designer_assignment \"\" diagram=functions element=function_designer_assignment\nlink link_8 \"\" from=role_designer kind=association to=function_designer_assignment\nview v_link_8 \"\" diagram=functions element=link_8 from=v_role_designer to=v_function_designer_assignment\nblock function_designer_image \"Выбрать изображение\" role=generic shape=rectangle\nview v_function_designer_image \"\" diagram=functions element=function_designer_image\nlink link_9 \"\" from=role_designer kind=association to=function_designer_image\nview v_link_9 \"\" diagram=functions element=link_9 from=v_role_designer to=v_function_designer_image\nblock function_designer_order \"Назначить порядок изображений\" role=generic shape=rectangle\nview v_function_designer_order \"\" diagram=functions element=function_designer_order\nlink link_10 \"\" from=role_designer kind=association to=function_designer_order\nview v_link_10 \"\" diagram=functions element=link_10 from=v_role_designer to=v_function_designer_order\nblock function_designer_preview \"Просмотреть результат оформления\" role=generic shape=rectangle\nview v_function_designer_preview \"\" diagram=functions element=function_designer_preview\nlink link_11 \"\" from=role_designer kind=association to=function_designer_preview\nview v_link_11 \"\" diagram=functions element=link_11 from=v_role_designer to=v_function_designer_preview\nblock role_developer Разработчик role=generic shape=rectangle\nview v_role_developer \"\" diagram=functions element=role_developer\nlink link_12 \"\" from=main kind=association to=role_developer\nview v_link_12 \"\" diagram=functions element=link_12 from=v_main to=v_role_developer\nblock function_developer_catalog \"Просмотреть каталог и предложения\" role=generic shape=rectangle\nview v_function_developer_catalog \"\" diagram=functions element=function_developer_catalog\nlink link_13 \"\" from=role_developer kind=association to=function_developer_catalog\nview v_link_13 \"\" diagram=functions element=link_13 from=v_role_developer to=v_function_developer_catalog\nblock function_developer_compose \"Сформировать состав\" role=generic shape=rectangle\nview v_function_developer_compose \"\" diagram=functions element=function_developer_compose\nlink link_14 \"\" from=role_developer kind=association to=function_developer_compose\nview v_link_14 \"\" diagram=functions element=link_14 from=v_role_developer to=v_function_developer_compose\nblock function_developer_check \"Проверить совместимость\" role=generic shape=rectangle\nview v_function_developer_check \"\" diagram=functions element=function_developer_check\nlink link_15 \"\" from=role_developer kind=association to=function_developer_check\nview v_link_15 \"\" diagram=functions element=link_15 from=v_role_developer to=v_function_developer_check\nblock function_developer_version \"Сохранить версию состава\" role=generic shape=rectangle\nview v_function_developer_version \"\" diagram=functions element=function_developer_version\nlink link_16 \"\" from=role_developer kind=association to=function_developer_version\nview v_link_16 \"\" diagram=functions element=link_16 from=v_role_developer to=v_function_developer_version\nblock role_director \"Генеральный директор\" role=generic shape=rectangle\nview v_role_director \"\" diagram=functions element=role_director\nlink link_17 \"\" from=main kind=association to=role_director\nview v_link_17 \"\" diagram=functions element=link_17 from=v_main to=v_role_director\nblock function_director_summary \"Просмотреть сводку карточек\" role=generic shape=rectangle\nview v_function_director_summary \"\" diagram=functions element=function_director_summary\nlink link_18 \"\" from=role_director kind=association to=function_director_summary\nview v_link_18 \"\" diagram=functions element=link_18 from=v_role_director to=v_function_director_summary\nblock function_director_inspect \"Проверить цену и состав\" role=generic shape=rectangle\nview v_function_director_inspect \"\" diagram=functions element=function_director_inspect\nlink link_19 \"\" from=role_director kind=association to=function_director_inspect\nview v_link_19 \"\" diagram=functions element=link_19 from=v_role_director to=v_function_director_inspect\nblock function_director_approve \"Утвердить готовую ревизию\" role=generic shape=rectangle\nview v_function_director_approve \"\" diagram=functions element=function_director_approve\nlink link_20 \"\" from=role_director kind=association to=function_director_approve\nview v_link_20 \"\" diagram=functions element=link_20 from=v_role_director to=v_function_director_approve\nblock service_0 \"Вход и выход\" role=generic shape=rectangle\nview v_service_0 \"\" diagram=functions element=service_0\nlink link_21 \"\" from=service kind=association to=service_0\nview v_link_21 \"\" diagram=functions element=link_21 from=v_service to=v_service_0\nblock service_1 \"Проверка прав\" role=generic shape=rectangle\nview v_service_1 \"\" diagram=functions element=service_1\nlink link_22 \"\" from=service kind=association to=service_1\nview v_link_22 \"\" diagram=functions element=link_22 from=v_service to=v_service_1\nblock service_2 \"Проверка ввода\" role=generic shape=rectangle\nview v_service_2 \"\" diagram=functions element=service_2\nlink link_23 \"\" from=service kind=association to=service_2\nview v_link_23 \"\" diagram=functions element=link_23 from=v_service to=v_service_2\nblock service_3 \"Справка и навигация\" role=generic shape=rectangle\nview v_service_3 \"\" diagram=functions element=service_3\nlink link_24 \"\" from=service kind=association to=service_3\nview v_link_24 \"\" diagram=functions element=link_24 from=v_service to=v_service_3\ndiagram dialog_manager \"Сценарий диалога — менеджер маркетплейса\" type=general\nblock login_manager \"Вход в систему\\nЛогин и пароль\" role=generic shape=rectangle\nview v_login_manager \"\" diagram=dialog_manager element=login_manager\nblock menu_manager \"Главное меню\\nМенеджер маркетплейса\\nВыбор задачи\" role=generic shape=rectangle\nview v_menu_manager \"\" diagram=dialog_manager element=menu_manager\nlink link_25 \"\" from=login_manager kind=directed to=menu_manager\nview v_link_25 \"\" diagram=dialog_manager element=link_25 from=v_login_manager to=v_menu_manager\nblock dialog_manager_register \"\" role=generic shape=rectangle\nview v_dialog_manager_register \"\" diagram=dialog_manager element=dialog_manager_register\nlabel dialog_manager_register_title \"1. Зарегистрировать карточку\" text=\"1. Зарегистрировать карточку\"\nview v_dialog_manager_register_title \"\" diagram=dialog_manager element=dialog_manager_register_title\nblock dialog_manager_register_rule \"\" role=generic shape=rectangle\nview v_dialog_manager_register_rule \"\" diagram=dialog_manager element=dialog_manager_register_rule\nlabel dialog_manager_register_body \"1. Ввести код продавца и заголовок.\\n2. Заполнить описание карточки.\\n3. Подтвердить создание.\\nРезультат: Черновик карточки.\\nОтказ: Код занят / поля не заполнены.\" text=\"1. Ввести код продавца и заголовок.\\n2. Заполнить описание карточки.\\n3. Подтвердить создание.\\nРезультат: Черновик карточки.\\nОтказ: Код занят / поля не заполнены.\"\nview v_dialog_manager_register_body \"\" diagram=dialog_manager element=dialog_manager_register_body\nlink link_26 \"\" from=menu_manager kind=directed to=dialog_manager_register\nview v_link_26 \"\" diagram=dialog_manager element=link_26 from=v_menu_manager to=v_dialog_manager_register\nblock dialog_manager_calculate \"\" role=generic shape=rectangle\nview v_dialog_manager_calculate \"\" diagram=dialog_manager element=dialog_manager_calculate\nlabel dialog_manager_calculate_title \"2. Рассчитать цену и массу\" text=\"2. Рассчитать цену и массу\"\nview v_dialog_manager_calculate_title \"\" diagram=dialog_manager element=dialog_manager_calculate_title\nblock dialog_manager_calculate_rule \"\" role=generic shape=rectangle\nview v_dialog_manager_calculate_rule \"\" diagram=dialog_manager element=dialog_manager_calculate_rule\nlabel dialog_manager_calculate_body \"1. Выбрать версию состава.\\n2. Задать затраты, наценку и комиссию.\\n3. Нажать «Рассчитать».\\nРезультат: Цена, себестоимость и масса.\\nОтказ: Ошибки состава / параметров.\" text=\"1. Выбрать версию состава.\\n2. Задать затраты, наценку и комиссию.\\n3. Нажать «Рассчитать».\\nРезультат: Цена, себестоимость и масса.\\nОтказ: Ошибки состава / параметров.\"\nview v_dialog_manager_calculate_body \"\" diagram=dialog_manager element=dialog_manager_calculate_body\nlink link_27 \"\" from=menu_manager kind=directed to=dialog_manager_calculate\nview v_link_27 \"\" diagram=dialog_manager element=link_27 from=v_menu_manager to=v_dialog_manager_calculate\nblock dialog_manager_revision \"\" role=generic shape=rectangle\nview v_dialog_manager_revision \"\" diagram=dialog_manager element=dialog_manager_revision\nlabel dialog_manager_revision_title \"3. Сохранить ревизию\" text=\"3. Сохранить ревизию\"\nview v_dialog_manager_revision_title \"\" diagram=dialog_manager element=dialog_manager_revision_title\nblock dialog_manager_revision_rule \"\" role=generic shape=rectangle\nview v_dialog_manager_revision_rule \"\" diagram=dialog_manager element=dialog_manager_revision_rule\nlabel dialog_manager_revision_body \"1. Выбрать карточку и состав.\\n2. Проверить содержание и расчёт.\\n3. Нажать «Сохранить ревизию».\\nРезультат: Новая ревизия DRAFT.\\nОтказ: Неполные данные карточки.\" text=\"1. Выбрать карточку и состав.\\n2. Проверить содержание и расчёт.\\n3. Нажать «Сохранить ревизию».\\nРезультат: Новая ревизия DRAFT.\\nОтказ: Неполные данные карточки.\"\nview v_dialog_manager_revision_body \"\" diagram=dialog_manager element=dialog_manager_revision_body\nlink link_28 \"\" from=menu_manager kind=directed to=dialog_manager_revision\nview v_link_28 \"\" diagram=dialog_manager element=link_28 from=v_menu_manager to=v_dialog_manager_revision\nblock dialog_manager_publish \"\" role=generic shape=rectangle\nview v_dialog_manager_publish \"\" diagram=dialog_manager element=dialog_manager_publish\nlabel dialog_manager_publish_title \"4. Опубликовать карточку\" text=\"4. Опубликовать карточку\"\nview v_dialog_manager_publish_title \"\" diagram=dialog_manager element=dialog_manager_publish_title\nblock dialog_manager_publish_rule \"\" role=generic shape=rectangle\nview v_dialog_manager_publish_rule \"\" diagram=dialog_manager element=dialog_manager_publish_rule\nlabel dialog_manager_publish_body \"1. Выбрать утверждённую ревизию READY.\\n2. Подтвердить передачу на публикацию.\\n3. Открыть результат попытки.\\nРезультат: Состояние попытки публикации.\\nОтказ: Ревизия не готова / ошибка отправки.\" text=\"1. Выбрать утверждённую ревизию READY.\\n2. Подтвердить передачу на публикацию.\\n3. Открыть результат попытки.\\nРезультат: Состояние попытки публикации.\\nОтказ: Ревизия не готова / ошибка отправки.\"\nview v_dialog_manager_publish_body \"\" diagram=dialog_manager element=dialog_manager_publish_body\nlink link_29 \"\" from=menu_manager kind=directed to=dialog_manager_publish\nview v_link_29 \"\" diagram=dialog_manager element=link_29 from=v_menu_manager to=v_dialog_manager_publish\ndiagram dialog_designer \"Сценарий диалога — дизайнер\" type=general\nblock login_designer \"Вход в систему\\nЛогин и пароль\" role=generic shape=rectangle\nview v_login_designer \"\" diagram=dialog_designer element=login_designer\nblock menu_designer \"Главное меню\\nДизайнер\\nВыбор задачи\" role=generic shape=rectangle\nview v_menu_designer \"\" diagram=dialog_designer element=menu_designer\nlink link_30 \"\" from=login_designer kind=directed to=menu_designer\nview v_link_30 \"\" diagram=dialog_designer element=link_30 from=v_login_designer to=v_menu_designer\nblock dialog_designer_assignment \"\" role=generic shape=rectangle\nview v_dialog_designer_assignment \"\" diagram=dialog_designer element=dialog_designer_assignment\nlabel dialog_designer_assignment_title \"1. Открыть задание по карточке\" text=\"1. Открыть задание по карточке\"\nview v_dialog_designer_assignment_title \"\" diagram=dialog_designer element=dialog_designer_assignment_title\nblock dialog_designer_assignment_rule \"\" role=generic shape=rectangle\nview v_dialog_designer_assignment_rule \"\" diagram=dialog_designer element=dialog_designer_assignment_rule\nlabel dialog_designer_assignment_body \"1. Выбрать карточку и ревизию.\\n2. Открыть описание и изображения.\\n3. Просмотреть задание.\\nРезультат: Содержание выбранной ревизии.\\nОтказ: Карточка не выбрана.\" text=\"1. Выбрать карточку и ревизию.\\n2. Открыть описание и изображения.\\n3. Просмотреть задание.\\nРезультат: Содержание выбранной ревизии.\\nОтказ: Карточка не выбрана.\"\nview v_dialog_designer_assignment_body \"\" diagram=dialog_designer element=dialog_designer_assignment_body\nlink link_31 \"\" from=menu_designer kind=directed to=dialog_designer_assignment\nview v_link_31 \"\" diagram=dialog_designer element=link_31 from=v_menu_designer to=v_dialog_designer_assignment\nblock dialog_designer_image \"\" role=generic shape=rectangle\nview v_dialog_designer_image \"\" diagram=dialog_designer element=dialog_designer_image\nlabel dialog_designer_image_title \"2. Выбрать изображение\" text=\"2. Выбрать изображение\"\nview v_dialog_designer_image_title \"\" diagram=dialog_designer element=dialog_designer_image_title\nblock dialog_designer_image_rule \"\" role=generic shape=rectangle\nview v_dialog_designer_image_rule \"\" diagram=dialog_designer element=dialog_designer_image_rule\nlabel dialog_designer_image_body \"1. Открыть список изображений.\\n2. Выбрать файл.\\n3. Просмотреть изображение.\\nРезультат: Предварительный просмотр.\\nОтказ: Изображение недоступно.\" text=\"1. Открыть список изображений.\\n2. Выбрать файл.\\n3. Просмотреть изображение.\\nРезультат: Предварительный просмотр.\\nОтказ: Изображение недоступно.\"\nview v_dialog_designer_image_body \"\" diagram=dialog_designer element=dialog_designer_image_body\nlink link_32 \"\" from=menu_designer kind=directed to=dialog_designer_image\nview v_link_32 \"\" diagram=dialog_designer element=link_32 from=v_menu_designer to=v_dialog_designer_image\nblock dialog_designer_order \"\" role=generic shape=rectangle\nview v_dialog_designer_order \"\" diagram=dialog_designer element=dialog_designer_order\nlabel dialog_designer_order_title \"3. Назначить порядок изображений\" text=\"3. Назначить порядок изображений\"\nview v_dialog_designer_order_title \"\" diagram=dialog_designer element=dialog_designer_order_title\nblock dialog_designer_order_rule \"\" role=generic shape=rectangle\nview v_dialog_designer_order_rule \"\" diagram=dialog_designer element=dialog_designer_order_rule\nlabel dialog_designer_order_body \"1. Выбрать изображение ревизии.\\n2. Ввести порядковый номер.\\n3. Нажать «Сохранить порядок».\\nРезультат: Сохранённый порядок показа.\\nОтказ: Номер занят / номер меньше 1.\" text=\"1. Выбрать изображение ревизии.\\n2. Ввести порядковый номер.\\n3. Нажать «Сохранить порядок».\\nРезультат: Сохранённый порядок показа.\\nОтказ: Номер занят / номер меньше 1.\"\nview v_dialog_designer_order_body \"\" diagram=dialog_designer element=dialog_designer_order_body\nlink link_33 \"\" from=menu_designer kind=directed to=dialog_designer_order\nview v_link_33 \"\" diagram=dialog_designer element=link_33 from=v_menu_designer to=v_dialog_designer_order\nblock dialog_designer_preview \"\" role=generic shape=rectangle\nview v_dialog_designer_preview \"\" diagram=dialog_designer element=dialog_designer_preview\nlabel dialog_designer_preview_title \"4. Просмотреть результат оформления\" text=\"4. Просмотреть результат оформления\"\nview v_dialog_designer_preview_title \"\" diagram=dialog_designer element=dialog_designer_preview_title\nblock dialog_designer_preview_rule \"\" role=generic shape=rectangle\nview v_dialog_designer_preview_rule \"\" diagram=dialog_designer element=dialog_designer_preview_rule\nlabel dialog_designer_preview_body \"1. Выбрать ревизию карточки.\\n2. Открыть предварительный просмотр.\\n3. Проверить текст и изображения.\\nРезультат: Карточка в заданном оформлении.\\nОтказ: Не выбрана ревизия карточки.\" text=\"1. Выбрать ревизию карточки.\\n2. Открыть предварительный просмотр.\\n3. Проверить текст и изображения.\\nРезультат: Карточка в заданном оформлении.\\nОтказ: Не выбрана ревизия карточки.\"\nview v_dialog_designer_preview_body \"\" diagram=dialog_designer element=dialog_designer_preview_body\nlink link_34 \"\" from=menu_designer kind=directed to=dialog_designer_preview\nview v_link_34 \"\" diagram=dialog_designer element=link_34 from=v_menu_designer to=v_dialog_designer_preview\ndiagram dialog_developer \"Сценарий диалога — разработчик\" type=general\nblock login_developer \"Вход в систему\\nЛогин и пароль\" role=generic shape=rectangle\nview v_login_developer \"\" diagram=dialog_developer element=login_developer\nblock menu_developer \"Главное меню\\nРазработчик\\nВыбор задачи\" role=generic shape=rectangle\nview v_menu_developer \"\" diagram=dialog_developer element=menu_developer\nlink link_35 \"\" from=login_developer kind=directed to=menu_developer\nview v_link_35 \"\" diagram=dialog_developer element=link_35 from=v_login_developer to=v_menu_developer\nblock dialog_developer_catalog \"\" role=generic shape=rectangle\nview v_dialog_developer_catalog \"\" diagram=dialog_developer element=dialog_developer_catalog\nlabel dialog_developer_catalog_title \"1. Просмотреть каталог и предложения\" text=\"1. Просмотреть каталог и предложения\"\nview v_dialog_developer_catalog_title \"\" diagram=dialog_developer element=dialog_developer_catalog_title\nblock dialog_developer_catalog_rule \"\" role=generic shape=rectangle\nview v_dialog_developer_catalog_rule \"\" diagram=dialog_developer element=dialog_developer_catalog_rule\nlabel dialog_developer_catalog_body \"1. Выбрать группу и поставщика.\\n2. Просмотреть цены и остатки.\\n3. Выбрать компонент для состава.\\nРезультат: Выбранный компонент / предложение.\\nОтказ: Нет подходящего предложения.\" text=\"1. Выбрать группу и поставщика.\\n2. Просмотреть цены и остатки.\\n3. Выбрать компонент для состава.\\nРезультат: Выбранный компонент / предложение.\\nОтказ: Нет подходящего предложения.\"\nview v_dialog_developer_catalog_body \"\" diagram=dialog_developer element=dialog_developer_catalog_body\nlink link_36 \"\" from=menu_developer kind=directed to=dialog_developer_catalog\nview v_link_36 \"\" diagram=dialog_developer element=link_36 from=v_menu_developer to=v_dialog_developer_catalog\nblock dialog_developer_compose \"\" role=generic shape=rectangle\nview v_dialog_developer_compose \"\" diagram=dialog_developer element=dialog_developer_compose\nlabel dialog_developer_compose_title \"2. Сформировать состав\" text=\"2. Сформировать состав\"\nview v_dialog_developer_compose_title \"\" diagram=dialog_developer element=dialog_developer_compose_title\nblock dialog_developer_compose_rule \"\" role=generic shape=rectangle\nview v_dialog_developer_compose_rule \"\" diagram=dialog_developer element=dialog_developer_compose_rule\nlabel dialog_developer_compose_body \"1. Выбрать конфигурацию.\\n2. Добавить позиции и количества.\\n3. Указать предложения.\\nРезультат: Рабочий состав конфигурации.\\nОтказ: Неверное количество / пустая позиция.\" text=\"1. Выбрать конфигурацию.\\n2. Добавить позиции и количества.\\n3. Указать предложения.\\nРезультат: Рабочий состав конфигурации.\\nОтказ: Неверное количество / пустая позиция.\"\nview v_dialog_developer_compose_body \"\" diagram=dialog_developer element=dialog_developer_compose_body\nlink link_37 \"\" from=menu_developer kind=directed to=dialog_developer_compose\nview v_link_37 \"\" diagram=dialog_developer element=link_37 from=v_menu_developer to=v_dialog_developer_compose\nblock dialog_developer_check \"\" role=generic shape=rectangle\nview v_dialog_developer_check \"\" diagram=dialog_developer element=dialog_developer_check\nlabel dialog_developer_check_title \"3. Проверить совместимость\" text=\"3. Проверить совместимость\"\nview v_dialog_developer_check_title \"\" diagram=dialog_developer element=dialog_developer_check_title\nblock dialog_developer_check_rule \"\" role=generic shape=rectangle\nview v_dialog_developer_check_rule \"\" diagram=dialog_developer element=dialog_developer_check_rule\nlabel dialog_developer_check_body \"1. Открыть выбранный состав.\\n2. Нажать «Проверить состав».\\n3. Просмотреть результат проверки.\\nРезультат: Совместимость подтверждена.\\nОтказ: Перечень несовместимых позиций.\" text=\"1. Открыть выбранный состав.\\n2. Нажать «Проверить состав».\\n3. Просмотреть результат проверки.\\nРезультат: Совместимость подтверждена.\\nОтказ: Перечень несовместимых позиций.\"\nview v_dialog_developer_check_body \"\" diagram=dialog_developer element=dialog_developer_check_body\nlink link_38 \"\" from=menu_developer kind=directed to=dialog_developer_check\nview v_link_38 \"\" diagram=dialog_developer element=link_38 from=v_menu_developer to=v_dialog_developer_check\nblock dialog_developer_version \"\" role=generic shape=rectangle\nview v_dialog_developer_version \"\" diagram=dialog_developer element=dialog_developer_version\nlabel dialog_developer_version_title \"4. Сохранить версию состава\" text=\"4. Сохранить версию состава\"\nview v_dialog_developer_version_title \"\" diagram=dialog_developer element=dialog_developer_version_title\nblock dialog_developer_version_rule \"\" role=generic shape=rectangle\nview v_dialog_developer_version_rule \"\" diagram=dialog_developer element=dialog_developer_version_rule\nlabel dialog_developer_version_body \"1. Выбрать проверенный состав.\\n2. Подтвердить сохранение.\\n3. Просмотреть номер новой версии.\\nРезультат: Новая версия состава.\\nОтказ: Состав не прошёл проверку.\" text=\"1. Выбрать проверенный состав.\\n2. Подтвердить сохранение.\\n3. Просмотреть номер новой версии.\\nРезультат: Новая версия состава.\\nОтказ: Состав не прошёл проверку.\"\nview v_dialog_developer_version_body \"\" diagram=dialog_developer element=dialog_developer_version_body\nlink link_39 \"\" from=menu_developer kind=directed to=dialog_developer_version\nview v_link_39 \"\" diagram=dialog_developer element=link_39 from=v_menu_developer to=v_dialog_developer_version\ndiagram dialog_director \"Сценарий диалога — генеральный директор\" type=general\nblock login_director \"Вход в систему\\nЛогин и пароль\" role=generic shape=rectangle\nview v_login_director \"\" diagram=dialog_director element=login_director\nblock menu_director \"Главное меню\\nГенеральный директор\\nВыбор задачи\" role=generic shape=rectangle\nview v_menu_director \"\" diagram=dialog_director element=menu_director\nlink link_40 \"\" from=login_director kind=directed to=menu_director\nview v_link_40 \"\" diagram=dialog_director element=link_40 from=v_login_director to=v_menu_director\nblock dialog_director_summary \"\" role=generic shape=rectangle\nview v_dialog_director_summary \"\" diagram=dialog_director element=dialog_director_summary\nlabel dialog_director_summary_title \"1. Просмотреть сводку карточек\" text=\"1. Просмотреть сводку карточек\"\nview v_dialog_director_summary_title \"\" diagram=dialog_director element=dialog_director_summary_title\nblock dialog_director_summary_rule \"\" role=generic shape=rectangle\nview v_dialog_director_summary_rule \"\" diagram=dialog_director element=dialog_director_summary_rule\nlabel dialog_director_summary_body \"1. Открыть список карточек.\\n2. Задать фильтр по состоянию.\\n3. Выбрать карточку из результата.\\nРезультат: Сводка по выбранному состоянию.\\nОтказ: Нет карточек по фильтру.\" text=\"1. Открыть список карточек.\\n2. Задать фильтр по состоянию.\\n3. Выбрать карточку из результата.\\nРезультат: Сводка по выбранному состоянию.\\nОтказ: Нет карточек по фильтру.\"\nview v_dialog_director_summary_body \"\" diagram=dialog_director element=dialog_director_summary_body\nlink link_41 \"\" from=menu_director kind=directed to=dialog_director_summary\nview v_link_41 \"\" diagram=dialog_director element=link_41 from=v_menu_director to=v_dialog_director_summary\nblock dialog_director_inspect \"\" role=generic shape=rectangle\nview v_dialog_director_inspect \"\" diagram=dialog_director element=dialog_director_inspect\nlabel dialog_director_inspect_title \"2. Проверить цену и состав\" text=\"2. Проверить цену и состав\"\nview v_dialog_director_inspect_title \"\" diagram=dialog_director element=dialog_director_inspect_title\nblock dialog_director_inspect_rule \"\" role=generic shape=rectangle\nview v_dialog_director_inspect_rule \"\" diagram=dialog_director element=dialog_director_inspect_rule\nlabel dialog_director_inspect_body \"1. Выбрать карточку и ревизию.\\n2. Открыть состав и расчёт.\\n3. Проверить цену и готовность.\\nРезультат: Состав и показатели ревизии.\\nОтказ: Недостаточно данных для проверки.\" text=\"1. Выбрать карточку и ревизию.\\n2. Открыть состав и расчёт.\\n3. Проверить цену и готовность.\\nРезультат: Состав и показатели ревизии.\\nОтказ: Недостаточно данных для проверки.\"\nview v_dialog_director_inspect_body \"\" diagram=dialog_director element=dialog_director_inspect_body\nlink link_42 \"\" from=menu_director kind=directed to=dialog_director_inspect\nview v_link_42 \"\" diagram=dialog_director element=link_42 from=v_menu_director to=v_dialog_director_inspect\nblock dialog_director_approve \"\" role=generic shape=rectangle\nview v_dialog_director_approve \"\" diagram=dialog_director element=dialog_director_approve\nlabel dialog_director_approve_title \"3. Утвердить готовую ревизию\" text=\"3. Утвердить готовую ревизию\"\nview v_dialog_director_approve_title \"\" diagram=dialog_director element=dialog_director_approve_title\nblock dialog_director_approve_rule \"\" role=generic shape=rectangle\nview v_dialog_director_approve_rule \"\" diagram=dialog_director element=dialog_director_approve_rule\nlabel dialog_director_approve_body \"1. Открыть ревизию DRAFT.\\n2. Проверить содержание и изображения.\\n3. Утвердить или вернуть на доработку.\\nРезультат: READY после успешной проверки.\\nОтказ: Ревизия остаётся DRAFT.\" text=\"1. Открыть ревизию DRAFT.\\n2. Проверить содержание и изображения.\\n3. Утвердить или вернуть на доработку.\\nРезультат: READY после успешной проверки.\\nОтказ: Ревизия остаётся DRAFT.\"\nview v_dialog_director_approve_body \"\" diagram=dialog_director element=dialog_director_approve_body\nlink link_43 \"\" from=menu_director kind=directed to=dialog_director_approve\nview v_link_43 \"\" diagram=dialog_director element=link_43 from=v_menu_director to=v_dialog_director_approve\ndiagram structure \"Структурная схема клиентской части\" type=general\nlabel client_title \"Клиентская часть\" text=\"Клиентская часть\"\nview v_client_title \"\" diagram=structure element=client_title\nlabel visual_title \"Визуальные модули\" text=\"Визуальные модули\"\nview v_visual_title \"\" diagram=structure element=visual_title\nlabel logic_title \"Невизуальные модули\" text=\"Невизуальные модули\"\nview v_logic_title \"\" diagram=structure element=logic_title\nblock auth \"Форма входа\" role=generic shape=rectangle\nview v_auth \"\" diagram=structure element=auth\nblock navigation \"Главное меню и навигация\" role=generic shape=rectangle\nview v_navigation \"\" diagram=structure element=navigation\nblock forms \"Представления ролей:\\nменеджер маркетплейса;\\nдизайнер; разработчик;\\nгенеральный директор\" role=generic shape=rectangle\nview v_forms \"\" diagram=structure element=forms\nblock session \"Сеанс и проверка прав\" role=generic shape=rectangle\nview v_session \"\" diagram=structure element=session\nblock validation \"Проверка ввода\\nи сообщения об ошибках\" role=generic shape=rectangle\nview v_validation \"\" diagram=structure element=validation\nblock commands \"Обработчики команд\\nи обновление представлений\" role=generic shape=rectangle\nview v_commands \"\" diagram=structure element=commands\nblock application \"Прикладной сервис:\\nсостав, расчёт, карточки,\\nизображения и публикация\" role=generic shape=rectangle\nview v_application \"\" diagram=structure element=application\nlink link_44 \"\" from=auth kind=directed to=session\nview v_link_44 \"\" diagram=structure element=link_44 from=v_auth to=v_session\nlink link_45 \"\" from=auth kind=directed to=navigation\nview v_link_45 \"\" diagram=structure element=link_45 from=v_auth to=v_navigation\nlink link_46 \"\" from=navigation kind=directed to=forms\nview v_link_46 \"\" diagram=structure element=link_46 from=v_navigation to=v_forms\nlink link_47 \"\" from=forms kind=directed to=validation\nview v_link_47 \"\" diagram=structure element=link_47 from=v_forms to=v_validation\nlink link_48 \"\" from=validation kind=directed to=commands\nview v_link_48 \"\" diagram=structure element=link_48 from=v_validation to=v_commands\nlink link_49 \"\" from=commands kind=bidirectional to=application\nview v_link_49 \"\" diagram=structure element=link_49 from=v_commands to=v_application\nlink link_50 \"\" from=commands kind=directed to=forms\nview v_link_50 \"\" diagram=structure element=link_50 from=v_commands to=v_forms\nlabel result_label Результаты text=Результаты\nview v_result_label \"\" diagram=structure element=result_label\n",
+  "layout": {
+    "nodes": {
+      "v_root": {
+        "x": 540,
+        "y": 10,
+        "width": 580,
+        "height": 85,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 31,
+          "lineWidth": 1.4
+        }
+      },
+      "v_main": {
+        "x": 340,
+        "y": 140,
+        "width": 620,
+        "height": 85,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 29,
+          "lineWidth": 1.4
+        }
+      },
+      "v_service": {
+        "x": 1330,
+        "y": 140,
+        "width": 330,
+        "height": 85,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 29,
+          "lineWidth": 1.4
+        }
+      },
+      "v_role_manager": {
+        "x": 20,
+        "y": 290,
+        "width": 300,
+        "height": 100,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 28,
+          "lineWidth": 1.4
+        }
+      },
+      "v_function_manager_register": {
+        "x": 45,
+        "y": 435,
+        "width": 275,
+        "height": 110,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 26,
+          "lineWidth": 1.4
+        }
+      },
+      "v_function_manager_calculate": {
+        "x": 45,
+        "y": 585,
+        "width": 275,
+        "height": 110,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 26,
+          "lineWidth": 1.4
+        }
+      },
+      "v_function_manager_revision": {
+        "x": 45,
+        "y": 735,
+        "width": 275,
+        "height": 110,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 26,
+          "lineWidth": 1.4
+        }
+      },
+      "v_function_manager_publish": {
+        "x": 45,
+        "y": 885,
+        "width": 275,
+        "height": 110,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 26,
+          "lineWidth": 1.4
+        }
+      },
+      "v_role_designer": {
+        "x": 345,
+        "y": 290,
+        "width": 300,
+        "height": 100,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 28,
+          "lineWidth": 1.4
+        }
+      },
+      "v_function_designer_assignment": {
+        "x": 370,
+        "y": 435,
+        "width": 275,
+        "height": 110,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 26,
+          "lineWidth": 1.4
+        }
+      },
+      "v_function_designer_image": {
+        "x": 370,
+        "y": 585,
+        "width": 275,
+        "height": 110,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 26,
+          "lineWidth": 1.4
+        }
+      },
+      "v_function_designer_order": {
+        "x": 370,
+        "y": 735,
+        "width": 275,
+        "height": 110,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 26,
+          "lineWidth": 1.4
+        }
+      },
+      "v_function_designer_preview": {
+        "x": 370,
+        "y": 885,
+        "width": 275,
+        "height": 110,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 26,
+          "lineWidth": 1.4
+        }
+      },
+      "v_role_developer": {
+        "x": 670,
+        "y": 290,
+        "width": 300,
+        "height": 100,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 28,
+          "lineWidth": 1.4
+        }
+      },
+      "v_function_developer_catalog": {
+        "x": 695,
+        "y": 435,
+        "width": 275,
+        "height": 110,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 26,
+          "lineWidth": 1.4
+        }
+      },
+      "v_function_developer_compose": {
+        "x": 695,
+        "y": 585,
+        "width": 275,
+        "height": 110,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 26,
+          "lineWidth": 1.4
+        }
+      },
+      "v_function_developer_check": {
+        "x": 695,
+        "y": 735,
+        "width": 275,
+        "height": 110,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 26,
+          "lineWidth": 1.4
+        }
+      },
+      "v_function_developer_version": {
+        "x": 695,
+        "y": 885,
+        "width": 275,
+        "height": 110,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 26,
+          "lineWidth": 1.4
+        }
+      },
+      "v_role_director": {
+        "x": 995,
+        "y": 290,
+        "width": 300,
+        "height": 100,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 28,
+          "lineWidth": 1.4
+        }
+      },
+      "v_function_director_summary": {
+        "x": 1020,
+        "y": 435,
+        "width": 275,
+        "height": 110,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 26,
+          "lineWidth": 1.4
+        }
+      },
+      "v_function_director_inspect": {
+        "x": 1020,
+        "y": 585,
+        "width": 275,
+        "height": 110,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 26,
+          "lineWidth": 1.4
+        }
+      },
+      "v_function_director_approve": {
+        "x": 1020,
+        "y": 735,
+        "width": 275,
+        "height": 110,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 26,
+          "lineWidth": 1.4
+        }
+      },
+      "v_service_0": {
+        "x": 1355,
+        "y": 435,
+        "width": 305,
+        "height": 110,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 26,
+          "lineWidth": 1.4
+        }
+      },
+      "v_service_1": {
+        "x": 1355,
+        "y": 585,
+        "width": 305,
+        "height": 110,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 26,
+          "lineWidth": 1.4
+        }
+      },
+      "v_service_2": {
+        "x": 1355,
+        "y": 735,
+        "width": 305,
+        "height": 110,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 26,
+          "lineWidth": 1.4
+        }
+      },
+      "v_service_3": {
+        "x": 1355,
+        "y": 885,
+        "width": 305,
+        "height": 110,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 26,
+          "lineWidth": 1.4
+        }
+      },
+      "v_login_manager": {
+        "x": 535,
+        "y": 10,
+        "width": 560,
+        "height": 90,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 28,
+          "lineWidth": 1.4
+        }
+      },
+      "v_menu_manager": {
+        "x": 500,
+        "y": 145,
+        "width": 630,
+        "height": 135,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 28,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_manager_register": {
+        "x": 30,
+        "y": 350,
+        "width": 650,
+        "height": 315,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 27,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_manager_register_title": {
+        "x": 42,
+        "y": 356,
+        "width": 626,
+        "height": 65,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 29
+        }
+      },
+      "v_dialog_manager_register_rule": {
+        "x": 36,
+        "y": 425,
+        "width": 638,
+        "height": 1,
+        "z": 3,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 12,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_manager_register_body": {
+        "x": 46,
+        "y": 433,
+        "width": 618,
+        "height": 223,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 25
+        }
+      },
+      "v_dialog_manager_calculate": {
+        "x": 850,
+        "y": 350,
+        "width": 650,
+        "height": 315,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 27,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_manager_calculate_title": {
+        "x": 862,
+        "y": 356,
+        "width": 626,
+        "height": 65,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 29
+        }
+      },
+      "v_dialog_manager_calculate_rule": {
+        "x": 856,
+        "y": 425,
+        "width": 638,
+        "height": 1,
+        "z": 3,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 12,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_manager_calculate_body": {
+        "x": 866,
+        "y": 433,
+        "width": 618,
+        "height": 223,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 25
+        }
+      },
+      "v_dialog_manager_revision": {
+        "x": 30,
+        "y": 715,
+        "width": 650,
+        "height": 315,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 27,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_manager_revision_title": {
+        "x": 42,
+        "y": 721,
+        "width": 626,
+        "height": 65,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 29
+        }
+      },
+      "v_dialog_manager_revision_rule": {
+        "x": 36,
+        "y": 790,
+        "width": 638,
+        "height": 1,
+        "z": 3,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 12,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_manager_revision_body": {
+        "x": 46,
+        "y": 798,
+        "width": 618,
+        "height": 223,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 25
+        }
+      },
+      "v_dialog_manager_publish": {
+        "x": 850,
+        "y": 715,
+        "width": 650,
+        "height": 315,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 27,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_manager_publish_title": {
+        "x": 862,
+        "y": 721,
+        "width": 626,
+        "height": 65,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 29
+        }
+      },
+      "v_dialog_manager_publish_rule": {
+        "x": 856,
+        "y": 790,
+        "width": 638,
+        "height": 1,
+        "z": 3,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 12,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_manager_publish_body": {
+        "x": 866,
+        "y": 798,
+        "width": 618,
+        "height": 223,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 25
+        }
+      },
+      "v_login_designer": {
+        "x": 535,
+        "y": 10,
+        "width": 560,
+        "height": 90,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 28,
+          "lineWidth": 1.4
+        }
+      },
+      "v_menu_designer": {
+        "x": 500,
+        "y": 145,
+        "width": 630,
+        "height": 135,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 28,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_designer_assignment": {
+        "x": 30,
+        "y": 350,
+        "width": 650,
+        "height": 315,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 27,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_designer_assignment_title": {
+        "x": 42,
+        "y": 356,
+        "width": 626,
+        "height": 65,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 29
+        }
+      },
+      "v_dialog_designer_assignment_rule": {
+        "x": 36,
+        "y": 425,
+        "width": 638,
+        "height": 1,
+        "z": 3,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 12,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_designer_assignment_body": {
+        "x": 46,
+        "y": 433,
+        "width": 618,
+        "height": 223,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 25
+        }
+      },
+      "v_dialog_designer_image": {
+        "x": 850,
+        "y": 350,
+        "width": 650,
+        "height": 315,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 27,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_designer_image_title": {
+        "x": 862,
+        "y": 356,
+        "width": 626,
+        "height": 65,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 29
+        }
+      },
+      "v_dialog_designer_image_rule": {
+        "x": 856,
+        "y": 425,
+        "width": 638,
+        "height": 1,
+        "z": 3,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 12,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_designer_image_body": {
+        "x": 866,
+        "y": 433,
+        "width": 618,
+        "height": 223,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 25
+        }
+      },
+      "v_dialog_designer_order": {
+        "x": 30,
+        "y": 715,
+        "width": 650,
+        "height": 315,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 27,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_designer_order_title": {
+        "x": 42,
+        "y": 721,
+        "width": 626,
+        "height": 65,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 29
+        }
+      },
+      "v_dialog_designer_order_rule": {
+        "x": 36,
+        "y": 790,
+        "width": 638,
+        "height": 1,
+        "z": 3,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 12,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_designer_order_body": {
+        "x": 46,
+        "y": 798,
+        "width": 618,
+        "height": 223,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 25
+        }
+      },
+      "v_dialog_designer_preview": {
+        "x": 850,
+        "y": 715,
+        "width": 650,
+        "height": 315,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 27,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_designer_preview_title": {
+        "x": 862,
+        "y": 721,
+        "width": 626,
+        "height": 65,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 29
+        }
+      },
+      "v_dialog_designer_preview_rule": {
+        "x": 856,
+        "y": 790,
+        "width": 638,
+        "height": 1,
+        "z": 3,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 12,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_designer_preview_body": {
+        "x": 866,
+        "y": 798,
+        "width": 618,
+        "height": 223,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 25
+        }
+      },
+      "v_login_developer": {
+        "x": 535,
+        "y": 10,
+        "width": 560,
+        "height": 90,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 28,
+          "lineWidth": 1.4
+        }
+      },
+      "v_menu_developer": {
+        "x": 500,
+        "y": 145,
+        "width": 630,
+        "height": 135,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 28,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_developer_catalog": {
+        "x": 30,
+        "y": 350,
+        "width": 650,
+        "height": 315,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 27,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_developer_catalog_title": {
+        "x": 42,
+        "y": 356,
+        "width": 626,
+        "height": 65,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 29
+        }
+      },
+      "v_dialog_developer_catalog_rule": {
+        "x": 36,
+        "y": 425,
+        "width": 638,
+        "height": 1,
+        "z": 3,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 12,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_developer_catalog_body": {
+        "x": 46,
+        "y": 433,
+        "width": 618,
+        "height": 223,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 25
+        }
+      },
+      "v_dialog_developer_compose": {
+        "x": 850,
+        "y": 350,
+        "width": 650,
+        "height": 315,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 27,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_developer_compose_title": {
+        "x": 862,
+        "y": 356,
+        "width": 626,
+        "height": 65,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 29
+        }
+      },
+      "v_dialog_developer_compose_rule": {
+        "x": 856,
+        "y": 425,
+        "width": 638,
+        "height": 1,
+        "z": 3,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 12,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_developer_compose_body": {
+        "x": 866,
+        "y": 433,
+        "width": 618,
+        "height": 223,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 25
+        }
+      },
+      "v_dialog_developer_check": {
+        "x": 30,
+        "y": 715,
+        "width": 650,
+        "height": 315,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 27,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_developer_check_title": {
+        "x": 42,
+        "y": 721,
+        "width": 626,
+        "height": 65,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 29
+        }
+      },
+      "v_dialog_developer_check_rule": {
+        "x": 36,
+        "y": 790,
+        "width": 638,
+        "height": 1,
+        "z": 3,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 12,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_developer_check_body": {
+        "x": 46,
+        "y": 798,
+        "width": 618,
+        "height": 223,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 25
+        }
+      },
+      "v_dialog_developer_version": {
+        "x": 850,
+        "y": 715,
+        "width": 650,
+        "height": 315,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 27,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_developer_version_title": {
+        "x": 862,
+        "y": 721,
+        "width": 626,
+        "height": 65,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 29
+        }
+      },
+      "v_dialog_developer_version_rule": {
+        "x": 856,
+        "y": 790,
+        "width": 638,
+        "height": 1,
+        "z": 3,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 12,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_developer_version_body": {
+        "x": 866,
+        "y": 798,
+        "width": 618,
+        "height": 223,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 25
+        }
+      },
+      "v_login_director": {
+        "x": 535,
+        "y": 10,
+        "width": 560,
+        "height": 90,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 28,
+          "lineWidth": 1.4
+        }
+      },
+      "v_menu_director": {
+        "x": 500,
+        "y": 145,
+        "width": 630,
+        "height": 135,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 28,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_director_summary": {
+        "x": 30,
+        "y": 350,
+        "width": 650,
+        "height": 315,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 27,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_director_summary_title": {
+        "x": 42,
+        "y": 356,
+        "width": 626,
+        "height": 65,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 29
+        }
+      },
+      "v_dialog_director_summary_rule": {
+        "x": 36,
+        "y": 425,
+        "width": 638,
+        "height": 1,
+        "z": 3,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 12,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_director_summary_body": {
+        "x": 46,
+        "y": 433,
+        "width": 618,
+        "height": 223,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 25
+        }
+      },
+      "v_dialog_director_inspect": {
+        "x": 850,
+        "y": 350,
+        "width": 650,
+        "height": 315,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 27,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_director_inspect_title": {
+        "x": 862,
+        "y": 356,
+        "width": 626,
+        "height": 65,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 29
+        }
+      },
+      "v_dialog_director_inspect_rule": {
+        "x": 856,
+        "y": 425,
+        "width": 638,
+        "height": 1,
+        "z": 3,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 12,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_director_inspect_body": {
+        "x": 866,
+        "y": 433,
+        "width": 618,
+        "height": 223,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 25
+        }
+      },
+      "v_dialog_director_approve": {
+        "x": 30,
+        "y": 715,
+        "width": 650,
+        "height": 315,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 27,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_director_approve_title": {
+        "x": 42,
+        "y": 721,
+        "width": 626,
+        "height": 65,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 29
+        }
+      },
+      "v_dialog_director_approve_rule": {
+        "x": 36,
+        "y": 790,
+        "width": 638,
+        "height": 1,
+        "z": 3,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 12,
+          "lineWidth": 1.4
+        }
+      },
+      "v_dialog_director_approve_body": {
+        "x": 46,
+        "y": 798,
+        "width": 618,
+        "height": 223,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 25
+        }
+      },
+      "v_client_title": {
+        "x": 20,
+        "y": 20,
+        "width": 1190,
+        "height": 60,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 33
+        }
+      },
+      "v_visual_title": {
+        "x": 45,
+        "y": 115,
+        "width": 460,
+        "height": 50,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 29
+        }
+      },
+      "v_logic_title": {
+        "x": 610,
+        "y": 115,
+        "width": 570,
+        "height": 50,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 29
+        }
+      },
+      "v_auth": {
+        "x": 70,
+        "y": 195,
+        "width": 410,
+        "height": 95,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 29,
+          "lineWidth": 1.4
+        }
+      },
+      "v_navigation": {
+        "x": 70,
+        "y": 350,
+        "width": 410,
+        "height": 105,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 29,
+          "lineWidth": 1.4
+        }
+      },
+      "v_forms": {
+        "x": 70,
+        "y": 535,
+        "width": 410,
+        "height": 240,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 28,
+          "lineWidth": 1.4
+        }
+      },
+      "v_session": {
+        "x": 650,
+        "y": 195,
+        "width": 490,
+        "height": 95,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 29,
+          "lineWidth": 1.4
+        }
+      },
+      "v_validation": {
+        "x": 650,
+        "y": 365,
+        "width": 490,
+        "height": 105,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 28,
+          "lineWidth": 1.4
+        }
+      },
+      "v_commands": {
+        "x": 650,
+        "y": 555,
+        "width": 490,
+        "height": 125,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 28,
+          "lineWidth": 1.4
+        }
+      },
+      "v_application": {
+        "x": 1345,
+        "y": 550,
+        "width": 450,
+        "height": 135,
+        "z": 2,
+        "style": {
+          "fill": "#ffffff",
+          "stroke": "#000000",
+          "color": "#000000",
+          "fontSize": 28,
+          "lineWidth": 1.4
+        }
+      },
+      "v_result_label": {
+        "x": 510,
+        "y": 750,
+        "width": 350,
+        "height": 50,
+        "z": 4,
+        "style": {
+          "color": "#000000",
+          "fontSize": 27
+        }
+      }
+    },
+    "edges": {
+      "v_link_0": {
+        "bends": [
+          {
+            "x": 830,
+            "y": 120
+          },
+          {
+            "x": 650,
+            "y": 120
+          }
+        ],
+        "from": {
+          "side": "bottom",
+          "offset": 0.35
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_1": {
+        "bends": [
+          {
+            "x": 830,
+            "y": 120
+          },
+          {
+            "x": 1495,
+            "y": 120
+          }
+        ],
+        "from": {
+          "side": "bottom",
+          "offset": 0.65
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_2": {
+        "bends": [
+          {
+            "x": 650,
+            "y": 255
+          },
+          {
+            "x": 170,
+            "y": 255
+          }
+        ],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_3": {
+        "bends": [
+          {
+            "x": 10,
+            "y": 340
+          },
+          {
+            "x": 10,
+            "y": 490
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_4": {
+        "bends": [
+          {
+            "x": 10,
+            "y": 340
+          },
+          {
+            "x": 10,
+            "y": 640
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_5": {
+        "bends": [
+          {
+            "x": 10,
+            "y": 340
+          },
+          {
+            "x": 10,
+            "y": 790
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_6": {
+        "bends": [
+          {
+            "x": 10,
+            "y": 340
+          },
+          {
+            "x": 10,
+            "y": 940
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_7": {
+        "bends": [
+          {
+            "x": 650,
+            "y": 255
+          },
+          {
+            "x": 495,
+            "y": 255
+          }
+        ],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_8": {
+        "bends": [
+          {
+            "x": 335,
+            "y": 340
+          },
+          {
+            "x": 335,
+            "y": 490
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_9": {
+        "bends": [
+          {
+            "x": 335,
+            "y": 340
+          },
+          {
+            "x": 335,
+            "y": 640
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_10": {
+        "bends": [
+          {
+            "x": 335,
+            "y": 340
+          },
+          {
+            "x": 335,
+            "y": 790
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_11": {
+        "bends": [
+          {
+            "x": 335,
+            "y": 340
+          },
+          {
+            "x": 335,
+            "y": 940
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_12": {
+        "bends": [
+          {
+            "x": 650,
+            "y": 255
+          },
+          {
+            "x": 820,
+            "y": 255
+          }
+        ],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_13": {
+        "bends": [
+          {
+            "x": 660,
+            "y": 340
+          },
+          {
+            "x": 660,
+            "y": 490
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_14": {
+        "bends": [
+          {
+            "x": 660,
+            "y": 340
+          },
+          {
+            "x": 660,
+            "y": 640
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_15": {
+        "bends": [
+          {
+            "x": 660,
+            "y": 340
+          },
+          {
+            "x": 660,
+            "y": 790
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_16": {
+        "bends": [
+          {
+            "x": 660,
+            "y": 340
+          },
+          {
+            "x": 660,
+            "y": 940
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_17": {
+        "bends": [
+          {
+            "x": 650,
+            "y": 255
+          },
+          {
+            "x": 1145,
+            "y": 255
+          }
+        ],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_18": {
+        "bends": [
+          {
+            "x": 985,
+            "y": 340
+          },
+          {
+            "x": 985,
+            "y": 490
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_19": {
+        "bends": [
+          {
+            "x": 985,
+            "y": 340
+          },
+          {
+            "x": 985,
+            "y": 640
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_20": {
+        "bends": [
+          {
+            "x": 985,
+            "y": 340
+          },
+          {
+            "x": 985,
+            "y": 790
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_21": {
+        "bends": [
+          {
+            "x": 1320,
+            "y": 182.5
+          },
+          {
+            "x": 1320,
+            "y": 490
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_22": {
+        "bends": [
+          {
+            "x": 1320,
+            "y": 182.5
+          },
+          {
+            "x": 1320,
+            "y": 640
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_23": {
+        "bends": [
+          {
+            "x": 1320,
+            "y": 182.5
+          },
+          {
+            "x": 1320,
+            "y": 790
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_24": {
+        "bends": [
+          {
+            "x": 1320,
+            "y": 182.5
+          },
+          {
+            "x": 1320,
+            "y": 940
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_25": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_26": {
+        "bends": [
+          {
+            "x": 355,
+            "y": 210
+          },
+          {
+            "x": 355,
+            "y": 320
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_27": {
+        "bends": [
+          {
+            "x": 1175,
+            "y": 210
+          },
+          {
+            "x": 1175,
+            "y": 320
+          }
+        ],
+        "from": {
+          "side": "right",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_28": {
+        "bends": [
+          {
+            "x": 740,
+            "y": 310
+          },
+          {
+            "x": 740,
+            "y": 680
+          },
+          {
+            "x": 355,
+            "y": 680
+          }
+        ],
+        "from": {
+          "side": "bottom",
+          "offset": 0.35
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_29": {
+        "bends": [
+          {
+            "x": 795,
+            "y": 310
+          },
+          {
+            "x": 795,
+            "y": 680
+          },
+          {
+            "x": 1175,
+            "y": 680
+          }
+        ],
+        "from": {
+          "side": "bottom",
+          "offset": 0.65
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_30": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_31": {
+        "bends": [
+          {
+            "x": 355,
+            "y": 210
+          },
+          {
+            "x": 355,
+            "y": 320
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_32": {
+        "bends": [
+          {
+            "x": 1175,
+            "y": 210
+          },
+          {
+            "x": 1175,
+            "y": 320
+          }
+        ],
+        "from": {
+          "side": "right",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_33": {
+        "bends": [
+          {
+            "x": 740,
+            "y": 310
+          },
+          {
+            "x": 740,
+            "y": 680
+          },
+          {
+            "x": 355,
+            "y": 680
+          }
+        ],
+        "from": {
+          "side": "bottom",
+          "offset": 0.35
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_34": {
+        "bends": [
+          {
+            "x": 795,
+            "y": 310
+          },
+          {
+            "x": 795,
+            "y": 680
+          },
+          {
+            "x": 1175,
+            "y": 680
+          }
+        ],
+        "from": {
+          "side": "bottom",
+          "offset": 0.65
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_35": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_36": {
+        "bends": [
+          {
+            "x": 355,
+            "y": 210
+          },
+          {
+            "x": 355,
+            "y": 320
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_37": {
+        "bends": [
+          {
+            "x": 1175,
+            "y": 210
+          },
+          {
+            "x": 1175,
+            "y": 320
+          }
+        ],
+        "from": {
+          "side": "right",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_38": {
+        "bends": [
+          {
+            "x": 740,
+            "y": 310
+          },
+          {
+            "x": 740,
+            "y": 680
+          },
+          {
+            "x": 355,
+            "y": 680
+          }
+        ],
+        "from": {
+          "side": "bottom",
+          "offset": 0.35
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_39": {
+        "bends": [
+          {
+            "x": 795,
+            "y": 310
+          },
+          {
+            "x": 795,
+            "y": 680
+          },
+          {
+            "x": 1175,
+            "y": 680
+          }
+        ],
+        "from": {
+          "side": "bottom",
+          "offset": 0.65
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_40": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_41": {
+        "bends": [
+          {
+            "x": 355,
+            "y": 210
+          },
+          {
+            "x": 355,
+            "y": 320
+          }
+        ],
+        "from": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_42": {
+        "bends": [
+          {
+            "x": 1175,
+            "y": 210
+          },
+          {
+            "x": 1175,
+            "y": 320
+          }
+        ],
+        "from": {
+          "side": "right",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_43": {
+        "bends": [
+          {
+            "x": 740,
+            "y": 310
+          },
+          {
+            "x": 740,
+            "y": 680
+          },
+          {
+            "x": 355,
+            "y": 680
+          }
+        ],
+        "from": {
+          "side": "bottom",
+          "offset": 0.35
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_44": {
+        "bends": [],
+        "from": {
+          "side": "right",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_45": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_46": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_47": {
+        "bends": [
+          {
+            "x": 565,
+            "y": 655
+          },
+          {
+            "x": 565,
+            "y": 417.5
+          }
+        ],
+        "from": {
+          "side": "right",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_48": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_49": {
+        "bends": [],
+        "from": {
+          "side": "right",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      },
+      "v_link_50": {
+        "bends": [
+          {
+            "x": 895,
+            "y": 815
+          },
+          {
+            "x": 275,
+            "y": 815
+          }
+        ],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "style": {
+          "stroke": "#000000"
+        }
+      }
+    },
+    "diagrams": {
+      "functions": {},
+      "dialog_manager": {},
+      "dialog_designer": {},
+      "dialog_developer": {},
+      "dialog_director": {},
+      "structure": {}
+    }
+  }
+}

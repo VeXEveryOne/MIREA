@@ -561,210 +561,220 @@
   ],
   "sheets": [
     {
-      "sheet": "logical_catalog",
-      "file": "ПР7_Логическая_catalog.png",
+      "sheet": "logical_full",
+      "physical": false,
       "entities": [
-        "component_group",
+        "card",
+        "card_revision",
         "component",
-        "supplier",
-        "offer"
-      ],
-      "repeatedKeysOnly": [],
-      "internalRelations": [
-        "component_group_id_fkey",
-        "offer_component_id_fkey",
-        "offer_supplier_id_fkey"
-      ],
-      "crossReferences": [
-        "model_range_slot_group_id_fkey",
-        "model_range_slot_offer_id_fkey",
-        "model_range_slot_requested_component_id_fkey"
-      ],
-      "parallelOverlaps": 0,
-      "entityIntersections": 0
-    },
-    {
-      "sheet": "logical_model_range",
-      "file": "ПР7_Логическая_model_range.png",
-      "entities": [
+        "component_group",
         "configuration",
-        "model_range_version",
+        "image",
         "model_range_slot",
-        "component_group",
-        "component",
-        "offer"
+        "model_range_version",
+        "offer",
+        "publication_attempt",
+        "revision_image",
+        "supplier"
       ],
-      "repeatedKeysOnly": [
-        "component_group",
-        "component",
-        "offer"
+      "attributes": [
+        "card__id",
+        "card__name",
+        "card__seller_code",
+        "card_revision__assembly_rub",
+        "card_revision__calculated_at",
+        "card_revision__card_id",
+        "card_revision__commission_rate",
+        "card_revision__configuration_id",
+        "card_revision__description",
+        "card_revision__logistics_rub",
+        "card_revision__markup_rate",
+        "card_revision__packaging_mass_kg",
+        "card_revision__packaging_rub",
+        "card_revision__revision_no",
+        "card_revision__round_step_rub",
+        "card_revision__state",
+        "card_revision__title",
+        "card_revision__version_no",
+        "component__group_id",
+        "component__id",
+        "component__mass_kg",
+        "component__memory_type",
+        "component__name",
+        "component__power_w",
+        "component__sku",
+        "component__socket",
+        "component_group__code",
+        "component_group__id",
+        "component_group__name",
+        "component_group__role_code",
+        "configuration__code",
+        "configuration__id",
+        "configuration__name",
+        "image__height_px",
+        "image__id",
+        "image__sha256",
+        "image__uri",
+        "image__width_px",
+        "model_range_slot__configuration_id",
+        "model_range_slot__group_id",
+        "model_range_slot__line_no",
+        "model_range_slot__offer_id",
+        "model_range_slot__quantity",
+        "model_range_slot__requested_component_id",
+        "model_range_slot__version_no",
+        "model_range_version__configuration_id",
+        "model_range_version__created_at",
+        "model_range_version__state",
+        "model_range_version__version_no",
+        "offer__component_id",
+        "offer__id",
+        "offer__observed_at",
+        "offer__stock",
+        "offer__supplier_id",
+        "offer__unit_price_rub",
+        "publication_attempt__attempt_no",
+        "publication_attempt__card_id",
+        "publication_attempt__confirmed_not_accepted",
+        "publication_attempt__created_at",
+        "publication_attempt__error_code",
+        "publication_attempt__external_task_id",
+        "publication_attempt__next_check_at",
+        "publication_attempt__revision_no",
+        "publication_attempt__state",
+        "revision_image__card_id",
+        "revision_image__image_id",
+        "revision_image__ordinal",
+        "revision_image__revision_no",
+        "supplier__code",
+        "supplier__id",
+        "supplier__name"
       ],
       "internalRelations": [
+        "card_revision_card_id_fkey",
+        "card_revision_configuration_id_version_no_fkey",
         "component_group_id_fkey",
         "model_range_slot_configuration_id_version_no_fkey",
         "model_range_slot_group_id_fkey",
         "model_range_slot_offer_id_fkey",
         "model_range_slot_requested_component_id_fkey",
         "model_range_version_configuration_id_fkey",
-        "offer_component_id_fkey"
-      ],
-      "crossReferences": [
-        "card_revision_configuration_id_version_no_fkey",
-        "offer_supplier_id_fkey"
-      ],
-      "parallelOverlaps": 0,
-      "entityIntersections": 0
-    },
-    {
-      "sheet": "logical_cards",
-      "file": "ПР7_Логическая_cards.png",
-      "entities": [
-        "card",
-        "card_revision",
-        "model_range_version"
-      ],
-      "repeatedKeysOnly": [
-        "model_range_version"
-      ],
-      "internalRelations": [
-        "card_revision_card_id_fkey",
-        "card_revision_configuration_id_version_no_fkey"
-      ],
-      "crossReferences": [
-        "model_range_slot_configuration_id_version_no_fkey",
-        "model_range_version_configuration_id_fkey",
-        "publication_attempt_card_id_revision_no_fkey",
-        "revision_image_card_id_revision_no_fkey"
-      ],
-      "parallelOverlaps": 0,
-      "entityIntersections": 0
-    },
-    {
-      "sheet": "logical_publication",
-      "file": "ПР7_Логическая_publication.png",
-      "entities": [
-        "card_revision",
-        "image",
-        "revision_image",
-        "publication_attempt"
-      ],
-      "repeatedKeysOnly": [
-        "card_revision"
-      ],
-      "internalRelations": [
+        "offer_component_id_fkey",
+        "offer_supplier_id_fkey",
         "publication_attempt_card_id_revision_no_fkey",
         "revision_image_card_id_revision_no_fkey",
         "revision_image_image_id_fkey"
       ],
-      "crossReferences": [
-        "card_revision_card_id_fkey",
-        "card_revision_configuration_id_version_no_fkey"
-      ],
-      "parallelOverlaps": 0,
-      "entityIntersections": 0
-    },
-    {
-      "sheet": "physical_catalog",
-      "file": "ПР7_Физическая_catalog.png",
-      "entities": [
-        "component_group",
-        "component",
-        "supplier",
-        "offer"
-      ],
       "repeatedKeysOnly": [],
-      "internalRelations": [
-        "component_group_id_fkey",
-        "offer_component_id_fkey",
-        "offer_supplier_id_fkey"
-      ],
-      "crossReferences": [
-        "model_range_slot_group_id_fkey",
-        "model_range_slot_offer_id_fkey",
-        "model_range_slot_requested_component_id_fkey"
-      ],
-      "parallelOverlaps": 0,
-      "entityIntersections": 0
+      "crossReferences": []
     },
     {
-      "sheet": "physical_model_range",
-      "file": "ПР7_Физическая_model_range.png",
+      "sheet": "physical_full",
+      "physical": true,
       "entities": [
+        "card",
+        "card_revision",
+        "component",
+        "component_group",
         "configuration",
-        "model_range_version",
+        "image",
         "model_range_slot",
-        "component_group",
-        "component",
-        "offer"
+        "model_range_version",
+        "offer",
+        "publication_attempt",
+        "revision_image",
+        "supplier"
       ],
-      "repeatedKeysOnly": [
-        "component_group",
-        "component",
-        "offer"
+      "attributes": [
+        "card__id",
+        "card__seller_code",
+        "card__name",
+        "card_revision__card_id",
+        "card_revision__revision_no",
+        "card_revision__configuration_id",
+        "card_revision__version_no",
+        "card_revision__state",
+        "card_revision__title",
+        "card_revision__description",
+        "card_revision__assembly_rub",
+        "card_revision__packaging_rub",
+        "card_revision__logistics_rub",
+        "card_revision__markup_rate",
+        "card_revision__commission_rate",
+        "card_revision__round_step_rub",
+        "card_revision__packaging_mass_kg",
+        "card_revision__calculated_at",
+        "component__id",
+        "component__group_id",
+        "component__sku",
+        "component__name",
+        "component__mass_kg",
+        "component__socket",
+        "component__memory_type",
+        "component__power_w",
+        "component_group__id",
+        "component_group__code",
+        "component_group__name",
+        "component_group__role_code",
+        "configuration__id",
+        "configuration__code",
+        "configuration__name",
+        "image__id",
+        "image__uri",
+        "image__sha256",
+        "image__width_px",
+        "image__height_px",
+        "model_range_slot__configuration_id",
+        "model_range_slot__version_no",
+        "model_range_slot__line_no",
+        "model_range_slot__group_id",
+        "model_range_slot__requested_component_id",
+        "model_range_slot__offer_id",
+        "model_range_slot__quantity",
+        "model_range_version__configuration_id",
+        "model_range_version__version_no",
+        "model_range_version__state",
+        "model_range_version__created_at",
+        "offer__id",
+        "offer__component_id",
+        "offer__supplier_id",
+        "offer__unit_price_rub",
+        "offer__stock",
+        "offer__observed_at",
+        "publication_attempt__card_id",
+        "publication_attempt__revision_no",
+        "publication_attempt__attempt_no",
+        "publication_attempt__state",
+        "publication_attempt__external_task_id",
+        "publication_attempt__error_code",
+        "publication_attempt__confirmed_not_accepted",
+        "publication_attempt__created_at",
+        "publication_attempt__next_check_at",
+        "revision_image__card_id",
+        "revision_image__revision_no",
+        "revision_image__image_id",
+        "revision_image__ordinal",
+        "supplier__id",
+        "supplier__code",
+        "supplier__name"
       ],
       "internalRelations": [
+        "card_revision_card_id_fkey",
+        "card_revision_configuration_id_version_no_fkey",
         "component_group_id_fkey",
         "model_range_slot_configuration_id_version_no_fkey",
         "model_range_slot_group_id_fkey",
         "model_range_slot_offer_id_fkey",
         "model_range_slot_requested_component_id_fkey",
         "model_range_version_configuration_id_fkey",
-        "offer_component_id_fkey"
-      ],
-      "crossReferences": [
-        "card_revision_configuration_id_version_no_fkey",
-        "offer_supplier_id_fkey"
-      ],
-      "parallelOverlaps": 0,
-      "entityIntersections": 0
-    },
-    {
-      "sheet": "physical_cards",
-      "file": "ПР7_Физическая_cards.png",
-      "entities": [
-        "card",
-        "card_revision",
-        "model_range_version"
-      ],
-      "repeatedKeysOnly": [
-        "model_range_version"
-      ],
-      "internalRelations": [
-        "card_revision_card_id_fkey",
-        "card_revision_configuration_id_version_no_fkey"
-      ],
-      "crossReferences": [
-        "model_range_slot_configuration_id_version_no_fkey",
-        "model_range_version_configuration_id_fkey",
-        "publication_attempt_card_id_revision_no_fkey",
-        "revision_image_card_id_revision_no_fkey"
-      ],
-      "parallelOverlaps": 0,
-      "entityIntersections": 0
-    },
-    {
-      "sheet": "physical_publication",
-      "file": "ПР7_Физическая_publication.png",
-      "entities": [
-        "card_revision",
-        "image",
-        "revision_image",
-        "publication_attempt"
-      ],
-      "repeatedKeysOnly": [
-        "card_revision"
-      ],
-      "internalRelations": [
+        "offer_component_id_fkey",
+        "offer_supplier_id_fkey",
         "publication_attempt_card_id_revision_no_fkey",
         "revision_image_card_id_revision_no_fkey",
         "revision_image_image_id_fkey"
       ],
-      "crossReferences": [
-        "card_revision_card_id_fkey",
-        "card_revision_configuration_id_version_no_fkey"
-      ],
-      "parallelOverlaps": 0,
-      "entityIntersections": 0
+      "repeatedKeysOnly": [],
+      "crossReferences": []
     }
   ]
 }

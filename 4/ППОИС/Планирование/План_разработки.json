@@ -14,7 +14,7 @@
     7,
     8
   ],
-  "max_role_utilization": 1,
+  "max_role_utilization": 1.0,
   "tasks": [
     {
       "id": 1,
@@ -29,33 +29,47 @@
       "end_day": 4,
       "start_date": "2026-10-05",
       "end_date": "2026-10-09",
-      "latest_end_day": 4,
-      "latest_start_day": 0,
-      "slack_workdays": 0,
       "subtasks": [
         {
           "name": "Обследовать процесс",
           "duration": 2,
           "code": "1.1",
+          "after": [],
           "start_day": 0,
           "end_day": 1,
+          "effort": {
+            "Аналитик": 2
+          },
           "performers": [
-            "Аналитик",
-            "Руководитель проекта"
-          ]
+            "Аналитик"
+          ],
+          "start_date": "2026-10-05",
+          "end_date": "2026-10-06"
         },
         {
           "name": "Согласовать требования",
           "duration": 3,
           "code": "1.2",
+          "after": [
+            "1.1"
+          ],
           "start_day": 2,
           "end_day": 4,
+          "effort": {
+            "Аналитик": 3,
+            "Руководитель проекта": 2
+          },
           "performers": [
             "Аналитик",
             "Руководитель проекта"
-          ]
+          ],
+          "start_date": "2026-10-07",
+          "end_date": "2026-10-09"
         }
-      ]
+      ],
+      "latest_end_day": 4,
+      "latest_start_day": 0,
+      "slack_workdays": 0
     },
     {
       "id": 2,
@@ -72,33 +86,51 @@
       "end_day": 9,
       "start_date": "2026-10-12",
       "end_date": "2026-10-16",
-      "latest_end_day": 9,
-      "latest_start_day": 5,
-      "slack_workdays": 0,
       "subtasks": [
         {
           "name": "Построить модели",
           "duration": 2,
           "code": "2.1",
+          "after": [
+            "1.2"
+          ],
           "start_day": 5,
           "end_day": 6,
+          "effort": {
+            "Аналитик": 2,
+            "Архитектор": 1
+          },
           "performers": [
             "Аналитик",
             "Архитектор"
-          ]
+          ],
+          "start_date": "2026-10-12",
+          "end_date": "2026-10-13"
         },
         {
           "name": "Спроектировать архитектуру",
           "duration": 3,
           "code": "2.2",
+          "after": [
+            "2.1"
+          ],
           "start_day": 7,
           "end_day": 9,
+          "effort": {
+            "Аналитик": 3,
+            "Архитектор": 2
+          },
           "performers": [
             "Аналитик",
             "Архитектор"
-          ]
+          ],
+          "start_date": "2026-10-14",
+          "end_date": "2026-10-16"
         }
-      ]
+      ],
+      "latest_end_day": 9,
+      "latest_start_day": 5,
+      "slack_workdays": 0
     },
     {
       "id": 3,
@@ -115,33 +147,51 @@
       "end_day": 15,
       "start_date": "2026-10-19",
       "end_date": "2026-10-26",
-      "latest_end_day": 15,
-      "latest_start_day": 10,
-      "slack_workdays": 0,
       "subtasks": [
         {
           "name": "Разработать схему БД",
           "duration": 3,
           "code": "3.1",
+          "after": [
+            "2.2"
+          ],
           "start_day": 10,
           "end_day": 12,
+          "effort": {
+            "Backend-разработчик": 3,
+            "Администратор БД": 2
+          },
           "performers": [
             "Backend-разработчик",
             "Администратор БД"
-          ]
+          ],
+          "start_date": "2026-10-19",
+          "end_date": "2026-10-21"
         },
         {
           "name": "Подготовить миграции и данные",
           "duration": 3,
           "code": "3.2",
+          "after": [
+            "3.1"
+          ],
           "start_day": 13,
           "end_day": 15,
+          "effort": {
+            "Backend-разработчик": 3,
+            "Администратор БД": 2
+          },
           "performers": [
             "Backend-разработчик",
             "Администратор БД"
-          ]
+          ],
+          "start_date": "2026-10-22",
+          "end_date": "2026-10-26"
         }
-      ]
+      ],
+      "latest_end_day": 15,
+      "latest_start_day": 10,
+      "slack_workdays": 0
     },
     {
       "id": 4,
@@ -158,33 +208,51 @@
       "end_day": 23,
       "start_date": "2026-10-27",
       "end_date": "2026-11-06",
-      "latest_end_day": 23,
-      "latest_start_day": 16,
-      "slack_workdays": 0,
       "subtasks": [
         {
           "name": "Реализовать подбор",
           "duration": 4,
           "code": "4.1",
+          "after": [
+            "3.2"
+          ],
           "start_day": 16,
           "end_day": 19,
+          "effort": {
+            "Backend-разработчик": 4,
+            "Тестировщик": 1
+          },
           "performers": [
             "Backend-разработчик",
             "Тестировщик"
-          ]
+          ],
+          "start_date": "2026-10-27",
+          "end_date": "2026-10-30"
         },
         {
           "name": "Реализовать расчёт",
           "duration": 4,
           "code": "4.2",
+          "after": [
+            "4.1"
+          ],
           "start_day": 20,
           "end_day": 23,
+          "effort": {
+            "Backend-разработчик": 4,
+            "Тестировщик": 2
+          },
           "performers": [
             "Backend-разработчик",
             "Тестировщик"
-          ]
+          ],
+          "start_date": "2026-11-02",
+          "end_date": "2026-11-06"
         }
-      ]
+      ],
+      "latest_end_day": 23,
+      "latest_start_day": 16,
+      "slack_workdays": 0
     },
     {
       "id": 5,
@@ -201,33 +269,49 @@
       "end_day": 16,
       "start_date": "2026-10-19",
       "end_date": "2026-10-27",
-      "latest_end_day": 23,
-      "latest_start_day": 17,
-      "slack_workdays": 7,
       "subtasks": [
         {
           "name": "Спроектировать формы ролей",
           "duration": 3,
           "code": "5.1",
+          "after": [
+            "2.2"
+          ],
           "start_day": 10,
           "end_day": 12,
+          "effort": {
+            "Frontend-разработчик": 3,
+            "Аналитик": 2
+          },
           "performers": [
             "Frontend-разработчик",
             "Аналитик"
-          ]
+          ],
+          "start_date": "2026-10-19",
+          "end_date": "2026-10-21"
         },
         {
           "name": "Реализовать ввод и результат",
           "duration": 4,
           "code": "5.2",
+          "after": [
+            "5.1"
+          ],
           "start_day": 13,
           "end_day": 16,
+          "effort": {
+            "Frontend-разработчик": 4
+          },
           "performers": [
-            "Frontend-разработчик",
-            "Аналитик"
-          ]
+            "Frontend-разработчик"
+          ],
+          "start_date": "2026-10-22",
+          "end_date": "2026-10-27"
         }
-      ]
+      ],
+      "latest_end_day": 23,
+      "latest_start_day": 17,
+      "slack_workdays": 7
     },
     {
       "id": 6,
@@ -246,35 +330,54 @@
       "end_day": 27,
       "start_date": "2026-11-09",
       "end_date": "2026-11-12",
-      "latest_end_day": 27,
-      "latest_start_day": 24,
-      "slack_workdays": 0,
       "subtasks": [
         {
           "name": "Соединить клиент и сервис",
           "duration": 2,
           "code": "6.1",
+          "after": [
+            "4.2",
+            "5.2"
+          ],
           "start_day": 24,
           "end_day": 25,
+          "effort": {
+            "Backend-разработчик": 2,
+            "Frontend-разработчик": 2,
+            "Тестировщик": 2
+          },
           "performers": [
             "Backend-разработчик",
             "Frontend-разработчик",
             "Тестировщик"
-          ]
+          ],
+          "start_date": "2026-11-09",
+          "end_date": "2026-11-10"
         },
         {
           "name": "Проверить сквозной сценарий",
           "duration": 2,
           "code": "6.2",
+          "after": [
+            "6.1"
+          ],
           "start_day": 26,
           "end_day": 27,
+          "effort": {
+            "Backend-разработчик": 2,
+            "Тестировщик": 2
+          },
           "performers": [
             "Backend-разработчик",
-            "Frontend-разработчик",
             "Тестировщик"
-          ]
+          ],
+          "start_date": "2026-11-11",
+          "end_date": "2026-11-12"
         }
-      ]
+      ],
+      "latest_end_day": 27,
+      "latest_start_day": 24,
+      "slack_workdays": 0
     },
     {
       "id": 7,
@@ -291,33 +394,49 @@
       "end_day": 33,
       "start_date": "2026-11-13",
       "end_date": "2026-11-20",
-      "latest_end_day": 33,
-      "latest_start_day": 28,
-      "slack_workdays": 0,
       "subtasks": [
         {
           "name": "Проверить функции и ошибки",
           "duration": 3,
           "code": "7.1",
+          "after": [
+            "6.2"
+          ],
           "start_day": 28,
           "end_day": 30,
+          "effort": {
+            "Тестировщик": 3
+          },
           "performers": [
-            "Тестировщик",
-            "Backend-разработчик"
-          ]
+            "Тестировщик"
+          ],
+          "start_date": "2026-11-13",
+          "end_date": "2026-11-17"
         },
         {
           "name": "Устранить дефекты",
           "duration": 3,
           "code": "7.2",
+          "after": [
+            "7.1"
+          ],
           "start_day": 31,
           "end_day": 33,
+          "effort": {
+            "Тестировщик": 3,
+            "Backend-разработчик": 3
+          },
           "performers": [
             "Тестировщик",
             "Backend-разработчик"
-          ]
+          ],
+          "start_date": "2026-11-18",
+          "end_date": "2026-11-20"
         }
-      ]
+      ],
+      "latest_end_day": 33,
+      "latest_start_day": 28,
+      "slack_workdays": 0
     },
     {
       "id": 8,
@@ -334,33 +453,51 @@
       "end_day": 36,
       "start_date": "2026-11-23",
       "end_date": "2026-11-25",
-      "latest_end_day": 36,
-      "latest_start_day": 34,
-      "slack_workdays": 0,
       "subtasks": [
         {
           "name": "Провести пилот",
           "duration": 1,
           "code": "8.1",
+          "after": [
+            "7.2"
+          ],
           "start_day": 34,
           "end_day": 34,
+          "effort": {
+            "Руководитель проекта": 1,
+            "Инженер эксплуатации": 1
+          },
           "performers": [
             "Руководитель проекта",
             "Инженер эксплуатации"
-          ]
+          ],
+          "start_date": "2026-11-23",
+          "end_date": "2026-11-23"
         },
         {
           "name": "Подготовить передачу",
           "duration": 2,
           "code": "8.2",
+          "after": [
+            "8.1"
+          ],
           "start_day": 35,
           "end_day": 36,
+          "effort": {
+            "Руководитель проекта": 2,
+            "Инженер эксплуатации": 2
+          },
           "performers": [
             "Руководитель проекта",
             "Инженер эксплуатации"
-          ]
+          ],
+          "start_date": "2026-11-24",
+          "end_date": "2026-11-25"
         }
-      ]
+      ],
+      "latest_end_day": 36,
+      "latest_start_day": 34,
+      "slack_workdays": 0
     }
   ],
   "role_effort": {
@@ -377,6 +514,7 @@
     "dependencies": true,
     "role_capacity": true,
     "duration_effort_distinction": true,
-    "forward_backward_pass": true
+    "forward_backward_pass": true,
+    "subtask_assignments": true
   }
 }

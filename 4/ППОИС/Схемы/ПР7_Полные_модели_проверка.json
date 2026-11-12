@@ -1,0 +1,1859 @@
+{
+  "database": "ppois_681e51399c24",
+  "source_sha256": {
+    "privileges.sql": "61cea0bb1b1e8a8533be27025bb0dd187d9f7924a98b2adc8f67fb168c3b41e4",
+    "queries.sql": "f38616672657066d46ab4d74020c615118e8a8d8e9a058f2600fee67c187fd70",
+    "schema.sql": "a10ee9a70be7fa8c107fccf2614102e59711f60fb0ac1fcb652f6d3d6a471a48"
+  },
+  "models": {
+    "semantic": "8b92132a5e19ba156713d5e8d8178eeb53178925d3c58e497b6d92f1148c9ab8",
+    "presentation": "3bd96dd97ac3b6dc5dedd7e399450f94bf6285da5439c9c6c949b5574da23ebd"
+  },
+  "diagnostics": [],
+  "printWarnings": 230,
+  "weakEntities": [
+    "card_revision",
+    "model_range_slot",
+    "model_range_version",
+    "publication_attempt",
+    "revision_image"
+  ],
+  "fields": {
+    "logical": [
+      {
+        "table": "card",
+        "column": "id",
+        "text": "PK id",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "card",
+        "column": "seller_code",
+        "text": "UQ seller_code",
+        "type": "varchar(60)",
+        "nullable": false
+      },
+      {
+        "table": "card",
+        "column": "name",
+        "text": "name",
+        "type": "varchar(160)",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "card_id",
+        "text": "PK FK card_id",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "revision_no",
+        "text": "PK revision_no",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "configuration_id",
+        "text": "FK configuration_id",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "version_no",
+        "text": "FK version_no",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "state",
+        "text": "state",
+        "type": "varchar(12)",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "title",
+        "text": "title",
+        "type": "varchar(200)",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "description",
+        "text": "description",
+        "type": "text",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "assembly_rub",
+        "text": "assembly_rub",
+        "type": "numeric(10,2)",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "packaging_rub",
+        "text": "packaging_rub",
+        "type": "numeric(10,2)",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "logistics_rub",
+        "text": "logistics_rub",
+        "type": "numeric(10,2)",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "markup_rate",
+        "text": "markup_rate",
+        "type": "numeric(6,4)",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "commission_rate",
+        "text": "commission_rate",
+        "type": "numeric(6,4)",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "round_step_rub",
+        "text": "round_step_rub",
+        "type": "numeric(8,2)",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "packaging_mass_kg",
+        "text": "packaging_mass_kg",
+        "type": "numeric(9,3)",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "calculated_at",
+        "text": "calculated_at",
+        "type": "timestamptz",
+        "nullable": false
+      },
+      {
+        "table": "component",
+        "column": "id",
+        "text": "PK id",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "component",
+        "column": "group_id",
+        "text": "FK group_id",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "component",
+        "column": "sku",
+        "text": "UQ sku",
+        "type": "varchar(60)",
+        "nullable": false
+      },
+      {
+        "table": "component",
+        "column": "name",
+        "text": "name",
+        "type": "varchar(160)",
+        "nullable": false
+      },
+      {
+        "table": "component",
+        "column": "mass_kg",
+        "text": "mass_kg",
+        "type": "numeric(9,3)",
+        "nullable": false
+      },
+      {
+        "table": "component",
+        "column": "socket",
+        "text": "socket",
+        "type": "varchar(30)",
+        "nullable": true
+      },
+      {
+        "table": "component",
+        "column": "memory_type",
+        "text": "memory_type",
+        "type": "varchar(20)",
+        "nullable": true
+      },
+      {
+        "table": "component",
+        "column": "power_w",
+        "text": "power_w",
+        "type": "integer",
+        "nullable": true
+      },
+      {
+        "table": "component_group",
+        "column": "id",
+        "text": "PK id",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "component_group",
+        "column": "code",
+        "text": "UQ code",
+        "type": "varchar(20)",
+        "nullable": false
+      },
+      {
+        "table": "component_group",
+        "column": "name",
+        "text": "name",
+        "type": "varchar(120)",
+        "nullable": false
+      },
+      {
+        "table": "component_group",
+        "column": "role_code",
+        "text": "role_code",
+        "type": "varchar(12)",
+        "nullable": false
+      },
+      {
+        "table": "configuration",
+        "column": "id",
+        "text": "PK id",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "configuration",
+        "column": "code",
+        "text": "UQ code",
+        "type": "varchar(30)",
+        "nullable": false
+      },
+      {
+        "table": "configuration",
+        "column": "name",
+        "text": "name",
+        "type": "varchar(160)",
+        "nullable": false
+      },
+      {
+        "table": "image",
+        "column": "id",
+        "text": "PK id",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "image",
+        "column": "uri",
+        "text": "uri",
+        "type": "varchar(250)",
+        "nullable": false
+      },
+      {
+        "table": "image",
+        "column": "sha256",
+        "text": "UQ sha256",
+        "type": "char(64)",
+        "nullable": false
+      },
+      {
+        "table": "image",
+        "column": "width_px",
+        "text": "width_px",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "image",
+        "column": "height_px",
+        "text": "height_px",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "model_range_slot",
+        "column": "configuration_id",
+        "text": "PK FK configuration_id",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "model_range_slot",
+        "column": "version_no",
+        "text": "PK FK version_no",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "model_range_slot",
+        "column": "line_no",
+        "text": "PK line_no",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "model_range_slot",
+        "column": "group_id",
+        "text": "FK group_id",
+        "type": "uuid",
+        "nullable": true
+      },
+      {
+        "table": "model_range_slot",
+        "column": "requested_component_id",
+        "text": "FK requested_component_id",
+        "type": "uuid",
+        "nullable": true
+      },
+      {
+        "table": "model_range_slot",
+        "column": "offer_id",
+        "text": "FK offer_id",
+        "type": "uuid",
+        "nullable": true
+      },
+      {
+        "table": "model_range_slot",
+        "column": "quantity",
+        "text": "quantity",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "model_range_version",
+        "column": "configuration_id",
+        "text": "PK FK configuration_id",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "model_range_version",
+        "column": "version_no",
+        "text": "PK version_no",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "model_range_version",
+        "column": "state",
+        "text": "state",
+        "type": "varchar(12)",
+        "nullable": false
+      },
+      {
+        "table": "model_range_version",
+        "column": "created_at",
+        "text": "created_at",
+        "type": "timestamptz",
+        "nullable": false
+      },
+      {
+        "table": "offer",
+        "column": "id",
+        "text": "PK id",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "offer",
+        "column": "component_id",
+        "text": "FK component_id",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "offer",
+        "column": "supplier_id",
+        "text": "FK supplier_id",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "offer",
+        "column": "unit_price_rub",
+        "text": "unit_price_rub",
+        "type": "numeric(12,2)",
+        "nullable": false
+      },
+      {
+        "table": "offer",
+        "column": "stock",
+        "text": "stock",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "offer",
+        "column": "observed_at",
+        "text": "observed_at",
+        "type": "timestamptz",
+        "nullable": false
+      },
+      {
+        "table": "publication_attempt",
+        "column": "card_id",
+        "text": "PK FK card_id",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "publication_attempt",
+        "column": "revision_no",
+        "text": "PK FK revision_no",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "publication_attempt",
+        "column": "attempt_no",
+        "text": "PK attempt_no",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "publication_attempt",
+        "column": "state",
+        "text": "state",
+        "type": "varchar(12)",
+        "nullable": false
+      },
+      {
+        "table": "publication_attempt",
+        "column": "external_task_id",
+        "text": "external_task_id",
+        "type": "varchar(80)",
+        "nullable": true
+      },
+      {
+        "table": "publication_attempt",
+        "column": "error_code",
+        "text": "error_code",
+        "type": "varchar(60)",
+        "nullable": true
+      },
+      {
+        "table": "publication_attempt",
+        "column": "confirmed_not_accepted",
+        "text": "confirmed_not_accepted",
+        "type": "boolean",
+        "nullable": false
+      },
+      {
+        "table": "publication_attempt",
+        "column": "created_at",
+        "text": "created_at",
+        "type": "timestamptz",
+        "nullable": false
+      },
+      {
+        "table": "publication_attempt",
+        "column": "next_check_at",
+        "text": "next_check_at",
+        "type": "timestamptz",
+        "nullable": true
+      },
+      {
+        "table": "revision_image",
+        "column": "card_id",
+        "text": "PK FK UQ card_id",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "revision_image",
+        "column": "revision_no",
+        "text": "PK FK UQ revision_no",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "revision_image",
+        "column": "image_id",
+        "text": "PK FK image_id",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "revision_image",
+        "column": "ordinal",
+        "text": "UQ ordinal",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "supplier",
+        "column": "id",
+        "text": "PK id",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "supplier",
+        "column": "code",
+        "text": "UQ code",
+        "type": "varchar(20)",
+        "nullable": false
+      },
+      {
+        "table": "supplier",
+        "column": "name",
+        "text": "name",
+        "type": "varchar(120)",
+        "nullable": false
+      }
+    ],
+    "physical": [
+      {
+        "table": "card",
+        "column": "id",
+        "text": "PK id : uuid NN",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "card",
+        "column": "seller_code",
+        "text": "UQ seller_code : varchar(60) NN",
+        "type": "varchar(60)",
+        "nullable": false
+      },
+      {
+        "table": "card",
+        "column": "name",
+        "text": "name : varchar(160) NN",
+        "type": "varchar(160)",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "card_id",
+        "text": "PK FK card_id : uuid NN",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "revision_no",
+        "text": "PK revision_no : integer NN",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "configuration_id",
+        "text": "FK configuration_id : uuid NN",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "version_no",
+        "text": "FK version_no : integer NN",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "state",
+        "text": "state : varchar(12) NN",
+        "type": "varchar(12)",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "title",
+        "text": "title : varchar(200) NN",
+        "type": "varchar(200)",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "description",
+        "text": "description : text NN",
+        "type": "text",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "assembly_rub",
+        "text": "assembly_rub : numeric(10,2) NN",
+        "type": "numeric(10,2)",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "packaging_rub",
+        "text": "packaging_rub : numeric(10,2) NN",
+        "type": "numeric(10,2)",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "logistics_rub",
+        "text": "logistics_rub : numeric(10,2) NN",
+        "type": "numeric(10,2)",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "markup_rate",
+        "text": "markup_rate : numeric(6,4) NN",
+        "type": "numeric(6,4)",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "commission_rate",
+        "text": "commission_rate : numeric(6,4) NN",
+        "type": "numeric(6,4)",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "round_step_rub",
+        "text": "round_step_rub : numeric(8,2) NN",
+        "type": "numeric(8,2)",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "packaging_mass_kg",
+        "text": "packaging_mass_kg : numeric(9,3) NN",
+        "type": "numeric(9,3)",
+        "nullable": false
+      },
+      {
+        "table": "card_revision",
+        "column": "calculated_at",
+        "text": "calculated_at : timestamptz NN",
+        "type": "timestamptz",
+        "nullable": false
+      },
+      {
+        "table": "component",
+        "column": "id",
+        "text": "PK id : uuid NN",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "component",
+        "column": "group_id",
+        "text": "FK group_id : uuid NN",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "component",
+        "column": "sku",
+        "text": "UQ sku : varchar(60) NN",
+        "type": "varchar(60)",
+        "nullable": false
+      },
+      {
+        "table": "component",
+        "column": "name",
+        "text": "name : varchar(160) NN",
+        "type": "varchar(160)",
+        "nullable": false
+      },
+      {
+        "table": "component",
+        "column": "mass_kg",
+        "text": "mass_kg : numeric(9,3) NN",
+        "type": "numeric(9,3)",
+        "nullable": false
+      },
+      {
+        "table": "component",
+        "column": "socket",
+        "text": "socket : varchar(30)",
+        "type": "varchar(30)",
+        "nullable": true
+      },
+      {
+        "table": "component",
+        "column": "memory_type",
+        "text": "memory_type : varchar(20)",
+        "type": "varchar(20)",
+        "nullable": true
+      },
+      {
+        "table": "component",
+        "column": "power_w",
+        "text": "power_w : integer",
+        "type": "integer",
+        "nullable": true
+      },
+      {
+        "table": "component_group",
+        "column": "id",
+        "text": "PK id : uuid NN",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "component_group",
+        "column": "code",
+        "text": "UQ code : varchar(20) NN",
+        "type": "varchar(20)",
+        "nullable": false
+      },
+      {
+        "table": "component_group",
+        "column": "name",
+        "text": "name : varchar(120) NN",
+        "type": "varchar(120)",
+        "nullable": false
+      },
+      {
+        "table": "component_group",
+        "column": "role_code",
+        "text": "role_code : varchar(12) NN",
+        "type": "varchar(12)",
+        "nullable": false
+      },
+      {
+        "table": "configuration",
+        "column": "id",
+        "text": "PK id : uuid NN",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "configuration",
+        "column": "code",
+        "text": "UQ code : varchar(30) NN",
+        "type": "varchar(30)",
+        "nullable": false
+      },
+      {
+        "table": "configuration",
+        "column": "name",
+        "text": "name : varchar(160) NN",
+        "type": "varchar(160)",
+        "nullable": false
+      },
+      {
+        "table": "image",
+        "column": "id",
+        "text": "PK id : uuid NN",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "image",
+        "column": "uri",
+        "text": "uri : varchar(250) NN",
+        "type": "varchar(250)",
+        "nullable": false
+      },
+      {
+        "table": "image",
+        "column": "sha256",
+        "text": "UQ sha256 : char(64) NN",
+        "type": "char(64)",
+        "nullable": false
+      },
+      {
+        "table": "image",
+        "column": "width_px",
+        "text": "width_px : integer NN",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "image",
+        "column": "height_px",
+        "text": "height_px : integer NN",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "model_range_slot",
+        "column": "configuration_id",
+        "text": "PK FK configuration_id : uuid NN",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "model_range_slot",
+        "column": "version_no",
+        "text": "PK FK version_no : integer NN",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "model_range_slot",
+        "column": "line_no",
+        "text": "PK line_no : integer NN",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "model_range_slot",
+        "column": "group_id",
+        "text": "FK group_id : uuid",
+        "type": "uuid",
+        "nullable": true
+      },
+      {
+        "table": "model_range_slot",
+        "column": "requested_component_id",
+        "text": "FK requested_component_id : uuid",
+        "type": "uuid",
+        "nullable": true
+      },
+      {
+        "table": "model_range_slot",
+        "column": "offer_id",
+        "text": "FK offer_id : uuid",
+        "type": "uuid",
+        "nullable": true
+      },
+      {
+        "table": "model_range_slot",
+        "column": "quantity",
+        "text": "quantity : integer NN",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "model_range_version",
+        "column": "configuration_id",
+        "text": "PK FK configuration_id : uuid NN",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "model_range_version",
+        "column": "version_no",
+        "text": "PK version_no : integer NN",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "model_range_version",
+        "column": "state",
+        "text": "state : varchar(12) NN",
+        "type": "varchar(12)",
+        "nullable": false
+      },
+      {
+        "table": "model_range_version",
+        "column": "created_at",
+        "text": "created_at : timestamptz NN",
+        "type": "timestamptz",
+        "nullable": false
+      },
+      {
+        "table": "offer",
+        "column": "id",
+        "text": "PK id : uuid NN",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "offer",
+        "column": "component_id",
+        "text": "FK component_id : uuid NN",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "offer",
+        "column": "supplier_id",
+        "text": "FK supplier_id : uuid NN",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "offer",
+        "column": "unit_price_rub",
+        "text": "unit_price_rub : numeric(12,2) NN",
+        "type": "numeric(12,2)",
+        "nullable": false
+      },
+      {
+        "table": "offer",
+        "column": "stock",
+        "text": "stock : integer NN",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "offer",
+        "column": "observed_at",
+        "text": "observed_at : timestamptz NN",
+        "type": "timestamptz",
+        "nullable": false
+      },
+      {
+        "table": "publication_attempt",
+        "column": "card_id",
+        "text": "PK FK card_id : uuid NN",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "publication_attempt",
+        "column": "revision_no",
+        "text": "PK FK revision_no : integer NN",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "publication_attempt",
+        "column": "attempt_no",
+        "text": "PK attempt_no : integer NN",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "publication_attempt",
+        "column": "state",
+        "text": "state : varchar(12) NN",
+        "type": "varchar(12)",
+        "nullable": false
+      },
+      {
+        "table": "publication_attempt",
+        "column": "external_task_id",
+        "text": "external_task_id : varchar(80)",
+        "type": "varchar(80)",
+        "nullable": true
+      },
+      {
+        "table": "publication_attempt",
+        "column": "error_code",
+        "text": "error_code : varchar(60)",
+        "type": "varchar(60)",
+        "nullable": true
+      },
+      {
+        "table": "publication_attempt",
+        "column": "confirmed_not_accepted",
+        "text": "confirmed_not_accepted : boolean NN",
+        "type": "boolean",
+        "nullable": false
+      },
+      {
+        "table": "publication_attempt",
+        "column": "created_at",
+        "text": "created_at : timestamptz NN",
+        "type": "timestamptz",
+        "nullable": false
+      },
+      {
+        "table": "publication_attempt",
+        "column": "next_check_at",
+        "text": "next_check_at : timestamptz",
+        "type": "timestamptz",
+        "nullable": true
+      },
+      {
+        "table": "revision_image",
+        "column": "card_id",
+        "text": "PK FK UQ card_id : uuid NN",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "revision_image",
+        "column": "revision_no",
+        "text": "PK FK UQ revision_no : integer NN",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "revision_image",
+        "column": "image_id",
+        "text": "PK FK image_id : uuid NN",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "revision_image",
+        "column": "ordinal",
+        "text": "UQ ordinal : integer NN",
+        "type": "integer",
+        "nullable": false
+      },
+      {
+        "table": "supplier",
+        "column": "id",
+        "text": "PK id : uuid NN",
+        "type": "uuid",
+        "nullable": false
+      },
+      {
+        "table": "supplier",
+        "column": "code",
+        "text": "UQ code : varchar(20) NN",
+        "type": "varchar(20)",
+        "nullable": false
+      },
+      {
+        "table": "supplier",
+        "column": "name",
+        "text": "name : varchar(120) NN",
+        "type": "varchar(120)",
+        "nullable": false
+      }
+    ]
+  },
+  "sheets": [
+    {
+      "diagram": "logical",
+      "entityCount": 12,
+      "fieldCount": 71,
+      "relations": [
+        {
+          "foreignKey": "card_revision_card_id_fkey",
+          "parent": "card",
+          "child": "card_revision",
+          "columns": [
+            "card_id"
+          ],
+          "parentColumns": [
+            "id"
+          ],
+          "mandatory": true,
+          "identifying": true,
+          "points": [
+            {
+              "x": 1400,
+              "y": 854.5
+            },
+            {
+              "x": 1440,
+              "y": 854.5
+            },
+            {
+              "x": 1440,
+              "y": 1079.8333333333333
+            },
+            {
+              "x": 1400,
+              "y": 1079.8333333333333
+            }
+          ]
+        },
+        {
+          "foreignKey": "card_revision_configuration_id_version_no_fkey",
+          "parent": "model_range_version",
+          "child": "card_revision",
+          "columns": [
+            "configuration_id",
+            "version_no"
+          ],
+          "parentColumns": [
+            "configuration_id",
+            "version_no"
+          ],
+          "mandatory": true,
+          "identifying": false,
+          "points": [
+            {
+              "x": 1400,
+              "y": 287.3333333333333
+            },
+            {
+              "x": 1449,
+              "y": 287.3333333333333
+            },
+            {
+              "x": 1449,
+              "y": 1241.5
+            },
+            {
+              "x": 1400,
+              "y": 1241.5
+            }
+          ]
+        },
+        {
+          "foreignKey": "component_group_id_fkey",
+          "parent": "component_group",
+          "child": "component",
+          "columns": [
+            "group_id"
+          ],
+          "parentColumns": [
+            "id"
+          ],
+          "mandatory": true,
+          "identifying": false,
+          "points": [
+            {
+              "x": 135,
+              "y": 139
+            },
+            {
+              "x": 36,
+              "y": 139
+            },
+            {
+              "x": 36,
+              "y": 363.5
+            },
+            {
+              "x": 135,
+              "y": 363.5
+            }
+          ]
+        },
+        {
+          "foreignKey": "model_range_slot_configuration_id_version_no_fkey",
+          "parent": "model_range_version",
+          "child": "model_range_slot",
+          "columns": [
+            "configuration_id",
+            "version_no"
+          ],
+          "parentColumns": [
+            "configuration_id",
+            "version_no"
+          ],
+          "mandatory": true,
+          "identifying": true,
+          "points": [
+            {
+              "x": 1400,
+              "y": 328
+            },
+            {
+              "x": 1467,
+              "y": 328
+            },
+            {
+              "x": 1467,
+              "y": 599.5
+            },
+            {
+              "x": 1400,
+              "y": 599.5
+            }
+          ]
+        },
+        {
+          "foreignKey": "model_range_slot_group_id_fkey",
+          "parent": "component_group",
+          "child": "model_range_slot",
+          "columns": [
+            "group_id"
+          ],
+          "parentColumns": [
+            "id"
+          ],
+          "mandatory": false,
+          "identifying": false,
+          "points": [
+            {
+              "x": 645,
+              "y": 139
+            },
+            {
+              "x": 726,
+              "y": 139
+            },
+            {
+              "x": 726,
+              "y": 525.8333333333334
+            },
+            {
+              "x": 845,
+              "y": 525.8333333333334
+            }
+          ]
+        },
+        {
+          "foreignKey": "model_range_slot_offer_id_fkey",
+          "parent": "offer",
+          "child": "model_range_slot",
+          "columns": [
+            "offer_id"
+          ],
+          "parentColumns": [
+            "id"
+          ],
+          "mandatory": false,
+          "identifying": false,
+          "points": [
+            {
+              "x": 645,
+              "y": 937
+            },
+            {
+              "x": 735,
+              "y": 937
+            },
+            {
+              "x": 735,
+              "y": 599.5
+            },
+            {
+              "x": 845,
+              "y": 599.5
+            }
+          ]
+        },
+        {
+          "foreignKey": "model_range_slot_requested_component_id_fkey",
+          "parent": "component",
+          "child": "model_range_slot",
+          "columns": [
+            "requested_component_id"
+          ],
+          "parentColumns": [
+            "id"
+          ],
+          "mandatory": false,
+          "identifying": false,
+          "points": [
+            {
+              "x": 645,
+              "y": 427
+            },
+            {
+              "x": 744,
+              "y": 427
+            },
+            {
+              "x": 744,
+              "y": 673.1666666666666
+            },
+            {
+              "x": 845,
+              "y": 673.1666666666666
+            }
+          ]
+        },
+        {
+          "foreignKey": "model_range_version_configuration_id_fkey",
+          "parent": "configuration",
+          "child": "model_range_version",
+          "columns": [
+            "configuration_id"
+          ],
+          "parentColumns": [
+            "id"
+          ],
+          "mandatory": true,
+          "identifying": true,
+          "points": [
+            {
+              "x": 1400,
+              "y": 122.5
+            },
+            {
+              "x": 1503,
+              "y": 122.5
+            },
+            {
+              "x": 1503,
+              "y": 368.6666666666667
+            },
+            {
+              "x": 1400,
+              "y": 368.6666666666667
+            }
+          ]
+        },
+        {
+          "foreignKey": "offer_component_id_fkey",
+          "parent": "component",
+          "child": "offer",
+          "columns": [
+            "component_id"
+          ],
+          "parentColumns": [
+            "id"
+          ],
+          "mandatory": true,
+          "identifying": false,
+          "points": [
+            {
+              "x": 135,
+              "y": 490.5
+            },
+            {
+              "x": 84,
+              "y": 490.5
+            },
+            {
+              "x": 84,
+              "y": 890
+            },
+            {
+              "x": 135,
+              "y": 890
+            }
+          ]
+        },
+        {
+          "foreignKey": "offer_supplier_id_fkey",
+          "parent": "supplier",
+          "child": "offer",
+          "columns": [
+            "supplier_id"
+          ],
+          "parentColumns": [
+            "id"
+          ],
+          "mandatory": true,
+          "identifying": false,
+          "points": [
+            {
+              "x": 135,
+              "y": 698.5
+            },
+            {
+              "x": 92,
+              "y": 698.5
+            },
+            {
+              "x": 92,
+              "y": 984
+            },
+            {
+              "x": 135,
+              "y": 984
+            }
+          ]
+        },
+        {
+          "foreignKey": "publication_attempt_card_id_revision_no_fkey",
+          "parent": "card_revision",
+          "child": "publication_attempt",
+          "columns": [
+            "card_id",
+            "revision_no"
+          ],
+          "parentColumns": [
+            "card_id",
+            "revision_no"
+          ],
+          "mandatory": true,
+          "identifying": true,
+          "points": [
+            {
+              "x": 845,
+              "y": 1241.5
+            },
+            {
+              "x": 780,
+              "y": 1241.5
+            },
+            {
+              "x": 780,
+              "y": 1529.5
+            },
+            {
+              "x": 645,
+              "y": 1529.5
+            }
+          ]
+        },
+        {
+          "foreignKey": "revision_image_card_id_revision_no_fkey",
+          "parent": "card_revision",
+          "child": "revision_image",
+          "columns": [
+            "card_id",
+            "revision_no"
+          ],
+          "parentColumns": [
+            "card_id",
+            "revision_no"
+          ],
+          "mandatory": true,
+          "identifying": true,
+          "points": [
+            {
+              "x": 1400,
+              "y": 1403.1666666666667
+            },
+            {
+              "x": 1539,
+              "y": 1403.1666666666667
+            },
+            {
+              "x": 1539,
+              "y": 1645
+            },
+            {
+              "x": 1400,
+              "y": 1645
+            }
+          ]
+        },
+        {
+          "foreignKey": "revision_image_image_id_fkey",
+          "parent": "image",
+          "child": "revision_image",
+          "columns": [
+            "image_id"
+          ],
+          "parentColumns": [
+            "id"
+          ],
+          "mandatory": true,
+          "identifying": true,
+          "points": [
+            {
+              "x": 645,
+              "y": 1208.5
+            },
+            {
+              "x": 798,
+              "y": 1208.5
+            },
+            {
+              "x": 798,
+              "y": 1645
+            },
+            {
+              "x": 845,
+              "y": 1645
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "diagram": "physical",
+      "entityCount": 12,
+      "fieldCount": 71,
+      "relations": [
+        {
+          "foreignKey": "card_revision_card_id_fkey",
+          "parent": "card",
+          "child": "card_revision",
+          "columns": [
+            "card_id"
+          ],
+          "parentColumns": [
+            "id"
+          ],
+          "mandatory": true,
+          "identifying": true,
+          "points": [
+            {
+              "x": 1400,
+              "y": 854.5
+            },
+            {
+              "x": 1440,
+              "y": 854.5
+            },
+            {
+              "x": 1440,
+              "y": 1079.8333333333333
+            },
+            {
+              "x": 1400,
+              "y": 1079.8333333333333
+            }
+          ]
+        },
+        {
+          "foreignKey": "card_revision_configuration_id_version_no_fkey",
+          "parent": "model_range_version",
+          "child": "card_revision",
+          "columns": [
+            "configuration_id",
+            "version_no"
+          ],
+          "parentColumns": [
+            "configuration_id",
+            "version_no"
+          ],
+          "mandatory": true,
+          "identifying": false,
+          "points": [
+            {
+              "x": 1400,
+              "y": 287.3333333333333
+            },
+            {
+              "x": 1449,
+              "y": 287.3333333333333
+            },
+            {
+              "x": 1449,
+              "y": 1241.5
+            },
+            {
+              "x": 1400,
+              "y": 1241.5
+            }
+          ]
+        },
+        {
+          "foreignKey": "component_group_id_fkey",
+          "parent": "component_group",
+          "child": "component",
+          "columns": [
+            "group_id"
+          ],
+          "parentColumns": [
+            "id"
+          ],
+          "mandatory": true,
+          "identifying": false,
+          "points": [
+            {
+              "x": 135,
+              "y": 139
+            },
+            {
+              "x": 36,
+              "y": 139
+            },
+            {
+              "x": 36,
+              "y": 363.5
+            },
+            {
+              "x": 135,
+              "y": 363.5
+            }
+          ]
+        },
+        {
+          "foreignKey": "model_range_slot_configuration_id_version_no_fkey",
+          "parent": "model_range_version",
+          "child": "model_range_slot",
+          "columns": [
+            "configuration_id",
+            "version_no"
+          ],
+          "parentColumns": [
+            "configuration_id",
+            "version_no"
+          ],
+          "mandatory": true,
+          "identifying": true,
+          "points": [
+            {
+              "x": 1400,
+              "y": 328
+            },
+            {
+              "x": 1467,
+              "y": 328
+            },
+            {
+              "x": 1467,
+              "y": 599.5
+            },
+            {
+              "x": 1400,
+              "y": 599.5
+            }
+          ]
+        },
+        {
+          "foreignKey": "model_range_slot_group_id_fkey",
+          "parent": "component_group",
+          "child": "model_range_slot",
+          "columns": [
+            "group_id"
+          ],
+          "parentColumns": [
+            "id"
+          ],
+          "mandatory": false,
+          "identifying": false,
+          "points": [
+            {
+              "x": 645,
+              "y": 139
+            },
+            {
+              "x": 726,
+              "y": 139
+            },
+            {
+              "x": 726,
+              "y": 525.8333333333334
+            },
+            {
+              "x": 845,
+              "y": 525.8333333333334
+            }
+          ]
+        },
+        {
+          "foreignKey": "model_range_slot_offer_id_fkey",
+          "parent": "offer",
+          "child": "model_range_slot",
+          "columns": [
+            "offer_id"
+          ],
+          "parentColumns": [
+            "id"
+          ],
+          "mandatory": false,
+          "identifying": false,
+          "points": [
+            {
+              "x": 645,
+              "y": 937
+            },
+            {
+              "x": 735,
+              "y": 937
+            },
+            {
+              "x": 735,
+              "y": 599.5
+            },
+            {
+              "x": 845,
+              "y": 599.5
+            }
+          ]
+        },
+        {
+          "foreignKey": "model_range_slot_requested_component_id_fkey",
+          "parent": "component",
+          "child": "model_range_slot",
+          "columns": [
+            "requested_component_id"
+          ],
+          "parentColumns": [
+            "id"
+          ],
+          "mandatory": false,
+          "identifying": false,
+          "points": [
+            {
+              "x": 645,
+              "y": 427
+            },
+            {
+              "x": 744,
+              "y": 427
+            },
+            {
+              "x": 744,
+              "y": 673.1666666666666
+            },
+            {
+              "x": 845,
+              "y": 673.1666666666666
+            }
+          ]
+        },
+        {
+          "foreignKey": "model_range_version_configuration_id_fkey",
+          "parent": "configuration",
+          "child": "model_range_version",
+          "columns": [
+            "configuration_id"
+          ],
+          "parentColumns": [
+            "id"
+          ],
+          "mandatory": true,
+          "identifying": true,
+          "points": [
+            {
+              "x": 1400,
+              "y": 122.5
+            },
+            {
+              "x": 1503,
+              "y": 122.5
+            },
+            {
+              "x": 1503,
+              "y": 368.6666666666667
+            },
+            {
+              "x": 1400,
+              "y": 368.6666666666667
+            }
+          ]
+        },
+        {
+          "foreignKey": "offer_component_id_fkey",
+          "parent": "component",
+          "child": "offer",
+          "columns": [
+            "component_id"
+          ],
+          "parentColumns": [
+            "id"
+          ],
+          "mandatory": true,
+          "identifying": false,
+          "points": [
+            {
+              "x": 135,
+              "y": 490.5
+            },
+            {
+              "x": 84,
+              "y": 490.5
+            },
+            {
+              "x": 84,
+              "y": 890
+            },
+            {
+              "x": 135,
+              "y": 890
+            }
+          ]
+        },
+        {
+          "foreignKey": "offer_supplier_id_fkey",
+          "parent": "supplier",
+          "child": "offer",
+          "columns": [
+            "supplier_id"
+          ],
+          "parentColumns": [
+            "id"
+          ],
+          "mandatory": true,
+          "identifying": false,
+          "points": [
+            {
+              "x": 135,
+              "y": 698.5
+            },
+            {
+              "x": 92,
+              "y": 698.5
+            },
+            {
+              "x": 92,
+              "y": 984
+            },
+            {
+              "x": 135,
+              "y": 984
+            }
+          ]
+        },
+        {
+          "foreignKey": "publication_attempt_card_id_revision_no_fkey",
+          "parent": "card_revision",
+          "child": "publication_attempt",
+          "columns": [
+            "card_id",
+            "revision_no"
+          ],
+          "parentColumns": [
+            "card_id",
+            "revision_no"
+          ],
+          "mandatory": true,
+          "identifying": true,
+          "points": [
+            {
+              "x": 845,
+              "y": 1241.5
+            },
+            {
+              "x": 780,
+              "y": 1241.5
+            },
+            {
+              "x": 780,
+              "y": 1529.5
+            },
+            {
+              "x": 645,
+              "y": 1529.5
+            }
+          ]
+        },
+        {
+          "foreignKey": "revision_image_card_id_revision_no_fkey",
+          "parent": "card_revision",
+          "child": "revision_image",
+          "columns": [
+            "card_id",
+            "revision_no"
+          ],
+          "parentColumns": [
+            "card_id",
+            "revision_no"
+          ],
+          "mandatory": true,
+          "identifying": true,
+          "points": [
+            {
+              "x": 1400,
+              "y": 1403.1666666666667
+            },
+            {
+              "x": 1539,
+              "y": 1403.1666666666667
+            },
+            {
+              "x": 1539,
+              "y": 1645
+            },
+            {
+              "x": 1400,
+              "y": 1645
+            }
+          ]
+        },
+        {
+          "foreignKey": "revision_image_image_id_fkey",
+          "parent": "image",
+          "child": "revision_image",
+          "columns": [
+            "image_id"
+          ],
+          "parentColumns": [
+            "id"
+          ],
+          "mandatory": true,
+          "identifying": true,
+          "points": [
+            {
+              "x": 645,
+              "y": 1208.5
+            },
+            {
+              "x": 798,
+              "y": 1208.5
+            },
+            {
+              "x": 798,
+              "y": 1645
+            },
+            {
+              "x": 845,
+              "y": 1645
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

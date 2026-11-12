@@ -1,0 +1,157 @@
+{
+  "models": {
+    "screens": "1aebf9db19239c049fd04274d17f6fc40d6941b41898b909b5240f9d72212ebc",
+    "algorithms": "14e83163a52b4e1d839d7484dca28049320de350ad0c99acb21f354bb80a1bc6"
+  },
+  "source_sha256": "4e957d2ae9f02be66c83dc1dc2468e4f5bd36fdce188ce2b2c98b9e9c5f4a717",
+  "diagnostics": [],
+  "screenWarnings": 170,
+  "forms": [
+    {
+      "id": "catalog",
+      "role": "Разработчик",
+      "title": "Каталог и предложения",
+      "tables": [
+        "component_group",
+        "component",
+        "supplier",
+        "offer"
+      ],
+      "actions": [
+        "Выбрать компонент"
+      ],
+      "file": "01_ПР8_catalog.png",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "id": "composition",
+      "role": "Разработчик",
+      "title": "Состав конфигурации",
+      "tables": [
+        "configuration",
+        "model_range_version",
+        "model_range_slot"
+      ],
+      "actions": [
+        "Проверить состав",
+        "Сохранить новую версию"
+      ],
+      "file": "02_ПР8_composition.png",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "id": "revision",
+      "role": "Менеджер",
+      "title": "Новая ревизия карточки",
+      "tables": [
+        "card",
+        "card_revision"
+      ],
+      "actions": [
+        "Рассчитать",
+        "Сохранить ревизию"
+      ],
+      "file": "03_ПР8_revision.png",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "id": "calculation",
+      "role": "Менеджер",
+      "title": "Результат расчёта",
+      "tables": [
+        "model_range_slot",
+        "offer",
+        "component",
+        "card_revision"
+      ],
+      "actions": [
+        "Открыть карточку",
+        "Сохранить ревизию"
+      ],
+      "file": "04_ПР8_calculation.png",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "id": "images",
+      "role": "Дизайнер",
+      "title": "Изображения карточки",
+      "tables": [
+        "image",
+        "revision_image"
+      ],
+      "actions": [
+        "Выбрать изображение",
+        "Сохранить порядок"
+      ],
+      "file": "05_ПР8_images.png",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "id": "approval",
+      "role": "Генеральный директор",
+      "title": "Согласование карточки",
+      "tables": [
+        "card",
+        "card_revision",
+        "model_range_version",
+        "revision_image"
+      ],
+      "actions": [
+        "Утвердить ревизию",
+        "Вернуть на доработку"
+      ],
+      "file": "06_ПР8_approval.png",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "id": "publication",
+      "role": "Менеджер",
+      "title": "Результаты публикации",
+      "tables": [
+        "publication_attempt"
+      ],
+      "actions": [
+        "Обновить результат"
+      ],
+      "file": "07_ПР8_publication.png",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "id": "card",
+      "role": "Менеджер",
+      "title": "Заполненная карточка",
+      "tables": [
+        "card",
+        "card_revision",
+        "model_range_slot",
+        "component",
+        "image",
+        "revision_image",
+        "offer"
+      ],
+      "actions": [
+        "Передать на публикацию"
+      ],
+      "width": 1100,
+      "height": 1500,
+      "file": "08_ПР8_card.png"
+    }
+  ],
+  "algorithms": [
+    {
+      "id": "selection",
+      "file": "09_ПР8_Подбор.png"
+    },
+    {
+      "id": "calculation",
+      "file": "10_ПР8_Расчёт.png"
+    }
+  ]
+}

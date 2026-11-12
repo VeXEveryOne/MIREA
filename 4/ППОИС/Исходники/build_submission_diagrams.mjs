@@ -155,28 +155,8 @@ for(const physical of [false,true]){
  s.text(640,h-28,physical?'NN — NOT NULL; PK — первичный ключ; FK — внешний ключ':'Crow’s Foot: 1 — один; 0..N — ноль или много; PK и FK — участие в ключах',23,'middle',false,105);
  await s.save(physical?'ПР7_Физическая_полная':'ПР7_Логическая_полная');
 }
-// Hierarchical Gantt: each phase is followed by its mandatory tasks and performers.
-const planFile=path.join(base,'Планирование/План_разработки.json'),plan=JSON.parse(await fs.readFile(planFile,'utf8'));
-const subtasks=[
- [['Обследовать процесс',2],['Согласовать требования',3]], [['Построить модели',2],['Спроектировать архитектуру',3]],
- [['Разработать схему БД',3],['Подготовить миграции и данные',3]], [['Реализовать подбор',4],['Реализовать расчёт',4]],
- [['Спроектировать формы ролей',3],['Реализовать ввод и результат',4]], [['Соединить клиент и сервис',2],['Проверить сквозной сценарий',2]],
- [['Проверить функции и ошибки',3],['Устранить дефекты',3]], [['Провести пилот',1],['Подготовить передачу',2]]
-];
-const calendar=[];for(let d=new Date('2026-10-05T00:00:00Z');calendar.length<100;d=new Date(+d+86400000))if(![0,6].includes(d.getUTCDay())&&d.toISOString().slice(0,10)!=='2026-11-04')calendar.push(d.toISOString().slice(0,10));
-let rows=[];for(let i=0;i<plan.tasks.length;i++){const phase=plan.tasks[i];rows.push({...phase,phase:true,code:String(phase.id)});let day=phase.start_day;phase.subtasks=subtasks[i].map(([name,duration],j)=>{const item={name,duration,code:phase.id+'.'+(j+1),start_day:day,end_day:day+duration-1,performers:Object.keys(phase.effort)};day+=duration;rows.push(item);return item;});if(day!==phase.end_day+1)throw Error('Phase/task duration mismatch');}
-await fs.writeFile(planFile,JSON.stringify(plan,null,2)+'\n');
-{
- const s=new Scene(2240,1230),x0=1020,scale=22,rowH=43;
- s.text(25,38,'Этап / задача',27,'start',true);s.text(660,38,'Исполнитель',27,'start',true);
- const start=Date.parse(plan.start+'T00:00:00Z');const dx=iso=>(Date.parse(iso+'T00:00:00Z')-start)/86400000*scale;
- for(let d=0;d<54;d++){const date=new Date(start+d*86400000);if(date.getUTCDay()===1){s.path([[x0+d*scale,70],[x0+d*scale,1140]]);s.text(x0+d*scale,54,date.toISOString().slice(8,10)+'.'+date.toISOString().slice(5,7),23);}}
- rows.forEach((t,i)=>{const y=100+i*rowH;const who=(t.performers??Object.keys(t.effort)).map(n=>({'Backend-разработчик':'Backend','Frontend-разработчик':'Frontend','Руководитель проекта':'РП','Администратор БД':'Адм. БД','Инженер эксплуатации':'Эксплуатация'}[n]??n)).join(', ');
-   s.text(t.phase?25:55,y+3,t.code+' '+t.name,29,'start',t.phase,45);s.text(660,y+3,who.replaceAll('Тестировщик','Тест.'),26,'start',false,29);
-   if(t.phase)s.rect(x0+dx(t.start_date),y-14,dx(t.end_date)-dx(t.start_date)+scale,8,0,'#222');
-   else for(let day=t.start_day;day<=t.end_day;day++)s.rect(x0+dx(calendar[day]),y-19,scale-2,23,0,'#406b88','#406b88');
- });s.text(1120,1180,'Чёрная полоса — этап; синие полосы — задачи. РП — руководитель проекта; Адм. БД — администратор БД.',23,'middle',false,133);await s.save('ПР6_Гант_этапы_задачи');
-}
+// PR6 is calculated by build_planning.py and built/exported through build_pr6_omni.mts.
+// This legacy SVG batch must not overwrite the task assignments or the native Gantt view.
 // Role-specific mockups: visible role, different menus, fields and actions.
 const example=model.card_example;
 function frame(role,title,height=1000){const s=new Scene(1500,height);s.rect(0,0,1500,height,0,'#f7f8fa');s.rect(0,0,245,height,0,'#e9eef3');s.text(25,50,'ЮКОМС',31,'start',true);s.text(25,95,'Карточки товаров',22,'start');const r=model.roles.find(r=>r.id===role);r.tasks.forEach((t,i)=>s.text(25,180+i*110,t,25,'start',false,16));s.rect(245,0,1255,112,0,'white');s.text(280,52,title,30,'start',true,43);s.text(1460,42,r.name,25,'end',true,32);s.text(1460,82,'Албахтин И.В.',22,'end');return s;}
