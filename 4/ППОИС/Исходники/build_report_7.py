@@ -145,6 +145,23 @@ def load_inputs():
         canonical = DIAGRAMS / (item['title'] + '.png')
         if digest(canonical) != digest(item['files'][0]):
             raise ValueError('Canonical Chen image differs from the native export')
+    proof = json.loads((DIAGRAMS / 'ПР7_Полные_модели_проверка.json').read_text(encoding='utf-8'))
+    if (proof['source_sha256'] != evidence['source_sha256'] or proof['diagnostics']
+            or proof['models'] != {'semantic': digest(DIAGRAMS / 'ПР7_Модель_данных.omni'),
+                                   'presentation': digest(DIAGRAMS / 'ПР7_Полные_модели.omni')}):
+        raise ValueError('Stale full-model validation')
+    export = json.loads((ROOT / '.cache/ppois-pr7-20261112/export.json').read_text(encoding='utf-8'))
+    result = json.loads((Path(export['output']) / 'Отчёт_экспорта.json').read_text(encoding='utf-8'))
+    if result['cancelled'] or len(result['items']) != 2:
+        raise ValueError('Incomplete full-model native export')
+    for i, item in enumerate(result['items'], 1):
+        if (item['status'] != 'completed' or len(item['files']) != 1
+                or digest(DIAGRAMS / f'{i:02d}_{item["title"]}.png') != digest(item['files'][0])):
+            raise ValueError('Full-model image differs from native export')
+    for sheet in proof['sheets']:
+        if (sheet['entityCount'] != 12 or sheet['fieldCount'] != 71 or len(sheet['relations']) != 13
+                or {f['table'] + '__' + f['column'] for f in proof['fields'][sheet['diagram']]} != expected_columns):
+            raise ValueError('Incomplete full-model sheet')
     if len(evidence['columns']) != 71 or len(evidence['counts']) != 12:
         raise ValueError('Reconcile report scope with the database before building')
     for table, count in evidence['counts'].items():
@@ -268,8 +285,9 @@ def build():
             lead='Назначение всех двенадцати сущностей приведено в таблице 1. Составные владельческие ключи позволяют сохранять историю без перезаписи прежних версий.')
     r.paragraph('Предложение рассматривается как отдельное наблюдение, а не как текущая цена, перезаписываемая в строке компонента. Новое наблюдение получает новый идентификатор. После использования состава в ревизии его позиции, выбранные наблюдения и характеристики компонентов защищены триггерами от обновления. Для изменения расчётных параметров создаётся новая ревизия.')
     r.heading('1.2 Нотация и зависимые сущности', 2)
-    r.paragraph('Для концептуальной модели используются прямоугольники сущностей, овалы атрибутов и ромбы связей Чена [2]. Двойной прямоугольник обозначает зависимую сущность, двойной ромб — идентифицирующую связь. Сплошное подчёркивание обозначает первичный ключ сильной сущности, пунктирное — локальный дискриминатор слабой. Применено бинарное расширение min–max: 1, 0..1 и 0..N. Метка у конца связи показывает число объектов этого конца для одного объекта противоположного конца.')
-    r.paragraph('Внешние ключи концептуально представлены связями и не дублируются как отдельные овалы. Все их поля и обязательность включены в логическую и физическую модели. Общий обзор и тринадцать листов с атрибутами являются согласованными представлениями одной модели. Атрибуты ревизии карточки разделены между двумя листами; повторённые владельцы и связи сохраняют тот же смысл.')
+    r.paragraph('В нотации Чена прямоугольник обозначает сущность, овал — атрибут, ромб — связь [2]. Двойной прямоугольник выделяет слабую сущность, двойной ромб — идентифицирующую связь. Ключ сильной сущности подчёркнут сплошной линией, локальный дискриминатор слабой — пунктиром. Метки min–max задают кратность: 1, 0..1 и 0..N.')
+    r.paragraph('На рисунке 1 «Версия состава» имеет двойной прямоугольник: номер версии уникален только внутри конфигурации, её ключ — (configuration_id, version_no). Связь «Имеет версию» выделена двойным ромбом. Двойная обводка отражает зависимость идентификации; обязательность участия задаётся отдельно метками min–max.')
+    r.paragraph('Обзор и тринадцать листов с атрибутами представляют одну модель. Атрибуты ревизии карточки занимают два листа. Внешние ключи представлены связями, их поля раскрыты в логической и физической моделях.')
     r.table('Зависимые сущности и их идентификация', ['Сущность', 'Владелец и полный ключ', 'Локальная идентификация'], [
         ['model_range_version', 'configuration; PK(configuration_id, version_no)', 'Номер версии внутри конфигурации.'],
         ['model_range_slot', 'model_range_version; PK(configuration_id, version_no, line_no)', 'Номер позиции внутри версии.'],
@@ -327,9 +345,9 @@ def build():
         for t in ORDER], [4.4, 12.1])
     r.paragraph('Перечень зависимостей основан на указанных бизнес-правилах; равенство значений в нескольких тестовых строках не считается новой функциональной зависимостью. Статусы ревизии и попытки публикации разделены: изменение внешнего результата не переписывает содержание карточки.')
     r.heading('2.2 Логическая диаграмма Crow’s Foot', 2)
-    r.paragraph('В Crow’s Foot кружок означает необязательность, черта — единичность, развилка — множество. PK обозначает первичный ключ, FK — внешний; несколько меток у полей составного ключа не означают отдельную уникальность каждого поля. Все двенадцать таблиц и 71 атрибут представлены на одном рисунке.')
+    r.paragraph('PK обозначает участие поля в первичном ключе, FK — во внешнем, UQ — в уникальном ключе. Для составного ключа ограничение относится к совокупности отмеченных полей. Круг означает необязательность, поперечная черта — единицу, «воронья лапка» — множество; сплошная связь является идентифицирующей, пунктирная — неидентифицирующей.')
     r.page(False, new_page=True)
-    r.figure('Единая логическая модель данных в нотации Crow’s Foot', DIAGRAMS / 'ПР7_Логическая_полная.png', max_height=22,
+    r.figure('Единая логическая модель данных в нотации Crow’s Foot', DIAGRAMS / '01_ПР7_Логическая_полная.png', max_height=22,
              lead=f'На рисунке {r.figure_count+1} показана полная логическая модель без разделения по подсистемам.')
     r.page(False)
     r.heading('2.3 Ключи и ограничения', 2)
@@ -347,15 +365,15 @@ def build():
     r.paragraph('В таблице ниже перечислены все 71 атрибут и ограничения. Коды K и C раскрыты в предыдущих таблицах; обязательность и допустимость NULL указаны явно. Составные ссылки сохранены без разбиения на независимые ограничения отдельных полей.')
     r.table('Атрибуты логической модели', ['Название сущности', 'Название атрибута', 'Ограничения'],
             [[c['table_name'], c['column_name'], constraints(c, True)] for t in ORDER for c in columns(t)], [4.4, 5.5, 6.6])
+    r.page(True)
     r.heading('2.5 Типы полей физической модели', 2)
     r.paragraph('Физическая модель реализована в схеме ppois PostgreSQL 18.6. UUID идентифицирует самостоятельные объекты, integer хранит номера и количества, NUMERIC обеспечивает десятичные денежные расчёты, timestamptz — моменты времени. NULL технической характеристики означает неприменимость либо отсутствие значения, а не ноль. Типы и размеры полей подтверждены каталогом созданной базы.')
-    r.page(True)
     r.table('Поля физической модели', ['Наименование сущности', 'Название поля', 'Тип данных', 'Обязательно', 'Ограничения'],
             [[c['table_name'], c['column_name'], physical_type(c), 'Да' if c['is_nullable'] == 'NO' else 'Нет', constraints(c)]
              for t in ORDER for c in columns(t)], [5, 6.2, 3.1, 3.1, 7.8], center=(3,))
     r.page(False, new_page=True)
     r.heading('2.6 Физическая диаграмма', 2)
-    r.figure('Единая физическая модель данных PostgreSQL', DIAGRAMS / 'ПР7_Физическая_полная.png', max_height=21.5,
+    r.figure('Единая физическая модель данных PostgreSQL', DIAGRAMS / '02_ПР7_Физическая_полная.png', max_height=21.5,
              lead=f'На рисунке {r.figure_count+1} показаны все таблицы, поля, типы и обязательность значений. NN означает NOT NULL.')
     r.page(False)
     r.heading('2.7 Межтабличные инварианты и границы SQL', 2)
@@ -474,7 +492,7 @@ def build():
         'Song I. Y., Evans M., Park E. K. A Comparative Analysis of Entity-Relationship Diagrams. Journal of Computer and Software Engineering. 1995. Vol. 3, No. 4. P. 427–459. https://cci.drexel.edu/faculty/song/publications/p_Jcse-erd.PDF (дата обращения: 05.10.2026).',
         'PostgreSQL Global Development Group. PostgreSQL 18 Documentation. Constraints. https://www.postgresql.org/docs/18/ddl-constraints.html (дата обращения: 05.10.2026).',
         'PostgreSQL Global Development Group. PostgreSQL 18 Documentation. GRANT. https://www.postgresql.org/docs/18/sql-grant.html (дата обращения: 05.10.2026).',
-        'Материалы выполнения практики: База_данных/schema.sql, privileges.sql, queries.sql, Результаты_проверки.json; Исходники/seed_database.py, verify_database.py, build_database_models.mts, build_submission_diagrams.mjs; Схемы/ПР7_Модель_данных.omni и SVG логической и физической моделей.',
+        'Материалы выполнения практики: База_данных/schema.sql, privileges.sql, queries.sql, Результаты_проверки.json; Исходники/seed_database.py, verify_database.py, build_database_models.mts, build_pr7_full_omni.mts; модели OmniNotation Схемы/ПР7_Модель_данных.omni и ПР7_Полные_модели.omni.',
     ], new_page=True)
     path = r.save()
     coverage = {

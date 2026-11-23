@@ -1,0 +1,967 @@
+{
+  "classes": [
+    {
+      "id": "FormRange",
+      "name": "Форма состава",
+      "role": "boundary",
+      "attributes": [
+        [
+          "draft",
+          "String"
+        ]
+      ],
+      "operations": [
+        [
+          "submit",
+          [
+            [
+              "positions",
+              "String"
+            ]
+          ],
+          "CheckResult"
+        ],
+        [
+          "showResult",
+          [
+            [
+              "result",
+              "CheckResult"
+            ]
+          ],
+          "Void"
+        ]
+      ],
+      "description": "Принимает позиции состава и показывает результат проверки и сохранения версии."
+    },
+    {
+      "id": "ControlRange",
+      "name": "Управление составом",
+      "role": "control",
+      "attributes": [
+        [
+          "expectedVersion",
+          "Integer"
+        ]
+      ],
+      "operations": [
+        [
+          "check",
+          [
+            [
+              "version",
+              "Version"
+            ]
+          ],
+          "CheckResult"
+        ],
+        [
+          "save",
+          [
+            [
+              "version",
+              "Version"
+            ]
+          ],
+          "Integer"
+        ]
+      ],
+      "description": "Координирует проверку совместимости и сохранение новой версии состава."
+    },
+    {
+      "id": "Version",
+      "name": "Версия состава",
+      "role": "entity",
+      "attributes": [
+        [
+          "id",
+          "UUID"
+        ],
+        [
+          "number",
+          "Integer"
+        ],
+        [
+          "createdAt",
+          "DateTime"
+        ],
+        [
+          "checked",
+          "Boolean"
+        ]
+      ],
+      "operations": [
+        [
+          "getSlots",
+          [],
+          "SlotList"
+        ],
+        [
+          "save",
+          [],
+          "Integer"
+        ]
+      ],
+      "description": "Хранит номер, время создания и результат проверки конкретной версии состава."
+    },
+    {
+      "id": "Slot",
+      "name": "Позиция состава",
+      "role": "entity",
+      "attributes": [
+        [
+          "lineNo",
+          "Integer"
+        ],
+        [
+          "componentCode",
+          "String"
+        ],
+        [
+          "quantity",
+          "Integer"
+        ],
+        [
+          "unitPrice",
+          "Decimal"
+        ],
+        [
+          "massKg",
+          "Decimal"
+        ]
+      ],
+      "operations": [
+        [
+          "cost",
+          [],
+          "Decimal"
+        ],
+        [
+          "mass",
+          [],
+          "Decimal"
+        ]
+      ],
+      "description": "Представляет компонент позиции, его количество, зафиксированную цену и массу единицы."
+    },
+    {
+      "id": "FormCard",
+      "name": "Форма карточки",
+      "role": "boundary",
+      "attributes": [
+        [
+          "cardId",
+          "UUID"
+        ]
+      ],
+      "operations": [
+        [
+          "submit",
+          [
+            [
+              "title",
+              "String"
+            ],
+            [
+              "description",
+              "String"
+            ]
+          ],
+          "Revision"
+        ],
+        [
+          "showResult",
+          [
+            [
+              "result",
+              "CheckResult"
+            ]
+          ],
+          "Void"
+        ]
+      ],
+      "description": "Принимает содержание карточки и показывает результат подготовки ревизии."
+    },
+    {
+      "id": "ControlCard",
+      "name": "Подготовка карточки",
+      "role": "control",
+      "attributes": [
+        [
+          "markupRate",
+          "Decimal"
+        ],
+        [
+          "commissionRate",
+          "Decimal"
+        ]
+      ],
+      "operations": [
+        [
+          "calculatePrice",
+          [
+            [
+              "version",
+              "Version"
+            ]
+          ],
+          "Decimal"
+        ],
+        [
+          "calculateMass",
+          [
+            [
+              "version",
+              "Version"
+            ]
+          ],
+          "Decimal"
+        ],
+        [
+          "create",
+          [
+            [
+              "card",
+              "Card"
+            ],
+            [
+              "version",
+              "Version"
+            ]
+          ],
+          "Revision"
+        ]
+      ],
+      "description": "Рассчитывает цену и массу по версии состава и создаёт ревизию карточки."
+    },
+    {
+      "id": "Card",
+      "name": "Карточка",
+      "role": "entity",
+      "attributes": [
+        [
+          "id",
+          "UUID"
+        ],
+        [
+          "sellerCode",
+          "String"
+        ],
+        [
+          "name",
+          "String"
+        ]
+      ],
+      "operations": [
+        [
+          "newRevision",
+          [
+            [
+              "version",
+              "Version"
+            ]
+          ],
+          "Revision"
+        ]
+      ],
+      "description": "Хранит постоянный код продавца и объединяет последовательные ревизии карточки."
+    },
+    {
+      "id": "Revision",
+      "name": "Ревизия карточки",
+      "role": "entity",
+      "attributes": [
+        [
+          "number",
+          "Integer"
+        ],
+        [
+          "title",
+          "String"
+        ],
+        [
+          "description",
+          "String"
+        ],
+        [
+          "priceRub",
+          "Decimal"
+        ],
+        [
+          "massKg",
+          "Decimal"
+        ],
+        [
+          "state",
+          "RevisionState"
+        ]
+      ],
+      "operations": [
+        [
+          "approve",
+          [],
+          "Boolean"
+        ],
+        [
+          "markStale",
+          [],
+          "Void"
+        ]
+      ],
+      "description": "Хранит содержание, расчётные показатели и состояние ревизии; выполняет утверждение и отметку устаревания."
+    },
+    {
+      "id": "FormApproval",
+      "name": "Форма согласования",
+      "role": "boundary",
+      "attributes": [
+        [
+          "revisionNo",
+          "Integer"
+        ]
+      ],
+      "operations": [
+        [
+          "requestCheck",
+          [
+            [
+              "revision",
+              "Revision"
+            ]
+          ],
+          "CheckResult"
+        ],
+        [
+          "showResult",
+          [
+            [
+              "result",
+              "CheckResult"
+            ]
+          ],
+          "Void"
+        ]
+      ],
+      "description": "Передаёт выбранную ревизию на проверку и показывает результат согласования."
+    },
+    {
+      "id": "ControlApproval",
+      "name": "Проверка готовности",
+      "role": "control",
+      "attributes": [
+        [
+          "requiredImageCount",
+          "Integer"
+        ]
+      ],
+      "operations": [
+        [
+          "check",
+          [
+            [
+              "revision",
+              "Revision"
+            ]
+          ],
+          "CheckResult"
+        ],
+        [
+          "approve",
+          [
+            [
+              "revision",
+              "Revision"
+            ]
+          ],
+          "Boolean"
+        ]
+      ],
+      "description": "Проверяет полноту ревизии, состояние состава и изображения перед утверждением."
+    },
+    {
+      "id": "Image",
+      "name": "Изображение",
+      "role": "entity",
+      "attributes": [
+        [
+          "id",
+          "UUID"
+        ],
+        [
+          "uri",
+          "String"
+        ],
+        [
+          "widthPx",
+          "Integer"
+        ],
+        [
+          "heightPx",
+          "Integer"
+        ]
+      ],
+      "operations": [
+        [
+          "validate",
+          [],
+          "CheckResult"
+        ]
+      ],
+      "description": "Хранит местоположение и размеры изображения, проверяет его пригодность."
+    },
+    {
+      "id": "Attempt",
+      "name": "Попытка публикации",
+      "role": "entity",
+      "attributes": [
+        [
+          "number",
+          "Integer"
+        ],
+        [
+          "externalTaskId",
+          "String"
+        ],
+        [
+          "status",
+          "String"
+        ],
+        [
+          "createdAt",
+          "DateTime"
+        ]
+      ],
+      "operations": [
+        [
+          "recordResult",
+          [
+            [
+              "status",
+              "String"
+            ]
+          ],
+          "Void"
+        ]
+      ],
+      "description": "Фиксирует время, внешний идентификатор и результат отдельной попытки публикации."
+    }
+  ],
+  "relations": [
+    [
+      "FormRange",
+      "—",
+      "Зависимость",
+      "ControlRange"
+    ],
+    [
+      "ControlRange",
+      "—",
+      "Зависимость",
+      "Version"
+    ],
+    [
+      "Version",
+      "1 / 1..*",
+      "Композиция",
+      "Slot"
+    ],
+    [
+      "FormCard",
+      "—",
+      "Зависимость",
+      "ControlCard"
+    ],
+    [
+      "ControlCard",
+      "—",
+      "Зависимость",
+      "Card"
+    ],
+    [
+      "ControlCard",
+      "—",
+      "Зависимость",
+      "Revision"
+    ],
+    [
+      "Card",
+      "1 / 0..*",
+      "Композиция",
+      "Revision"
+    ],
+    [
+      "Revision",
+      "0..* / 1",
+      "Ассоциация",
+      "Version"
+    ],
+    [
+      "FormApproval",
+      "—",
+      "Зависимость",
+      "ControlApproval"
+    ],
+    [
+      "ControlApproval",
+      "—",
+      "Зависимость",
+      "Revision"
+    ],
+    [
+      "Revision",
+      "0..* / 0..*",
+      "Ассоциация",
+      "Image"
+    ],
+    [
+      "Revision",
+      "1 / 0..*",
+      "Композиция",
+      "Attempt"
+    ]
+  ],
+  "diagnostics": [],
+  "stateDiagnostics": [
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "initial",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "draft",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "draft_corner0",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "draft_corner1",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "draft_corner2",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "draft_corner3",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "draft_mask_h",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "draft_mask_v",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "draft_top",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "draft_bottom",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "draft_left",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "draft_right",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "draft_divider",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "checking",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "checking_corner0",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "checking_corner1",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "checking_corner2",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "checking_corner3",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "checking_mask_h",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "checking_mask_v",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "checking_top",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "checking_bottom",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "checking_left",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "checking_right",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "checking_divider",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "ready",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "ready_corner0",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "ready_corner1",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "ready_corner2",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "ready_corner3",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "ready_mask_h",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "ready_mask_v",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "ready_top",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "ready_bottom",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "ready_left",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "ready_right",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "ready_divider",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "stale",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "stale_corner0",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "stale_corner1",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "stale_corner2",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "stale_corner3",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "stale_mask_h",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "stale_mask_v",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "stale_top",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "stale_bottom",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "stale_left",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "stale_right",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "stale_divider",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    }
+  ]
+}

@@ -117,7 +117,10 @@ def verify(docx, render_dir, reviewed_pages, output):
               ('left_indent', 'right_indent', 'first_line_indent')), f'Section {index} centered unindented footer')
         check(all(r['font'] == 'Times New Roman' and r['size'] == 12 for r in paragraph_data(footer)['runs']),
               f'Section {index} footer TNR12')
-    check(document.sections[-1].page_width < document.sections[-1].page_height, 'Final section restored to portrait')
+    last_text = next((p for p in reversed(document.paragraphs) if p.text.strip()), None)
+    figure_ending = last_text is not None and last_text.style.name == 'ReportFigureCaption'
+    check(document.sections[-1].page_width < document.sections[-1].page_height or figure_ending,
+          'Final section portrait, or final landscape figure has no following body text')
 
     source_blocks = list(document.element.body)
     body = source_blocks[16:]

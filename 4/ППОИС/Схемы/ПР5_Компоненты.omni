@@ -1,0 +1,380 @@
+{
+  "formatVersion": 2,
+  "notation": "UML",
+  "profile": "NS-UML-2.5.1-2",
+  "model": {
+    "id": "pr5_components",
+    "label": "Компоненты информационной системы",
+    "elements": [
+      {
+        "id": "components",
+        "kind": "diagram",
+        "label": "Компоненты информационной системы",
+        "properties": {
+          "type": "component"
+        }
+      },
+      {
+        "id": "client",
+        "kind": "component",
+        "label": "Клиент",
+        "properties": {}
+      },
+      {
+        "id": "v_client",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "client"
+        }
+      },
+      {
+        "id": "app",
+        "kind": "component",
+        "label": "Прикладной сервис",
+        "properties": {}
+      },
+      {
+        "id": "v_app",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "app"
+        }
+      },
+      {
+        "id": "gateway",
+        "kind": "component",
+        "label": "Шлюз площадки",
+        "properties": {}
+      },
+      {
+        "id": "v_gateway",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "gateway"
+        }
+      },
+      {
+        "id": "range",
+        "kind": "component",
+        "label": "Состав и расчёты",
+        "properties": {}
+      },
+      {
+        "id": "v_range",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "range"
+        }
+      },
+      {
+        "id": "cards",
+        "kind": "component",
+        "label": "Карточки и контент",
+        "properties": {}
+      },
+      {
+        "id": "v_cards",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "cards"
+        }
+      },
+      {
+        "id": "data",
+        "kind": "component",
+        "label": "Доступ к данным",
+        "properties": {}
+      },
+      {
+        "id": "v_data",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "data"
+        }
+      },
+      {
+        "id": "catalog",
+        "kind": "component",
+        "label": "Каталог и предложения",
+        "properties": {}
+      },
+      {
+        "id": "v_catalog",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "catalog"
+        }
+      },
+      {
+        "id": "dep_client_app",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "client",
+          "to": "app"
+        }
+      },
+      {
+        "id": "v_dep_client_app",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "dep_client_app",
+          "from": "v_client",
+          "to": "v_app"
+        }
+      },
+      {
+        "id": "dep_app_range",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "app",
+          "to": "range"
+        }
+      },
+      {
+        "id": "v_dep_app_range",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "dep_app_range",
+          "from": "v_app",
+          "to": "v_range"
+        }
+      },
+      {
+        "id": "dep_app_cards",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "app",
+          "to": "cards"
+        }
+      },
+      {
+        "id": "v_dep_app_cards",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "dep_app_cards",
+          "from": "v_app",
+          "to": "v_cards"
+        }
+      },
+      {
+        "id": "dep_app_gateway",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "app",
+          "to": "gateway"
+        }
+      },
+      {
+        "id": "v_dep_app_gateway",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "dep_app_gateway",
+          "from": "v_app",
+          "to": "v_gateway"
+        }
+      },
+      {
+        "id": "dep_range_catalog",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "range",
+          "to": "catalog"
+        }
+      },
+      {
+        "id": "v_dep_range_catalog",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "dep_range_catalog",
+          "from": "v_range",
+          "to": "v_catalog"
+        }
+      },
+      {
+        "id": "dep_cards_data",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "cards",
+          "to": "data"
+        }
+      },
+      {
+        "id": "v_dep_cards_data",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "dep_cards_data",
+          "from": "v_cards",
+          "to": "v_data"
+        }
+      },
+      {
+        "id": "dep_catalog_data",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "catalog",
+          "to": "data"
+        }
+      },
+      {
+        "id": "v_dep_catalog_data",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "components",
+          "element": "dep_catalog_data",
+          "from": "v_catalog",
+          "to": "v_data"
+        }
+      }
+    ]
+  },
+  "source": "uml pr5_components \"Компоненты информационной системы\"\ndiagram components \"Компоненты информационной системы\" type=component\ncomponent client Клиент\nview v_client \"\" diagram=components element=client\ncomponent app \"Прикладной сервис\"\nview v_app \"\" diagram=components element=app\ncomponent gateway \"Шлюз площадки\"\nview v_gateway \"\" diagram=components element=gateway\ncomponent range \"Состав и расчёты\"\nview v_range \"\" diagram=components element=range\ncomponent cards \"Карточки и контент\"\nview v_cards \"\" diagram=components element=cards\ncomponent data \"Доступ к данным\"\nview v_data \"\" diagram=components element=data\ncomponent catalog \"Каталог и предложения\"\nview v_catalog \"\" diagram=components element=catalog\ndependency dep_client_app \"\" from=client to=app\nview v_dep_client_app \"\" diagram=components element=dep_client_app from=v_client to=v_app\ndependency dep_app_range \"\" from=app to=range\nview v_dep_app_range \"\" diagram=components element=dep_app_range from=v_app to=v_range\ndependency dep_app_cards \"\" from=app to=cards\nview v_dep_app_cards \"\" diagram=components element=dep_app_cards from=v_app to=v_cards\ndependency dep_app_gateway \"\" from=app to=gateway\nview v_dep_app_gateway \"\" diagram=components element=dep_app_gateway from=v_app to=v_gateway\ndependency dep_range_catalog \"\" from=range to=catalog\nview v_dep_range_catalog \"\" diagram=components element=dep_range_catalog from=v_range to=v_catalog\ndependency dep_cards_data \"\" from=cards to=data\nview v_dep_cards_data \"\" diagram=components element=dep_cards_data from=v_cards to=v_data\ndependency dep_catalog_data \"\" from=catalog to=data\nview v_dep_catalog_data \"\" diagram=components element=dep_catalog_data from=v_catalog to=v_data\n",
+  "draft": "uml pr5_components \"Компоненты информационной системы\"\ndiagram components \"Компоненты информационной системы\" type=component\ncomponent client Клиент\nview v_client \"\" diagram=components element=client\ncomponent app \"Прикладной сервис\"\nview v_app \"\" diagram=components element=app\ncomponent gateway \"Шлюз площадки\"\nview v_gateway \"\" diagram=components element=gateway\ncomponent range \"Состав и расчёты\"\nview v_range \"\" diagram=components element=range\ncomponent cards \"Карточки и контент\"\nview v_cards \"\" diagram=components element=cards\ncomponent data \"Доступ к данным\"\nview v_data \"\" diagram=components element=data\ncomponent catalog \"Каталог и предложения\"\nview v_catalog \"\" diagram=components element=catalog\ndependency dep_client_app \"\" from=client to=app\nview v_dep_client_app \"\" diagram=components element=dep_client_app from=v_client to=v_app\ndependency dep_app_range \"\" from=app to=range\nview v_dep_app_range \"\" diagram=components element=dep_app_range from=v_app to=v_range\ndependency dep_app_cards \"\" from=app to=cards\nview v_dep_app_cards \"\" diagram=components element=dep_app_cards from=v_app to=v_cards\ndependency dep_app_gateway \"\" from=app to=gateway\nview v_dep_app_gateway \"\" diagram=components element=dep_app_gateway from=v_app to=v_gateway\ndependency dep_range_catalog \"\" from=range to=catalog\nview v_dep_range_catalog \"\" diagram=components element=dep_range_catalog from=v_range to=v_catalog\ndependency dep_cards_data \"\" from=cards to=data\nview v_dep_cards_data \"\" diagram=components element=dep_cards_data from=v_cards to=v_data\ndependency dep_catalog_data \"\" from=catalog to=data\nview v_dep_catalog_data \"\" diagram=components element=dep_catalog_data from=v_catalog to=v_data\n",
+  "layout": {
+    "nodes": {
+      "v_client": {
+        "x": 0,
+        "y": 0,
+        "width": 190,
+        "height": 100
+      },
+      "v_app": {
+        "x": 250,
+        "y": 0,
+        "width": 210,
+        "height": 100
+      },
+      "v_gateway": {
+        "x": 520,
+        "y": 0,
+        "width": 190,
+        "height": 100
+      },
+      "v_range": {
+        "x": 0,
+        "y": 160,
+        "width": 190,
+        "height": 100
+      },
+      "v_cards": {
+        "x": 250,
+        "y": 160,
+        "width": 210,
+        "height": 100
+      },
+      "v_data": {
+        "x": 520,
+        "y": 160,
+        "width": 190,
+        "height": 100
+      },
+      "v_catalog": {
+        "x": 0,
+        "y": 320,
+        "width": 190,
+        "height": 100
+      },
+      "v_dep_client_app": {
+        "x": 830,
+        "y": 260,
+        "width": 220,
+        "height": 140
+      },
+      "v_dep_app_range": {
+        "x": 80,
+        "y": 440,
+        "width": 220,
+        "height": 140
+      },
+      "v_dep_app_cards": {
+        "x": 330,
+        "y": 440,
+        "width": 220,
+        "height": 140
+      },
+      "v_dep_app_gateway": {
+        "x": 580,
+        "y": 440,
+        "width": 220,
+        "height": 140
+      },
+      "v_dep_range_catalog": {
+        "x": 830,
+        "y": 440,
+        "width": 220,
+        "height": 140
+      },
+      "v_dep_cards_data": {
+        "x": 80,
+        "y": 620,
+        "width": 220,
+        "height": 140
+      },
+      "v_dep_catalog_data": {
+        "x": 330,
+        "y": 620,
+        "width": 220,
+        "height": 140
+      }
+    },
+    "edges": {
+      "v_dep_app_range": {
+        "bends": [
+          {
+            "x": 280,
+            "y": 130
+          },
+          {
+            "x": 95,
+            "y": 130
+          }
+        ]
+      },
+      "v_dep_catalog_data": {
+        "bends": [
+          {
+            "x": 95,
+            "y": 455
+          },
+          {
+            "x": 615,
+            "y": 455
+          }
+        ]
+      }
+    }
+  }
+}

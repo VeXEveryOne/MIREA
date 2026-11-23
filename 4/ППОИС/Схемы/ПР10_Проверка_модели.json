@@ -1,0 +1,600 @@
+{
+  "source_sha256": "c6b68411fbccd83da5592509fdad1768fd23bcd1da21e45bdd0d0b2faf82e185",
+  "model_sha256": "f3f772424635d8fd21eac5d330466a5b3a96766df34f543db4bec5ff16ae94e4",
+  "diagnostics": [
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_manager_register",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_manager_register_rule",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_manager_calculate",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_manager_calculate_rule",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_manager_revision",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_manager_revision_rule",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_manager_publish",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_manager_publish_rule",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_designer_assignment",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_designer_assignment_rule",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_designer_image",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_designer_image_rule",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_designer_order",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_designer_order_rule",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_designer_preview",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_designer_preview_rule",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_developer_catalog",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_developer_catalog_rule",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_developer_compose",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_developer_compose_rule",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_developer_check",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_developer_check_rule",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_developer_version",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_developer_version_rule",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_director_summary",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_director_summary_rule",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_director_inspect",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_director_inspect_rule",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_director_approve",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    },
+    {
+      "code": "SCHEME_EMPTY_LABEL",
+      "elementId": "dialog_director_approve_rule",
+      "message": "Блок ещё не подписан.",
+      "severity": "warning",
+      "category": "rule",
+      "blocksCommit": false,
+      "blocksExport": false
+    }
+  ],
+  "tree": {
+    "nodes": 26,
+    "links": 25,
+    "edges": [
+      [
+        "root",
+        "main"
+      ],
+      [
+        "root",
+        "service"
+      ],
+      [
+        "main",
+        "role_manager"
+      ],
+      [
+        "role_manager",
+        "function_manager_register"
+      ],
+      [
+        "role_manager",
+        "function_manager_calculate"
+      ],
+      [
+        "role_manager",
+        "function_manager_revision"
+      ],
+      [
+        "role_manager",
+        "function_manager_publish"
+      ],
+      [
+        "main",
+        "role_designer"
+      ],
+      [
+        "role_designer",
+        "function_designer_assignment"
+      ],
+      [
+        "role_designer",
+        "function_designer_image"
+      ],
+      [
+        "role_designer",
+        "function_designer_order"
+      ],
+      [
+        "role_designer",
+        "function_designer_preview"
+      ],
+      [
+        "main",
+        "role_developer"
+      ],
+      [
+        "role_developer",
+        "function_developer_catalog"
+      ],
+      [
+        "role_developer",
+        "function_developer_compose"
+      ],
+      [
+        "role_developer",
+        "function_developer_check"
+      ],
+      [
+        "role_developer",
+        "function_developer_version"
+      ],
+      [
+        "main",
+        "role_director"
+      ],
+      [
+        "role_director",
+        "function_director_summary"
+      ],
+      [
+        "role_director",
+        "function_director_inspect"
+      ],
+      [
+        "role_director",
+        "function_director_approve"
+      ],
+      [
+        "service",
+        "service_0"
+      ],
+      [
+        "service",
+        "service_1"
+      ],
+      [
+        "service",
+        "service_2"
+      ],
+      [
+        "service",
+        "service_3"
+      ]
+    ]
+  },
+  "dialogs": [
+    {
+      "role": "manager",
+      "name": "Менеджер маркетплейса",
+      "menu": "menu_manager",
+      "tasks": [
+        {
+          "id": "register",
+          "title": "Зарегистрировать карточку",
+          "steps": [
+            "1. Ввести код продавца и заголовок.",
+            "2. Заполнить описание карточки.",
+            "3. Подтвердить создание."
+          ],
+          "result": "Черновик карточки.",
+          "failure": "Код занят / поля не заполнены.",
+          "node": "dialog_manager_register"
+        },
+        {
+          "id": "calculate",
+          "title": "Рассчитать цену и массу",
+          "steps": [
+            "1. Выбрать версию состава.",
+            "2. Задать затраты, наценку и комиссию.",
+            "3. Нажать «Рассчитать»."
+          ],
+          "result": "Цена, себестоимость и масса.",
+          "failure": "Ошибки состава / параметров.",
+          "node": "dialog_manager_calculate"
+        },
+        {
+          "id": "revision",
+          "title": "Сохранить ревизию",
+          "steps": [
+            "1. Выбрать карточку и состав.",
+            "2. Проверить содержание и расчёт.",
+            "3. Нажать «Сохранить ревизию»."
+          ],
+          "result": "Новая ревизия DRAFT.",
+          "failure": "Неполные данные карточки.",
+          "node": "dialog_manager_revision"
+        },
+        {
+          "id": "publish",
+          "title": "Опубликовать карточку",
+          "steps": [
+            "1. Выбрать утверждённую ревизию READY.",
+            "2. Подтвердить передачу на публикацию.",
+            "3. Открыть результат попытки."
+          ],
+          "result": "Состояние попытки публикации.",
+          "failure": "Ревизия не готова / ошибка отправки.",
+          "node": "dialog_manager_publish"
+        }
+      ]
+    },
+    {
+      "role": "designer",
+      "name": "Дизайнер",
+      "menu": "menu_designer",
+      "tasks": [
+        {
+          "id": "assignment",
+          "title": "Открыть задание по карточке",
+          "steps": [
+            "1. Выбрать карточку и ревизию.",
+            "2. Открыть описание и изображения.",
+            "3. Просмотреть задание."
+          ],
+          "result": "Содержание выбранной ревизии.",
+          "failure": "Карточка не выбрана.",
+          "node": "dialog_designer_assignment"
+        },
+        {
+          "id": "image",
+          "title": "Выбрать изображение",
+          "steps": [
+            "1. Открыть список изображений.",
+            "2. Выбрать файл.",
+            "3. Просмотреть изображение."
+          ],
+          "result": "Предварительный просмотр.",
+          "failure": "Изображение недоступно.",
+          "node": "dialog_designer_image"
+        },
+        {
+          "id": "order",
+          "title": "Назначить порядок изображений",
+          "steps": [
+            "1. Выбрать изображение ревизии.",
+            "2. Ввести порядковый номер.",
+            "3. Нажать «Сохранить порядок»."
+          ],
+          "result": "Сохранённый порядок показа.",
+          "failure": "Номер занят / номер меньше 1.",
+          "node": "dialog_designer_order"
+        },
+        {
+          "id": "preview",
+          "title": "Просмотреть результат оформления",
+          "steps": [
+            "1. Выбрать ревизию карточки.",
+            "2. Открыть предварительный просмотр.",
+            "3. Проверить текст и изображения."
+          ],
+          "result": "Карточка в заданном оформлении.",
+          "failure": "Не выбрана ревизия карточки.",
+          "node": "dialog_designer_preview"
+        }
+      ]
+    },
+    {
+      "role": "developer",
+      "name": "Разработчик",
+      "menu": "menu_developer",
+      "tasks": [
+        {
+          "id": "catalog",
+          "title": "Просмотреть каталог и предложения",
+          "steps": [
+            "1. Выбрать группу и поставщика.",
+            "2. Просмотреть цены и остатки.",
+            "3. Выбрать компонент для состава."
+          ],
+          "result": "Выбранный компонент / предложение.",
+          "failure": "Нет подходящего предложения.",
+          "node": "dialog_developer_catalog"
+        },
+        {
+          "id": "compose",
+          "title": "Сформировать состав",
+          "steps": [
+            "1. Выбрать конфигурацию.",
+            "2. Добавить позиции и количества.",
+            "3. Указать предложения."
+          ],
+          "result": "Рабочий состав конфигурации.",
+          "failure": "Неверное количество / пустая позиция.",
+          "node": "dialog_developer_compose"
+        },
+        {
+          "id": "check",
+          "title": "Проверить совместимость",
+          "steps": [
+            "1. Открыть выбранный состав.",
+            "2. Нажать «Проверить состав».",
+            "3. Просмотреть результат проверки."
+          ],
+          "result": "Совместимость подтверждена.",
+          "failure": "Перечень несовместимых позиций.",
+          "node": "dialog_developer_check"
+        },
+        {
+          "id": "version",
+          "title": "Сохранить версию состава",
+          "steps": [
+            "1. Выбрать проверенный состав.",
+            "2. Подтвердить сохранение.",
+            "3. Просмотреть номер новой версии."
+          ],
+          "result": "Новая версия состава.",
+          "failure": "Состав не прошёл проверку.",
+          "node": "dialog_developer_version"
+        }
+      ]
+    },
+    {
+      "role": "director",
+      "name": "Генеральный директор",
+      "menu": "menu_director",
+      "tasks": [
+        {
+          "id": "summary",
+          "title": "Просмотреть сводку карточек",
+          "steps": [
+            "1. Открыть список карточек.",
+            "2. Задать фильтр по состоянию.",
+            "3. Выбрать карточку из результата."
+          ],
+          "result": "Сводка по выбранному состоянию.",
+          "failure": "Нет карточек по фильтру.",
+          "node": "dialog_director_summary"
+        },
+        {
+          "id": "inspect",
+          "title": "Проверить цену и состав",
+          "steps": [
+            "1. Выбрать карточку и ревизию.",
+            "2. Открыть состав и расчёт.",
+            "3. Проверить цену и готовность."
+          ],
+          "result": "Состав и показатели ревизии.",
+          "failure": "Недостаточно данных для проверки.",
+          "node": "dialog_director_inspect"
+        },
+        {
+          "id": "approve",
+          "title": "Утвердить готовую ревизию",
+          "steps": [
+            "1. Открыть ревизию DRAFT.",
+            "2. Проверить содержание и изображения.",
+            "3. Утвердить или вернуть на доработку."
+          ],
+          "result": "READY после успешной проверки.",
+          "failure": "Ревизия остаётся DRAFT.",
+          "node": "dialog_director_approve"
+        }
+      ]
+    }
+  ],
+  "files": [
+    "01_ПР10_functions.png",
+    "02_ПР10_dialog_manager.png",
+    "03_ПР10_dialog_designer.png",
+    "04_ПР10_dialog_developer.png",
+    "05_ПР10_dialog_director.png",
+    "06_ПР10_structure.png"
+  ]
+}

@@ -1,0 +1,1488 @@
+{
+  "notation": "FLOWCHART",
+  "formatVersion": 1,
+  "profile": "NS-FLOWCHART-1",
+  "model": {
+    "id": "pr8_algorithms",
+    "label": "Алгоритмы обработки",
+    "elements": [
+      {
+        "id": "selection_algorithm",
+        "kind": "algorithm",
+        "label": "Подбор предложений",
+        "properties": {}
+      },
+      {
+        "id": "selection",
+        "kind": "diagram",
+        "label": "Подбор предложений",
+        "properties": {
+          "type": "algorithm",
+          "algorithm": "selection_algorithm"
+        }
+      },
+      {
+        "id": "selection_start",
+        "kind": "start",
+        "label": "Начало",
+        "properties": {
+          "owner": "selection_algorithm"
+        }
+      },
+      {
+        "id": "v_selection_start",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_start"
+        }
+      },
+      {
+        "id": "selection_input",
+        "kind": "input",
+        "label": "Позиции, компоненты,\nпредложения и момент t",
+        "properties": {
+          "owner": "selection_algorithm"
+        }
+      },
+      {
+        "id": "v_selection_input",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_input"
+        }
+      },
+      {
+        "id": "selection_valid",
+        "kind": "decision",
+        "label": "n ≥ 1, qᵢ — целые\nи qᵢ > 0?",
+        "properties": {
+          "owner": "selection_algorithm",
+          "mode": "binary",
+          "expression": "n ≥ 1, qᵢ — целые\nи qᵢ > 0?"
+        }
+      },
+      {
+        "id": "v_selection_valid",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_valid"
+        }
+      },
+      {
+        "id": "selection_init",
+        "kind": "operation",
+        "label": "i = 1; список пуст",
+        "properties": {
+          "owner": "selection_algorithm"
+        }
+      },
+      {
+        "id": "v_selection_init",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_init"
+        }
+      },
+      {
+        "id": "selection_loop",
+        "kind": "decision",
+        "label": "i ≤ n?",
+        "properties": {
+          "owner": "selection_algorithm",
+          "mode": "binary",
+          "expression": "i ≤ n?"
+        }
+      },
+      {
+        "id": "v_selection_loop",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_loop"
+        }
+      },
+      {
+        "id": "selection_filter",
+        "kind": "operation",
+        "label": "Предложения позиции i:\nостаток ≥ qᵢ; возраст ≤ 24 ч;\nдата наблюдения ≤ t",
+        "properties": {
+          "owner": "selection_algorithm"
+        }
+      },
+      {
+        "id": "v_selection_filter",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_filter"
+        }
+      },
+      {
+        "id": "selection_found",
+        "kind": "decision",
+        "label": "Есть допустимое\nпредложение?",
+        "properties": {
+          "owner": "selection_algorithm",
+          "mode": "binary",
+          "expression": "Есть допустимое\nпредложение?"
+        }
+      },
+      {
+        "id": "v_selection_found",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_found"
+        }
+      },
+      {
+        "id": "selection_pick",
+        "kind": "operation",
+        "label": "Выбрать минимум по цене,\nкоду поставщика, ID",
+        "properties": {
+          "owner": "selection_algorithm"
+        }
+      },
+      {
+        "id": "v_selection_pick",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_pick"
+        }
+      },
+      {
+        "id": "selection_next",
+        "kind": "operation",
+        "label": "Добавить предложение;\ni = i + 1",
+        "properties": {
+          "owner": "selection_algorithm"
+        }
+      },
+      {
+        "id": "v_selection_next",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_next"
+        }
+      },
+      {
+        "id": "selection_error",
+        "kind": "output",
+        "label": "Ошибка входных данных /\nнет допустимого\nпредложения",
+        "properties": {
+          "owner": "selection_algorithm"
+        }
+      },
+      {
+        "id": "v_selection_error",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_error"
+        }
+      },
+      {
+        "id": "selection_fail",
+        "kind": "end",
+        "label": "Конец",
+        "properties": {
+          "owner": "selection_algorithm"
+        }
+      },
+      {
+        "id": "v_selection_fail",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_fail"
+        }
+      },
+      {
+        "id": "selection_result",
+        "kind": "output",
+        "label": "Выбранные предложения\nдля всех позиций",
+        "properties": {
+          "owner": "selection_algorithm"
+        }
+      },
+      {
+        "id": "v_selection_result",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_result"
+        }
+      },
+      {
+        "id": "selection_end",
+        "kind": "end",
+        "label": "Конец",
+        "properties": {
+          "owner": "selection_algorithm"
+        }
+      },
+      {
+        "id": "v_selection_end",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_end"
+        }
+      },
+      {
+        "id": "selection_edge_412",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "selection_start",
+          "to": "selection_input"
+        }
+      },
+      {
+        "id": "v_selection_edge_412",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_edge_412",
+          "from": "v_selection_start",
+          "to": "v_selection_input"
+        }
+      },
+      {
+        "id": "selection_edge_413",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "selection_input",
+          "to": "selection_valid"
+        }
+      },
+      {
+        "id": "v_selection_edge_413",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_edge_413",
+          "from": "v_selection_input",
+          "to": "v_selection_valid"
+        }
+      },
+      {
+        "id": "selection_edge_414",
+        "kind": "flow",
+        "label": "Да",
+        "properties": {
+          "from": "selection_valid",
+          "to": "selection_init"
+        }
+      },
+      {
+        "id": "v_selection_edge_414",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_edge_414",
+          "from": "v_selection_valid",
+          "to": "v_selection_init"
+        }
+      },
+      {
+        "id": "selection_edge_415",
+        "kind": "flow",
+        "label": "Нет",
+        "properties": {
+          "from": "selection_valid",
+          "to": "selection_error"
+        }
+      },
+      {
+        "id": "v_selection_edge_415",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_edge_415",
+          "from": "v_selection_valid",
+          "to": "v_selection_error"
+        }
+      },
+      {
+        "id": "selection_edge_416",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "selection_init",
+          "to": "selection_loop"
+        }
+      },
+      {
+        "id": "v_selection_edge_416",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_edge_416",
+          "from": "v_selection_init",
+          "to": "v_selection_loop"
+        }
+      },
+      {
+        "id": "selection_edge_417",
+        "kind": "flow",
+        "label": "Да",
+        "properties": {
+          "from": "selection_loop",
+          "to": "selection_filter"
+        }
+      },
+      {
+        "id": "v_selection_edge_417",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_edge_417",
+          "from": "v_selection_loop",
+          "to": "v_selection_filter"
+        }
+      },
+      {
+        "id": "selection_edge_418",
+        "kind": "flow",
+        "label": "Нет",
+        "properties": {
+          "from": "selection_loop",
+          "to": "selection_result"
+        }
+      },
+      {
+        "id": "v_selection_edge_418",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_edge_418",
+          "from": "v_selection_loop",
+          "to": "v_selection_result"
+        }
+      },
+      {
+        "id": "selection_edge_419",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "selection_filter",
+          "to": "selection_found"
+        }
+      },
+      {
+        "id": "v_selection_edge_419",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_edge_419",
+          "from": "v_selection_filter",
+          "to": "v_selection_found"
+        }
+      },
+      {
+        "id": "selection_edge_420",
+        "kind": "flow",
+        "label": "Да",
+        "properties": {
+          "from": "selection_found",
+          "to": "selection_pick"
+        }
+      },
+      {
+        "id": "v_selection_edge_420",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_edge_420",
+          "from": "v_selection_found",
+          "to": "v_selection_pick"
+        }
+      },
+      {
+        "id": "selection_edge_421",
+        "kind": "flow",
+        "label": "Нет",
+        "properties": {
+          "from": "selection_found",
+          "to": "selection_error"
+        }
+      },
+      {
+        "id": "v_selection_edge_421",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_edge_421",
+          "from": "v_selection_found",
+          "to": "v_selection_error"
+        }
+      },
+      {
+        "id": "selection_edge_422",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "selection_pick",
+          "to": "selection_next"
+        }
+      },
+      {
+        "id": "v_selection_edge_422",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_edge_422",
+          "from": "v_selection_pick",
+          "to": "v_selection_next"
+        }
+      },
+      {
+        "id": "selection_edge_423",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "selection_next",
+          "to": "selection_loop"
+        }
+      },
+      {
+        "id": "v_selection_edge_423",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_edge_423",
+          "from": "v_selection_next",
+          "to": "v_selection_loop"
+        }
+      },
+      {
+        "id": "selection_edge_424",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "selection_error",
+          "to": "selection_fail"
+        }
+      },
+      {
+        "id": "v_selection_edge_424",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_edge_424",
+          "from": "v_selection_error",
+          "to": "v_selection_fail"
+        }
+      },
+      {
+        "id": "selection_edge_425",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "selection_result",
+          "to": "selection_end"
+        }
+      },
+      {
+        "id": "v_selection_edge_425",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "selection",
+          "element": "selection_edge_425",
+          "from": "v_selection_result",
+          "to": "v_selection_end"
+        }
+      },
+      {
+        "id": "calculation_algorithm",
+        "kind": "algorithm",
+        "label": "Проверка и расчёт",
+        "properties": {}
+      },
+      {
+        "id": "calculation",
+        "kind": "diagram",
+        "label": "Проверка и расчёт",
+        "properties": {
+          "type": "algorithm",
+          "algorithm": "calculation_algorithm"
+        }
+      },
+      {
+        "id": "calculation_start",
+        "kind": "start",
+        "label": "Начало",
+        "properties": {
+          "owner": "calculation_algorithm"
+        }
+      },
+      {
+        "id": "v_calculation_start",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_start"
+        }
+      },
+      {
+        "id": "calculation_input",
+        "kind": "input",
+        "label": "Выбранный состав,\nпараметры цены и массы",
+        "properties": {
+          "owner": "calculation_algorithm"
+        }
+      },
+      {
+        "id": "v_calculation_input",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_input"
+        }
+      },
+      {
+        "id": "calculation_valid",
+        "kind": "decision",
+        "label": "Параметры допустимы,\nсостав совместим?",
+        "properties": {
+          "owner": "calculation_algorithm",
+          "mode": "binary",
+          "expression": "Параметры допустимы,\nсостав совместим?"
+        }
+      },
+      {
+        "id": "v_calculation_valid",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_valid"
+        }
+      },
+      {
+        "id": "calculation_cost",
+        "kind": "operation",
+        "label": "Cкомп = ∑ qᵢ · pᵢ\nC = Cкомп + A + B",
+        "properties": {
+          "owner": "calculation_algorithm"
+        }
+      },
+      {
+        "id": "v_calculation_cost",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_cost"
+        }
+      },
+      {
+        "id": "calculation_price",
+        "kind": "operation",
+        "label": "P₀ = (C · (1 + m) + L)\n/ (1 − c)",
+        "properties": {
+          "owner": "calculation_algorithm"
+        }
+      },
+      {
+        "id": "v_calculation_price",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_price"
+        }
+      },
+      {
+        "id": "calculation_round",
+        "kind": "operation",
+        "label": "P = d · ceil(P₀ / d)",
+        "properties": {
+          "owner": "calculation_algorithm"
+        }
+      },
+      {
+        "id": "v_calculation_round",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_round"
+        }
+      },
+      {
+        "id": "calculation_mass",
+        "kind": "operation",
+        "label": "W = ∑ qᵢ · wᵢ + b",
+        "properties": {
+          "owner": "calculation_algorithm"
+        }
+      },
+      {
+        "id": "v_calculation_mass",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_mass"
+        }
+      },
+      {
+        "id": "calculation_output",
+        "kind": "output",
+        "label": "Себестоимость,\nитоговая цена и масса",
+        "properties": {
+          "owner": "calculation_algorithm"
+        }
+      },
+      {
+        "id": "v_calculation_output",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_output"
+        }
+      },
+      {
+        "id": "calculation_end",
+        "kind": "end",
+        "label": "Конец",
+        "properties": {
+          "owner": "calculation_algorithm"
+        }
+      },
+      {
+        "id": "v_calculation_end",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_end"
+        }
+      },
+      {
+        "id": "calculation_error",
+        "kind": "output",
+        "label": "Ошибки параметров\nили совместимости",
+        "properties": {
+          "owner": "calculation_algorithm"
+        }
+      },
+      {
+        "id": "v_calculation_error",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_error"
+        }
+      },
+      {
+        "id": "calculation_fail",
+        "kind": "end",
+        "label": "Конец",
+        "properties": {
+          "owner": "calculation_algorithm"
+        }
+      },
+      {
+        "id": "v_calculation_fail",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_fail"
+        }
+      },
+      {
+        "id": "calculation_edge_426",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "calculation_start",
+          "to": "calculation_input"
+        }
+      },
+      {
+        "id": "v_calculation_edge_426",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_edge_426",
+          "from": "v_calculation_start",
+          "to": "v_calculation_input"
+        }
+      },
+      {
+        "id": "calculation_edge_427",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "calculation_input",
+          "to": "calculation_valid"
+        }
+      },
+      {
+        "id": "v_calculation_edge_427",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_edge_427",
+          "from": "v_calculation_input",
+          "to": "v_calculation_valid"
+        }
+      },
+      {
+        "id": "calculation_edge_428",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "calculation_cost",
+          "to": "calculation_price"
+        }
+      },
+      {
+        "id": "v_calculation_edge_428",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_edge_428",
+          "from": "v_calculation_cost",
+          "to": "v_calculation_price"
+        }
+      },
+      {
+        "id": "calculation_edge_429",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "calculation_price",
+          "to": "calculation_round"
+        }
+      },
+      {
+        "id": "v_calculation_edge_429",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_edge_429",
+          "from": "v_calculation_price",
+          "to": "v_calculation_round"
+        }
+      },
+      {
+        "id": "calculation_edge_430",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "calculation_round",
+          "to": "calculation_mass"
+        }
+      },
+      {
+        "id": "v_calculation_edge_430",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_edge_430",
+          "from": "v_calculation_round",
+          "to": "v_calculation_mass"
+        }
+      },
+      {
+        "id": "calculation_edge_431",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "calculation_mass",
+          "to": "calculation_output"
+        }
+      },
+      {
+        "id": "v_calculation_edge_431",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_edge_431",
+          "from": "v_calculation_mass",
+          "to": "v_calculation_output"
+        }
+      },
+      {
+        "id": "calculation_edge_432",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "calculation_output",
+          "to": "calculation_end"
+        }
+      },
+      {
+        "id": "v_calculation_edge_432",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_edge_432",
+          "from": "v_calculation_output",
+          "to": "v_calculation_end"
+        }
+      },
+      {
+        "id": "calculation_edge_433",
+        "kind": "flow",
+        "label": "",
+        "properties": {
+          "from": "calculation_error",
+          "to": "calculation_fail"
+        }
+      },
+      {
+        "id": "v_calculation_edge_433",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_edge_433",
+          "from": "v_calculation_error",
+          "to": "v_calculation_fail"
+        }
+      },
+      {
+        "id": "calculation_edge_434",
+        "kind": "flow",
+        "label": "Да",
+        "properties": {
+          "from": "calculation_valid",
+          "to": "calculation_cost"
+        }
+      },
+      {
+        "id": "v_calculation_edge_434",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_edge_434",
+          "from": "v_calculation_valid",
+          "to": "v_calculation_cost"
+        }
+      },
+      {
+        "id": "calculation_edge_435",
+        "kind": "flow",
+        "label": "Нет",
+        "properties": {
+          "from": "calculation_valid",
+          "to": "calculation_error"
+        }
+      },
+      {
+        "id": "v_calculation_edge_435",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "calculation",
+          "element": "calculation_edge_435",
+          "from": "v_calculation_valid",
+          "to": "v_calculation_error"
+        }
+      }
+    ]
+  },
+  "source": "flowchart pr8_algorithms \"Алгоритмы обработки\"\nalgorithm selection_algorithm \"Подбор предложений\"\ndiagram selection \"Подбор предложений\" algorithm=selection_algorithm type=algorithm\nstart selection_start Начало owner=selection_algorithm\nview v_selection_start \"\" diagram=selection element=selection_start\ninput selection_input \"Позиции, компоненты,\\nпредложения и момент t\" owner=selection_algorithm\nview v_selection_input \"\" diagram=selection element=selection_input\ndecision selection_valid \"n ≥ 1, qᵢ — целые\\nи qᵢ > 0?\" expression=\"n ≥ 1, qᵢ — целые\\nи qᵢ > 0?\" mode=binary owner=selection_algorithm\nview v_selection_valid \"\" diagram=selection element=selection_valid\noperation selection_init \"i = 1; список пуст\" owner=selection_algorithm\nview v_selection_init \"\" diagram=selection element=selection_init\ndecision selection_loop \"i ≤ n?\" expression=\"i ≤ n?\" mode=binary owner=selection_algorithm\nview v_selection_loop \"\" diagram=selection element=selection_loop\noperation selection_filter \"Предложения позиции i:\\nостаток ≥ qᵢ; возраст ≤ 24 ч;\\nдата наблюдения ≤ t\" owner=selection_algorithm\nview v_selection_filter \"\" diagram=selection element=selection_filter\ndecision selection_found \"Есть допустимое\\nпредложение?\" expression=\"Есть допустимое\\nпредложение?\" mode=binary owner=selection_algorithm\nview v_selection_found \"\" diagram=selection element=selection_found\noperation selection_pick \"Выбрать минимум по цене,\\nкоду поставщика, ID\" owner=selection_algorithm\nview v_selection_pick \"\" diagram=selection element=selection_pick\noperation selection_next \"Добавить предложение;\\ni = i + 1\" owner=selection_algorithm\nview v_selection_next \"\" diagram=selection element=selection_next\noutput selection_error \"Ошибка входных данных /\\nнет допустимого\\nпредложения\" owner=selection_algorithm\nview v_selection_error \"\" diagram=selection element=selection_error\nend selection_fail Конец owner=selection_algorithm\nview v_selection_fail \"\" diagram=selection element=selection_fail\noutput selection_result \"Выбранные предложения\\nдля всех позиций\" owner=selection_algorithm\nview v_selection_result \"\" diagram=selection element=selection_result\nend selection_end Конец owner=selection_algorithm\nview v_selection_end \"\" diagram=selection element=selection_end\nflow selection_edge_412 \"\" from=selection_start to=selection_input\nview v_selection_edge_412 \"\" diagram=selection element=selection_edge_412 from=v_selection_start to=v_selection_input\nflow selection_edge_413 \"\" from=selection_input to=selection_valid\nview v_selection_edge_413 \"\" diagram=selection element=selection_edge_413 from=v_selection_input to=v_selection_valid\nflow selection_edge_414 Да from=selection_valid to=selection_init\nview v_selection_edge_414 \"\" diagram=selection element=selection_edge_414 from=v_selection_valid to=v_selection_init\nflow selection_edge_415 Нет from=selection_valid to=selection_error\nview v_selection_edge_415 \"\" diagram=selection element=selection_edge_415 from=v_selection_valid to=v_selection_error\nflow selection_edge_416 \"\" from=selection_init to=selection_loop\nview v_selection_edge_416 \"\" diagram=selection element=selection_edge_416 from=v_selection_init to=v_selection_loop\nflow selection_edge_417 Да from=selection_loop to=selection_filter\nview v_selection_edge_417 \"\" diagram=selection element=selection_edge_417 from=v_selection_loop to=v_selection_filter\nflow selection_edge_418 Нет from=selection_loop to=selection_result\nview v_selection_edge_418 \"\" diagram=selection element=selection_edge_418 from=v_selection_loop to=v_selection_result\nflow selection_edge_419 \"\" from=selection_filter to=selection_found\nview v_selection_edge_419 \"\" diagram=selection element=selection_edge_419 from=v_selection_filter to=v_selection_found\nflow selection_edge_420 Да from=selection_found to=selection_pick\nview v_selection_edge_420 \"\" diagram=selection element=selection_edge_420 from=v_selection_found to=v_selection_pick\nflow selection_edge_421 Нет from=selection_found to=selection_error\nview v_selection_edge_421 \"\" diagram=selection element=selection_edge_421 from=v_selection_found to=v_selection_error\nflow selection_edge_422 \"\" from=selection_pick to=selection_next\nview v_selection_edge_422 \"\" diagram=selection element=selection_edge_422 from=v_selection_pick to=v_selection_next\nflow selection_edge_423 \"\" from=selection_next to=selection_loop\nview v_selection_edge_423 \"\" diagram=selection element=selection_edge_423 from=v_selection_next to=v_selection_loop\nflow selection_edge_424 \"\" from=selection_error to=selection_fail\nview v_selection_edge_424 \"\" diagram=selection element=selection_edge_424 from=v_selection_error to=v_selection_fail\nflow selection_edge_425 \"\" from=selection_result to=selection_end\nview v_selection_edge_425 \"\" diagram=selection element=selection_edge_425 from=v_selection_result to=v_selection_end\nalgorithm calculation_algorithm \"Проверка и расчёт\"\ndiagram calculation \"Проверка и расчёт\" algorithm=calculation_algorithm type=algorithm\nstart calculation_start Начало owner=calculation_algorithm\nview v_calculation_start \"\" diagram=calculation element=calculation_start\ninput calculation_input \"Выбранный состав,\\nпараметры цены и массы\" owner=calculation_algorithm\nview v_calculation_input \"\" diagram=calculation element=calculation_input\ndecision calculation_valid \"Параметры допустимы,\\nсостав совместим?\" expression=\"Параметры допустимы,\\nсостав совместим?\" mode=binary owner=calculation_algorithm\nview v_calculation_valid \"\" diagram=calculation element=calculation_valid\noperation calculation_cost \"Cкомп = ∑ qᵢ · pᵢ\\nC = Cкомп + A + B\" owner=calculation_algorithm\nview v_calculation_cost \"\" diagram=calculation element=calculation_cost\noperation calculation_price \"P₀ = (C · (1 + m) + L)\\n/ (1 − c)\" owner=calculation_algorithm\nview v_calculation_price \"\" diagram=calculation element=calculation_price\noperation calculation_round \"P = d · ceil(P₀ / d)\" owner=calculation_algorithm\nview v_calculation_round \"\" diagram=calculation element=calculation_round\noperation calculation_mass \"W = ∑ qᵢ · wᵢ + b\" owner=calculation_algorithm\nview v_calculation_mass \"\" diagram=calculation element=calculation_mass\noutput calculation_output \"Себестоимость,\\nитоговая цена и масса\" owner=calculation_algorithm\nview v_calculation_output \"\" diagram=calculation element=calculation_output\nend calculation_end Конец owner=calculation_algorithm\nview v_calculation_end \"\" diagram=calculation element=calculation_end\noutput calculation_error \"Ошибки параметров\\nили совместимости\" owner=calculation_algorithm\nview v_calculation_error \"\" diagram=calculation element=calculation_error\nend calculation_fail Конец owner=calculation_algorithm\nview v_calculation_fail \"\" diagram=calculation element=calculation_fail\nflow calculation_edge_426 \"\" from=calculation_start to=calculation_input\nview v_calculation_edge_426 \"\" diagram=calculation element=calculation_edge_426 from=v_calculation_start to=v_calculation_input\nflow calculation_edge_427 \"\" from=calculation_input to=calculation_valid\nview v_calculation_edge_427 \"\" diagram=calculation element=calculation_edge_427 from=v_calculation_input to=v_calculation_valid\nflow calculation_edge_428 \"\" from=calculation_cost to=calculation_price\nview v_calculation_edge_428 \"\" diagram=calculation element=calculation_edge_428 from=v_calculation_cost to=v_calculation_price\nflow calculation_edge_429 \"\" from=calculation_price to=calculation_round\nview v_calculation_edge_429 \"\" diagram=calculation element=calculation_edge_429 from=v_calculation_price to=v_calculation_round\nflow calculation_edge_430 \"\" from=calculation_round to=calculation_mass\nview v_calculation_edge_430 \"\" diagram=calculation element=calculation_edge_430 from=v_calculation_round to=v_calculation_mass\nflow calculation_edge_431 \"\" from=calculation_mass to=calculation_output\nview v_calculation_edge_431 \"\" diagram=calculation element=calculation_edge_431 from=v_calculation_mass to=v_calculation_output\nflow calculation_edge_432 \"\" from=calculation_output to=calculation_end\nview v_calculation_edge_432 \"\" diagram=calculation element=calculation_edge_432 from=v_calculation_output to=v_calculation_end\nflow calculation_edge_433 \"\" from=calculation_error to=calculation_fail\nview v_calculation_edge_433 \"\" diagram=calculation element=calculation_edge_433 from=v_calculation_error to=v_calculation_fail\nflow calculation_edge_434 Да from=calculation_valid to=calculation_cost\nview v_calculation_edge_434 \"\" diagram=calculation element=calculation_edge_434 from=v_calculation_valid to=v_calculation_cost\nflow calculation_edge_435 Нет from=calculation_valid to=calculation_error\nview v_calculation_edge_435 \"\" diagram=calculation element=calculation_edge_435 from=v_calculation_valid to=v_calculation_error\n",
+  "draft": "flowchart pr8_algorithms \"Алгоритмы обработки\"\nalgorithm selection_algorithm \"Подбор предложений\"\ndiagram selection \"Подбор предложений\" algorithm=selection_algorithm type=algorithm\nstart selection_start Начало owner=selection_algorithm\nview v_selection_start \"\" diagram=selection element=selection_start\ninput selection_input \"Позиции, компоненты,\\nпредложения и момент t\" owner=selection_algorithm\nview v_selection_input \"\" diagram=selection element=selection_input\ndecision selection_valid \"n ≥ 1, qᵢ — целые\\nи qᵢ > 0?\" expression=\"n ≥ 1, qᵢ — целые\\nи qᵢ > 0?\" mode=binary owner=selection_algorithm\nview v_selection_valid \"\" diagram=selection element=selection_valid\noperation selection_init \"i = 1; список пуст\" owner=selection_algorithm\nview v_selection_init \"\" diagram=selection element=selection_init\ndecision selection_loop \"i ≤ n?\" expression=\"i ≤ n?\" mode=binary owner=selection_algorithm\nview v_selection_loop \"\" diagram=selection element=selection_loop\noperation selection_filter \"Предложения позиции i:\\nостаток ≥ qᵢ; возраст ≤ 24 ч;\\nдата наблюдения ≤ t\" owner=selection_algorithm\nview v_selection_filter \"\" diagram=selection element=selection_filter\ndecision selection_found \"Есть допустимое\\nпредложение?\" expression=\"Есть допустимое\\nпредложение?\" mode=binary owner=selection_algorithm\nview v_selection_found \"\" diagram=selection element=selection_found\noperation selection_pick \"Выбрать минимум по цене,\\nкоду поставщика, ID\" owner=selection_algorithm\nview v_selection_pick \"\" diagram=selection element=selection_pick\noperation selection_next \"Добавить предложение;\\ni = i + 1\" owner=selection_algorithm\nview v_selection_next \"\" diagram=selection element=selection_next\noutput selection_error \"Ошибка входных данных /\\nнет допустимого\\nпредложения\" owner=selection_algorithm\nview v_selection_error \"\" diagram=selection element=selection_error\nend selection_fail Конец owner=selection_algorithm\nview v_selection_fail \"\" diagram=selection element=selection_fail\noutput selection_result \"Выбранные предложения\\nдля всех позиций\" owner=selection_algorithm\nview v_selection_result \"\" diagram=selection element=selection_result\nend selection_end Конец owner=selection_algorithm\nview v_selection_end \"\" diagram=selection element=selection_end\nflow selection_edge_412 \"\" from=selection_start to=selection_input\nview v_selection_edge_412 \"\" diagram=selection element=selection_edge_412 from=v_selection_start to=v_selection_input\nflow selection_edge_413 \"\" from=selection_input to=selection_valid\nview v_selection_edge_413 \"\" diagram=selection element=selection_edge_413 from=v_selection_input to=v_selection_valid\nflow selection_edge_414 Да from=selection_valid to=selection_init\nview v_selection_edge_414 \"\" diagram=selection element=selection_edge_414 from=v_selection_valid to=v_selection_init\nflow selection_edge_415 Нет from=selection_valid to=selection_error\nview v_selection_edge_415 \"\" diagram=selection element=selection_edge_415 from=v_selection_valid to=v_selection_error\nflow selection_edge_416 \"\" from=selection_init to=selection_loop\nview v_selection_edge_416 \"\" diagram=selection element=selection_edge_416 from=v_selection_init to=v_selection_loop\nflow selection_edge_417 Да from=selection_loop to=selection_filter\nview v_selection_edge_417 \"\" diagram=selection element=selection_edge_417 from=v_selection_loop to=v_selection_filter\nflow selection_edge_418 Нет from=selection_loop to=selection_result\nview v_selection_edge_418 \"\" diagram=selection element=selection_edge_418 from=v_selection_loop to=v_selection_result\nflow selection_edge_419 \"\" from=selection_filter to=selection_found\nview v_selection_edge_419 \"\" diagram=selection element=selection_edge_419 from=v_selection_filter to=v_selection_found\nflow selection_edge_420 Да from=selection_found to=selection_pick\nview v_selection_edge_420 \"\" diagram=selection element=selection_edge_420 from=v_selection_found to=v_selection_pick\nflow selection_edge_421 Нет from=selection_found to=selection_error\nview v_selection_edge_421 \"\" diagram=selection element=selection_edge_421 from=v_selection_found to=v_selection_error\nflow selection_edge_422 \"\" from=selection_pick to=selection_next\nview v_selection_edge_422 \"\" diagram=selection element=selection_edge_422 from=v_selection_pick to=v_selection_next\nflow selection_edge_423 \"\" from=selection_next to=selection_loop\nview v_selection_edge_423 \"\" diagram=selection element=selection_edge_423 from=v_selection_next to=v_selection_loop\nflow selection_edge_424 \"\" from=selection_error to=selection_fail\nview v_selection_edge_424 \"\" diagram=selection element=selection_edge_424 from=v_selection_error to=v_selection_fail\nflow selection_edge_425 \"\" from=selection_result to=selection_end\nview v_selection_edge_425 \"\" diagram=selection element=selection_edge_425 from=v_selection_result to=v_selection_end\nalgorithm calculation_algorithm \"Проверка и расчёт\"\ndiagram calculation \"Проверка и расчёт\" algorithm=calculation_algorithm type=algorithm\nstart calculation_start Начало owner=calculation_algorithm\nview v_calculation_start \"\" diagram=calculation element=calculation_start\ninput calculation_input \"Выбранный состав,\\nпараметры цены и массы\" owner=calculation_algorithm\nview v_calculation_input \"\" diagram=calculation element=calculation_input\ndecision calculation_valid \"Параметры допустимы,\\nсостав совместим?\" expression=\"Параметры допустимы,\\nсостав совместим?\" mode=binary owner=calculation_algorithm\nview v_calculation_valid \"\" diagram=calculation element=calculation_valid\noperation calculation_cost \"Cкомп = ∑ qᵢ · pᵢ\\nC = Cкомп + A + B\" owner=calculation_algorithm\nview v_calculation_cost \"\" diagram=calculation element=calculation_cost\noperation calculation_price \"P₀ = (C · (1 + m) + L)\\n/ (1 − c)\" owner=calculation_algorithm\nview v_calculation_price \"\" diagram=calculation element=calculation_price\noperation calculation_round \"P = d · ceil(P₀ / d)\" owner=calculation_algorithm\nview v_calculation_round \"\" diagram=calculation element=calculation_round\noperation calculation_mass \"W = ∑ qᵢ · wᵢ + b\" owner=calculation_algorithm\nview v_calculation_mass \"\" diagram=calculation element=calculation_mass\noutput calculation_output \"Себестоимость,\\nитоговая цена и масса\" owner=calculation_algorithm\nview v_calculation_output \"\" diagram=calculation element=calculation_output\nend calculation_end Конец owner=calculation_algorithm\nview v_calculation_end \"\" diagram=calculation element=calculation_end\noutput calculation_error \"Ошибки параметров\\nили совместимости\" owner=calculation_algorithm\nview v_calculation_error \"\" diagram=calculation element=calculation_error\nend calculation_fail Конец owner=calculation_algorithm\nview v_calculation_fail \"\" diagram=calculation element=calculation_fail\nflow calculation_edge_426 \"\" from=calculation_start to=calculation_input\nview v_calculation_edge_426 \"\" diagram=calculation element=calculation_edge_426 from=v_calculation_start to=v_calculation_input\nflow calculation_edge_427 \"\" from=calculation_input to=calculation_valid\nview v_calculation_edge_427 \"\" diagram=calculation element=calculation_edge_427 from=v_calculation_input to=v_calculation_valid\nflow calculation_edge_428 \"\" from=calculation_cost to=calculation_price\nview v_calculation_edge_428 \"\" diagram=calculation element=calculation_edge_428 from=v_calculation_cost to=v_calculation_price\nflow calculation_edge_429 \"\" from=calculation_price to=calculation_round\nview v_calculation_edge_429 \"\" diagram=calculation element=calculation_edge_429 from=v_calculation_price to=v_calculation_round\nflow calculation_edge_430 \"\" from=calculation_round to=calculation_mass\nview v_calculation_edge_430 \"\" diagram=calculation element=calculation_edge_430 from=v_calculation_round to=v_calculation_mass\nflow calculation_edge_431 \"\" from=calculation_mass to=calculation_output\nview v_calculation_edge_431 \"\" diagram=calculation element=calculation_edge_431 from=v_calculation_mass to=v_calculation_output\nflow calculation_edge_432 \"\" from=calculation_output to=calculation_end\nview v_calculation_edge_432 \"\" diagram=calculation element=calculation_edge_432 from=v_calculation_output to=v_calculation_end\nflow calculation_edge_433 \"\" from=calculation_error to=calculation_fail\nview v_calculation_edge_433 \"\" diagram=calculation element=calculation_edge_433 from=v_calculation_error to=v_calculation_fail\nflow calculation_edge_434 Да from=calculation_valid to=calculation_cost\nview v_calculation_edge_434 \"\" diagram=calculation element=calculation_edge_434 from=v_calculation_valid to=v_calculation_cost\nflow calculation_edge_435 Нет from=calculation_valid to=calculation_error\nview v_calculation_edge_435 \"\" diagram=calculation element=calculation_edge_435 from=v_calculation_valid to=v_calculation_error\n",
+  "layout": {
+    "nodes": {
+      "v_selection_start": {
+        "x": 160,
+        "y": 10,
+        "width": 230,
+        "height": 60,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_selection_input": {
+        "x": 70,
+        "y": 110,
+        "width": 410,
+        "height": 80,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_selection_valid": {
+        "x": 55,
+        "y": 245,
+        "width": 440,
+        "height": 135,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_selection_init": {
+        "x": 70,
+        "y": 435,
+        "width": 410,
+        "height": 80,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_selection_loop": {
+        "x": 55,
+        "y": 575,
+        "width": 440,
+        "height": 110,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_selection_filter": {
+        "x": 70,
+        "y": 740,
+        "width": 410,
+        "height": 115,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_selection_found": {
+        "x": 55,
+        "y": 910,
+        "width": 440,
+        "height": 135,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_selection_pick": {
+        "x": 70,
+        "y": 1100,
+        "width": 410,
+        "height": 95,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_selection_next": {
+        "x": 70,
+        "y": 1250,
+        "width": 410,
+        "height": 90,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_selection_error": {
+        "x": 650,
+        "y": 900,
+        "width": 380,
+        "height": 115,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_selection_fail": {
+        "x": 720,
+        "y": 1080,
+        "width": 230,
+        "height": 60,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_selection_result": {
+        "x": 650,
+        "y": 1230,
+        "width": 380,
+        "height": 100,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_selection_end": {
+        "x": 720,
+        "y": 1410,
+        "width": 230,
+        "height": 60,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_calculation_start": {
+        "x": 160,
+        "y": 10,
+        "width": 230,
+        "height": 60,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_calculation_input": {
+        "x": 70,
+        "y": 110,
+        "width": 410,
+        "height": 80,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_calculation_valid": {
+        "x": 55,
+        "y": 245,
+        "width": 440,
+        "height": 135,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_calculation_cost": {
+        "x": 70,
+        "y": 435,
+        "width": 410,
+        "height": 100,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_calculation_price": {
+        "x": 70,
+        "y": 590,
+        "width": 410,
+        "height": 100,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_calculation_round": {
+        "x": 70,
+        "y": 745,
+        "width": 410,
+        "height": 90,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_calculation_mass": {
+        "x": 70,
+        "y": 890,
+        "width": 410,
+        "height": 80,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_calculation_output": {
+        "x": 70,
+        "y": 1025,
+        "width": 410,
+        "height": 95,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_calculation_end": {
+        "x": 160,
+        "y": 1180,
+        "width": 230,
+        "height": 60,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_calculation_error": {
+        "x": 650,
+        "y": 270,
+        "width": 380,
+        "height": 100,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      },
+      "v_calculation_fail": {
+        "x": 720,
+        "y": 435,
+        "width": 230,
+        "height": 60,
+        "style": {
+          "color": "#000000",
+          "fontSize": 26
+        }
+      }
+    },
+    "edges": {
+      "v_selection_edge_412": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        }
+      },
+      "v_selection_edge_413": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        }
+      },
+      "v_selection_edge_414": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        }
+      },
+      "v_selection_edge_415": {
+        "bends": [
+          {
+            "x": 585,
+            "y": 312.5
+          },
+          {
+            "x": 585,
+            "y": 860
+          },
+          {
+            "x": 840,
+            "y": 860
+          }
+        ],
+        "from": {
+          "side": "right",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        }
+      },
+      "v_selection_edge_416": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        }
+      },
+      "v_selection_edge_417": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        }
+      },
+      "v_selection_edge_418": {
+        "bends": [
+          {
+            "x": 1090,
+            "y": 630
+          },
+          {
+            "x": 1090,
+            "y": 1280
+          }
+        ],
+        "from": {
+          "side": "right",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "right",
+          "offset": 0.5
+        }
+      },
+      "v_selection_edge_419": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        }
+      },
+      "v_selection_edge_420": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        }
+      },
+      "v_selection_edge_421": {
+        "bends": [],
+        "from": {
+          "side": "right",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        }
+      },
+      "v_selection_edge_422": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        }
+      },
+      "v_selection_edge_423": {
+        "bends": [
+          {
+            "x": 275,
+            "y": 1400
+          },
+          {
+            "x": 12,
+            "y": 1400
+          },
+          {
+            "x": 12,
+            "y": 630
+          }
+        ],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        }
+      },
+      "v_selection_edge_424": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        }
+      },
+      "v_selection_edge_425": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        }
+      },
+      "v_calculation_edge_426": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        }
+      },
+      "v_calculation_edge_427": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        }
+      },
+      "v_calculation_edge_428": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        }
+      },
+      "v_calculation_edge_429": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        }
+      },
+      "v_calculation_edge_430": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        }
+      },
+      "v_calculation_edge_431": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        }
+      },
+      "v_calculation_edge_432": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        }
+      },
+      "v_calculation_edge_433": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        }
+      },
+      "v_calculation_edge_434": {
+        "bends": [],
+        "from": {
+          "side": "bottom",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "top",
+          "offset": 0.5
+        }
+      },
+      "v_calculation_edge_435": {
+        "bends": [],
+        "from": {
+          "side": "right",
+          "offset": 0.5
+        },
+        "to": {
+          "side": "left",
+          "offset": 0.5
+        }
+      }
+    },
+    "diagrams": {
+      "selection": {},
+      "calculation": {}
+    }
+  }
+}

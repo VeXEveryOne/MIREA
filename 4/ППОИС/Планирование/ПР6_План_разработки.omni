@@ -1,0 +1,1476 @@
+{
+  "notation": "GANTT",
+  "formatVersion": 1,
+  "profile": "NS-GANTT-1",
+  "model": {
+    "id": "pr6_schedule",
+    "label": "План разработки информационной системы",
+    "elements": [
+      {
+        "id": "weekdays",
+        "kind": "calendar",
+        "label": "Пятидневная неделя",
+        "properties": {
+          "hoursPerDay": "8",
+          "monday": "true",
+          "tuesday": "true",
+          "wednesday": "true",
+          "thursday": "true",
+          "friday": "true",
+          "saturday": "false",
+          "sunday": "false"
+        }
+      },
+      {
+        "id": "holiday",
+        "kind": "calendarException",
+        "label": "4 ноября",
+        "properties": {
+          "owner": "weekdays",
+          "date": "2026-11-04",
+          "working": "false"
+        }
+      },
+      {
+        "id": "plan",
+        "kind": "plan",
+        "label": "Разработка ИС",
+        "properties": {
+          "start": "2026-10-05",
+          "calendar": "weekdays",
+          "mode": "auto"
+        }
+      },
+      {
+        "id": "gantt",
+        "kind": "diagram",
+        "label": "План разработки",
+        "properties": {
+          "type": "gantt",
+          "plan": "plan"
+        }
+      },
+      {
+        "id": "resource_1",
+        "kind": "resource",
+        "label": "Backend-разработчик",
+        "properties": {
+          "role": "Backend-разработчик",
+          "capacityHoursPerDay": "8"
+        }
+      },
+      {
+        "id": "resource_2",
+        "kind": "resource",
+        "label": "Frontend-разработчик",
+        "properties": {
+          "role": "Frontend-разработчик",
+          "capacityHoursPerDay": "8"
+        }
+      },
+      {
+        "id": "resource_3",
+        "kind": "resource",
+        "label": "Администратор БД",
+        "properties": {
+          "role": "Администратор БД",
+          "capacityHoursPerDay": "8"
+        }
+      },
+      {
+        "id": "resource_4",
+        "kind": "resource",
+        "label": "Аналитик",
+        "properties": {
+          "role": "Аналитик",
+          "capacityHoursPerDay": "8"
+        }
+      },
+      {
+        "id": "resource_5",
+        "kind": "resource",
+        "label": "Архитектор",
+        "properties": {
+          "role": "Архитектор",
+          "capacityHoursPerDay": "8"
+        }
+      },
+      {
+        "id": "resource_6",
+        "kind": "resource",
+        "label": "Инженер эксплуатации",
+        "properties": {
+          "role": "Инженер эксплуатации",
+          "capacityHoursPerDay": "8"
+        }
+      },
+      {
+        "id": "resource_7",
+        "kind": "resource",
+        "label": "Руководитель проекта",
+        "properties": {
+          "role": "Руководитель проекта",
+          "capacityHoursPerDay": "8"
+        }
+      },
+      {
+        "id": "resource_8",
+        "kind": "resource",
+        "label": "Тестировщик",
+        "properties": {
+          "role": "Тестировщик",
+          "capacityHoursPerDay": "8"
+        }
+      },
+      {
+        "id": "stage_1",
+        "kind": "task",
+        "label": "Уточнение требований",
+        "properties": {
+          "kind": "summary",
+          "order": "1",
+          "wbsCode": "1"
+        }
+      },
+      {
+        "id": "v_stage_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "stage_1"
+        }
+      },
+      {
+        "id": "task_1_1",
+        "kind": "task",
+        "label": "Обследовать процесс",
+        "properties": {
+          "kind": "task",
+          "parent": "stage_1",
+          "order": "1",
+          "wbsCode": "1.1",
+          "duration": "2",
+          "effortHours": "16",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "v_task_1_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "task_1_1"
+        }
+      },
+      {
+        "id": "task_1_1_resource_4",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_1_1",
+          "resource": "resource_4",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "task_1_2",
+        "kind": "task",
+        "label": "Согласовать требования",
+        "properties": {
+          "kind": "task",
+          "parent": "stage_1",
+          "order": "2",
+          "wbsCode": "1.2",
+          "duration": "3",
+          "effortHours": "40",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "v_task_1_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "task_1_2"
+        }
+      },
+      {
+        "id": "task_1_2_resource_4",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_1_2",
+          "resource": "resource_4",
+          "effortHours": "24"
+        }
+      },
+      {
+        "id": "task_1_2_resource_7",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_1_2",
+          "resource": "resource_7",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "stage_2",
+        "kind": "task",
+        "label": "Модели и архитектура",
+        "properties": {
+          "kind": "summary",
+          "order": "2",
+          "wbsCode": "2"
+        }
+      },
+      {
+        "id": "v_stage_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "stage_2"
+        }
+      },
+      {
+        "id": "task_2_1",
+        "kind": "task",
+        "label": "Построить модели",
+        "properties": {
+          "kind": "task",
+          "parent": "stage_2",
+          "order": "1",
+          "wbsCode": "2.1",
+          "duration": "2",
+          "effortHours": "24",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "v_task_2_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "task_2_1"
+        }
+      },
+      {
+        "id": "task_2_1_resource_4",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_2_1",
+          "resource": "resource_4",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "task_2_1_resource_5",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_2_1",
+          "resource": "resource_5",
+          "effortHours": "8"
+        }
+      },
+      {
+        "id": "task_2_2",
+        "kind": "task",
+        "label": "Спроектировать архитектуру",
+        "properties": {
+          "kind": "task",
+          "parent": "stage_2",
+          "order": "2",
+          "wbsCode": "2.2",
+          "duration": "3",
+          "effortHours": "40",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "v_task_2_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "task_2_2"
+        }
+      },
+      {
+        "id": "task_2_2_resource_4",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_2_2",
+          "resource": "resource_4",
+          "effortHours": "24"
+        }
+      },
+      {
+        "id": "task_2_2_resource_5",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_2_2",
+          "resource": "resource_5",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "stage_3",
+        "kind": "task",
+        "label": "БД и миграции",
+        "properties": {
+          "kind": "summary",
+          "order": "3",
+          "wbsCode": "3"
+        }
+      },
+      {
+        "id": "v_stage_3",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "stage_3"
+        }
+      },
+      {
+        "id": "task_3_1",
+        "kind": "task",
+        "label": "Разработать схему БД",
+        "properties": {
+          "kind": "task",
+          "parent": "stage_3",
+          "order": "1",
+          "wbsCode": "3.1",
+          "duration": "3",
+          "effortHours": "40",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "v_task_3_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "task_3_1"
+        }
+      },
+      {
+        "id": "task_3_1_resource_1",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_3_1",
+          "resource": "resource_1",
+          "effortHours": "24"
+        }
+      },
+      {
+        "id": "task_3_1_resource_3",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_3_1",
+          "resource": "resource_3",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "task_3_2",
+        "kind": "task",
+        "label": "Подготовить миграции и данные",
+        "properties": {
+          "kind": "task",
+          "parent": "stage_3",
+          "order": "2",
+          "wbsCode": "3.2",
+          "duration": "3",
+          "effortHours": "40",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "v_task_3_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "task_3_2"
+        }
+      },
+      {
+        "id": "task_3_2_resource_1",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_3_2",
+          "resource": "resource_1",
+          "effortHours": "24"
+        }
+      },
+      {
+        "id": "task_3_2_resource_3",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_3_2",
+          "resource": "resource_3",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "stage_4",
+        "kind": "task",
+        "label": "Доменная логика",
+        "properties": {
+          "kind": "summary",
+          "order": "4",
+          "wbsCode": "4"
+        }
+      },
+      {
+        "id": "v_stage_4",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "stage_4"
+        }
+      },
+      {
+        "id": "task_4_1",
+        "kind": "task",
+        "label": "Реализовать подбор",
+        "properties": {
+          "kind": "task",
+          "parent": "stage_4",
+          "order": "1",
+          "wbsCode": "4.1",
+          "duration": "4",
+          "effortHours": "40",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "v_task_4_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "task_4_1"
+        }
+      },
+      {
+        "id": "task_4_1_resource_1",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_4_1",
+          "resource": "resource_1",
+          "effortHours": "32"
+        }
+      },
+      {
+        "id": "task_4_1_resource_8",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_4_1",
+          "resource": "resource_8",
+          "effortHours": "8"
+        }
+      },
+      {
+        "id": "task_4_2",
+        "kind": "task",
+        "label": "Реализовать расчёт",
+        "properties": {
+          "kind": "task",
+          "parent": "stage_4",
+          "order": "2",
+          "wbsCode": "4.2",
+          "duration": "4",
+          "effortHours": "48",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "v_task_4_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "task_4_2"
+        }
+      },
+      {
+        "id": "task_4_2_resource_1",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_4_2",
+          "resource": "resource_1",
+          "effortHours": "32"
+        }
+      },
+      {
+        "id": "task_4_2_resource_8",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_4_2",
+          "resource": "resource_8",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "stage_5",
+        "kind": "task",
+        "label": "Клиентские формы",
+        "properties": {
+          "kind": "summary",
+          "order": "5",
+          "wbsCode": "5"
+        }
+      },
+      {
+        "id": "v_stage_5",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "stage_5"
+        }
+      },
+      {
+        "id": "task_5_1",
+        "kind": "task",
+        "label": "Спроектировать формы ролей",
+        "properties": {
+          "kind": "task",
+          "parent": "stage_5",
+          "order": "1",
+          "wbsCode": "5.1",
+          "duration": "3",
+          "effortHours": "40",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "v_task_5_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "task_5_1"
+        }
+      },
+      {
+        "id": "task_5_1_resource_2",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_5_1",
+          "resource": "resource_2",
+          "effortHours": "24"
+        }
+      },
+      {
+        "id": "task_5_1_resource_4",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_5_1",
+          "resource": "resource_4",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "task_5_2",
+        "kind": "task",
+        "label": "Реализовать ввод и результат",
+        "properties": {
+          "kind": "task",
+          "parent": "stage_5",
+          "order": "2",
+          "wbsCode": "5.2",
+          "duration": "4",
+          "effortHours": "32",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "v_task_5_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "task_5_2"
+        }
+      },
+      {
+        "id": "task_5_2_resource_2",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_5_2",
+          "resource": "resource_2",
+          "effortHours": "32"
+        }
+      },
+      {
+        "id": "stage_6",
+        "kind": "task",
+        "label": "Интеграция модулей",
+        "properties": {
+          "kind": "summary",
+          "order": "6",
+          "wbsCode": "6"
+        }
+      },
+      {
+        "id": "v_stage_6",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "stage_6"
+        }
+      },
+      {
+        "id": "task_6_1",
+        "kind": "task",
+        "label": "Соединить клиент и сервис",
+        "properties": {
+          "kind": "task",
+          "parent": "stage_6",
+          "order": "1",
+          "wbsCode": "6.1",
+          "duration": "2",
+          "effortHours": "48",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "v_task_6_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "task_6_1"
+        }
+      },
+      {
+        "id": "task_6_1_resource_1",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_6_1",
+          "resource": "resource_1",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "task_6_1_resource_2",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_6_1",
+          "resource": "resource_2",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "task_6_1_resource_8",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_6_1",
+          "resource": "resource_8",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "task_6_2",
+        "kind": "task",
+        "label": "Проверить сквозной сценарий",
+        "properties": {
+          "kind": "task",
+          "parent": "stage_6",
+          "order": "2",
+          "wbsCode": "6.2",
+          "duration": "2",
+          "effortHours": "32",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "v_task_6_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "task_6_2"
+        }
+      },
+      {
+        "id": "task_6_2_resource_1",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_6_2",
+          "resource": "resource_1",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "task_6_2_resource_8",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_6_2",
+          "resource": "resource_8",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "stage_7",
+        "kind": "task",
+        "label": "Системное тестирование",
+        "properties": {
+          "kind": "summary",
+          "order": "7",
+          "wbsCode": "7"
+        }
+      },
+      {
+        "id": "v_stage_7",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "stage_7"
+        }
+      },
+      {
+        "id": "task_7_1",
+        "kind": "task",
+        "label": "Проверить функции и ошибки",
+        "properties": {
+          "kind": "task",
+          "parent": "stage_7",
+          "order": "1",
+          "wbsCode": "7.1",
+          "duration": "3",
+          "effortHours": "24",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "v_task_7_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "task_7_1"
+        }
+      },
+      {
+        "id": "task_7_1_resource_8",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_7_1",
+          "resource": "resource_8",
+          "effortHours": "24"
+        }
+      },
+      {
+        "id": "task_7_2",
+        "kind": "task",
+        "label": "Устранить дефекты",
+        "properties": {
+          "kind": "task",
+          "parent": "stage_7",
+          "order": "2",
+          "wbsCode": "7.2",
+          "duration": "3",
+          "effortHours": "48",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "v_task_7_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "task_7_2"
+        }
+      },
+      {
+        "id": "task_7_2_resource_8",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_7_2",
+          "resource": "resource_8",
+          "effortHours": "24"
+        }
+      },
+      {
+        "id": "task_7_2_resource_1",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_7_2",
+          "resource": "resource_1",
+          "effortHours": "24"
+        }
+      },
+      {
+        "id": "stage_8",
+        "kind": "task",
+        "label": "Пилот и передача",
+        "properties": {
+          "kind": "summary",
+          "order": "8",
+          "wbsCode": "8"
+        }
+      },
+      {
+        "id": "v_stage_8",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "stage_8"
+        }
+      },
+      {
+        "id": "task_8_1",
+        "kind": "task",
+        "label": "Провести пилот",
+        "properties": {
+          "kind": "task",
+          "parent": "stage_8",
+          "order": "1",
+          "wbsCode": "8.1",
+          "duration": "1",
+          "effortHours": "16",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "v_task_8_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "task_8_1"
+        }
+      },
+      {
+        "id": "task_8_1_resource_7",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_8_1",
+          "resource": "resource_7",
+          "effortHours": "8"
+        }
+      },
+      {
+        "id": "task_8_1_resource_6",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_8_1",
+          "resource": "resource_6",
+          "effortHours": "8"
+        }
+      },
+      {
+        "id": "task_8_2",
+        "kind": "task",
+        "label": "Подготовить передачу",
+        "properties": {
+          "kind": "task",
+          "parent": "stage_8",
+          "order": "2",
+          "wbsCode": "8.2",
+          "duration": "2",
+          "effortHours": "32",
+          "progress": "0"
+        }
+      },
+      {
+        "id": "v_task_8_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "task_8_2"
+        }
+      },
+      {
+        "id": "task_8_2_resource_7",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_8_2",
+          "resource": "resource_7",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "task_8_2_resource_6",
+        "kind": "assignment",
+        "label": "",
+        "properties": {
+          "task": "task_8_2",
+          "resource": "resource_6",
+          "effortHours": "16"
+        }
+      },
+      {
+        "id": "dep_task_1_1_task_1_2",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "task_1_1",
+          "to": "task_1_2",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "v_dep_task_1_1_task_1_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "dep_task_1_1_task_1_2",
+          "from": "v_task_1_1",
+          "to": "v_task_1_2"
+        }
+      },
+      {
+        "id": "dep_task_1_2_task_2_1",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "task_1_2",
+          "to": "task_2_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "v_dep_task_1_2_task_2_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "dep_task_1_2_task_2_1",
+          "from": "v_task_1_2",
+          "to": "v_task_2_1"
+        }
+      },
+      {
+        "id": "dep_task_2_1_task_2_2",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "task_2_1",
+          "to": "task_2_2",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "v_dep_task_2_1_task_2_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "dep_task_2_1_task_2_2",
+          "from": "v_task_2_1",
+          "to": "v_task_2_2"
+        }
+      },
+      {
+        "id": "dep_task_2_2_task_3_1",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "task_2_2",
+          "to": "task_3_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "v_dep_task_2_2_task_3_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "dep_task_2_2_task_3_1",
+          "from": "v_task_2_2",
+          "to": "v_task_3_1"
+        }
+      },
+      {
+        "id": "dep_task_3_1_task_3_2",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "task_3_1",
+          "to": "task_3_2",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "v_dep_task_3_1_task_3_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "dep_task_3_1_task_3_2",
+          "from": "v_task_3_1",
+          "to": "v_task_3_2"
+        }
+      },
+      {
+        "id": "dep_task_3_2_task_4_1",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "task_3_2",
+          "to": "task_4_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "v_dep_task_3_2_task_4_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "dep_task_3_2_task_4_1",
+          "from": "v_task_3_2",
+          "to": "v_task_4_1"
+        }
+      },
+      {
+        "id": "dep_task_4_1_task_4_2",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "task_4_1",
+          "to": "task_4_2",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "v_dep_task_4_1_task_4_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "dep_task_4_1_task_4_2",
+          "from": "v_task_4_1",
+          "to": "v_task_4_2"
+        }
+      },
+      {
+        "id": "dep_task_2_2_task_5_1",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "task_2_2",
+          "to": "task_5_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "v_dep_task_2_2_task_5_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "dep_task_2_2_task_5_1",
+          "from": "v_task_2_2",
+          "to": "v_task_5_1"
+        }
+      },
+      {
+        "id": "dep_task_5_1_task_5_2",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "task_5_1",
+          "to": "task_5_2",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "v_dep_task_5_1_task_5_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "dep_task_5_1_task_5_2",
+          "from": "v_task_5_1",
+          "to": "v_task_5_2"
+        }
+      },
+      {
+        "id": "dep_task_4_2_task_6_1",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "task_4_2",
+          "to": "task_6_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "v_dep_task_4_2_task_6_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "dep_task_4_2_task_6_1",
+          "from": "v_task_4_2",
+          "to": "v_task_6_1"
+        }
+      },
+      {
+        "id": "dep_task_5_2_task_6_1",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "task_5_2",
+          "to": "task_6_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "v_dep_task_5_2_task_6_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "dep_task_5_2_task_6_1",
+          "from": "v_task_5_2",
+          "to": "v_task_6_1"
+        }
+      },
+      {
+        "id": "dep_task_6_1_task_6_2",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "task_6_1",
+          "to": "task_6_2",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "v_dep_task_6_1_task_6_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "dep_task_6_1_task_6_2",
+          "from": "v_task_6_1",
+          "to": "v_task_6_2"
+        }
+      },
+      {
+        "id": "dep_task_6_2_task_7_1",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "task_6_2",
+          "to": "task_7_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "v_dep_task_6_2_task_7_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "dep_task_6_2_task_7_1",
+          "from": "v_task_6_2",
+          "to": "v_task_7_1"
+        }
+      },
+      {
+        "id": "dep_task_7_1_task_7_2",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "task_7_1",
+          "to": "task_7_2",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "v_dep_task_7_1_task_7_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "dep_task_7_1_task_7_2",
+          "from": "v_task_7_1",
+          "to": "v_task_7_2"
+        }
+      },
+      {
+        "id": "dep_task_7_2_task_8_1",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "task_7_2",
+          "to": "task_8_1",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "v_dep_task_7_2_task_8_1",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "dep_task_7_2_task_8_1",
+          "from": "v_task_7_2",
+          "to": "v_task_8_1"
+        }
+      },
+      {
+        "id": "dep_task_8_1_task_8_2",
+        "kind": "dependency",
+        "label": "",
+        "properties": {
+          "from": "task_8_1",
+          "to": "task_8_2",
+          "type": "FS",
+          "lag": "0"
+        }
+      },
+      {
+        "id": "v_dep_task_8_1_task_8_2",
+        "kind": "view",
+        "label": "",
+        "properties": {
+          "diagram": "gantt",
+          "element": "dep_task_8_1_task_8_2",
+          "from": "v_task_8_1",
+          "to": "v_task_8_2"
+        }
+      }
+    ]
+  },
+  "source": "gantt pr6_schedule \"План разработки информационной системы\"\ncalendar weekdays \"Пятидневная неделя\" friday=true hoursPerDay=8 monday=true saturday=false sunday=false thursday=true tuesday=true wednesday=true\ncalendarException holiday \"4 ноября\" date=\"2026-11-04\" owner=weekdays working=false\nplan plan \"Разработка ИС\" calendar=weekdays mode=auto start=\"2026-10-05\"\ndiagram gantt \"План разработки\" plan=plan type=gantt\nresource resource_1 \"Backend-разработчик\" capacityHoursPerDay=8 role=\"Backend-разработчик\"\nresource resource_2 \"Frontend-разработчик\" capacityHoursPerDay=8 role=\"Frontend-разработчик\"\nresource resource_3 \"Администратор БД\" capacityHoursPerDay=8 role=\"Администратор БД\"\nresource resource_4 Аналитик capacityHoursPerDay=8 role=Аналитик\nresource resource_5 Архитектор capacityHoursPerDay=8 role=Архитектор\nresource resource_6 \"Инженер эксплуатации\" capacityHoursPerDay=8 role=\"Инженер эксплуатации\"\nresource resource_7 \"Руководитель проекта\" capacityHoursPerDay=8 role=\"Руководитель проекта\"\nresource resource_8 Тестировщик capacityHoursPerDay=8 role=Тестировщик\ntask stage_1 \"Уточнение требований\" kind=summary order=1 wbsCode=1\nview v_stage_1 \"\" diagram=gantt element=stage_1\ntask task_1_1 \"Обследовать процесс\" duration=2 effortHours=16 kind=task order=1 parent=stage_1 progress=0 wbsCode=1.1\nview v_task_1_1 \"\" diagram=gantt element=task_1_1\nassignment task_1_1_resource_4 \"\" effortHours=16 resource=resource_4 task=task_1_1\ntask task_1_2 \"Согласовать требования\" duration=3 effortHours=40 kind=task order=2 parent=stage_1 progress=0 wbsCode=1.2\nview v_task_1_2 \"\" diagram=gantt element=task_1_2\nassignment task_1_2_resource_4 \"\" effortHours=24 resource=resource_4 task=task_1_2\nassignment task_1_2_resource_7 \"\" effortHours=16 resource=resource_7 task=task_1_2\ntask stage_2 \"Модели и архитектура\" kind=summary order=2 wbsCode=2\nview v_stage_2 \"\" diagram=gantt element=stage_2\ntask task_2_1 \"Построить модели\" duration=2 effortHours=24 kind=task order=1 parent=stage_2 progress=0 wbsCode=2.1\nview v_task_2_1 \"\" diagram=gantt element=task_2_1\nassignment task_2_1_resource_4 \"\" effortHours=16 resource=resource_4 task=task_2_1\nassignment task_2_1_resource_5 \"\" effortHours=8 resource=resource_5 task=task_2_1\ntask task_2_2 \"Спроектировать архитектуру\" duration=3 effortHours=40 kind=task order=2 parent=stage_2 progress=0 wbsCode=2.2\nview v_task_2_2 \"\" diagram=gantt element=task_2_2\nassignment task_2_2_resource_4 \"\" effortHours=24 resource=resource_4 task=task_2_2\nassignment task_2_2_resource_5 \"\" effortHours=16 resource=resource_5 task=task_2_2\ntask stage_3 \"БД и миграции\" kind=summary order=3 wbsCode=3\nview v_stage_3 \"\" diagram=gantt element=stage_3\ntask task_3_1 \"Разработать схему БД\" duration=3 effortHours=40 kind=task order=1 parent=stage_3 progress=0 wbsCode=3.1\nview v_task_3_1 \"\" diagram=gantt element=task_3_1\nassignment task_3_1_resource_1 \"\" effortHours=24 resource=resource_1 task=task_3_1\nassignment task_3_1_resource_3 \"\" effortHours=16 resource=resource_3 task=task_3_1\ntask task_3_2 \"Подготовить миграции и данные\" duration=3 effortHours=40 kind=task order=2 parent=stage_3 progress=0 wbsCode=3.2\nview v_task_3_2 \"\" diagram=gantt element=task_3_2\nassignment task_3_2_resource_1 \"\" effortHours=24 resource=resource_1 task=task_3_2\nassignment task_3_2_resource_3 \"\" effortHours=16 resource=resource_3 task=task_3_2\ntask stage_4 \"Доменная логика\" kind=summary order=4 wbsCode=4\nview v_stage_4 \"\" diagram=gantt element=stage_4\ntask task_4_1 \"Реализовать подбор\" duration=4 effortHours=40 kind=task order=1 parent=stage_4 progress=0 wbsCode=4.1\nview v_task_4_1 \"\" diagram=gantt element=task_4_1\nassignment task_4_1_resource_1 \"\" effortHours=32 resource=resource_1 task=task_4_1\nassignment task_4_1_resource_8 \"\" effortHours=8 resource=resource_8 task=task_4_1\ntask task_4_2 \"Реализовать расчёт\" duration=4 effortHours=48 kind=task order=2 parent=stage_4 progress=0 wbsCode=4.2\nview v_task_4_2 \"\" diagram=gantt element=task_4_2\nassignment task_4_2_resource_1 \"\" effortHours=32 resource=resource_1 task=task_4_2\nassignment task_4_2_resource_8 \"\" effortHours=16 resource=resource_8 task=task_4_2\ntask stage_5 \"Клиентские формы\" kind=summary order=5 wbsCode=5\nview v_stage_5 \"\" diagram=gantt element=stage_5\ntask task_5_1 \"Спроектировать формы ролей\" duration=3 effortHours=40 kind=task order=1 parent=stage_5 progress=0 wbsCode=5.1\nview v_task_5_1 \"\" diagram=gantt element=task_5_1\nassignment task_5_1_resource_2 \"\" effortHours=24 resource=resource_2 task=task_5_1\nassignment task_5_1_resource_4 \"\" effortHours=16 resource=resource_4 task=task_5_1\ntask task_5_2 \"Реализовать ввод и результат\" duration=4 effortHours=32 kind=task order=2 parent=stage_5 progress=0 wbsCode=5.2\nview v_task_5_2 \"\" diagram=gantt element=task_5_2\nassignment task_5_2_resource_2 \"\" effortHours=32 resource=resource_2 task=task_5_2\ntask stage_6 \"Интеграция модулей\" kind=summary order=6 wbsCode=6\nview v_stage_6 \"\" diagram=gantt element=stage_6\ntask task_6_1 \"Соединить клиент и сервис\" duration=2 effortHours=48 kind=task order=1 parent=stage_6 progress=0 wbsCode=6.1\nview v_task_6_1 \"\" diagram=gantt element=task_6_1\nassignment task_6_1_resource_1 \"\" effortHours=16 resource=resource_1 task=task_6_1\nassignment task_6_1_resource_2 \"\" effortHours=16 resource=resource_2 task=task_6_1\nassignment task_6_1_resource_8 \"\" effortHours=16 resource=resource_8 task=task_6_1\ntask task_6_2 \"Проверить сквозной сценарий\" duration=2 effortHours=32 kind=task order=2 parent=stage_6 progress=0 wbsCode=6.2\nview v_task_6_2 \"\" diagram=gantt element=task_6_2\nassignment task_6_2_resource_1 \"\" effortHours=16 resource=resource_1 task=task_6_2\nassignment task_6_2_resource_8 \"\" effortHours=16 resource=resource_8 task=task_6_2\ntask stage_7 \"Системное тестирование\" kind=summary order=7 wbsCode=7\nview v_stage_7 \"\" diagram=gantt element=stage_7\ntask task_7_1 \"Проверить функции и ошибки\" duration=3 effortHours=24 kind=task order=1 parent=stage_7 progress=0 wbsCode=7.1\nview v_task_7_1 \"\" diagram=gantt element=task_7_1\nassignment task_7_1_resource_8 \"\" effortHours=24 resource=resource_8 task=task_7_1\ntask task_7_2 \"Устранить дефекты\" duration=3 effortHours=48 kind=task order=2 parent=stage_7 progress=0 wbsCode=7.2\nview v_task_7_2 \"\" diagram=gantt element=task_7_2\nassignment task_7_2_resource_8 \"\" effortHours=24 resource=resource_8 task=task_7_2\nassignment task_7_2_resource_1 \"\" effortHours=24 resource=resource_1 task=task_7_2\ntask stage_8 \"Пилот и передача\" kind=summary order=8 wbsCode=8\nview v_stage_8 \"\" diagram=gantt element=stage_8\ntask task_8_1 \"Провести пилот\" duration=1 effortHours=16 kind=task order=1 parent=stage_8 progress=0 wbsCode=8.1\nview v_task_8_1 \"\" diagram=gantt element=task_8_1\nassignment task_8_1_resource_7 \"\" effortHours=8 resource=resource_7 task=task_8_1\nassignment task_8_1_resource_6 \"\" effortHours=8 resource=resource_6 task=task_8_1\ntask task_8_2 \"Подготовить передачу\" duration=2 effortHours=32 kind=task order=2 parent=stage_8 progress=0 wbsCode=8.2\nview v_task_8_2 \"\" diagram=gantt element=task_8_2\nassignment task_8_2_resource_7 \"\" effortHours=16 resource=resource_7 task=task_8_2\nassignment task_8_2_resource_6 \"\" effortHours=16 resource=resource_6 task=task_8_2\ndependency dep_task_1_1_task_1_2 \"\" from=task_1_1 lag=0 to=task_1_2 type=FS\nview v_dep_task_1_1_task_1_2 \"\" diagram=gantt element=dep_task_1_1_task_1_2 from=v_task_1_1 to=v_task_1_2\ndependency dep_task_1_2_task_2_1 \"\" from=task_1_2 lag=0 to=task_2_1 type=FS\nview v_dep_task_1_2_task_2_1 \"\" diagram=gantt element=dep_task_1_2_task_2_1 from=v_task_1_2 to=v_task_2_1\ndependency dep_task_2_1_task_2_2 \"\" from=task_2_1 lag=0 to=task_2_2 type=FS\nview v_dep_task_2_1_task_2_2 \"\" diagram=gantt element=dep_task_2_1_task_2_2 from=v_task_2_1 to=v_task_2_2\ndependency dep_task_2_2_task_3_1 \"\" from=task_2_2 lag=0 to=task_3_1 type=FS\nview v_dep_task_2_2_task_3_1 \"\" diagram=gantt element=dep_task_2_2_task_3_1 from=v_task_2_2 to=v_task_3_1\ndependency dep_task_3_1_task_3_2 \"\" from=task_3_1 lag=0 to=task_3_2 type=FS\nview v_dep_task_3_1_task_3_2 \"\" diagram=gantt element=dep_task_3_1_task_3_2 from=v_task_3_1 to=v_task_3_2\ndependency dep_task_3_2_task_4_1 \"\" from=task_3_2 lag=0 to=task_4_1 type=FS\nview v_dep_task_3_2_task_4_1 \"\" diagram=gantt element=dep_task_3_2_task_4_1 from=v_task_3_2 to=v_task_4_1\ndependency dep_task_4_1_task_4_2 \"\" from=task_4_1 lag=0 to=task_4_2 type=FS\nview v_dep_task_4_1_task_4_2 \"\" diagram=gantt element=dep_task_4_1_task_4_2 from=v_task_4_1 to=v_task_4_2\ndependency dep_task_2_2_task_5_1 \"\" from=task_2_2 lag=0 to=task_5_1 type=FS\nview v_dep_task_2_2_task_5_1 \"\" diagram=gantt element=dep_task_2_2_task_5_1 from=v_task_2_2 to=v_task_5_1\ndependency dep_task_5_1_task_5_2 \"\" from=task_5_1 lag=0 to=task_5_2 type=FS\nview v_dep_task_5_1_task_5_2 \"\" diagram=gantt element=dep_task_5_1_task_5_2 from=v_task_5_1 to=v_task_5_2\ndependency dep_task_4_2_task_6_1 \"\" from=task_4_2 lag=0 to=task_6_1 type=FS\nview v_dep_task_4_2_task_6_1 \"\" diagram=gantt element=dep_task_4_2_task_6_1 from=v_task_4_2 to=v_task_6_1\ndependency dep_task_5_2_task_6_1 \"\" from=task_5_2 lag=0 to=task_6_1 type=FS\nview v_dep_task_5_2_task_6_1 \"\" diagram=gantt element=dep_task_5_2_task_6_1 from=v_task_5_2 to=v_task_6_1\ndependency dep_task_6_1_task_6_2 \"\" from=task_6_1 lag=0 to=task_6_2 type=FS\nview v_dep_task_6_1_task_6_2 \"\" diagram=gantt element=dep_task_6_1_task_6_2 from=v_task_6_1 to=v_task_6_2\ndependency dep_task_6_2_task_7_1 \"\" from=task_6_2 lag=0 to=task_7_1 type=FS\nview v_dep_task_6_2_task_7_1 \"\" diagram=gantt element=dep_task_6_2_task_7_1 from=v_task_6_2 to=v_task_7_1\ndependency dep_task_7_1_task_7_2 \"\" from=task_7_1 lag=0 to=task_7_2 type=FS\nview v_dep_task_7_1_task_7_2 \"\" diagram=gantt element=dep_task_7_1_task_7_2 from=v_task_7_1 to=v_task_7_2\ndependency dep_task_7_2_task_8_1 \"\" from=task_7_2 lag=0 to=task_8_1 type=FS\nview v_dep_task_7_2_task_8_1 \"\" diagram=gantt element=dep_task_7_2_task_8_1 from=v_task_7_2 to=v_task_8_1\ndependency dep_task_8_1_task_8_2 \"\" from=task_8_1 lag=0 to=task_8_2 type=FS\nview v_dep_task_8_1_task_8_2 \"\" diagram=gantt element=dep_task_8_1_task_8_2 from=v_task_8_1 to=v_task_8_2\n",
+  "draft": "gantt pr6_schedule \"План разработки информационной системы\"\ncalendar weekdays \"Пятидневная неделя\" friday=true hoursPerDay=8 monday=true saturday=false sunday=false thursday=true tuesday=true wednesday=true\ncalendarException holiday \"4 ноября\" date=\"2026-11-04\" owner=weekdays working=false\nplan plan \"Разработка ИС\" calendar=weekdays mode=auto start=\"2026-10-05\"\ndiagram gantt \"План разработки\" plan=plan type=gantt\nresource resource_1 \"Backend-разработчик\" capacityHoursPerDay=8 role=\"Backend-разработчик\"\nresource resource_2 \"Frontend-разработчик\" capacityHoursPerDay=8 role=\"Frontend-разработчик\"\nresource resource_3 \"Администратор БД\" capacityHoursPerDay=8 role=\"Администратор БД\"\nresource resource_4 Аналитик capacityHoursPerDay=8 role=Аналитик\nresource resource_5 Архитектор capacityHoursPerDay=8 role=Архитектор\nresource resource_6 \"Инженер эксплуатации\" capacityHoursPerDay=8 role=\"Инженер эксплуатации\"\nresource resource_7 \"Руководитель проекта\" capacityHoursPerDay=8 role=\"Руководитель проекта\"\nresource resource_8 Тестировщик capacityHoursPerDay=8 role=Тестировщик\ntask stage_1 \"Уточнение требований\" kind=summary order=1 wbsCode=1\nview v_stage_1 \"\" diagram=gantt element=stage_1\ntask task_1_1 \"Обследовать процесс\" duration=2 effortHours=16 kind=task order=1 parent=stage_1 progress=0 wbsCode=1.1\nview v_task_1_1 \"\" diagram=gantt element=task_1_1\nassignment task_1_1_resource_4 \"\" effortHours=16 resource=resource_4 task=task_1_1\ntask task_1_2 \"Согласовать требования\" duration=3 effortHours=40 kind=task order=2 parent=stage_1 progress=0 wbsCode=1.2\nview v_task_1_2 \"\" diagram=gantt element=task_1_2\nassignment task_1_2_resource_4 \"\" effortHours=24 resource=resource_4 task=task_1_2\nassignment task_1_2_resource_7 \"\" effortHours=16 resource=resource_7 task=task_1_2\ntask stage_2 \"Модели и архитектура\" kind=summary order=2 wbsCode=2\nview v_stage_2 \"\" diagram=gantt element=stage_2\ntask task_2_1 \"Построить модели\" duration=2 effortHours=24 kind=task order=1 parent=stage_2 progress=0 wbsCode=2.1\nview v_task_2_1 \"\" diagram=gantt element=task_2_1\nassignment task_2_1_resource_4 \"\" effortHours=16 resource=resource_4 task=task_2_1\nassignment task_2_1_resource_5 \"\" effortHours=8 resource=resource_5 task=task_2_1\ntask task_2_2 \"Спроектировать архитектуру\" duration=3 effortHours=40 kind=task order=2 parent=stage_2 progress=0 wbsCode=2.2\nview v_task_2_2 \"\" diagram=gantt element=task_2_2\nassignment task_2_2_resource_4 \"\" effortHours=24 resource=resource_4 task=task_2_2\nassignment task_2_2_resource_5 \"\" effortHours=16 resource=resource_5 task=task_2_2\ntask stage_3 \"БД и миграции\" kind=summary order=3 wbsCode=3\nview v_stage_3 \"\" diagram=gantt element=stage_3\ntask task_3_1 \"Разработать схему БД\" duration=3 effortHours=40 kind=task order=1 parent=stage_3 progress=0 wbsCode=3.1\nview v_task_3_1 \"\" diagram=gantt element=task_3_1\nassignment task_3_1_resource_1 \"\" effortHours=24 resource=resource_1 task=task_3_1\nassignment task_3_1_resource_3 \"\" effortHours=16 resource=resource_3 task=task_3_1\ntask task_3_2 \"Подготовить миграции и данные\" duration=3 effortHours=40 kind=task order=2 parent=stage_3 progress=0 wbsCode=3.2\nview v_task_3_2 \"\" diagram=gantt element=task_3_2\nassignment task_3_2_resource_1 \"\" effortHours=24 resource=resource_1 task=task_3_2\nassignment task_3_2_resource_3 \"\" effortHours=16 resource=resource_3 task=task_3_2\ntask stage_4 \"Доменная логика\" kind=summary order=4 wbsCode=4\nview v_stage_4 \"\" diagram=gantt element=stage_4\ntask task_4_1 \"Реализовать подбор\" duration=4 effortHours=40 kind=task order=1 parent=stage_4 progress=0 wbsCode=4.1\nview v_task_4_1 \"\" diagram=gantt element=task_4_1\nassignment task_4_1_resource_1 \"\" effortHours=32 resource=resource_1 task=task_4_1\nassignment task_4_1_resource_8 \"\" effortHours=8 resource=resource_8 task=task_4_1\ntask task_4_2 \"Реализовать расчёт\" duration=4 effortHours=48 kind=task order=2 parent=stage_4 progress=0 wbsCode=4.2\nview v_task_4_2 \"\" diagram=gantt element=task_4_2\nassignment task_4_2_resource_1 \"\" effortHours=32 resource=resource_1 task=task_4_2\nassignment task_4_2_resource_8 \"\" effortHours=16 resource=resource_8 task=task_4_2\ntask stage_5 \"Клиентские формы\" kind=summary order=5 wbsCode=5\nview v_stage_5 \"\" diagram=gantt element=stage_5\ntask task_5_1 \"Спроектировать формы ролей\" duration=3 effortHours=40 kind=task order=1 parent=stage_5 progress=0 wbsCode=5.1\nview v_task_5_1 \"\" diagram=gantt element=task_5_1\nassignment task_5_1_resource_2 \"\" effortHours=24 resource=resource_2 task=task_5_1\nassignment task_5_1_resource_4 \"\" effortHours=16 resource=resource_4 task=task_5_1\ntask task_5_2 \"Реализовать ввод и результат\" duration=4 effortHours=32 kind=task order=2 parent=stage_5 progress=0 wbsCode=5.2\nview v_task_5_2 \"\" diagram=gantt element=task_5_2\nassignment task_5_2_resource_2 \"\" effortHours=32 resource=resource_2 task=task_5_2\ntask stage_6 \"Интеграция модулей\" kind=summary order=6 wbsCode=6\nview v_stage_6 \"\" diagram=gantt element=stage_6\ntask task_6_1 \"Соединить клиент и сервис\" duration=2 effortHours=48 kind=task order=1 parent=stage_6 progress=0 wbsCode=6.1\nview v_task_6_1 \"\" diagram=gantt element=task_6_1\nassignment task_6_1_resource_1 \"\" effortHours=16 resource=resource_1 task=task_6_1\nassignment task_6_1_resource_2 \"\" effortHours=16 resource=resource_2 task=task_6_1\nassignment task_6_1_resource_8 \"\" effortHours=16 resource=resource_8 task=task_6_1\ntask task_6_2 \"Проверить сквозной сценарий\" duration=2 effortHours=32 kind=task order=2 parent=stage_6 progress=0 wbsCode=6.2\nview v_task_6_2 \"\" diagram=gantt element=task_6_2\nassignment task_6_2_resource_1 \"\" effortHours=16 resource=resource_1 task=task_6_2\nassignment task_6_2_resource_8 \"\" effortHours=16 resource=resource_8 task=task_6_2\ntask stage_7 \"Системное тестирование\" kind=summary order=7 wbsCode=7\nview v_stage_7 \"\" diagram=gantt element=stage_7\ntask task_7_1 \"Проверить функции и ошибки\" duration=3 effortHours=24 kind=task order=1 parent=stage_7 progress=0 wbsCode=7.1\nview v_task_7_1 \"\" diagram=gantt element=task_7_1\nassignment task_7_1_resource_8 \"\" effortHours=24 resource=resource_8 task=task_7_1\ntask task_7_2 \"Устранить дефекты\" duration=3 effortHours=48 kind=task order=2 parent=stage_7 progress=0 wbsCode=7.2\nview v_task_7_2 \"\" diagram=gantt element=task_7_2\nassignment task_7_2_resource_8 \"\" effortHours=24 resource=resource_8 task=task_7_2\nassignment task_7_2_resource_1 \"\" effortHours=24 resource=resource_1 task=task_7_2\ntask stage_8 \"Пилот и передача\" kind=summary order=8 wbsCode=8\nview v_stage_8 \"\" diagram=gantt element=stage_8\ntask task_8_1 \"Провести пилот\" duration=1 effortHours=16 kind=task order=1 parent=stage_8 progress=0 wbsCode=8.1\nview v_task_8_1 \"\" diagram=gantt element=task_8_1\nassignment task_8_1_resource_7 \"\" effortHours=8 resource=resource_7 task=task_8_1\nassignment task_8_1_resource_6 \"\" effortHours=8 resource=resource_6 task=task_8_1\ntask task_8_2 \"Подготовить передачу\" duration=2 effortHours=32 kind=task order=2 parent=stage_8 progress=0 wbsCode=8.2\nview v_task_8_2 \"\" diagram=gantt element=task_8_2\nassignment task_8_2_resource_7 \"\" effortHours=16 resource=resource_7 task=task_8_2\nassignment task_8_2_resource_6 \"\" effortHours=16 resource=resource_6 task=task_8_2\ndependency dep_task_1_1_task_1_2 \"\" from=task_1_1 lag=0 to=task_1_2 type=FS\nview v_dep_task_1_1_task_1_2 \"\" diagram=gantt element=dep_task_1_1_task_1_2 from=v_task_1_1 to=v_task_1_2\ndependency dep_task_1_2_task_2_1 \"\" from=task_1_2 lag=0 to=task_2_1 type=FS\nview v_dep_task_1_2_task_2_1 \"\" diagram=gantt element=dep_task_1_2_task_2_1 from=v_task_1_2 to=v_task_2_1\ndependency dep_task_2_1_task_2_2 \"\" from=task_2_1 lag=0 to=task_2_2 type=FS\nview v_dep_task_2_1_task_2_2 \"\" diagram=gantt element=dep_task_2_1_task_2_2 from=v_task_2_1 to=v_task_2_2\ndependency dep_task_2_2_task_3_1 \"\" from=task_2_2 lag=0 to=task_3_1 type=FS\nview v_dep_task_2_2_task_3_1 \"\" diagram=gantt element=dep_task_2_2_task_3_1 from=v_task_2_2 to=v_task_3_1\ndependency dep_task_3_1_task_3_2 \"\" from=task_3_1 lag=0 to=task_3_2 type=FS\nview v_dep_task_3_1_task_3_2 \"\" diagram=gantt element=dep_task_3_1_task_3_2 from=v_task_3_1 to=v_task_3_2\ndependency dep_task_3_2_task_4_1 \"\" from=task_3_2 lag=0 to=task_4_1 type=FS\nview v_dep_task_3_2_task_4_1 \"\" diagram=gantt element=dep_task_3_2_task_4_1 from=v_task_3_2 to=v_task_4_1\ndependency dep_task_4_1_task_4_2 \"\" from=task_4_1 lag=0 to=task_4_2 type=FS\nview v_dep_task_4_1_task_4_2 \"\" diagram=gantt element=dep_task_4_1_task_4_2 from=v_task_4_1 to=v_task_4_2\ndependency dep_task_2_2_task_5_1 \"\" from=task_2_2 lag=0 to=task_5_1 type=FS\nview v_dep_task_2_2_task_5_1 \"\" diagram=gantt element=dep_task_2_2_task_5_1 from=v_task_2_2 to=v_task_5_1\ndependency dep_task_5_1_task_5_2 \"\" from=task_5_1 lag=0 to=task_5_2 type=FS\nview v_dep_task_5_1_task_5_2 \"\" diagram=gantt element=dep_task_5_1_task_5_2 from=v_task_5_1 to=v_task_5_2\ndependency dep_task_4_2_task_6_1 \"\" from=task_4_2 lag=0 to=task_6_1 type=FS\nview v_dep_task_4_2_task_6_1 \"\" diagram=gantt element=dep_task_4_2_task_6_1 from=v_task_4_2 to=v_task_6_1\ndependency dep_task_5_2_task_6_1 \"\" from=task_5_2 lag=0 to=task_6_1 type=FS\nview v_dep_task_5_2_task_6_1 \"\" diagram=gantt element=dep_task_5_2_task_6_1 from=v_task_5_2 to=v_task_6_1\ndependency dep_task_6_1_task_6_2 \"\" from=task_6_1 lag=0 to=task_6_2 type=FS\nview v_dep_task_6_1_task_6_2 \"\" diagram=gantt element=dep_task_6_1_task_6_2 from=v_task_6_1 to=v_task_6_2\ndependency dep_task_6_2_task_7_1 \"\" from=task_6_2 lag=0 to=task_7_1 type=FS\nview v_dep_task_6_2_task_7_1 \"\" diagram=gantt element=dep_task_6_2_task_7_1 from=v_task_6_2 to=v_task_7_1\ndependency dep_task_7_1_task_7_2 \"\" from=task_7_1 lag=0 to=task_7_2 type=FS\nview v_dep_task_7_1_task_7_2 \"\" diagram=gantt element=dep_task_7_1_task_7_2 from=v_task_7_1 to=v_task_7_2\ndependency dep_task_7_2_task_8_1 \"\" from=task_7_2 lag=0 to=task_8_1 type=FS\nview v_dep_task_7_2_task_8_1 \"\" diagram=gantt element=dep_task_7_2_task_8_1 from=v_task_7_2 to=v_task_8_1\ndependency dep_task_8_1_task_8_2 \"\" from=task_8_1 lag=0 to=task_8_2 type=FS\nview v_dep_task_8_1_task_8_2 \"\" diagram=gantt element=dep_task_8_1_task_8_2 from=v_task_8_1 to=v_task_8_2\n",
+  "layout": {
+    "nodes": {
+      "v_stage_1": {
+        "x": 60,
+        "y": 60,
+        "width": 180,
+        "height": 40
+      },
+      "v_task_1_1": {
+        "x": 460,
+        "y": 60,
+        "width": 180,
+        "height": 40
+      },
+      "v_task_1_2": {
+        "x": 860,
+        "y": 60,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage_2": {
+        "x": 1260,
+        "y": 60,
+        "width": 180,
+        "height": 40
+      },
+      "v_task_2_1": {
+        "x": 60,
+        "y": 560,
+        "width": 180,
+        "height": 40
+      },
+      "v_task_2_2": {
+        "x": 460,
+        "y": 560,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage_3": {
+        "x": 860,
+        "y": 560,
+        "width": 180,
+        "height": 40
+      },
+      "v_task_3_1": {
+        "x": 1260,
+        "y": 560,
+        "width": 180,
+        "height": 40
+      },
+      "v_task_3_2": {
+        "x": 60,
+        "y": 1060,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage_4": {
+        "x": 460,
+        "y": 1060,
+        "width": 180,
+        "height": 40
+      },
+      "v_task_4_1": {
+        "x": 860,
+        "y": 1060,
+        "width": 180,
+        "height": 40
+      },
+      "v_task_4_2": {
+        "x": 1260,
+        "y": 1060,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage_5": {
+        "x": 60,
+        "y": 1560,
+        "width": 180,
+        "height": 40
+      },
+      "v_task_5_1": {
+        "x": 460,
+        "y": 1560,
+        "width": 180,
+        "height": 40
+      },
+      "v_task_5_2": {
+        "x": 860,
+        "y": 1560,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage_6": {
+        "x": 1260,
+        "y": 1560,
+        "width": 180,
+        "height": 40
+      },
+      "v_task_6_1": {
+        "x": 60,
+        "y": 2060,
+        "width": 180,
+        "height": 40
+      },
+      "v_task_6_2": {
+        "x": 460,
+        "y": 2060,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage_7": {
+        "x": 860,
+        "y": 2060,
+        "width": 180,
+        "height": 40
+      },
+      "v_task_7_1": {
+        "x": 1260,
+        "y": 2060,
+        "width": 180,
+        "height": 40
+      },
+      "v_task_7_2": {
+        "x": 60,
+        "y": 2560,
+        "width": 180,
+        "height": 40
+      },
+      "v_stage_8": {
+        "x": 460,
+        "y": 2560,
+        "width": 180,
+        "height": 40
+      },
+      "v_task_8_1": {
+        "x": 860,
+        "y": 2560,
+        "width": 180,
+        "height": 40
+      },
+      "v_task_8_2": {
+        "x": 1260,
+        "y": 2560,
+        "width": 180,
+        "height": 40
+      }
+    },
+    "edges": {
+      "v_dep_task_1_1_task_1_2": {},
+      "v_dep_task_1_2_task_2_1": {},
+      "v_dep_task_2_1_task_2_2": {},
+      "v_dep_task_2_2_task_3_1": {},
+      "v_dep_task_3_1_task_3_2": {},
+      "v_dep_task_3_2_task_4_1": {},
+      "v_dep_task_4_1_task_4_2": {},
+      "v_dep_task_2_2_task_5_1": {},
+      "v_dep_task_5_1_task_5_2": {},
+      "v_dep_task_4_2_task_6_1": {},
+      "v_dep_task_5_2_task_6_1": {},
+      "v_dep_task_6_1_task_6_2": {},
+      "v_dep_task_6_2_task_7_1": {},
+      "v_dep_task_7_1_task_7_2": {},
+      "v_dep_task_7_2_task_8_1": {},
+      "v_dep_task_8_1_task_8_2": {}
+    },
+    "diagrams": {
+      "gantt": {
+        "gantt": {
+          "scale": "weeks",
+          "tableWidth": 1600,
+          "today": false
+        }
+      }
+    }
+  }
+}

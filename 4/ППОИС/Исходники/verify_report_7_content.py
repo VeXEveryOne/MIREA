@@ -131,14 +131,13 @@ def verify():
           and set(overview['relationships']) == {k['conname'] for k in evidence['key_catalog'] if k['contype'] == 'f'})
     figure_paths = [DIAGRAMS / overview['file']]
     figure_paths += [DIAGRAMS / s['file'] for s in models['conceptualSheets']]
-    figure_paths += [DIAGRAMS / f'ПР7_{kind}_{group}.png'
-                     for kind in ('Логическая', 'Физическая')
-                     for group in ('catalog', 'model_range', 'cards', 'publication')]
+    figure_paths += [DIAGRAMS / '01_ПР7_Логическая_полная.png',
+                     DIAGRAMS / '02_ПР7_Физическая_полная.png']
     package_image_hashes = {sha256(rel.target_part.blob).hexdigest()
                             for rel in document.part.rels.values()
                             if rel.reltype.endswith('/image')}
-    check('all 22 required current diagram images embedded',
-          len(figure_paths) == 22 and all(digest(p) in package_image_hashes for p in figure_paths))
+    check('all 16 current native diagram images embedded; each relational level is one figure',
+          len(figure_paths) == 16 and all(digest(p) in package_image_hashes for p in figure_paths))
     qa_path = ROOT / '.cache/ppois5-10/report-evidence/practice7-final-qa.json'
     qa = json.loads(qa_path.read_text(encoding='utf-8'))
     # Layout verification is reported separately, never inferred from content.
